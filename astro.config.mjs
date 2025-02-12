@@ -27,7 +27,7 @@ export default defineConfig({
 			editLink: {
 				baseUrl: 'https://github.com/mezo-org/documentation/tree/main/',
 			},
-			pagination: false,
+			pagination: true,
 			social: {
 				github: 'https://github.com/mezo-org',
 			},
@@ -68,6 +68,13 @@ export default defineConfig({
 											'docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts',
 										]
 									},
+								]
+							},
+							{   
+								label: 'mUSD (Mezo USD)',
+								collapsed: true,
+							    items: [
+									'docs/users/musd',
 								]
 							},
 							{   
