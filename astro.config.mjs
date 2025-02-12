@@ -75,6 +75,8 @@ export default defineConfig({
 								collapsed: true,
 							    items: [
 									'docs/users/musd',
+									'docs/users/musd/concepts',
+									'docs/users/musd/contract-reference',
 								]
 							},
 							{   
