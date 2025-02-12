@@ -12,14 +12,20 @@ export default defineConfig({
 				// Relative path to your custom CSS file
 				'./src/styles/custom.css',
 				'./src/assets/fonts/riforma/font-face.css',
-			  ],
+			],
+			head: [
+				{
+				  tag: 'script',
+				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href += 'docs/')`,
+				},
+			],
 			logo: {
 				light: './src/assets/mezo-logo-light.svg',
 				dark: './src/assets/mezo-logo-dark.svg',
 				replacesTitle: true,
 			},
 			editLink: {
-				baseUrl: 'https://github.com/mezo-org/documentation/tree/main/src/content/docs',
+				baseUrl: 'https://github.com/mezo-org/documentation/tree/main/src/content/docs/',
 			},
 			pagination: false,
 			social: {
@@ -30,17 +36,17 @@ export default defineConfig({
 					{
 						label: 'User Documentation',
 						id: 'users',
-						link: '/users/',
+						link: '/docs/users/',
 						icon: 'star',
 						items: [
 							{   
 								label: 'Introduction',
 								items: [
-									'users/introduction/what-is-mezo',
-									'users/introduction/bitcoins-economic-layer',
+									'docs/users/introduction/what-is-mezo',
+									'docs/users/introduction/bitcoins-economic-layer',
 								]
 							},
-							'users/mezo-alpha-builders',
+							'docs/users/mezo-alpha-builders',
 							{   
 								label: 'Getting Started',
 								collapsed: true,
@@ -48,18 +54,18 @@ export default defineConfig({
 									{   
 										label: 'Mezo Portal',
 										items: [
-											{ label: 'Overview', link: 'users/getting-started/mezo-portal'},
-											'users/getting-started/mezo-portal/creating-an-account',
-											'users/getting-started/mezo-portal/supported-wallets'
+											{ label: 'Overview', link: 'docs/users/getting-started/mezo-portal'},
+											'docs/users/getting-started/mezo-portal/creating-an-account',
+											'docs/users/getting-started/mezo-portal/supported-wallets'
 										]
 									},
 									{   
 										label: 'Mezo matsnet Alpha',
 										items: [
-											{ label: 'Overview', link: 'users/getting-started/mezo-matsnet-alpha-testnet'},
-											'users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc',
-											'users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet',
-											'users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts',
+											{ label: 'Overview', link: 'docs/users/getting-started/mezo-matsnet-alpha-testnet'},
+											'docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc',
+											'docs/users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet',
+											'docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts',
 										]
 									},
 								]
@@ -71,41 +77,41 @@ export default defineConfig({
 									{   
 										label: 'Bitcoin on Mezo',
 										items: [
-											{ label: 'Overview', link: 'users/concepts/bitcoin-on-mezo'},
-											'users/concepts/bitcoin-on-mezo/btc-deposit-guide',
+											{ label: 'Overview', link: 'docs/users/concepts/bitcoin-on-mezo'},
+											'docs/users/concepts/bitcoin-on-mezo/btc-deposit-guide',
 											{   
 												label: 'tBTC',
 												items: [
-													{ label: 'Overview', link: 'users/concepts/bitcoin-on-mezo/tbtc'},
-													'users/concepts/bitcoin-on-mezo/tbtc/minting-process',
-													'users/concepts/bitcoin-on-mezo/tbtc/guide'
+													{ label: 'Overview', link: 'docs/users/concepts/bitcoin-on-mezo/tbtc'},
+													'docs/users/concepts/bitcoin-on-mezo/tbtc/minting-process',
+													'docs/users/concepts/bitcoin-on-mezo/tbtc/guide'
 												]
 											},
-											'users/concepts/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide',
+											'docs/users/concepts/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide',
 										]
 									},
 									{   
 										label: 'Stablecoins and ERC-20',
 										items: [
-											{ label: 'Overview', link: 'users/concepts/stablecoins-and-erc-20'},
-											'users/concepts/stablecoins-and-erc-20/deposit-guide'
+											{ label: 'Overview', link: 'docs/users/concepts/stablecoins-and-erc-20'},
+											'docs/users/concepts/stablecoins-and-erc-20/deposit-guide'
 										]
 									},
 									{   
 										label: 'Fees',
 										items: [
-											{ label: 'Overview', link: 'users/concepts/fees'},
-											'users/concepts/fees/tbtc-unmint-and-redemption',
+											{ label: 'Overview', link: 'docs/users/concepts/fees'},
+											'docs/users/concepts/fees/tbtc-unmint-and-redemption',
 										]
 									},
 									{   
 										label: 'mats',
 										items: [
-											{ label: 'Overview', link: 'users/concepts/mats'},
-											'users/concepts/mats/mats-for-btc',
-											'users/concepts/mats/mats-for-stablecoins',
-											'users/concepts/mats/leaderboard-and-my-mats',
-											'users/concepts/mats/invite-bonus',
+											{ label: 'Overview', link: 'docs/users/concepts/mats'},
+											'docs/users/concepts/mats/mats-for-btc',
+											'docs/users/concepts/mats/mats-for-stablecoins',
+											'docs/users/concepts/mats/leaderboard-and-my-mats',
+											'docs/users/concepts/mats/invite-bonus',
 										]
 									},
 								]
@@ -114,12 +120,12 @@ export default defineConfig({
 								label: 'Resources',
 								collapsed: true,
 							    items: [
-									'users/resources/mezo-community',
-									'users/resources/release-notes',
-									'users/resources/faqs',
-									'users/resources/audits',
-									'users/resources/media-kit',
-									'users/resources/contracts-and-btc-custody',
+									'docs/users/resources/mezo-community',
+									'docs/users/resources/release-notes',
+									'docs/users/resources/faqs',
+									'docs/users/resources/audits',
+									'docs/users/resources/media-kit',
+									'docs/users/resources/contracts-and-btc-custody',
 								]
 							},
 						],

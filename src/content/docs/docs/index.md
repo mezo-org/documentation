@@ -4,9 +4,9 @@ template: splash
 hero:
   tagline: Turn your Bitcoin into an active, yield-generating asset with BitcoinFi.
   image:
-    file: ../../assets/Mezo-Mark-Red.svg
+    file: ../../../assets/Mezo-Mark-Red.svg
   actions:
     - text: Get Started
-      link: /users/
+      link: /docs/users/
       icon: right-arrow
 ---
