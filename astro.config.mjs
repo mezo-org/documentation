@@ -25,7 +25,7 @@ export default defineConfig({
 				replacesTitle: true,
 			},
 			editLink: {
-				baseUrl: 'https://github.com/mezo-org/documentation/tree/main/src/content/docs/',
+				baseUrl: 'https://github.com/mezo-org/documentation/tree/main/',
 			},
 			pagination: false,
 			social: {
