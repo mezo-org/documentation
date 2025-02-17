@@ -1,5 +1,9 @@
 :root {
+    --mezo-off-red: #ff004d;
     --sl-content-width: 50rem;
     --sl-text-5xl: 3.5rem;
     --sl-font: 'RiformaLLWeb-Regular', sans-serif;
+    --sl-color-accent-low: var(--mezo-off-red);
+    --sl-color-accent: var(--mezo-off-red);
+    --sl-color-accent-high: var(--sl-color-white);
   }
