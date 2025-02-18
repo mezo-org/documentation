@@ -2,4 +2,4 @@
 title: Media Kit
 ---
 
-{% file src="../.gitbook/assets/Mezo Logos (1).zip" %}
+- [Mezo Logos](/gitbook/Mezo%20Logos.zip)

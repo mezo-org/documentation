@@ -7,12 +7,12 @@ description: We take security seriously. All components of Mezo will undergo aud
 
 The Mezo Portal contracts have been audited by Thesis Defense and Quantstamp.
 
-{% file src="../.gitbook/assets/Quantstamp Mezo Portal Audit (1).pdf" %}
+- [Quantstamp Mezo Portal Audit](/gitbook/assets/Quantstamp%20Mezo%20Portal%20Audit.pdf)
 
-{% file src="../.gitbook/assets/Thesis Defense Mezo Portal Audit (2).pdf" %}
+- [Thesis Defense Mezo Portal Smart Contracts Audit](/gitbook/Thesis%20Defense%20Mezo%20Portal%20Audit.pdf)
 
 ## Log In With Bitcoin
 
 Our software implementation for "Log In with Bitcoin" has been live since the launch of the Mezo Portal. This allows Bitcoin wallets to sign transactions and control an EVM wallet.
 
-{% file src="../.gitbook/assets/Log in with Bitcoin Audit - Thesis Defense (1).pdf" %}
+[Log in with Bitcoin Audit - Thesis Defense](/gitbook/Log%20in%20with%20Bitcoin%20Audit%20-%20Thesis%20Defense.pdf)
