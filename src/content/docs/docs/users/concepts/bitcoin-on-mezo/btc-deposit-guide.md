@@ -40,6 +40,4 @@ If you want to stay in the loop for future invitation code drops, make sure to a
 
 <figure><img src="../../.gitbook/assets/Deposit Flow - Success.png" alt=""><figcaption></figcaption></figure>
 
-Here is a full step-by-step video walkthrough for depositing to the Mezo Portal:&#x20;
-
-{% embed url="https://drive.google.com/file/d/1tLGkvQE0fugGLW0grHQ3uQHSqASMC4yn/view" %}
+Here is a full step-by-step video walkthrough for depositing to the Mezo Portal: [Portal Explainer](https://drive.google.com/file/d/1tLGkvQE0fugGLW0grHQ3uQHSqASMC4yn/view)
