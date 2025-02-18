@@ -2,7 +2,7 @@
 title: mats
 ---
 
-## What are mats?;
+## What are mats?
 
 mats, or "magic satoshis," are Mezo's way of recognizing and rewarding participation through an engaging, community-driven point system. These points are designed purely for interaction within the Mezo ecosystem—**they hold no monetary value and cannot be exchanged for Mezo tokens or other currencies.**&#x20;
 
