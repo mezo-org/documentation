@@ -2,4 +2,4 @@
 title: Media Kit
 ---
 
-- [Mezo Logos](/gitbook/Mezo%20Logos.zip)
+- [Mezo Logos](/docs/gitbook/Mezo%20Logos.zip)
