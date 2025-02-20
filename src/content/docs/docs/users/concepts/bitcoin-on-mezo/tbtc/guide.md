@@ -24,27 +24,27 @@ _Head to the tBTC dapp to begin minting:_ [_https://dashboard.threshold.network/
 
 Connect your preferred Ethereum wallet to the tBTC dapp by selecting **Connect Wallet**.
 
-![](/gitbook/image%20%281%29.png)
+![](/docs/gitbook/image%20%281%29.png)
 
 Navigate to the [tBTC Bridge page](https://dashboard.threshold.network/tBTC/mint) located on the lefthand navigation.
 
-![](/gitbook/image%20%282%29.png)
+![](/docs/gitbook/image%20%282%29.png)
 
 Enter a Bitcoin wallet address as the BTC Recovery Address. Click **Generate Deposit Address** to create your unique deposit address.
 
 **IMPORTANT:**  Native Segwit (addresses that start with "bc1q") is the ONLY accepted address type for refunds. Refunds occur if something goes wrong during the mint and BTC must be refunded to your wallet. XVerse wallet addresses are _not_ supported for tBTC returns.
 
-![](/gitbook/image%20%283%29.png)
+![](/docs/gitbook/image%20%283%29.png)
 
 Make sure to download the JSON file by clicking **Download**. The JSON file contains a wallet public key, a refund public key, and a refund lock time. You need to keep this JSON file until you receive your tBTC tokens.
 
-![](/gitbook/image%20%284%29.png)
+![](/docs/gitbook/image%20%284%29.png)
 
 ### Step 2: Make BTC Deposit <a href="#step-2-make-btc-deposit" id="step-2-make-btc-deposit"></a>
 
 Use the QR code or copy the generated Deposit Address in the tBTC dapp. It will look like this:
 
-![](/gitbook/image%20%285%29.png)
+![](/docs/gitbook/image%20%285%29.png)
 
 Send your BTC deposit to this Deposit Address from your Bitcoin wallet. The minimum deposit is 0.01 BTC.
 
@@ -54,7 +54,7 @@ Return to the tBTC dap&#x70;**.** After your funds are sent, the screen will aut
 
 To initiate minting, click on **Confirm deposit & mint.**
 
-![](/gitbook/image%20%286%29.png)
+![](/docs/gitbook/image%20%286%29.png)
 
 Sign the transaction in your Ethereum wallet.&#x20;
 
@@ -64,21 +64,21 @@ Your mint is now in progress! **You don't need to remain in the dapp to wait for
 
 You can see the status of your mint in the dapp and on [tBTCscan](https://tbtcscan.com/). The first stage requires 1 confirmation on the Bitcoin Network before advancing to the next step.
 
-![](/gitbook/image%20%287%29.png)
+![](/docs/gitbook/image%20%287%29.png)
 
 Now you will see the following while waiting for a Minter to assess the minting initialization:
 
-![](/gitbook/image%20%288%29.png)
+![](/docs/gitbook/image%20%288%29.png)
 
 Next, you will see the following while waiting for a Guardian to examine the minting request:
 
-![](/gitbook/image%20%289%29.png)
+![](/docs/gitbook/image%20%289%29.png)
 
 **Success**! You can see all transaction links on this screen.
 
-![](/gitbook/image%20%2810%29.png)
+![](/docs/gitbook/image%20%2810%29.png)
 
 Make sure to add the tBTC token address to your Ethereum wallet by clicking **token address**.
 
-![](/gitbook/image%20%2811%29.png)
+![](/docs/gitbook/image%20%2811%29.png)
 
