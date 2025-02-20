@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: mUSD (Mezo USD)
 ---
 
 mUSD (Mezo USD) is available on Mezo matsnet Alpha Testnet. To learn more about how to access matsnet Alpha Testnet and get started, see the [Mezo matsnet Alpha](/docs/users/getting-started/mezo-matsnet-alpha-testnet) guide.
