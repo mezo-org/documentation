@@ -72,7 +72,10 @@ export default defineConfig({
 								collapsed: true,
 							    items: [
 									'docs/users/musd',
+									'docs/users/musd/fees',
+									'docs/users/musd/architecture',
 									'docs/users/musd/concepts',
+									'docs/users/musd/risks',
 									'docs/users/musd/contract-reference',
 								]
 							},

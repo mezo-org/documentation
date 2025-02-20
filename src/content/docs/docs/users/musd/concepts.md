@@ -55,37 +55,6 @@ The **Protocol Controlled Value (PCV)** contract is a key component of the syste
 
 The MUSD system consists of four main contract groups:
 
-```mermaid
-graph TD
-    subgraph TokenSystem["Token"]
-        MUSD
-    end
-    subgraph Core["Core Protocol"]
-        BorrowerOperations
-        TroveManager
-        StabilityPool
-    end
-    subgraph Pools["Asset Pools"]
-        ActivePool
-        DefaultPool
-        CollSurplusPool
-        GasPool
-    end
-    subgraph Support["Supporting Contracts"]
-        PriceFeed
-        SortedTroves
-        HintHelpers
-        InterestRateManager
-        PCV
-    end
-    TokenSystem-->Core
-    Core-->Pools
-    Pools-->Support
-    linkStyle 0 stroke-opacity:1  
-    linkStyle 1 stroke-opacity:1  
-    linkStyle 2 stroke-opacity:1   
-```
-
 - **Token (MUSD)**: The stablecoin at the heart of the system, designed to maintain a peg to USD.
 - **Core Protocol**: Handles the main operations like opening/closing positions, managing collateral, and maintaining system stability
 - **Asset Pools**: Manages the system's various collateral and liquidity pools
