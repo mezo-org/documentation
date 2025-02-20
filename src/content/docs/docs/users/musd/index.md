@@ -16,6 +16,4 @@ You can obtain mUSD through the following sources:
 - Buy mUSD on an exchange
 - Receive mUSD from another Mezo user
 
-**[Mint mUSD on matsnet Alpha today!](https://mezo.org/matsnet/borrow)**
-
 ![Benefits of mUSD](/docs/images/musd/musd-benefits.avif)
