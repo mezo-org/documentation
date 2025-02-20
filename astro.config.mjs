@@ -24,9 +24,6 @@ export default defineConfig({
 				dark: './src/assets/mezo-logo-dark.svg',
 				replacesTitle: true,
 			},
-			editLink: {
-				baseUrl: 'https://github.com/mezo-org/documentation/tree/main/',
-			},
 			pagination: true,
 			social: {
 				github: 'https://github.com/mezo-org',
