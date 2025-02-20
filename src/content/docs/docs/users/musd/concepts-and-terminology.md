@@ -1,5 +1,5 @@
 ---
-title: Concepts
+title: Concepts and Terminology
 ---
 
 ## Immutability

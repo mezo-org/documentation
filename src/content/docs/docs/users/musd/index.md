@@ -10,3 +10,8 @@ Users who deposit BTC and borrow mUSD receive a line of credit with a fixed inte
 
 mUSD is based on [Threshold USD](https://github.com/Threshold-USD/dev) which is a fork of [Liquity](https://github.com/liquity/dev) for the [Mezo Network](https://mezo.org).
 
+You can obtain mUSD through the following sources:
+
+- Borrow mUSD through the minting process
+- Buy mUSD on an exchange
+- Receive mUSD from another Mezo user
