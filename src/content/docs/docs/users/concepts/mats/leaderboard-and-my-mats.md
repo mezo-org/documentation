@@ -6,18 +6,18 @@ After depositing, check your deposit status and leaderboard positioning on the "
 
 ### My mats
 
-The "My mats" page will show your:&#x20;
+The "My mats" page will show your:
 
 * Total mats
 * Rank compared to the rest of the leaderboard
-* Total deposited BTC (inclusive of tBTC and WBTC deposits)&#x20;
+* Total deposited BTC (inclusive of tBTC and WBTC deposits)
 * Invitation codes, if you have them
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-04-09 at 11.07.35 AM (2).png" alt=""><figcaption><p>My HODL Score</p></figcaption></figure>
+![](/gitbook/Screenshot%202024-04-09%20at%2011.07.35%20AM%20%282%29.png)
 
-### Leaderboard&#x20;
+### Leaderboard
 
 Want to see where you stack up against other HODLers? Head to the "Leaderboard" page to check out everyone who has deposited to Mezo.
 
-<figure><img src="../../.gitbook/assets/Screenshot 2024-04-09 at 11.07.42 AM (2).png" alt=""><figcaption><p>Leaderboard Page</p></figcaption></figure>
+![](/gitbook/Screenshot%202024-04-09%20at%2011.07.42%20AM%20%282%29.png)
 

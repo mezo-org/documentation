@@ -11,5 +11,5 @@ Daily mats are boosted through invites for your children and grandchildren.
 
 _For example, if your five children earn 1,000,000 daily mats, you will receive a 210,000 bonus to your daily mats._
 
-<figure><img src="../../.gitbook/assets/Invite_graphic-1.png" alt=""><figcaption></figcaption></figure>
+![](/gitbook/Invite_graphic-1.png)
 

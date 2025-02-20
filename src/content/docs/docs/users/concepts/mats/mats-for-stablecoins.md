@@ -15,7 +15,7 @@ description: Below are mats calculations for stablecoin deposits - crvUSD, thUSD
 
 _Currently, the BTC boost is only available for accounts that have deposited tBTC, WBTC, or another ERC-20 Bitcoin wrapper._
 
-<figure><img src="../../.gitbook/assets/BTC Backed Stables info (4).png" alt=""><figcaption></figcaption></figure>
+![](/gitbook/BTC%20Backed%20Stables%20info%20%284%29.png)
 
 Your boost and cap can be from one stable deposit or a combination of multiple.&#x20;
 
@@ -23,7 +23,7 @@ Your boost and cap can be from one stable deposit or a combination of multiple.&
 
 Your deposits are displayed at the bottom of the Mezo Portal's "My mats" section.
 
-<div><figure><img src="../../.gitbook/assets/Points Page (1).png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2024-06-03 at 8.35.47 AM (1).png" alt=""><figcaption></figcaption></figure></div>
+![](/gitbook/Points%20Page%20%281%29.png)
 
 ### Example: crvUSD
 

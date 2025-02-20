@@ -21,6 +21,8 @@ A new page is available in the Mezo Portal at [https://mezo.org/matsnet](https:/
 4. Specify how many mats you want to spend to stack matsnet BTC (sats).
 5. Click **Confirm**.
 
-<div><figure><img src="/gitbook/Screenshot from 2024-11-19 02-34-25.png" alt=""><figcaption></figcaption></figure> <figure><img src="/gitbook/Screenshot from 2024-11-19 02-34-49.png" alt=""><figcaption></figcaption></figure> <figure><img src="/gitbook/Screenshot from 2024-11-19 02-35-10.png" alt=""><figcaption></figcaption></figure></div>
+![](/gitbook/Screenshot%20from%202024-11-19%2002-34-25.png)
+![](/gitbook/Screenshot%20from%202024-11-19%2002-34-49.png)
+![](/gitbook/Screenshot%20from%202024-11-19%2002-35-10.png)
 
 If the process is successful, you now have matsnet BTC that you can use to pay for transactions. Go to [https://explorer.test.mezo.org/](https://explorer.test.mezo.org/) and search for your wallet address to confirm your balance.

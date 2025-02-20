@@ -41,4 +41,4 @@ Unlike the Beta Stakers program, the [Guardians and Minters](https://blog.thresh
 
 All Guardians and Minters can be removed with a DAO vote.
 
-<figure><img src="/gitbook/image (13).png" alt=""><figcaption></figcaption></figure>
+![](/gitbook/image%20%2813%29.png)
