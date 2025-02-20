@@ -126,11 +126,11 @@ Remix requires some extra configuration to work with Mezo matsnet:
 * [Connect your browser wallet](connect-to-mezo-matsnet.md) to Mezo matsnet so Remix can use it as an Injected Provider.
 * In Remix under the **Solidity Compiler** tab, open the **Advanced Configurations** menu and select `london` as the EVM version.
 
-<figure><img src="/gitbook/Screenshot from 2024-11-19 01-37-06.png" alt="" width="138"><figcaption></figcaption></figure>
+  ![](/gitbook/Screenshot%20from%202024-11-19%2001-37-06.png)
 
 * In Remix under the **Deploy & Run Transactions** tab, set the **Environment** to use an Injected Provider. Set the current network on your browser wallet to Mezo matsnet. Remix should detect the custom network with chain ID `31611`.
 
-<figure><img src="/gitbook/Screenshot from 2024-11-19 01-20-40.png" alt="" width="276"><figcaption></figcaption></figure>
+  ![](/gitbook/Screenshot%20from%202024-11-19%2001-20-40.png)
 
 After you complete these settings, you can deploy contracts to Mezo matsnet using the standard process. See the [Remix Documentation](https://remix-ide.readthedocs.io/en/latest/) for more information about how to use Remix.
 

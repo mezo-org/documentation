@@ -26,18 +26,19 @@ Or toggle the "Send from another wallet."&#x20;
 
 This supports deposits from any Bitcoin address type **except for Taproot,** meaning you can deposit directly from your favorite exchange, hardware wallet, or another source.
 
-<figure><img src="../../.gitbook/assets/BTC Flow.png" alt=""><figcaption></figcaption></figure>
+![](/gitbook/BTC%20Flow.png)
 
 If you choose to deposit from another address, you will be directed to the following screen, where you can scan the QR or copy the address.&#x20;
 
 Send the BTC to the listed address and wait for your deposit to process.
 
-<div><figure><img src="../../.gitbook/assets/Select Wallet.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Success.png" alt=""><figcaption></figcaption></figure></div>
+![](/gitbook/Select%20Wallet.png)
+![](/gitbook/Success.png)
 
 Once your deposit is processed, you can see yourself on the leaderboard.&#x20;
 
 If you want to stay in the loop for future invitation code drops, make sure to add your telegram and email address in the form at the bottom :arrow\_down:
 
-<figure><img src="../../.gitbook/assets/Deposit Flow - Success.png" alt=""><figcaption></figcaption></figure>
+![](/gitbook/Deposit%20Flow%20-%20Success.png)
 
 Here is a full step-by-step video walkthrough for depositing to the Mezo Portal: [Portal Explainer](https://drive.google.com/file/d/1tLGkvQE0fugGLW0grHQ3uQHSqASMC4yn/view)
