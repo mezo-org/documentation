@@ -10,4 +10,4 @@ BTC deposits receive the highest daily mats allocation. For more details on mats
 
 The default view for depositing on Mezo is native BTC. If you want to deposit an ERC-20, click the toggle at the bottom of the portal.
 
-![](/gitbook/Screen%20Shot%202024-04-08%20at%205.13.35%20PM%20%281%29.png)
+![](/docs/gitbook/Screen%20Shot%202024-04-08%20at%205.13.35%20PM%20%281%29.png)

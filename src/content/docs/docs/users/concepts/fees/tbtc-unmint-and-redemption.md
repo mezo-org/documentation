@@ -36,7 +36,7 @@ Connect your preferred Ethereum wallet containing tBTC tokens to the Threshold D
 
 Navigate to the tBTC Bridge page and select the "Unmint" tab.
 
-![](/gitbook/Screenshot%202025-01-15%20at%203.50.46%20PM.png)
+![](/docs/gitbook/Screenshot%202025-01-15%20at%203.50.46%20PM.png)
 
 ### Step 2: Enter Unminting Details
 

@@ -8,6 +8,6 @@ Once you go to the "Deposit from Ethereum" page, you can select the stable asset
 
 The same locking mechanisms apply: you receive multipliers on your daily mats based on the lock period.
 
-![](/gitbook/Deposit%20Flow%20-%20Connect%20%282%29.png)
+![](/docs/gitbook/Deposit%20Flow%20-%20Connect%20%282%29.png)
 
 Your Boost on BTC score is displayed in the top right banner and added to your daily BTC mats.

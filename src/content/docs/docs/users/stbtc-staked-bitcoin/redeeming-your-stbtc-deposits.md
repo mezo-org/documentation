@@ -15,12 +15,12 @@ Returning stBTC is free. If you deposited crv-stBTC, you'll have to wait for the
 
 1.  **Unlock crv-stBTC Deposits**: crv-stBTC deposits in the Portal will become accessible once the unlock period is complete. Users can view balances and initiate withdrawals as they become available.
 
-    ![My Deposit mats screen](/gitbook/image%20%2824%29.png)
+    ![My Deposit mats screen](/docs/gitbook/image%20%2824%29.png)
     
 2. Redeem your crv-stBTC for stBTC on Curve.
 3.  **Return stBTC with No Fees**: After unlocking, you exchange your stBTC without any fees.&#x20;
 
-    ![Manage stBTC screen](/gitbook/image%20%2825%29.png)
+    ![Manage stBTC screen](/docs/gitbook/image%20%2825%29.png)
 
 **Important Notes**
 

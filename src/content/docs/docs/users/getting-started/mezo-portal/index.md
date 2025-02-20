@@ -11,7 +11,7 @@ Users can deposit various assets to the Mezo Portal to earn mats. Earned mats re
 
 Once you connect your wallet to the [Mezo deposit portal](https://mezo.org/hodl), you can select your preferred asset to deposit and the duration of the lock.&#x20;
 
-![](/gitbook/Screenshot_2024-06-26_at_7.37.09_AM.png)
+![](/docs/gitbook/Screenshot_2024-06-26_at_7.37.09_AM.png)
 
 **Supported Tokens:** Deposit BTC, tBTC, WBTC, fBTC, SolvBTC, SolvBTC.BBN, swBTC, cbBTC, intBTC, crvUSD, thUSD, USDe, USDC, USDT, DAI, and T.
 
