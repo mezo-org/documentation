@@ -132,13 +132,17 @@ export default defineConfig({
 		}),
 	],
 	redirects: {
+		'/': {
+			status: 302,
+			destination: '/docs/'
+	    },
 		'/docs/users/home/what-is-mezo': {
-		  status: 302,
-		  destination: '/docs/users/introduction/what-is-mezo'
+			status: 302,
+			destination: '/docs/users/introduction/what-is-mezo'
 		},
 		'/docs/users/home/what-is-mezo/bitcoins-economic-layer': {
-		  status: 302,
-		  destination: '/docs/users/introduction/bitcoins-economic-layer'
+			status: 302,
+			destination: '/docs/users/introduction/bitcoins-economic-layer'
 		},
 		'/docs/users/home/mezo-alpha-builders': {
 			status: 302,
