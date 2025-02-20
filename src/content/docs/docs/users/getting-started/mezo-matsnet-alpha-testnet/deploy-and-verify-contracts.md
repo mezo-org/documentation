@@ -22,8 +22,8 @@ To configure Hardhat to work with Mezo matsnet, set the following items in your 
 
 As an example, see these basic Hardhat config files:
 
-{% tabs %}
-{% tab title="hardhat.config.ts (TypeScript)" %}
+### Typescript
+
 ```typescript
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
@@ -53,9 +53,9 @@ const config: HardhatUserConfig = {
 
 export default config;
 ```
-{% endtab %}
 
-{% tab title="hardhat.config.js (JavaScript)" %}
+### Javascript
+
 ```javascript
 require("@nomiclabs/hardhat-waffle");
 
@@ -82,8 +82,6 @@ module.exports = {
   },
 };
 ```
-{% endtab %}
-{% endtabs %}
 
 After your Hardhat project is configured, deploy the contact using [Hardhat ignition](https://hardhat.org/hardhat-runner/docs/guides/deploying) or a deploy script. For example, use `npx hardhat run` to call a deploy script and specify `matsnet` as your target network.
 
