@@ -29,7 +29,7 @@ Example: Redeeming $1000 of mUSD results in the redeemer receiving $995 worth of
 
 ## Gas Compensation Fee
 
-Flat $200 (governable) held in reserve. This acts as a reward for liquidators and is not included in loan repayment amount. The fee is included in collateral ratio calculations.
+Flat $200 (governable) held in reserve. This acts as a reward for liquidators and is not included in loan repayment amount. The fee is included in collateral ratio calculations. If you close your loan, this fee is returned.
 
 ## Loan Interest
 
@@ -37,4 +37,4 @@ Interest on the mUSD loan accrues every block at a governable APR. This is simpl
 
 Example: $10,000 loan for 1 year = $100 interest
 
-Interest must be paid before principal payments
+Interest must be paid before principal payments.
