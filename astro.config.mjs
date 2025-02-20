@@ -131,4 +131,82 @@ export default defineConfig({
 			  ],
 		}),
 	],
+	redirects: {
+		'/docs/users/home/what-is-mezo': {
+		  status: 302,
+		  destination: '/docs/users/introduction/what-is-mezo'
+		},
+		'/docs/users/home/what-is-mezo/bitcoins-economic-layer': {
+		  status: 302,
+		  destination: '/docs/users/introduction/bitcoins-economic-layer'
+		},
+		'/docs/users/home/mezo-alpha-builders': {
+			status: 302,
+			destination: '/docs/users/mezo-alpha-builders'
+		},
+		'/docs/users/user-guides/bitcoin-on-mezo': {
+			status: 302,
+			destination: '/docs/users/concepts/bitcoin-on-mezo'
+		},
+		'/docs/users/user-guides/bitcoin-on-mezo/btc-deposit-guide': {
+			status: 302,
+			destination: '/docs/users/concepts/bitcoin-on-mezo/btc-deposit-guide'
+		},
+		'docs/users/user-guides/bitcoin-on-mezo/tbtc': {
+			status: 302,
+			destination: '/docs/users/concepts/bitcoin-on-mezo/tbtc'
+		},
+		'/docs/users/user-guides/bitcoin-on-mezo/tbtc/minting-process': {
+			status: 302,
+			destination: '/docs/users/concepts/bitcoin-on-mezo/tbtc/minting-process'
+		},
+		'/docs/users/user-guides/bitcoin-on-mezo/tbtc/guide': {
+			status: 302,
+			destination: '/docs/users/concepts/bitcoin-on-mezo/tbtc/guide'
+		},
+		'/docs/users/user-guides/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide': {
+			status: 302,
+			destination: '/docs/users/concepts/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide'
+		},
+		'/docs/users/user-guides/stablecoins-and-erc-20': {
+			status: 302,
+			destination: '/docs/users/concepts/stablecoins-and-erc-20'
+		},
+		'/docs/users/user-guides/stablecoins-and-erc-20/deposit-guide': {
+			status: 302,
+			destination: '/docs/users/concepts/stablecoins-and-erc-20/deposit-guide'
+		},
+		'/docs/users/user-guides/fees': {
+			status: 302,
+			destination: '/docs/users/concepts/fees'
+		},
+		'/docs/users/user-guides/fees/tbtc-unmint-and-redemption': {
+			status: 302,
+			destination: '/docs/users/concepts/fees/tbtc-unmint-and-redemption'
+		},
+		'/docs/users/user-guides/mats': {
+			status: 302,
+			destination: '/docs/users/concepts/mats'
+		},
+		'/docs/users/user-guides/mats/mats-for-btc': {
+			status: 302,
+			destination: '/docs/users/concepts/mats/mats-for-btc'
+		},
+		'/docs/users/user-guides/mats/mats-for-stablecoins': {
+			status: 302,
+			destination: '/docs/users/concepts/mats/mats-for-stablecoins'
+		},
+		'/docs/users/user-guides/mats/leaderboard-and-my-mats': {
+			status: 302,
+			destination: '/docs/users/concepts/mats/leaderboard-and-my-mats'
+		},
+		'/docs/users/user-guides/mats/invite-bonus': {
+			status: 302,
+			destination: '/docs/users/concepts/mats/invite-bonus'
+		},
+		'/docs/users/official-links/mezo-community': {
+			status: 302,
+			destination: '/docs/users/resources/mezo-community'
+		},		
+	  }
 });
