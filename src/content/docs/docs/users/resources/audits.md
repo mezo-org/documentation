@@ -7,7 +7,7 @@ description: We take security seriously. All components of Mezo will undergo aud
 
 The Mezo Portal contracts have been audited by Thesis Defense and Quantstamp.
 
-- [Quantstamp Mezo Portal Audit](/gitbook/assets/Quantstamp%20Mezo%20Portal%20Audit.pdf)
+- [Quantstamp Mezo Portal Audit](/gitbook/Quantstamp%20Mezo%20Portal%20Audit.pdf)
 
 - [Thesis Defense Mezo Portal Smart Contracts Audit](/gitbook/Thesis%20Defense%20Mezo%20Portal%20Audit.pdf)
 
