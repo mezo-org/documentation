@@ -77,7 +77,6 @@ export default defineConfig({
 									'docs/users/musd/architecture',
 									'docs/users/musd/concepts-and-terminology',
 									'docs/users/musd/risks',
-									'docs/users/musd/contract-reference',
 								]
 							},
 							{   
