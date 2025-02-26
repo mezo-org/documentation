@@ -12,7 +12,7 @@ You must have testnet BTC on the Mezo matsnet before you can get testnet mUSD.
 - If you need testnet BTC on matsnet, see the [Stack matsnet BTC](/docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc).
 - Connect an Ethereum wallet to Mezo matsnet Alpha testnet. See the [Connect to Mezo matsnet](/docs/users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet#connect-your-browser-wallet) guide for instructions.
 
-## Mint and borrow
+## Borrow and mint
 
 After you are logged into [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow mUSD.
 
