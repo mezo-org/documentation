@@ -7,12 +7,16 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint-fix": "npx prettier . --write"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.31.1",
     "astro": "^5.2.5",
     "sharp": "^0.33.5",
     "starlight-sidebar-topics": "^0.3.0"
+  },
+  "devDependencies": {
+    "prettier": "3.5.2"
   }
 }

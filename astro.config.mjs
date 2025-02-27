@@ -43,7 +43,6 @@ export default defineConfig({
 									'docs/users/introduction/bitcoins-economic-layer',
 								]
 							},
-							'docs/users/mezo-alpha-builders',
 							{   
 								label: 'Getting Started',
 								collapsed: true,
@@ -130,6 +129,7 @@ export default defineConfig({
 								collapsed: true,
 							    items: [
 									'docs/users/resources/mezo-community',
+									'docs/users/resources/mezo-alpha-builders',
 									'docs/users/resources/release-notes',
 									'docs/users/resources/faqs',
 									'docs/users/resources/audits',
@@ -158,7 +158,7 @@ export default defineConfig({
 		},
 		'/docs/users/home/mezo-alpha-builders': {
 			status: 302,
-			destination: '/docs/users/mezo-alpha-builders'
+			destination: '/docs/users/resources/mezo-alpha-builders'
 		},
 		'/docs/users/user-guides/bitcoin-on-mezo': {
 			status: 302,
