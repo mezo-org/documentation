@@ -8,12 +8,18 @@ mUSD is Mezo's native stablecoin, which is 100% backed by Bitcoin reserves to ma
 
 mUSD is based on [Threshold USD](https://github.com/Threshold-USD/dev) which is a fork of [Liquity](https://github.com/liquity/dev) for the [Mezo Network](https://mezo.org).
 
-![mUSD differentiators](/docs/images/musd/musd-differences.avif)
-
 You can obtain mUSD through the following sources:
 
 - [Borrow and Mint](./mint-musd.md) mUSD through the minting process
 - Buy mUSD on an exchange
 - Receive mUSD from another Mezo user
 
-![Benefits of mUSD](/docs/images/musd/musd-benefits.avif)
+## mUSD differentiators
+
+mUSD has several key differences when compared to most stablecoins:
+
+- Backing: 100% Bitcoin
+- Interest rate: 1%-3% fixed
+- Loan term: Unlimited
+- Minimum collateral requirement: 110%
+- Custody: Your keys

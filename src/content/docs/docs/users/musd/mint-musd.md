@@ -16,8 +16,6 @@ You must have testnet BTC on the Mezo matsnet before you can get testnet mUSD.
 
 After you are logged into [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow mUSD.
 
-![Borrow and Mint](/docs/images/musd/musd-borrow-process.avif)
-
 1. In your browser, open [mezo.org/matsnet/borrow](https://mezo.org/matsnet/borrow).
 
 1. Click the **Let's Go** button to start the borrow process. 
