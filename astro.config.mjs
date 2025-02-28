@@ -67,6 +67,18 @@ export default defineConfig({
 								]
 							},
 							{   
+								label: 'mUSD (Mezo USD)',
+								collapsed: true,
+							    items: [
+									'docs/users/musd',
+									'docs/users/musd/fees',
+									'docs/users/musd/mint-musd',
+									'docs/users/musd/architecture',
+									'docs/users/musd/concepts-and-terminology',
+									'docs/users/musd/risks',
+								]
+							},
+							{   
 								label: 'Concepts',
 								collapsed: true,
 							    items: [
