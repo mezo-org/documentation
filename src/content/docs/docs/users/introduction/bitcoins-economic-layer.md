@@ -7,7 +7,7 @@ Mezo has three primary capabilities that make it "Bitcoin's Economic Layer".
 
 ### Bitcoin-Native Financial Infrastructure
 
-The foundational systems and protocols enable Bitcoin-based financial transactions, savings, investments, and be-your-own-bank via Bitcoin within the Mezo ecosystem.
+The foundational systems and protocols enable Bitcoin-based financial transactions, investments, and be-your-own-bank via Bitcoin within the Mezo ecosystem.
 
 Key aspects include:
 
