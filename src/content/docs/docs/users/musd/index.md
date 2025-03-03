@@ -11,7 +11,6 @@ mUSD is based on [Threshold USD](https://github.com/Threshold-USD/dev) which is 
 You can obtain mUSD through the following sources:
 
 - [Borrow and Mint](./mint-musd.md) mUSD through the minting process
-- Buy mUSD on an exchange
 - Receive mUSD from another Mezo user
 
 ## mUSD differentiators
