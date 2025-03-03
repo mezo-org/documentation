@@ -6,7 +6,7 @@ mUSD (Mezo USD) is available on Mezo matsnet. You can use your testnet BTC to Bo
 
 ## Before you begin
 
-Before you can get testnet mUSD, complete the following steps:
+Before you can get testnet mUSD, you must complete the following steps:
 
 - Go to [mezo.org](https://mezo.org/) and click **Log in** to connect to your Mezo account.
 - Connect an Ethereum wallet to Mezo matsnet. See the [Connect to Mezo matsnet](/docs/users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet#connect-your-browser-wallet) guide for instructions.
