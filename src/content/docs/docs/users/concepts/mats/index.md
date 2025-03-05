@@ -13,7 +13,6 @@ mats are collectible points that you can use to play games, tip fellow community
 You can earn mats through various activities in the Mezo community, including:
 
 * **Deposits**: Lock BTC, tBTC, WBTC, or stablecoins in the [Mezo Portal](https://app.gitbook.com/o/OEHBAmjJ286W1yUh21Q8/s/x6fn2L7Htl3g7NncUqTL/).
-* **Daily Lootboxes**: Claim daily rewards with randomized mats (1-250 mats).
 * [**Discord**](https://discord.com/invite/mezo) **Community Events**: Join raffles, receive tips, complete quests, and participate in games and bounties.
 * **Weekly Events**: Attend [WateringHODL](https://discord.com/invite/mezo) events, where mats are tipped during community gatherings every Friday at 3 pm EST.
 
