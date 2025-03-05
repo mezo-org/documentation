@@ -30,4 +30,4 @@ If you need to add the network to your wallet manually, use the following instru
 
 ## Development frameworks
 
-To learn how to configure Hardhat, Foundry, and Remix to Mezo matsnet, see [Deploying and Verifying Contracts](deploy-and-verify-contracts.md).
+To learn how to configure Hardhat, Foundry, and Remix to Mezo matsnet, see [Deploying and Verifying Contracts](./deploy-and-verify-contracts).

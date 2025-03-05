@@ -25,4 +25,4 @@ The Threshold Network currently charges a[ 0.2% redemption fee](https://docs.thr
 The current fees for redemption are published in the [tBTC Bitcoin Bridge Fees](https://docs.threshold.network/applications/tbtc-v2/fees) documentation.
 
 \
-To learn about the steps in a standard tBTC unminting process, see the [tBTC Unmint & Redemption](tbtc-unmint-and-redemption.md) guide.
+To learn about the steps in a standard tBTC unminting process, see the [tBTC Unmint & Redemption](/docs/users/concepts/fees/tbtc-unmint-and-redemption) guide.

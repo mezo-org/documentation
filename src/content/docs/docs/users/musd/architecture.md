@@ -4,7 +4,7 @@ title: mUSD Architecture
 
 mUSD is currently available only on Mezo matsnet (Testnet), but the details here will apply to Mezo Mainnet.
 
-The protocol allows Bitcoin holders to [Borrow and Mint](./mint-musd.md) mUSD (Mezo USD stablecoins) by using their BTC as collateral. This means users can access USD-denominated liquidity while keeping their Bitcoin investment intact.
+The protocol allows Bitcoin holders to [Borrow and Mint](./mint-musd) mUSD (Mezo USD stablecoins) by using their BTC as collateral. This means users can access USD-denominated liquidity while keeping their Bitcoin investment intact.
 
 ### Custody
 

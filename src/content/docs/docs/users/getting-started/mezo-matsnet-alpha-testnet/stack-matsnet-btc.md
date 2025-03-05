@@ -7,7 +7,7 @@ description: Use mats to stack matsnet BTC on the Mezo matsnet testnet.
 
 If you've acquired mats on [https://mezo.org/score](https://mezo.org/score), you can spend them to stack matsnet BTC on Mezo matsnet. The matsnet BTC is used to pay the gas fees on Mezo matsnet.
 
-You can stack matsnet BTC using your Mezo account created from either a Bitcoin wallet or an Ethereum wallet. If you don't have an account, see the [Creating Account](../mezo-portal/creating-an-account.md) guide.
+You can stack matsnet BTC using your Mezo account created from either a Bitcoin wallet or an Ethereum wallet. If you don't have an account, see the [Creating Account](/docs/users/mezo-portal/creating-an-account) guide.
 
 If you do not have any mats in your Mezo Portal, see the [mats Documentation](../../user-guides/mats/) to learn how they work and how to acquire them.
 
