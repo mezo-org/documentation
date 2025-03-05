@@ -31,8 +31,6 @@ Much of mUSD comes from [Threshold USD](https://github.com/Threshold-USD/dev), b
 
 - **Interest Payments**: Interest payments are directed to the PCV (Protocol Controlled Value). The allocation of these payments is governed and can be split between an arbitrary recipient and repayment of the bootstrap loan.
 
-For further information, refer to [simpleInterest.md](simpleInterest.md).
-
 ### Additional Governance
 
 - **Governance Control**: The interest rate and other critical parameters are controlled by governance. Changes to these parameters require a governance proposal and a minimum delay before they can be enacted.

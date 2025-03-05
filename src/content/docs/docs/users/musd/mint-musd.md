@@ -30,7 +30,7 @@ After you are logged into [mezo.org](https://mezo.org/) on an account with testn
 
 1. Ensure that your browser wallet is actively set to Mezo matsnet.
 
-1. When you are ready to proceed with the [Borrow and Mint](./mint-musd.md) process, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC on matsnet.
+1. When you are ready to proceed with the [Borrow and Mint](./mint-musd) process, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC on matsnet.
 
 After the process is complete, you can check the loan status on [mezo.org/matsnet/borrow](https://mezo.org/matsnet/borrow).
 

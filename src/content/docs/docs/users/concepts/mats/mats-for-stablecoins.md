@@ -9,7 +9,7 @@ description: Below are mats calculations for stablecoin deposits - crvUSD, thUSD
 
 **Base Score:** 500 mats per 40k USD per day, and 40K T earns 15 mats per day.
 
-**Lock-Up Multiplier:** The [same lock-up multipliers](mats-for-btc.md) apply for stable deposits
+**Lock-Up Multiplier:** The [same lock-up multipliers](./mats-for-btc) apply for stable deposits
 
 **BTC Bonus:** Daily mats from Bitcoin-backed stables are applied to boost your BTC mats. The boost can be up to 100% of your mats generated from BTC deposits.
 

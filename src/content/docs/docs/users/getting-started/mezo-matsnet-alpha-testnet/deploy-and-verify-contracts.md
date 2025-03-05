@@ -2,14 +2,14 @@
 title: Deploy and Verify Contracts
 ---
 
-You can deploy contracts to Mezo matsnet targeting the London EVM Version and the network details on the [Connect to Mezo matsnet](connect-to-mezo-matsnet.md) page. The examples are tested using Hardhat, Foundry, and Remix, but you can try using other frameworks if you prefer.
+You can deploy contracts to Mezo matsnet targeting the London EVM Version and the network details on the [Connect to Mezo matsnet](./connect-to-mezo-matsnet) page. The examples are tested using Hardhat, Foundry, and Remix, but you can try using other frameworks if you prefer.
 
 ## Before you begin
 
 Before you can deploy contracts, you will need an Ethereum wallet with matsnet BTC to pay for the gas fees.
 
-* [Stack matsnet BTC](stack-matsnet-btc.md)
-* [Connect to Mezo matsnet](stack-matsnet-btc.md)
+* [Stack matsnet BTC](./stack-matsnet-btc)
+* [Connect to Mezo matsnet](./connect-to-mezo-matsnet)
 
 ## Hardhat
 
@@ -123,7 +123,7 @@ forge create src/Counter.sol:Counter --private-key YOUR_PRIVATE_WALLET_KEY
 
 Remix requires some extra configuration to work with Mezo matsnet:
 
-* [Connect your browser wallet](connect-to-mezo-matsnet.md) to Mezo matsnet so Remix can use it as an Injected Provider.
+* [Connect your browser wallet](./connect-to-mezo-matsnet) to Mezo matsnet so Remix can use it as an Injected Provider.
 * In Remix under the **Solidity Compiler** tab, open the **Advanced Configurations** menu and select `london` as the EVM version.
 
   ![](/docs/gitbook/Screenshot%20from%202024-11-19%2001-37-06.png)
