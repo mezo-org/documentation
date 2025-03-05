@@ -8,15 +8,18 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint-fix": "npx prettier . --write"
+    "lint-fix": "npx prettier . --write",
+    "linkcheck-local": "node scripts/linkcheck.js http://localhost:4321/docs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.31.1",
-    "astro": "^5.2.5",
+    "astro": "^5.4.2",
     "sharp": "^0.33.5",
     "starlight-sidebar-topics": "^0.3.0"
   },
   "devDependencies": {
-    "prettier": "3.5.2"
+    "axios": "^1.8.1",
+    "prettier": "^3.5.2",
+    "puppeteer": "^24.3.1"
   }
 }

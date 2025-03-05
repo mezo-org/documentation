@@ -62,7 +62,7 @@ Add matsnet to your wallet via [Chainlist](https://chainlist.org/chain/31611) or
 
 ### Can I deploy contracts?
 
-Yes! matsnet supports deploying contracts and interacting with them. A [guide is available](https://info.mezo.org/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts) for deploying to matsnet. Please reach out on Discord if you are looking for more deployment info.
+Yes! matsnet supports deploying contracts and interacting with them. A [guide is available](/docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts) for deploying to matsnet. Please reach out on Discord if you are looking for more deployment info.
 
 ### What happens to my Bitcoin, other deposits, and boosts?
 
@@ -72,10 +72,7 @@ Boosts are still available for longer lockups, stable deposits, and T deposits.
 
 ### What happened to stBTC?
 
-Minting for stBTC has ended, but locked positions remain secure. Looped positions can be unwound at deposit unlock or mainnet launch. Learn more [here](https://info.mezo.org/guide-to-redeeming-your-stbtc-deposits).\
-
-
-***
+Minting for stBTC has ended, but locked positions remain secure. Looped positions can be unwound at deposit unlock or mainnet launch. Learn more [here](/docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits).
 
 ## Mezo Validators
 

@@ -9,7 +9,7 @@ Depositing WBTC, tBTC, and accepted BTC-backed stables incurs a gas cost on the 
 
 ### BTC Deposits
 
-Native BTC deposits are bridged to tBTC before being deposited into the [Mezo Portal contract](https://info.mezo.org/btc-custody-on-mezo/deposit-custody). [The tBTC mint process](https://info.mezo.org/tbtc/tbtc-mint-guide) involves operational costs associated with asset minting, treasury, and sweeping transactions. &#x20;
+Native BTC deposits are bridged to tBTC before being deposited into the [Mezo Portal contract](/docs/users/resources/contracts-and-btc-custody). [The tBTC mint process](/docs/users/concepts/bitcoin-on-mezo/tbtc/guide) involves operational costs associated with asset minting, treasury, and sweeping transactions. &#x20;
 
 To account for these operational costs, **a fixed amount of 0.001 BTC** will be subtracted from all BTC deposits, regardless of deposit size.&#x20;
 
