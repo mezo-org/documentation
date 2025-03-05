@@ -2,7 +2,7 @@
 title: Bitcoin on Mezo
 ---
 
-BTC deposits receive the highest daily mats allocation. For more details on mats and how they are calculated, see [mats](../mats/).
+BTC deposits receive the highest daily mats allocation. For more details on mats and how they are calculated, see [mats](/docs/users/concepts/mats/).
 
 | Supported BTC Tokens | BTC, WBTC, tBTC, SolvBTC, SolvBTC.BBN, fBTC, swBTC, cbBTC, intBTC |
 | -------------------- | ----------------------------------------------------------------- |
