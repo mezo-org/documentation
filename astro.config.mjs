@@ -139,6 +139,27 @@ export default defineConfig({
 							},
 						],
 					},
+					{
+						label: 'Developer Documentation',
+						id: 'developers',
+						link: '/docs/developers/',
+						icon: 'seti:powershell',
+						items: [
+							{   
+								label: 'Infrastructure',
+								items: [
+									{   
+										label: 'Oracles',
+										items: [
+											{ label: 'Overview', link: 'docs/developers/infrastructure/oracles'},
+											'docs/developers/infrastructure/oracles/read-oracle'
+										]
+									},
+								]
+							},
+							
+						],
+					},
 				]),
 			  ],
 		}),
