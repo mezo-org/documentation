@@ -2,14 +2,18 @@
 title: User Documentation
 ---
 
-## Welcome to Mezo
+Bitcoin has changed how people think about money, control, security, and transparency. However, while Bitcoin excels as a store of value, it currently lacks the tools to make it easily usable in everyday financial activities. Mezo bridges this gap by creating a Bitcoin-native ecosystem that transforms BTC from a static asset into a dynamic financial tool. 
 
-The increasing adoption and value of Bitcoin have highlighted its limitations in transaction speed and scalability, necessitating the development of solutions that expand its capabilities while preserving its core principles. Mezo addresses this challenge by serving as Bitcoin's economic layer. As an economic layer, Mezo provides infrastructure and protocols for Bitcoin-based payments, investments, and self-banking. It enables Bitcoin-centric market structures and fosters innovation in Bitcoin-native financial products and services. Built on tBTC, Mezo offers a Bitcoin-first design emphasizing user ownership, reliable bridging, BTC-denominated gas fees, and a dual staking model. It provides the infrastructure to bridge Bitcoin with decentralized and traditional finance.
+​Mezo is a Bitcoin-centric platform designed to enhance Bitcoin's utility through seamless borrowing, spending, and earning. Using tBTC's infrastructure as a secure and decentralized foundation, Mezo aims to offer a platform where people live off their Bitcoin: mortgages funded by BTC collateral, everyday purchases made through Bitcoin-backed credit lines, and wealth that grows without ever selling a satoshi. This is what it means to make Bitcoin supernormal. Mezo's goal is to embed Bitcoin so deeply within existing financial systems that using it feels as natural as swiping a debit card.
 
-This framework transforms Bitcoin into a dynamic asset capable of generating yield and participating in diverse financial activities, thus aligning with the broader vision of BitcoinFi. BitcoinFi is the next evolution in the Bitcoin ecosystem, transforming it from a passive store of value into a dynamic, yield-generating asset. By integrating tBTC, Mezo, and Acre, BitcoinFi aims to create a thriving financial ecosystem where Bitcoin can be used productively across various applications.
+Today's Bitcoin holders face a fundamental challenge: they own one of the most sound assets ever created, yet accessing its value requires selling it. Most existing solutions come with unpredictable costs, compromised sovereignty, and limited usability. Bitcoin loans typically have volatile rates between 8% and 20% APR, making long-term financial planning nearly impossible, and many platforms force users onto non-Bitcoin chains or require giving up control to third parties. 
 
-Mezo is foundational to BitcoinFi, providing the necessary infrastructure and economic framework to seamlessly interact with tokenized Bitcoin assets within a bustling DeFi ecosystem. This integration enhances Bitcoin's utility and financial capabilities, bringing us closer to a future where Bitcoin serves as the cornerstone of a decentralized financial system and the preferred monetary asset of the world.
+Mezo solves these fundamental challenges by providing users with fixed-rate Bitcoin loans. All loans are issued and settled onchain, with 24/7 verifiable reserves. Mezo's borrow feature eliminates rate volatility while preserving users' complete sovereignty over their assets. 
 
-By addressing the limitations of existing scaling solutions and focusing on Bitcoin-centric applications, Mezo aims to create an ecosystem where holders can put their Bitcoin to work while maintaining robust economic security and values of decentralization and accessibility.
+By building a Bitcoin-native capital infrastructure with transparent pricing and no middlemen, Mezo enables users to access the value of their Bitcoin for real-world use cases without compromising on the security principles that make Bitcoin valuable in the first place.
 
-Deposit BTC, tBTC, WBTC, thUSD, crvUSD, USDC, USDT, DAI, USDe, fBTC, SolvBTC, SolvBTC.BBN, swBTC, cbBTC, and intBTC in the [Mezo Portal](https://mezo.org/hodl) today.
+Mezo's core features include mUSD, a stablecoin backed entirely by Bitcoin reserves. Mezo's environment offers secure core financial tools and permissionless innovation space to be built on top of mUSD, supporting a growing Bitcoin-based economy. Mezo is built on tBTC's infrastructure and emphasizes user ownership and trust minimization. The native incentive system, Tigris, rewards long-term participants in the ecosystem.
+
+## Get Started
+
+Deposit BTC, tBTC, WBTC, thUSD, crvUSD, USDC, USDT, DAI, USDe, fBTC, SolvBTC, SolvBTC.BBN, swBTC, cbBTC, and intBTC in the [Mezo Portal](https://mezo.org/hodl) today and join Mezo in building the future of BitcoinFi.
