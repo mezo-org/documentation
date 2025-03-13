@@ -12,14 +12,14 @@ The Bazaar is the community-driven application layer built on top of the Cathedr
 
 Together, these environments solve key issues in Bitcoin: complex user experiences, lack of innovation, and difficult onboarding processes. By providing both stability in core functions and freedom to experiment, Mezo creates a complete Bitcoin ecosystem that serves both experienced users and newcomers.
 
-## Mezo design
+## Mezo design features
 
-1. **mUSD and Borrow:** Tap into your Bitcoin equity at competitive, fixed rates. Borrowers create mUSD by opening a Collateralized Debt Position (CDP), posting BTC as collateral to mint mUSD, a dollar-pegged stablecoin usable for spending, trading, lending, and borrowing. 
-2. **BTC for Gas:** Mezo Network uses BTC as its native gas token. This maintains a pure Bitcoin experience and advances Bitcoin as a cultural payment currency while providing a stream of fee revenue paid in BTC.
-3. **tBTC Integration & Multi-Chain Support:** Mezo is built on tBTC, the largest decentralized Bitcoin bridge in production. By robustly tokenizing Bitcoin, holders can utilize their Bitcoin across EVM chains in a secure and reliable manner. Reserves are verifiable 24/7 at [tbtc.scan](http://tbtc.scan).
-4. **Dual Staking Model:** Combines rewards and validation to incentivize network participation and security.
-5. **BitcoinFi Ecosystem:** A suite of Bitcoin-native financial applications, including lending, borrowing, and yield generation.
-6. **Developer-Friendly Environment:** Supports Ethereum and Cosmos developers.
+- **mUSD and Borrow:** Tap into your Bitcoin equity at competitive, fixed rates. Borrowers create mUSD by opening a Collateralized Debt Position (CDP), posting BTC as collateral to mint mUSD, a dollar-pegged stablecoin usable for spending, trading, lending, and borrowing. 
+- **BTC for Gas:** Mezo Network uses BTC as its native gas token. This maintains a pure Bitcoin experience and advances Bitcoin as a cultural payment currency while providing a stream of fee revenue paid in BTC.
+- **tBTC Integration & Multi-Chain Support:** Mezo is built on tBTC, the largest decentralized Bitcoin bridge in production. By robustly tokenizing Bitcoin, holders can utilize their Bitcoin across EVM chains in a secure and reliable manner. Reserves are verifiable 24/7 at [tbtc.scan](http://tbtc.scan).
+- **Dual Staking Model:** Combines rewards and validation to incentivize network participation and security.
+- **BitcoinFi Ecosystem:** A suite of Bitcoin-native financial applications, including lending, borrowing, and yield generation.
+- **Developer-Friendly Environment:** Supports Ethereum and Cosmos developers.
 
 ## What does it mean to be Supernormal? 
 
