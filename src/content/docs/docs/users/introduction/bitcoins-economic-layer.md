@@ -1,34 +1,14 @@
 ---
-title: Bitcoin's Economic Layer
-description: Mezo has three primary capabilities that make it "Bitcoin's Economic Layer".
+title: What is BitcoinFi?
 ---
 
-Mezo has three primary capabilities that make it "Bitcoin's Economic Layer".
+BitcoinFi (short for Bitcoin Finance) refers to the broader vision of Bitcoin as a full-fledged financial ecosystem rather than just a static asset or digital gold. The vision of “doing everything on Bitcoin”, from saving and earning to borrowing and paying, is at the heart of BitcoinFi. This concept involves integrating Bitcoin into all aspects of finance, making BTC a seamless part of everyday economic activities. 
 
-### Bitcoin-Native Financial Infrastructure
+A BitcoinFi ecosystem is achieved by combining Bitcoin's reliability and security with the kind of financial applications and yield opportunities that exist on networks like Ethereum and other DeFi platforms, then extending that into regular, real-world finance.
 
-The foundational systems and protocols enable Bitcoin-based financial transactions, investments, and be-your-own-bank via Bitcoin within the Mezo ecosystem.
+Key aspects of BitcoinFi include:
 
-Key aspects include:
+- Expanding Bitcoin’s Utility: BitcoinFi turns Bitcoin from a passive store of value into a dynamic financial asset. With BitcoinFi, you can use BTC to earn interest, fund loans, power decentralized apps, and access cost-effective financial services, all natively tied to Bitcoin​. This greatly expands what Bitcoin can do beyond hodling. Your BTC can be collateral for loans, liquidity for exchanges, or staking.
+- Fueling Adoption: By broadening Bitcoin’s capabilities, BitcoinFi creates a powerful feedback loop to drive adoption​. This new utility makes Bitcoin useful to a wider audience (not just long-term investors), which attracts more users to try it for everyday needs. As more people use Bitcoin in new ways, it entices more developers to build additional Bitcoin-centric applications, further enriching the ecosystem.
 
-* **tBTC Integration:** A decentralized and trust-minimized foundation. tBTC provides the base layer infrastructure for Mezo.
-* **BitcoinFi Applications:** A suite of decentralized financial services enabling users to lend, borrow, and use their Bitcoin productively.
-
-### Bitcoin-Centric Market Structures
-
-The organization and characteristics of markets within the Mezo ecosystem, focusing on Bitcoin-denominated exchanges of goods, services, and financial products.
-
-Key aspects include:
-
-* **Bitcoin-Denominated Markets:** Trading platforms where various assets are priced and traded in Bitcoin terms.
-* **Labor and Services Market:** Platforms for Bitcoin-based payroll systems and freelance marketplaces.
-* **Real-World Asset Tokenization:** Markets for Bitcoin-backed representations of real-world assets, expanding the scope of tradable assets within the BitcoinFi ecosystem.
-
-### BitcoinFi Innovation Layer
-
-A unique ecosystem that focuses on expanding Bitcoin's utility beyond traditional financial applications, exploring novel use cases that leverage Bitcoin's properties.
-
-Key aspects include:
-
-* **Bitcoin-Native Financial Products:** Innovative financial instruments designed specifically for the properties of Bitcoin, such as Bitcoin-collateralized loans or Bitcoin-based derivatives.
-* **Economic Experimentation Sandbox:** A framework for testing and implementing new economic models and financial structures unique to the Bitcoin ecosystem.
+Mezo’s role in BitcoinFi is critical to turning this vision into reality. Mezo is the BitcoinFi playground where Bitcoin dApps live. This means Mezo will become the primary platform hosting the new generation of Bitcoin-based applications – from lending protocols and stablecoin issuers to decentralized exchanges and beyond. By being an EVM-compatible chain anchored to Bitcoin, Mezo provides the infrastructure for developers to build Bitcoin-native dApps and for users to access them with their BTC. 
