@@ -4,6 +4,8 @@ title: What is Mezo?
 
 Mezo is a Bitcoin-centric platform purpose-built to make Bitcoin productive in day-to-day finance. It is EVM-compatible, which means it can host decentralized apps (dApps) and smart contracts in a system that developers and users already understand. By transforming Bitcoin from something complex and intimidating into something supernormal, Mezo can enable everyday activities like purchasing groceries, paying for services, securing mortgages, and building savings, all powered by Bitcoin.
 
+## The Cathedral and the Bazaar
+
 Mezo's architecture is built on a dual-environment model known as the Cathedral and the Bazaar:
 
 The Cathedral is Mezo's core infrastructure—a secure, reliable BitcoinFi ecosystem offering essential financial tools designed specifically for Bitcoin. This includes mUSD (Mezo's 100% Bitcoin-backed stablecoin), lending protocols, swaps, bridges, and staking capabilities. The Cathedral is deliberately developed to ensure bulletproof systems that don't compromise on security, reliability, or decentralization. Built on tBTC, the most decentralized Bitcoin bridge, the Cathedral provides a transparent, fully verifiable financial environment where users maintain complete control of their assets.
@@ -29,6 +31,6 @@ It's when something is so easy to use and familiar that it becomes naturally int
 
 Despite being around for over a decade, Bitcoin is still viewed as new and shiny, a little scary, hard to use, and weird for most people. Bitcoin must become supernormal. Its usage should be as natural and easy to use as a coffee maker, favorite pair of shoes, or water bottle.
 
-Users shouldn't need a degree in finance or be millionaires to use Bitcoin. Bitcoin is for everybody and for doing everyday things. For Bitcoin to be impactful (where 25% of the world's economy runs on Bitcoin), it has to evolve from being weird to a few to being "normal" to many. For crypto native users, being "normal" is the last thing wanted. That's why Bitcoin needs to be supernormal.
+Users shouldn't need a degree in finance or be millionaires to use Bitcoin. Bitcoin is for everybody and for doing everyday things. For Bitcoin to be impactful, it has to evolve from being weird to a few to being "normal" to many. For crypto native users, being "normal" is the last thing wanted. That's why Bitcoin needs to be supernormal.
 
 Mezo makes Bitcoin supernormal by enabling easy access to Bitcoin's value without selling it, fixed-rate loans for predictable financial planning, transparent on-chain operations, and familiar financial tools rebuilt on Bitcoin infrastructure. Soon, everyone will be able to use Mezo to do supernormal stuff with Bitcoin, like buy things on a credit card, send money immediately, save for college, apply for a loan, and more.
