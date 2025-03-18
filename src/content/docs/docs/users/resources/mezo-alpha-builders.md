@@ -18,7 +18,7 @@ To join, apply now via the onboarding questionnaire and join as an Alpha builder
 
 The program seeks fully functional live dApps that have the following:
 
-* Have on-chain activity (transacting users)
+* Have onchain activity (transacting users)
 * Can deploy on Mezo (EVM compatible) and integrate Mezo Passport wallet at the program onset
 * Established community
 * Audit required for mainnet deployment

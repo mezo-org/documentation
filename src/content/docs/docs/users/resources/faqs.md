@@ -66,7 +66,7 @@ Yes! matsnet supports deploying contracts and interacting with them. A [guide is
 
 ### What happens to my Bitcoin, other deposits, and boosts?
 
-Your deposits (BTC, tBTC, WBTC) remain secure in Mezo’s portal contract. You continue to earn mats daily, and your assets are fully verifiable on-chain. When unlocked, you’ll receive your full deposit minus fees.
+Your deposits (BTC, tBTC, WBTC) remain secure in Mezo’s portal contract. You continue to earn mats daily, and your assets are fully verifiable onchain. When unlocked, you’ll receive your full deposit minus fees.
 
 Boosts are still available for longer lockups, stable deposits, and T deposits.
 
@@ -78,7 +78,7 @@ Minting for stBTC has ended, but locked positions remain secure. Looped position
 
 ### When will the Mezo validator program launch?
 
-End of Q3, we will open applications to close partners. The official program will be released in Q4.
+The Mezo Validator program is currently active.
 
 ### What are the benefits of becoming a Mezo validator?
 
@@ -90,7 +90,7 @@ With our current system, there is no slashing because validators do not stake an
 
 ### Mezo BTC bridge architecture
 
-The BTC bridge's pillar on Mezo is the validator set. On Ethereum, this will be a special \`BitcoinDepositor\` smart contract. All Mezo validators will run a separate process to observe what happens in the `BitcoinDepositor` contract on Ethereum. This process is called the bridge sidecar and requires a connection to an arbitrary Ethereum node. An on-chain event will be emitted whenever someone locks tBTC in the \`BitcoinDepositor\` contract. All Mezo validators will capture it within their sidecars.&#x20;
+The BTC bridge's pillar on Mezo is the validator set. On Ethereum, this will be a special \`BitcoinDepositor\` smart contract. All Mezo validators will run a separate process to observe what happens in the `BitcoinDepositor` contract on Ethereum. This process is called the bridge sidecar and requires a connection to an arbitrary Ethereum node. An onchain event will be emitted whenever someone locks tBTC in the \`BitcoinDepositor\` contract. All Mezo validators will capture it within their sidecars.&#x20;
 
 A subset of Mezo validators endorsed to actively participate in the bridging process (the so called bridging validators; 10-15 top-tier validators) will embed the deposit data within the candidate block as part of the consensus process. Other validators (the non-bridging ones) will verify the deposit information against their sidecars. If they achieve consensus, the BTC on Mezo will be minted as part of the block. To achieve decent decentralization, we require that bridging validators run their sidecars with full Ethereum nodes. The non-bridging validators are encouraged to do the same, but Alchemy/Infura is acceptable in the early stage of the network, given the costs of running full Ethereum nodes
 
