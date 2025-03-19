@@ -7,7 +7,7 @@ Several organizations are partnering with Mezo to bring their dApps and services
 
 ## Goldsky
 
-Goldsky is an indexer for web3 builders that offers subgraph hosting and realtime data replication pipelines. Goldsky [is available on Mezo matsnet](https://docs.goldsky.com/chains/supported-networks).
+Goldsky is an indexer for web3 builders that offers subgraph hosting and realtime data replication pipelines. Goldsky [is available on Mezo matsnet](https://docs.goldsky.com/chains/supported-networks) using the slug `mezo-testnet`.
 
 - **[Goldsky Documentation](https://docs.goldsky.com/)**
 
