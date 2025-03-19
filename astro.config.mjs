@@ -157,6 +157,19 @@ export default defineConfig({
 									},
 								]
 							},
+							{   
+								label: 'Resources',
+								collapsed: true,
+							    items: [
+									'docs/users/resources/mezo-community',
+									'docs/users/resources/mezo-alpha-builders',
+									'docs/users/resources/release-notes',
+									'docs/users/resources/faqs',
+									'docs/users/resources/audits',
+									'docs/users/resources/media-kit',
+									'docs/users/resources/contracts-and-btc-custody',
+								]
+							},
 							
 						],
 					},
