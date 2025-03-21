@@ -7,7 +7,7 @@ description: Below are mats calculations for stablecoin deposits - crvUSD, thUSD
 
 **Assets:** crvUSD, thUSD, USDe, USDC, USDT, DAI, T
 
-**Base Score:** 500 mats per 40k USD per day, and 40K T earns 15 mats per day.
+**Base Score:** 500 mats per 40k USD per day, and 40K T earns 20 mats per day.
 
 **Lock-Up Multiplier:** The [same lock-up multipliers](/docs/users/concepts/mats/mats-for-btc) apply for stable deposits
 
