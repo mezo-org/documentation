@@ -17,3 +17,12 @@ Stork is an oracle protocol that enables ultra low latency connections between d
 
 - **[Stork Documentation](https://docs.stork.network/)**
 - **[Deployed Contracts on Mezo matsnet](https://docs.stork.network/resources/contract-addresses/evm#mezo)**
+
+## Supra 
+
+Supra is a cross-chain oracle network designed to power dApps across blockchain ecosystems with fast, secure, decentralized, and scalable data solutions. Supra's [Distributed Oracle Agreement (DORA)](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora) is available on Mezo matsnet at the following addresses:
+
+- Pull Contract: [0x443A0f4Da5d2fdC47de3eeD45Af41d399F0E5702](https://explorer.test.mezo.org/address/0x443A0f4Da5d2fdC47de3eeD45Af41d399F0E5702)
+- Storage Contract: [0x6Cd59830AAD978446e6cc7f6cc173aF7656Fb917](https://explorer.test.mezo.org/address/0x6Cd59830AAD978446e6cc7f6cc173aF7656Fb917)
+
+To learn more, see the **[Supra Documentation](https://docs.supra.com/)**.
