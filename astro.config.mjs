@@ -129,6 +129,7 @@ export default defineConfig({
 								collapsed: true,
 							    items: [
 									'docs/users/resources/mezo-community',
+									'docs/users/resources/integrations-and-partners',
 									'docs/users/resources/mezo-alpha-builders',
 									'docs/users/resources/release-notes',
 									'docs/users/resources/faqs',
@@ -155,6 +156,18 @@ export default defineConfig({
 											'docs/developers/infrastructure/oracles/read-oracle'
 										]
 									},
+								]
+							},
+							{   
+								label: 'Resources',
+								collapsed: true,
+							    items: [
+									'docs/users/resources/mezo-community',
+									'docs/users/resources/integrations-and-partners',
+									'docs/users/resources/mezo-alpha-builders',
+									'docs/users/resources/release-notes',
+									'docs/users/resources/audits',
+									'docs/users/resources/contracts-and-btc-custody',
 								]
 							},
 							
