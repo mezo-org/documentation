@@ -11,9 +11,9 @@ The MUSD system consists of four main contract groups:
 
 ## Custody and collateral management
 
-mUSD positions can be tracked onchain, and the underlying Bitcoin collateral is securely managed using tBTC’s robust, decentralized custody infrastructure.
+MUSD positions can be tracked onchain, and the underlying Bitcoin collateral is securely managed using tBTC’s robust, decentralized custody infrastructure.
 
-You can see all BTC backing mUSD in real time on the [Mezo block explorer](https://explorer.test.mezo.org/address/0x637e22A1EBbca50EA2d34027c238317fD10003eB).
+You can see all BTC backing MUSD in real time on the [Mezo block explorer](https://explorer.test.mezo.org/address/0x637e22A1EBbca50EA2d34027c238317fD10003eB).
 
 tBTC, which is built by the same team behind Mezo, [Thesis*](https://thesis.co/?ref=blog.mezo.org), is powered by the [Threshold Network](https://threshold.network/?ref=blog.mezo.org). Threshold is a decentralized signer set that has operated the Threshold Bitcoin bridge since early 2020 and successfully bridged over 18k Bitcoin. Proof of reserves for tBTC have been live for the entire life of the bridge and are viewable are [tbtcscan](https://tbtcscan.com/wallets?ref=blog.mezo.org).
 
@@ -21,7 +21,7 @@ For a thorough dive into tBTC, you can see the [Bitcoin Layers research report](
 
 ### Contract Custody
 
-A user opens up a position by calling BorrowerOperations.openTrove, providing BTC, and requesting mUSD. The BTC is routed to the ActivePool, where it stays until one of the following actions occurs:
+A user opens up a position by calling BorrowerOperations.openTrove, providing BTC, and requesting MUSD. The BTC is routed to the ActivePool, where it stays until one of the following actions occurs:
 
 * Withdraws (`BorrowerOperations.withdrawColl`)
 * Pays off their debt (`BorrowerOperations.closeTrove`)
