@@ -2,39 +2,39 @@
 title: Fees
 ---
 
-The protocol collects fees using the following mechanisms:
+The mUSD system fees are split between the mUSD treasury stability pool (which covers liquidations and bad debt) and veMEZO voters. The initial portion is 50/50, but this is subject to change based on the mUSD splitter. 
 
-- Origination Fee: A governable origination fee of 0.5%, which is added as debt to a trove but minted to governance
-- Redemption Fee: Flat 0.5% fee taken as a percentage of the total collateral drawn from the system when redeeming mUSD for collateral (BTC)
-- Gas Compensation Fee: A refinancing fee, which operates like the origination fee
-- Loan Interest: A fixed-interest on the principal of the loan
+![A screenshot of the loan status screen](/docs/images/musd/musd-economy.avif)
 
-There is a global, governable interest rate that all new troves use when they are opened. After the trove is opened, changes to the global interest rate do not impact any existing troves. At any time, users can refinance to the global rate.
 
-Simple interest is non-compounding. As an example, when a user owes a principal of $10,000 at a 3% annual interest rate, the user owes $300 in interest after a year. After another year without paying, the users owes $600 in interest.
+## Interest Fees (1–5% APR)
 
-## Origination Fee
+Interest on mUSD loans is fixed for the life of the loan. When credit is increased, the new credit will be added at the current interest rate.
 
-Flat 0.5% fee (governable) charged when starting a loan
+During Phase 1 of Mezo, interest fees fund the mUSD treasury stability pool, which covers liquidations and bad debt. Future allocation of fees can be decided by veMEZO stakers.
 
-Example: For $10,000 mUSD loan, $50 fee is charged
+## Redemption Fees (0.5%)
 
-User receives $10,000, protocol receives $50, total debt is $10,050
+This fee is paid when exchanging mUSD for the BTC collateral. When a user has an outstanding loan, the redemption fee is zero. Users who do not have an outstanding mUSD loan must pay the 0.5% redemption fee. 
 
-## Redemption Fee
+During Phase 1 of Mezo, redemption fees fund the mUSD treasury stability pool, which covers liquidations and bad debt. Future allocation of fees can be decided by veMEZO stakers.
 
-Flat 0.5% fee taken as a percentage of the total collateral drawn from the system when redeeming mUSD for collateral (BTC)
+## Issuance fee (0.5%)
 
-Example: Redeeming $1000 of mUSD results in the redeemer receiving $995 worth of collateral, and paying a $5 fee.
+The issuance fee is paid when an mUSD loan is opened. The fee is 0.5% of borrowed mUSD (paid in mUSD). (a $10k mUSD loan would pay a $50 issuance fee in mUSD)
 
-## Gas Compensation Fee
+## Refinance fee (0.1%) 
 
-Flat $200 (governable) held in reserve. This acts as a reward for liquidators and is not included in loan repayment amount. The fee is included in collateral ratio calculations. If you close your loan, this fee is returned.
+The refinance fee is incurred when a mUSD loan holder extends their line of credit or reduces the amount of collateral backing their loan. Refinancing fees are paid in mUSD. 
 
-## Loan Interest
+## Gas Deposit ($200 flat fee)
 
-Interest on the mUSD loan accrues every block at a governable APR. This is simple interest based only on the principal and is not compound interest.
+A $200 deposit ensures liquidations are viable; it is returned when the loan is closed.
 
-Example: $10,000 loan for 1 year = $100 interest
+## Other Gas & Transaction Fees
 
-Interest must be paid before principal payments.
+Users interacting with the mUSD system will have to pay transaction fees for each transaction broadcasted to Mezo Network. This includes actions such as minting, redeeming, staking, and claiming. 
+
+## mUSD Savings Rate
+
+mUSD holders are able to stake their mUSD to receive the mUSD Savings Rate. This rate is paid in mats emissions. veBTC holders can vote on the gauge to adjust the incentives received by mUSD stakers and, in exchange, receive the interest and fees of the mUSD system.
