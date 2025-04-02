@@ -95,11 +95,11 @@ Fiat-backed stablecoins like USDT and USDC make up more than 90% of the current 
 
 Tether, the issuing entity for USDT (~$150B in supply), has never released a proof of reserves audit. The company booked a $13B profit in 2024.
 
-Circle, a U.S. company issuing USDC, has the ability to blacklist addresses at their discretion. As the U.S. economy moves onchain, this becomes a dangerous point of centralization.
+Circle, a U.S. company issuing USDC, has the ability to [blacklist addresses at their discretion](https://www.circle.com/legal/usdc-risk-factors). As the U.S. economy moves onchain, this becomes a dangerous point of centralization.
 
 **Synthetic Stablecoins**
 
-Synthetic stablecoins (for example, USDe) often depend on centralized exchanges and custody solutions to maintain their value. The risk of this exposure became abundant as Bybit recently faced the largest hack on record.
+Synthetic stablecoins (for example, USDe) often depend on centralized exchanges and custody solutions to maintain their value. The risk of this exposure became abundant as [Bybit recently faced the largest hack on record](https://apnews.com/article/bybit-exchange-crypto-hack-north-korea-7c8335c1397261554138090c2c38f457).
 
 Additionally, stablecoins that are synthetically backed by the yield from a basis trade are unpredictable and untested. Funding rates are variable, and the systems have not been tested against various external market pressures. 
 
