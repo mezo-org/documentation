@@ -4,8 +4,7 @@ title: Fees
 
 The MUSD system fees are split between the MUSD treasury stability pool (which covers liquidations and bad debt) and veMEZO voters. The initial portion is 50/50, but this is subject to change based on the MUSD splitter. 
 
-![A screenshot of the loan status screen](/docs/images/musd/musd-economy.avif)
-
+![](/docs/images/musd/musd-economy.avif)
 
 ## Interest Fees (1–5% APR)
 
