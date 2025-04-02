@@ -20,7 +20,7 @@ Mezo solves these fundamental challenges by providing users with fixed-rate Bitc
 
 By building a Bitcoin-native capital infrastructure with transparent pricing and no middlemen, Mezo enables users to access the value of their Bitcoin for real-world use cases without compromising on the security principles that make Bitcoin valuable.
 
-Mezo's core features include mUSD; a stablecoin backed entirely by Bitcoin reserves. Mezo's environment offers secure core financial tools and permissionless innovation space to be built on top of mUSD to support a growing Bitcoin-based economy. Mezo is built on tBTC's infrastructure and emphasizes user ownership and trust minimization. The native incentive system, Tigris, rewards long-term participants in the ecosystem.
+Mezo's core features include MUSD; a stablecoin backed entirely by Bitcoin reserves. Mezo's environment offers secure core financial tools and permissionless innovation space to be built on top of MUSD to support a growing Bitcoin-based economy. Mezo is built on tBTC's infrastructure and emphasizes user ownership and trust minimization. The native incentive system, Tigris, rewards long-term participants in the ecosystem.
 
 ## Get Started
 

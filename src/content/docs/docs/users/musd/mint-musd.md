@@ -1,12 +1,12 @@
 ---
-title: Borrow and Mint mUSD
+title: Borrow and Mint MUSD
 ---
 
-mUSD (Mezo USD) is available on Mezo matsnet. You can use your testnet BTC to Borrow and Mint mUSD for testing and development.
+MUSD (Mezo USD) is available on Mezo matsnet. You can use your testnet BTC to Borrow and Mint MUSD for testing and development.
 
 ## Before you begin
 
-Before you can get testnet mUSD, you must complete the following steps:
+Before you can get testnet MUSD, you must complete the following steps:
 
 - Go to [mezo.org](https://mezo.org/) and click **Log in** to connect to your Mezo account.
 - Connect an Ethereum wallet to Mezo matsnet. See the [Connect to Mezo matsnet](/docs/users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet#connect-your-browser-wallet) guide for instructions.
@@ -14,15 +14,15 @@ Before you can get testnet mUSD, you must complete the following steps:
 
 ## Borrow and mint
 
-After you are logged into [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow mUSD.
+After you are logged into [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow MUSD.
 
 1. In your browser, open [mezo.org/matsnet/borrow](https://mezo.org/matsnet/borrow).
 
 1. Click the **Let's Go** button to start the borrow process. 
 
-1. Specify the amount of mUSD you want to borrow and the amount of BTC you want to use as collateral.
+1. Specify the amount of MUSD you want to borrow and the amount of BTC you want to use as collateral.
 
-    ![A screenshot showing an example borrow amount of 2000 mUSD with 0.0005 BTC as collateral](/docs/images/musd/musd-borrow-amounts.avif)
+    ![A screenshot showing an example borrow amount of 2000 MUSD with 0.0005 BTC as collateral](/docs/images/musd/musd-borrow-amounts.avif)
 
 1. Click **Review** to open the summary before you confirm.
 

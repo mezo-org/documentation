@@ -43,21 +43,21 @@ This documentation provides details about the MUSD architecture, how it fits int
 
 ## How MUSD works
 
-mUSD uses a collateralized debt position model. This is similar to Sky’s model with USDS (formerly known as MakerDAO and DAI).
+MUSD uses a collateralized debt position model. This is similar to Sky’s model with USDS (formerly known as MakerDAO and DAI).
 
 In Mezo, this means that:
 
-* Every outstanding mUSD is redeemable for an underlying $1 in BTC
-* $1 in BTC collateral can be used to mint 1 mUSD
+* Every outstanding MUSD is redeemable for an underlying $1 in BTC
+* $1 in BTC collateral can be used to mint 1 MUSD
 
-The mint-and-redeem model helps maintain the $1 peg in volatile environments. For example, mUSD may trade on the market at a premium or discount to its $1 stable value. Below are the scenarios for how the peg can be re-established.
+The mint-and-redeem model helps maintain the $1 peg in volatile environments. For example, MUSD may trade on the market at a premium or discount to its $1 stable value. Below are the scenarios for how the peg can be re-established.
 
-* If mUSD is trading at a discount ($.95), arbitragers can buy mUSD on the market and redeem it for $1 in underlying BTC. Users with a loan position can do this for no additional cost, while those without a loan position must pay a 0.5% redemption fee. This scenario remains profitable until mUSD regains its stable peg of $1.
-* If mUSD is trading at a premium ($1.05), arbitragers can mint mUSD by supplying BTC to the protocol and sell the minted mUSD on the market for a profit (selling into another dollar-equivalent stablecoin like USDT or USDC). This scenario remains profitable until mUSD regains its stable peg of $1.
+* If MUSD is trading at a discount ($.95), arbitragers can buy MUSD on the market and redeem it for $1 in underlying BTC. Users with a loan position can do this for no additional cost, while those without a loan position must pay a 0.5% redemption fee. This scenario remains profitable until MUSD regains its stable peg of $1.
+* If MUSD is trading at a premium ($1.05), arbitragers can mint MUSD by supplying BTC to the protocol and sell the minted MUSD on the market for a profit (selling into another dollar-equivalent stablecoin like USDT or USDC). This scenario remains profitable until MUSD regains its stable peg of $1.
 
 ![](/docs/images/musd/musd-redemption-and-peg-process.avif)
 
-To ensure the peg is maintained during market volatility, sufficient BTC collateral must always back the outstanding mUSD. Outstanding loan positions must maintain a collateral ratio of above 110%, and the system has built-in liquidation mechanisms and stability pools to enforce this. These risk mitigations ensure that even with high LTVs, the system remains secure and resilient against market volatility.
+To ensure the peg is maintained during market volatility, sufficient BTC collateral must always back the outstanding MUSD. Outstanding loan positions must maintain a collateral ratio of above 110%, and the system has built-in liquidation mechanisms and stability pools to enforce this. These risk mitigations ensure that even with high LTVs, the system remains secure and resilient against market volatility.
 
 Details on liquidations and risks can be read in further detail in [Risks and Mitigations](/docs/users/musd/risks).
 
@@ -65,27 +65,27 @@ Details on liquidations and risks can be read in further detail in [Risks and Mi
 
 **Supply-Sided Market**
 
-The mint and redeem model that mUSD uses benefits the system as a whole by creating liquidity from the supply side rather than relying on pre-existing dollar pools. Instead of needing a fixed reservoir of dollars like traditional lending protocols (for instance, Aave), mUSD is minted directly from Bitcoin collateral. This approach means that as more users deposit Bitcoin to mint mUSD, liquidity grows organically in line with demand. 
+The mint and redeem model that MUSD uses benefits the system as a whole by creating liquidity from the supply side rather than relying on pre-existing dollar pools. Instead of needing a fixed reservoir of dollars like traditional lending protocols (for instance, Aave), MUSD is minted directly from Bitcoin collateral. This approach means that as more users deposit Bitcoin to mint MUSD, liquidity grows organically in line with demand. 
 
 The system isn’t constrained by traditional dollar liquidity—it self-generates its supply, ensuring that liquidity is always available for new depositors of BTC collateral.
 
 **Low Borrowing Rates**
 
-Because mUSD is created through the minting of “new money” backed by Bitcoin collateral, borrowers benefit from exceptionally low interest rates. The process sidesteps the need for competitive borrowing from pre-existing dollar pools, which often drives up costs due to market pressures. Instead, the fixed, low rates (as low as 1%) stem from the efficient, collateralized minting mechanism of mUSD. 
+Because MUSD is created through the minting of “new money” backed by Bitcoin collateral, borrowers benefit from exceptionally low interest rates. The process sidesteps the need for competitive borrowing from pre-existing dollar pools, which often drives up costs due to market pressures. Instead, the fixed, low rates (as low as 1%) stem from the efficient, collateralized minting mechanism of MUSD. 
 
-With mUSD, users can unlock the value of their Bitcoin at a lower cost, making mUSD an attractive alternative to conventional lending markets where rates can be highly variable and significantly higher.
+With MUSD, users can unlock the value of their Bitcoin at a lower cost, making MUSD an attractive alternative to conventional lending markets where rates can be highly variable and significantly higher.
 
 **Extremely High LTV**
 
-One of the standout features of mUSD is its ability to support extremely high loan-to-value (LTV) ratios. With a minimum collateralization requirement of 110%, borrowers can potentially access up to 90% of the value of their Bitcoin holdings. This high LTV is crucial for Bitcoin holders because it allows them to maximize the liquidity they can unlock from their assets without having to sell them. 
+One of the standout features of MUSD is its ability to support extremely high loan-to-value (LTV) ratios. With a minimum collateralization requirement of 110%, borrowers can potentially access up to 90% of the value of their Bitcoin holdings. This high LTV is crucial for Bitcoin holders because it allows them to maximize the liquidity they can unlock from their assets without having to sell them. 
 
-In other words, mUSD enables users to tap into the economic value of their Bitcoin more efficiently than many other lending platforms, where lower LTV ratios limit the amount of capital that can be borrowed against an asset.
+In other words, MUSD enables users to tap into the economic value of their Bitcoin more efficiently than many other lending platforms, where lower LTV ratios limit the amount of capital that can be borrowed against an asset.
 
 ## MUSD comparison to existing stablecoins
 
 The stablecoin market is broad, ranging from fiat-backed stables (USDT and USDC) to synthetic stables (USDe) to other algorithmic CDPs (Liquity, Sky). While the growth of these stablecoins has been remarkable over the past few years, there is still a gap in the market for Bitcoiners.
 
-mUSD aims to address these risks with its pure Bitcoin backing.
+MUSD aims to address these risks with its pure Bitcoin backing.
 
 ![](/docs/images/musd/built-different.avif)
 
