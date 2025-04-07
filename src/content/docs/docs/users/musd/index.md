@@ -31,9 +31,9 @@ Today, there is no simple way to spend against Bitcoin equity. People want to st
 * Users must give up control of their BTC to a centralized custodian. BlockFi and Celsius are recent examples of where this reliance on a centralized entity can be extremely risky.
 * Borrow rates are high and unpredictable. Borrowing USDT or USDC against a BTC-equivalent on Aave costs [5-9% per year](https://app.aave.com/markets/?ref=blog.mezo.org). That rate is variable, typically range-bound at what you could earn on T-bills (~4%), and as high as 20% in peak bull markets. Unpredictable borrowing costs lead to impossible planning for future business and life expenses.
 
-### The MUSD solution:
+### MUSD solutions
 
-Mezo solves these issues with MUSD and Borrow:
+On Mezo, MUSD and Borrow provide solutions to several lending market challenges:
 
 * Permissionless access to a credit against up to 90% of your BTC holdings. Keep your BTC, tap into your Bitcoin equity, and pay your loan back whenever.
 * Loans are created onchain and [publicly verifiable 24/7](https://explorer.test.mezo.org/address/0x637e22A1EBbca50EA2d34027c238317fD10003eB?tab=txs&ref=blog.mezo.org). Close your position whenever you want to receive your underlying Bitcoin collateral.
@@ -43,9 +43,7 @@ This documentation provides details about the MUSD architecture, how it fits int
 
 ## How MUSD works
 
-MUSD uses a collateralized debt position model. This is similar to Sky’s model with USDS (formerly known as MakerDAO and DAI).
-
-In Mezo, this means that:
+MUSD uses a CDP (collateralized debt position) model.
 
 * Every outstanding MUSD is redeemable for an underlying $1 in BTC
 * $1 in BTC collateral can be used to mint 1 MUSD
@@ -78,8 +76,6 @@ With MUSD, users can unlock the value of their Bitcoin at a lower cost, making M
 **Extremely High LTV**
 
 One of the standout features of MUSD is its ability to support extremely high loan-to-value (LTV) ratios. With a minimum collateralization requirement of 110%, borrowers can potentially access up to 90% of the value of their Bitcoin holdings. This high LTV is crucial for Bitcoin holders because it allows them to maximize the liquidity they can unlock from their assets without having to sell them. 
-
-In other words, MUSD enables users to tap into the economic value of their Bitcoin more efficiently than many other lending platforms, where lower LTV ratios limit the amount of capital that can be borrowed against an asset.
 
 ## MUSD comparison to existing stablecoins
 
