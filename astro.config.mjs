@@ -72,8 +72,8 @@ export default defineConfig({
 							    items: [
 									'docs/users/musd',
 									'docs/users/musd/mint-musd',
-									'docs/users/musd/fees',
 									'docs/users/musd/concepts-and-terminology',
+									'docs/users/musd/fees',
 									'docs/users/musd/risks',
 								]
 							},
