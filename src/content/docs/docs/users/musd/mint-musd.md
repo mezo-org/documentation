@@ -44,6 +44,4 @@ Mezo offers a fixed, low-interest rate for mUSD loans. Initial rates range from 
 
 While there’s no fixed repayment schedule, you still need to watch for liquidation risks if the value of your collateral (BTC) falls.
 
-Interest Accumulation
-
 Interest accrues on the borrowed amount (the minted mUSD), so be mindful of how your debt grows over time. When you’re ready to close your position, you’ll need enough mUSD to cover your principal plus any accrued interest or fees.
