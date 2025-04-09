@@ -6,7 +6,11 @@ hero:
   image:
     file: ../../../assets/Mezo-Mark-Red.svg
   actions:
-    - text: Get Started
+    - text: User Documentation
       link: /docs/users/
+      icon: right-arrow
+      variant: secondary
+    - text: Developer Documentation
+      link: /docs/developers/
       icon: right-arrow
 ---
