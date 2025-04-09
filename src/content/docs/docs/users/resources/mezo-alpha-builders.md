@@ -1,84 +1,52 @@
 ---
-title: Mezo Alpha Builders
+title: Mezo Alpha Builder Program
 ---
 
-Mezo empowers developers to build, grow, and redefine what’s possible with Bitcoin. Joining Mezo matsnet as an Alpha builder not only allows you to co-create the Mezo infrastructure and incentive programs but also positions your product at the forefront of the Mezo ecosystem.
+## Overview
 
-Alpha builders can grow their applications in tandem with Mezo, helping to shape the ecosystem and benefiting from being early adopters.
+Bitcoin is missing a native ecosystem with financial tools that let users borrow, spend, and earn without selling their coins. Mezo solves this by building a Bitcoin native capital infrastructure: no middlemen, no variable rates, and no selling your BTC. Mezo empowers builders to build, grow, and redefine what’s possible with Bitcoin
 
-### Complete the onboarding form to apply
+Join the Alpha Builder Program to co-create Mezo’s infrastructure and experience while integrating MUSD into products to enrich user bases, generate new daily financial use cases, and access comprehensive support provided by Mezo
 
-To join, apply now via the onboarding questionnaire and join as an Alpha builder. This is your chance to shape Mezo’s ecosystem from the ground up and access exclusive benefits.
+Apply by [completing the questionnaire](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6). 
 
-> [SocialFi Application Form](https://2d0lnha7ee6.typeform.com/Mezo-SocialFi?typeform-source=app.gitbook.com)
+## Focus Area
 
-> [BitcoinFi Application Form](https://2d0lnha7ee6.typeform.com/Mezo-BitcoinFi?typeform-source=app.gitbook.com)
+We are seeking innovative BitcoinFi dApps—whether DeFi, SocialFi, or something else entirely—that enhance the usability of MUSD and enable everyday financial transactions on Bitcoin. Mainnet brings Mezo’s architectural philosophy to life through two complementary environments: the [Cathedral and Bazaar](https://blog.mezo.org/the-cathedral-and-the-bazaar/), creating a unified onchain experience that serves both experienced users and newcomers:
 
-### What we are looking for?
+- **The Cathedral:** A secure, reliable DeFi ecosystem offering recognizable and easy-to-use financial tools. The Cathedral houses Mezo’s core infrastructure—seamlessly integrated swap, lend, borrow, bridge, and stake functionalities designed specifically for Bitcoin. This eliminates the friction of scattered or duplicated DeFi apps by consolidating essential functions under one Bitcoin-centric architecture.
+- **The Bazaar:** Beyond core lending and borrowing, the Mezo community can develop SocialFi, GameFi, and experimental dApps. All hosted on Mezo and backed by Bitcoin. This permissionless playground empowers builders to innovate freely while leveraging Mezo’s native infrastructure, fostering a diverse ecosystem that encourages new use cases for Bitcoin.
 
-The program seeks fully functional live dApps that have the following:
+## Resources
 
-* Have onchain activity (transacting users)
-* Can deploy on Mezo (EVM compatible) and integrate Mezo Passport wallet at the program onset
-* Established community
-* Audit required for mainnet deployment
+Learn more at the following resources:
 
-### What focus area?
+- [The Mezo roadmap](https://blog.mezo.org/mezo-the-2025-roadmap/)
+- [Mezo Blog post about MUSD](https://blog.mezo.org/musd-fixes-bitcoin/)
 
-The program prioritizes innovative builders in two primary sectors of applications:
+## Program Criteria
 
-* BitcoinFi dApps that enhance Bitcoin’s economic productivity to support efficient development and adoption. Oracle, Wallet, Indexer, Lending, CEX, Fiat Ramps, Bridge, Derivates / Perps, Restaking, RWAs, Aggregators, Stablecoins
-* SocialFi dApps that increase Bitcoin’s utility and adoption by creating engaging, social, and innovative experiences. Games, Prediction Markets, Token Factories, NFT Marketplaces, DeSo, Creator Economy, TG mini-games, AI coordination, AI Agents
+The program seeks dApps that meet the following criteria:
 
-### What You’ll Gain as an Early Mezo Partner
+- Proucts that integrate MUSD, establishing it as a practical medium of exchange across various use cases
+- EVM-compatible and seamlessly integrated with the Mezo ecosystem, including MUSD support and integration with Mezo Passport (Mezo’s account abstraction toolkit)
+- A clear, milestone-based roadmap spanning at least six months
+- Ideally demonstrating on-chain activity with an active transacting user base
+- Recently audited or are audit-ready for mainnet deployment
+- Driven by a committed team with a track record of building and scaling
 
-#### Priority Access on Grants & Early Financial Support Access
+## What You’ll Gain as a Mezo Alpha Builder
 
-* Input on and Access to Grant Programs: Provide early feedback on the structure, distribution, and priorities of Mezo’s grant programs to align with real developer needs.
-* First Access to Funding Initiatives: Secure priority review and early entry into grants programs as they launch
+Based on your product stage and potential, you'll receive tailored support in the following areas
 
-#### Enhanced Growth and Distribution Opportunities
+- **Priority Access to Grants & Funding:** Early access to milestone-based grant programs and funding opportunities (e.g., audit support)
+- **Enhanced Growth & Distribution:** Benefit from co-marketing initiatives, including launch promotions, user acquisition incentives, spotlight features, participation in community sessions to connect directly with users, and more
+- **Dedicated Integration Support:** Get priority onboarding, hands-on troubleshooting, and access to developer toolkits and open-source libraries
+- **Exposure to the Thesis Ecosystem:** Connect with leading projects, like-minded builders, industry leaders, and investors. Leverage Thesis’ decade-long Bitcoin expertise and network, including initiatives like tBTC, Acre, Fold, Taho and Defense
+- **Priority Access to the BitcoinFi Accelerator:** Receive a direct invitation to batch interviews for the BitcoinFi Accelerator, led by Boost VC, Draper Associates, and Thesis. This program includes a $150K upfront investment and a 6-week program focused on go-to-market, fundraising, and more, complete with structured mentorship
 
-Mezo offers a range of tailored resources to help you build, launch, and promote your dApp, including:
+## The Process
 
-* **Co-Marketing & Exposure:** Highlight your project across Mezo’s social channels, website, newsletters, and community events to expand your reach.
-* **Launch Promotion & Spotlight Features:** Receive spotlight placements on Mezo’s platform as a “Featured Project,” boosting visibility and credibility.
-* **Alpha Directory Listing:** Be included in an official “Mezo Preferred Partners” directory, making it easy for users and potential collaborators to find and connect with you.
-
-#### Priority Technical Support & Developer Resources
-
-Accelerate your project’s development with specialized technical support and developer resources, including:
-
-* **Dedicated  Assistance:** Access priority onboarding and troubleshooting support from Mezo’s core team to quickly resolve technical challenges.
-* **Developer Toolkits & Open-Source Libraries:** Early access and contribute to our developer toolkits for building seamless experiences on Mezo.
-
-#### Strategic Support for Community Growth & Engagement
-
-By joining Mezo Alpha Builders, you’ll gain valuable exposure and experience in your building process.
-
-* **Growth Support:** Access expert guidance and best practices for building, scaling, and nurturing your community effectively.
-* **Experimentation and Reach:** Seamlessly integrate with Drip to plug in with Mezo’s community-based Discord economy, amplifying your project’s reach and user engagement.
-* **User Feedback**: Kickstart your dApp’s growth with an initial group of active users, ensuring rapid traction, early adoption, and sustainable community momentum.
-* **Raise Awareness:** Participate in “AMA” sessions with the Mezo community to introduce your project, engage with users, and showcase your vision.
-
-#### Exposure to Thesis Ecosystem
-
-You’ll gain exposure to Thesis’ extensive network. Mezo offers numerous ways to connect with other developers, industry mentors, investors, and key ecosystem stakeholders, including:
-
-* **tBTC:** A decentralized and permissionless 1:1 tokenized Bitcoin deployed across 7 chains with $500M+ in TVL and integrations with major DeFi protocols like Aave, Curve, and GMX.
-* **Acre:** The universal Bitcoin rewards network, simplifying Bitcoin rewards.
-* **Fold:** Bitcoin rewards platform offering a debit card and app for earning Bitcoin rewards on everyday spending.
-* **Taho:** The first and only Web3 wallet that is fully open-source and community-owned, designed to safeguard assets and rights.
-* **BitcoinFi Accelerator:** Participate in an exclusive 6-week builder program supporting innovative Bitcoin applications, run by Boost VC, Draper Associates, and Thesis.
-* **VC Network:** Gain exposure to investors from top firms like Paradigm, Polychain, Draper, Nascent, A16z, ParaFi, Pantera, Multicoin, and Hack VC.
-
-### Apply Today
-
-To join, apply now via the onboarding questionnaire and join as an Alpha builder. This is your chance to shape Mezo’s ecosystem from the ground up and access exclusive benefits.
-
-> [SocialFi Application Form](https://2d0lnha7ee6.typeform.com/Mezo-SocialFi?typeform-source=app.gitbook.com)
-
-> [BitcoinFi Application Form](https://2d0lnha7ee6.typeform.com/Mezo-BitcoinFi?typeform-source=app.gitbook.com)
-
-
-
+- [Apply to join as an Alpha Builder](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6) and the team will review your submission. If your application aligns with key criteria, the team will reach out within two weeks to schedule a call. This conversation will help us better understand your team and product
+- After the call, you’ll be notified about your selection and whether you'll receive tailored support as part of the program
+- Regardless of program participation, Mezo is a permissionless ecosystem [Join the Discord](https://discord.mezo.org/?ref=blog.mezo.org) for community support beyond the official Mezo documentation.
