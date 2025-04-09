@@ -1,12 +1,14 @@
 ---
-title: Borrow and Mint mUSD
+title: Borrow and Mint MUSD
 ---
 
-mUSD (Mezo USD) is available on Mezo matsnet. You can use your testnet BTC to Borrow and Mint mUSD for testing and development.
+MUSD (Mezo USD) is available on Mezo matsnet. You can use your testnet BTC to Borrow and Mint MUSD for testing and development.
+
+![A screenshot of the loan status screen](/docs/images/musd/borrow-flow-animation.webp)
 
 ## Before you begin
 
-Before you can get testnet mUSD, you must complete the following steps:
+Before you can get testnet MUSD, you must complete the following steps:
 
 - Go to [mezo.org](https://mezo.org/) and click **Log in** to connect to your Mezo account.
 - Connect an Ethereum wallet to Mezo matsnet. See the [Connect to Mezo matsnet](/docs/users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet#connect-your-browser-wallet) guide for instructions.
@@ -14,15 +16,15 @@ Before you can get testnet mUSD, you must complete the following steps:
 
 ## Borrow and mint
 
-After you are logged into [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow mUSD.
+After you are logged into [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow MUSD.
 
 1. In your browser, open [mezo.org/matsnet/borrow](https://mezo.org/matsnet/borrow).
 
 1. Click the **Let's Go** button to start the borrow process. 
 
-1. Specify the amount of mUSD you want to borrow and the amount of BTC you want to use as collateral.
+1. Specify the amount of MUSD you want to borrow and the amount of BTC you want to use as collateral.
 
-    ![A screenshot showing an example borrow amount of 2000 mUSD with 0.0005 BTC as collateral](/docs/images/musd/musd-borrow-amounts.avif)
+    ![A screenshot showing an example borrow amount of 2000 MUSD with 0.0005 BTC as collateral](/docs/images/musd/musd-borrow-amounts.avif)
 
 1. Click **Review** to open the summary before you confirm.
 
@@ -35,3 +37,11 @@ After you are logged into [mezo.org](https://mezo.org/) on an account with testn
 After the process is complete, you can check the loan status on [mezo.org/matsnet/borrow](https://mezo.org/matsnet/borrow).
 
 ![A screenshot of the loan status screen](/docs/images/musd/musd-loan-status.avif)
+
+## Understand the borrowing terms
+
+Mezo offers a fixed, low-interest rate for MUSD loans. Initial rates range from 1-5%. There is no forced repayment date on Mezo, so you can keep your position open as long as you want, provided your collateral remains sufficient.
+
+While there’s no fixed repayment schedule, you still need to watch for liquidation risks if the value of your collateral (BTC) falls.
+
+Interest accrues on the borrowed amount (the minted MUSD), so be mindful of how your debt grows over time. When you’re ready to close your position, you’ll need enough MUSD to cover your principal plus any accrued interest or fees.

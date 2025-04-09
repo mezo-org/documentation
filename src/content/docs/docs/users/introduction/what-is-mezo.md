@@ -8,7 +8,7 @@ Mezo is a Bitcoin-centric platform purpose-built to make Bitcoin productive in d
 
 Mezo's architecture is built on a dual-environment model known as the Cathedral and the Bazaar:
 
-The Cathedral is Mezo's core infrastructure—a secure, reliable BitcoinFi ecosystem offering essential financial tools designed specifically for Bitcoin. This includes mUSD (Mezo's 100% Bitcoin-backed stablecoin), lending protocols, swaps, bridges, and staking capabilities. The Cathedral is deliberately developed to ensure bulletproof systems that don't compromise on security, reliability, or decentralization. Built on tBTC, the most decentralized Bitcoin bridge, the Cathedral provides a transparent, fully verifiable financial environment where users maintain complete control of their assets.
+The Cathedral is Mezo's core infrastructure—a secure, reliable BitcoinFi ecosystem offering essential financial tools designed specifically for Bitcoin. This includes MUSD (Mezo's 100% Bitcoin-backed stablecoin), lending protocols, swaps, bridges, and staking capabilities. The Cathedral is deliberately developed to ensure bulletproof systems that don't compromise on security, reliability, or decentralization. Built on tBTC, the most decentralized Bitcoin bridge, the Cathedral provides a transparent, fully verifiable financial environment where users maintain complete control of their assets.
 
 The Bazaar is the community-driven application layer built on top of the Cathedral's secure foundation. Here, developers can create SocialFi, GameFi, and experimental applications that leverage Mezo's infrastructure. The Bazaar ships fast, iterates quickly, and relies on community input to push the boundaries of what's possible with Bitcoin. This permissionless playground fosters innovation while benefiting from the security of the underlying Cathedral architecture.
 
@@ -16,7 +16,7 @@ Together, these environments solve key issues in Bitcoin: complex user experienc
 
 ## Mezo design features
 
-- **mUSD and Borrow:** Tap into your Bitcoin equity at competitive, fixed rates. Borrowers create mUSD by opening a Collateralized Debt Position (CDP), posting BTC as collateral to mint mUSD, a dollar-pegged stablecoin usable for spending, trading, lending, and borrowing. 
+- **MUSD and Borrow:** Tap into your Bitcoin equity at competitive, fixed rates. Borrowers create MUSD by opening a Collateralized Debt Position (CDP), posting BTC as collateral to mint MUSD, a dollar-pegged stablecoin usable for spending, trading, lending, and borrowing. 
 - **BTC for Gas:** Mezo Network uses BTC as its native gas token. This maintains a pure Bitcoin experience and advances Bitcoin as a cultural payment currency while providing a stream of fee revenue paid in BTC.
 - **tBTC Integration & Multi-Chain Support:** Mezo is built on tBTC, the largest decentralized Bitcoin bridge in production. By robustly tokenizing Bitcoin, holders can utilize their Bitcoin across EVM chains in a secure and reliable manner. Reserves are verifiable 24/7 at [tbtc.scan](http://tbtc.scan).
 - **Dual Staking Model:** Combines rewards and validation to incentivize network participation and security.
