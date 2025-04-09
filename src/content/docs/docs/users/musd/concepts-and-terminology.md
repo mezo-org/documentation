@@ -13,7 +13,12 @@ The MUSD system consists of four main contract groups:
 
 MUSD positions can be tracked onchain, and the underlying Bitcoin collateral is securely managed using tBTC’s robust, decentralized custody infrastructure.
 
-You can see all BTC backing MUSD in real time on the [Mezo block explorer](https://explorer.test.mezo.org/address/0x637e22A1EBbca50EA2d34027c238317fD10003eB).
+You can see all BTC backing MUSD in real time on the Mezo block explorer:
+
+- [ActivePool](https://explorer.test.mezo.org/address/0xB1dc6A437A2B96Ac3Ae61db110fE5be43DeB09AD)
+- [DefaultPool](https://explorer.test.mezo.org/address/0xAC10Cd8486F92fa55d9549203fb7Fdf6afdc5A77)
+- [ColSurplusPool](https://explorer.test.mezo.org/address/0xE3Cb626cCf5270D665D18E91D2d29D6Cb8B1b275)
+- [GasPool](https://explorer.test.mezo.org/address/0x0C9fc70bc9C88692A829912c967Fd352c56DFb3F)
 
 tBTC, which is built by the same team behind Mezo, [Thesis*](https://thesis.co/?ref=blog.mezo.org), is powered by the [Threshold Network](https://threshold.network/?ref=blog.mezo.org). Threshold is a decentralized signer set that has operated the Threshold Bitcoin bridge since early 2020 and successfully bridged over 18k Bitcoin. Proof of reserves for tBTC have been live for the entire life of the bridge and are viewable are [tbtcscan](https://tbtcscan.com/wallets?ref=blog.mezo.org).
 
@@ -34,7 +39,7 @@ Liquidated positions are either paid for by the StabilityPool, in which case the
 
 * Global Interest Rate: A single global interest rate applies to all newly opened troves.
 * Maintaining Interest Rates: Once a trove is opened, it retains the interest rate at which it was created, even if the global rate changes. The interest rate on a trove can only be updated by the user through the refinance function.
-* Refinance Function: The refinance function allows users to adjust their trove’s debt to the new global interest rate. This process incurs a refinancing fee, which is a configurable percentage of the issuance fee. Refinancing offers users the advantage of avoiding collateral movement while incurring lower fees compared to closing and reopening a trove at the updated rate.
+* Refinance Function: The refinance function allows users to adjust their trove’s debt to the new global interest rate. This process incurs a refinancing fee, which is a configurable percentage of the issuance fee. Refinancing offers users the advantage of avoiding collateral movement while incurring lower fees compared to closing and reopening a trove at the updated rate. You can also refinance to extend your line of credit if BTC has appreciated in value.
 * Simple Interest: Interest is calculated using a simple interest model rather than a compounding one.
 * Interest Payments: Interest payments are directed to the PCV (Protocol Controlled Value). The allocation of these payments is governed and can be split between an arbitrary recipient and repayment of the bootstrap loan.
 
@@ -48,9 +53,9 @@ Liquidated positions are either paid for by the StabilityPool, in which case the
 The Protocol Controlled Value (PCV) contract is a key component of the system, responsible for managing fees collected from borrowing and refinancing. Below is an overview of how the PCV operates:
 
 * Fee Collection: Borrowing fees and refinancing fees are directed to the PCV contract.
-* Fee Allocation: Fees collected by the PCV are allocated to two purposes: paying down the bootstrap loan and sending funds to the gauge system.
+* Fee Allocation: Fees collected by the PCV are allocated to paying down the bootstrap loan or sending funds to the gauge system.
 * Governable Split: The allocation of fees between paying down the debt and the gauge system is governable. However, until the bootstrap loan is fully repaid, no more than 50% of the fees can be sent to the gauge system.
-* Post-Debt Repayment: Once the bootstrap loan is fully repaid, 100% of the fees collected by the PCV are automatically sent to the gauge system.
+* Post-Debt Repayment: Once the bootstrap loan is fully repaid, fees accrue as Protocol-Owned Liquidity in the StabilityPool.
 
 ## Definitions
 
@@ -60,7 +65,7 @@ Trove: a collateralized debt position, bound to a single Ethereum address. Also 
 
 - **Active principal:** the amount of MUSD debt recorded on a Trove’s struct, not including any interest
 
-- **Active interest:**:** the amount of MUSD interest recorded on a Trove’s struct
+- **Active interest:** the amount of MUSD interest recorded on a Trove’s struct
 
 - **Active debt:** the amount of MUSD debt recorded on a Trove’s struct (active principal plus active interest)
 
@@ -84,8 +89,8 @@ Trove: a collateralized debt position, bound to a single Ethereum address. Also 
 
 - **Liquidation:** the act of force-closing an undercollateralized Trove and redistributing its collateral and debt. When the Stability Pool is sufficiently large, the liquidated debt is offset with the Stability Pool, and the collateral distributed to depositors. If the liquidated debt can not be offset with the Pool, the system redistributes the liquidated collateral and debt directly to the active Troves with >110% collateralization ratio. Liquidation functionality is permissionless and publically available - anyone may liquidate an undercollateralized Trove, or batch liquidate Troves in ascending order of collateralization ratio.
 
-- **Collateral Surplus:** The difference between the dollar value of a Troves’s collateral, and the dollar value of its MUSD debt. In a full liquidation, this is the net gain earned by the recipients of the liquidation.
+- **Collateral Surplus:** The collateral surplus is the borrowers' excess collateral that they can reclaim in the event that they have been fully redeemed against.
 
-- **Offset:** cancellation of liquidated debt with MUSD in the Stability Pool, and assignment of liquidated collateral to Stability Pool depositors, in proportion to their deposit.
+- **Offset:** Cancellation of liquidated debt with MUSD in the Stability Pool, and assignment of liquidated collateral to Stability Pool depositors, in proportion to their deposit.
 
-- **Gas compensation:** A refund, in MUSD and collateral, automatically paid to the caller of a liquidation function, intended to at least cover the gas cost of the transaction. Designed to ensure that liquidators are not dissuaded by potentially high gas costs.
+- **Gas compensation:** A refund in MUSD and collateral that automatically paid to the caller of a liquidation function, intended ensure liquidations are profitable during market stress. The $200 MUSD was set based on Ethereum gas prices and block times. Designed to ensure that liquidators are not dissuaded by potentially high gas costs.
