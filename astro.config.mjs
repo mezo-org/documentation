@@ -27,7 +27,8 @@ export default defineConfig({
 			pagination: true,
 			social: {
 				github: 'https://github.com/mezo-org',
-				discord: 'https://discord.mezo.org'
+				discord: 'https://discord.mezo.org',
+				twitter: 'https://x.com/MezoNetwork'
 			},
 			plugins: [
 				starlightSidebarTopics([
@@ -48,29 +49,25 @@ export default defineConfig({
 								label: 'Getting Started',
 								collapsed: true,
 							    items: [
-									{   
-										label: 'Mezo Portal',
-										items: [
-											{ label: 'Overview', link: 'docs/users/getting-started/mezo-portal'},
-											'docs/users/getting-started/mezo-portal/creating-an-account',
-											'docs/users/getting-started/mezo-portal/supported-wallets'
-										]
-									},
-									{   
-										label: 'Mezo matsnet Alpha',
-										items: [
-											{ label: 'Overview', link: 'docs/users/getting-started/mezo-matsnet-alpha-testnet'},
-											'docs/users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet',
-											'docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc',
-										]
-									},
+									'docs/users/getting-started/creating-an-account',
+									'docs/users/getting-started/connect',
+									'docs/users/getting-started/bridging-assets',
 								]
 							},
 							{   
 								label: 'Mezo Mainnet',
 								collapsed: true,
 							    items: [
-									'docs/users/mainnet'
+									'docs/users/mainnet',
+									'docs/users/mainnet/bridges'
+								]
+							},
+							{   
+								label: 'Mezo matsnet (Testnet)',
+								collapsed: true,
+							    items: [
+									{ label: 'Overview', link: 'docs/users/matsnet'},
+									'docs/users/matsnet/stack-matsnet-btc',
 								]
 							},
 							{   
@@ -134,7 +131,6 @@ export default defineConfig({
 								label: 'Resources',
 								collapsed: true,
 							    items: [
-									'docs/users/resources/mezo-community',
 									'docs/users/resources/integrations-and-partners',
 									'docs/users/resources/mezo-alpha-builders',
 									'docs/users/resources/release-notes',
@@ -157,26 +153,33 @@ export default defineConfig({
 								items: [
 									'docs/developers/getting-started',
 									'docs/developers/getting-started/configure-environment',
-									'docs/developers/getting-started/configure-passport'
+									'docs/developers/getting-started/configure-passport',
+									'docs/developers/getting-started/testnet-dapp'
 								]
 							},
 							{   
-								label: 'Infrastructure',
+								label: 'Architecture',
 								items: [
+									'docs/developers/architecture',
 									{   
-										label: 'Oracles',
+										label: 'Skip Oracle',
 										items: [
-											{ label: 'Overview', link: 'docs/developers/infrastructure/oracles'},
-											'docs/developers/infrastructure/oracles/read-oracle'
+											{ label: 'Overview', link: 'docs/developers/architecture/oracles'},
+											'docs/developers/architecture/oracles/read-oracle'
 										]
 									},
+								]
+							},
+							{   
+								label: 'Validators',
+								items: [
+									'docs/developers/validators'
 								]
 							},
 							{   
 								label: 'Resources',
 								collapsed: true,
 							    items: [
-									'docs/users/resources/mezo-community',
 									'docs/users/resources/integrations-and-partners',
 									'docs/users/resources/mezo-alpha-builders',
 									'docs/users/resources/release-notes',
@@ -270,7 +273,7 @@ export default defineConfig({
 		},
 		'/docs/users/official-links/mezo-community': {
 			status: 302,
-			destination: '/docs/users/resources/mezo-community'
+			destination: '/docs/users/'
 		},
 		'/docs/users/musd/architecture': {
 			status: 302,
@@ -279,6 +282,10 @@ export default defineConfig({
 		'/docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts': {
 			status: 302,
 			destination: '/docs/users/getting-started/'
+		},
+		'/docs/users/resources/mezo-community': {
+			status: 302,
+			destination: '/docs/users/'
 		},
 	  }
 });

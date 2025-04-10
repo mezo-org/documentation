@@ -8,15 +8,28 @@ To get started developing on Mezo:
 
 1. [Configure your development environment](/docs/developers/getting-started/configure-environment) to enable standard EVM development.
 1. [Install and configure Mezo Passport](/docs/developers/getting-started/configure-passport) in your applications.
+1. [Deploy a testnet dApp](/docs/developers/getting-started/testnet-dapp).
 
-## Mezo matsnet (testnet) details
+## Mezo Mainnet
 
-- Public JSON RPC Endpoint:
-  - HTTPS: `https://rpc.test.mezo.org`
-  - WSS: `wss://rpc-ws.test.mezo.org`
-- Chain ID: `31611` (`0x7b7b`)
-- Native Currency:
-  - Name: Bitcoin
-  - Symbol: `BTC`
-  - Decimals: `18`
-- Block explorer: [https://explorer.test.mezo.org/](https://explorer.test.mezo.org/)
+* Public JSON RPC Endpoint:
+  * HTTPS: `https://rpc.mezo.org`
+  * WSS: `wss://rpc-ws.mezo.org`
+* Chain ID: `xxxxxxx`
+* Native Currency:
+  * Name: Bitcoin
+  * Symbol: `BTC`
+  * Decimals: `18`
+* Block explorer: [https://explorer.mezo.org/](https://explorer.mezo.org/)
+
+## Mezo matsnet (Testnet)
+
+* Public JSON RPC Endpoint:
+  * HTTPS: `https://rpc.test.mezo.org`
+  * WSS: `wss://rpc-ws.test.mezo.org`
+* Chain ID: `31611`
+* Native Currency:
+  * Name: Bitcoin
+  * Symbol: `BTC`
+  * Decimals: `18`
+* Block explorer: [https://explorer.test.mezo.org/](https://explorer.test.mezo.org/)
