@@ -60,9 +60,8 @@ export default defineConfig({
 										label: 'Mezo matsnet Alpha',
 										items: [
 											{ label: 'Overview', link: 'docs/users/getting-started/mezo-matsnet-alpha-testnet'},
-											'docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc',
 											'docs/users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet',
-											'docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts',
+											'docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc',
 										]
 									},
 								]
@@ -146,6 +145,14 @@ export default defineConfig({
 						link: '/docs/developers/',
 						icon: 'seti:powershell',
 						items: [
+							{   
+								label: 'Getting Started',
+								items: [
+									'docs/developers/getting-started',
+									'docs/developers/getting-started/configure-environment',
+									'docs/developers/getting-started/configure-passport'
+								]
+							},
 							{   
 								label: 'Infrastructure',
 								items: [
@@ -261,6 +268,10 @@ export default defineConfig({
 		'/docs/users/musd/architecture': {
 			status: 302,
 			destination: '/docs/users/musd/concepts-and-terminology'
+		},
+		'/docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts': {
+			status: 302,
+			destination: '/docs/users/getting-started/'
 		},
 	  }
 });
