@@ -9,8 +9,8 @@ hero:
     - text: User Documentation
       link: /docs/users/
       icon: right-arrow
-      variant: secondary
     - text: Developer Documentation
       link: /docs/developers/
       icon: right-arrow
+      variant: secondary
 ---
