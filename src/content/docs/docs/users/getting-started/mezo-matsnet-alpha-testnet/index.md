@@ -7,4 +7,5 @@ To get started, use the Mezo Portal to convert mats to matsnet BTC that you can 
 
 * [Stack matsnet BTC](./mezo-matsnet-alpha-testnet/stack-matsnet-btc)
 * [Connect to Mezo matsnet](./mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet)
-* [Deploy and Verify Contracts](./mezo-matsnet-alpha-testnet/deploy-and-verify-contracts)
+
+To learn how to build and deploy applications on Mezo, see the [Developer Getting Started](/docs/developers/getting-started) guide.
