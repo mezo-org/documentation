@@ -16,7 +16,7 @@ export default defineConfig({
 			head: [
 				{
 				  tag: 'script',
-				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href += 'docs/')`,
+				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href = 'https://mezo.org')`,
 				},
 			],
 			logo: {
@@ -27,6 +27,7 @@ export default defineConfig({
 			pagination: true,
 			social: {
 				github: 'https://github.com/mezo-org',
+				discord: 'https://discord.mezo.org'
 			},
 			plugins: [
 				starlightSidebarTopics([
