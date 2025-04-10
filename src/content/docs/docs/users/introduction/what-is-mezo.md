@@ -2,7 +2,15 @@
 title: What is Mezo?
 ---
 
-Mezo is a Bitcoin-centric platform purpose-built to make Bitcoin productive in day-to-day finance. It is EVM-compatible, which means it can host decentralized apps (dApps) and smart contracts in a system that developers and users already understand. By transforming Bitcoin from something complex and intimidating into something supernormal, Mezo can enable everyday activities like purchasing groceries, paying for services, securing mortgages, and building savings, all powered by Bitcoin.
+Mezo is a Bitcoin-centric platform purpose-built to make Bitcoin productive in day-to-day finance. It is EVM-compatible, which means it can host decentralized apps (dApps) and smart contracts in a system that developers and users already understand.
+
+Using tBTC's infrastructure as a secure and decentralized foundation, Mezo aims to offer a platform where people can use their Bitcoin in the following ways: 
+
+- Mortgages funded by BTC collateral
+- Everyday purchases made through Bitcoin-backed credit lines
+- Grow wealth without ever selling
+
+This is what it means to make Bitcoin supernormal. Mezo's goal is to embed Bitcoin so deeply within existing financial systems that using it feels as natural as swiping a debit card.
 
 ## The Cathedral and the Bazaar
 
@@ -34,3 +42,13 @@ Despite being around for over a decade, Bitcoin is still viewed as new and shiny
 Users shouldn't need a degree in finance or be millionaires to use Bitcoin. Bitcoin is for everybody and for doing everyday things. For Bitcoin to be impactful, it has to evolve from being weird to a few to being "normal" to many. For crypto native users, being "normal" is the last thing wanted. That's why Bitcoin needs to be supernormal.
 
 Mezo makes Bitcoin supernormal by enabling easy access to Bitcoin's value without selling it, fixed-rate loans for predictable financial planning, transparent on-chain operations, and familiar financial tools rebuilt on Bitcoin infrastructure. Soon, everyone will be able to use Mezo to do supernormal stuff with Bitcoin, like buy things on a credit card, send money immediately, save for college, apply for a loan, and more.
+
+## Access Bitcoin Equity Without Selling
+
+Bitcoin holders own one of the most sound assets ever created, but accessing its value requires selling it. Most existing solutions come with unpredictable costs, compromised sovereignty, and limited usability. Bitcoin loans typically have volatile rates between 8% and 20% APR, making long-term financial planning difficult. Additionally, many platforms force users onto non-Bitcoin chains or require giving up control to third parties.
+
+Mezo solves these fundamental challenges by providing users with fixed-rate Bitcoin loans. All loans are issued and settled onchain, with 24/7 verifiable reserves. Mezo's borrow feature eliminates rate volatility while preserving users' complete sovereignty over their assets. 
+
+By building a Bitcoin-native capital infrastructure with transparent pricing and no middlemen, Mezo enables users to access the value of their Bitcoin for real-world use cases without compromising on the security principles that make Bitcoin valuable.
+
+Mezo's core features include MUSD; a stablecoin backed entirely by Bitcoin reserves. Mezo's environment offers secure core financial tools and permissionless innovation space to be built on top of MUSD to support a growing Bitcoin-based economy. Mezo is built on tBTC's infrastructure and emphasizes user ownership and trust minimization. The native incentive system, Tigris, rewards long-term participants in the ecosystem.
