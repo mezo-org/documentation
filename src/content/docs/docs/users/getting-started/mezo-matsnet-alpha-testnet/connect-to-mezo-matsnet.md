@@ -28,6 +28,6 @@ If you need to add the network to your wallet manually, use the following instru
 * Brave Wallet: [Adding a Custom Network](https://support.brave.com/hc/en-us/articles/15614704959757-Adding-a-New-Chain)
 * TrustWallet: [Add a Custom Network (Mobile)](https://community.trustwallet.com/t/how-to-add-a-custom-network-on-the-trust-wallet-mobile-app/626781)
 
-## Development frameworks
+## Developers
 
-To learn how to configure Hardhat, Foundry, and Remix to Mezo matsnet, see [Deploying and Verifying Contracts](./deploy-and-verify-contracts).
+To learn how to develop and deploy dApps on Mezo, see the [Developer Getting Started](/docs/developers/getting-started/) documentation.
