@@ -2,12 +2,12 @@
 title: Overview
 ---
 
-Developers are strongly encouraged to use [Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) in addition to traditional Ethereum development environments like Hardhat and Foundry.
+Developers are strongly encouraged to use [Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) in their dApps to provide additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. Passport does not require a specific development environment, and is a React library that works with [RainbowKit](https://rainbowkit.com/).
 
 To get started developing on Mezo:
 
 1. [Configure your development environment](/docs/developers/getting-started/configure-environment) to enable standard EVM development.
-1. [Install and configure Mezo Passport](/docs/developers/getting-started/configure-passport) to enable additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet.
+1. [Install and configure Mezo Passport](/docs/developers/getting-started/configure-passport) in your applications.
 
 ## Mezo matsnet (testnet) details
 
