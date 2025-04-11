@@ -271,7 +271,7 @@ export default defineConfig({
 		},
 		'/docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts': {
 			status: 302,
-			destination: '/docs/users/getting-started/'
+			destination: '/docs/developers/getting-started'
 		},
 	  }
 });
