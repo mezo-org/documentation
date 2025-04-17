@@ -10,7 +10,7 @@ The Mezo Mainnet launch is scheduled for May. Existing depositors must be aware 
 
 As an example, a tBTC deposit unlocking on August 31 will be auto-bridged to Mezo in May, at mainnet launch. If the user decides to opt out, they will receive their deposit in their EVM wallet on the date of Mezo mainnet launch.
 
-For additional details about the Mainnet launch, see the [Mezo Mainnet Announcement](https://blog.mezo.org/) blog post.
+For additional details about the Mainnet launch, see the [Mezo Mainnet Announcement](https://blog.mezo.org/mezo-mainnet-is-coming/) blog post.
 
 ## Opting out of auto-bridging
 
