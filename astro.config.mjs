@@ -71,13 +71,6 @@ export default defineConfig({
 								]
 							},
 							{   
-								label: 'Mezo Mainnet',
-								collapsed: true,
-							    items: [
-									'docs/users/mainnet'
-								]
-							},
-							{   
 								label: 'MUSD (Mezo USD)',
 								collapsed: true,
 							    items: [
