@@ -171,9 +171,9 @@ export default defineConfig({
 								]
 							},
 							{   
-								label: 'Validators',
+								label: 'Mezo Nodes',
 								items: [
-									'docs/developers/validators'
+									'docs/developers/mezo-nodes'
 								]
 							},
 							{   
