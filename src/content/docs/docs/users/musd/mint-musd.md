@@ -18,7 +18,7 @@ Before you can get testnet MUSD, you must complete the following steps:
 
 After you are logged into [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow MUSD.
 
-1. In your browser, open [mezo.org/matsnet/borrow](https://mezo.org/matsnet/borrow).
+1. In your browser, open [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
 
 1. Click the **Let's Go** button to start the borrow process. 
 
@@ -34,7 +34,7 @@ After you are logged into [mezo.org](https://mezo.org/) on an account with testn
 
 1. When you are ready to proceed with the [Borrow and Mint](/docs/users/musd/mint-musd) process, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC on matsnet.
 
-After the process is complete, you can check the loan status on [mezo.org/matsnet/borrow](https://mezo.org/matsnet/borrow).
+After the process is complete, you can check the loan status on [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
 
 ![A screenshot of the loan status screen](/docs/images/musd/musd-loan-status.avif)
 
