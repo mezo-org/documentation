@@ -1,5 +1,5 @@
 ---
-title: Concepts and Terminology
+title: Architecture and Terminology
 ---
 
 The MUSD system consists of four main contract groups:

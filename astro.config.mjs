@@ -2,9 +2,22 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightSidebarTopics from 'starlight-sidebar-topics';
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 // https://astro.build/config
 export default defineConfig({
+	markdown: {
+		remarkPlugins: [
+		  remarkMath, // <- new plugin
+		],
+		rehypePlugins: [rehypeKatex], // <- new plugin
+		shikiConfig: {
+		  // For more themes, visit https://shiki.style/themes
+		  themes: { light: "min-light", dark: "night-owl" },
+		  wrap: true,
+		},
+	  },
 	integrations: [
 		starlight({
 			title: 'Mezo Documentation',
@@ -12,6 +25,7 @@ export default defineConfig({
 				// Relative path to your custom CSS file
 				'./src/styles/custom.css',
 				'./src/assets/fonts/riforma/font-face.css',
+				'katex/dist/katex.min.css',
 			],
 			head: [
 				{
@@ -28,7 +42,7 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/mezo-org',
 				discord: 'https://discord.mezo.org',
-				twitter: 'https://x.com/MezoNetwork'
+				twitter: 'https://x.com/MezoNetwork',
 			},
 			plugins: [
 				starlightSidebarTopics([
@@ -75,10 +89,11 @@ export default defineConfig({
 								collapsed: true,
 							    items: [
 									'docs/users/musd',
+									'docs/users/musd/concepts',
 									'docs/users/musd/mint-musd',
-									'docs/users/musd/concepts-and-terminology',
 									'docs/users/musd/fees',
 									'docs/users/musd/risks',
+									'docs/users/musd/architecture-and-terminology',
 								]
 							},
 							{   

@@ -1,0 +1,173 @@
+---
+title: Concepts
+---
+
+Before you [Borrow and Mint MUSD](./mint-musd.md), understand the core concepts for how the MUSD stablecoin works.
+
+## Borrow limits
+
+There are several limitations for the amount we allow the users to borrow. They can be summarized by the equation:
+
+$$
+\begin{split} \text{Maximum debt} = \text{Min} ( & \text{Amount that puts system into recovery mode}, \\ &  \text{Amount that puts user below MCR}, \\ & \text{Amount that puts user over max borrow amount}) \end{split}
+$$
+
+### Amount that puts the system into recovery mode
+
+We as a system want to make sure we are safe (we don’t want to reach situation where we have a bad debt - where total collateral is lower than the debt).
+
+We are trying to prevent such bad debt on two levels: of individual trove and a whole system
+
+Preventing bad debt on individual trove level is done by liquidating deposits for which ICR (Individual's Collateralization Ratio) < MCR (Minimum Collateralization Ratio). See MUSD / borrow mechanics.
+
+Preventing bad debt on the system level is done by entering recovery mode if following equation is met:
+
+$$
+\frac{\text{total collateral}}{\text{total debt}} \leq \text{CCR} = 1.5
+$$
+
+If system is in the recovery mode, system operates similarly to normal operation, but there are some restrictions:
+
+* users cannot open new troves that have ICR under CCR
+* users cannot adjust existing troves if their ICR would fall under CCR
+* refinancing is blocked
+
+### Amount that puts user below MCR
+
+We are not allowing for borrowing MUSD against provided BTC collateral value if the below equation is not met:
+
+$$
+\frac{\text{amount of deposited BTC} \times \text{BTC price}}{\text{amount of borrowed MUSD}} \geq \text{MCR} = 1.1
+$$
+
+This condition is introduced to prevent the users opening big deposits from borrowing at low 
+
+Example:
+
+BTC price is 100k USD
+
+User wants to deposit 0.03 BTC as a collateral.
+
+User will be able to borrow not more than ~2727 MUSD (`0.03 * 100000 / 1.1`)
+
+### Amount that puts user over max borrow amount
+
+$$$
+\text{Max borrow amount at trove open} = \frac{\text{amount of deposited BTC} \times \text{BTC price}}{1.1} 
+$$$
+
+## Fees structure
+
+If user borrows MUSD and provides BTC as collateral there are fees that we charge:
+
+* gas compensation (always equal to 200 MUSD), one per trove
+* origination fee (0.5% of the borrowed amount (principal)), charged for every new borrow and borrow increase
+
+Example:
+
+User wants to borrow 4000 MUSD.
+
+Original borrow amount: 4000 MUSD
+
+Gas compensation: 200 MUSD
+
+Origination fee: 0.5% * 4000 MUSD =20 MUSD
+
+Principal: 4000 MUSD + 200 MUSD + 20 MUSD = 4220 MUSD
+
+The 4220 MUSD is the amount that accrues the interests.
+
+## Interest rates
+
+Global interest rate - Interest rate set by governance
+
+`Trove interest rate - Snapshot of the global interest rate value at the moment of trove creation`
+
+Interest rate are applied to the troves based on the snapshot of the global interest rate value at the moment of trove opening. Changing the global interest rate does not influence already opened troves.
+
+Example 1:
+
+T1: Governance sets global interest rate at 3%
+
+T2: Alice opens trove. Alice’s trove’s interest rate is 3%
+
+T3: Governance sets global interest rate at 6%.
+
+T4: Bob opens trove. Bob’s trove’s interest rate is 6%. Alice’s trove’s interest rate is still 3%
+
+
+Borrowing more after global interests have changed does not change ratio for the trove.
+
+Example 2 (editing trove):
+
+T1: Governance sets global interest rate at 3%
+
+T2: Alice opens trove. Alice’s trove’s interest rate is 3%
+
+T3: Governance sets global interest rate at 6%.
+
+T4: Alice adds more debt. Alice’s trove’s interest rate is still 3% (but it’s now computed based on increased principal)
+
+To prevent from changes in the global interest rate being unfavorable for the users, we are allowing for MUSD / borrow mechanics.
+
+To prevent from changes in the global interest rate being unfavorable for Mezo, we are limiting the amount user can borrow at trove opening (see MUSD / borrow mechanics)
+
+## Refinancing
+
+In the example 1 from MUSD / borrow mechanics, the changes of interests have been beneficial for Alice. But if governance would set up at T3 the global interest rate at amount lower than 3%, Alice would be now paying higher interests than users who just opened their troves. To mitigate that we are allowing for refinancing, which updates the Alice’s trove interest rate based on the current global interest rate. When refinancing we’re also updating the the user’s principal:
+
+$$
+\text{new principal} = \text{old principal} + \text{old interests} + \text{refinancing origination fee}
+$$
+
+where refinancing origination fee is a fraction of the regular origination fee (both the regular and refinancing original fees are governable).
+
+Note: on testnet the interest rate is set to 0 (as of Apr 8, 2025)
+
+## Liquidations
+
+Preventing bad debt on individual trove level is done by liquidating deposits for which
+
+`ICR (Individual's Collateralization Ratio) < MCR (Minimum Collateralization Ratio)`
+
+Liquidation needs to be initiated by someone, we are rewarding that caller with 0.5% of the collateral plus  the gas compensation which is equal to 200 MUSD. We assume there will be bots observing which trove’s ICR has fallen below MCR and which will compete for the reward.
+
+During liquidation the Stability pool pays the debt and receives the remaining collateral (99.5%).
+
+Example:
+
+User’s debt is 85k MUSD and user deposited 1 BTC as collateral.
+
+BTC price is 100k USD. ICR is `100k / 85k = 1,18`, which is above MCR, liquidation does not start
+
+BTC price drops to 90k USD. ICR is `90k / 85k = 1,06`, which is below MCR, liquidation can start
+
+Someone calls the liquidation.
+
+The user looses the collateral of 1 BTC. User keeps the borrowed 85k MUSD.
+
+The liquidation caller gets `0,5% * 90000 worth of BTC + 200 MUSD = 450$ worth of BTC + 200 MUSD`. 
+
+The stability pool looses 85000 MUSD. It gains `99,5% * $90000 worth of BTC = $89550 worth of BTC`. So in total Stability pool gained ~4550 USD in BTC. It can then sell the BTC immediately for MUSD and put the MUSD back to the pool.
+
+## Stability pool
+
+Users deposit MUSD into stability pools (SP)  and receive shares. They will be gaining from the liquidations of other users
+
+Liquidations result in SP paying the MUSD debt, but SP receives 95,5% of the BTC collateral of the liquidated trove.
+
+Example:
+
+T1. Alice deposited 20k MUSD into SP. Alice owns 100% of the SP
+
+T2. Bob deposits 10k MUSD into SP. Alice owns 2/3 of the SP, Bob owns 1/3 of the SP. SP has 30k MUSD and 0 BTC.
+
+T3. Carol is liquidated for 5k MUSD and 5400 USD worth of BTC from her collateral goes to Sp. SP has now 25k MUSD and \$5400 BTC.
+
+T4. Alice leaves LP. Her 2/3 of the SP shares give her `2/3 * (25000 MUSD + 5400$ BTC) = 16.67k MUSD + 3600$ BTC = ~$20,27k`. She profits.
+
+If SP is empty we redistribute the debt and collateral proportionally, to all the existing troves. This means that existing troves ICRs will lower, which may trigger next liquidations, causing the domino effect and liquidating all the troves. To prevent that we introduce a MUSD / borrow mechanics which will seed the SP with initial funds (in large amount), decreasing the risk of SP having no MUSD to pay off debts.
+
+## PCV loan
+
+Protocol Controlled Value contract mints itself 100M MUSD on contract creation. Then deposits it into SP (which means effectively PCV owns almost all shares of the SP). It gains from other users liquidations and wit that gained value, PCV pays back the 100M MUSD debt.
