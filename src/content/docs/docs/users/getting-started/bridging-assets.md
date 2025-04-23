@@ -1,5 +1,0 @@
----
-title: Bridging Assets
----
-
-TBD
