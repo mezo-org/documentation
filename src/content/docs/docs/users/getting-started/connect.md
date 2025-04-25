@@ -6,7 +6,7 @@ To connect your browser wallet, use the network details for either Mainnet or th
 
 You can add Mezo to your wallet using the **Connect Wallet** button at Chainlist:
 
-- Mainnet: [https://chainlist.org/chain/xxxxxxx](https://chainlist.org/chain/xxxxxxx)
+- Mainnet: [https://chainlist.org/chain/31612](https://chainlist.org/chain/31612)
 - matsnet (Testnet): [https://chainlist.org/chain/31611](https://chainlist.org/chain/31611)
 
 If Chainlist does not work, add the network manually using the network details below.
@@ -16,7 +16,7 @@ If Chainlist does not work, add the network manually using the network details b
 * Public JSON RPC Endpoint:
   * HTTPS: `https://rpc.mezo.org`
   * WSS: `wss://rpc-ws.mezo.org`
-* Chain ID: `xxxxxxx`
+* Chain ID: `31612`
 * Native Currency:
   * Name: Bitcoin
   * Symbol: `BTC`
