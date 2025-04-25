@@ -53,34 +53,11 @@ export default defineConfig({
 						icon: 'star',
 						items: [
 							{   
-								label: 'Introduction',
-								items: [
-									'docs/users/introduction/what-is-mezo',
-									'docs/users/introduction/bitcoins-economic-layer',
-								]
-							},
-							{   
-								label: 'Getting Started',
-								collapsed: true,
-							    items: [
-									'docs/users/getting-started/creating-an-account',
-									'docs/users/getting-started/connect',
-								]
-							},
-							{   
 								label: 'Mezo Mainnet',
 								collapsed: true,
 							    items: [
 									'docs/users/mainnet',
 									'docs/users/mainnet/bridges'
-								]
-							},
-							{   
-								label: 'Mezo matsnet (Testnet)',
-								collapsed: true,
-							    items: [
-									{ label: 'Overview', link: 'docs/users/matsnet'},
-									'docs/users/matsnet/stack-matsnet-btc',
 								]
 							},
 							{   
@@ -95,113 +72,6 @@ export default defineConfig({
 									'docs/users/musd/architecture-and-terminology',
 								]
 							},
-							{   
-								label: 'Concepts',
-								collapsed: true,
-							    items: [
-									{   
-										label: 'Bitcoin on Mezo',
-										items: [
-											{ label: 'Overview', link: 'docs/users/concepts/bitcoin-on-mezo'},
-											'docs/users/concepts/bitcoin-on-mezo/btc-deposit-guide',
-											{   
-												label: 'tBTC',
-												items: [
-													{ label: 'Overview', link: 'docs/users/concepts/bitcoin-on-mezo/tbtc'},
-													'docs/users/concepts/bitcoin-on-mezo/tbtc/minting-process',
-													'docs/users/concepts/bitcoin-on-mezo/tbtc/guide'
-												]
-											},
-											'docs/users/concepts/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide',
-										]
-									},
-									{   
-										label: 'Stablecoins and ERC-20',
-										items: [
-											{ label: 'Overview', link: 'docs/users/concepts/stablecoins-and-erc-20'},
-											'docs/users/concepts/stablecoins-and-erc-20/deposit-guide'
-										]
-									},
-									{   
-										label: 'Fees',
-										items: [
-											{ label: 'Overview', link: 'docs/users/concepts/fees'},
-											'docs/users/concepts/fees/tbtc-unmint-and-redemption',
-										]
-									},
-									{   
-										label: 'mats',
-										items: [
-											{ label: 'Overview', link: 'docs/users/concepts/mats'},
-											'docs/users/concepts/mats/mats-for-btc',
-											'docs/users/concepts/mats/mats-for-stablecoins',
-											'docs/users/concepts/mats/leaderboard-and-my-mats',
-											'docs/users/concepts/mats/invite-bonus',
-										]
-									},
-								]
-							},
-							{   
-								label: 'Resources',
-								collapsed: true,
-							    items: [
-									'docs/users/resources/integrations-and-partners',
-									'docs/users/resources/mezo-alpha-builders',
-									'docs/users/resources/release-notes',
-									'docs/users/resources/faqs',
-									'docs/users/resources/audits',
-									'docs/users/resources/media-kit',
-									'docs/users/resources/contracts-and-btc-custody',
-								]
-							},
-						],
-					},
-					{
-						label: 'Developer Documentation',
-						id: 'developers',
-						link: '/docs/developers/',
-						icon: 'seti:powershell',
-						items: [
-							{   
-								label: 'Getting Started',
-								items: [
-									'docs/developers/getting-started',
-									'docs/developers/getting-started/configure-environment',
-									'docs/developers/getting-started/configure-passport',
-									'docs/developers/getting-started/testnet-dapp'
-								]
-							},
-							{   
-								label: 'Architecture',
-								items: [
-									'docs/developers/architecture',
-									{   
-										label: 'Skip Oracle',
-										items: [
-											{ label: 'Overview', link: 'docs/developers/architecture/oracles'},
-											'docs/developers/architecture/oracles/read-oracle'
-										]
-									},
-								]
-							},
-							{   
-								label: 'Mezo Nodes',
-								items: [
-									'docs/developers/mezo-nodes'
-								]
-							},
-							{   
-								label: 'Resources',
-								collapsed: true,
-							    items: [
-									'docs/users/resources/integrations-and-partners',
-									'docs/users/resources/mezo-alpha-builders',
-									'docs/users/resources/release-notes',
-									'docs/users/resources/audits',
-									'docs/users/resources/contracts-and-btc-custody',
-								]
-							},
-							
 						],
 					},
 				]),
@@ -292,10 +162,6 @@ export default defineConfig({
 		'/docs/users/musd/architecture': {
 			status: 302,
 			destination: '/docs/users/musd/concepts-and-terminology'
-		},
-		'/docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts': {
-			status: 302,
-			destination: '/docs/developers/getting-started'
 		},
 		'/docs/users/resources/mezo-community': {
 			status: 302,
