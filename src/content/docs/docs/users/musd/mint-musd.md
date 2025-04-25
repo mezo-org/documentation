@@ -36,8 +36,6 @@ After you are logged into [mezo.org](https://mezo.org/) on an account with testn
 
 After the process is complete, you can check the loan status on [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
 
-![A screenshot of the loan status screen](/docs/images/musd/musd-loan-status.avif)
-
 ## Understand the borrowing terms
 
 Mezo offers a fixed, low-interest rate for MUSD loans. Initial rates range from 1-5%. There is no forced repayment date on Mezo, so you can keep your position open as long as you want, provided your collateral remains sufficient.
