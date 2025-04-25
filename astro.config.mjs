@@ -63,8 +63,9 @@ export default defineConfig({
 								label: 'Getting Started',
 								collapsed: true,
 							    items: [
-									'docs/users/getting-started/creating-an-account',
 									'docs/users/getting-started/connect',
+									'docs/users/getting-started/creating-an-account',
+									'docs/users/getting-started/depositing',
 								]
 							},
 							{   
@@ -72,7 +73,9 @@ export default defineConfig({
 								collapsed: true,
 							    items: [
 									'docs/users/mainnet',
-									'docs/users/mainnet/bridges'
+									'docs/users/mainnet/deposits',
+									'docs/users/mainnet/bridges',
+									'docs/users/mainnet/mats'
 								]
 							},
 							{   
@@ -93,52 +96,6 @@ export default defineConfig({
 									'docs/users/musd/fees',
 									'docs/users/musd/risks',
 									'docs/users/musd/architecture-and-terminology',
-								]
-							},
-							{   
-								label: 'Concepts',
-								collapsed: true,
-							    items: [
-									{   
-										label: 'Bitcoin on Mezo',
-										items: [
-											{ label: 'Overview', link: 'docs/users/concepts/bitcoin-on-mezo'},
-											'docs/users/concepts/bitcoin-on-mezo/btc-deposit-guide',
-											{   
-												label: 'tBTC',
-												items: [
-													{ label: 'Overview', link: 'docs/users/concepts/bitcoin-on-mezo/tbtc'},
-													'docs/users/concepts/bitcoin-on-mezo/tbtc/minting-process',
-													'docs/users/concepts/bitcoin-on-mezo/tbtc/guide'
-												]
-											},
-											'docs/users/concepts/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide',
-										]
-									},
-									{   
-										label: 'Stablecoins and ERC-20',
-										items: [
-											{ label: 'Overview', link: 'docs/users/concepts/stablecoins-and-erc-20'},
-											'docs/users/concepts/stablecoins-and-erc-20/deposit-guide'
-										]
-									},
-									{   
-										label: 'Fees',
-										items: [
-											{ label: 'Overview', link: 'docs/users/concepts/fees'},
-											'docs/users/concepts/fees/tbtc-unmint-and-redemption',
-										]
-									},
-									{   
-										label: 'mats',
-										items: [
-											{ label: 'Overview', link: 'docs/users/concepts/mats'},
-											'docs/users/concepts/mats/mats-for-btc',
-											'docs/users/concepts/mats/mats-for-stablecoins',
-											'docs/users/concepts/mats/leaderboard-and-my-mats',
-											'docs/users/concepts/mats/invite-bonus',
-										]
-									},
 								]
 							},
 							{   
@@ -250,39 +207,39 @@ export default defineConfig({
 		},
 		'/docs/users/user-guides/stablecoins-and-erc-20': {
 			status: 302,
-			destination: '/docs/users/concepts/stablecoins-and-erc-20'
+			destination: '/docs/users/mainnet/deposits'
 		},
 		'/docs/users/user-guides/stablecoins-and-erc-20/deposit-guide': {
 			status: 302,
-			destination: '/docs/users/concepts/stablecoins-and-erc-20/deposit-guide'
+			destination: '/docs/users/mainnet/deposits'
 		},
 		'/docs/users/user-guides/fees': {
 			status: 302,
-			destination: '/docs/users/concepts/fees'
+			destination: '/docs/users/mainnet/'
 		},
 		'/docs/users/user-guides/fees/tbtc-unmint-and-redemption': {
 			status: 302,
-			destination: '/docs/users/concepts/fees/tbtc-unmint-and-redemption'
+			destination: '/docs/users/mainnet/deposits'
 		},
 		'/docs/users/user-guides/mats': {
 			status: 302,
-			destination: '/docs/users/concepts/mats'
+			destination: '/docs/users/mainnet/mats'
 		},
 		'/docs/users/user-guides/mats/mats-for-btc': {
 			status: 302,
-			destination: '/docs/users/concepts/mats/mats-for-btc'
+			destination: '/docs/users/mainnet/mats'
 		},
 		'/docs/users/user-guides/mats/mats-for-stablecoins': {
 			status: 302,
-			destination: '/docs/users/concepts/mats/mats-for-stablecoins'
+			destination: '/docs/users/mainnet/mats'
 		},
 		'/docs/users/user-guides/mats/leaderboard-and-my-mats': {
 			status: 302,
-			destination: '/docs/users/concepts/mats/leaderboard-and-my-mats'
+			destination: '/docs/users/mainnet/mats'
 		},
 		'/docs/users/user-guides/mats/invite-bonus': {
 			status: 302,
-			destination: '/docs/users/concepts/mats/invite-bonus'
+			destination: '/docs/users/mainnet/mats'
 		},
 		'/docs/users/official-links/mezo-community': {
 			status: 302,
@@ -299,6 +256,70 @@ export default defineConfig({
 		'/docs/users/resources/mezo-community': {
 			status: 302,
 			destination: '/docs/users/'
+		},
+		'/docs/users/concepts/fees': {
+			status: 302,
+			destination: '/docs/users/mainnet/'
+		},
+		'/docs/users/concepts/mats': {
+			status: 302,
+			destination: '/docs/users/mainnet/mats'
+		},
+		'/docs/users/concepts/mats/mats-for-btc': {
+			status: 302,
+			destination: '/docs/users/mainnet/mats'
+		},
+		'/docs/users/concepts/mats/mats-for-stablecoins': {
+			status: 302,
+			destination: '/docs/users/mainnet/mats'
+		},
+		'/docs/users/concepts/mats/leaderboard-and-my-mats': {
+			status: 302,
+			destination: '/docs/users/mainnet/mats'
+		},
+		'/docs/users/concepts/mats/invite-bonus': {
+			status: 302,
+			destination: '/docs/users/mainnet/mats'
+		},
+		'/docs/users/concepts/stablecoins-and-erc-20': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'/docs/users/concepts/stablecoins-and-erc-20/deposit-guide': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'docs/users/concepts/bitcoin-on-mezo/': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'docs/users/concepts/bitcoin-on-mezo/tbtc': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'docs/users/concepts/bitcoin-on-mezo/tbtc/minting-process': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'docs/users/concepts/bitcoin-on-mezo/tbtc/guide': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'docs/users/concepts/bitcoin-on-mezo/btc-deposit-guide': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'docs/users/concepts/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'docs/users/concepts/fees': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
+		},
+		'docs/users/concepts/fees/tbtc-unmint-and-redemption': {
+			status: 302,
+			destination: '/docs/users/mainnet/deposits'
 		},
 	  }
 });
