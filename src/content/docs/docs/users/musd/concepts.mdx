@@ -40,9 +40,9 @@ This condition prevents users from borrowing more MUSD than is required by the m
 
 The user's final maximum borrow amount is calculated using the following equation:
 
-$$$
+$$
 \text{Max borrow amount at trove open} = \frac{\text{amount of deposited BTC} \times \text{BTC price}}{1.1} 
-$$$
+$$
 
 ## Fees structure
 
@@ -104,48 +104,51 @@ The refinancing origination fee is a fraction of the regular origination fee. Bo
 
 ## Liquidations
 
-Preventing bad debt on individual trove level is done by liquidating deposits for which
+To prevent risk on individual troves, deposits can be liquidated in the following situation:
 
-`ICR (Individual's Collateralization Ratio) < MCR (Minimum Collateralization Ratio)`
+$$
+\text{ICR} (\text{Individual's Collateralization Ratio}) < \text{MCR} (\text{Minimum Collateralization Ratio})
+$$
 
-Liquidation needs to be initiated by someone, we are rewarding that caller with 0.5% of the collateral plus  the gas compensation which is equal to 200 MUSD. We assume there will be bots observing which trove’s ICR has fallen below MCR and which will compete for the reward.
+Liquidation must be initiated by a caller. Callers are rewarded with the following items:
 
-During liquidation the Stability pool pays the debt and receives the remaining collateral (99.5%).
+- 0.5% of the collateral
+- Gas compensation (200 MUSD)
 
-Example:
+Callers compete to obtain a valid liquidation and earn the reward.
 
-User’s debt is 85k MUSD and user deposited 1 BTC as collateral.
+During liquidation, the Stability pool pays the debt and receives the remaining collateral of 99.5%.
 
-BTC price is 100k USD. ICR is `100k / 85k = 1,18`, which is above MCR, liquidation does not start
+As an example, if a user’s debt is 85k MUSD and user deposited 1 BTC as collateral while the price of BTC is 100k USD, the ICR is $100k / 85k = 1.18$ and is still above the MCR. Liquidation cannot occur.
 
-BTC price drops to 90k USD. ICR is `90k / 85k = 1,06`, which is below MCR, liquidation can start
+If the BTC price drops to \$90k USD, the ICR is now $90k / 85k = 1.06$. This is below the MCR and liquidation can occur.
 
-Someone calls the liquidation.
+If a caller initiates liquidation, the user looses the collateral of 1 BTC but keeps the borrowed 85k MUSD. The liquidation caller receives the following reward:
 
-The user looses the collateral of 1 BTC. User keeps the borrowed 85k MUSD.
+$$
+\text{0.5\% x 90000 worth of BTC} + \text{200 MUSD} = \text{450 USD worth of BTC + 200 MUSD}. 
+$$
 
-The liquidation caller gets `0,5% * 90000 worth of BTC + 200 MUSD = 450$ worth of BTC + 200 MUSD`. 
-
-The stability pool looses 85000 MUSD. It gains `99,5% * $90000 worth of BTC = $89550 worth of BTC`. So in total Stability pool gained ~4550 USD in BTC. It can then sell the BTC immediately for MUSD and put the MUSD back to the pool.
+The stability pool looses 85000 MUSD, but it gains $99.5\% * 90000 \text{USD worth of BTC} = 89550 \text{USD worth of BTC}$. In total, the Stability pool gained ~4550 USD worth of BTC. It can then sell the BTC immediately for MUSD and put MUSD back to the pool.
 
 ## Stability pool
 
-Users deposit MUSD into stability pools (SP)  and receive shares. They will be gaining from the liquidations of other users
+Users deposit MUSD into stability pools (SP) and receive shares. Those users gain from the liquidations of other users. Liquidations result in the stability pool paying the MUSD debt, but the stability pool also receives 95,5% of the BTC collateral of the liquidated trove.
 
-Liquidations result in SP paying the MUSD debt, but SP receives 95,5% of the BTC collateral of the liquidated trove.
+Consider the following example:
 
-Example:
+1. Alice deposited 20k MUSD into the SP. Alice owns 100% of the SP.
+1. Bob deposits 10k MUSD into SP. Alice now owns 2/3 of the SP and Bob owns 1/3 of the SP. The SP has 30k MUSD and 0 BTC.
+1. Carol is liquidated for 5k MUSD. 5400 USD worth of BTC from the collateral goes to the SP. The SP has now 25k MUSD and 5400 USD worth of BTC.
+1. Alice leaves the LP with 2/3 of the SP shares. Alice profits with a return calculated by the following equation:
 
-T1. Alice deposited 20k MUSD into SP. Alice owns 100% of the SP
+$$
+2/3 * (25000 MUSD + 5400 \text{USD worth of BTC}) = \\
+\text{16.67k MUSD} + 3600\text{USD worth of BTC} = \text{\~20.27k USD}
+$$
 
-T2. Bob deposits 10k MUSD into SP. Alice owns 2/3 of the SP, Bob owns 1/3 of the SP. SP has 30k MUSD and 0 BTC.
-
-T3. Carol is liquidated for 5k MUSD and 5400 USD worth of BTC from her collateral goes to Sp. SP has now 25k MUSD and \$5400 BTC.
-
-T4. Alice leaves LP. Her 2/3 of the SP shares give her `2/3 * (25000 MUSD + 5400$ BTC) = 16.67k MUSD + 3600$ BTC = ~$20,27k`. She profits.
-
-If SP is empty we redistribute the debt and collateral proportionally, to all the existing troves. This means that existing troves ICRs will lower, which may trigger next liquidations, causing the domino effect and liquidating all the troves. To prevent that we introduce a MUSD / borrow mechanics which will seed the SP with initial funds (in large amount), decreasing the risk of SP having no MUSD to pay off debts.
+If the stability pool is empty, the debt and collateral are redistributed proportionally to all the existing troves. This means that the ICR of existing troves will lower, which may trigger additional liquidations. This could cause a domino effect and liquidation of all troves. To prevent that scenario, MUSD / borrow mechanics seed the SP with large ammounts of initial funds. This decreases the risk of the SP having no MUSD to pay off debts.
 
 ## PCV loan
 
-Protocol Controlled Value contract mints itself 100M MUSD on contract creation. Then deposits it into SP (which means effectively PCV owns almost all shares of the SP). It gains from other users liquidations and wit that gained value, PCV pays back the 100M MUSD debt.
+The Protocol Controlled Value (PCV) contract mints itself 100M MUSD on contract creation. Then, it deposits it into the SP. At this point, the PCV owns almost all shares of the SP. It gains from other users liquidations. With that gained value, the PCV pays back the 100M MUSD debt.
