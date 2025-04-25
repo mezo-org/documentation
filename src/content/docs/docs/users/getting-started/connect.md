@@ -16,7 +16,7 @@ If Chainlist does not work, add the network manually using the network details b
 * Public JSON RPC Endpoint:
   * HTTPS: `https://rpc.mezo.org`
   * WSS: `wss://rpc-ws.mezo.org`
-* Chain ID: `454545454`
+* Chain ID: `0111111`
 * Native Currency:
   * Name: Bitcoin
   * Symbol: `BTC`
