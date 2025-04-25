@@ -168,7 +168,6 @@ export default defineConfig({
 									'docs/developers/getting-started',
 									'docs/developers/getting-started/configure-environment',
 									'docs/developers/getting-started/configure-passport',
-									'docs/developers/getting-started/testnet-dapp'
 								]
 							},
 							{   

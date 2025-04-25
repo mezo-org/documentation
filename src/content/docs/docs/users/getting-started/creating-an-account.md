@@ -15,4 +15,4 @@ You can create an account in the Mezo Portal to manage rewards, create and manag
 
 After you complete login and sign the transaction, your wallet will be connected to the account. You may deposit BTC from alternative addresses, but your connected wallet manages the account.
 
-![](/docs/gitbook/Screenshot_2024-06-02_at_10.17.55_AM.png)
+![](/docs/images/portal/signin.avif)
