@@ -140,7 +140,7 @@ export default defineConfig({
 									'docs/users/resources/release-notes',
 									'docs/users/resources/faqs',
 									'docs/users/resources/audits',
-									'docs/users/resources/media-kit',
+									'docs/users/resources/brand-kit',
 									'docs/users/resources/contracts-and-btc-custody',
 								]
 							},
@@ -279,6 +279,10 @@ export default defineConfig({
 		'/docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts': {
 			status: 302,
 			destination: '/docs/developers/getting-started'
+		},
+		'/docs/users/resources/media-kit': {
+			status: 302,
+			destination: '/docs/users/resources/brand-kit'
 		},
 	  }
 });
