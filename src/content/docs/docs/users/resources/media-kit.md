@@ -2,5 +2,5 @@
 title: Media Kit
 ---
 
-- [Mezo Logos](/docs/gitbook/Mezo%20Logos.zip)
-- [MUSD Logos](/docs/gitbook/Mezo%20Logos.zip)
+- [Mezo Logos](/docs/media-kit/mezo-logo-and-marks.zip)
+- [MUSD Logos](/docs/media-kit/musd-logos.zip)
