@@ -33,6 +33,7 @@ export default defineConfig({
 				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href = 'https://mezo.org')`,
 				},
 			],
+			favicon: './src/assets/Mezo-Mark-Red.svg',
 			logo: {
 				light: './src/assets/mezo-logo-light.svg',
 				dark: './src/assets/mezo-logo-dark.svg',
@@ -107,7 +108,7 @@ export default defineConfig({
 									'docs/users/resources/release-notes',
 									'docs/users/resources/faqs',
 									'docs/users/resources/audits',
-									'docs/users/resources/media-kit',
+									'docs/users/resources/brand-kit',
 									'docs/users/resources/contracts-and-btc-custody',
 								]
 							},
@@ -320,6 +321,10 @@ export default defineConfig({
 		'docs/users/concepts/fees/tbtc-unmint-and-redemption': {
 			status: 302,
 			destination: '/docs/users/mainnet/deposits'
+		},
+		'/docs/users/resources/media-kit': {
+			status: 302,
+			destination: '/docs/users/resources/brand-kit'
 		},
 	  }
 });
