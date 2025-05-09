@@ -19,6 +19,7 @@ export default defineConfig({
 				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href = 'https://mezo.org')`,
 				},
 			],
+			favicon: './src/assets/Mezo-Mark-Red.svg',
 			logo: {
 				light: './src/assets/mezo-logo-light.svg',
 				dark: './src/assets/mezo-logo-dark.svg',
