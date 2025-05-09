@@ -202,10 +202,6 @@ export default defineConfig({
 			status: 302,
 			destination: '/docs/users/concepts/bitcoin-on-mezo/tbtc/guide'
 		},
-		'/docs/users/user-guides/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide': {
-			status: 302,
-			destination: '/docs/users/concepts/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide'
-		},
 		'/docs/users/user-guides/stablecoins-and-erc-20': {
 			status: 302,
 			destination: '/docs/users/mainnet/deposits'
@@ -257,10 +253,6 @@ export default defineConfig({
 		'/docs/users/resources/mezo-community': {
 			status: 302,
 			destination: '/docs/users/'
-		},
-		'/docs/users/concepts/fees': {
-			status: 302,
-			destination: '/docs/users/mainnet/'
 		},
 		'/docs/users/concepts/mats': {
 			status: 302,
