@@ -2,11 +2,11 @@
 title: Depositing Assets
 ---
 
-You can deposit native Bitcoin or supported ERC-20 tokens to the Mezo Portal to earn mats. Note that this is separate from collateral that you deposit to borrow MUSD. If you want to borrow MUSD, see the [Borrow and Mint MUSD]() guide.
+You can deposit native Bitcoin or supported ERC-20 tokens to the Mezo App to earn mats. Note that this is separate from collateral that you deposit to borrow MUSD. If you want to borrow MUSD, see the [Borrow and Mint MUSD]() guide.
 
 ## Before you begin
 
-1. Go to the [Mezo Portal](https://mezo.org/home) and connect with a supported wallet.
+1. Go to the [Mezo App](https://mezo.org/home) and connect with a supported wallet.
 1. After you complete login and sign the transaction, go to [mezo.org/deposit?tab=new-deposit](https://mezo.org/deposit?tab=new-deposit) to access the deposit page.
 1. Verify which assets are supported for deposits. In the **New Deposit** screen, check the asset dropdown menu to find the complete list.
 
@@ -16,7 +16,7 @@ You can deposit native Bitcoin or supported ERC-20 tokens to the Mezo Portal to 
 
 ## Making a deposit
 
-1. Open [mezo.org/deposit](https://mezo.org/deposit) to see the Deposit page in the Mezo Portal.
+1. Open [mezo.org/deposit](https://mezo.org/deposit) to see the Deposit page in the Mezo App.
 
 1. Click the **New Deposit** tab to begin a new deposit.
 

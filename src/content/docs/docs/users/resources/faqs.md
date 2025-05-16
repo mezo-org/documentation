@@ -1,9 +1,9 @@
 ---
 title: FAQs
-description: Frequently asked questions for Mezo Portal, Mezo Validators, and more.
+description: Frequently asked questions for Mezo App, Mezo Validators, and more.
 ---
 
-## Mezo Portal
+## Mezo App
 
 ### If I lock my Bitcoin and Mezo launches before my lock date expires, can I use my assets on Mezo?
 

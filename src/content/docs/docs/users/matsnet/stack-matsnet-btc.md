@@ -9,11 +9,11 @@ If you've acquired mats on [https://mezo.org/score](https://mezo.org/score), you
 
 You can stack matsnet BTC using your Mezo account created from either a Bitcoin wallet or an Ethereum wallet. If you don't have an account, see the [Creating Account](/docs/users/getting-started/mezo-portal/creating-an-account) guide.
 
-If you do not have any mats in your Mezo Portal, see the [mats Documentation](/docs/users/concepts/mats) to learn how they work and how to acquire them.
+If you do not have any mats in your Mezo App, see the [mats Documentation](/docs/users/concepts/mats) to learn how they work and how to acquire them.
 
 ## Swap mats for matsnet BTC
 
-A new page is available in the Mezo Portal at [https://mezo.org/matsnet](https://mezo.org/matsnet).
+A new page is available in the Mezo App at [https://mezo.org/matsnet](https://mezo.org/matsnet).
 
 1. Open [https://mezo.org/matsnet](https://mezo.org/matsnet) in your browser.
 2. Log in with your Bitcoin or Ethereum wallet.

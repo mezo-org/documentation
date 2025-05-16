@@ -88,7 +88,7 @@ export default defineConfig({
 								]
 							},
 							{   
-								label: 'MUSD (Mezo USD)',
+								label: 'MUSD',
 								collapsed: true,
 							    items: [
 									'docs/users/musd',

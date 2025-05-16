@@ -2,7 +2,7 @@
 title: Borrow and Mint MUSD
 ---
 
-MUSD (Mezo USD) is available on Mezo matsnet. You can use your testnet BTC to Borrow and Mint MUSD for testing and development.
+MUSD is available on Mezo matsnet. You can use your testnet BTC to Borrow and Mint MUSD for testing and development.
 
 ![A screenshot of the loan status screen](/docs/images/musd/borrow-flow-animation.webp)
 

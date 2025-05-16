@@ -14,16 +14,16 @@ For additional details about the Mainnet launch, see the [Mezo Mainnet Announcem
 
 ## Opting out of auto-bridging
 
-Users with existing deposits can disable auto-bridging for individual assets in the Mezo portal. By default, all eligible assets are enabled for auto-bridge to Mezo mainnet. You must disable specific assets before Mezo Mainnet launch if you want them unlocked on Ethereum rather than bridged automatically.
+Users with existing deposits can disable auto-bridging for individual assets in the Mezo App. By default, all eligible assets are enabled for auto-bridge to Mezo mainnet. You must disable specific assets before Mezo Mainnet launch if you want them unlocked on Ethereum rather than bridged automatically.
 
 To opt-out of an asset, complete the following steps:
 
-1. Log in to your [Mezo Portal](https://mezo.org) account.
+1. Log in to your [Mezo App](https://mezo.org) account.
 
-1. Go to the [Mezo Portal Deposit Tab](https://mezo.org/deposit).
+1. Go to the [Mezo App Deposit Tab](https://mezo.org/deposit).
 
 1. For each asset you want to opt-out, click the **On** button to toggle it to **Off**.
 
 Assets set to **Off** will not be auto-bridged to Mezo Mainnet on launch day.
 
-![A screenshot of the Mezo Portal Deposit tab showing several different assets that you can choose to opt out of auto-briding](/docs/images/mainnet/asset-opt.avif)
+![A screenshot of the Mezo App Deposit tab showing several different assets that you can choose to opt out of auto-briding](/docs/images/mainnet/asset-opt.avif)

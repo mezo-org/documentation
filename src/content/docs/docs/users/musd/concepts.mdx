@@ -12,7 +12,7 @@ $$
 \begin{split} \text{Maximum debt} = \text{Min} ( & \text{Amount that puts system into recovery mode}, \\ &  \text{Amount that puts user below MCR}, \\ & \text{Amount that puts user over max borrow amount}) \end{split}
 $$
 
-This system prevents risky levels of debts at the trove level and the system-wide level. To prevent risk from individual troves, individual deposts can be liquidated when the individual collateralization ratio (ICR) is less than the minimum collateralization ratio (MCR) as described in the MUSD borrow mechanics.
+This system prevents risky levels of debts at the loan level and the system-wide level. To prevent risk from individual troves, individual deposts can be liquidated when the individual collateralization ratio (ICR) is less than the minimum collateralization ratio (MCR) as described in the MUSD borrow mechanics.
 
 The system enters recovery mode if following condition is met:
 
@@ -41,14 +41,14 @@ This condition prevents users from borrowing more MUSD than is required by the m
 The user's final maximum borrow amount is calculated using the following equation:
 
 $$
-\text{Max borrow amount at trove open} = \frac{\text{amount of deposited BTC} \times \text{BTC price}}{1.1} 
+\text{Max borrow amount at loan open} = \frac{\text{amount of deposited BTC} \times \text{BTC price}}{1.1} 
 $$
 
 ## Fees structure
 
 When a user borrows MUSD and provides BTC as collateral, the following fees are charged:
 
-* Gas compensation fees per trove: 200 MUSD
+* Gas compensation fees per loan: 200 MUSD
 * Origination fee for every new borrow and borrow increase: 0.5% of the borrowed amount (principal)
 
 Consider an example where a user wants to borrow 4000 MUSD.
@@ -67,34 +67,34 @@ The 4220 MUSD accrues interest.
 
 ## Interest rates
 
-When you borrow MUSD, you accrue interest on the amount that you borrow. Interest rates on troves are set when a trove is opened. The global interest rate is separate, and does not change the interest rate on existing troves.
+When you borrow MUSD, you accrue interest on the amount that you borrow. Interest rates on troves are set when a loan is opened. The global interest rate is separate, and does not change the interest rate on existing troves.
 
 - **Global interest rate:** Set by governance
-- **Trove interest rate:** A snapshot of the global interest rate value at the moment when the trove is created
+- **loan interest rate:** A snapshot of the global interest rate value at the moment when the loan is created
 
 To understand how this works, consider the following example:
 
 1. Governance sets global interest rate at 3%
-1. Alice opens trove, so the Alice's new trove has an interest rate of 3%
+1. Alice opens loan , so the Alice's new loan has an interest rate of 3%
 1. Governance sets the global interest rate to 6%.
-1. Bob opens a trove, so Bob’s new trove has an interest rate of 6%.
+1. Bob opens a loan , so Bob’s new loan has an interest rate of 6%.
 
-In this scenario, the interest rate on Alice's trove remains at 3% and Bob's trove remains at 6%.
+In this scenario, the interest rate on Alice's loan remains at 3% and Bob's loan remains at 6%.
 
-Additionally, borrowing MUSD after global interests have changed does not change the rate for the trove. Consider the following example:
+Additionally, borrowing MUSD after global interests have changed does not change the rate for the loan . Consider the following example:
 
 1. Governance sets global interest rate at 3%.
-1. Alice opens a trove, so Alice’s new trove has an interest rate of 3%.
+1. Alice opens a loan , so Alice’s new loan has an interest rate of 3%.
 1. Governance sets global interest rate at 6%.
 1. Alice borrows MUSD.
 
-In this scenario, Alice’s trove maintains an interest rate of 3%. However, the collateralization ratio is calculated based on increased principal now that the interest rate is higher.
+In this scenario, Alice’s loan maintains an interest rate of 3%. However, the collateralization ratio is calculated based on increased principal now that the interest rate is higher.
 
 To prevent changes in the global interest rate from being unfavorable for users, [refinancing](#refinancing) is available.
 
 ## Refinancing
 
-In the example 1 from MUSD / borrow mechanics, the changes of interests have been beneficial for Alice. But if governance would set up at T3 the global interest rate at amount lower than 3%, Alice would be now paying higher interests than users who just opened their troves. To mitigate that we are allowing for refinancing, which updates the Alice’s trove interest rate based on the current global interest rate. When refinancing we’re also updating the the user’s principal:
+In the example 1 from MUSD / borrow mechanics, the changes of interests have been beneficial for Alice. But if governance would set up at T3 the global interest rate at amount lower than 3%, Alice would be now paying higher interests than users who just opened their troves. To mitigate that we are allowing for refinancing, which updates the Alice’s loan interest rate based on the current global interest rate. When refinancing we’re also updating the the user’s principal:
 
 $$
 \text{new principal} = \text{old principal} + \text{old interests} + \text{refinancing origination fee}
@@ -133,7 +133,7 @@ The stability pool looses 85000 MUSD, but it gains $99.5\% * 90000 \text{USD wor
 
 ## Stability pool
 
-Users deposit MUSD into stability pools (SP) and receive shares. Those users gain from the liquidations of other users. Liquidations result in the stability pool paying the MUSD debt, but the stability pool also receives 95,5% of the BTC collateral of the liquidated trove.
+Users deposit MUSD into stability pools (SP) and receive shares. Those users gain from the liquidations of other users. Liquidations result in the stability pool paying the MUSD debt, but the stability pool also receives 95,5% of the BTC collateral of the liquidated loan .
 
 Consider the following example:
 
