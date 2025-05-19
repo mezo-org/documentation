@@ -1,6 +1,6 @@
 ---
 title: Testnet Validators
-description: Active validators on Mezo testnet
+description: Active validators on Mezo Testnet
 topic: users
 hidden: true
 ---

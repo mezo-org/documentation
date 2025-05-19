@@ -72,7 +72,7 @@ Boosts are still available for longer lockups, stable deposits, and T deposits.
 
 ### What happened to stBTC?
 
-Minting for stBTC has ended, but locked positions remain secure. Looped positions can be unwound at deposit unlock or mainnet launch. Learn more [here](/docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits).
+Minting for stBTC has ended, but locked positions remain secure. Looped positions can be unwound at deposit unlock or Mainnet launch. Learn more [here](/docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits).
 
 ## Mezo Validators
 

@@ -11,7 +11,7 @@ description: Several contracts are used to maintain custody of deposits for Mezo
 
 ## **Mezo App deposit contracts**
 
-The Deposit Contract is a locking contract that holds funds until they are bridged to Mezo mainnet at launch. The Portal proxy contract keeps the state and deposited funds. A 5-of-9 multisig run by the Mezo team owns the contract and can upgrade the contract after a delay. The delay is defined in the timelock contract. These upgrades allow additional collateral to be included and will enable bridging at launch. The multisig itself does not retain the funds.
+The Deposit Contract is a locking contract that holds funds until they are bridged to Mezo Mainnet at launch. The Portal proxy contract keeps the state and deposited funds. A 5-of-9 multisig run by the Mezo team owns the contract and can upgrade the contract after a delay. The delay is defined in the timelock contract. These upgrades allow additional collateral to be included and will enable bridging at launch. The multisig itself does not retain the funds.
 
 ### BTC deposits
 

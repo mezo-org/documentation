@@ -2,7 +2,7 @@
 title: Connect your wallet to Mezo
 ---
 
-To connect your browser wallet, use the network details for either Mainnet or the matsnet testnet.
+To connect your browser wallet, use the network details for either Mainnet or the matsnet Testnet.
 
 You can add Mezo to your wallet using the **Connect Wallet** button at Chainlist:
 

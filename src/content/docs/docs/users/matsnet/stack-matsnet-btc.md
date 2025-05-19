@@ -1,6 +1,6 @@
 ---
 title: Stack matsnet BTC
-description: Use mats to stack matsnet BTC on the Mezo matsnet testnet.
+description: Use mats to stack matsnet BTC on the Mezo matsnet Testnet.
 ---
 
 ## Overview

@@ -8,7 +8,7 @@ To get started developing on Mezo:
 
 1. [Configure your development environment](/docs/developers/getting-started/configure-environment) to enable standard EVM development.
 1. [Install and configure Mezo Passport](/docs/developers/getting-started/configure-passport) in your applications.
-1. [Deploy a testnet dApp](/docs/developers/getting-started/testnet-dapp).
+1. [Deploy a Testnet dApp](/docs/developers/getting-started/testnet-dapp).
 
 ## Mezo Mainnet
 

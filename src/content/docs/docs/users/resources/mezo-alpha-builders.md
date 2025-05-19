@@ -32,7 +32,7 @@ The program seeks dApps that meet the following criteria:
 - EVM-compatible and seamlessly integrated with the Mezo ecosystem, including MUSD support and integration with Mezo Passport (Mezo’s account abstraction toolkit)
 - A clear, milestone-based roadmap spanning at least six months
 - Ideally demonstrating on-chain activity with an active transacting user base
-- Recently audited or are audit-ready for mainnet deployment
+- Recently audited or are audit-ready for Mainnet deployment
 - Driven by a committed team with a track record of building and scaling
 
 ## What You’ll Gain as a Mezo Alpha Builder
