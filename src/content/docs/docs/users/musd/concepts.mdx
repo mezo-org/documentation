@@ -28,7 +28,7 @@ If the system is in the recovery mode, it operates with additional restrictions:
 * Users cannot adjust existing troves if it causes their ICR to fall under the CCR.
 * Refinancing is blocked.
 
-### User minimum collateralization amounts
+### User minimum collateralization
 
 Users can borrow MUSD against provided BTC collateral only if the following equation is satisfied:
 
@@ -110,7 +110,7 @@ The refinancing origination fee is a fraction of the regular origination fee. Bo
 
 ## Liquidations
 
-To prevent risk on individual troves, deposits can be liquidated in the following situation:
+To prevent risk on individual troves, deposits can be liquidated any time their individual collateralization ratio is less than the minimum collateralization ratio of 1.1. Liquidation can happen any time during normal operation and also while the system is in recovery mode.
 
 $$
 \text{ICR} (\text{Individual's Collateralization Ratio}) < \text{MCR} (\text{Minimum Collateralization Ratio})
