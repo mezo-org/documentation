@@ -80,14 +80,6 @@ export default defineConfig({
 								]
 							},
 							{   
-								label: 'Mezo matsnet (Testnet)',
-								collapsed: true,
-							    items: [
-									{ label: 'Overview', link: 'docs/users/matsnet'},
-									'docs/users/matsnet/stack-matsnet-btc',
-								]
-							},
-							{   
 								label: 'MUSD',
 								collapsed: true,
 							    items: [
@@ -317,6 +309,10 @@ export default defineConfig({
 		'/docs/users/resources/media-kit': {
 			status: 302,
 			destination: '/docs/users/resources/brand-kit'
+		},
+		'/docs/users/matsnet/stack-matsnet-btc': {
+			status: 302,
+			destination: '/docs/users/'
 		},
 	  }
 });

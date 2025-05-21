@@ -2,12 +2,12 @@
 title: Connect your wallet to Mezo
 ---
 
-To connect your browser wallet, use the network details for either Mainnet or the matsnet Testnet.
+To connect your browser wallet, use the network details for either Mainnet or the Testnet.
 
 You can add Mezo to your wallet using the **Connect Wallet** button at Chainlist:
 
 - Mainnet: [https://chainlist.org/chain/31612](https://chainlist.org/chain/31612)
-- matsnet (Testnet): [https://chainlist.org/chain/31611](https://chainlist.org/chain/31611)
+- Testnet: [https://chainlist.org/chain/31611](https://chainlist.org/chain/31611)
 
 If Chainlist does not work, add the network manually using the network details below.
 
@@ -23,7 +23,7 @@ If Chainlist does not work, add the network manually using the network details b
   * Decimals: `18`
 * Block explorer: [https://explorer.mezo.org/](https://explorer.mezo.org/)
 
-## Mezo matsnet (Testnet)
+## Mezo Testnet
 
 * Public JSON RPC Endpoint:
   * HTTPS: `https://rpc.test.mezo.org`

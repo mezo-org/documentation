@@ -22,7 +22,7 @@ To get started developing on Mezo:
   * Decimals: `18`
 * Block explorer: [https://explorer.mezo.org/](https://explorer.mezo.org/)
 
-## Mezo matsnet (Testnet)
+## Mezo Testnet
 
 * Public JSON RPC Endpoint:
   * HTTPS: `https://rpc.test.mezo.org`

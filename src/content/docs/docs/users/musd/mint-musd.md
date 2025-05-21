@@ -2,7 +2,7 @@
 title: Borrow and Mint MUSD
 ---
 
-MUSD is available on Mezo matsnet. You can use your testnet BTC to Borrow and Mint MUSD for testing and development.
+MUSD is available on Mezo Testnet. You can use your testnet BTC to Borrow and Mint MUSD for testing and development.
 
 ![A screenshot of the loan status screen](/docs/images/musd/borrow-flow-animation.webp)
 
@@ -11,8 +11,8 @@ MUSD is available on Mezo matsnet. You can use your testnet BTC to Borrow and Mi
 Before you can get testnet MUSD, you must complete the following steps:
 
 - Go to [mezo.org](https://mezo.org/) and click **Log in** to connect to your Mezo account.
-- Connect an Ethereum wallet to Mezo matsnet. See the [Connect to Mezo matsnet](/docs/users/getting-started/mezo-matsnet-alpha-testnet/connect-to-mezo-matsnet#connect-your-browser-wallet) guide for instructions.
-- Get testnet BTC on matsnet. See the [Stack matsnet BTC](/docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc) guide to learn more.
+- Connect an Ethereum wallet to Mezo Testnet. See the [Connect to Mezo Testnet](/docs/users/getting-started/connect/) guide for instructions.
+- Get testnet BTC on Testnet. See the [Stack matsnet BTC](/docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc) guide to learn more.
 
 ## Borrow and mint
 
@@ -30,9 +30,9 @@ After you are logged into [mezo.org](https://mezo.org/) on an account with testn
 
 1. Check the summary details to confirm the information is as you expect.
 
-1. Ensure that your browser wallet is actively set to Mezo matsnet.
+1. Ensure that your browser wallet is actively set to Mezo Testnet.
 
-1. When you are ready to proceed with the [Borrow and Mint](/docs/users/musd/mint-musd) process, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC on matsnet.
+1. When you are ready to proceed with the [Borrow and Mint](/docs/users/musd/mint-musd) process, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC on Testnet.
 
 After the process is complete, you can check the loan status on [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
 

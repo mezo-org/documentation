@@ -21,59 +21,6 @@ Once you deposit your Bitcoin to Mezo (BTC, tBTC, or WBTC), it is securely held 
 
 There is a minimum of .01 BTC deposits from the Bitcoin Network. For ERC-20 deposits (including other forms of BTC), there is no minimum.
 
-***
-
-## matsnet
-
-### What are mats?
-
-mats, or "magic satoshis," are Mezo’s community-driven points earned through participation such as memes, contributions, or deposits. They have no monetary value but unlock utilities like matsnet Alpha access.
-
-### What is matsnet?
-
-matsnet is Mezo’s incentivized testnet. Users can convert their mats into matsnet BTC, enabling them to explore dApps, leaderboard challenges, and other BitcoinFi ecosystem features.
-
-### Should I convert mats to sats?
-
-Converting mats to sats via the “Stack matsnet BTC” feature effectively burns your mats, affecting your mats leaderboard rank but boosting your Stack Rank. The decision to convert is yours, but we will release more info on the two leaderboards soon.
-
-### What is the Stack Rank leaderboard?
-
-The Stack Rank leaderboard tracks matsnet BTC holdings and testnet participation. Earn badges for activities and engagement on the testnet to boost your standing on the Stack Rank leaderboard.
-
-### Can I convert sats back to mats?
-
-Not currently. Converting mats to sats is a one-way transaction. We will share updates on this feature in the future.
-
-### Will there be dApps on matsnet?
-
-Yes, the team is onboarding dApps to expand functionality and offer users various app categories for the BitcoinFi ecosystem.
-
-### How do I connect to matsnet?
-
-Add matsnet to your wallet via [Chainlist](https://chainlist.org/chain/31611) or manually enter the following:
-
-* Public JSON RPC Endpoint:
-  * HTTPS: https://rpc.test.mezo.org
-  * WSS: wss://rpc-ws.test.mezo.org
-* Chain ID: 31611
-* Native Currency: Bitcoin, BTC, 18 Decimals
-* Block Explorer: https://explorer.test.mezo.org
-
-### Can I deploy contracts?
-
-Yes! matsnet supports deploying contracts and interacting with them. A [guide is available](/docs/users/getting-started/mezo-matsnet-alpha-testnet/deploy-and-verify-contracts) for deploying to matsnet. Please reach out on Discord if you are looking for more deployment info.
-
-### What happens to my Bitcoin, other deposits, and boosts?
-
-Your deposits (BTC, tBTC, WBTC) remain secure in Mezo’s portal contract. You continue to earn mats daily, and your assets are fully verifiable onchain. When unlocked, you’ll receive your full deposit minus fees.
-
-Boosts are still available for longer lockups, stable deposits, and T deposits.
-
-### What happened to stBTC?
-
-Minting for stBTC has ended, but locked positions remain secure. Looped positions can be unwound at deposit unlock or Mainnet launch. Learn more [here](/docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits).
-
 ## Mezo Validators
 
 ### When will the Mezo validator program launch?
