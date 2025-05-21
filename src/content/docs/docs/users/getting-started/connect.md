@@ -43,6 +43,20 @@ If you need to add the network to your wallet manually, use the following instru
 * Brave Wallet: [Adding a Custom Network](https://support.brave.com/hc/en-us/articles/15614704959757-Adding-a-New-Chain)
 * TrustWallet: [Add a Custom Network (Mobile)](https://community.trustwallet.com/t/how-to-add-a-custom-network-on-the-trust-wallet-mobile-app/626781)
 
+## BTC Wallets
+
+BTC wallets are supported in the Mezo App and can receive a Mezo network address associated with your BTC wallet. BTC wallets can currently complete the following tasks on Mezo:
+
+- Deposit (Bridge) BTC Assets
+- Deposit (Bridge) EVM Assets
+- Borrow, repay, or manage collateral for a loan
+- Purchase items on the MUSD Market
+- Receive Assets on the Mezo Network
+
+BTC wallets cannot currently send assets on the Mezo Network.
+
+As the network evolves, more features and capabilities will be made available to BTC wallets.
+
 ## Developers
 
 To learn how to develop and deploy dApps on Mezo, see the [Developer Getting Started](/docs/developers/getting-started/) documentation.
