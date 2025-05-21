@@ -123,7 +123,6 @@ export default defineConfig({
 							{   
 								label: 'Architecture',
 								items: [
-									'docs/developers/architecture',
 									{   
 										label: 'Skip Oracle',
 										items: [
