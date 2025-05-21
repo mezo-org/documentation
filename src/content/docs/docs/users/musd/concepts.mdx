@@ -14,17 +14,21 @@ $$
 
 This system prevents risky levels of debts at the loan level and the system-wide level. To prevent risk from individual troves, individual deposts can be liquidated when the individual collateralization ratio (ICR) is less than the minimum collateralization ratio (MCR) as described in the MUSD borrow mechanics.
 
+### Recovery mode
+
 The system enters recovery mode if following condition is met:
 
 $$
 \frac{\text{total collateral}}{\text{total debt}} \leq \text{CCR} = 1.5
 $$
 
-If system is in the recovery mode, system operates similarly to normal operation with some additional restrictions:
+If the system is in the recovery mode, it operates with additional restrictions:
 
 * Users cannot open new troves that have ICR under the Critical Collateral Ratio (CCR).
 * Users cannot adjust existing troves if it causes their ICR to fall under the CCR.
 * Refinancing is blocked.
+
+### User minimum collateralization amounts
 
 Users can borrow MUSD against provided BTC collateral only if the following equation is satisfied:
 
@@ -37,6 +41,8 @@ This condition prevents users from borrowing more MUSD than is required by the m
 - The BTC price is 100k USD.
 - A user deposits 0.03 BTC as collateral.
 - The user will be able to borrow only up to 2727 MUSD ($0.03 * 100000 / 1.1$).
+
+### User maximum borrow amounts
 
 The user's final maximum borrow amount is calculated using the following equation:
 

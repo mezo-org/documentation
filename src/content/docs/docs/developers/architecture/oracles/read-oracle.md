@@ -44,6 +44,8 @@ To find answers for different asset pairs, specify a different `currency_pair` v
 
 Mezo's implementation of the Skip Connect module tracks specific asset pairs. This is the full list of currently-available data on Mezo matsnet.
 
+### Testnet
+
 - BTC/USD
     - Onchain: [0x7b7c000000000000000000000000000000000015](https://explorer.test.mezo.org/address/0x7b7c000000000000000000000000000000000015)
     - Node: http://mezo-node-0.test.mezo.org:1317/connect/oracle/v2/get_price?currency_pair=BTC/USD
