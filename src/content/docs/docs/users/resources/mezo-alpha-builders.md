@@ -43,7 +43,7 @@ Based on your product stage and potential, you'll receive tailored support in th
 - **Enhanced Growth & Distribution:** Benefit from co-marketing initiatives, including launch promotions, user acquisition incentives, spotlight features, participation in community sessions to connect directly with users, and more
 - **Dedicated Integration Support:** Get priority onboarding, hands-on troubleshooting, and access to developer toolkits and open-source libraries
 - **Exposure to the Thesis Ecosystem:** Connect with leading projects, like-minded builders, industry leaders, and investors. Leverage Thesis’ decade-long Bitcoin expertise and network, including initiatives like tBTC, Acre, Fold, Taho and Defense
-- **Priority Access to the BitcoinFi Accelerator:** Receive a direct invitation to batch interviews for the BitcoinFi Accelerator, led by Boost VC, Draper Associates, and Thesis. This program includes a $150K upfront investment and a 6-week program focused on go-to-market, fundraising, and more, complete with structured mentorship
+- **Priority Access to the BitcoinFi Accelerator:** Receive a direct invitation to batch interviews for the BitcoinFi Accelerator, led by Boost VC, Draper Associates, and Thesis. This program includes a \$150K upfront investment and a 6-week program focused on go-to-market, fundraising, and more, complete with structured mentorship
 
 ## The Process
 

@@ -20,7 +20,7 @@ At launch, redemption fees fund the MUSD treasury stability pool, which covers l
 
 ## Issuance fee (0.5%)
 
-The issuance fee is paid when an MUSD loan is opened. The fee is 0.5% of borrowed MUSD and is paid in MUSD. A $10k MUSD loan would pay a $50 issuance fee in MUSD. If you extend your loan, you pay the issuance fee on the newly borrowed MUSD.
+The issuance fee is paid when an MUSD loan is opened. The fee is 0.5% of borrowed MUSD and is paid in MUSD. A \$10k MUSD loan would pay a \$50 issuance fee in MUSD. If you extend your loan, you pay the issuance fee on the newly borrowed MUSD.
 
 ## Refinance fee (0.1%) 
 
@@ -28,7 +28,7 @@ The refinance fee is incurred when a MUSD loan holder extends their line of cred
 
 ## Gas Deposit ($200 flat fee)
 
-A $200 deposit ensures that liquidations are viable. It is returned when the loan is closed. The Gas deposit is minted as extra debt in the loan and held in escrow until the loan is closed. This debt counts towards calculating the collateralisation ratio.
+A \$200 deposit ensures that liquidations are viable. It is returned when the loan is closed. The Gas deposit is minted as extra debt in the loan and held in escrow until the loan is closed. This debt counts towards calculating the collateralisation ratio.
 
 ## Other Gas & Transaction Fees
 
