@@ -19,6 +19,9 @@ To get started developing on Mezo:
   * Imperator:
     * HTTPS: `https://rpc_evm-mezo.imperator.co`
     * WSS: `wss://ws_evm-mezo.imperator.co`
+  * Validation Cloud:
+    * HTTPS: `https://mainnet.mezo.public.validationcloud.io`
+    * WSS: `wss://mainnet.mezo.public.validationcloud.io`
 * Chain ID: `31612`
 * Native Currency:
   * Name: Bitcoin
