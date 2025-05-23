@@ -55,7 +55,7 @@ $$
 When a user borrows MUSD and provides BTC as collateral, the following fees are charged:
 
 * Gas compensation per loan, which is returned when the loan is closed: 200 MUSD
-* Origination fee for every new borrow and borrow increase: 0.1% of the borrowed amount, which includes the total debt if the users is adjusting an existing loan.
+* Origination fee for every new borrow and borrow increase: 0.1% of the borrowed amount. If the user is adjusting an existing loan, the 0.1% fee is calculated on the new total debt of the loan.
 
 Consider an example where a user wants to borrow 4000 MUSD.
 
