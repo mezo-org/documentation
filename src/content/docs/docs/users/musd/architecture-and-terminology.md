@@ -37,7 +37,7 @@ Liquidated positions are either paid for by the StabilityPool, in which case the
 
 ## Fixed-Interest Borrowing
 
-* Global Interest Rate: A single global interest rate applies to all newly opened troves.
+* Global Interest Rate: A single global interest rate applies to all newly opened loans.
 * Maintaining Interest Rates: Once a loan is opened, it retains the interest rate at which it was created, even if the global rate changes. The interest rate on a loan can only be updated by the user through the refinance function.
 * Refinance Function: The refinance function allows users to adjust their loan’s debt to the new global interest rate. This process incurs a refinancing fee, which is a configurable percentage of the issuance fee. Refinancing offers users the advantage of avoiding collateral movement while incurring lower fees compared to closing and reopening a loan at the updated rate. You can also refinance to extend your line of credit if BTC has appreciated in value.
 * Simple Interest: Interest is calculated using a simple interest model rather than a compounding one.
@@ -87,7 +87,7 @@ loan : a collateralized debt position, bound to a single Ethereum address. Also 
 
 - **Redemption:** the act of swapping MUSD tokens with the system, in return for an equivalent value of collateral. Any account with an MUSD token balance may redeem them, regardless of whether they are a borrower.
 
-- **Liquidation:** the act of force-closing an undercollateralized loan and redistributing its collateral and debt. When the Stability Pool is sufficiently large, the liquidated debt is offset with the Stability Pool, and the collateral distributed to depositors. If the liquidated debt can not be offset with the Pool, the system redistributes the liquidated collateral and debt directly to the active Troves with >110% collateralization ratio. Liquidation functionality is permissionless and publically available - anyone may liquidate an undercollateralized loan , or batch liquidate Troves in ascending order of collateralization ratio.
+- **Liquidation:** the act of force-closing an undercollateralized loan and redistributing its collateral and debt. When the Stability Pool is sufficiently large, the liquidated debt is offset with the Stability Pool, and the collateral distributed to depositors. If the liquidated debt can not be offset with the Pool, the system redistributes the liquidated collateral and debt directly to the active loans with >110% collateralization ratio. Liquidation functionality is permissionless and publically available - anyone may liquidate an undercollateralized loan, or batch liquidate loans.
 
 - **Collateral Surplus:** The collateral surplus is the borrowers' excess collateral that they can reclaim in the event that they have been fully redeemed against.
 

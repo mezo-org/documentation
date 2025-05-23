@@ -20,7 +20,7 @@ You can deposit native Bitcoin or supported ERC-20 tokens to the Mezo App to ear
 
 1. Click the **New Deposit** tab to begin a new deposit.
 
-1. Select the asset you want to deposit, and specify the ammount.
+1. Select the asset you want to deposit, and specify the amount.
 
 1. Select a lock period. Longer lock periods provide a larger boost to the mats that you earn.
 

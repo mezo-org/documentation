@@ -12,7 +12,7 @@ $$
 \begin{split} \text{Maximum debt} = \text{Min} ( & \text{Amount that puts system into recovery mode}, \\ &  \text{Amount that puts user below MCR}, \\ & \text{Amount that puts user over max borrow amount}) \end{split}
 $$
 
-This system prevents risky levels of debts at the loan level and the system-wide level. To prevent risk from individual troves, individual deposts can be liquidated when the individual collateralization ratio (ICR) is less than the minimum collateralization ratio (MCR) as described in the MUSD borrow mechanics.
+This system prevents risky levels of debts at the loan level and the system-wide level. To prevent risk from individual loans, individual deposits can be liquidated when the individual collateralization ratio (ICR) is less than the minimum collateralization ratio (MCR) as described in the MUSD borrow mechanics.
 
 ### Recovery mode
 
@@ -24,8 +24,8 @@ $$
 
 If the system is in the recovery mode, it operates with additional restrictions:
 
-* Users cannot open new troves that have ICR under the Critical Collateral Ratio (CCR).
-* Users cannot adjust existing troves if it causes their ICR to fall under the CCR.
+* Users cannot open new loans that have ICR under the Critical Collateral Ratio (CCR).
+* Users cannot adjust existing loans if it causes their ICR to fall under the CCR.
 * Refinancing is blocked.
 
 ### User minimum collateralization
@@ -40,7 +40,7 @@ This condition prevents users from borrowing more MUSD than is required by the m
 
 - The BTC price is 100k USD.
 - A user deposits 0.03 BTC as collateral.
-- The user will be able to borrow only up to 2727 MUSD ($0.03 * 100000 / 1.1$).
+- The user will be able to borrow only up to 2727 MUSD ($0.03 * 100000 / 1.1$) minus any fees, which are included in ICR calculations.
 
 ### User maximum borrow amounts
 
@@ -54,8 +54,8 @@ $$
 
 When a user borrows MUSD and provides BTC as collateral, the following fees are charged:
 
-* Gas compensation fees per loan: 200 MUSD
-* Origination fee for every new borrow and borrow increase: 0.5% of the borrowed amount (principal)
+* Gas compensation per loan, which is returned when the loan is closed: 200 MUSD
+* Origination fee for every new borrow and borrow increase: 0.1% of the borrowed amount, which includes the total debt if the users is adjusting an existing loan.
 
 Consider an example where a user wants to borrow 4000 MUSD.
 
@@ -73,7 +73,7 @@ The 4220 MUSD accrues interest.
 
 ## Interest rates
 
-When you borrow MUSD, you accrue interest on the amount that you borrow. Interest rates on troves are set when a loan is opened. The global interest rate is separate, and does not change the interest rate on existing troves.
+When you borrow MUSD, you accrue interest on the amount that you borrow. Interest rates on loans are set when a loan is opened. The global interest rate is separate, and does not change the interest rate on existing loans.
 
 - **Global interest rate:** Set by governance
 - **loan interest rate:** A snapshot of the global interest rate value at the moment when the loan is created
@@ -87,7 +87,7 @@ To understand how this works, consider the following example:
 
 In this scenario, the interest rate on Alice's loan remains at 3% and Bob's loan remains at 6%.
 
-Additionally, borrowing MUSD after global interests have changed does not change the rate for the loan . Consider the following example:
+Additionally, borrowing MUSD after global interest have changed does not change the rate for the loan . Consider the following example:
 
 1. Governance sets global interest rate at 3%.
 1. Alice opens a loan , so Alice’s new loan has an interest rate of 3%.
@@ -100,17 +100,17 @@ To prevent changes in the global interest rate from being unfavorable for users,
 
 ## Refinancing
 
-In the example 1 from MUSD / borrow mechanics, the changes of interests have been beneficial for Alice. But if governance would set up at T3 the global interest rate at amount lower than 3%, Alice would be now paying higher interests than users who just opened their troves. To mitigate that we are allowing for refinancing, which updates the Alice’s loan interest rate based on the current global interest rate. When refinancing we’re also updating the the user’s principal:
+In the first example, the changes of interest have been beneficial for Alice. But if governance set the global interest rate at an amount lower than 3%, Alice would be now paying higher interest than users who just opened their loans. To mitigate that we are allowing for refinancing, which updates the Alice’s loan interest rate based on the current global interest rate. When refinancing we’re also updating the the user’s principal:
 
 $$
-\text{new principal} = \text{old principal} + \text{old interests} + \text{refinancing origination fee}
+\text{new principal} = \text{old principal} + \text{old interest} + \text{refinancing origination fee}
 $$
 
 The refinancing origination fee is a fraction of the regular origination fee. Both of these fees are set by governance.
 
 ## Liquidations
 
-To prevent risk on individual troves, deposits can be liquidated any time their individual collateralization ratio is less than the minimum collateralization ratio of 1.1. Liquidation can happen any time during normal operation and also while the system is in recovery mode.
+To prevent risk on individual loans, deposits can be liquidated any time their individual collateralization ratio is less than the minimum collateralization ratio of 1.1. Liquidation can happen any time during normal operation and also while the system is in recovery mode.
 
 $$
 \text{ICR} (\text{Individual's Collateralization Ratio}) < \text{MCR} (\text{Minimum Collateralization Ratio})
@@ -135,11 +135,11 @@ $$
 \text{0.5\% x 90000 worth of BTC} + \text{200 MUSD} = \text{450 USD worth of BTC + 200 MUSD}. 
 $$
 
-The stability pool looses 85000 MUSD, but it gains $99.5\% * 90000 \text{USD worth of BTC} = 89550 \text{USD worth of BTC}$. In total, the Stability pool gained ~4550 USD worth of BTC. It can then sell the BTC immediately for MUSD and put MUSD back to the pool.
+The stability pool looses 85000 MUSD, but it gains $99.5\% * 90000 \text{USD worth of BTC} = 89550 \text{USD worth of BTC}$. In total, the Stability pool gained ~4550 USD worth of BTC. It can then sell the BTC immediately for MUSD and put MUSD back to the pool. To understand stability pool mechanics and scenarios, see the [stability pool](#stability-pooltability pool) section.
 
 ## Stability pool
 
-Users deposit MUSD into stability pools (SP) and receive shares. Those users gain from the liquidations of other users. Liquidations result in the stability pool paying the MUSD debt, but the stability pool also receives 95,5% of the BTC collateral of the liquidated loan .
+Users deposit MUSD into the stability pool (SP) and receive shares. Those users gain from the liquidations of other users. Liquidations result in the stability pool paying the MUSD debt, but the stability pool also receives 95,5% of the BTC collateral of the liquidated loan .
 
 Consider the following example:
 
@@ -153,7 +153,7 @@ $$
 \text{16.67k MUSD} + 3600\text{USD worth of BTC} = \text{\~20.27k USD}
 $$
 
-If the stability pool is empty, the debt and collateral are redistributed proportionally to all the existing troves. This means that the ICR of existing troves will lower, which may trigger additional liquidations. The MUSD and borrow mechanics seed the SP with significant initial funds to decrease additional risk.
+If the stability pool is empty, the debt and collateral are redistributed proportionally to all the existing loans. This means that the ICR of existing loans will lower, which may trigger additional liquidations. The MUSD and borrow mechanics seed the SP with significant initial funds to decrease additional risk.
 
 ## PCV loan
 
