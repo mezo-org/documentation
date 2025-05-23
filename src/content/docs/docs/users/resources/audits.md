@@ -5,10 +5,9 @@ description: We take security seriously. All components of Mezo will undergo aud
 
 ## Mezo App and Passport
 
-- [Quantstamp Mezo App (Passport) Smart Contracts Audit](/docs/audits/audits/2024-05-03%20-%20Quantstamp%20-%20Passport%20contracts.pdf)
+- [Quantstamp Mezo App (Passport) Smart Contracts Audit](/docs/audits/2024-05-03%20-%20Quantstamp%20-%20Passport%20contracts.pdf)
 - [Thesis Defense Mezo App (Portal) Smart Contracts Audit](/docs/audits/2024-03-14%20-%20Thesis%20Defense%20-%20Portal%20contract.pdf)
-- [Thesis Defense Mezo App (Passport) Smart Contracts Audit](/docs/audits/2024-03-14%20-%20Thesis%20Defense%20-%20Passport%20contracts.pdf)
-- [Log in with Bitcoin Audit - Thesis Defense](/docs/gitbook/Log%20in%20with%20Bitcoin%20Audit%20-%20Thesis%20Defense.pdf)
+- [Thesis Defense Mezo App (Passport) Smart Contracts Audit](/docs/audits/2024-04-19%20-%20Thesis%20Defense%20-%20Passport%20contracts.pdf)
 
 ## mezod
 
