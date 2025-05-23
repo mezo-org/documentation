@@ -29,7 +29,7 @@ MUSD uses a CDP (collateralized debt position) model.
 
 The mint-and-redeem model helps maintain the \$1 peg in volatile environments. For example, MUSD may trade on the market at a premium or discount to its \$1 stable value. Below are the scenarios for how the peg can be re-established.
 
-* If MUSD is trading at a discount of \$0.99, arbitragers can buy MUSD on the market and redeem it for \$1 in underlying BTC. Users with a loan position can do this for no additional cost. Those without a loan position must pay a 0.5% redemption fee, which remains profitable until MUSD reaches a price of \$0.995.
+* If MUSD is trading at a discount of \$0.99, arbitragers can buy MUSD on the market and redeem it for \$1 in underlying BTC. Users with a loan position can do this for no additional cost. Those without a loan position must pay a 0.75% redemption fee, which remains profitable until MUSD reaches a price of \$0.995.
 * If MUSD is trading at a premium of \$1.05, arbitragers can mint MUSD by supplying BTC to the protocol and sell the minted MUSD on the market for a profit; selling into another dollar-equivalent stablecoin like USDT or USDC. This scenario remains profitable until MUSD returns to a price of \$1.005.
 
 ![](/docs/images/musd/musd-redemption-and-peg-process.avif)

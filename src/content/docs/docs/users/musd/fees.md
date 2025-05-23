@@ -12,9 +12,9 @@ Interest on MUSD loans is fixed for the life of the loan. When credit is increas
 
 At launch, interest fees fund the MUSD treasury stability pool, which covers liquidations and bad debt.
 
-## Redemption Fees (0.5%)
+## Redemption Fees (0.75%)
 
-This fee is paid when exchanging MUSD for the BTC collateral. When a user has an outstanding loan, the redemption fee is zero. Users who do not have an outstanding MUSD loan must pay the 0.5% redemption fee. 
+This fee is paid when exchanging MUSD for the BTC collateral. When a user has an outstanding loan, the redemption fee is zero. Users who do not have an outstanding MUSD loan must pay the 0.75% redemption fee. 
 
 At launch, redemption fees fund the MUSD treasury stability pool, which covers liquidations and bad debt.
 
