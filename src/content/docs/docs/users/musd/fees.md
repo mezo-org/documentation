@@ -18,9 +18,9 @@ This fee is paid when exchanging MUSD for the BTC collateral. When a user has an
 
 At launch, redemption fees fund the MUSD treasury stability pool, which covers liquidations and bad debt.
 
-## Issuance fee (0.5%)
+## Issuance fee (0.1%)
 
-The issuance fee is paid when an MUSD loan is opened. The fee is 0.5% of borrowed MUSD and is paid in MUSD. A \$10k MUSD loan would pay a \$50 issuance fee in MUSD. If you extend your loan, you pay the issuance fee on the newly borrowed MUSD.
+The issuance fee is paid when an MUSD loan is opened. The fee is 0.1% of borrowed MUSD and is paid in MUSD. A \$10k MUSD loan would pay a \$50 issuance fee in MUSD. If you increase your loan, you pay the issuance fee on the newly borrowed MUSD.
 
 ## Refinance fee (0.1%) 
 
