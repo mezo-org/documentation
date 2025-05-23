@@ -12,16 +12,6 @@ Using tBTC's infrastructure as a secure and decentralized foundation, Mezo aims 
 
 This is what it means to make Bitcoin supernormal. Mezo's goal is to embed Bitcoin so deeply within existing financial systems that using it feels as natural as swiping a debit card.
 
-## The Cathedral and the Bazaar
-
-Mezo's architecture is built on a dual-environment model known as the Cathedral and the Bazaar:
-
-The Cathedral is Mezo's core infrastructure—a secure, reliable BitcoinFi ecosystem offering essential financial tools designed specifically for Bitcoin. This includes MUSD (Mezo's 100% Bitcoin-backed stablecoin), lending protocols, swaps, bridges, and staking capabilities. The Cathedral is deliberately developed to ensure bulletproof systems that don't compromise on security, reliability, or decentralization. Built on tBTC, the most decentralized Bitcoin bridge, the Cathedral provides a transparent, fully verifiable financial environment where users maintain complete control of their assets.
-
-The Bazaar is the community-driven application layer built on top of the Cathedral's secure foundation. Here, developers can create SocialFi, GameFi, and experimental applications that leverage Mezo's infrastructure. The Bazaar ships fast, iterates quickly, and relies on community input to push the boundaries of what's possible with Bitcoin. This permissionless playground fosters innovation while benefiting from the security of the underlying Cathedral architecture.
-
-Together, these environments solve key issues in Bitcoin: complex user experiences, lack of innovation, and difficult onboarding processes. By providing both stability in core functions and freedom to experiment, Mezo creates a complete Bitcoin ecosystem that serves both experienced users and newcomers.
-
 ## Mezo design features
 
 - **MUSD and Borrow:** Tap into your Bitcoin equity at competitive, fixed rates. Borrowers create MUSD by opening a Collateralized Debt Position (CDP), posting BTC as collateral to mint MUSD, a dollar-pegged stablecoin usable for spending, trading, lending, and borrowing. 
