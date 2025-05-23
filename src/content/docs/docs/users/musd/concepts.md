@@ -153,7 +153,7 @@ $$
 \text{16.67k MUSD} + 3600\text{USD worth of BTC} = \text{\~20.27k USD}
 $$
 
-If the stability pool is empty, the debt and collateral are redistributed proportionally to all the existing troves. This means that the ICR of existing troves will lower, which may trigger additional liquidations. This could cause a domino effect and liquidation of all troves. To prevent that scenario, MUSD / borrow mechanics seed the SP with large ammounts of initial funds. This decreases the risk of the SP having no MUSD to pay off debts.
+If the stability pool is empty, the debt and collateral are redistributed proportionally to all the existing troves. This means that the ICR of existing troves will lower, which may trigger additional liquidations. The MUSD and borrow mechanics seed the SP with significant initial funds to decrease additional risk.
 
 ## PCV loan
 
