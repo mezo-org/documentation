@@ -15,7 +15,7 @@ Hardware requirements are different for each node type. See the [hardware requir
 
 Mezo Validators are responsible for running nodes that verify transactions, propose and attest new blocks, and participate in the consensus mechanism. Mezo Validators must apply for [Proof of Authority (PoA)](https://github.com/mezo-org/validator-kit?tab=readme-ov-file#poa-application-submission) before their nodes can participate as validators.
 
-Approved validators can follow the instructions for the [Validator Kit](https://github.com/mezo-org/validator-kit?tab=readme-ov-file#validator-kit) to learn how to run 
+Approved validators can follow the instructions for the [Validator Kit](https://github.com/mezo-org/validator-kit?tab=readme-ov-file#validator-kit) to learn how to run a validator node.
 
 ## RPC nodes
 

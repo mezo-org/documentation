@@ -28,6 +28,8 @@ If the system is in the recovery mode, it operates with additional restrictions:
 * Users cannot adjust existing loans if it causes their ICR to fall under the CCR.
 * Refinancing is blocked.
 
+In the Mezo App, these specific capabilities are disabled until the system exits recovery mode.
+
 ### User minimum collateralization
 
 Users can borrow MUSD against provided BTC collateral only if the following equation is satisfied:
