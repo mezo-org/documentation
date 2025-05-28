@@ -5,22 +5,22 @@ description: Several contracts are used to on Mezo. Read this reference to learn
 
 ## Token Contracts
 
-You can add these tokens to your wallet in the Mezo Explorer. Open the token address in the explorer and click the **Add token to MetaMask** button next to the MUSD token address.
+You can add these tokens to your wallet in the Mezo Explorer. Open the token address in the explorer and click the **Add token to MetaMask** button next to the MUSD token address. Some of the token contracts are `TransparentUpgradableProxy` contracts. Add the proxy address to your browser wallet manually rather than the token address behind the proxy. For example, in MetaMask, follow the instructions to [Import a Token](https://support.metamask.io/manage-crypto/portfolio/how-to-import-a-token-in-metamask-portfolio/).
 
 ### Bridged tokens
 
 | Token Name | Mezo Addresss | Ethereum Address |
 | ---------- | ------------- | ---------------- |
 | mcbBTC | [0x6a7CD8E1384d49f502b4A4CE9aC9eb320835c5d7](https://explorer.mezo.org/token/0x6a7CD8E1384d49f502b4A4CE9aC9eb320835c5d7) | 0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf |
-| mDAI | [0x1531b6e3d51BF80f634957dF81A990B92dA4b154](https://explorer.mezo.org/token/0x1531b6e3d51BF80f634957dF81A990B92dA4b154) | 0x6B175474E89094C44Da98b954EedeAC495271d0F |
-| mFBTC | [0x812fcC0Bb8C207Fd8D6165a7a1173037F43B2dB8](https://explorer.mezo.org/token/0x812fcC0Bb8C207Fd8D6165a7a1173037F43B2dB8) | 0xC96dE26018A54D51c097160568752c4E3BD6C364 |
-| mSolvBTC | [0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747](https://explorer.mezo.org/token/0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747) | 0x7A56E1C57C7475CCf742a1832B028F0456652F97 |
-| mswBTC | [0x29fA8F46CBB9562b87773c8f50a7F9F27178261c](https://explorer.mezo.org/token/0x29fA8F46CBB9562b87773c8f50a7F9F27178261c) | 0x8DB2350D78aBc13f5673A411D4700BCF87864dDE |
-| mT | [0xaaC423eDC4E3ee9ef81517e8093d52737165b71F](https://explorer.mezo.org/token/0xaaC423eDC4E3ee9ef81517e8093d52737165b71F) | 0xCdF7028ceAB81fA0C6971208e83fa7872994beE5 |
+| mDAI | [0x1531b6e3d51BF80f634957dF81A990B92dA4b154](https://explorer.mezo.org/address/0x1531b6e3d51BF80f634957dF81A990B92dA4b154) | 0x6B175474E89094C44Da98b954EedeAC495271d0F |
+| mFBTC | [0x812fcC0Bb8C207Fd8D6165a7a1173037F43B2dB8](https://explorer.mezo.org/address/0x812fcC0Bb8C207Fd8D6165a7a1173037F43B2dB8) | 0xC96dE26018A54D51c097160568752c4E3BD6C364 |
+| mSolvBTC | [0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747](https://explorer.mezo.org/address/0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747) | 0x7A56E1C57C7475CCf742a1832B028F0456652F97 |
+| mswBTC | [0x29fA8F46CBB9562b87773c8f50a7F9F27178261c](https://explorer.mezo.org/address/0x29fA8F46CBB9562b87773c8f50a7F9F27178261c) | 0x8DB2350D78aBc13f5673A411D4700BCF87864dDE |
+| mT | [0xaaC423eDC4E3ee9ef81517e8093d52737165b71F](https://explorer.mezo.org/address/0xaaC423eDC4E3ee9ef81517e8093d52737165b71F) | 0xCdF7028ceAB81fA0C6971208e83fa7872994beE5 |
 | mUSDC | [0x04671C72Aab5AC02A03c1098314b1BB6B560c197](https://explorer.mezo.org/token/0x04671C72Aab5AC02A03c1098314b1BB6B560c197) | 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 |
-| mUSDe | [0xdf6542260a9F768f07030E4895083F804241F4C4](https://explorer.mezo.org/token/0xdf6542260a9F768f07030E4895083F804241F4C4) | 0x4c9EDD5852cd905f086C759E8383e09bff1E68B3 |
+| mUSDe | [0xdf6542260a9F768f07030E4895083F804241F4C4](https://explorer.mezo.org/address/0xdf6542260a9F768f07030E4895083F804241F4C4) | 0x4c9EDD5852cd905f086C759E8383e09bff1E68B3 |
 | mUSDT | [0xeB5a5d39dE4Ea42C2Aa6A57EcA2894376683bB8E](https://explorer.mezo.org/token/0xeB5a5d39dE4Ea42C2Aa6A57EcA2894376683bB8E) | 0xdAC17F958D2ee523a2206206994597C13D831ec7 |
-| mxSolvBTC | [0xdF708431162Ba247dDaE362D2c919e0fbAfcf9DE](https://explorer.mezo.org/token/0xdF708431162Ba247dDaE362D2c919e0fbAfcf9DE) | 0xd9D920AA40f578ab794426F5C90F6C731D159DEf |
+| mxSolvBTC | [0xdF708431162Ba247dDaE362D2c919e0fbAfcf9DE](https://explorer.mezo.org/address/0xdF708431162Ba247dDaE362D2c919e0fbAfcf9DE) | 0xd9D920AA40f578ab794426F5C90F6C731D159DEf |
 
 ### MUSD tokens
 
