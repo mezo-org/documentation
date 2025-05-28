@@ -6,7 +6,9 @@ title: Overview
 
 MUSD is a permissionless stablecoin 100% backed by Bitcoin reserves and designed to maintain a 1:1 peg with the U.S. dollar. It is the native stablecoin on Mezo, accessible via Mezo’s ‘Borrow’ feature or decentralized exchanges on Mezo Network. 
 
-Anyone can mint MUSD by depositing BTC into Mezo borrow, thus creating a loan position. Bitcoin collateral for MUSD positions is publicly verifiable onchain, and proof-of-reserves are viewable 24-7. For more details on the collateral management, see the “Collateral Management” section. Users can close their MUSD positions by returning the borrowed MUSD and accumulated interest to receive their initial Bitcoin collateral. 
+Anyone can mint MUSD by depositing BTC into Mezo borrow, thus creating a loan position. Bitcoin collateral for MUSD positions is publicly verifiable onchain, and proof-of-reserves are viewable 24-7. For more details on the collateral management, see the “Collateral Management” section. Users can close their MUSD positions by returning the borrowed MUSD and accumulated interest to receive their initial Bitcoin collateral.
+
+You must deposit a minimum of \$1800 US worth of BTC or other supported tokens as collateral in order to create a loan.
 
 ### MUSD solutions
 
@@ -23,12 +25,12 @@ This documentation provides details about the MUSD architecture, how it fits int
 MUSD uses a CDP (collateralized debt position) model.
 
 * Every outstanding MUSD is redeemable for Bitcoin.
-* $1 in BTC collateral can be used to mint 1 MUSD
+* \$1 in BTC collateral can be used to mint 1 MUSD
 
-The mint-and-redeem model helps maintain the $1 peg in volatile environments. For example, MUSD may trade on the market at a premium or discount to its $1 stable value. Below are the scenarios for how the peg can be re-established.
+The mint-and-redeem model helps maintain the \$1 peg in volatile environments. For example, MUSD may trade on the market at a premium or discount to its \$1 stable value. Below are the scenarios for how the peg can be re-established.
 
-* If MUSD is trading at a discount of $0.99, arbitragers can buy MUSD on the market and redeem it for $1 in underlying BTC. Users with a loan position can do this for no additional cost. Those without a loan position must pay a 0.5% redemption fee, which remains profitable until MUSD reaches a price of $0.995.
-* If MUSD is trading at a premium of $1.05, arbitragers can mint MUSD by supplying BTC to the protocol and sell the minted MUSD on the market for a profit; selling into another dollar-equivalent stablecoin like USDT or USDC. This scenario remains profitable until MUSD returns to a price of $1.005.
+* If MUSD is trading at a discount of \$0.99, arbitragers can buy MUSD on the market and redeem it for \$1 in underlying BTC. Users with a loan position can do this for no additional cost. Those without a loan position must pay a 0.75% redemption fee, which remains profitable until MUSD reaches a price of \$0.995.
+* If MUSD is trading at a premium of \$1.05, arbitragers can mint MUSD by supplying BTC to the protocol and sell the minted MUSD on the market for a profit; selling into another dollar-equivalent stablecoin like USDT or USDC. This scenario remains profitable until MUSD returns to a price of \$1.005.
 
 ![](/docs/images/musd/musd-redemption-and-peg-process.avif)
 
@@ -66,7 +68,7 @@ MUSD aims to address these risks with its pure Bitcoin backing.
 
 Fiat-backed stablecoins like USDT and USDC make up more than 90% of the current stablecoin market. Not only are they a complete juxtaposition with crypto’s ethos, as they are backed by the U.S. dollar, but the dollar reserves must be held safely by a single entity. 
 
-Tether, the issuing entity for USDT (~$150B in supply), has never released a proof of reserves audit. The company booked a $13B profit in 2024.
+Tether, the issuing entity for USDT (~\$150B in supply), has never released a proof of reserves audit. The company booked a \$13B profit in 2024.
 
 Circle, a U.S. company issuing USDC, has the ability to [blacklist addresses at their discretion](https://www.circle.com/legal/usdc-risk-factors) and [pays exchanges to hold their asset](https://x.com/inkymaze/status/1907187020293980599?s=46). As the U.S. economy moves onchain, this becomes a dangerous point of centralization.
 
