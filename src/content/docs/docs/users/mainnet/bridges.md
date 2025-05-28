@@ -2,12 +2,7 @@
 title: Bridges
 ---
 
-To earn [mats](./mats), assets must be bridged to Mezo Mainnet. You can bridge the assets yourself through the Mezo App or via a third-party bridge.
-
-## Available bridges
-
-- [Mezo native bridge](#mezo-native-bridge)
-- [Wormhole](#wormhole)
+You can bridge assets through the Mezo App using the Mezo Native Bridge.
 
 ## Mezo native bridge
 
@@ -30,8 +25,4 @@ For BTC wallets, you can sign in with UniSat, OKX, and Xverse. Use the following
 | Legacy         | P2PKH       | 1              |
 | Native SegWit  | P2WPKH      | bc1q           |
 | Nested SegWit  | P2SH-P2WPKH | 3              |
-
-## Wormhole
-
-The Wormhole bridge is available at [portalbridge.com](https://portalbridge.com/).
 
