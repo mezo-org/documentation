@@ -10,7 +10,7 @@ Mezo matsnet has been sunset and is now Mezo Testnet.
 
 ## 2025-04-12 - Mezo Mainnet Launch Announced
 
-Mezo matsnet is scheduled for launch in May of 2025. Existing depositors must be aware of automatic bridging behavior. See the [Mainnet Documentation](/docs/users/mainnet) and [Mezo Mainnet Announcement](https://blog.mezo.org/) blog post for more information.
+Mezo Mainnet is scheduled for launch in May of 2025. Existing depositors must be aware of automatic bridging behavior. See the [Mainnet Documentation](/docs/users/mainnet) and [Mezo Mainnet Announcement](https://blog.mezo.org/) blog post for more information.
 
 ## 2024-11-19 - Mezo matsnet Alpha (Testnet)
 

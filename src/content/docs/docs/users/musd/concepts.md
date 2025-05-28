@@ -75,10 +75,10 @@ The 4220 MUSD accrues interest.
 
 ## Interest rates
 
-When you borrow MUSD, you accrue interest on the amount that you borrow. Interest rates on loans are set when a loan is opened. The global interest rate is separate, and does not change the interest rate on existing loans.
+When you borrow MUSD, you accrue interest on the amount that you borrow. Interest rates on loans are set when a loan is opened. The global interest rate is separate and does not change the interest rate on existing loans.
 
 - **Global interest rate:** Set by governance
-- **loan interest rate:** A snapshot of the global interest rate value at the moment when the loan is created
+- **Loan interest rate:** A snapshot of the global interest rate value at the moment when the loan is created and does not change with the global rate.
 
 To understand how this works, consider the following example:
 
