@@ -2,7 +2,7 @@
 title: mats
 ---
 
-mats, or "magic satoshis," are Mezo's way of recognizing and rewarding participation through an engaging, community-driven point system. These points are designed purely for interaction within the Mezo ecosystem. **They hold no monetary value and cannot be exchanged for tokens or other currencies.**
+mats, or "magic satoshis," are Mezo's way of recognizing and rewarding participation through an engaging, community-driven point system. These points are used in the Mezo app specifically on the [Mezo Market](https://mezo.org/market).
 
 mats are collectible points that you can use to play games, tip fellow community members, participate in raffles, and more on the Mezo server.
 
