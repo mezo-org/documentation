@@ -14,15 +14,8 @@ The details for how mats were bridged to Mainnet are described in the [Mezo Blog
 
 You can earn mats through various activities in the Mezo community, including:
 
-* **Deposits**: Lock BTC, tBTC, WBTC, or stablecoins in the [Mezo App](https://app.gitbook.com/o/OEHBAmjJ286W1yUh21Q8/s/x6fn2L7Htl3g7NncUqTL/).
+* **Bridging assets to Mezo Mainnet**
 * [**Discord**](https://discord.com/invite/mezo) **Community Events**: Join raffles, receive tips, complete quests, and participate in games and bounties.
-* **Weekly Events**: Attend [WateringHODL](https://discord.com/invite/mezo) events, where mats are tipped during community gatherings every Friday at 3 pm EST.
+* **Weekly Events**: Attend [WateringHODL](https://discord.com/invite/mezo) events, where mats are tipped during community gatherings.
 
-Once earned, mats can be used in a range of interactive and fun activities, such as:
-
-* **Playing Games**: Enjoy games like Blackjack, Texas Hold ‘Em Poker, Crash, and a multiplayer shooter, with more to come.
-* **Tipping**: Acknowledge others in the community for content contributions, humor, helpfulness, or participation in events.
-
-## Leaderboard
-
-Want to see where you stack up against other HODLers? Head to the [Leaderboard](https://mezo.org/leaderboard) page to check out everyone who has deposited to Mezo.
+After you earn mats, you can spend them in the [Mezo Market](https://mezo.org/market).
