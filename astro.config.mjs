@@ -89,6 +89,7 @@ export default defineConfig({
 									'docs/users/musd/architecture-and-terminology',
 								]
 							},
+							'docs/users/resources/faqs',
 							{   
 								label: 'Resources',
 								collapsed: true,
