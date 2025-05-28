@@ -97,6 +97,7 @@ export default defineConfig({
 							    items: [
 									'docs/users/resources/integrations-and-partners',
 									'docs/users/resources/release-notes',
+									'docs/users/resources/validators',
 									'docs/users/resources/faqs',
 									'docs/users/resources/audits',
 									'docs/users/resources/brand-kit',
@@ -143,7 +144,10 @@ export default defineConfig({
 							    items: [
 									'docs/users/resources/integrations-and-partners',
 									'docs/users/resources/release-notes',
+									'docs/users/resources/validators',
+									'docs/users/resources/faqs',
 									'docs/users/resources/audits',
+									'docs/users/resources/brand-kit',
 									'docs/users/resources/contracts-and-btc-custody',
 								]
 							},
