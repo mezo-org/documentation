@@ -3,7 +3,7 @@ title: Contracts Reference
 description: Several contracts are used to on Mezo. Read this reference to learn more.
 ---
 
-## Asset Token Contracts
+## Token Contracts
 
 You can add these tokens to your wallet in the Mezo Explorer. Open the token address in the explorer and click the **Add token to MetaMask** button next to the MUSD token address.
 
@@ -22,7 +22,7 @@ You can add these tokens to your wallet in the Mezo Explorer. Open the token add
 | mUSDT | [0xeB5a5d39dE4Ea42C2Aa6A57EcA2894376683bB8E](https://explorer.mezo.org/token/0xeB5a5d39dE4Ea42C2Aa6A57EcA2894376683bB8E) | 0xdAC17F958D2ee523a2206206994597C13D831ec7 |
 | mxSolvBTC | [0xdF708431162Ba247dDaE362D2c919e0fbAfcf9DE](https://explorer.mezo.org/token/0xdF708431162Ba247dDaE362D2c919e0fbAfcf9DE) | 0xd9D920AA40f578ab794426F5C90F6C731D159DEf |
 
-## MUSD tokens
+### MUSD tokens
 
 - Mainnet MUSD: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
 - Testnet MUSD: [0x637e22A1EBbca50EA2d34027c238317fD10003eB](https://explorer.test.mezo.org/token/0x637e22A1EBbca50EA2d34027c238317fD10003eB)
