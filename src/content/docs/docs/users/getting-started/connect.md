@@ -54,8 +54,8 @@ If you need to add the network to your wallet manually, use the following instru
 
 BTC wallets are supported in the Mezo App and can receive a Mezo network address associated with your BTC wallet. BTC wallets can currently complete the following tasks on Mezo:
 
-- Deposit (Bridge) BTC Assets
-- Deposit (Bridge) EVM Assets
+- Bridge BTC Assets
+- Bridge EVM Assets
 - Borrow, repay, or manage collateral for a loan
 - Purchase items on the MUSD Market
 - Receive Assets on the Mezo Network

@@ -66,7 +66,7 @@ export default defineConfig({
 							    items: [
 									'docs/users/getting-started/connect',
 									'docs/users/getting-started/creating-an-account',
-									'docs/users/getting-started/depositing',
+									'docs/users/getting-started/bridging',
 								]
 							},
 							{   
@@ -74,7 +74,6 @@ export default defineConfig({
 								collapsed: true,
 							    items: [
 									'docs/users/mainnet',
-									'docs/users/mainnet/deposits',
 									'docs/users/mainnet/bridges',
 									'docs/users/mainnet/mats'
 								]
@@ -101,7 +100,7 @@ export default defineConfig({
 									'docs/users/resources/faqs',
 									'docs/users/resources/audits',
 									'docs/users/resources/brand-kit',
-									'docs/users/resources/contracts-and-btc-custody',
+									'docs/users/resources/contracts-reference',
 								]
 							},
 						],
@@ -148,7 +147,7 @@ export default defineConfig({
 									'docs/users/resources/faqs',
 									'docs/users/resources/audits',
 									'docs/users/resources/brand-kit',
-									'docs/users/resources/contracts-and-btc-custody',
+									'docs/users/resources/contracts-reference',
 								]
 							},
 							
@@ -201,11 +200,11 @@ export default defineConfig({
 		},
 		'/docs/users/user-guides/stablecoins-and-erc-20': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'/docs/users/user-guides/stablecoins-and-erc-20/deposit-guide': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'/docs/users/user-guides/fees': {
 			status: 302,
@@ -213,7 +212,7 @@ export default defineConfig({
 		},
 		'/docs/users/user-guides/fees/tbtc-unmint-and-redemption': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'/docs/users/user-guides/mats': {
 			status: 302,
@@ -273,43 +272,43 @@ export default defineConfig({
 		},
 		'/docs/users/concepts/stablecoins-and-erc-20': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'/docs/users/concepts/stablecoins-and-erc-20/deposit-guide': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'docs/users/concepts/bitcoin-on-mezo/': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'docs/users/concepts/bitcoin-on-mezo/tbtc': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'docs/users/concepts/bitcoin-on-mezo/tbtc/minting-process': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'docs/users/concepts/bitcoin-on-mezo/tbtc/guide': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'docs/users/concepts/bitcoin-on-mezo/btc-deposit-guide': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'docs/users/concepts/bitcoin-on-mezo/tbtc-and-wbtc-deposit-guide': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'docs/users/concepts/fees': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'docs/users/concepts/fees/tbtc-unmint-and-redemption': {
 			status: 302,
-			destination: '/docs/users/mainnet/deposits'
+			destination: '/docs/users/mainnet/bridges'
 		},
 		'/docs/users/resources/media-kit': {
 			status: 302,
@@ -318,6 +317,14 @@ export default defineConfig({
 		'/docs/users/matsnet/stack-matsnet-btc': {
 			status: 302,
 			destination: '/docs/users/'
+		},
+		'docs/users/getting-started/depositing': {
+			status: 302,
+			destination: '/docs/users/getting-started/bridging'
+		},
+		'docs/users/resources/contracts-and-btc-custody': {
+			status: 302,
+			destination: '/docs/users/resources/contracts-reference'
 		},
 	  }
 });
