@@ -2,9 +2,9 @@
 title: Release Notes
 ---
 
-## 2025-05-26 - Mezo Mainnet Launch
+## 2025-05-28 - Mezo Mainnet Launch
 
-Mezo Mainnet is now available! See the [Getting Started](http://localhost:4321/docs/users/getting-started/connect) docs to learn how to connect to Mainnet.
+Mezo Mainnet is now available! See the [Getting Started](https:/mezo.org/docs/users/getting-started/connect) docs to learn how to connect to Mainnet or head to [mezo.org/overview](https://mezo.org/overview) to bridge your assets and begin using the platform.
 
 Mezo matsnet has been sunset and is now Mezo Testnet.
 
