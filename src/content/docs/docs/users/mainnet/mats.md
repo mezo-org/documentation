@@ -6,7 +6,9 @@ mats, or "magic satoshis," are Mezo's way of recognizing and rewarding participa
 
 mats are collectible points that you can use to play games, tip fellow community members, participate in raffles, and more on the Mezo server.
 
-You can continue to earn mats on Mezo Mainnet. Deposits continue to earn mats only if the assets are bridged to Mezo Mainnet. The details for how mats were bridged to Mainnet are described in the [Mezo Blog](https://mezo.org/blog/final-steps-before-mainnet-activating-your-mats-rewards/).
+You can continue to earn mats on Mezo Mainnet. If you opted out of auto-bridging your assets to Mezo Mainnet and your lock period extends past the Mezo Mainnet launch date + 30 days, those assets continue to be locked during that period and continue earning mats at your lock setting rate.
+
+The details for how mats were bridged to Mainnet are described in the [Mezo Blog](https://mezo.org/blog/final-steps-before-mainnet-activating-your-mats-rewards/).
 
 ## Earning and using mats
 
