@@ -5,7 +5,7 @@ description: Creating your account on Mezo.
 
 You can create an account in the Mezo App to manage rewards, create and manage deposits, borrow and mint MUSD, and access Mezo Market.
 
-1. Go to the [Mezo App](https://mezo.org/home).
+1. Go to the [Mezo App](https://mezo.org/overview).
 
 1. Click the **Sign in** button.
 
