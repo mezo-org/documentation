@@ -18,7 +18,7 @@ Users with existing deposits can disable auto-bridging for individual assets in 
 
 To opt-out of an asset, complete the following steps:
 
-1. Log in to your [Mezo App](https://mezo.org) account.
+1. Sign in to your [Mezo App](https://mezo.org) account.
 
 1. Go to the [Mezo App Deposit Tab](https://mezo.org/deposit).
 

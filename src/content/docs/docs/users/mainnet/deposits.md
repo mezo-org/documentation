@@ -13,7 +13,7 @@ You can deposit BTC directly from a Bitcoin wallet to the Mezo App. Assets are a
 
 ### Supported Bitcoin wallets
 
-You can log in with UniSat, OKX, and Xverse. Use the following addresses:
+You can sign in with UniSat, OKX, and Xverse. Use the following addresses:
 
 | Name           | Script Type | Address Prefix |
 | -------------- | ----------- | -------------- |

@@ -7,7 +7,7 @@ You can deposit native Bitcoin or supported ERC-20 tokens to the Mezo App to ear
 ## Before you begin
 
 1. Go to the [Mezo App](https://mezo.org/overview) and connect with a supported wallet.
-1. After you complete login and sign the transaction, go to [mezo.org/deposit?tab=new-deposit](https://mezo.org/deposit?tab=new-deposit) to access the deposit page.
+1. After you sign in and sign the transaction, go to [mezo.org/deposit?tab=new-deposit](https://mezo.org/deposit?tab=new-deposit) to access the deposit page.
 1. Verify which assets are supported for deposits. In the **New Deposit** screen, check the asset dropdown menu to find the complete list.
 
     ![](/docs/images/portal/deposit-assets-list.avif)

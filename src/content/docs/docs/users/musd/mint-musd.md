@@ -10,13 +10,13 @@ MUSD is available on Mezo Mainnet and available for testing on Mezo Testnet. Thi
 
 Before you can get testnet MUSD, you must complete the following steps:
 
-- Go to [mezo.org](https://mezo.org/) and click **Log in** to connect to your Mezo account.
+- Go to [mezo.org](https://mezo.org/) and click **Sign in** to connect to your Mezo account.
 - Connect an Ethereum wallet to Mezo Testnet. See the [Connect to Mezo Testnet](/docs/users/getting-started/connect/) guide for instructions.
 - Get testnet BTC on Testnet. See the [Stack matsnet BTC](/docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc) guide to learn more.
 
 ## Borrow and mint
 
-After you are logged into [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow MUSD.
+After you sign in to [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow MUSD.
 
 1. In your browser, open [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
 
