@@ -23,7 +23,7 @@ To get started developing on Mezo:
   * Validation Cloud:
     * HTTPS: `https://mainnet.mezo.public.validationcloud.io`
     * WSS: `wss://mainnet.mezo.public.validationcloud.io`
-    * Free API key available for developers at [https://app.validationcloud.io/](https://app.validationcloud.io/)
+    * For higher rate limit and low-latency Mezo RPC, get your free API key at [app.validationcloud.io/](https://app.validationcloud.io/) or see [validationcloud.io/contact](https://validationcloud.io/contact) for Enterprise plans.
 * Chain ID: `31612`
 * Native Currency:
   * Name: Bitcoin
