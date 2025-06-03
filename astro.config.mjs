@@ -74,7 +74,8 @@ export default defineConfig({
 								collapsed: true,
 							    items: [
 									'docs/users/mainnet/bridges',
-									'docs/users/mainnet/mats'
+									'docs/users/mainnet/mats',
+									{ label: 'Redeeming stBTC', link: 'docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits'},
 								]
 							},
 							{   
