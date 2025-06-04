@@ -5,7 +5,7 @@ topic: users
 hidden: true
 ---
 
-If you minted stBTC, you can unlock your tBTC in the [Mezo App](https://mezo.org/overview). If you have crv-stBTC locked until the unlock date shown in the Mezo App.
+If you minted stBTC, you can unlock your tBTC in the [Mezo App](https://mezo.org/overview).
 
 ## Redeeming your stBTC for tBTC
 
