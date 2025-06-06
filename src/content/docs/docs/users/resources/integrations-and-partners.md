@@ -26,4 +26,4 @@ Supra is a cross-chain oracle network designed to power dApps across blockchain 
 
 ## SAFE
 
-SAFE infrstructure is available at [safe.mezo.org/](http://safe.mezo.org/).
+SAFE infrstructure is available at [safe.mezo.org](http://safe.mezo.org/).
