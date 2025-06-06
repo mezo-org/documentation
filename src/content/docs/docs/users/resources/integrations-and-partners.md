@@ -24,6 +24,8 @@ Supra is a cross-chain oracle network designed to power dApps across blockchain 
 
 - **[Supra Documentation](https://docs.supra.com/)**
 
-## SAFE
+## Onchain Den
 
-SAFE infrstructure is available at [safe.mezo.org](http://safe.mezo.org/).
+Den provides a self-custodial multi-signature wallet for onchain organizations, and is available on Mezo. Onchain Den also worked with Mezo to provide SAFE infrstructure at [safe.mezo.org](http://safe.mezo.org/).
+
+- **[Den Documentation](https://docs.onchainden.com/overview/den)**
