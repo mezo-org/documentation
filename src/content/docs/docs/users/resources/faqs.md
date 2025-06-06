@@ -22,7 +22,6 @@ Mezo’s products are aligned with the mission to build a Bitcoin-backed financi
 * Mezo Borrow
 * MUSD 
 * Tigris (coming soon)
-* Others we want to mention?
 
 ## How do I borrow against my Bitcoin?
 
