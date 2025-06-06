@@ -29,6 +29,15 @@ Some of the token contracts are `TransparentUpgradableProxy` contracts. Add the 
 - Mainnet MUSD: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
 - Testnet MUSD: [0x637e22A1EBbca50EA2d34027c238317fD10003eB](https://explorer.test.mezo.org/token/0x637e22A1EBbca50EA2d34027c238317fD10003eB)
 
+## Pool Contracts
+
+| Name | Address |
+|----- | ------- |
+| PoolFactory | [0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248](https://explorer.mezo.org/address/0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248) |
+| MUSD/BTC Pool | [0x52e604c44417233b6CcEDDDc0d640A405Caacefb](https://explorer.mezo.org/address/0x52e604c44417233b6CcEDDDc0d640A405Caacefb) |
+| MUSD/mUSDC Pool | [0xEd812AEc0Fecc8fD882Ac3eccC43f3aA80A6c356](https://explorer.mezo.org/address/0xEd812AEc0Fecc8fD882Ac3eccC43f3aA80A6c356) |
+| MUSD/mUSDT Pool | [0x10906a9E9215939561597b4C8e4b98F93c02031A](https://explorer.mezo.org/address/0x10906a9E9215939561597b4C8e4b98F93c02031A) |
+
 ## Pre-Mainnet contracts
 
 These contracts were used for deposits before the Mezo Mainnet launch when assets were bridged to the new network.
