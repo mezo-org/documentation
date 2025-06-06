@@ -23,6 +23,7 @@ If Chainlist does not work, add the network manually using the network details b
   * Validation Cloud:
     * HTTPS: `https://mainnet.mezo.public.validationcloud.io`
     * WSS: `wss://mainnet.mezo.public.validationcloud.io`
+    * For higher rate limits and low-latency Mezo RPC, get your free API key at [validationcloud.io/mezo](https://www.validationcloud.io/mezo) or visit contact [validationcloud.io/contact](https://validationcloud.io/contact) for Enterprise plans.
 * Chain ID: `31612`
 * Native Currency:
   * Name: Bitcoin
