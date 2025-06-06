@@ -5,7 +5,9 @@ description: Several contracts are used to on Mezo. Read this reference to learn
 
 ## Token Contracts
 
-You can add these tokens to your wallet in the Mezo Explorer. Open the token address in the explorer and click the **Add token to MetaMask** button next to the MUSD token address. Some of the token contracts are `TransparentUpgradableProxy` contracts. Add the proxy address to your browser wallet manually rather than the token address behind the proxy. For example, in MetaMask, follow the instructions to [Import a Token](https://support.metamask.io/manage-crypto/portfolio/how-to-import-a-token-in-metamask-portfolio/).
+You can add these tokens to your wallet in the Mezo Explorer. Open the token address in the explorer and click the **Add token to MetaMask** button next to the MUSD token address.
+
+Some of the token contracts are `TransparentUpgradableProxy` contracts. Add the proxy address to your browser wallet manually rather than the token address behind the proxy. For example, in MetaMask, follow the instructions to [Import a Token](https://support.metamask.io/manage-crypto/portfolio/how-to-import-a-token-in-metamask-portfolio/). These tokens are not visible on your EOA in the [Mezo Explorer](https://explorer.mezo.org/) until you complete your first transfer and approval on the given token. 
 
 ### Bridged tokens
 

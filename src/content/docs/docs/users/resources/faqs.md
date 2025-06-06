@@ -22,7 +22,6 @@ Mezo’s products are aligned with the mission to build a Bitcoin-backed financi
 * Mezo Borrow
 * MUSD 
 * Tigris (coming soon)
-* Others we want to mention?
 
 ## How do I borrow against my Bitcoin?
 
@@ -62,3 +61,7 @@ EVM-compatible:
 ## What token is used for transaction fees?
 
 BTC is used to pay for transaction fees. This includes tBTC.
+
+## Why are some tokens that I own not shown in the Mezo Explorer?
+
+This is a known limitation of the BlockScout indexer for tokens that have a proxy contract. Those tokens are not visible on your EOA in the [Mezo Explorer](https://explorer.mezo.org/) until you complete your first transfer and approval on the given token.
