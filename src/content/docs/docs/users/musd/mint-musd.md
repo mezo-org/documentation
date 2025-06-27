@@ -12,7 +12,7 @@ Before you can get testnet MUSD, you must complete the following steps:
 
 - Go to [mezo.org](https://mezo.org/) and click **Sign in** to connect to your Mezo account.
 - Connect an Ethereum wallet to Mezo Testnet. See the [Connect to Mezo Testnet](/docs/users/getting-started/connect/) guide for instructions.
-- Get testnet BTC on Testnet. See the [Stack matsnet BTC](/docs/users/getting-started/mezo-matsnet-alpha-testnet/stack-matsnet-btc) guide to learn more.
+- Get testnet BTC on Testnet. You can request testnet BTC in [Discord](https://discord.com/invite/mezo).
 - Add the MUSD token to your wallet. You can add the token using the UI on the Mezo Explorer. Click the **Add token to MetaMask** button next to the MUSD token address:
     - Mainnet: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
     - Testnet: [0x637e22A1EBbca50EA2d34027c238317fD10003eB](https://explorer.test.mezo.org/token/0x637e22A1EBbca50EA2d34027c238317fD10003eB)
