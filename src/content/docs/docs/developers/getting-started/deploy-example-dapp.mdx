@@ -1,22 +1,24 @@
 ---
-title: Configure Mezo Passport
+title: Deploy your dApp to Mezo
 ---
 
-import { LinkButton } from '@astrojs/starlight/components';
+Use this guide to learn how to deploy applications on Mezo. This guide walks you through the steps for deploying an example dApp to Mezo Mainnet. Later, you can use this same process for your own dApp. You will learn how to complete the following tasks:
 
-[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is a package built on top of [RainbowKit](https://rainbowkit.com/) and provides additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. With this package, developers can integrate Bitcoin wallet support alongside Ethereum-compatible (EVM) wallets to create a more versatile connection experience for users. Passport integrates with [viem](https://viem.sh/) and [wagmi](https://wagmi.sh/) libraries for streamlined wallet management across Bitcoin and EVM ecosystems.
-
-<LinkButton href="https://www.npmjs.com/package/@mezo-org/passport" target="_blank" icon="external">Get the @mezo-org/passport
- NPM Package</LinkButton>
-
-If you cannot use Mezo Passport for your dApp, the configuration steps in the [Configure your Environment](/docs/developers/getting-started/configure-environment) guide are sufficient for traditional EVM development.
+1. Configure a dApp with Passport.
+1. Deploy the dApp to Mezo Testnet.
+1. Test the dApp as an end-user.
+1. Deploy the dApp to product on Mezo Mainnet.
 
 ## Before you begin
 
-- [Configure your Environment](/docs/developers/getting-started/configure-environment) for development with HardHat or Foundry.
-- If you are not familiar with RainbowKit, read the [RainbowKit documentation](https://www.rainbowkit.com/) to learn the basics.
+- [Configure your development environment](/docs/developers/getting-started/configure-environment) for Mezo Testnet.
+- Install browser wallets for both Ethereum and Bitcoin.
+- Get native testnet BTC for development and testing from a [BTC faucet](https://bitcoinfaucet.uo1.net/)
+- [Get testnet BTC]() on the Mezo testnet. This BTC is on Mezo testnet and is different from the native BTC in your Bitcoin wallet.
 
-## Install
+## Step 1: Enabling the dApp with Mezo Passport
+
+### Install Passport
 
 Install the Mezo Passport library, RainbowKit, and dependencies:
 
@@ -24,7 +26,7 @@ Install the Mezo Passport library, RainbowKit, and dependencies:
 npm install @mezo-org/passport @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
 ```
 
-## Configure your application
+### Configure your application
 
 The configuration process is similar to RainbowKit but uses the `getConfig` method from passport, which returns a default configuration for Mezo Testnet. Pass `getConfig` to `WagmiProvider`.
 
@@ -49,11 +51,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 );
 ```
 
-## Connecting wallets
+### Connecting wallets
 
 To connect to the Mezo Passport wallet, use the standard Wagmi or RainbowKit components.
 
-### Wagmi
+#### Wagmi
 
 ```javascript
 import { useChainId, useConnect } from "wagmi";
@@ -80,7 +82,7 @@ export const YourApp = () => {
 };
 ```
 
-### RainbowKit
+#### RainbowKit
 
 ```
 import { ConnectButton } from "@rainbow-me/rainbowkit"
@@ -90,6 +92,16 @@ export const YourApp = () => {
 };
 ```
 
-## Next steps
+## Step 2: Deploying to Mezo Testnet
 
-You can find additional examples in the [Mezo Passport Readme](https://www.npmjs.com/package/@mezo-org/passport#installation). An example dApp is available in the [Passport GitHub repository](https://github.com/mezo-org/passport/tree/main/example)
+## Step 3: End-to-end testing
+
+## Step 4: Deploying to Mezo Mainnet
+
+After you've completed development, you can deploy your dApp to Mezo Mainnet as a production application. You will need BTC on Mezo Mainnet to operate the dApp on Mezo Mainnet. [Get Mezo Mainnet BTC](/docs/users/getting-started/bridging) by bridging assets to Mezo. 
+
+
+
+## What's next 
+
+Now that you've deployed a testnet dApp

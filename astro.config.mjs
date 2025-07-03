@@ -116,7 +116,7 @@ export default defineConfig({
 								items: [
 									'docs/developers/getting-started',
 									'docs/developers/getting-started/configure-environment',
-									'docs/developers/getting-started/configure-passport',
+									'docs/developers/getting-started/deploy-example-dapp',
 								]
 							},
 							{   
@@ -325,6 +325,10 @@ export default defineConfig({
 		'docs/users/resources/contracts-and-btc-custody': {
 			status: 302,
 			destination: '/docs/users/resources/contracts-reference'
+		},
+		'docs/developers/getting-started/configure-passport': {
+			status: 302,
+			destination: '/docs/developers/getting-started/configure-environment'
 		},
 	  }
 });

@@ -2,15 +2,33 @@
 title: Overview
 ---
 
+Follow the [Developer Onboarding](#developer-onboarding) process to bring your dApp to Mezo.
+
+## Developer Onboarding
+
+To bring your dApp to Mezo, follow the standard Developer onboarding process:
+
+1. If you need onboarding support from the Mezo team, [submit an audit report]() before you begin deploying to Mezo.
+
+1. [Configure your development environment](/docs/developers/getting-started/configure-environment) for Mezo.
+
+1. Complete the [Deploy your dApp to Mezo](/docs/developers/getting-started/deploy-example-dapp) tutorial to learn the full dApp development and Passport integration process on Mezo.
+
+1. Deploy your dApp to the Mezo testnet. Use the [Mezo Testnet network details](/docs/developers/getting-started#mezo-mainnet).
+
+1. Stress test the dApp to make sure it functions as expected. Mezo testnet is the best place to find issues early before deploying to Mezo Mainnet.
+
+1. Deploy your dApp to Mainnet. Use the [Mezo Mainnet network details](/docs/developers/getting-started#mezo-mainnet).
+
+1. Monitor your dApp. Set up monitoring and alerts to track the health of your dApp and alert you to any issues. See the [Monitoring]() guide for details.
+
+## Mezo Passport
+
 Developers are strongly encouraged to use [Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) in their dApps to provide additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. Passport does not require a specific development environment, and is a React library that works with [RainbowKit](https://rainbowkit.com/).
 
-To get started developing on Mezo:
+## Network Details
 
-1. [Configure your development environment](/docs/developers/getting-started/configure-environment) to enable standard EVM development.
-1. [Install and configure Mezo Passport](/docs/developers/getting-started/configure-passport) in your applications.
-1. Build a testnet dApp with Mezo Passport and begin building on Mezo. When you are ready, deploy to Mainnet. 
-
-## Mezo Mainnet
+### Mezo Mainnet
 
 * Public JSON RPC Endpoints:
   * Boar:
@@ -31,7 +49,7 @@ To get started developing on Mezo:
   * Decimals: `18`
 * Block explorer: [https://explorer.mezo.org/](https://explorer.mezo.org/)
 
-## Mezo Testnet
+### Mezo Testnet
 
 * Public JSON RPC Endpoint:
   * HTTPS: `https://rpc.test.mezo.org`
