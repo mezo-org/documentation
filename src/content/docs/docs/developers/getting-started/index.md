@@ -2,11 +2,13 @@
 title: Overview
 ---
 
-Follow the [Developer Onboarding](#developer-onboarding) process to bring your dApp to Mezo.
+Follow the [Developer onboarding](#developer-onboarding) process to bring your dApp to Mezo.
 
-## Developer Onboarding
+## Developer onboarding
 
 To bring your dApp to Mezo, follow the standard Developer onboarding process:
+
+1. Read the [requirements](#dapp-requirements) for a dApp to be fully-enabled on Mezo and featured in the [Mezo Market](https://mezo.org/market).
 
 1. If you need onboarding support from the Mezo team, [submit an audit report]() before you begin deploying to Mezo.
 
@@ -22,11 +24,15 @@ To bring your dApp to Mezo, follow the standard Developer onboarding process:
 
 1. Monitor your dApp. Set up monitoring and alerts to track the health of your dApp and alert you to any issues. See the [Monitoring]() guide for details.
 
-## Mezo Passport
+## dApp requirements
 
-Developers are strongly encouraged to use [Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) in their dApps to provide additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. Passport does not require a specific development environment, and is a React library that works with [RainbowKit](https://rainbowkit.com/).
+Although the netowork is permissionless and anybody can deploy to Mezo Mainnet, dApps on Mezo must meet the following requirements to be featured in the [Mezo Market](https://mezo.org/market):
 
-## Network Details
+- Mezo Passport: Developers must use [Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) in their dApps to provide additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. Passport does not require a specific development environment, and is a React library that works with [RainbowKit](https://rainbowkit.com/).
+- 
+- 
+
+## Network details
 
 ### Mezo Mainnet
 
