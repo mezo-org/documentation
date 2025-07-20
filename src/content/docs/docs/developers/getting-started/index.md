@@ -16,14 +16,14 @@ To get started developing on Mezo:
   * Boar:
     * HTTPS: `https://jsonrpc-mezo.boar.network`
     * WSS: `wss://jsonrpcws-mezo.boar.network`
-    * Enterprise plan available - Contact [hello@boar.network](hello@boar.network) to get started.
+    * For higher rate limits get your free API key at [boar.network/mezo](https://boar.network/mezo). Enterprise plan available - contact [hello@boar.network](hello@boar.network) to get started.
   * Imperator:
     * HTTPS: `https://rpc_evm-mezo.imperator.co`
     * WSS: `wss://ws_evm-mezo.imperator.co`
   * Validation Cloud:
     * HTTPS: `https://mainnet.mezo.public.validationcloud.io`
     * WSS: `wss://mainnet.mezo.public.validationcloud.io`
-    * For higher rate limits and low-latency Mezo RPC, get your free API key at [validationcloud.io/mezo](https://www.validationcloud.io/mezo) or contact them at [validationcloud.io/contact](https://validationcloud.io/contact) for Enterprise plans.
+    * For higher rate limits get your free API key at [validationcloud.io/mezo](https://www.validationcloud.io/mezo) or contact them at [validationcloud.io/contact](https://validationcloud.io/contact) for Enterprise plans.
 * Chain ID: `31612`
 * Native Currency:
   * Name: Bitcoin
