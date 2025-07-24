@@ -29,8 +29,6 @@ To bring your dApp to Mezo, follow the standard Developer onboarding process:
 Although the netowork is permissionless and anybody can deploy to Mezo Mainnet, dApps on Mezo must meet the following requirements to be featured in the [Mezo Market](https://mezo.org/market):
 
 - Mezo Passport: Developers must use [Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) in their dApps to provide additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. Passport does not require a specific development environment, and is a React library that works with [RainbowKit](https://rainbowkit.com/).
-- 
-- 
 
 ## Network details
 
