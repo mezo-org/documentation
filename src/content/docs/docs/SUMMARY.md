@@ -34,9 +34,10 @@
 
 * [Developer Guide Home](developer-documentation/developer-guide-home.md)
 * [Getting Started](developer-documentation/getting-started/README.md)
-  * [Overview](developer-documentation/getting-started/index.md)
+  * [Overview](developer-documentation/getting-started/index/README.md)
+    * [dApp Requirements](developer-documentation/getting-started/index/dapp-requirements.md)
   * [Configure Environment](developer-documentation/getting-started/configure-environment.md)
-  * [Configure Mezo Passport](developer-documentation/getting-started/configure-mezo-passport.md)
+  * [FAQs](developer-documentation/getting-started/faqs.md)
 * [Architecture](developer-documentation/architecture/README.md)
   * [Oracles](developer-documentation/architecture/oracles/README.md)
     * [Oracle Infrastructure](developer-documentation/architecture/oracles/index.md)
