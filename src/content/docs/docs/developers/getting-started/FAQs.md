@@ -1,5 +1,3 @@
-# FAQs
-
 ### What is Mezo? The Value Proposition for Builders <a href="#what-is-mezo-the-value-proposition-for-builders" id="what-is-mezo-the-value-proposition-for-builders"></a>
 
 Mezo is a permissionless, bank-free Bitcoin finance platform engineered to transform Bitcoin from a passive store of value into a productive, dynamic financial asset. The platform's core mission is to enable the more than 100 million Bitcoin holders worldwide to HODL with a purpose, by using the value of their assets without needing to sell them. This is achieved by creating a robust infrastructure that facilitates cheap, fast, and secure transactions for a variety of real-world applications.The ultimate vision for Mezo is to make the use of Bitcoin supernormal—a state where using Bitcoin for everyday financial activities is so seamless and integrated that it becomes an obvious, unremarkable part of life, like using a debit card.
