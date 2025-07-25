@@ -1,8 +1,6 @@
 # Table of contents
 
-* [README](README.md)
 * [Welcome to Mezo Docs](index.md)
-* [Welcome to Mezo Docs](index-1.md)
 * [users](users/README.md)
   * [getting-started](users/getting-started/README.md)
     * [Bridge Assets](users/getting-started/bridging.md)
