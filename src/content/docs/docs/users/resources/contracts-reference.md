@@ -30,6 +30,20 @@ Some of the token contracts are `TransparentUpgradableProxy` contracts. Add the 
 - Mainnet MUSD: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
 - Testnet MUSD: [0x637e22A1EBbca50EA2d34027c238317fD10003eB](https://explorer.test.mezo.org/token/0x637e22A1EBbca50EA2d34027c238317fD10003eB)
 
+### MUSD bridge
+
+The MUSD bridge is powered by Wormhole's Native Token Transfer (NTT) protocol, which enables secure cross-chain transfers while maintaining token fungibility. NTT allows tokens to be locked on the source chain and minted on the destination chain, or burned and unlocked when bridging back. Use the [Portal UI](https://portalbridge.com/) to bridge tokens.
+
+For more information about NTT, see the [official Wormhole documentation](https://wormhole.com/docs/products/native-token-transfers/overview/).
+
+**Mezo:**
+- Ntt manager: [0x7efb386675d75280D39Aae42964A6776DE0ee0bD](https://explorer.mezo.org/address/0x7efb386675d75280D39Aae42964A6776DE0ee0bD)
+- Wormhole Transceiver: [0x56E27f1A8425515FFD4BD76A254Ac1a5c0B66D71](https://explorer.mezo.org/address/0x56E27f1A8425515FFD4BD76A254Ac1a5c0B66D71)
+
+**Ethereum:**
+- Ntt manager: [0x5293158bf7a81ED05418DA497a80F7e6Dbf4477E](https://etherscan.io/address/0x5293158bf7a81ED05418DA497a80F7e6Dbf4477E)
+- Wormhole Transceiver: [0x76ddB3f1dDe02391Ef0A28664499B74C29d18d3E](https://etherscan.io/address/0x76ddB3f1dDe02391Ef0A28664499B74C29d18d3E)
+
 ## Pool Contracts
 
 | Name | Address |
