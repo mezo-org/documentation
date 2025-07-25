@@ -2,15 +2,21 @@
 title: Configure your Environment
 ---
 
-Configure your Hardhat or Foundry development environment for Mezo Testnet. 
+# Configure your Environment
 
-## Before you begin
+AFSDFDSFSDF
+
+
+
+Configure your Hardhat or Foundry development environment for Mezo Testnet.
+
+### Before you begin
 
 Before you can deploy applications, you will need an Ethereum wallet with testnet BTC to pay for the gas fees.
 
-* [Connect to Mezo Testnet](/docs/users/getting-started/connect)
+* [Connect to Mezo Testnet](../../../../../../docs/users/getting-started/connect/)
 
-## Hardhat
+### Hardhat
 
 If you are new to Hardhat, use the [Hardhat Quick Start](https://hardhat.org/hardhat-runner/docs/getting-started#quick-start) guide to learn how to install and initialize your project.
 
@@ -21,7 +27,7 @@ To configure Hardhat to work with Mezo Testnet, set the following items in your 
 
 As an example, see these basic Hardhat config files:
 
-### Typescript
+#### Typescript
 
 ```typescript
 import { HardhatUserConfig } from "hardhat/config";
@@ -53,7 +59,7 @@ const config: HardhatUserConfig = {
 export default config;
 ```
 
-### Javascript
+#### Javascript
 
 ```javascript
 require("@nomiclabs/hardhat-waffle");
@@ -82,7 +88,7 @@ module.exports = {
 };
 ```
 
-## Foundry
+### Foundry
 
 If you are new to Foundry, use the [Foundry Getting Started](https://book.getfoundry.sh/getting-started/installation) guide to learn how to install and initialize your project.
 
