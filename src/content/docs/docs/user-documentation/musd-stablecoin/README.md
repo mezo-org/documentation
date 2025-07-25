@@ -1,2 +1,0 @@
-# MUSD Stablecoin
-

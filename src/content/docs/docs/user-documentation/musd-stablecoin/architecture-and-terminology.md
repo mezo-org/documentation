@@ -1,2 +1,0 @@
-# Architecture and Terminology
-
