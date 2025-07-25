@@ -3,6 +3,8 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import yaml from 'js-yaml';
+import matter from 'gray-matter';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -148,7 +150,7 @@ class GitbookProcessor {
       
       if (child.children && child.children.length > 0) {
         return {
-          label: child.title,
+          label: this.humanizeTitle(child.title),
           collapsed: true,
           items: this.convertChildrenToItems(child.children, prefix)
         };
@@ -193,6 +195,12 @@ class GitbookProcessor {
 
   transformMarkdownContent(content, filePath) {
     let transformed = content;
+    const relativePath = path.relative(DOCS_DIR, filePath);
+
+    // Special handling for the main docs index page
+    if (relativePath === 'README.md' || relativePath === 'index.md') {
+      return this.transformDocsIndexPage(content, filePath);
+    }
 
     // Transform Gitbook button blocks
     transformed = transformed.replace(
@@ -216,36 +224,24 @@ class GitbookProcessor {
       '![](~/assets/gitbook/$2)'
     );
 
-    // Handle frontmatter and topic assignment
-    const relativePath = path.relative(DOCS_DIR, filePath);
+    // Handle frontmatter and topic assignment using gray-matter
+    const parsed = matter(transformed);
     const topicId = this.inferTopicFromPath(relativePath);
     
-    if (transformed.startsWith('---')) {
-      // Update existing frontmatter to add topic
-      const frontmatterEnd = transformed.indexOf('---', 3);
-      if (frontmatterEnd !== -1) {
-        const frontmatter = transformed.slice(0, frontmatterEnd);
-        const rest = transformed.slice(frontmatterEnd);
-        
-        if (!frontmatter.includes('topic:') && topicId) {
-          transformed = frontmatter + `topic: ${topicId}\n` + rest;
-        }
-      }
-    } else {
-      // Add new frontmatter
+    // Update frontmatter data
+    if (!parsed.data.title) {
       const filename = path.basename(filePath, path.extname(filePath));
-      const title = filename === 'README' || filename === 'index' 
+      parsed.data.title = filename === 'README' || filename === 'index' 
         ? this.inferTitleFromPath(filePath)
         : filename.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-      
-      let frontmatter = `---\ntitle: ${title}\n`;
-      if (topicId) {
-        frontmatter += `topic: ${topicId}\n`;
-      }
-      frontmatter += `---\n\n`;
-      
-      transformed = frontmatter + transformed;
     }
+    
+    if (topicId && !parsed.data.topic) {
+      parsed.data.topic = topicId;
+    }
+    
+    // Regenerate the content with updated frontmatter
+    transformed = matter.stringify(parsed.content, parsed.data);
 
     // Clean up any remaining Gitbook syntax
     transformed = transformed.replace(/\[block:[^\]]+\][^[]*\[\/block:[^\]]+\]/gs, '');
@@ -271,6 +267,105 @@ class GitbookProcessor {
       return 'users'; // Default root files to users topic
     }
     return null;
+  }
+
+  transformDocsIndexPage(content, filePath) {
+    // Parse existing frontmatter and content using gray-matter
+    const parsed = matter(content);
+    
+    // Extract title and tagline from content
+    let title = parsed.data.title || 'Welcome to Mezo Docs';
+    let tagline = 'Turn your Bitcoin into an active, yield-generating asset with BitcoinFi.';
+    
+    // Try to extract tagline from content body
+    let bodyContent = parsed.content;
+    
+    // First transform Gitbook button blocks to simple links
+    bodyContent = bodyContent.replace(
+      /\[block:buttons\]\s*\{[^}]*"buttons":\s*\[(.*?)\]\s*\}[^[]*\[\/block:buttons\]/gs,
+      (match, buttonsJson) => {
+        try {
+          const buttons = JSON.parse(`[${buttonsJson}]`);
+          return buttons.map(btn => 
+            `[${btn.text}](${btn.link})`
+          ).join(' • ');
+        } catch (e) {
+          console.warn(`Failed to parse buttons in ${filePath}`);
+          return match;
+        }
+      }
+    );
+    
+    const lines = bodyContent.split('\n').filter(line => line.trim());
+    
+    // Look for a paragraph that might be the tagline
+    for (const line of lines) {
+      if (line.startsWith('#')) continue; // Skip headers
+      if (line.includes('[') && line.includes(']')) continue; // Skip links
+      if (line.trim() && !line.startsWith('*') && !line.startsWith('-')) {
+        tagline = line.trim();
+        break;
+      }
+    }
+    
+    // Extract action buttons from the simple markdown links we converted
+    const actions = [];
+    const buttonPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let match;
+    
+    while ((match = buttonPattern.exec(bodyContent)) !== null) {
+      const [, text, link] = match;
+      const action = {
+        text: text,
+        link: link,
+        icon: 'right-arrow'
+      };
+      
+      // Make the second button secondary variant  
+      if (actions.length === 1) {
+        action.variant = 'secondary';
+      }
+      
+      actions.push(action);
+    }
+    
+    // Generate the splash page frontmatter
+    const frontmatterData = {
+      title: title,
+      topic: 'users',
+      template: 'splash',
+      hero: {
+        tagline: tagline,
+        image: {
+          file: '../../../assets/Mezo-Mark-Red.svg'
+        },
+        actions: actions
+      }
+    };
+    
+    // Convert to YAML format using proper library
+    const yamlContent = yaml.dump(frontmatterData, {
+      indent: 2,
+      lineWidth: -1, // No line wrapping
+      noRefs: true,  // Don't use references
+      sortKeys: false // Preserve key order
+    });
+    
+    return `---\n${yamlContent}---\n`;
+  }
+
+  humanizeTitle(title) {
+    // Convert slug-like titles to human-readable format
+    return title
+      .replace(/[-_]/g, ' ')                    // Replace dashes and underscores with spaces
+      .replace(/\b\w/g, l => l.toUpperCase())   // Capitalize first letter of each word
+      .replace(/\bmusd\b/gi, 'MUSD')            // Special case for MUSD
+      .replace(/\bbtc\b/gi, 'BTC')              // Special case for BTC
+      .replace(/\bstbtc\b/gi, 'stBTC')          // Special case for stBTC
+      .replace(/\btbtc\b/gi, 'tBTC')            // Special case for tBTC
+      .replace(/\berc\b/gi, 'ERC')              // Special case for ERC
+      .replace(/\bapi\b/gi, 'API')              // Special case for API
+      .replace(/\bfaq\b/gi, 'FAQ');             // Special case for FAQ
   }
 
   async processAssets() {

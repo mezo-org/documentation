@@ -57,7 +57,7 @@ export default defineConfig({
             icon: 'seti:powershell',
             items: [
                   {
-                        label: 'getting-started',
+                        label: 'Getting Started',
                         collapsed: true,
                         items: [
                               'docs/developers/getting-started/configure-environment',
@@ -65,18 +65,18 @@ export default defineConfig({
                         ]
                   },
                   {
-                        label: 'mezo-nodes',
+                        label: 'Mezo Nodes',
                         collapsed: true,
                         items: [
                               'docs/developers/mezo-nodes'
                         ]
                   },
                   {
-                        label: 'architecture',
+                        label: 'Architecture',
                         collapsed: true,
                         items: [
                               {
-                                    label: 'oracles',
+                                    label: 'Oracles',
                                     collapsed: true,
                                     items: [
                                           'docs/developers/architecture/oracles',
@@ -94,7 +94,7 @@ export default defineConfig({
             icon: 'star',
             items: [
                   {
-                        label: 'getting-started',
+                        label: 'Getting Started',
                         collapsed: true,
                         items: [
                               'docs/users/getting-started/bridging',
@@ -103,7 +103,7 @@ export default defineConfig({
                         ]
                   },
                   {
-                        label: 'introduction',
+                        label: 'Introduction',
                         collapsed: true,
                         items: [
                               'docs/users/introduction/bitcoins-economic-layer',
@@ -111,7 +111,7 @@ export default defineConfig({
                         ]
                   },
                   {
-                        label: 'mainnet',
+                        label: 'Mainnet',
                         collapsed: true,
                         items: [
                               'docs/users/mainnet/bridges',
@@ -119,7 +119,7 @@ export default defineConfig({
                         ]
                   },
                   {
-                        label: 'musd',
+                        label: 'MUSD',
                         collapsed: true,
                         items: [
                               'docs/users/musd/architecture-and-terminology',
@@ -131,7 +131,7 @@ export default defineConfig({
                         ]
                   },
                   {
-                        label: 'resources',
+                        label: 'Resources',
                         collapsed: true,
                         items: [
                               'docs/users/resources/audits',
@@ -144,7 +144,7 @@ export default defineConfig({
                         ]
                   },
                   {
-                        label: 'stbtc-staked-bitcoin',
+                        label: 'stBTC Staked Bitcoin',
                         collapsed: true,
                         items: [
                               'docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits'
