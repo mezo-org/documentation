@@ -2,13 +2,41 @@
 title: Overview
 ---
 
-Developers are strongly encouraged to use [Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) in their dApps to provide additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. Passport does not require a specific development environment, and is a React library that works with [RainbowKit](https://rainbowkit.com/).
+# Overview
 
-To get started developing on Mezo:
+## Developer Onboarding
 
-1. [Configure your development environment](/docs/developers/getting-started/configure-environment) to enable standard EVM development.
-1. [Install and configure Mezo Passport](/docs/developers/getting-started/configure-passport) in your applications.
-1. Build a testnet dApp with Mezo Passport and begin building on Mezo. When you are ready, deploy to Mainnet. 
+To bring your dApp to Mezo, you can follow one of two paths: the permissionless deployment path, which is open to all, or [apply for our high-support Alpha Builder Program.](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6?ref=mezo.org\&typeform-source=mezo.org)
+
+### Choose Your Onboarding Path
+
+* **Alpha Builder Program:** If you’re looking for dedicated onboarding and co-marketing support from the Mezo team, [apply for the Alpha Builder Program.](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6?ref=mezo.org\&typeform-source=mezo.org)&#x20;
+* **Permissionless Deployment:** You can deploy permissionlessly at any time. For community DevRel support during deployment, join the [Mezo Discord](https://discord.com/invite/mezo). Ask your question in the general channel, and you’ll be directed to the developers' channel, where you can access weekly DevRel office hours.
+
+### Development and Deployment Steps
+
+* Read the [dApp Requirements](https://www.google.com/search?q=%23dapp-requirements) to be eligible for featuring in the [Mezo Market ](https://mezo.org/market)and other promotional support.
+* [Configure your development environment](broken-reference) for Mezo.
+* Complete the [Deploy your dApp to Mezo](https://app.gitbook.com/o/OEHBAmjJ286W1yUh21Q8/s/x6fn2L7Htl3g7NncUqTL/~/changes/143/developers/getting-started/deploy-your-dapp-to-mezo) tutorial to learn the full dApp development and Passport integration process on Mezo.
+* Deploy your dApp to the Mezo testnet. Use the [Mezo Testnet network details](index.md#mezo-testnet).
+* Stress test the dApp to make sure it functions as expected. The Mezo testnet is the best place to find issues early before deploying to Mezo Mainnet.
+* Deploy your dApp to Mainnet. Use the [Mezo Mainnet network details](index.md#mezo-mainnet).
+* Monitor your dApp. Set up monitoring and alerts to track the health of your dApp and alert you to any issues. See the Monitoring guide for details.
+
+### Post-Deployment
+
+#### Get Featured&#x20;
+
+To be featured on the Supernormal Foundation and Mezo socials and Discord channels, fill out the [dApp intake form](https://2d0lnha7ee6.typeform.com/to/CHBVzfXU).&#x20;
+
+_Note: Submitting a third-party audit report and being fully functional on mainnet are required for official announcements. The team will review your submission and queue it for announcement._
+
+#### Support & Feedback
+
+We value your input as you build on Mezo. Please use the resources below for support and to share your feedback with our team.
+
+* **Developer Feedback:** Have suggestions for our documentation, tools, or your development experience? Please fill out our [Developer Feedback Form](https://2d0lnha7ee6.typeform.com/to/bP810Y2I).
+* **Community Support**: For technical questions and to connect with other developers, join the [https://discord.com/invite/mezo](https://www.google.com/search?q=https://discord.com/invite/mezo).
 
 ## Mezo Mainnet
 

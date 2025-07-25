@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Welcome to Mezo Docs](README.md)
-* [Welcome to Mezo Docs](index.md)
 * [users](users/README.md)
   * [getting-started](users/getting-started/README.md)
     * [Bridge Assets](users/getting-started/bridging.md)
@@ -34,13 +33,12 @@
     * [Redeeming Your stBTC Deposits](users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits.md)
 * [developers](developers/README.md)
   * [getting-started](developers/getting-started/README.md)
-    * [Configure your Environment](developers/getting-started/configure-environment.md)
     * [Overview](developers/getting-started/index.md)
+    * [Configure your Environment](developers/getting-started/configure-environment.md)
+    * [Configure Mezo Passport](developers/getting-started/configure-mezo-passport.md)
   * [mezo-nodes](developers/mezo-nodes/README.md)
     * [Overview](developers/mezo-nodes/index.md)
   * [architecture](developers/architecture/README.md)
     * [oracles](developers/architecture/oracles/README.md)
       * [Oracle Infrastructure](developers/architecture/oracles/index.md)
       * [Read Market Data](developers/architecture/oracles/read-oracle.md)
-* [admins](admins/README.md)
-  * [How to Admin](admins/how-to-admin.md)
