@@ -40,3 +40,5 @@
     * [Mezo Validators](users/resources/validators.md)
   * [stbtc-staked-bitcoin](users/stbtc-staked-bitcoin/README.md)
     * [Redeeming Your stBTC Deposits](users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits.md)
+* [admins](admins/README.md)
+  * [How to Admin](admins/how-to-admin.md)
