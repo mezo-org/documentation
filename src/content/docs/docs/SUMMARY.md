@@ -36,6 +36,7 @@
     * [Overview](developers/getting-started/index.md)
     * [Configure your Environment](developers/getting-started/configure-environment.md)
     * [Configure Mezo Passport](developers/getting-started/configure-mezo-passport.md)
+    * [FAQs](developers/getting-started/faqs.md)
   * [mezo-nodes](developers/mezo-nodes/README.md)
     * [Overview](developers/mezo-nodes/index.md)
   * [architecture](developers/architecture/README.md)
