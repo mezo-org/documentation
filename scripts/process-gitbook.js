@@ -179,10 +179,48 @@ class GitbookProcessor {
     console.log('📝 Processing markdown files...');
     
     await this.processDirectory(DOCS_DIR);
+    
+    // Special handling for the root docs index - copy to parent directory for Starlight
+    const docsReadmePath = path.join(DOCS_DIR, 'README.md');
+    const docsIndexPath = path.join(DOCS_DIR, 'index.md');
+    const rootIndexPath = path.join(path.dirname(DOCS_DIR), 'index.md');
+    
+    try {
+      // Use index.md if it exists, otherwise use README.md
+      let sourceFile = docsIndexPath;
+      try {
+        await fs.access(docsIndexPath);
+      } catch {
+        sourceFile = docsReadmePath;
+      }
+      
+      let content = await fs.readFile(sourceFile, 'utf-8');
+      
+      // Fix asset paths for root level (one less ../)
+      content = content.replace('../../../assets/', '../../assets/');
+      
+      await fs.writeFile(rootIndexPath, content, 'utf-8');
+      console.log(`  📄 Created root index.md from ${path.basename(sourceFile)}`);
+    } catch (error) {
+      console.warn(`  ⚠️  Could not create root index: ${error.message}`);
+    }
   }
 
   async processDirectory(dir) {
     const entries = await fs.readdir(dir, { withFileTypes: true });
+    
+    // Check if there's a README.md but no index.md in this directory
+    const hasReadme = entries.some(entry => entry.name === 'README.md');
+    const hasIndex = entries.some(entry => entry.name === 'index.md');
+    
+    if (hasReadme && !hasIndex) {
+      // Copy README.md to index.md
+      const readmePath = path.join(dir, 'README.md');
+      const indexPath = path.join(dir, 'index.md');
+      const readmeContent = await fs.readFile(readmePath, 'utf-8');
+      await fs.writeFile(indexPath, readmeContent, 'utf-8');
+      console.log(`  📄 Created index.md from README.md in ${path.relative(path.join(__dirname, '../src/content/docs'), dir)}`);
+    }
     
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name);
