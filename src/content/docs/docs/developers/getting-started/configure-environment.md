@@ -1,3 +1,5 @@
+# Configure your Environment
+
 Configure your Hardhat or Foundry development environment for Mezo Testnet.
 
 ### Before you begin
@@ -17,7 +19,7 @@ To configure Hardhat to work with Mezo Testnet, set the following items in your 
 
 As an example, see these basic Hardhat config files:
 
-#### Typescript
+### Typescript
 
 ```typescript
 import { HardhatUserConfig } from "hardhat/config";
@@ -49,7 +51,7 @@ const config: HardhatUserConfig = {
 export default config;
 ```
 
-#### Javascript
+### Javascript
 
 ```javascript
 require("@nomiclabs/hardhat-waffle");
