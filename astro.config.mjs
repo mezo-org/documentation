@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 import starlightSidebarTopics from 'starlight-sidebar-topics';
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +19,9 @@ export default defineConfig({
 		  wrap: true,
 		},
 	  },
+	site: 'https://docs.mezo.org',
 	integrations: [
+		sitemap(),
 		starlight({
 			title: 'Mezo Documentation',
 			customCss: [
@@ -47,113 +50,118 @@ export default defineConfig({
 			},
 			plugins: [
 				starlightSidebarTopics([
-					{
-						label: 'User Documentation',
-						id: 'users',
-						link: '/docs/users/',
-						icon: 'star',
-						items: [
-							{   
-								label: 'Introduction',
-								items: [
-									'docs/users/introduction/what-is-mezo',
-									'docs/users/introduction/bitcoins-economic-layer',
-								]
-							},
-							{   
-								label: 'Getting Started',
-								collapsed: true,
-							    items: [
-									'docs/users/getting-started/connect',
-									'docs/users/getting-started/creating-an-account',
-									'docs/users/getting-started/bridging',
-								]
-							},
-							{   
-								label: 'Mezo Mainnet',
-								collapsed: true,
-							    items: [
-									'docs/users/mainnet/bridges',
-									'docs/users/mainnet/mats',
-									{ label: 'Redeeming stBTC', link: 'docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits'},
-								]
-							},
-							{   
-								label: 'MUSD',
-								collapsed: true,
-							    items: [
-									'docs/users/musd',
-									'docs/users/musd/concepts',
-									'docs/users/musd/mint-musd',
-									'docs/users/musd/fees',
-									'docs/users/musd/risks',
-									'docs/users/musd/architecture-and-terminology',
-								]
-							},
-							'docs/users/resources/faqs',
-							{   
-								label: 'Resources',
-								collapsed: true,
-							    items: [
-									'docs/users/resources/integrations-and-partners',
-									'docs/users/resources/release-notes',
-									'docs/users/resources/validators',
-									'docs/users/resources/audits',
-									'docs/users/resources/brand-kit',
-									'docs/users/resources/contracts-reference',
-								]
-							},
-						],
-					},
-					{
-						label: 'Developer Documentation',
-						id: 'developers',
-						link: '/docs/developers/',
-						icon: 'seti:powershell',
-						items: [
-							{   
-								label: 'Getting Started',
-								items: [
-									'docs/developers/getting-started',
-									'docs/developers/getting-started/configure-environment',
-									'docs/developers/getting-started/configure-passport',
-								]
-							},
-							{   
-								label: 'Architecture',
-								items: [
-									{   
-										label: 'Skip Oracle',
-										items: [
-											{ label: 'Overview', link: 'docs/developers/architecture/oracles'},
-											'docs/developers/architecture/oracles/read-oracle'
-										]
-									},
-								]
-							},
-							{   
-								label: 'Mezo Nodes',
-								items: [
-									'docs/developers/mezo-nodes'
-								]
-							},
-							{   
-								label: 'Resources',
-								collapsed: true,
-							    items: [
-									'docs/users/resources/integrations-and-partners',
-									'docs/users/resources/release-notes',
-									'docs/users/resources/validators',
-									'docs/users/resources/faqs',
-									'docs/users/resources/audits',
-									'docs/users/resources/brand-kit',
-									'docs/users/resources/contracts-reference',
-								]
-							},
-							
-						],
-					},
-				]),
+      {
+            label: 'Developer Documentation',
+            id: 'developers',
+            link: '/docs/developers/',
+            icon: 'seti:powershell',
+            items: [
+                  {
+                        label: 'getting-started',
+                        collapsed: true,
+                        items: [
+                              'docs/developers/getting-started/configure-environment',
+                              'docs/developers/getting-started'
+                        ]
+                  },
+                  {
+                        label: 'mezo-nodes',
+                        collapsed: true,
+                        items: [
+                              'docs/developers/mezo-nodes'
+                        ]
+                  },
+                  {
+                        label: 'architecture',
+                        collapsed: true,
+                        items: [
+                              {
+                                    label: 'oracles',
+                                    collapsed: true,
+                                    items: [
+                                          'docs/developers/architecture/oracles',
+                                          'docs/developers/architecture/oracles/read-oracle'
+                                    ]
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            label: 'User Documentation',
+            id: 'users',
+            link: '/docs/users/',
+            icon: 'star',
+            items: [
+                  {
+                        label: 'getting-started',
+                        collapsed: true,
+                        items: [
+                              'docs/users/getting-started/bridging',
+                              'docs/users/getting-started/connect',
+                              'docs/users/getting-started/creating-an-account'
+                        ]
+                  },
+                  {
+                        label: 'introduction',
+                        collapsed: true,
+                        items: [
+                              'docs/users/introduction/bitcoins-economic-layer',
+                              'docs/users/introduction/what-is-mezo'
+                        ]
+                  },
+                  {
+                        label: 'mainnet',
+                        collapsed: true,
+                        items: [
+                              'docs/users/mainnet/bridges',
+                              'docs/users/mainnet/mats'
+                        ]
+                  },
+                  {
+                        label: 'musd',
+                        collapsed: true,
+                        items: [
+                              'docs/users/musd/architecture-and-terminology',
+                              'docs/users/musd/concepts',
+                              'docs/users/musd/fees',
+                              'docs/users/musd',
+                              'docs/users/musd/mint-musd',
+                              'docs/users/musd/risks'
+                        ]
+                  },
+                  {
+                        label: 'resources',
+                        collapsed: true,
+                        items: [
+                              'docs/users/resources/audits',
+                              'docs/users/resources/brand-kit',
+                              'docs/users/resources/contracts-reference',
+                              'docs/users/resources/faqs',
+                              'docs/users/resources/integrations-and-partners',
+                              'docs/users/resources/release-notes',
+                              'docs/users/resources/validators'
+                        ]
+                  },
+                  {
+                        label: 'stbtc-staked-bitcoin',
+                        collapsed: true,
+                        items: [
+                              'docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits'
+                        ]
+                  }
+            ]
+      },
+      {
+            label: 'Admin Documentation',
+            id: 'admins',
+            link: '/docs/admins/',
+            icon: 'setting',
+            items: [
+                  'docs/admins/how-to-admin'
+            ]
+      }
+]),
 			  ],
 		}),
 	],
