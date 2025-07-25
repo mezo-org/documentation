@@ -1,10 +1,6 @@
 ---
 title: Configure your Environment
 ---
-
-# Configure your Environment
-
-
 Configure your Hardhat or Foundry development environment for Mezo Testnet.
 
 ### Before you begin
