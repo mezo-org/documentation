@@ -94,49 +94,51 @@ class GitbookProcessor {
       const sectionPath = section.path.replace(/\/README\.md$/, '').replace(/\.md$/, '');
       
       if (sectionPath === 'users') {
-        topics.push(this.generateUsersTopic(section));
+        topics.push(await this.generateUsersTopic(section));
       } else if (sectionPath === 'developers') {
-        topics.push(this.generateDevelopersTopic(section));
+        topics.push(await this.generateDevelopersTopic(section));
       } else if (sectionPath === 'admins') {
-        topics.push(this.generateAdminsTopic(section));
+        topics.push(await this.generateAdminsTopic(section));
       }
     }
     
     this.topicConfig = topics;
   }
 
-  generateUsersTopic(section) {
+  async generateUsersTopic(section) {
     return {
       label: 'User Documentation',
       id: 'users',
       link: '/docs/users/',
       icon: 'star',
-      items: this.convertChildrenToItems(section.children, 'docs/')
+      items: await this.convertChildrenToItems(section.children, 'docs/')
     };
   }
 
-  generateDevelopersTopic(section) {
+  async generateDevelopersTopic(section) {
     return {
       label: 'Developer Documentation', 
       id: 'developers',
       link: '/docs/developers/',
       icon: 'seti:powershell',
-      items: this.convertChildrenToItems(section.children, 'docs/')
+      items: await this.convertChildrenToItems(section.children, 'docs/')
     };
   }
 
-  generateAdminsTopic(section) {
+  async generateAdminsTopic(section) {
     return {
       label: 'Admin Documentation',
       id: 'admins', 
       link: '/docs/admins/',
       icon: 'setting',
-      items: this.convertChildrenToItems(section.children, 'docs/')
+      items: await this.convertChildrenToItems(section.children, 'docs/')
     };
   }
 
-  convertChildrenToItems(children, prefix = '') {
-    return children.map(child => {
+  async convertChildrenToItems(children, prefix = '') {
+    const items = [];
+    
+    for (const child of children) {
       let cleanPath = child.path
         .replace(/\/README\.md$/, '')
         .replace(/\.mdx?$/, '');
@@ -148,19 +150,29 @@ class GitbookProcessor {
       
       const link = `${prefix}${cleanPath}`;
       
-      if (child.children && child.children.length > 0) {
-        return {
-          label: this.humanizeTitle(child.title),
-          collapsed: true,
-          items: this.convertChildrenToItems(child.children, prefix)
-        };
-      }
+      // Check if this page is hidden by reading its frontmatter
+      const isHidden = await this.isPageHidden(child.path);
       
-      return link;
-    }).filter(item => {
-      // Filter out empty links that might result from root README/index files
-      return typeof item === 'object' || (typeof item === 'string' && item.length > prefix.length);
-    });
+      if (child.children && child.children.length > 0) {
+        const childItems = await this.convertChildrenToItems(child.children, prefix);
+        
+        // Only include the group if it has visible children or is not hidden itself
+        if (childItems.length > 0 || !isHidden) {
+          items.push({
+            label: this.humanizeTitle(child.title),
+            collapsed: true,
+            items: childItems
+          });
+        }
+      } else if (!isHidden) {
+        // Only include non-hidden pages
+        if (typeof link === 'string' && link.length > prefix.length) {
+          items.push(link);
+        }
+      }
+    }
+    
+    return items;
   }
 
   async processMarkdownFiles() {
@@ -239,6 +251,9 @@ class GitbookProcessor {
     if (topicId && !parsed.data.topic) {
       parsed.data.topic = topicId;
     }
+    
+    // Preserve hidden status - don't modify if it already exists
+    // (This ensures Gitbook's hidden: true setting is maintained)
     
     // Regenerate the content with updated frontmatter
     transformed = matter.stringify(parsed.content, parsed.data);
@@ -366,6 +381,28 @@ class GitbookProcessor {
       .replace(/\berc\b/gi, 'ERC')              // Special case for ERC
       .replace(/\bapi\b/gi, 'API')              // Special case for API
       .replace(/\bfaq\b/gi, 'FAQ');             // Special case for FAQ
+  }
+
+  async isPageHidden(relativePath) {
+    try {
+      const fullPath = path.join(DOCS_DIR, relativePath);
+      
+      // Check if file exists
+      try {
+        await fs.access(fullPath);
+      } catch {
+        return false; // File doesn't exist, not hidden
+      }
+      
+      const content = await fs.readFile(fullPath, 'utf-8');
+      const parsed = matter(content);
+      
+      // Check if the page has hidden: true in frontmatter
+      return parsed.data.hidden === true;
+    } catch (error) {
+      console.warn(`  ⚠️  Could not check hidden status for ${relativePath}:`, error.message);
+      return false; // Default to not hidden if we can't determine
+    }
   }
 
   async processAssets() {
