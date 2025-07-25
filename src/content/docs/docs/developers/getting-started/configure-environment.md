@@ -4,9 +4,6 @@ title: Configure your Environment
 
 # Configure your Environment
 
-AFSDFDSFSDF
-
-
 
 Configure your Hardhat or Foundry development environment for Mezo Testnet.
 
