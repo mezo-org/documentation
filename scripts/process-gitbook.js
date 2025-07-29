@@ -217,7 +217,7 @@ class GitbookProcessor {
 
     // Transform Gitbook button blocks
     transformed = transformed.replace(
-      /\[block:buttons\]\s*\{[^}]*"buttons":\s*\[(.*?)\]\s*\}[^[]*\[\/block:buttons\]/gs,
+      /\\?\[block:buttons\]\\?\s*\{[^}]*"buttons":\s*\\?\[(.*?)\\?\]\s*\}[^\\]*\\?\[\/block:buttons\]\\?/gs,
       (match, buttonsJson) => {
         try {
           const buttons = JSON.parse(`[${buttonsJson}]`);
@@ -296,9 +296,38 @@ class GitbookProcessor {
     // Try to extract tagline from content body
     let bodyContent = parsed.content;
     
-    // First transform Gitbook button blocks to simple links
+    // Extract action buttons directly from GitBook button blocks BEFORE transforming them
+    const actions = [];
+    const gitbookButtonPattern = /\\?\[block:buttons\]\\?\s*\{[^}]*"buttons":\s*\\?\[(.*?)\\?\]\s*\}[^\\]*\\?\[\/block:buttons\]\\?/gs;
+    let buttonMatch;
+    
+    while ((buttonMatch = gitbookButtonPattern.exec(bodyContent)) !== null) {
+      try {
+        const [, buttonsJson] = buttonMatch;
+        const buttons = JSON.parse(`[${buttonsJson}]`);
+        
+        buttons.forEach((btn, index) => {
+          const action = {
+            text: btn.text,
+            link: btn.link,
+            icon: 'right-arrow'
+          };
+          
+          // Make the second button secondary variant  
+          if (index === 1) {
+            action.variant = 'secondary';
+          }
+          
+          actions.push(action);
+        });
+      } catch (e) {
+        console.warn(`Failed to parse buttons in ${filePath}:`, e.message);
+      }
+    }
+    
+    // Now transform Gitbook button blocks to simple links for tagline extraction
     bodyContent = bodyContent.replace(
-      /\[block:buttons\]\s*\{[^}]*"buttons":\s*\[(.*?)\]\s*\}[^[]*\[\/block:buttons\]/gs,
+      /\\?\[block:buttons\]\\?\s*\{[^}]*"buttons":\s*\\?\[(.*?)\\?\]\s*\}[^\\]*\\?\[\/block:buttons\]\\?/gs,
       (match, buttonsJson) => {
         try {
           const buttons = JSON.parse(`[${buttonsJson}]`);
@@ -322,27 +351,6 @@ class GitbookProcessor {
         tagline = line.trim();
         break;
       }
-    }
-    
-    // Extract action buttons from the simple markdown links we converted
-    const actions = [];
-    const buttonPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
-    let match;
-    
-    while ((match = buttonPattern.exec(bodyContent)) !== null) {
-      const [, text, link] = match;
-      const action = {
-        text: text,
-        link: link,
-        icon: 'right-arrow'
-      };
-      
-      // Make the second button secondary variant  
-      if (actions.length === 1) {
-        action.variant = 'secondary';
-      }
-      
-      actions.push(action);
     }
     
     // Generate the splash page frontmatter
