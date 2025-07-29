@@ -1,5 +1,6 @@
 # Table of contents
 
+* [README](README.md)
 * [Welcome to Mezo Docs](index.md)
 * [users](users/README.md)
   * [getting-started](users/getting-started/README.md)
