@@ -51,43 +51,6 @@ export default defineConfig({
 			plugins: [
 				starlightSidebarTopics([
       {
-            label: 'Developer Documentation',
-            id: 'developers',
-            link: '/docs/developers/',
-            icon: 'seti:powershell',
-            items: [
-                  {
-                        label: 'Getting Started',
-                        collapsed: true,
-                        items: [
-                              'docs/developers/getting-started/configure-environment',
-                              'docs/developers/getting-started'
-                        ]
-                  },
-                  {
-                        label: 'Mezo Nodes',
-                        collapsed: true,
-                        items: [
-                              'docs/developers/mezo-nodes'
-                        ]
-                  },
-                  {
-                        label: 'Architecture',
-                        collapsed: true,
-                        items: [
-                              {
-                                    label: 'Oracles',
-                                    collapsed: true,
-                                    items: [
-                                          'docs/developers/architecture/oracles',
-                                          'docs/developers/architecture/oracles/read-oracle'
-                                    ]
-                              }
-                        ]
-                  }
-            ]
-      },
-      {
             label: 'User Documentation',
             id: 'users',
             link: '/docs/users/',
@@ -131,6 +94,13 @@ export default defineConfig({
                         ]
                   },
                   {
+                        label: 'Bridge',
+                        collapsed: true,
+                        items: [
+                              'docs/users/bridge/musd-bridge'
+                        ]
+                  },
+                  {
                         label: 'Resources',
                         collapsed: true,
                         items: [
@@ -139,26 +109,50 @@ export default defineConfig({
                               'docs/users/resources/contracts-reference',
                               'docs/users/resources/faqs',
                               'docs/users/resources/integrations-and-partners',
-                              'docs/users/resources/release-notes',
-                              'docs/users/resources/validators'
-                        ]
-                  },
-                  {
-                        label: 'stBTC Staked Bitcoin',
-                        collapsed: true,
-                        items: [
-                              'docs/users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits'
+                              'docs/users/resources/release-notes'
                         ]
                   }
             ]
       },
       {
-            label: 'Admin Documentation',
-            id: 'admins',
-            link: '/docs/admins/',
-            icon: 'setting',
+            label: 'Developer Documentation',
+            id: 'developers',
+            link: '/docs/developers/',
+            icon: 'seti:powershell',
             items: [
-                  'docs/admins/how-to-admin'
+                  {
+                        label: 'Getting Started',
+                        collapsed: true,
+                        items: [
+                              'docs/developers/getting-started',
+                              'docs/developers/getting-started/configure-environment',
+                              'docs/developers/getting-started/configure-mezo-passport',
+                              'docs/developers/getting-started/faqs',
+                              'docs/developers/getting-started/configure-mezo-passport-1',
+                              'docs/developers/getting-started/faqs-1'
+                        ]
+                  },
+                  {
+                        label: 'Mezo Nodes',
+                        collapsed: true,
+                        items: [
+                              'docs/developers/mezo-nodes'
+                        ]
+                  },
+                  {
+                        label: 'Architecture',
+                        collapsed: true,
+                        items: [
+                              {
+                                    label: 'Oracles',
+                                    collapsed: true,
+                                    items: [
+                                          'docs/developers/architecture/oracles',
+                                          'docs/developers/architecture/oracles/read-oracle'
+                                    ]
+                              }
+                        ]
+                  }
             ]
       }
 ]),

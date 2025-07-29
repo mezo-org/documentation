@@ -141,7 +141,8 @@ class GitbookProcessor {
     for (const child of children) {
       let cleanPath = child.path
         .replace(/\/README\.md$/, '')
-        .replace(/\.mdx?$/, '');
+        .replace(/\.mdx?$/, '')
+        .toLowerCase(); // Normalize to lowercase to match Astro's slug generation
       
       // Handle special case for index files - don't include "index" in the slug
       if (cleanPath.endsWith('/index')) {
