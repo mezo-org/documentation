@@ -1,5 +1,3 @@
-# Configure Mezo Passport
-
 [Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is a package built on top of [RainbowKit](https://rainbowkit.com/) and provides additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. With this package, developers can integrate Bitcoin wallet support alongside Ethereum-compatible (EVM) wallets to create a more versatile connection experience for users. Passport integrates with [viem](https://viem.sh/) and [wagmi](https://wagmi.sh/) libraries for streamlined wallet management across Bitcoin and EVM ecosystems.
 
 Get the @mezo-org/passport NPM Package
