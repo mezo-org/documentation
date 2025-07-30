@@ -35,6 +35,7 @@
   * [getting-started](developers/getting-started/README.md)
     * [Overview](developers/getting-started/index.md)
     * [dApp Requirements](developers/getting-started/dapp-requirements.md)
+    * [Deploy your dApp to Mezo](developers/getting-started/deploy-your-dapp-to-mezo.md)
     * [Configure your Environment](developers/getting-started/configure-environment.md)
     * [Configure Mezo Passport](developers/getting-started/configure-mezo-passport.md)
     * [Integrations and Partners](developers/getting-started/integrations-and-partners.md)
