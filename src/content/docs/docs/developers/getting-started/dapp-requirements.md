@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title:dApp Requirements
 ---
 
 
