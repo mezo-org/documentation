@@ -1,4 +1,7 @@
-# dApp Requirements
+---
+title: FAQ
+---
+
 
 Although the network is permissionless and anybody can deploy to Mezo Mainnet, dApps on Mezo must meet the following requirements to be featured in the Mezo Market and receive promotional support:
 
