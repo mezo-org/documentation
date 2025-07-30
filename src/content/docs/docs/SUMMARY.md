@@ -1,7 +1,7 @@
 # Table of contents
 
 * [README](README.md)
-* [Welcome to Mezo Docs](index.md)
+* [Welcome to Mezo Docs](welcome-to-mezo-docs.md)
 * [users](users/README.md)
   * [getting-started](users/getting-started/README.md)
     * [Bridge Assets](users/getting-started/bridging.md)
@@ -38,6 +38,7 @@
     * [Configure Mezo Passport](developers/getting-started/configure-mezo-passport.md)
     * [Integrations and Partners](developers/getting-started/integrations-and-partners.md)
     * [FAQs](developers/getting-started/FAQs.md)
+    * [dApp Requirements](developers/getting-started/dapp-requirements.md)
   * [mezo-nodes](developers/mezo-nodes/README.md)
     * [Overview](developers/mezo-nodes/index.md)
   * [architecture](developers/architecture/README.md)
