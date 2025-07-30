@@ -15,9 +15,9 @@ To bring your dApp to Mezo, you can follow one of two paths: the permissionless 
 
 ### Development and Deployment Steps
 
-* Read the [dApp Requirements](https://www.google.com/search?q=%23dapp-requirements) to be eligible for featuring in the [Mezo Market ](https://mezo.org/market)and other promotional support.
-* [Configure your development environment](broken-reference) for Mezo.
-* Complete the [Deploy your dApp to Mezo](https://app.gitbook.com/o/OEHBAmjJ286W1yUh21Q8/s/x6fn2L7Htl3g7NncUqTL/~/changes/143/developers/getting-started/deploy-your-dapp-to-mezo) tutorial to learn the full dApp development and Passport integration process on Mezo.
+* Read the [dApp Requirements](https://www.google.com/search?q=%23dapp-requirements) to be eligible for featuring in the [Mezo Market](https://mezo.org/market) and other promotional support.
+* [Configure your development environment](configure-environment.md) for Mezo.
+* Complete the Deploy your dApp to Mezo tutorial to learn the full dApp development and Passport integration process on Mezo.
 * Deploy your dApp to the Mezo testnet. Use the [Mezo Testnet network details](index.md#mezo-testnet).
 * Stress test the dApp to make sure it functions as expected. The Mezo testnet is the best place to find issues early before deploying to Mezo Mainnet.
 * Deploy your dApp to Mainnet. Use the [Mezo Mainnet network details](index.md#mezo-mainnet).
@@ -27,9 +27,9 @@ To bring your dApp to Mezo, you can follow one of two paths: the permissionless 
 
 #### Get Featured&#x20;
 
-To be featured on the Supernormal Foundation and Mezo socials and Discord channels, fill out the [dApp intake form](https://2d0lnha7ee6.typeform.com/to/CHBVzfXU).&#x20;
+To be featured on Mezo Explore, the Supernormal Foundation, and Mezo socials and Discord channels, fill out the [dApp intake form](https://2d0lnha7ee6.typeform.com/to/CHBVzfXU).
 
-_Note: Submitting a third-party audit report and being fully functional on mainnet are required for official announcements. The team will review your submission and queue it for announcement._
+_Note: Submitting a third-party audit report, being fully functional on Mezo mainnet, and **KYB** are required for official announcements. The team will review your submission and queue it for announcement._
 
 #### Support & Feedback
 
