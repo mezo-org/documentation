@@ -1,4 +1,7 @@
-# Deploy your dApp to Mezo
+---
+title: Deploy your dApp to Mezo
+---
+
 
 Use this guide to learn how to deploy applications on Mezo. This guide walks you through the steps for deploying an example dApp to Mezo Mainnet. Later, you can use this same process for your own dApp. You will learn how to complete the following tasks:
 
