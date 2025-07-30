@@ -1,5 +1,5 @@
 ---
-title:dApp Requirements
+title: dApp Requirements
 ---
 
 
