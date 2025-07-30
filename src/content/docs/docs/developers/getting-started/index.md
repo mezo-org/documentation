@@ -2,8 +2,6 @@
 title: Overview
 ---
 
-# Overview
-
 ## Developer Onboarding
 
 To bring your dApp to Mezo, you can follow one of two paths: the permissionless deployment path, which is open to all, or [apply for our high-support Alpha Builder Program.](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6?ref=mezo.org\&typeform-source=mezo.org)
