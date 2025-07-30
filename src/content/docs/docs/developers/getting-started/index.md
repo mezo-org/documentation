@@ -16,9 +16,9 @@ To bring your dApp to Mezo, you can follow one of two paths: the permissionless 
 * Read the [dApp Requirements](daap-requirements.md) to be eligible for featuring in the [Mezo Market](https://mezo.org/market) and other promotional support.
 * [Configure your development environment](configure-environment.md) for Mezo.
 * Complete the Deploy your dApp to Mezo tutorial to learn the full dApp development and Passport integration process on Mezo.
-* Deploy your dApp to the Mezo testnet. Use the [Mezo Testnet network details](index.md#mezo-testnet).
+* Deploy your dApp to the Mezo testnet. Use the [Mezo Testnet network details](#mezo-testnet).
 * Stress test the dApp to make sure it functions as expected. The Mezo testnet is the best place to find issues early before deploying to Mezo Mainnet.
-* Deploy your dApp to Mainnet. Use the [Mezo Mainnet network details](index.md#mezo-mainnet).
+* Deploy your dApp to Mainnet. Use the [Mezo Mainnet network details](#mezo-mainnet).
 * Monitor your dApp. Set up monitoring and alerts to track the health of your dApp and alert you to any issues. See the Monitoring guide for details.
 
 ### Post-Deployment
