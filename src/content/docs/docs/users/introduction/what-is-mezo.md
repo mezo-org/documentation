@@ -2,8 +2,6 @@
 title: What is Mezo?
 ---
 
-# What is Mezo?
-
 Mezo is a Bitcoin-centric platform purpose-built to make Bitcoin productive in day-to-day finance. It is EVM-compatible, which means it can host decentralized apps (dApps) and smart contracts in a system that developers and users already understand.
 
 Using tBTC's infrastructure as a secure and decentralized foundation, Mezo aims to offer a platform where people can use their Bitcoin in the following ways:
