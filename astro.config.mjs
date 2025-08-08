@@ -111,13 +111,6 @@ export default defineConfig({
                               'docs/users/resources/integrations-and-partners',
                               'docs/users/resources/release-notes'
                         ]
-                  },
-                  {
-                        label: 'Features',
-                        collapsed: true,
-                        items: [
-                              'docs/developers/features/mezo-pools'
-                        ]
                   }
             ]
       },
