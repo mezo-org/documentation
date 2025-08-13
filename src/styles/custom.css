@@ -15,3 +15,10 @@
   --sl-color-accent: var(--mezo-off-red);
   --sl-color-accent-high: var(--sl-color-white);
 }
+
+/* Prevent character-by-character text breaking */
+.no-break {
+  word-break: keep-all;
+  white-space: nowrap;
+  display: inline-block;
+}

@@ -1,9 +1,7 @@
 ---
-title: Mezo Swaps
+title: Mezo Pools
 description: Learn about Mezo Pools and how to provide liquidity
 ---
-
-# Mezo Swaps
 
 Mezo Pools are the core engine of the Mezo ecosystem, functioning as automated, on-chain liquidity reserves for the Mezo Swap exchange. Each pool holds a pair of two distinct tokens, enabling instant, decentralized trades. Instead of relying on a traditional order book to match buyers and sellers, users trade directly against the liquidity held within the pool.
 
@@ -45,7 +43,7 @@ These architectural advantages are the foundation of Mezo's primary mission: to 
 
 Ready to become a liquidity provider? It's easy to get started.
 
-1. **Prepare Your Assets**: To provide liquidity, you'll need an equal value of both assets in a pair (e.g., $50 of BTC and $50 of MUSD).
+1. **Prepare Your Assets**: To provide liquidity, you'll need an equal value of both assets in a pair (e.g., <span class="no-break">$50 of BTC and $50 of MUSD</span>).
    * Need MUSD? Mint it using your BTC on Mezo Borrow.
    * Need other assets or MUSD? Use Mezo Swap to trade for them.
 2. **Add Liquidity**: Navigate to the Pools page on Mezo Explore. Select your desired pool, specify the amount you wish to deposit, and confirm the transaction. You will receive LP tokens in your wallet, representing your share of the pool.
