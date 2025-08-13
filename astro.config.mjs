@@ -160,6 +160,13 @@ export default defineConfig({
                                     ]
                               }
                         ]
+                  },
+                  {
+                        label: 'Features',
+                        collapsed: true,
+                        items: [
+                              'docs/developers/features/mezo-pools'
+                        ]
                   }
             ]
       }
