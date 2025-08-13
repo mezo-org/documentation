@@ -4,7 +4,7 @@ description: Learn about Mezo Swap and how to trade assets in the Mezo ecosystem
 ---
 # Overview
 
-Mezo Swap is the integrated decentralized exchange (DEX) of the Mezo ecosystem. It allows users to seamlessly trade between assets like BTC, MUSD, and USDC, without intermediaries, order books, or leaving the BitcoinFi economy. The feature powered by [Mezo Pools](https://mezo.org/docs/users/features/mezo-pools), enabling instant, decentralized token swaps using smart contract-based liquidity reserves.
+[Mezo Swap](https://mezo.org/overview?modal=swap) is the integrated decentralized exchange (DEX) of the Mezo ecosystem. It allows users to seamlessly trade between assets like BTC, MUSD, and USDC, without intermediaries, order books, or leaving the BitcoinFi economy. The feature powered by [Mezo Pools](https://mezo.org/docs/users/features/mezo-pools), enabling instant, decentralized token swaps using smart contract-based liquidity reserves.
 
 ## Key Features
 
