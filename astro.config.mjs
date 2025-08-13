@@ -104,7 +104,7 @@ export default defineConfig({
                         label: 'Features',
                         collapsed: true,
                         items: [
-                              'docs/users/features/mezo-swaps'
+                              'docs/users/features/mezo-pools'
                         ]
                   },
                   {

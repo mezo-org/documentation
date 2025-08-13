@@ -22,7 +22,7 @@
   * [bridge](users/bridge/README.md)
     * [MUSD Bridge](users/bridge/musd-bridge.md)
   * [features](users/features/README.md)
-    * [Mezo Swaps](users/features/mezo-swaps.md)
+    * [Mezo Pools](users/features/mezo-pools.md)
   * [resources](users/resources/README.md)
     * [Audits](users/resources/audits.md)
     * [Brand Kit](users/resources/brand-kit.md)
