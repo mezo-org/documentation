@@ -22,3 +22,14 @@
   white-space: nowrap;
   display: inline-block;
 }
+
+/* Fix for dollar sign and text breaking issues */
+li, p {
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* Ensure dollar amounts stay together */
+code {
+  white-space: nowrap;
+}
