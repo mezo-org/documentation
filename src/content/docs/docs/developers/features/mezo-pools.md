@@ -42,10 +42,6 @@ Tigris is Mezo's native decentralized exchange (DEX) infrastructure, purpose-bui
 - **Slippage Control:** Provided on frontend or via parameters in the contract call
 - **No Oracles Needed:** Prices derived from pool reserves directly
 
-## Integration Examples
-
-_Coming soon_
-
 ## Contract Addresses
 
 ### Core Contracts
