@@ -101,6 +101,13 @@ export default defineConfig({
                         ]
                   },
                   {
+                        label: 'Features',
+                        collapsed: true,
+                        items: [
+                              'docs/users/features/mezo-swaps'
+                        ]
+                  },
+                  {
                         label: 'Resources',
                         collapsed: true,
                         items: [

@@ -21,6 +21,7 @@
     * [Risks and Mitigations](users/musd/risks.md)
   * [bridge](users/bridge/README.md)
     * [MUSD Bridge](users/bridge/musd-bridge.md)
+  * [Mezo Swaps](users/features/mezo-swaps.md)
   * [resources](users/resources/README.md)
     * [Audits](users/resources/audits.md)
     * [Brand Kit](users/resources/brand-kit.md)
