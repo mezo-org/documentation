@@ -85,8 +85,3 @@ No. Fees are stored separately in PoolFees contracts and can only be claimed by 
 
 No. You must claim and redeposit fees manually to achieve compounding.
 
-### How often should I claim fees?
-
-Many LPs claim weekly or monthly.
-
-
