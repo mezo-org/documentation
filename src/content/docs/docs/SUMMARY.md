@@ -31,6 +31,8 @@
     * [FAQs](users/resources/faqs.md)
     * [Release Notes](users/resources/release-notes.md)
     * [Mezo Validators](users/resources/validators.md)
+  * [pools](users/pools/README.md)
+    * [Mezo Pool Fees](users/pools/mezo-pool-fees.md)
   * [stbtc-staked-bitcoin](users/stbtc-staked-bitcoin/README.md)
     * [Redeeming Your stBTC Deposits](users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits.md)
 * [developers](developers/README.md)
