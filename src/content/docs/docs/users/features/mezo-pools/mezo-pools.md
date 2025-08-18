@@ -1,5 +1,5 @@
 ---
-title: Mezo Pools
+title: Overview
 description: Learn about Mezo Pools and how to provide liquidity
 ---
 
@@ -52,4 +52,5 @@ Ready to become a liquidity provider? It's easy to get started. Visit the [Mezo 
 ## Developer Resources
 
 To integrate [Mezo pools](https://mezo.org/explore/pools) into your application, see [Providing Liquidity](../../developers/getting-started/) in our developer documentation.
+
 
