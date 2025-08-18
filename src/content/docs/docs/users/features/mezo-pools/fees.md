@@ -3,8 +3,6 @@ title: Mezo Pool Fees
 description: Fee model for swaps and liquidity providers in Mezo Pools
 ---
 
-## Fees
-
 [Mezo Pools](https://mezo.org/explore/pools) employs a dynamic fee model optimized for different trading pairs:
 
 ### Standard Fee Rates
