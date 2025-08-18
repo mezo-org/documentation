@@ -5,7 +5,7 @@ description: Fee model for swaps and liquidity providers in Mezo Pools
 
 ## Fees
 
-[Mezo Pools](https://mezo.org/explore/pools) employs a dynamic fee model optimized for different trading pairs:
+Mezo Pools employs a dynamic fee model optimized for different trading pairs:
 
 ### Standard Fee Rates
 
@@ -84,4 +84,9 @@ No. Fees are stored separately in PoolFees contracts and can only be claimed by 
 ### Do fees compound automatically?
 
 No. You must claim and redeposit fees manually to achieve compounding.
+
+### How often should I claim fees?
+
+Many LPs claim weekly or monthly.
+
 

@@ -5,7 +5,7 @@ description: Explore Mezo Pools features and learn about fees
 
 import { LinkButton } from '@astrojs/starlight/components';
 
-Mezo Pools power on-chain swaps on Mezo. Provide two tokens to earn trading fees, or swap between supported pairs with low slippage.
+Welcome to Mezo Pools. 
 
 <LinkButton href="/docs/users/features/mezo-pools/mezo-pools" icon="right-arrow">
   Mezo Pools Overview
@@ -14,5 +14,6 @@ Mezo Pools power on-chain swaps on Mezo. Provide two tokens to earn trading fees
 <LinkButton href="/docs/users/features/mezo-pools/fees" variant="secondary" icon="right-arrow">
   Pool Fees
 </LinkButton>
+
 
 
