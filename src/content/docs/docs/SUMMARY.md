@@ -23,7 +23,6 @@
     * [MUSD Bridge](users/bridge/musd-bridge.md)
   * [features](users/features/README.md)
     * [Mezo Pools](users/features/mezo-pools/README.md)
-      * [Overview](users/features/mezo-pools/mezo-pools.md)
       * [Fees](users/features/mezo-pools/fees.md)
     * [Mezo Swap](users/features/mezo-swap.md)
   * [resources](users/resources/README.md)
