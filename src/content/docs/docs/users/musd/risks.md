@@ -16,7 +16,7 @@ MUSD loan positions that fall below 110% ICR are at risk of liquidation. This ke
 
 ## Protocol Risks and Mitigations
 
-The overview of [How MUSD works](/docs/users/musd/#how-musd-works) covered how MUSD maintains its \$1 peg via a mint and redeem arbitrage mechanism. This section provides a complete overview of how MUSD prevents systemic risk.
+The overview of [How MUSD works](/docs/users/musd#how-musd-works) covered how MUSD maintains its \$1 peg via a mint and redeem arbitrage mechanism. This section provides a complete overview of how MUSD prevents systemic risk.
 
 ### Trading below the peg
 
