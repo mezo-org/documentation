@@ -8,7 +8,7 @@ Note that bridging funds is currently a one-way operation.
 
 ## Before you begin
 
-- Check which assets are supported. You can confirm the token addresses for these addresses on the [Contracts Referecne](/docs/users/resources/contracts-reference/#mainnet-asset-token-contracts) page.
+- Check which assets are supported. You can confirm the token addresses for these addresses on the [Contracts Referecne](/docs/users/resources/contracts-reference#mainnet-asset-token-contracts) page.
 
 ## Bridge your assets
 
