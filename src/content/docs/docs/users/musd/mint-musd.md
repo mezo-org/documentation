@@ -1,5 +1,5 @@
 ---
-title: How to Borrow & Mint MUSD | Mezo Documentation
+title: How to Borrow & Mint MUSD
 description: Step-by-step guide for borrowing against your BTC and minting MUSD.
 ---
 

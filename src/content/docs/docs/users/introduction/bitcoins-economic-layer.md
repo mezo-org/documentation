@@ -1,5 +1,5 @@
 ---
-title: BitcoinFi: Economic Layer Explained | Mezo Documentation
+title: BitcoinFi: Economic Layer Explained
 description: Discover how Mezo builds BitcoinFi: an economic layer for the Bitcoin network.
 ---
 

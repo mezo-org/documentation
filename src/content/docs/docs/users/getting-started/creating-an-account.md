@@ -1,5 +1,5 @@
 ---
-title: Create a Mezo Account Guide | Mezo Documentation
+title: Create a Mezo Account Guide
 description: Easy steps for creating your Mezo account and getting started with Bitcoin finance.
 ---
 

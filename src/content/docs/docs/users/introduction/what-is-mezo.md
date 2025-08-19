@@ -1,5 +1,5 @@
 ---
-title: What is Mezo? Platform Overview | Mezo Documentation
+title: What is Mezo? Platform Overview
 description: Learn what makes Mezo a unique Bitcoin-centric financial platform.
 ---
 

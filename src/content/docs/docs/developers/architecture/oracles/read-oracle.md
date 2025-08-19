@@ -1,5 +1,5 @@
 ---
-title: Reading Market Data with Oracles | Mezo Documentation
+title: Reading Market Data with Oracles
 description: How to access and interpret market data using Mezo’s Oracle infrastructure.
 ---
 

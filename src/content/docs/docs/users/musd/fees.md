@@ -1,5 +1,5 @@
 ---
-title: MUSD Fees & Costs | Mezo Documentation
+title: MUSD Fees & Costs
 description: See all fee structures and costs involved in using MUSD on Mezo.
 ---
 

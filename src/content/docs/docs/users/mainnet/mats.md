@@ -1,5 +1,5 @@
 ---
-title: Mainnet MATs Guide | Mezo Documentation
+title: Mainnet MATs Guide
 description: A guide to MATs on Mezo Mainnet: what they are and how they work.
 ---
 

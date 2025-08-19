@@ -1,5 +1,5 @@
 ---
-title: Release Notes & Updates | Mezo Documentation
+title: Release Notes & Updates
 description: Stay up to date on the latest Mezo releases, features, and improvements.
 ---
 

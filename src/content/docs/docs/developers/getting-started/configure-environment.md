@@ -1,5 +1,5 @@
 ---
-title: Set Up Developer Environment | Mezo Documentation
+title: Set Up Developer Environment
 description: Configure your development environment to build and deploy on Mezo.
 ---
 

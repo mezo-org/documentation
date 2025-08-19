@@ -1,5 +1,5 @@
 ---
-title: Validator Information | Mezo Documentation
+title: Validator Information
 description: Information about Mezo Validators and how to participate in network security.
 topic: users
 hidden: true

@@ -1,5 +1,5 @@
 ---
-title: MUSD Risks & Mitigations | Mezo Documentation
+title: MUSD Risks & Mitigations
 description: Learn about the risks and protections built into Mezo’s MUSD stablecoin.
 ---
 

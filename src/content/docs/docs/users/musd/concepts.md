@@ -1,5 +1,5 @@
 ---
-title: MUSD Key Concepts & Glossary | Mezo Documentation
+title: MUSD Key Concepts & Glossary
 description: Essential concepts and glossary terms for understanding and using MUSD on Mezo.
 ---
 

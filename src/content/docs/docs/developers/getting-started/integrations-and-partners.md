@@ -1,5 +1,5 @@
 ---
-title: Mezo Integrations & Partners | Mezo Documentation
+title: Mezo Integrations & Partners
 description: Discover the services, dApps, and partners integrated with Mezo.
 ---
 

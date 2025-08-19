@@ -1,5 +1,5 @@
 ---
-title: MUSD Architecture & Terminology | Mezo Documentation
+title: MUSD Architecture & Terminology
 description: Deep dive into the system design and core terminology of MUSD on Mezo.
 ---
 

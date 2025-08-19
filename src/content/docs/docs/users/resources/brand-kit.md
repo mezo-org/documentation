@@ -1,5 +1,5 @@
 ---
-title: Mezo Brand Assets & Kit | Mezo Documentation
+title: Mezo Brand Assets & Kit
 description: Download Mezo logos, brand guidelines, and marketing assets.
 ---
 

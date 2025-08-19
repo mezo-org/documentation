@@ -1,5 +1,5 @@
 ---
-title: How to Bridge Assets to Mezo | Mezo Documentation
+title: How to Bridge Assets to Mezo
 description: Guide to bridging your assets into Mezo for Bitcoin-backed DeFi opportunities.
 ---
 

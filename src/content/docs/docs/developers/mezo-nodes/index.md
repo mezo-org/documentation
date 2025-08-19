@@ -1,5 +1,5 @@
 ---
-title: Mezo Nodes Overview | Mezo Documentation
+title: Mezo Nodes Overview
 description: Learn how Mezo Nodes operate and support network functionality for Bitcoin-based finance.
 ---
 
