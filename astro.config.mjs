@@ -20,6 +20,7 @@ export default defineConfig({
 		},
 	  },
 	site: 'https://docs.mezo.org',
+	trailingSlash: 'always',
 	integrations: [
 		sitemap(),
 		starlight({
@@ -177,6 +178,22 @@ export default defineConfig({
 		}),
 	],
 	redirects: {
+		'/docs/developers': {
+			status: 301,
+			destination: '/docs/developers/'
+		},
+		'/docs/developers/getting-started': {
+			status: 301,
+			destination: '/docs/developers/getting-started/'
+		},
+		'/docs/users': {
+			status: 301,
+			destination: '/docs/users/'
+		},
+		'/docs/users/getting-started/connect': {
+			status: 301,
+			destination: '/docs/users/getting-started/connect/'
+		},
 		'/': {
 			status: 302,
 			destination: '/docs/'
