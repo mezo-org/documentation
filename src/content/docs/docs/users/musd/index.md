@@ -1,5 +1,6 @@
 ---
-title: MUSD Overview
+title: MUSD Stablecoin Overview | Mezo Documentation
+description: Everything you need to know about MUSD, Mezo’s Bitcoin-backed stablecoin.
 ---
 
 ## What is MUSD?

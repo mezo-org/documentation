@@ -1,6 +1,6 @@
 ---
-title: Mezo Validators
-description: Active validators on Mezo Mainnet
+title: Validator Information | Mezo Documentation
+description: Information about Mezo Validators and how to participate in network security.
 topic: users
 hidden: true
 ---

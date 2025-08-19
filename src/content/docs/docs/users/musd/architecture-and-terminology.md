@@ -1,5 +1,6 @@
 ---
-title: Architecture and Terminology
+title: MUSD Architecture & Terminology | Mezo Documentation
+description: Deep dive into the system design and core terminology of MUSD on Mezo.
 ---
 
 The MUSD system consists of four main contract groups:

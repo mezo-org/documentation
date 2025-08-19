@@ -1,5 +1,6 @@
 ---
-title: Risks and Mitigations
+title: MUSD Risks & Mitigations | Mezo Documentation
+description: Learn about the risks and protections built into Mezo’s MUSD stablecoin.
 ---
 
 MUSD uses multiple layers of protection to ensure sufficient system collateralization and protect against bad debt:

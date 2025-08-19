@@ -1,5 +1,6 @@
 ---
-title: What is BitcoinFi?
+title: BitcoinFi: Economic Layer Explained | Mezo Documentation
+description: Discover how Mezo builds BitcoinFi: an economic layer for the Bitcoin network.
 ---
 
 BitcoinFi (short for Bitcoin Finance) refers to the broader vision of Bitcoin as a full-fledged financial ecosystem rather than just a static asset or digital gold. The vision of “doing everything on Bitcoin”, from saving and earning to borrowing and paying, is at the heart of BitcoinFi. This concept involves integrating Bitcoin into all aspects of finance, making BTC a seamless part of everyday economic activities. 

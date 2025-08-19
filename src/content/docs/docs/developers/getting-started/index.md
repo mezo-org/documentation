@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: Developer Getting Started Guide | Mezo Documentation
+description: Step-by-step onboarding guide for developers building on the Mezo Bitcoin-centric platform.
 ---
 
 ## Developer Onboarding

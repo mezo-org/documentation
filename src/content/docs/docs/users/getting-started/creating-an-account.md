@@ -1,6 +1,6 @@
 ---
-title: Create an Account
-description: Creating your account on Mezo.
+title: Create a Mezo Account Guide | Mezo Documentation
+description: Easy steps for creating your Mezo account and getting started with Bitcoin finance.
 ---
 
 You can create an account in the Mezo App to manage rewards, bridge assets, borrow and mint MUSD, and access Mezo Market.

@@ -1,5 +1,6 @@
 ---
-title: mats
+title: Mainnet MATs Guide | Mezo Documentation
+description: A guide to MATs on Mezo Mainnet: what they are and how they work.
 ---
 
 mats, or "magic satoshis," are Mezo's way of recognizing and rewarding participation through an engaging, community-driven point system.
