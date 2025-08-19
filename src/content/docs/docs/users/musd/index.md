@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: MUSD Overview
 ---
 
 ## What is MUSD?
