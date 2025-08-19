@@ -36,7 +36,7 @@ The mint-and-redeem model helps maintain the \$1 peg in volatile environments. F
 
 To ensure the peg is maintained during market volatility, sufficient BTC collateral must always back the outstanding MUSD. Outstanding loan positions must maintain a collateral ratio of above 110%, and the system has built-in liquidation mechanisms and stability pools to enforce this. These risk mitigations ensure that even with high LTVs, the system remains secure and resilient against market volatility.
 
-Details on liquidations and risks can be read in further detail in [Risks and Mitigations](/docs/users/musd/risks).
+Details on liquidations and risks can be read in further detail in [Risks and Mitigations](/docs/users/musd/risks/).
 
 ### Benefits of the MUSD model
 

@@ -35,7 +35,7 @@ After you sign in to [mezo.org](https://mezo.org/) on an account with testnet BT
 
 1. Ensure that your browser wallet is actively set to Mezo Testnet.
 
-1. When you are ready to proceed with the [Borrow and Mint](/docs/users/musd/mint-musd) process, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC on Testnet.
+1. When you are ready to proceed with the [Borrow and Mint](/docs/users/musd/mint-musd/) process, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC on Testnet.
 
 After the process is complete, you can check the loan status on [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
 
