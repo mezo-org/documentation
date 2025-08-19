@@ -1,5 +1,6 @@
 ---
-title: Overview
+title: Mezo Nodes Overview
+description: Learn how Mezo Nodes operate and support network functionality for Bitcoin-based finance.
 ---
 
 Mezo Nodes are essential components of the network and fully open-source. The [Mezo Validator Kit](https://github.com/mezo-org/validator-kit) sets up the [mezod](https://github.com/mezo-org/mezod) client and the other requirements to run a node as a validator, an RPC node, or a seed node. The kit simplifies several deployment options such as Docker, a native daemon, and Helm for Kubernetes.

@@ -1,6 +1,6 @@
 ---
-title: Contracts Reference
-description: Several contracts are used to on Mezo. Read this reference to learn more.
+title: Mezo Smart Contract Reference
+description: Detailed reference for Mezo’s smart contracts and their role in the ecosystem.
 ---
 
 ## Token Contracts

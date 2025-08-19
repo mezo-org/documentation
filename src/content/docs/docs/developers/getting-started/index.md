@@ -1,14 +1,15 @@
 ---
-title: Overview
+title: Developer Getting Started Guide
+description: Step-by-step onboarding guide for developers building on the Mezo Bitcoin-centric platform.
 ---
 
 ## Developer Onboarding
 
-To bring your dApp to Mezo, you can follow one of two paths: the permissionless deployment path, which is open to all, or [apply for our high-support Alpha Builder Program.](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6?ref=mezo.org\&typeform-source=mezo.org)
+To bring your dApp to Mezo, you can follow one of two paths: the permissionless deployment path, which is open to all, or [apply for our high-support Alpha Builder Program.](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6?ref=mezo.org&typeform-source=mezo.org)
 
 ### Choose Your Onboarding Path
 
-* **Alpha Builder Program:** If you’re looking for dedicated onboarding and co-marketing support from the Mezo team, [apply for the Alpha Builder Program.](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6?ref=mezo.org\&typeform-source=mezo.org)&#x20;
+* **Alpha Builder Program:** If you’re looking for dedicated onboarding and co-marketing support from the Mezo team, [apply for the Alpha Builder Program.](https://2d0lnha7ee6.typeform.com/to/B9jzgjb6?ref=mezo.org&typeform-source=mezo.org)&#x20;
 * **Permissionless Deployment:** You can deploy permissionlessly at any time. For community DevRel support during deployment, join the [Mezo Discord](https://discord.com/invite/mezo). Ask your question in the general channel, and you’ll be directed to the developers' channel, where you can access weekly DevRel office hours.
 
 ### Development and Deployment Steps
