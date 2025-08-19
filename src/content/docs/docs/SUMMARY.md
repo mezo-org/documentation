@@ -9,7 +9,7 @@
   * [introduction](users/introduction/README.md)
     * [What is BitcoinFi?](users/introduction/bitcoins-economic-layer.md)
     * [What is Mezo?](users/introduction/what-is-mezo.md)
-  * [mainnet](users/mainnet/README.md)
+  * [mainnet](users/mainnet/index.md)
     * [Bridges](users/mainnet/bridges.md)
     * [mats](users/mainnet/mats.md)
   * [musd](users/musd/README.md)
