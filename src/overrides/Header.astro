@@ -8,6 +8,7 @@ import SiteTitle from 'virtual:starlight/components/SiteTitle';
 import SocialIcons from 'virtual:starlight/components/SocialIcons';
 import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 import StructuredData from '../components/StructuredData.astro';
+import AIButton from '../components/AIButton.astro';
 
 /**
  * Render the `Search` component if Pagefind is enabled or the default search component has been overridden.
@@ -108,6 +109,7 @@ const shouldRenderSearch =
 		<div class="sl-flex print:hidden">
 			{shouldRenderSearch && <Search {...Astro.props} />}
 		</div>
+		<AIButton pageUrl={(Astro.site?.href ?? 'https://mezo.org/docs').replace(/\/$/, '') + Astro.url.pathname} pageTitle={(Astro.props as any)?.frontmatter?.title ?? (Astro.props as any)?.title ?? 'Mezo Documentation'} position="header" />
 		<div class="sl-flex social-icons">
 			<SocialIcons {...Astro.props} />
 		</div>

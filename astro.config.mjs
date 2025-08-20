@@ -111,7 +111,6 @@ export default defineConfig({
                         label: 'Mainnet',
                         collapsed: true,
                         items: [
-                              'docs/users/mainnet',
                               'docs/users/mainnet/bridges',
                               'docs/users/mainnet/mats'
                         ]
