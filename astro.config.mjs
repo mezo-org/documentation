@@ -19,7 +19,7 @@ export default defineConfig({
 		  wrap: true,
 		},
 	  },
-	site: 'https://docs.mezo.org',
+	site: 'https://mezo.org',
 	integrations: [
 		sitemap(),
 		starlight({
@@ -58,10 +58,10 @@ export default defineConfig({
 				    '@context': 'https://schema.org',
 				    '@type': 'WebSite',
 				    name: 'Mezo Documentation',
-				    url: 'https://docs.mezo.org/docs',
+				    url: 'https://mezo.org/docs',
 				    potentialAction: {
 				      '@type': 'SearchAction',
-				      target: 'https://docs.mezo.org/search?q={search_term_string}',
+				      target: 'https://mezo.org/docs/search?q={search_term_string}',
 				      'query-input': 'required name=search_term_string',
 				    },
 				  }),

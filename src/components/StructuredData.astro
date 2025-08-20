@@ -6,7 +6,7 @@ import config from 'virtual:starlight/user-config';
 }
 {
   (() => {
-    const site = Astro.site?.href?.replace(/\/$/, '') ?? 'https://docs.mezo.org';
+    const site = Astro.site?.href?.replace(/\/$/, '') ?? 'https://mezo.org';
     const url = site + Astro.url.pathname;
     // Try to read title/description from frontmatter when available
     // Many Starlight pages expose title/description via frontmatter consumed by layout
@@ -47,7 +47,7 @@ import config from 'virtual:starlight/user-config';
 }
 {
   (() => {
-    const site = Astro.site?.href?.replace(/\/$/, '') ?? 'https://docs.mezo.org';
+    const site = Astro.site?.href?.replace(/\/$/, '') ?? 'https://mezo.org';
     const path = Astro.url.pathname.replace(/\/$/, '');
     const parts = path.split('/').filter(Boolean);
 
