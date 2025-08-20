@@ -177,6 +177,18 @@ export default defineConfig({
 		}),
 	],
 	redirects: {
+		'/docs/developers/getting-started/hello@boar.network': {
+			status: 302,
+			destination: '/docs/users'
+		},
+		'/docs/developers/hello@boar.network': {
+			status: 302,
+			destination: '/docs/users'
+		},
+		'/docs/images/musd/musd-economy.webp': {
+			status: 302,
+			destination: '/docs/users'
+		},
 		'/': {
 			status: 302,
 			destination: '/docs/'
