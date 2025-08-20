@@ -1,7 +1,6 @@
 ---
 title: Mezo Integrations & Partners
-description: 'Discover the services, dApps, and partners integrated with Mezo.'
-topic: developers
+description: Discover the services, dApps, and partners integrated with Mezo.
 ---
 
 Several organizations are partnering with Mezo to bring their dApps and services to the network.

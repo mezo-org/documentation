@@ -1,6 +1,5 @@
 ---
 title: Deploy your dApp to Mezo
-topic: developers
 ---
 
 

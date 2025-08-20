@@ -1,7 +1,6 @@
 ---
 title: Mezo Pools
 description: Explore Mezo Pools features and learn about fees
-topic: users
 ---
 
 import { LinkButton } from '@astrojs/starlight/components';

@@ -1,7 +1,6 @@
 ---
 title: Features
 description: Available features for Mezo users
-topic: users
 ---
 
 # Features
