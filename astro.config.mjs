@@ -29,11 +29,6 @@ export default defineConfig({
 				'./src/assets/fonts/riforma/font-face.css',
 				'katex/dist/katex.min.css',
 			],
-			components: {
-				Header: './src/overrides/Header.astro',
-				Sidebar: './src/overrides/Sidebar.astro',
-				Pagination: './src/overrides/Pagination.astro',
-			},
 			head: [
 				{
 				  tag: 'script',
