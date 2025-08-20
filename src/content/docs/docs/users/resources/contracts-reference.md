@@ -1,7 +1,6 @@
 ---
 title: Mezo Smart Contract Reference
 description: Detailed reference for Mezo’s smart contracts and their role in the ecosystem.
-topic: users
 ---
 
 ## Token Contracts

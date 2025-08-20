@@ -1,9 +1,6 @@
 ---
 title: Audits
-description: >-
-  We take security seriously. All components of Mezo will undergo audits by
-  various security firms, which can be tracked below.
-topic: users
+description: We take security seriously. All components of Mezo will undergo audits by various security firms, which can be tracked below.
 ---
 
 ## Mezo App and Passport

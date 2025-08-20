@@ -1,6 +1,5 @@
 ---
 title: FAQ
-topic: developers
 ---
 
 #### What is Mezo? The Value Proposition for Builders <a href="#what-is-mezo-the-value-proposition-for-builders" id="what-is-mezo-the-value-proposition-for-builders"></a>

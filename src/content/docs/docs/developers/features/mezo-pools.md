@@ -1,9 +1,6 @@
 ---
 title: Mezo Pools (Tigris)
-description: >-
-  Overview of Tigris - Mezo's native DEX infrastructure for swaps and liquidity
-  pools
-topic: developers
+description: Overview of Tigris - Mezo's native DEX infrastructure for swaps and liquidity pools
 ---
 
 ## Overview

@@ -1,7 +1,6 @@
 ---
 title: Mezo Pools Overview
 description: Learn about Mezo Pools and how to provide liquidity
-topic: users
 ---
 
 [Mezo Pools](https://mezo.org/explore/pools) are the core engine of the Mezo ecosystem, functioning as automated, on-chain liquidity reserves for Mezo Pools. Each pool holds a pair of two distinct tokens, enabling instant, decentralized trades. Instead of relying on a traditional order book to match buyers and sellers, users trade directly against the liquidity held within the pool.

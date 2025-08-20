@@ -1,7 +1,6 @@
 ---
 title: Set Up Developer Environment
 description: Configure your development environment to build and deploy on Mezo.
-topic: developers
 ---
 
 Configure your Hardhat or Foundry development environment for Mezo Testnet.

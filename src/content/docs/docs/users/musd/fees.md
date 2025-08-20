@@ -1,7 +1,6 @@
 ---
 title: MUSD Fees & Costs
 description: See all fee structures and costs involved in using MUSD on Mezo.
-topic: users
 ---
 
 The MUSD system fees are split between the MUSD treasury stability pool (which covers liquidations and bad debt). The initial portion is 50/50, but this is subject to change based on the MUSD splitter. 
