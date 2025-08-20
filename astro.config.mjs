@@ -24,6 +24,9 @@ export default defineConfig({
 		sitemap(),
 		starlight({
 			title: 'Mezo Documentation',
+			components: {
+				Header: './src/overrides/Header.astro',
+			},
 			customCss: [
 				'./src/styles/custom.css',
 				'./src/assets/fonts/riforma/font-face.css',
@@ -111,7 +114,6 @@ export default defineConfig({
                         label: 'Mainnet',
                         collapsed: true,
                         items: [
-                              'docs/users/mainnet',
                               'docs/users/mainnet/bridges',
                               'docs/users/mainnet/mats'
                         ]
