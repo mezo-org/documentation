@@ -35,6 +35,37 @@ export default defineConfig({
 				  tag: 'script',
 				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href = 'https://mezo.org')`,
 				},
+				{
+				  tag: 'script',
+				  attrs: { type: 'application/ld+json' },
+				  content: JSON.stringify({
+				    '@context': 'https://schema.org',
+				    '@type': 'Organization',
+				    name: 'Mezo',
+				    url: 'https://mezo.org',
+				    logo: 'https://raw.githubusercontent.com/mezo-org/documentation/main/src/assets/Mezo-Mark-Red.svg',
+				    sameAs: [
+				      'https://github.com/mezo-org',
+				      'https://x.com/MezoNetwork',
+				      'https://discord.mezo.org',
+				    ],
+				  }),
+				},
+				{
+				  tag: 'script',
+				  attrs: { type: 'application/ld+json' },
+				  content: JSON.stringify({
+				    '@context': 'https://schema.org',
+				    '@type': 'WebSite',
+				    name: 'Mezo Documentation',
+				    url: 'https://docs.mezo.org/docs',
+				    potentialAction: {
+				      '@type': 'SearchAction',
+				      target: 'https://docs.mezo.org/search?q={search_term_string}',
+				      'query-input': 'required name=search_term_string',
+				    },
+				  }),
+				},
 			],
 			favicon: './src/assets/Mezo-Mark-Red.svg',
 			logo: {

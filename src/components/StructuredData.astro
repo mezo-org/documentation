@@ -1,0 +1,192 @@
+---
+import config from 'virtual:starlight/user-config';
+---
+{
+  /* Per-page JSON-LD: WebPage + TechArticle */
+}
+{
+  (() => {
+    const site = Astro.site?.href?.replace(/\/$/, '') ?? 'https://docs.mezo.org';
+    const url = site + Astro.url.pathname;
+    // Try to read title/description from frontmatter when available
+    // Many Starlight pages expose title/description via frontmatter consumed by layout
+    const frontmatter = Astro.props?.frontmatter ?? {};
+    const title = frontmatter.title ?? Astro.props?.title ?? 'Mezo Documentation';
+    const description = frontmatter.description ?? Astro.props?.description ?? 'Mezo Documentation';
+
+    const webPage = {
+      '@context': 'https://schema.org',
+      '@type': ['WebPage', 'TechArticle'],
+      headline: title,
+      name: title,
+      description,
+      url,
+      publisher: {
+        '@type': 'Organization',
+        name: 'Mezo',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://github.com/mezo-org/documentation/blob/main/src/assets/Mezo-Mark-Red.svg',
+        },
+        sameAs: [
+          'https://github.com/mezo-org',
+          'https://x.com/MezoNetwork',
+          'https://discord.mezo.org',
+        ],
+      },
+    };
+
+    return (
+      <script type="application/ld+json" set:html={JSON.stringify(webPage)} />
+    );
+  })()
+}
+
+{
+  /* BreadcrumbList derived from URL segments */
+}
+{
+  (() => {
+    const site = Astro.site?.href?.replace(/\/$/, '') ?? 'https://docs.mezo.org';
+    const path = Astro.url.pathname.replace(/\/$/, '');
+    const parts = path.split('/').filter(Boolean);
+
+    if (!parts.length) return null;
+
+    // Map common slugs to readable labels
+    const labelMap: Record<string, string> = {
+      docs: 'Documentation',
+      users: 'User Documentation',
+      developers: 'Developer Documentation',
+      mainnet: 'Mainnet',
+      musd: 'MUSD',
+      features: 'Features',
+      resources: 'Resources',
+      'getting-started': 'Getting Started',
+      introduction: 'Introduction',
+      bridge: 'Bridge',
+      stbtc-staked-bitcoin: 'stBTC',
+      architecture: 'Architecture',
+      oracles: 'Oracles',
+    };
+
+    const frontmatter = Astro.props?.frontmatter ?? {};
+    const finalTitle = frontmatter.title ?? Astro.props?.title;
+
+    const items = [] as any[];
+    let acc = '';
+    parts.forEach((seg, idx) => {
+      acc += '/' + seg;
+      const isLast = idx === parts.length - 1;
+      const name = isLast && finalTitle ? finalTitle : (labelMap[seg] ?? seg.replace(/-/g, ' '));
+      items.push({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name,
+        item: site + acc + '/',
+      });
+    });
+
+    const breadcrumb = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items,
+    };
+
+    return (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+    );
+  })()
+}
+
+{
+  /* Client-side detection for FAQPage and HowTo. Inject JSON-LD if suitable blocks are found. */
+}
+<script is:inline>
+  (function () {
+    try {
+      const site = (document.querySelector('link[rel="canonical"]')?.getAttribute('href') || location.origin) as string;
+
+      // FAQ detection: find h2 matching /faq/i, then h3 as questions with following siblings as answers
+      const faqRoot = Array.from(document.querySelectorAll('h2, h3')) as HTMLElement[];
+      let hasFAQ = false;
+      const qa: any[] = [];
+      for (let i = 0; i < faqRoot.length; i++) {
+        const el = faqRoot[i];
+        if (el.tagName === 'H2' && /\bfaq(s)?\b/i.test(el.textContent || '')) {
+          // Collect until next H2
+          let j = i + 1;
+          while (j < faqRoot.length && faqRoot[j].tagName !== 'H2') {
+            const qEl = faqRoot[j];
+            if (qEl.tagName === 'H3') {
+              const question = (qEl.textContent || '').trim();
+              // Answer: next elements until next heading
+              let answer = '';
+              let node: HTMLElement | null = qEl.nextElementSibling as HTMLElement;
+              while (node && !/^H[2-3]$/.test(node.tagName)) {
+                if (node.tagName === 'P' || node.tagName === 'UL' || node.tagName === 'OL') {
+                  answer += ' ' + node.textContent?.trim();
+                }
+                node = node.nextElementSibling as HTMLElement;
+              }
+              if (question && answer) {
+                hasFAQ = true;
+                qa.push({
+                  '@type': 'Question',
+                  name: question,
+                  acceptedAnswer: { '@type': 'Answer', text: answer.trim() },
+                });
+              }
+            }
+            j++;
+          }
+        }
+      }
+
+      if (hasFAQ && qa.length) {
+        const faq = {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: qa,
+        };
+        const s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.textContent = JSON.stringify(faq);
+        document.head.appendChild(s);
+      }
+
+      // HowTo detection: look for ordered lists under headings that imply procedures
+      const howToHeads = Array.from(document.querySelectorAll('h2, h3')) as HTMLElement[];
+      for (const h of howToHeads) {
+        if (/how to|borrow and mint|bridge your assets|bridge assets|deploy your dapp/i.test(h.textContent || '')) {
+          const ol = h.nextElementSibling as HTMLElement;
+          if (ol && ol.tagName === 'OL') {
+            const steps = Array.from(ol.querySelectorAll('li')).map((li, idx) => ({
+              '@type': 'HowToStep',
+              position: idx + 1,
+              name: (li.textContent || '').trim().slice(0, 100),
+              text: (li.textContent || '').trim(),
+            }));
+            if (steps.length >= 2) {
+              const howTo = {
+                '@context': 'https://schema.org',
+                '@type': 'HowTo',
+                name: (document.title || 'How to'),
+                step: steps,
+              };
+              const s = document.createElement('script');
+              s.type = 'application/ld+json';
+              s.textContent = JSON.stringify(howTo);
+              document.head.appendChild(s);
+              break;
+            }
+          }
+        }
+      }
+    } catch (e) {
+      // no-op
+    }
+  })();
+</script>
+
+
