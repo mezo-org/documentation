@@ -24,6 +24,9 @@ export default defineConfig({
 		sitemap(),
 		starlight({
 			title: 'Mezo Documentation',
+			components: {
+				Header: './src/overrides/Header.astro',
+			},
 			customCss: [
 				'./src/styles/custom.css',
 				'./src/assets/fonts/riforma/font-face.css',

@@ -57,7 +57,7 @@ const shouldRenderSearch =
       const path = Astro.url.pathname.replace(/\/$/, '');
       const parts = path.split('/').filter(Boolean);
       if (!parts.length) return null;
-      const labelMap: Record<string, string> = {
+      const labelMap = {
         docs: 'Documentation',
         users: 'User Documentation',
         developers: 'Developer Documentation',
@@ -74,7 +74,7 @@ const shouldRenderSearch =
       };
       const fm = (Astro.props as any)?.frontmatter ?? {};
       const finalTitle = fm.title ?? (Astro.props as any)?.title;
-      const items: any[] = [];
+      const items = [];
       let acc = '';
       parts.forEach((seg, idx) => {
         acc += '/' + seg;
@@ -100,21 +100,23 @@ const shouldRenderSearch =
 		<div class="title-wrapper sl-flex">
 			<SiteTitle {...Astro.props} />
 		</div>
-		<div class="audience-selector">
-		<a href="test.txt">Users</a>
-		<a href="test.txt">Developers</a>
-		</div>
+		<!-- audience links removed -->
 	</div>
 	<div class="sl-hidden md:sl-flex print:hidden right-group">
 		<div class="sl-flex print:hidden">
 			{shouldRenderSearch && <Search {...Astro.props} />}
 		</div>
-		<AIButton pageUrl={(Astro.site?.href ?? 'https://mezo.org/docs').replace(/\/$/, '') + Astro.url.pathname} pageTitle={(Astro.props as any)?.frontmatter?.title ?? (Astro.props as any)?.title ?? 'Mezo Documentation'} position="header" />
+		<AIButton pageUrl={(Astro.site?.href ?? 'https://mezo.org/docs').replace(/\/$/, '') + Astro.url.pathname} pageTitle={Astro.url.pathname.split('/').filter(Boolean).slice(-1)[0]?.replace(/-/g,' ') ?? 'Documentation'} position="header" />
 		<div class="sl-flex social-icons">
 			<SocialIcons {...Astro.props} />
 		</div>
 		<ThemeSelect {...Astro.props} />
 		<LanguageSelect {...Astro.props} />
+	</div>
+
+	{/* Mobile LLM button */}
+	<div class="sl-flex md:sl-hidden print:hidden mobile-llm">
+		<AIButton pageUrl={(Astro.site?.href ?? 'https://mezo.org/docs').replace(/\/$/, '') + Astro.url.pathname} pageTitle={Astro.url.pathname.split('/').filter(Boolean).slice(-1)[0]?.replace(/-/g,' ') ?? 'Documentation'} position="inline" />
 	</div>
 </div>
 
@@ -160,6 +162,10 @@ const shouldRenderSearch =
 		content: '';
 		height: 2rem;
 		border-inline-end: 1px solid var(--sl-color-gray-5);
+	}
+
+	.mobile-llm {
+		margin-left: auto;
 	}
 
 	@media (min-width: 50rem) {
