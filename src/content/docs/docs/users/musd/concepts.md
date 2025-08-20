@@ -1,6 +1,9 @@
 ---
 title: MUSD Key Concepts & Glossary
-description: Essential concepts and glossary terms for understanding and using MUSD on Mezo.
+description: >-
+  Essential concepts and glossary terms for understanding and using MUSD on
+  Mezo.
+topic: users
 ---
 
 Before you [Borrow and Mint MUSD](./mint-musd.md), understand the core concepts for how the MUSD stablecoin works.

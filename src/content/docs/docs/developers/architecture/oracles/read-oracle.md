@@ -1,6 +1,7 @@
 ---
 title: Reading Market Data with Oracles
 description: How to access and interpret market data using Mezo’s Oracle infrastructure.
+topic: developers
 ---
 
 Mezo makes market data available through different interfaces. 

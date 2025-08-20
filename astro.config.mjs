@@ -111,7 +111,6 @@ export default defineConfig({
                         label: 'Mainnet',
                         collapsed: true,
                         items: [
-                              'docs/users/mainnet',
                               'docs/users/mainnet/bridges',
                               'docs/users/mainnet/mats'
                         ]
@@ -139,7 +138,14 @@ export default defineConfig({
                         label: 'Features',
                         collapsed: true,
                         items: [
-                              'docs/users/features/mezo-pools',
+                              {
+                                    label: 'Mezo Pools',
+                                    collapsed: true,
+                                    items: [
+                                          'docs/users/features/mezo-pools/mezo-pools',
+                                          'docs/users/features/mezo-pools/fees'
+                                    ]
+                              },
                               'docs/users/features/mezo-swap'
                         ]
                   },
@@ -151,7 +157,6 @@ export default defineConfig({
                               'docs/users/resources/brand-kit',
                               'docs/users/resources/contracts-reference',
                               'docs/users/resources/faqs',
-                              'docs/users/resources/integrations-and-partners',
                               'docs/users/resources/release-notes'
                         ]
                   }
@@ -168,12 +173,12 @@ export default defineConfig({
                         collapsed: true,
                         items: [
                               'docs/developers/getting-started',
+                              'docs/developers/getting-started/dapp-requirements',
+                              'docs/developers/getting-started/deploy-your-dapp-to-mezo',
                               'docs/developers/getting-started/configure-environment',
                               'docs/developers/getting-started/configure-mezo-passport',
-                              'docs/developers/getting-started/FAQs',
-			      'docs/developers/getting-started/dapp-requirements',
-                              'docs/developers/getting-started/deploy-your-dapp-to-mezo',
-			      'docs/developers/getting-started/integrations-and-partners'
+                              'docs/developers/getting-started/integrations-and-partners',
+                              'docs/developers/getting-started/faqs'
                         ]
                   },
                   {

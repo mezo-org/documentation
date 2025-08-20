@@ -1,6 +1,7 @@
 ---
 title: MUSD Architecture & Terminology
 description: Deep dive into the system design and core terminology of MUSD on Mezo.
+topic: users
 ---
 
 The MUSD system consists of four main contract groups:

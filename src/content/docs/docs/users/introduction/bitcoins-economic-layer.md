@@ -1,4 +1,8 @@
 ---
+title: Bitcoins Economic Layer
+topic: users
+---
+---
 title: "BitcoinFi: Economic Layer Explained"
 description: Discover how Mezo builds BitcoinFi: an economic layer for the Bitcoin network.
 ---

@@ -1,6 +1,9 @@
 ---
-title: "Developer Guide: Oracle Infrastructure"
-description: Learn how Mezo Oracles provide secure, decentralized data feeds for your applications.
+title: 'Developer Guide: Oracle Infrastructure'
+description: >-
+  Learn how Mezo Oracles provide secure, decentralized data feeds for your
+  applications.
+topic: developers
 ---
 
 Mezo includes an oracle as part of its validator nodes. Third-party oracles are also available.

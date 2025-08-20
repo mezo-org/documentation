@@ -1,6 +1,7 @@
 ---
 title: Mezo Pool Fees
 description: Fee model for swaps and liquidity providers in Mezo Pools
+topic: users
 ---
 
 

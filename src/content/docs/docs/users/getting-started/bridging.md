@@ -1,6 +1,7 @@
 ---
 title: How to Bridge Assets to Mezo
 description: Guide to bridging your assets into Mezo for Bitcoin-backed DeFi opportunities.
+topic: users
 ---
 
 You can bridge native Bitcoin or supported ERC-20 tokens to Mezo Mainnet. 

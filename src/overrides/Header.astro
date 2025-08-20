@@ -8,12 +8,15 @@ import SiteTitle from 'virtual:starlight/components/SiteTitle';
 import SocialIcons from 'virtual:starlight/components/SocialIcons';
 import ThemeSelect from 'virtual:starlight/components/ThemeSelect';
 import StructuredData from '../components/StructuredData.astro';
+import LLMActions from '../components/LLMActions.astro';
 
 /**
  * Render the `Search` component if Pagefind is enabled or the default search component has been overridden.
  */
 const shouldRenderSearch =
 	config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
+const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
+const pageUrl = siteHref.replace(/\/$/, '') + Astro.url.pathname;
 ---
 
 <div class="header sl-flex">
@@ -111,6 +114,7 @@ const shouldRenderSearch =
 		<div class="sl-flex social-icons">
 			<SocialIcons {...Astro.props} />
 		</div>
+		<LLMActions pageUrl={pageUrl} />
 		<ThemeSelect {...Astro.props} />
 		<LanguageSelect {...Astro.props} />
 	</div>
