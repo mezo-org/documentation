@@ -1,6 +1,9 @@
 ---
 title: Mainnet Bridges Overview
-description: Learn about using and accessing bridges on Mezo Mainnet for seamless asset movement.
+description: >-
+  Learn about using and accessing bridges on Mezo Mainnet for seamless asset
+  movement.
+topic: users
 ---
 
 You can bridge assets to Mezo using the Mezo Native Bridge.
