@@ -199,7 +199,7 @@ export default defineConfig({
 		},
 		'/docs/users/resources/IR@thesis.co': {
 			status: 302,
-			destination: '/docs/users/resources/'
+			destination: '/docs/users/resources/faqs'
 		},
 		'/': {
 			status: 302,
