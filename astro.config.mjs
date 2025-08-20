@@ -19,13 +19,12 @@ export default defineConfig({
 		  wrap: true,
 		},
 	  },
-	site: 'https://mezo.org',
+	site: 'https://mezo.org/docs',
 	integrations: [
 		sitemap(),
 		starlight({
 			title: 'Mezo Documentation',
 			customCss: [
-				// Relative path to your custom CSS file
 				'./src/styles/custom.css',
 				'./src/assets/fonts/riforma/font-face.css',
 				'katex/dist/katex.min.css',
