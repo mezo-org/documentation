@@ -189,6 +189,18 @@ export default defineConfig({
 			status: 302,
 			destination: '/docs/users'
 		},
+		'/docs/users/musd/mezo.org': {
+			status: 302,
+			destination: '/docs/users'
+		},
+		'/docs/users/musd/mint-musd.md': {
+			status: 302,
+			destination: '/docs/users/musd/mint-musd'
+		},
+		'/docs/users/resources/IR@thesis.co': {
+			status: 302,
+			destination: '/docs/users/resources/'
+		},
 		'/': {
 			status: 302,
 			destination: '/docs/'
