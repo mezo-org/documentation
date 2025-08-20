@@ -16,7 +16,7 @@ import LLMActions from '../components/LLMActions.astro';
 const shouldRenderSearch =
 	config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
 const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
-const pageUrl = new URL(siteHref).origin + Astro.url.pathname;
+const pageUrl = siteHref.replace(/\/$/, '') + Astro.url.pathname;
 ---
 
 <div class="header sl-flex">
@@ -59,9 +59,7 @@ const pageUrl = new URL(siteHref).origin + Astro.url.pathname;
       const path = Astro.url.pathname.replace(/\/$/, '');
       const parts = path.split('/').filter(Boolean);
       if (!parts.length) return null;
-      // Use JSDoc typing to avoid TS syntax in server build
-      /** @type {{ [key: string]: string }} */
-      const labelMap = {
+      const labelMap: Record<string, string> = {
         docs: 'Documentation',
         users: 'User Documentation',
         developers: 'Developer Documentation',
