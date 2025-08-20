@@ -19,7 +19,8 @@ export default defineConfig({
 		  wrap: true,
 		},
 	  },
-	site: 'https://mezo.org',
+	  site: 'https://mezo.org',
+	  base: '/docs',
 	integrations: [
 		sitemap(),
 		starlight({
@@ -33,43 +34,8 @@ export default defineConfig({
 			head: [
 				{
 				  tag: 'script',
-				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href = 'https://mezo.org/docs')`,
+				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href = 'https://mezo.org')`,
 				},
-				{
-				  tag: 'script',
-				  attrs: { type: 'application/ld+json' },
-				  content: JSON.stringify({
-				    '@context': 'https://schema.org',
-				    '@type': 'Organization',
-				    name: 'Mezo',
-				    url: 'https://mezo.org',
-				    logo: 'https://raw.githubusercontent.com/mezo-org/documentation/main/src/assets/Mezo-Mark-Red.svg',
-				    sameAs: [
-				      'https://github.com/mezo-org',
-				      'https://x.com/MezoNetwork',
-				      'https://discord.mezo.org',
-				    ],
-				  }),
-				},
-				{
-				  tag: 'script',
-				  attrs: { type: 'application/ld+json' },
-				  content: JSON.stringify({
-				    '@context': 'https://schema.org',
-				    '@type': 'WebSite',
-				    name: 'Mezo Documentation',
-				    url: 'https://mezo.org/docs',
-				    potentialAction: {
-				      '@type': 'SearchAction',
-				      target: 'https://mezo.org/docs/search?q={search_term_string}',
-				      'query-input': 'required name=search_term_string',
-				    },
-				  }),
-				},
-				{
-				  tag: 'script',
-				  content: '(function(){try{var t=document.title||"Mezo Documentation";var m=document.querySelector("meta[name=\"description\"]");var d=m?m.content:"";var url=location.origin+location.pathname;var web={"@context":"https://schema.org","@type":["WebPage","TechArticle"],"headline":t,"name":t,"description":d,"url":url,"mainEntityOfPage":url};var s=document.createElement("script");s.type="application/ld+json";s.textContent=JSON.stringify(web);document.head.appendChild(s);var parts=location.pathname.replace(/\/$/,"").split("/").filter(Boolean);if(parts.length){var map={"docs":"Documentation","users":"User Documentation","developers":"Developer Documentation","mainnet":"Mainnet","musd":"MUSD","features":"Features","resources":"Resources","getting-started":"Getting Started","introduction":"Introduction","bridge":"Bridge","stbtc-staked-bitcoin":"stBTC","architecture":"Architecture","oracles":"Oracles"};var items=[];var acc="";for(var i=0;i<parts.length;i++){acc+="/"+parts[i];var isLast=i===parts.length-1;var name=isLast?t:(map[parts[i]]||parts[i].replace(/-/g," "));items.push({"@type":"ListItem","position":i+1,"name":name,"item":location.origin+acc+"/"});}var crumb={"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":items};var s2=document.createElement("script");s2.type="application/ld+json";s2.textContent=JSON.stringify(crumb);document.head.appendChild(s2);}var p=location.pathname.replace(/\/$/,"");if(p==="/docs/users/getting-started/bridging"){var howTo={"@context":"https://schema.org","@type":"HowTo","name":"How to Bridge Assets to Mezo","mainEntityOfPage":url,"url":url,"step":[{"@type":"HowToStep","position":1,"name":"Open Mezo App and sign in","text":"Go to mezo.org/overview and sign in with a supported wallet."},{"@type":"HowToStep","position":2,"name":"Add funds","text":"Click Add funds and select the asset you want to bridge and the amount."},{"@type":"HowToStep","position":3,"name":"Review and confirm","text":"Review transfer details and confirm the transaction in your wallet."}]};var s3=document.createElement("script");s3.type="application/ld+json";s3.textContent=JSON.stringify(howTo);document.head.appendChild(s3);}if(p==="/docs/users/resources/faqs"){var faq={"@context":"https://schema.org","@type":"FAQPage","mainEntityOfPage":url,"url":url,"mainEntity":[{"@type":"Question","name":"What is Mezo?","acceptedAnswer":{"@type":"Answer","text":"Mezo is a Bitcoin-centric platform enabling borrowing, spending, and building on Bitcoin."}},{"@type":"Question","name":"What is MUSD?","acceptedAnswer":{"@type":"Answer","text":"MUSD is Mezo’s Bitcoin-backed stablecoin used for borrowing and payments."}}]};var s4=document.createElement("script");s4.type="application/ld+json";s4.textContent=JSON.stringify(faq);document.head.appendChild(s4);} }catch(e){}})();'
-				}
 			],
 			favicon: './src/assets/Mezo-Mark-Red.svg',
 			logo: {
