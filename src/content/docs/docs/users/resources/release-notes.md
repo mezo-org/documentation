@@ -1,6 +1,7 @@
 ---
 title: Release Notes & Updates
-description: Stay up to date on the latest Mezo releases, features, and improvements.
+description: 'Stay up to date on the latest Mezo releases, features, and improvements.'
+topic: users
 ---
 
 ## 2025-05-28 - Mezo Mainnet Launch

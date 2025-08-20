@@ -1,6 +1,7 @@
 ---
 title: What is Mezo? Platform Overview
 description: Learn what makes Mezo a unique Bitcoin-centric financial platform.
+topic: users
 ---
 
 Mezo is a Bitcoin-centric platform purpose-built to make Bitcoin productive in day-to-day finance. It is EVM-compatible, which means it can host decentralized apps (dApps) and smart contracts in a system that developers and users already understand.

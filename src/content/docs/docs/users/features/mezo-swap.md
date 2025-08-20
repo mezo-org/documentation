@@ -1,6 +1,7 @@
 ---
 title: Mezo Swap
 description: Learn about Mezo Swap and how to trade assets in the Mezo ecosystem
+topic: users
 ---
 # Overview
 

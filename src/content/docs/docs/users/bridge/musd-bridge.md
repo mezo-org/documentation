@@ -1,6 +1,9 @@
 ---
 title: Bridge
-description: Learn how to bridge MUSD tokens between Ethereum and Mezo using Wormhole's Native Token Transfer protocol.
+description: >-
+  Learn how to bridge MUSD tokens between Ethereum and Mezo using Wormhole's
+  Native Token Transfer protocol.
+topic: users
 ---
 The MUSD bridge enables transfers between Mezo and Ethereum networks using Wormhole's Native Token Transfer (NTT) protocol. This bridge maintains token fungibility while providing secure cross-chain functionality.
 

@@ -1,5 +1,6 @@
 ---
 title: Connect your wallet to Mezo
+topic: users
 ---
 
 To connect your browser wallet, use the network details for either Mainnet or the Testnet.

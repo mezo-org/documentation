@@ -1,6 +1,7 @@
 ---
 title: Mezo Brand Assets & Kit
-description: Download Mezo logos, brand guidelines, and marketing assets.
+description: 'Download Mezo logos, brand guidelines, and marketing assets.'
+topic: users
 ---
 
 - [Mezo Logos](/docs/brand-kit/mezo-logo-and-marks.zip)
