@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Mezo Pools Overview
 description: Learn about Mezo Pools and how to provide liquidity
 ---
 

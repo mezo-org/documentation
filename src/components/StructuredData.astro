@@ -9,12 +9,12 @@ import config from 'virtual:starlight/user-config';
 <script is:inline>
   (function () {
     try {
-      const site = (document.querySelector('link[rel="canonical"]')?.getAttribute('href') || location.origin) as string;
+      const site = (document.querySelector('link[rel="canonical"]')?.getAttribute('href') || location.origin);
 
       // FAQ detection: find h2 matching /faq/i, then h3 as questions with following siblings as answers
-      const faqRoot = Array.from(document.querySelectorAll('h2, h3')) as HTMLElement[];
+      const faqRoot = Array.from(document.querySelectorAll('h2, h3'));
       let hasFAQ = false;
-      const qa: any[] = [];
+      const qa = [];
       for (let i = 0; i < faqRoot.length; i++) {
         const el = faqRoot[i];
         if (el.tagName === 'H2' && /\bfaq(s)?\b/i.test(el.textContent || '')) {
@@ -26,12 +26,12 @@ import config from 'virtual:starlight/user-config';
               const question = (qEl.textContent || '').trim();
               // Answer: next elements until next heading
               let answer = '';
-              let node: HTMLElement | null = qEl.nextElementSibling as HTMLElement;
+              let node = qEl.nextElementSibling;
               while (node && !/^H[2-3]$/.test(node.tagName)) {
                 if (node.tagName === 'P' || node.tagName === 'UL' || node.tagName === 'OL') {
-                  answer += ' ' + node.textContent?.trim();
+                  answer += ' ' + (node.textContent || '').trim();
                 }
-                node = node.nextElementSibling as HTMLElement;
+                node = node.nextElementSibling;
               }
               if (question && answer) {
                 hasFAQ = true;
@@ -60,10 +60,10 @@ import config from 'virtual:starlight/user-config';
       }
 
       // HowTo detection: look for ordered lists under headings that imply procedures
-      const howToHeads = Array.from(document.querySelectorAll('h2, h3')) as HTMLElement[];
+      const howToHeads = Array.from(document.querySelectorAll('h2, h3'));
       for (const h of howToHeads) {
         if (/how to|borrow and mint|bridge your assets|bridge assets|deploy your dapp/i.test(h.textContent || '')) {
-          const ol = h.nextElementSibling as HTMLElement;
+          const ol = h.nextElementSibling;
           if (ol && ol.tagName === 'OL') {
             const steps = Array.from(ol.querySelectorAll('li')).map((li, idx) => ({
               '@type': 'HowToStep',
