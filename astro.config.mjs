@@ -187,7 +187,7 @@ export default defineConfig({
 		},
 		'/docs/images/musd/musd-economy.webp': {
 			status: 302,
-			destination: '/docs/users'
+			destination: '/docs/users/musd/fees'
 		},
 		'/docs/users/musd/mezo.org': {
 			status: 302,
