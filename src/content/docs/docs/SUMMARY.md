@@ -7,7 +7,7 @@
     * [Connect your wallet to Mezo](users/getting-started/connect.md)
     * [Create an Account](users/getting-started/creating-an-account.md)
   * [introduction](users/introduction/README.md)
-    * [What is BitcoinFi?](users/introduction/bitcoins-economic-layer.md)
+    * [BitcoinFi: Economic Layer Explained](users/introduction/bitcoins-economic-layer.md)
     * [What is Mezo?](users/introduction/what-is-mezo.md)
   * [mainnet](users/mainnet/index.md)
     * [Bridges](users/mainnet/bridges.md)

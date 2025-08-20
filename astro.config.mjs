@@ -103,7 +103,7 @@ export default defineConfig({
                         label: 'Introduction',
                         collapsed: true,
                         items: [
-                              'docs/users/introduction/bitcoins-economic-layer',
+                              'docs/users/introduction/BitcoinFi: Economic Layer Explained',
                               'docs/users/introduction/what-is-mezo'
                         ]
                   },
