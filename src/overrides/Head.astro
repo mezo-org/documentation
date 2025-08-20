@@ -7,8 +7,7 @@ import config from 'virtual:starlight/user-config';
 {
   (() => {
     const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
-    const origin = new URL(siteHref).origin;
-    const url = origin + Astro.url.pathname;
+    const url = siteHref.replace(/\/$/, '') + Astro.url.pathname;
     const fm = (Astro.props as any)?.frontmatter ?? {};
     const title = fm.title ?? (Astro.props as any)?.title ?? 'Mezo Documentation';
     const description = fm.description ?? (Astro.props as any)?.description ?? 'Mezo Documentation';
@@ -43,7 +42,7 @@ import config from 'virtual:starlight/user-config';
 {
   (() => {
     const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
-    const origin = new URL(siteHref).origin;
+    const origin = siteHref.replace(/\/$/, '');
     const path = Astro.url.pathname.replace(/\/$/, '');
     const parts = path.split('/').filter(Boolean);
     if (!parts.length) return null;
@@ -83,6 +82,49 @@ import config from 'virtual:starlight/user-config';
       itemListElement: items,
     };
     return <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />;
+  })()
+}
+
+{
+  // SSR HowTo for bridging page
+}
+{
+  (() => {
+    const path = Astro.url.pathname.replace(/\/$/, '');
+    if (path !== '/docs/users/getting-started/bridging') return null;
+    // Minimal steps assembled from the page content headings
+    const steps = [
+      { '@type': 'HowToStep', position: 1, name: 'Open Mezo App and sign in', text: 'Go to mezo.org/overview and sign in with a supported wallet.' },
+      { '@type': 'HowToStep', position: 2, name: 'Add funds', text: 'Click Add funds and select the asset you want to bridge and the amount.' },
+      { '@type': 'HowToStep', position: 3, name: 'Review and confirm', text: 'Review transfer details and confirm the transaction in your wallet.' },
+    ];
+    const howTo = {
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      name: 'How to Bridge Assets to Mezo',
+      step: steps,
+    };
+    return <script type="application/ld+json" set:html={JSON.stringify(howTo)} />;
+  })()
+}
+
+{
+  // SSR FAQPage for FAQs page
+}
+{
+  (() => {
+    const path = Astro.url.pathname.replace(/\/$/, '');
+    if (path !== '/docs/users/resources/faqs') return null;
+    // Minimal placeholder; ideally parse actual Q&A blocks
+    const faq = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: 'What is Mezo?', acceptedAnswer: { '@type': 'Answer', text: 'Mezo is a Bitcoin-centric platform enabling borrowing, spending, and building on Bitcoin.' } },
+        { '@type': 'Question', name: 'What is MUSD?', acceptedAnswer: { '@type': 'Answer', text: 'MUSD is Mezo’s Bitcoin-backed stablecoin used for borrowing and payments.' } }
+      ],
+    };
+    return <script type="application/ld+json" set:html={JSON.stringify(faq)} />;
   })()
 }
 
