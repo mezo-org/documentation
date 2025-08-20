@@ -18,6 +18,83 @@ const shouldRenderSearch =
 
 <div class="header sl-flex">
   <StructuredData {...Astro.props} />
+  {
+    (() => {
+      const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
+      const origin = new URL(siteHref).origin;
+      const url = origin + Astro.url.pathname;
+      const fm = (Astro.props as any)?.frontmatter ?? {};
+      const title = fm.title ?? (Astro.props as any)?.title ?? 'Mezo Documentation';
+      const description = fm.description ?? (Astro.props as any)?.description ?? 'Mezo Documentation';
+      const webPage = {
+        '@context': 'https://schema.org',
+        '@type': ['WebPage', 'TechArticle'],
+        headline: title,
+        name: title,
+        description,
+        url,
+        publisher: {
+          '@type': 'Organization',
+          name: 'Mezo',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://raw.githubusercontent.com/mezo-org/documentation/main/src/assets/Mezo-Mark-Red.svg',
+          },
+          sameAs: [
+            'https://github.com/mezo-org',
+            'https://x.com/MezoNetwork',
+            'https://discord.mezo.org',
+          ],
+        },
+      };
+      return <script type="application/ld+json" set:html={JSON.stringify(webPage)} />;
+    })()
+  }
+  {
+    (() => {
+      const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
+      const origin = new URL(siteHref).origin;
+      const path = Astro.url.pathname.replace(/\/$/, '');
+      const parts = path.split('/').filter(Boolean);
+      if (!parts.length) return null;
+      const labelMap: Record<string, string> = {
+        docs: 'Documentation',
+        users: 'User Documentation',
+        developers: 'Developer Documentation',
+        mainnet: 'Mainnet',
+        musd: 'MUSD',
+        features: 'Features',
+        resources: 'Resources',
+        'getting-started': 'Getting Started',
+        introduction: 'Introduction',
+        bridge: 'Bridge',
+        'stbtc-staked-bitcoin': 'stBTC',
+        architecture: 'Architecture',
+        oracles: 'Oracles',
+      };
+      const fm = (Astro.props as any)?.frontmatter ?? {};
+      const finalTitle = fm.title ?? (Astro.props as any)?.title;
+      const items: any[] = [];
+      let acc = '';
+      parts.forEach((seg, idx) => {
+        acc += '/' + seg;
+        const isLast = idx === parts.length - 1;
+        const name = isLast && finalTitle ? finalTitle : (labelMap[seg] ?? seg.replace(/-/g, ' '));
+        items.push({
+          '@type': 'ListItem',
+          position: idx + 1,
+          name,
+          item: origin + acc + '/',
+        });
+      });
+      const breadcrumb = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: items,
+      };
+      return <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />;
+    })()
+  }
 
 	<div class="sl-hidden md:sl-flex print:hidden left-group">
 		<div class="title-wrapper sl-flex">
