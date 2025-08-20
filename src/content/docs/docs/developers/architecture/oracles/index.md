@@ -1,5 +1,5 @@
 ---
-title: Developer Guide: Oracle Infrastructure
+title: "Developer Guide: Oracle Infrastructure"
 description: Learn how Mezo Oracles provide secure, decentralized data feeds for your applications.
 ---
 
