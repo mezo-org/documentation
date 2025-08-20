@@ -1,6 +1,7 @@
 ---
 title: FAQs
-description: Frequently asked questions for Mezo App, Mezo Validators, and more.
+description: 'Frequently asked questions for Mezo App, Mezo Validators, and more.'
+topic: users
 ---
 
 ## What is Mezo?
