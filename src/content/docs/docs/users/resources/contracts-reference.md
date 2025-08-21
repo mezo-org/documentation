@@ -1,5 +1,5 @@
 ---
-title: Mezo Smart Contract Reference
+title: Contracts and Token Addresses
 description: Detailed reference for Mezo’s smart contracts and their role in the ecosystem.
 topic: users
 ---
