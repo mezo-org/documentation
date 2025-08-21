@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mezo.org/docs/sitemap-index.xml
