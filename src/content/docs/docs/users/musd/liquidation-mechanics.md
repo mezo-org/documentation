@@ -28,10 +28,10 @@ Liquidations ensure that the system remains solvent when a borrower’s position
    - Each borrower receives “pending” collateral and debt adjustments, reconciled when they next interact with their trove.  
 
 ### Example
-- Alice has a trove with **$10,000 MUSD debt** backed by **$10,900 BTC collateral** (109% collateralization).  
+- Alice has a trove with $10,000 MUSD debt backed by $10,900 BTC collateral (109% collateralization).  
 - Alice’s trove falls below 110% and is liquidated.  
 - The Stability Pool burns $10,000 MUSD and receives $10,845 worth of BTC.  
-- The liquidator receives **200 MUSD + $55 BTC (0.5%)** as compensation.  
+- The liquidator receives 200 MUSD + $55 BTC (0.5%) as compensation.  
 
 Liquidations keep the protocol solvent and incentivize third parties to maintain system health.
 
@@ -58,16 +58,16 @@ This mechanism creates a **price floor** because MUSD can always be redeemed for
 - Redemption hints (`getRedemptionHints`) are used to optimize gas efficiency when determining which troves to redeem from.  
 
 ### Example
-- Alice has **$1,000 debt backed by $1,300 BTC collateral (130%)**.  
-- Bob has **$1,000 debt backed by $2,000 BTC collateral (200%)**.  
-- Carol redeems **$100 MUSD**.  
+- Alice has $1,000 debt backed by $1,300 BTC collateral (130%).  
+- Bob has $1,000 debt backed by $2,000 BTC collateral (200%).  
+- Carol redeems $100 MUSD.  
   - Alice’s trove is targeted first since it is the least collateralized.  
   - Her debt is reduced to $900, and collateral is reduced to $1,170.  
   - Carol receives ~$99.25 worth of BTC (after 0.75% redemption fee).  
-  - Alice’s collateral ratio improves to **1300/1000 → 1170/900 = 130% → 130%+**.
+  - Alice’s collateral ratio improves to 1300/1000 → 1170/900 = 130% → 130%+.
 
 ### Why Redemptions Matter
-- They enforce a **price floor**: if MUSD trades below $1, arbitragers redeem and profit until the peg is restored.  
+- They enforce a price floor: if MUSD trades below $1, arbitragers redeem and profit until the peg is restored.  
 - They naturally improve the health of the system by raising collateral ratios of weaker troves.  
 - They provide liquidity without depending on external parties.
 
