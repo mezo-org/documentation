@@ -22,6 +22,7 @@ topic: users
     * [Fees](users/musd/fees.md)
     * [Overview](users/musd/index.md)
     * [Borrow and Mint MUSD](users/musd/mint-musd.md)
+    * [MUSD Liquidations & Redemptions](users/musd/liquidation-mechanics.md)
     * [Risks and Mitigations](users/musd/risks.md)
   * [bridge](users/bridge/README.md)
     * [MUSD Bridge](users/bridge/musd-bridge.md)
