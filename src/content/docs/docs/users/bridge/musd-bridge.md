@@ -1,5 +1,5 @@
 ---
-title: Bridge
+title: MUSD Bridge
 description: >-
   Learn how to bridge MUSD tokens between Ethereum and Mezo using Wormhole's
   Native Token Transfer protocol.
