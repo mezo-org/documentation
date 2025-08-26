@@ -97,7 +97,7 @@ export default defineConfig({
                         label: 'Getting Started',
                         collapsed: true,
                         items: [
-                              'docs/users/getting-started/bridging',
+                              'docs/users/getting-started/depositing-to-mezo',
                               'docs/users/getting-started/connect',
                               'docs/users/getting-started/creating-an-account'
                         ]
