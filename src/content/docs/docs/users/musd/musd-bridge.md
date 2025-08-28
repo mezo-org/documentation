@@ -48,4 +48,4 @@ The MUSD bridge is powered by the following smart contracts:
 
 - [Wormhole NTT Documentation](https://wormhole.com/docs/products/native-token-transfers/overview/) - Learn more about the Native Token Transfer protocol
 - [Portal Bridge](https://portalbridge.com/) - The official UI for bridging tokens
-- [Contracts Reference](../resources/contracts-reference.md) - Complete list of all protocol contracts
+- [Contracts Reference](../../resources/contracts-reference.md) - Complete list of all protocol contracts
