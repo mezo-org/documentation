@@ -1,0 +1,23 @@
+---
+const code = `
+(function () {
+  var path = location.pathname.toLowerCase();
+
+  // Skip assets like .js .css .png
+  if (/\\.[a-z0-9]+$/i.test(path)) return;
+
+  if (path.startsWith("/docs/users/")) {
+    location.replace("/docs/users/");
+    return;
+  }
+
+  if (path.startsWith("/docs/developers/")) {
+    location.replace("/docs/developers/");
+    return;
+  }
+
+  
+})();
+`;
+---
+<script is:inline set:html={code}></script>
