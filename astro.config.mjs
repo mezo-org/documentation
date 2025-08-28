@@ -128,14 +128,8 @@ export default defineConfig({
                               'docs/users/musd',
                               'docs/users/musd/liquidation-mechanics',
                               'docs/users/musd/mint-musd',
+                              'docs/users/musd/musd-bridge',
                               'docs/users/musd/risks'
-                        ]
-                  },
-                  {
-                        label: 'Bridge',
-                        collapsed: true,
-                        items: [
-                              'docs/users/bridge/musd-bridge'
                         ]
                   },
                   {
