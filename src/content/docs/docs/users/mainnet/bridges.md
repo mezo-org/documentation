@@ -8,13 +8,13 @@ topic: users
 
 You can bridge assets to Mezo using the Mezo Native Bridge.
 
-## Mezo native bridge
+## Mezo Native Bridge
 
-The Mezo app includes a native bridge where you can bring several assets to Mezo Mainnet. See the [Bridging Assets](/docs/users/getting-started/bridging) guide to learn how the process works, or go directly to [mezo.org/overview](https://mezo.org/overview), sign in, and click **Add funds** to get started.
+The Mezo app includes a native bridge where you can deposit several assets to Mezo Mainnet. See the [Deposit Assets](/docs/users/getting-started/deposit-assets) guide to learn how the process works, or go directly to [mezo.org/overview](https://mezo.org/overview), sign in, and click **Deposit Bitcoin** to get started.
 
 ### Native BTC Bridging
 
-You can bridge BTC directly from a Bitcoin wallet to the Mezo App. Assets are automatically bridged to tBTC and to Mezo Mainnet.
+You can deposit BTC directly from a Bitcoin wallet to the Mezo App. Assets are automatically bridged to tBTC and to Mezo Mainnet.
 
 Native BTC is bridged to tBTC before being bridged into the [Mezo App contract](/docs/users/resources/contracts-reference).
 

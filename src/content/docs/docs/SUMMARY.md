@@ -7,7 +7,7 @@ topic: users
 * [README](README.md)
 * [users](users/README.md)
   * [getting-started](users/getting-started/README.md)
-    * [Bridge Assets](users/getting-started/bridging.md)
+    * [Deposit Assets](users/getting-started/deposit-assets.md)
     * [Connect your wallet to Mezo](users/getting-started/connect.md)
     * [Create an Account](users/getting-started/creating-an-account.md)
   * [introduction](users/introduction/README.md)
