@@ -35,6 +35,7 @@ topic: users
     * [Contracts Reference](users/resources/contracts-reference.md)
     * [FAQs](users/resources/faqs.md)
     * [Release Notes](users/resources/release-notes.md)
+    * [Support](users/resources/support.md)
     * [Mezo Validators](users/resources/validators.md)
   * [stbtc-staked-bitcoin](users/stbtc-staked-bitcoin/README.md)
     * [Redeeming Your stBTC Deposits](users/stbtc-staked-bitcoin/redeeming-your-stbtc-deposits.md)
