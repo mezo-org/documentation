@@ -15,7 +15,6 @@ topic: users
     * [What is Mezo?](users/introduction/what-is-mezo.md)
   * [mainnet](users/mainnet/index.md)
     * [Bridges](users/mainnet/bridges.md)
-    * [mats](users/mainnet/mats.md)
   * [musd](users/musd/README.md)
     * [Architecture and Terminology](users/musd/architecture-and-terminology.md)
     * [Concepts](users/musd/concepts.md)
