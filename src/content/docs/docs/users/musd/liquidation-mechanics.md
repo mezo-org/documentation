@@ -1,6 +1,9 @@
 ---
 title: MUSD Liquidations & Redemptions
-description: Learn how liquidations protect the system and how redemptions maintain the MUSD peg.
+description: >-
+  Learn how liquidations protect the system and how redemptions maintain the
+  MUSD peg.
+topic: users
 ---
 
 ## Liquidations
