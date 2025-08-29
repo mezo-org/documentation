@@ -97,7 +97,7 @@ export default defineConfig({
                         label: 'Getting Started',
                         collapsed: true,
                         items: [
-                              'docs/users/getting-started/bridging',
+                              'docs/users/getting-started/deposit-assets',
                               'docs/users/getting-started/connect',
                               'docs/users/getting-started/creating-an-account'
                         ]
@@ -114,8 +114,7 @@ export default defineConfig({
                         label: 'Mainnet',
                         collapsed: true,
                         items: [
-                              'docs/users/mainnet/bridges',
-                              'docs/users/mainnet/mats'
+                              'docs/users/mainnet/bridges'
                         ]
                   },
                   {
@@ -126,8 +125,8 @@ export default defineConfig({
                               'docs/users/musd/concepts',
                               'docs/users/musd/fees',
                               'docs/users/musd',
-                              'docs/users/musd/liquidation-mechanics',
                               'docs/users/musd/mint-musd',
+                              'docs/users/musd/liquidation-mechanics',
                               'docs/users/musd/musd-bridge',
                               'docs/users/musd/risks'
                         ]
