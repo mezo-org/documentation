@@ -4,9 +4,9 @@ description: Instructions to set up Mezo Passport for seamless developer and use
 topic: developers
 ---
 
-[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is a package built on top of [RainbowKit](https://rainbowkit.com/) and provides additional wallet connection options specifically tailored for Bitcoin wallets and Mezo Matsnet. With this package, developers can integrate Bitcoin wallet support alongside Ethereum-compatible (EVM) wallets to create a more versatile connection experience for users. Passport integrates with [viem](https://viem.sh/) and [wagmi](https://wagmi.sh/) libraries for streamlined wallet management across Bitcoin and EVM ecosystems.
+[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is a package built on top of [RainbowKit](https://rainbowkit.com/) and provides additional wallet connection options specifically tailored for Bitcoin wallets and Mezo. With this package, developers can integrate Bitcoin wallet support alongside Ethereum-compatible (EVM) wallets to create a more versatile connection experience for users. Passport integrates with [viem](https://viem.sh/) and [wagmi](https://wagmi.sh/) libraries for streamlined wallet management across Bitcoin and EVM ecosystems.
 
-Get the @mezo-org/passport NPM Package
+Get the [@mezo-org/passport](https://www.npmjs.com/package/@mezo-org/passport) NPM Package
 
 If you cannot use Mezo Passport for your dApp, the configuration steps in the [Configure your Environment](../../../../../../docs/developers/getting-started/configure-environment) guide are sufficient for traditional EVM development.
 
@@ -37,7 +37,7 @@ The configuration process is similar to RainbowKit but uses the `getConfig` meth
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
-import { getConfig, matsnetTestnetChain } from "@mezo-org/passport";
+import { getConfig, mezoTestnet } from "@mezo-org/passport";
 
 const queryClient = new QueryClient();
 
@@ -45,7 +45,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <WagmiProvider config={getConfig({ appName: "Your app name" })}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider initialChain={matsnetTestnetChain}>
+        <RainbowKitProvider initialChain={mezoTestnet}>
           {/* Your App component */}
         </RainbowKitProvider>
       </QueryClientProvider>
