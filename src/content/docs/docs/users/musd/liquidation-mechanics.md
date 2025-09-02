@@ -6,78 +6,109 @@ description: >-
 topic: users
 ---
 
-## Liquidations
+## Overview
+When you borrow MUSD using your Bitcoin as collateral, you create a loan position (also called a "Trove"). Two key system events can affect your loan:
 
-Liquidations ensure that the system remains solvent when a borrower’s position (trove) falls below the required collateralization ratio.
-
-### When Liquidation Happens
-- Each trove must maintain a collateralization ratio of at least **110%** under normal conditions.  
-- If the ratio drops below 110% (for example, due to a decline in BTC price), the trove becomes eligible for liquidation.  
-
-### Liquidation Process
-1. **Triggering:**  
-   Anyone (a user or bot) can call `TroveManager.liquidate` on an undercollateralized trove.  
-
-2. **Rewards for the liquidator:**  
-   - A flat **200 MUSD gas compensation**.  
-   - **0.5% of the trove’s collateral**.  
-
-3. **Stability Pool settlement (default):**  
-   - The Stability Pool burns MUSD to repay the liquidated trove’s debt.  
-   - The pool seizes the remaining BTC collateral at a discount, distributing it to depositors.  
-
-4. **Redistribution (fallback):**  
-   - If the Stability Pool does not have enough funds, both debt and collateral are redistributed across all healthy troves via the **Default Pool**.  
-   - Each borrower receives “pending” collateral and debt adjustments, reconciled when they next interact with their trove.  
-
-### Example
-- Alice has a trove with \$10,000 MUSD debt backed by \$10,900 BTC collateral (109% collateralization).  
-- Alice’s trove falls below 110% and is liquidated.  
-- The Stability Pool burns \$10,000 MUSD and receives \$10,845 worth of BTC.  
-- The liquidator receives 200 MUSD + \$55 BTC (0.5%) as compensation.  
-
-Liquidations keep the protocol solvent and incentivize third parties to maintain system health.
+- **Liquidation**: A forced closure of your loan that happens only if its health, measured by the collateral ratio, drops below a critical minimum of 110%. In a liquidation, you lose your collateral.
+- **Redemption**: When other users exchange MUSD for BTC from the system to help keep the MUSD price at \$1. This can affect your loan even if it's healthy (above 110%), but it is not a loss. It pays down your debt and makes your loan safer.
 
 ---
 
-## Redemptions
+## Liquidations ⚠️
 
-Redemptions are the primary mechanism that keeps MUSD pegged at \$1.
+### What is a Liquidation?
+A liquidation is a safety mechanism that automatically closes a loan when it becomes too risky. This protects the entire MUSD system from becoming unstable.
 
-### What Is a Redemption?
-A redemption is when a user exchanges MUSD directly with the system for BTC collateral at **\$1 per MUSD**, minus the redemption fee.  
+### When Does a Liquidation Happen?
+Your loan is at risk of liquidation if its collateral ratio falls below 110%. Think of this as the absolute minimum safety buffer required for your loan.
 
-This mechanism creates a **price floor** because MUSD can always be redeemed for \$1 worth of BTC.
+### What Happens During a Liquidation?
+There are two ways the system handles a liquidation:
 
-### How Redemptions Work
-1. A user calls `TroveManager.redeemCollateral`.  
-2. The system reduces the debt of the **lowest-collateralized troves** by the redeemed amount.  
-3. An equivalent amount of BTC is transferred from those troves to the redeemer.  
-4. The troves’ collateral ratios increase since debt is canceled while some collateral is removed.  
+#### Using the Stability Pool (Default Method):
+- The system uses MUSD from its safety reserve, the Stability Pool, to completely pay off your debt.
+- The person or bot who triggered the liquidation receives a small reward (a 200 MUSD gas fee and 0.5% of your collateral).
+- The rest of your collateral (99.5%) is transferred to the Stability Pool to repay its depositors.
+- Your loan is closed, and you lose all of your collateral.
 
-### Partial Redemptions
-- If the redeemed amount doesn’t match the debt of a trove exactly, the trove’s collateral and debt are reduced proportionally.  
-- The trove remains open and active, but with a healthier collateral ratio.  
-- Redemption hints (`getRedemptionHints`) are used to optimize gas efficiency when determining which troves to redeem from.  
+#### Redistribution (Fallback Method):
+- If the Stability Pool is empty, the system shares your debt and collateral among all other active loan holders.
+- This is a backup method to ensure the system always remains balanced.
 
-### Example
-- Alice has \$1,000 debt backed by \$1,300 BTC collateral (130%).  
-- Bob has \$1,000 debt backed by \$2,000 BTC collateral (200%).  
-- Carol redeems \$100 MUSD.  
-  - Alice’s trove is targeted first since it is the least collateralized.  
-  - Her debt is reduced to \$900, and collateral is reduced to \$1,170.  
-  - Carol receives ~\$99.25 worth of BTC (after 0.75% redemption fee).  
-  - Alice’s collateral ratio improves to 1300/1000 → 1170/900 = 130% → 130%+.
-
-### Why Redemptions Matter
-- They enforce a price floor: if MUSD trades below \$1, arbitragers redeem and profit until the peg is restored.  
-- They naturally improve the health of the system by raising collateral ratios of weaker troves.  
-- They provide liquidity without depending on external parties.
+### Example of a Liquidation:
+- Imagine your loan has 10,000 MUSD of debt.
+- The value of your BTC collateral drops to \$10,900.
+- Your collateral ratio is now 109%, which is below the 110% minimum.
+- Outcome: Your loan is liquidated. Your 10,000 MUSD debt is cleared, but you lose your entire \$10,900 worth of BTC collateral.
 
 ---
 
-## Key Differences
+## Redemptions 🛡️
 
-- **Liquidations**: Protect the system when borrowers fall below 110% collateralization. Involuntary, permissionless, and triggered by others.  
-- **Redemptions**: Maintain the peg at \$1. Voluntary, initiated by MUSD holders, and target the weakest troves first.  
+### What is a Redemption?
+A redemption is a feature that allows anyone holding MUSD to swap it for an equal dollar value of BTC directly from the protocol. This process ensures MUSD always holds its \$1 peg. It is not a penalty and does not mean your loan is unsafe.
 
+### When Does a Redemption Happen?
+Redemptions can happen at any time. When a user wants to redeem their MUSD for BTC, the system looks for loans to source the collateral from.
+
+### Which Loans Are Chosen for Redemption?
+The system always starts with the loan that has the lowest collateral ratio—even if that ratio is healthy and well above 110%. If your loan is less collateralized than others, it is more likely to be chosen for a redemption.
+
+### What Happens During a Redemption?
+
+#### Full Redemption:
+- If a redemption pays off your entire debt, your loan is closed.
+- An equivalent value of your BTC is given to the redeemer.
+- Any leftover BTC is yours to keep. This is called your Surplus Collateral and is sent to a special holding account for you to claim.
+
+#### Partial Redemption (More Common):
+- A portion of your debt is paid off by the redeemer.
+- An equivalent value of your BTC collateral is given to them.
+- Outcome: Your loan remains open but is now smaller and healthier, with a higher collateral ratio.
+
+### Example of a Redemption:
+- Imagine your loan has 10,000 MUSD of debt and \$13,000 in BTC collateral (a healthy 130% ratio).
+- Another user redeems 5,000 MUSD, and your loan is chosen.
+- Outcome:
+  - Your debt is reduced to 5,000 MUSD.
+  - Your collateral is reduced to \$8,000.
+  - Your new collateral ratio is now 160% (\$8,000 / 5,000 MUSD), making your loan much safer!
+
+### How to Get Your Leftover Collateral After a Full Redemption
+If your loan is fully paid off through a redemption, your surplus collateral is safe. You can reclaim it at any time.
+
+Important Note: The current user interface may not show your available surplus. To recover it, you may need to interact directly with the protocol's smart contracts or contact the support team for assistance.
+
+---
+
+## Key Differences at a Glance
+
+| Feature | Liquidation (Forced Closure) | Redemption (Debt Paydown) |
+| --- | --- | --- |
+| When it happens | Only when your ratio is below 110% | Can happen when your ratio is above 110% |
+| Who starts it? | Anyone (usually bots) | Any user holding MUSD |
+| Effect on debt | Completely eliminated | Reduced or eliminated |
+| Effect on collateral | Complete loss | Partially removed, with any surplus claimable by you |
+| Effect on you | Negative event; loan is closed and assets lost | Neutral or positive; loan gets smaller and healthier |
+
+---
+
+## What is Recovery Mode?
+Recovery Mode is a temporary safety state that activates if the entire MUSD system's total collateral ratio drops below 150%.
+
+During Recovery Mode:
+- The minimum collateral ratio for liquidations increases from 110% to 150%.
+- This means loans with ratios below 150% can be liquidated.
+- The system encourages users to add collateral or repay debt to improve its overall health.
+
+---
+
+## How to Keep Your Loan Safe
+
+### To Avoid Liquidation:
+- Maintain a healthy buffer. Aim for a collateral ratio well above 150% to be safe from market volatility and Recovery Mode.
+- Monitor your loan's health regularly, especially if the BTC price is dropping.
+- Be proactive: Add more collateral or repay some of your MUSD debt if your ratio gets too low.
+
+### To Reduce the Likelihood of Redemption:
+- Keep a high collateral ratio. The higher your ratio is compared to others, the less likely you are to be chosen first for redemptions. A ratio above 150% is a good target.
