@@ -17,7 +17,7 @@ Before you can get testnet MUSD, you must complete the following steps:
 - Get testnet BTC on Testnet. You can request testnet BTC in [Discord](https://discord.com/invite/mezo).
 - Add the MUSD token to your wallet. You can add the token using the UI on the Mezo Explorer. Click the **Add token to MetaMask** button next to the MUSD token address:
     - Mainnet: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
-    - Testnet: [0x637e22A1EBbca50EA2d34027c238317fD10003eB](https://explorer.test.mezo.org/token/0x637e22A1EBbca50EA2d34027c238317fD10003eB)
+    - Testnet: [0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
 
 ## Borrow and mint
 
