@@ -61,7 +61,7 @@ EVM-compatible:
 
 ## What token is used for transaction fees?
 
-BTC is used to pay for transaction fees. This includes tBTC.
+BTC is used to pay for transaction fees on Mezo. You can acquire BTC on Mezo by depositing BTC directly from your Bitcoin wallet or tBTC from your Ethereum wallet. 
 
 ## Why are some tokens that I own not shown in the Mezo Explorer?
 
