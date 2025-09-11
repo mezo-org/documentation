@@ -1,5 +1,5 @@
 ---
-title: Mezo - A Self-Service, Free-Banking Economy for Bitcoiners
+title: Mezo - Self-Service Bitcoin Banking
 description: Learn about how Mezo offers a self-service Bitcoin banking service where you can borrow against BTC collateral.
 ---
 
@@ -9,8 +9,8 @@ Traditional banks profit from your deposits while charging you for access to you
 
 Mezo eliminates them all, giving you the power to manage your finances intelligently on your own terms.
 
-# Flagship Feature: Fixed Rate Bitcoin Loans
-## MUSD: Bitcoin-Backed Money with Complete Autonomy
+## Flagship Feature: Fixed Rate Bitcoin Loans
+### MUSD: Bitcoin-Backed Money with Complete Autonomy
 Deposit Bitcoin as collateral, mint MUSD (a dollar-pegged stablecoin), and use it however you need. Your Bitcoin stays yours while MUSD provides you with instant liquidity. Fixed rates start as low as 1% and stay fixed for the entire life of the loan. 
 
 This is self-service banking with complete autonomy. Unlike any traditional banking experience, there are no minimum payments, set repayment schedules, or penalties for early repayment. Close your position tomorrow or keep it open for years. 
@@ -19,7 +19,7 @@ It's your Bitcoin and your decision on what to do with it.
 
 ## Core Features
 ### Bitcoin Loans (MUSD)
-Self-service loans at fixed 1% rates. Borrow MUSD against your Bitcoin and manage everything yourself. With Mezo’s 110% minimum collateralization ratio, you can access up to 90% of your Bitcoin's value.
+Self-service loans at fixed 1% rates. Borrow MUSD against your Bitcoin and manage everything yourself. Access up to 90% of your Bitcoin's value.
 
 ### Bitcoin Savings Accounts (Yield Vaults)
 Deposit BTC or MUSD into automated vaults that generate yield through lending, liquidity provision, and DeFi strategies. Like a high-yield savings account, but transparent, onchain. No minimum balance, withdraw anytime.
@@ -45,13 +45,13 @@ Full EVM compatibility means developers can build without permission. Create new
 ### Build on Mezo
 Mezo is a permissionless and EVM-compatible blockchain. Developers can build whatever they want to enrich the global Bitcoin economy.
 
-# For Developers:
+## For Developers
 - Full EVM compatibility for familiar tooling
 - BTC as native gas token
 - Open source contracts and documentation
 - Build DeFi, payments, or entirely new financial primitives
 
-## Getting Started:
+### Getting Started
 
 [Documentation](https://mezo.org/docs)
 
@@ -59,14 +59,14 @@ Mezo is a permissionless and EVM-compatible blockchain. Developers can build wha
 
 [Developer Discord](https://discord.com/channels/1220035427952627863/1229470250182119605)
 
-# Away From the System
+## Away From the System
 Bitcoin was the people's response to 2008, an escape hatch from boom-bust cycles that grow more violent with each round of money printing. But Bitcoin alone isn't enough. We need infrastructure to use it productively without compromise.
 
 Mezo creates a parallel financial system where you never have to sell your Bitcoin, never have to ask permission, and never have to trust anyone but yourself. Not reforming the old system, but replacing it. Not asking for permission, but building permissionlessly. Not trusting institutions, but verifying code.
 
 This is self-service banking for the Bitcoin era.
 
-## Join the parallel financial system:
+### Join the parallel financial system:
 
 Start borrowing: [mezo.org/borrow](https://mezo.org/borrow)
 
