@@ -70,11 +70,3 @@ Mezo has built the onchain Bitcoin banking platform owned by its users. Self-ser
 The question isn't whether Bitcoin banking will happen. It’s happening.
 
 The question is whether you're ready to leave the old system behind.
-
----
-
-import { LinkButton } from '@astrojs/starlight/components';
-
-<LinkButton href="/docs/users/introduction/mezo-self-service-banking">
-  Continue Reading: Mezo: A Self-Service, Free-Banking Economy for Bitcoiners →
-</LinkButton>
