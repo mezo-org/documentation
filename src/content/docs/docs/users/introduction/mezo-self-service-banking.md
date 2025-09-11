@@ -51,8 +51,11 @@ Mezo is a permissionless and EVM-compatible blockchain. Developers can build wha
 - Build DeFi, payments, or entirely new financial primitives
 
 ## Getting Started:
+
 [Documentation](https://mezo.org/docs)
+
 [GitHub](https://github.com/mezo-org)
+
 [Developer Discord](https://discord.com/channels/1220035427952627863/1229470250182119605)
 
 # Away From the System
@@ -63,8 +66,11 @@ Mezo creates a parallel financial system where you never have to sell your Bitco
 This is self-service banking for the Bitcoin era.
 
 ## Join the parallel financial system:
+
 Start borrowing: [mezo.org/borrow](https://mezo.org/borrow)
+
 Join the community: [discord.mezo.org](https://discord.mezo.org)
+
 Follow development: [@MezoNetwork](https://x.com/MezoNetwork)
 
 ---

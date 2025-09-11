@@ -31,7 +31,7 @@ True free banking eliminates the Cantillon Effect:
 # Bitcoin Banks
 The concept of Free Banking applies phenomenally well to Bitcoin. One of the most respected early contributors to the Bitcoin Network discussed this in 2010.
 
-"Actually there is a very good reason for Bitcoin-backed banks to exist, issuing their own digital cash currency, redeemable for bitcoins." — [Hal Finney](https://bitcointalk.org/index.php?topic=2500.msg34211#msg34211)
+*"Actually there is a very good reason for Bitcoin-backed banks to exist, issuing their own digital cash currency, redeemable for bitcoins." — [Hal Finney](https://bitcointalk.org/index.php?topic=2500.msg34211#msg34211)*
 
 Finney understood that Bitcoin couldn't scale to handle every transaction on earth. The solution was a Bitcoin banking system that maintained the properties of hard money while enabling practical daily use.
 
@@ -41,17 +41,24 @@ Bitcoin-backed banking elegantly resolves this. You can borrow stablecoins at fi
 
 # The Evolution to Self-Service Banking
 We're witnessing the natural evolution of money and banking:
+
 **Central Banking Era (1913-2008):** Central authorities control money supply, insiders benefit from proximity to money creation, losses get socialized through bailouts, opacity enables manipulation.
+
 **Bitcoin Era (2009-2020):** Fixed supply eliminates inflation, permissionless access for all, but limited utility beyond holding creates the "HODL or spend" dilemma.
+
 **Self-Service Banking Era (Now):** Bitcoin-backed money without a central authority, fixed transparent rates with no insider advantages, the community owns the infrastructure.
 
 # What Free Banking Means Today
 Modern free banking on Bitcoin rails delivers what the old system promised but never provided:
 
 **No Central Authority:** Users govern through code and consensus
+
 **Market-Driven Rates:** Competition forces efficiency
+
 **Self-Regulating:** Transparent rules execute automatically
+
 **No Cantillon Effect:** Same access and rates for everyone
+
 **Gresham's Law Aligned:** Spend weak money, save hard money
 
 When banks fail today, taxpayers bail them out. In free banking, bad positions are liquidated according to rules everyone agrees to up front. There’s no such thing as "too big to fail." Just code executing exactly as written, with reserves verifiable 24/7.
