@@ -3,21 +3,21 @@ title: Why Bitcoin Needs Banking
 description: Learn about how Mezo offers a self-service Bitcoin banking service where you can borrow against BTC collateral.
 ---
 
-# The 2008 Wake-Up Call
+## The 2008 Wake-Up Call
 The traditional financial system showed its hand in 2008. Banks got bailouts while people lost homes. Central banks printed trillions, enriching insiders while everyone else got poorer through inflation. The system was rigged, and everyone could see it.
 
 Bitcoin was born from this failure: a monetary system that can’t be manipulated, inflated, or controlled by any central authority.
 
 But fast-forward 16 years, and Bitcoin has settled into being a store of value asset. What’s missing for Bitcoin’s next step is the infrastructure to use it productively, without compromise.
 
-# Free Banking: How Banking Used to Work
+## Free Banking: How Banking Used to Work
 Before central banks monopolized money, banks competed freely. Each issued its own notes backed by gold reserves. If a bank printed too much, customers redeemed their (soon to be worthless) notes, and the bank failed. Banks that stayed prudent earned their customers’ trust and grew. There was no Federal Reserve, bailouts, or money printer, just purely competitive market forces.
 
 Free banking isn’t theoretical. Scotland ran this exact system for 129 years (1716-1845) with remarkable success. Money was stable, innovation was happening across the region, and bank failures were irregular.
 
 The Scottish experiment ended not because it failed, but because Parliament gave the Bank of England monopoly control over British currency in 1845. Political power defeated economic efficiency. The system that worked for over a century was legislated away to create the central banking monopoly we're still stuck with today.
 
-# The Cantillon Effect: Why You Always Lose
+## The Cantillon Effect: Why You Always Lose
 The “money printer” is more than a meme. When central banks print money, those closest to the printer get rich while everyone else gets poorer. Wall Street gets bailouts at 0% interest while you pay 15% on credit cards. This is the Cantillon Effect, the idea that new money enriches insiders first which then trickles down as inflation to everyone else.
 
 Bitcoin fixes the money supply, but traditional lending still suffers from this problem.
@@ -28,7 +28,7 @@ True free banking eliminates the Cantillon Effect:
 - Protocol fees flow to users of the system
 - When the community owns the bank, there's no "inside" to favor.
 
-# Bitcoin Banks
+## Bitcoin Banks
 The concept of Free Banking applies phenomenally well to Bitcoin. One of the most respected early contributors to the Bitcoin Network discussed this in 2010.
 
 *"Actually there is a very good reason for Bitcoin-backed banks to exist, issuing their own digital cash currency, redeemable for bitcoins." — [Hal Finney](https://bitcointalk.org/index.php?topic=2500.msg34211#msg34211)*
@@ -39,7 +39,7 @@ This addresses a fundamental problem every Bitcoiner faces: Gresham's Law, which
 
 Bitcoin-backed banking elegantly resolves this. You can borrow stablecoins at fixed rates against your Bitcoin, spend the weaker currency for daily needs, and keep your appreciating BTC. You're following Gresham's Law perfectly without compromising.
 
-# The Evolution to Self-Service Banking
+## The Evolution to Self-Service Banking
 We're witnessing the natural evolution of money and banking:
 
 **Central Banking Era (1913-2008):** Central authorities control money supply, insiders benefit from proximity to money creation, losses get socialized through bailouts, opacity enables manipulation.
@@ -48,18 +48,18 @@ We're witnessing the natural evolution of money and banking:
 
 **Self-Service Banking Era (Now):** Bitcoin-backed money without a central authority, fixed transparent rates with no insider advantages, the community owns the infrastructure.
 
-# What Free Banking Means Today
+## What Free Banking Means Today
 Modern free banking on Bitcoin rails delivers what the old system promised but never provided:
 
-**No Central Authority:** Users govern through code and consensus
+- **No Central Authority:** Users govern through code and consensus
 
-**Market-Driven Rates:** Competition forces efficiency
+- **Market-Driven Rates:** Competition forces efficiency
 
-**Self-Regulating:** Transparent rules execute automatically
+- **Self-Regulating:** Transparent rules execute automatically
 
-**No Cantillon Effect:** Same access and rates for everyone
+- **No Cantillon Effect:** Same access and rates for everyone
 
-**Gresham's Law Aligned:** Spend weak money, save hard money
+- **Gresham's Law Aligned:** Spend weak money, save hard money
 
 When banks fail today, taxpayers bail them out. In free banking, bad positions are liquidated according to rules everyone agrees to up front. There’s no such thing as "too big to fail." Just code executing exactly as written, with reserves verifiable 24/7.
 
