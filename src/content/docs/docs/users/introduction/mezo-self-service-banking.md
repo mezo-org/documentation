@@ -1,5 +1,5 @@
 ---
-title: Mezo: A Self-Service, Free-Banking Economy for Bitcoiners
+title: Mezo - A Self-Service, Free-Banking Economy for Bitcoiners
 description: Learn about how Mezo offers a self-service Bitcoin banking service where you can borrow against BTC collateral.
 ---
 
@@ -11,37 +11,38 @@ Mezo eliminates them all, giving you the power to manage your finances intellige
 
 # Flagship Feature: Fixed Rate Bitcoin Loans
 ## MUSD: Bitcoin-Backed Money with Complete Autonomy
-Deposit Bitcoin as collateral, mint MUSD (a dollar-pegged stablecoin), and use it however you need. Your Bitcoin stays yours while MUSD provides you with instant liquidity. Fixed rates start as low as 1% and stay fixed for the entire life of the loan.
+Deposit Bitcoin as collateral, mint MUSD (a dollar-pegged stablecoin), and use it however you need. Your Bitcoin stays yours while MUSD provides you with instant liquidity. Fixed rates start as low as 1% and stay fixed for the entire life of the loan. 
+
 This is self-service banking with complete autonomy. Unlike any traditional banking experience, there are no minimum payments, set repayment schedules, or penalties for early repayment. Close your position tomorrow or keep it open for years. 
 
 It's your Bitcoin and your decision on what to do with it.
 
-# Core Features
-## Bitcoin Loans (MUSD)
+## Core Features
+### Bitcoin Loans (MUSD)
 Self-service loans at fixed 1% rates. Borrow MUSD against your Bitcoin and manage everything yourself. With Mezo’s 110% minimum collateralization ratio, you can access up to 90% of your Bitcoin's value.
 
-## Bitcoin Savings Accounts (Yield Vaults)
+### Bitcoin Savings Accounts (Yield Vaults)
 Deposit BTC or MUSD into automated vaults that generate yield through lending, liquidity provision, and DeFi strategies. Like a high-yield savings account, but transparent, onchain. No minimum balance, withdraw anytime.
 
-## Native Swaps
+### Native Swaps
 Trade directly on Mezo without leaving the platform. Swap between BTC, MUSD, and other assets with deep liquidity and competitive rates.
 
-## Mezo Market
+### Mezo Market
 Spend your MUSD on real goods and services. Buy gift cards, pay for subscriptions, and access everyday purchases, all without selling your Bitcoin. Coming soon: direct offramps to your bank account and seamless fiat bridges.
 
-## BTC as Gas
+### BTC as Gas
 Every transaction on Mezo is paid in Bitcoin. This keeps the experience pure Bitcoin while creating a revenue stream that flows back to participants in the Mezo ecosystem.
 
-## Community Governance (veBTC)
+### Community Governance (veBTC)
 Lock BTC to become a co-owner of the infrastructure. veBTC holders vote on protocol parameters, receive fee distributions, and shape the future of the platform. This isn't token governance—it's Bitcoin holders owning their bank.
 
-## Built on tBTC
+### Built on tBTC
 The most battle-tested decentralized Bitcoin bridge with 24k+ BTC bridged since 2020. Reserves are verifiable 24/7, so you don’t need to rely on trusted third parties.
 
-## Permissionless Building
+### Permissionless Building
 Full EVM compatibility means developers can build without permission. Create new financial products, integrate existing protocols, or invent entirely new use cases. The same ethos as Bitcoin: open, permissionless, unstoppable.
 
-## Build on Mezo
+### Build on Mezo
 Mezo is a permissionless and EVM-compatible blockchain. Developers can build whatever they want to enrich the global Bitcoin economy.
 
 # For Developers:
@@ -51,8 +52,11 @@ Mezo is a permissionless and EVM-compatible blockchain. Developers can build wha
 - Build DeFi, payments, or entirely new financial primitives
 
 ## Getting Started:
+
 [Documentation](https://mezo.org/docs)
+
 [GitHub](https://github.com/mezo-org)
+
 [Developer Discord](https://discord.com/channels/1220035427952627863/1229470250182119605)
 
 # Away From the System
@@ -63,8 +67,11 @@ Mezo creates a parallel financial system where you never have to sell your Bitco
 This is self-service banking for the Bitcoin era.
 
 ## Join the parallel financial system:
+
 Start borrowing: [mezo.org/borrow](https://mezo.org/borrow)
+
 Join the community: [discord.mezo.org](https://discord.mezo.org)
+
 Follow development: [@MezoNetwork](https://x.com/MezoNetwork)
 
 ---
