@@ -106,8 +106,8 @@ export default defineConfig({
                         label: 'Introduction',
                         collapsed: true,
                         items: [
-                              'docs/users/introduction/bitcoins-economic-layer',
-                              'docs/users/introduction/what-is-mezo'
+                              'docs/users/introduction/why-bitcoin-needs-banking',
+                              'docs/users/introduction/mezo-self-service-banking'
                         ]
                   },
                   {
@@ -244,11 +244,11 @@ export default defineConfig({
 	    },
 		'/docs/users/home/what-is-mezo': {
 			status: 302,
-			destination: '/docs/users/introduction/what-is-mezo'
+			destination: '/docs/users/introduction/why-bitcoin-needs-banking'
 		},
 		'/docs/users/home/what-is-mezo/bitcoins-economic-layer': {
 			status: 302,
-			destination: '/docs/users/introduction/bitcoins-economic-layer'
+			destination: '/docs/users/introduction/mezo-self-service-banking'
 		},
 		'/docs/users/home/mezo-alpha-builders': {
 			status: 302,
