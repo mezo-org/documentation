@@ -33,9 +33,6 @@ Spend your MUSD on real goods and services. Buy gift cards, pay for subscription
 ### BTC as Gas
 Every transaction on Mezo is paid in Bitcoin. This keeps the experience pure Bitcoin while creating a revenue stream that flows back to participants in the Mezo ecosystem.
 
-### Community Governance (veBTC)
-Lock BTC to become a co-owner of the infrastructure. veBTC holders vote on protocol parameters, receive fee distributions, and shape the future of the platform. This isn't token governance—it's Bitcoin holders owning their bank.
-
 ### Built on tBTC
 The most battle-tested decentralized Bitcoin bridge with 24k+ BTC bridged since 2020. Reserves are verifiable 24/7, so you don’t need to rely on trusted third parties.
 
