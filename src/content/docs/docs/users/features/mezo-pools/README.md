@@ -16,5 +16,9 @@ Welcome to Mezo Pools.
   Pool Fees
 </LinkButton>
 
+<LinkButton href="/docs/users/features/mezo-pools/Pools-Links-and-Resources" variant="secondary" icon="right-arrow">
+  Pools Links and Resources
+</LinkButton>
+
 
 
