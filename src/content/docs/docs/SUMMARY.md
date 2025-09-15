@@ -57,3 +57,6 @@ topic: users
       * [Read Market Data](developers/architecture/oracles/read-oracle.md)
   * [features](developers/features/README.md)
     * [Mezo Pools (Tigris)](developers/features/mezo-pools.md)
+  * [bridge](developers/bridge/README.md)
+    * [Mezo Bridge](developers/bridge/mezo-bridge.md)
+    * [Wormhole MUSD Bridge](developers/bridge/wormhole-musd-bridge.md)
