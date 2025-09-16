@@ -1,6 +1,5 @@
 ---
 import SiteTitle from 'virtual:starlight/components/SiteTitle';
-import SocialIcons from 'virtual:starlight/components/SocialIcons';
 ---
 
 <footer class="mezo-footer">
@@ -10,9 +9,6 @@ import SocialIcons from 'virtual:starlight/components/SocialIcons';
       <p class="mezo-footer__about">
         Mezo is built by Thesis, a team that has dedicated 10+ years to expanding Bitcoin with security as top priority. Creators of tBTC, Fold, Taho, and more.
       </p>
-      <div class="mezo-footer__social">
-        <SocialIcons {...Astro.props} />
-      </div>
     </div>
 
     <nav class="mezo-footer__cols">
@@ -72,7 +68,7 @@ import SocialIcons from 'virtual:starlight/components/SocialIcons';
 
   .mezo-footer__top {
     display: grid;
-    grid-template-columns: 1.2fr 2fr;
+    grid-template-columns: minmax(24rem, 1.6fr) 2fr;
     column-gap: 4rem;
     row-gap: 2.5rem;
     padding: 3rem 1.5rem;
@@ -81,10 +77,9 @@ import SocialIcons from 'virtual:starlight/components/SocialIcons';
   }
 
   .mezo-footer__brand .site-title { margin-bottom: 1rem; }
-  .mezo-footer__about { color: var(--sl-color-gray-3); max-width: 40ch; }
-  .mezo-footer__social { margin-top: 1.25rem; }
+  .mezo-footer__about { color: var(--sl-color-gray-3); max-width: 60ch; }
 
-  .mezo-footer__cols { display: grid; grid-template-columns: repeat(4, minmax(12.5rem, 1fr)); gap: 1.25rem 2rem; align-content: start; }
+  .mezo-footer__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.25rem 2rem; align-content: start; }
   .mezo-footer__heading { font-weight: 600; margin-bottom: 0.75rem; }
   .mezo-footer__col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
   .mezo-footer__col a { line-height: 1.6; }
