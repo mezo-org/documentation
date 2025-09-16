@@ -1,0 +1,110 @@
+---
+import SiteTitle from 'virtual:starlight/components/SiteTitle';
+import SocialIcons from 'virtual:starlight/components/SocialIcons';
+import type { Props } from '@astrojs/starlight/props';
+---
+
+<footer class="mezo-footer">
+  <div class="mezo-footer__top">
+    <div class="mezo-footer__brand">
+      <SiteTitle {...Astro.props} />
+      <p class="mezo-footer__about">
+        Mezo is built by Thesis, a team that has dedicated 10+ years to expanding Bitcoin with security as top priority. Creators of tBTC, Fold, Taho, and more.
+      </p>
+      <div class="mezo-footer__social">
+        <SocialIcons {...Astro.props} />
+      </div>
+    </div>
+
+    <nav class="mezo-footer__cols">
+      <div class="mezo-footer__col">
+        <div class="mezo-footer__heading">Company</div>
+        <ul>
+          <li><a href="https://thesis.co" target="_blank" rel="noopener">Thesis*</a></li>
+          <li><a href="https://thesis.co/careers" target="_blank" rel="noopener">Careers</a></li>
+          <li><a href="https://thesis.co/contact" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="mezo-footer__col">
+        <div class="mezo-footer__heading">Legal</div>
+        <ul>
+          <li><a href="https://mezo.org/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+          <li><a href="https://mezo.org/terms" target="_blank" rel="noopener">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <div class="mezo-footer__col">
+        <div class="mezo-footer__heading">Feedback</div>
+        <ul>
+          <li><a href="https://github.com/mezo-org/documentation/issues/new/choose" target="_blank" rel="noopener">Report an Issue</a></li>
+        </ul>
+      </div>
+
+      <div class="mezo-footer__col">
+        <div class="mezo-footer__heading">Resources</div>
+        <ul>
+          <li><a href="https://mezo.org/explore" target="_blank" rel="noopener">Mezo Explorer</a></li>
+          <li><a href="/docs/">Docs</a></li>
+          <li><a href="/docs/users/resources/faqs">FAQs</a></li>
+          <li><a href="https://blog.mezo.org" target="_blank" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="mezo-footer__bottom">
+    <div>© 2025 Mezo</div>
+    <div class="mezo-footer__links">
+      <a href="https://mezo.org/terms" target="_blank" rel="noopener">Terms</a>
+      <a href="https://mezo.org/privacy" target="_blank" rel="noopener">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .mezo-footer {
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    border-top: 1px solid var(--sl-color-gray-6);
+  }
+  .mezo-footer a { color: var(--sl-color-white); text-decoration: none; }
+  .mezo-footer a:hover { text-decoration: underline; }
+
+  .mezo-footer__top {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: 4rem;
+    padding: 3rem 1.5rem;
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  .mezo-footer__brand .site-title { margin-bottom: 1rem; }
+  .mezo-footer__about { color: var(--sl-color-gray-3); max-width: 40ch; }
+  .mezo-footer__social { margin-top: 1.25rem; }
+
+  .mezo-footer__cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; }
+  .mezo-footer__heading { font-weight: 600; margin-bottom: 0.75rem; }
+  .mezo-footer__col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+
+  .mezo-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--sl-color-gray-6);
+    padding: 1rem 1.5rem;
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  .mezo-footer__links { display: flex; gap: 1.5rem; }
+
+  @media (max-width: 56rem) {
+    .mezo-footer__top { grid-template-columns: 1fr; }
+    .mezo-footer__about { max-width: none; }
+    .mezo-footer__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+
+
