@@ -26,7 +26,6 @@ export default defineConfig({
 			title: 'Mezo Documentation',
 			components: {
 				Header: './src/overrides/Header.astro',
-				Footer: './src/overrides/Footer.astro',
 			},
 			customCss: [
 				'./src/styles/custom.css',
