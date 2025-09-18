@@ -180,6 +180,14 @@ export default defineConfig({
                               'docs/developers/getting-started/faqs'
                         ]
                   },
+									{
+										label: 'Bridge',
+										collapsed: true,
+										items: [
+													'docs/developers/bridge/mezo-bridge',
+													'docs/developers/bridge/wormhole-musd-bridge'
+										]
+							},
                   {
                         label: 'Mezo Nodes',
                         collapsed: true,
