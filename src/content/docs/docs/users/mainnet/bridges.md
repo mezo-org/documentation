@@ -6,13 +6,15 @@ description: >-
 topic: users
 ---
 
-You can bridge assets to Mezo using the Mezo Native Bridge.
+You can deposit and withdraw assets to and from Mezo using the Mezo Native Bridge.
 
-## Mezo Native Bridge
+# Deposits
+
+## Mezo Native Bridge Deposits
 
 The Mezo app includes a native bridge where you can deposit several assets to Mezo Mainnet. See the [Deposit Assets](/docs/users/getting-started/deposit-assets) guide to learn how the process works, or go directly to [mezo.org/overview](https://mezo.org/overview), sign in, and click **Deposit Bitcoin** to get started.
 
-### Native BTC Bridging
+## Native BTC Deposits
 
 You can deposit BTC directly from a Bitcoin wallet to the Mezo App. Assets are automatically bridged to tBTC and to Mezo Mainnet.
 
@@ -26,24 +28,19 @@ For BTC wallets, you can sign in with UniSat, OKX, and Xverse. Use the following
 | Native SegWit  | P2WPKH      | bc1q           |
 | Nested SegWit  | P2SH-P2WPKH | 3              |
 
-## Withdrawals 
+# Withdrawals 
 
-
-
-
-# Moving Your Assets from Mezo to Ethereum or Bitcoin
+## Moving Your Assets from Mezo to Ethereum or Bitcoin
 
 *Last updated: September 18, 2025*
 
 This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process.
 
-## What You Can Bridge Out
-
 ### From Mezo to Other Networks
 
 | Your Asset on Mezo | Destination Network | What You'll Receive | Notes |
 |-------------------|-------------------|-------------------|--------|
-| **BTC** | Ethereum | TBTC (ERC-20 token) | You always receive TBTC on Ethereum, not WBTC or other wrapped versions |
+| **BTC** | Ethereum | tBTC (ERC-20 token) | You always receive tBTC on Ethereum, not WBTC or other wrapped versions |
 | **BTC** | Bitcoin | Native BTC | Real Bitcoin sent to your Bitcoin wallet |
 | **mERC-20 tokens** | Ethereum | Original ERC-20 token | Get back the same tokens you originally bridged in (like USDC, USDT, etc.) |
 | **MUSD** | Ethereum | USDC | MUSD is redeemed for USDC on Ethereum |
@@ -51,31 +48,29 @@ This guide explains how to bridge your assets out of Mezo back to the Ethereum o
 
 **Key Points:**
 - You can only bridge to Ethereum or Bitcoin mainnet.
-- BTC can go to Ethereum (as TBTC) or to Bitcoin (as native BTC).
-- Tokens like USDC or WETH (represented as m-tokens on Mezo) can only go back to Ethereum.
+- BTC can go to Ethereum (as tBTC) or to Bitcoin (as native BTC).
+- Tokens like USDC or T (represented as m-tokens on Mezo) can only go back to Ethereum.
 - Bitcoin Taproot addresses (starting with `bc1p`) aren't supported yet.
 - Layer 2 networks and other chains aren't available as destinations.
 
 ## How to Bridge Out
 
-### Bridging to Ethereum (for TBTC or ERC-20 tokens)
+### Bridging to Ethereum (for tBTC or ERC-20 tokens)
 
-1.  **Open the Bridge section** in your Mezo wallet.
-2.  **Select Ethereum** as your destination network.
-3.  **Choose your asset:**
-    - Select BTC to receive TBTC on Ethereum.
+1.  **Click the 'Withdraw' button** in the top right of the Mezo App.
+2.  **Choose your asset:**
+    - Select BTC to receive tBTC on Ethereum.
     - Select any mERC-20 token to receive the original token on Ethereum.
-4.  **Enter the amount** you want to bridge.
-5.  **Paste your Ethereum address** (must start with `0x` and be 42 characters total).
-6.  **Review the fees** displayed on screen.
-7.  **Confirm and submit** the transaction.
-8.  If bridging mERC-20 tokens, you may need to approve the transaction first.
+3.  **Enter the amount** you want to bridge.
+4.  **Review the fees** displayed on screen.
+5.  **Confirm and submit** the transaction.
+6.  **If bridging mERC-20 tokens**, you may need to approve the transaction first.
 
 ### Bridging to Bitcoin (for native BTC only)
 
-1.  **Open the Bridge section** in your Mezo wallet.
-2.  **Select Bitcoin** as your destination network.
-3.  **Choose BTC** as your asset.
+1.  **Click the 'Withdraw' button** in the top right of the Mezo App.
+2.  **Choose BTC** as your asset.
+3.  **Select Bitcoin** as your destination network.
 4.  **Enter the amount** to bridge.
 5.  **Paste your Bitcoin address** - supported formats:
     - Legacy addresses (starting with `1`)
@@ -104,7 +99,7 @@ This is the initial version of the fee structure. **In the coming weeks, bridge 
 
 #### Bridging to Ethereum
 * **Minimum Withdrawal Amounts:**
-    * `0.01` for BTC-based tokens (e.g., receiving TBTC)
+    * `0.01` for BTC-based tokens (e.g., receiving tBTC)
     * `1,000` for USD-based tokens (e.g., mUSDC, mUSDT)
     * `75,000` for mT tokens
 * **Fees:**
@@ -118,7 +113,7 @@ This is the initial version of the fee structure. **In the coming weeks, bridge 
     * **Mezo Gas Fee:** A gas fee paid in BTC for the transaction, based on Mezo network conditions.
     * **Mezo Withdrawal Fee:** $0.25\%$ of the requested withdrawal amount.
     * **tBTC Bridge Redemption Treasury Fee:** $0.2\%$ of the withdrawal amount *after* the Mezo fee has been deducted.
-    * **tBTC Bridge Redemption Transaction Fee:** A fixed fee of up to `0.001 BTC` (majority of times significantly less) to cover the Bitcoin network transaction, based on tBTC bridge conditions.
+    * **tBTC Bridge Redemption Transaction Fee:** A fixed fee of up to `0.001 BTC` (majority of times significantly less) to cover the Bitcoin network transaction, based on tBTC bridge conditions. Current Bitcoin network fees price this portion at <1 USD equivalent.
 
 ## What Happens After You Submit
 
@@ -175,7 +170,7 @@ Before confirming any bridge transaction:
 ### "Unsupported Asset for Destination"
 Remember:
 -   mERC-20 tokens and MUSD can only go to Ethereum.
--   BTC can go to either Ethereum (as TBTC) or Bitcoin.
+-   BTC can go to either Ethereum (as tBTC) or Bitcoin.
 
 ### "Invalid Recipient Address"
 Check that:
@@ -191,8 +186,8 @@ Check the status in your transaction history:
 
 ## Frequently Asked Questions
 
-**Q: What's the difference between BTC on Mezo and TBTC on Ethereum?**
-A: When you bridge BTC from Mezo to Ethereum, it becomes TBTC, an ERC-20 token that represents Bitcoin on the Ethereum network. TBTC is backed 1:1 by native Bitcoin and can be redeemed for it.
+**Q: What's the difference between BTC on Mezo and tBTC on Ethereum?**
+A: When you bridge BTC from Mezo to Ethereum, it becomes tBTC, an ERC-20 token that represents Bitcoin on the Ethereum network. tBTC is backed 1:1 by native Bitcoin and can be redeemed for it.
 
 **Q: Can I bridge my mERC-20 tokens to Bitcoin?**
 A: No, ERC-20 tokens are native to Ethereum-compatible networks. You can only bridge them back to Ethereum.
@@ -227,4 +222,4 @@ Remember: Always verify addresses carefully and understand the fees before confi
 
 ### Deposit Portal
 
-Deposits that are still in the portal as part of the early deposit program can be withdrawn back to the user's BTC wallet. The withdrawal fees from the portal for BTC will depend on the parameters set in the tBTC bridge. Currently, tBTC charges a 0.2% redemption fee, and these parameters are governance-controlled and can be viewed in the [tBTC fees documentation](https://docs.threshold.network/applications/tbtc-v2/fees).
+Deposits that are still in the portal as part of the early deposit program can be withdrawn back to the user's BTC wallet. The withdrawal fees from the portal for BTC will depend on the parameters set in the tBTC bridge. Currently, tBTC charges a 0.2% redemption fee, and these parameters are governance-controlled and can be viewed in the [tBTC fees documentation](https://docs.threshold.network/applications/tBTC-v2/fees).
