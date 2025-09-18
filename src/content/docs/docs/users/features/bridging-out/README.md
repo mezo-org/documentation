@@ -76,19 +76,22 @@ When bridging out, you pay fees for the bridging service and network operations.
 This is the initial version of the fee structure. **In the coming weeks, bridge fees will be reduced by approximately 3x and will move to a flat fee model instead of a percentage.**
 
 #### Bridging to Ethereum
-* **Fee:** $0.25\%$
-* **Minimum Withdrawal:** `$1,000`
-* **Note:** The bridge system pays the final gas fee on the Ethereum network to deliver your assets. You only pay the Mezo bridge fee shown in the app.
+* **Minimum Withdrawal Amounts:**
+    * `0.01` for BTC-based tokens (e.g., receiving TBTC)
+    * `1,000` for USD-based tokens (e.g., mUSDC, mUSDT)
+    * `75,000` for mT tokens
+* **Fees:**
+    * **Mezo Fee:** $0.25\%$ of the requested withdrawal amount.
+    * **Mezo Gas Fee:** A gas fee paid in BTC for the transaction, based on Mezo network conditions.
+* **Note:** The bridge system pays the final gas fee on the Ethereum network to deliver your assets.
 
 #### Bridging to Bitcoin
-* **Total Fee:** $0.45\% +$ Bitcoin network gas fees.
-* This total fee is broken down as follows:
-    * **tBTC Unminting Fee:** $0.20\%$ (This is a fee charged by the Threshold Network to convert tBTC back to native BTC. [See their docs for details](https://docs.threshold.network/applications/tbtc-v2/fees)).
-    * **Mezo Bridge Fee:** $0.25\%$
-    * **Bitcoin Network Fee:** You also cover the transaction fee on the Bitcoin network itself.
-
-### Mezo Network Gas
-In addition to the bridge fees above, you will pay a small gas fee on the Mezo network to initiate any bridge-out transaction.
+* **Minimum Withdrawal Amount:** `0.01 BTC`
+* **Fees:** You will see the following fees itemized in your wallet:
+    * **Mezo Gas Fee:** A gas fee paid in BTC for the transaction, based on Mezo network conditions.
+    * **Mezo Withdrawal Fee:** $0.25\%$ of the requested withdrawal amount.
+    * **tBTC Bridge Redemption Treasury Fee:** $0.2\%$ of the withdrawal amount *after* the Mezo fee has been deducted.
+    * **tBTC Bridge Redemption Transaction Fee:** A fixed fee of up to `0.001 BTC` (often less) to cover the Bitcoin network transaction, based on tBTC bridge conditions.
 
 ## What Happens After You Submit
 
@@ -180,7 +183,7 @@ A: Most bridge transactions complete within 30-60 minutes, depending on network 
 A: Currently, only Ethereum mainnet and Bitcoin mainnet are supported destinations. L2 support may be added in the future.
 
 **Q: Who pays for the gas on the destination network?**
-A: For Ethereum, the bridge system handles the final delivery gas costs. For Bitcoin, the BTC network transaction fee is included in the fees you pay.
+A: For Ethereum, the bridge system handles the final delivery gas costs. For Bitcoin, the tBTC Bridge Redemption Transaction Fee covers the cost of the on-chain transaction.
 
 ## Security Model
 
