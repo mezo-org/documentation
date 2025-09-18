@@ -141,7 +141,8 @@ export default defineConfig({
                                     collapsed: true,
                                     items: [
                                           'docs/users/features/mezo-pools/mezo-pools',
-                                          'docs/users/features/mezo-pools/fees'
+                                          'docs/users/features/mezo-pools/fees',
+                                          'docs/users/features/mezo-pools/pools-links-and-resources'
                                     ]
                               },
                               'docs/users/features/mezo-swap'
@@ -180,14 +181,6 @@ export default defineConfig({
                               'docs/developers/getting-started/faqs'
                         ]
                   },
-									{
-										label: 'Bridge',
-										collapsed: true,
-										items: [
-													'docs/developers/bridge/mezo-bridge',
-													'docs/developers/bridge/wormhole-musd-bridge'
-										]
-							},
                   {
                         label: 'Mezo Nodes',
                         collapsed: true,
@@ -214,6 +207,14 @@ export default defineConfig({
                         collapsed: true,
                         items: [
                               'docs/developers/features/mezo-pools'
+                        ]
+                  },
+                  {
+                        label: 'Bridge',
+                        collapsed: true,
+                        items: [
+                              'docs/developers/bridge/mezo-bridge',
+                              'docs/developers/bridge/wormhole-musd-bridge'
                         ]
                   }
             ]

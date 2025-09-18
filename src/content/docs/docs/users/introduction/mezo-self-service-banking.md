@@ -1,6 +1,9 @@
 ---
 title: Mezo - Self-Service Bitcoin Banking
-description: Learn about how Mezo offers a self-service Bitcoin banking service where you can borrow against BTC collateral.
+description: >-
+  Learn about how Mezo offers a self-service Bitcoin banking service where you
+  can borrow against BTC collateral.
+topic: users
 ---
 
 Mezo is the onchain Bitcoin banking platform owned by its users. Users can access self-service Bitcoin finance without interacting with loan officers, undergoing credit checks, or observing operational hours. It’s just you, your Bitcoin, and permissionless access to financial services 24/7.

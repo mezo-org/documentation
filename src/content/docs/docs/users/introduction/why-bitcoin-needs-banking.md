@@ -1,6 +1,9 @@
 ---
 title: Why Bitcoin Needs Banking
-description: Learn about how Mezo offers a self-service Bitcoin banking service where you can borrow against BTC collateral.
+description: >-
+  Learn about how Mezo offers a self-service Bitcoin banking service where you
+  can borrow against BTC collateral.
+topic: users
 ---
 
 ## The 2008 Wake-Up Call
