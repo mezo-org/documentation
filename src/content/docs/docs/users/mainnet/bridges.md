@@ -7,7 +7,6 @@ topic: users
 ---
 
 You can deposit and withdraw assets to and from Mezo using the Mezo Native Bridge.
-
 # Deposits
 
 ## Mezo Native Bridge Deposits
@@ -113,7 +112,7 @@ This is the initial version of the fee structure. **In the coming weeks, bridge 
     * **Mezo Gas Fee:** A gas fee paid in BTC for the transaction, based on Mezo network conditions.
     * **Mezo Withdrawal Fee:** $0.25\%$ of the requested withdrawal amount.
     * **tBTC Bridge Redemption Treasury Fee:** $0.2\%$ of the withdrawal amount *after* the Mezo fee has been deducted.
-    * **tBTC Bridge Redemption Transaction Fee:** A fixed fee of up to `0.001 BTC` (majority of times significantly less) to cover the Bitcoin network transaction, based on tBTC bridge conditions. Current Bitcoin network fees price this portion at <1 USD equivalent.
+    * **tBTC Bridge Redemption Transaction Fee:** An additional fee for tBTC redemption is charged based on Bitcoin network fees. Current network activity prices this portion at less than $1 USD equivalent. However, the maximum amount charged can be up to `0.001 BTC`, though it is almost always significantly less.
 
 ## What Happens After You Submit
 
@@ -154,37 +153,37 @@ Supported address types:
 
 Before confirming any bridge transaction:
 
-✅ **Double-check the destination address** - transactions can't be reversed.
-✅ **Verify you've selected the correct network** (Ethereum vs Bitcoin).
-✅ **Confirm the fee amount** shown in the app.
-✅ **Remember that bridge-outs cannot be cancelled** once submitted.
-✅ **Ensure your destination address format is supported.**
+-   ✅ **Double-check the destination address** - transactions can't be reversed.
+-   ✅ **Verify you've selected the correct network** (Ethereum vs Bitcoin).
+-   ✅ **Confirm the fee amount** shown in the app.
+-   ✅ **Remember that bridge-outs cannot be cancelled** once submitted.
+-   ✅ **Ensure your destination address format is supported.**
 
 ⚠️ **Warning:** If you send funds to an incorrect but validly formatted address, your funds will be permanently lost. Always copy-paste addresses and verify them carefully.
 
-## Troubleshooting Common Issues
+### Troubleshooting Common Issues
 
-### "Approval Required" Message
+#### "Approval Required" Message
 **For mERC-20 tokens:** You need to approve the bridge contract to spend your tokens first. Click "Approve" when prompted, confirm the transaction, and then you can proceed with the bridge.
 
-### "Unsupported Asset for Destination"
+#### "Unsupported Asset for Destination"
 Remember:
 -   mERC-20 tokens and MUSD can only go to Ethereum.
 -   BTC can go to either Ethereum (as tBTC) or Bitcoin.
 
-### "Invalid Recipient Address"
+#### "Invalid Recipient Address"
 Check that:
 -   Ethereum addresses start with `0x` and have 42 total characters.
 -   Bitcoin addresses use supported formats (no `bc1p` Taproot addresses).
 -   You're not using a testnet address for a mainnet transaction.
 
-### Transaction Seems Stuck
+#### Transaction Seems Stuck
 Check the status in your transaction history:
 -   If showing "Created" or "Attesting" - validators are still processing.
 -   If showing "Ready to Withdraw" - the transfer is in progress on the destination network.
 -   Contact support with your transaction ID if it has been pending for an unusually long time.
 
-## Frequently Asked Questions
+### Frequently Asked Questions
 
 **Q: What's the difference between BTC on Mezo and tBTC on Ethereum?**
 A: When you bridge BTC from Mezo to Ethereum, it becomes tBTC, an ERC-20 token that represents Bitcoin on the Ethereum network. tBTC is backed 1:1 by native Bitcoin and can be redeemed for it.
