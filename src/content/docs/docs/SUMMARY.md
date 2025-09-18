@@ -31,7 +31,6 @@ topic: users
       * [Fees](users/features/mezo-pools/fees.md)
       * [Pools Links and Resources](users/features/mezo-pools/Pools-Links-and-Resources.md)
     * [Mezo Swap](users/features/mezo-swap.md)
-    * [Bridging Out](users/features/bridging-out/README.md)
   * [resources](users/resources/README.md)
     * [Audits](users/resources/audits.md)
     * [Brand Kit](users/resources/brand-kit.md)

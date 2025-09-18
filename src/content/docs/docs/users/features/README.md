@@ -12,4 +12,3 @@ This section contains documentation for various features available to Mezo users
 
 - **[Mezo Pools](./mezo-pools.md)** - Learn about Mezo Pools and how to provide liquidity
 - **[Mezo Swap](./mezo-swap.md)** - Trade assets seamlessly in the Mezo ecosystem
-- **[Bridging Out](./bridging-out/)** - Move assets from Mezo to Ethereum or Bitcoin
