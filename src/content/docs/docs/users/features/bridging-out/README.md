@@ -91,7 +91,7 @@ This is the initial version of the fee structure. **In the coming weeks, bridge 
     * **Mezo Gas Fee:** A gas fee paid in BTC for the transaction, based on Mezo network conditions.
     * **Mezo Withdrawal Fee:** $0.25\%$ of the requested withdrawal amount.
     * **tBTC Bridge Redemption Treasury Fee:** $0.2\%$ of the withdrawal amount *after* the Mezo fee has been deducted.
-    * **tBTC Bridge Redemption Transaction Fee:** A fixed fee of up to `0.001 BTC` (often less) to cover the Bitcoin network transaction, based on tBTC bridge conditions.
+    * **tBTC Bridge Redemption Transaction Fee:** A fixed fee of up to `0.001 BTC` (majority of times significantly less) to cover the Bitcoin network transaction, based on tBTC bridge conditions.
 
 ## What Happens After You Submit
 
