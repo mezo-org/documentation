@@ -220,6 +220,6 @@ If you experience issues not covered in this guide:
 
 Remember: Always verify addresses carefully and understand the fees before confirming any bridge transaction.
 
-### Deposit Portal
+## Deposit Portal
 
 Deposits that are still in the portal as part of the early deposit program can be withdrawn back to the user's BTC wallet. The withdrawal fees from the portal for BTC will depend on the parameters set in the tBTC bridge. Currently, tBTC charges a 0.2% redemption fee, and these parameters are governance-controlled and can be viewed in the [tBTC fees documentation](https://docs.threshold.network/applications/tBTC-v2/fees).
