@@ -144,8 +144,7 @@ export default defineConfig({
                                           'docs/users/features/mezo-pools/fees'
                                     ]
                               },
-                              'docs/users/features/mezo-swap',
-                              'docs/users/features/bridging-out'
+                              'docs/users/features/mezo-swap'
                         ]
                   },
                   {
