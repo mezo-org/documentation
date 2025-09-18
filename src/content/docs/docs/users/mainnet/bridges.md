@@ -33,7 +33,7 @@ For BTC wallets, you can sign in with UniSat, OKX, and Xverse. Use the following
 
 *Last updated: September 18, 2025*
 
-This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process.
+This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process. Currently, the minimum required amount to bridge is .01 for BTC assets (whether EVM or Bitcoin), 1,000 for USD tokens (USDC, USDT), and 75,000 for T tokens. See more details [here.](#bridging-to-ethereum)
 
 ### From Mezo to Other Networks
 
