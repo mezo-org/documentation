@@ -24,4 +24,4 @@ topic: users
 - [Cantina MUSD Audit](/docs/audits/2025-04-15%20-%20Cantina%20-%20MUSD.pdf)
 
 ## Bridge
-- [Thesis Defense Bridge Audit](/docs/audits/2025-09-10%20-%20Thesis%20-%20Defense%20-%20MezoBridge%20contract.pdf)
+- [Thesis Defense Bridge Audit](/docs/audits/2025-09-10%20-%20Thesis%20Defense%20-%20MezoBridge%20contract.pdf)
