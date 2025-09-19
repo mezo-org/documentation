@@ -14,7 +14,7 @@ Mezo uses [Skip Connect](https://github.com/skip-mev/connect) as its main oracle
 
 The sidecar runs on the same system as the validator node, so data retrieval and aggregation are completed on the same system and passed to the validator node using gRPC.
 
-![A diagram showing the process where Skip aggregats market data from several sources and Mezo validators run Skip Connect and x/oracle to update onchain state with the latest values](/docs/images/oracle/mezo-oracle.avif)
+![A diagram showing the process where Skip aggregates market data from several sources and Mezo validators run Skip Connect and x/oracle to update onchain state with the latest values](/docs/images/oracle/mezo-oracle.avif)
 
 For a complete description of how Skip aggregates data, see the [Skip Providers](https://github.com/skip-mev/connect/blob/main/cmd/constants/providers.go) documentation.
 
