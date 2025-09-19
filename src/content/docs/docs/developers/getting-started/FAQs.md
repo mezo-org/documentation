@@ -13,7 +13,7 @@ For developers, Mezo presents a distinct and compelling value proposition. Thesi
 
 #### What is MUSD?
 
-At the heart of the Mezo ecosystem is MUSD, its native stablecoin. MUSD is designed to be 100% backed by Bitcoin reserves and maintain a stable 1:1 peg with the U.S. dollar. Its primary function is to serve as the liquid medium of exchange that powers the Mezo economy, enabling users to unlock the value of their Bitcoin holdings.The mechanism is straightforward: users can deposit their Bitcoin (in the form of tBTC) into a secure, on-chain vault and mint MUSD against it. This newly minted MUSD can then be used across the ecosystem for a wide range of activities, including spending on goods and services, trading on decentralized exchanges, providing liquidity to earn yield, or participating in other DeFi protocols.
+At the heart of the Mezo ecosystem is MUSD, its native stablecoin. MUSD is designed to be 100% backed by Bitcoin reserves and maintain a stable 1:1 peg with the U.S. dollar. Its primary function is to serve as the liquid medium of exchange that powers the Mezo economy, enabling users to unlock the value of their Bitcoin holdings. The mechanism is straightforward: users can deposit their Bitcoin (in the form of tBTC) into a secure, on-chain vault and mint MUSD against it. This newly minted MUSD can then be used across the ecosystem for a wide range of activities, including spending on goods and services, trading on decentralized exchanges, providing liquidity to earn yield, or participating in other DeFi protocols.
 
 For developers, Mezo & MUSD create a "batteries-included" ecosystem that offer strategic advantages:
 
@@ -52,7 +52,7 @@ Get testnet funds with the Mezo faucet: [https://faucet.test.mezo.org/](https://
 
 #### How Do I Integrate with Mezo Passport? <a href="#how-do-i-integrate-with-mezo-passport" id="how-do-i-integrate-with-mezo-passport"></a>
 
-​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is the official wallet connection library, purpose-built to provide a seamless and unified user experience on the Mezo network. It handles the complexities of connecting both Bitcoin-native wallets (like Xverse and Unisat) and standard EVM wallets (like MetaMask) to your dApp.For the most current and detailed integration guide, including installation instructions, configuration, available hooks, and code examples, developers should refer to [**Official Mezo Passport Documentation**](https://www.npmjs.com/package/@mezo-org/passport)**.**
+​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is the official wallet connection library, purpose-built to provide a seamless and unified user experience on the Mezo network. It handles the complexities of connecting both Bitcoin-native wallets (like Xverse and Unisat) and standard EVM wallets (like MetaMask) to your dApp. For the most current and detailed integration guide, including installation instructions, configuration, available hooks, and code examples, developers should refer to [**Official Mezo Passport Documentation**](https://www.npmjs.com/package/@mezo-org/passport)**.**
 
 #### How can I get funding and support for my project? <a href="#how-can-i-get-funding-and-support-for-my-project" id="how-can-i-get-funding-and-support-for-my-project"></a>
 
@@ -62,7 +62,7 @@ Get testnet funds with the Mezo faucet: [https://faucet.test.mezo.org/](https://
 
 **Alpha Builder Program**
 
-​[The Aplha Builder Program](https://mezo.org/blog/apply-to-mezos-alpha-builder-program/) is the flagship initiative for early-stage developers and projects (MVP must be live on testnet) looking to build on Mezo and integrate MUSD. The program is designed to catalyze innovation in the BitcoinFi space.
+​[The Alpha Builder Program](https://mezo.org/blog/apply-to-mezos-alpha-builder-program/) is the flagship initiative for early-stage developers and projects (MVP must be live on testnet) looking to build on Mezo and integrate MUSD. The program is designed to catalyze innovation in the BitcoinFi space.
 
 * **Benefits:** Qualified teams gain priority access to a comprehensive suite of resources, including:
   * **Grants:** Financial support to accelerate development.
@@ -82,7 +82,7 @@ The central hub for all community and developer interaction within the Mezo ecos
 
 #### How do I provide feedback or report an issue? <a href="#how-do-i-provide-feedback-or-report-an-issue" id="how-do-i-provide-feedback-or-report-an-issue"></a>
 
-Devlopers may leave feedback [here](https://2d0lnha7ee6.typeform.com/to/bP810Y2I).
+Developers may leave feedback [here](https://2d0lnha7ee6.typeform.com/to/bP810Y2I).
 
 #### Who Are Your Partners and How Do I Integrate Them? <a href="#who-are-your-partners-and-how-do-i-integrate-them" id="who-are-your-partners-and-how-do-i-integrate-them"></a>
 
