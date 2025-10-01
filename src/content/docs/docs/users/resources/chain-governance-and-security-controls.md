@@ -6,8 +6,6 @@ description: >-
 topic: users
 ---
 
-# Chain Governance & Security Controls
-
 Mezo operates with a transparent, multi-layered security model designed to protect user assets while enabling rapid response to potential threats.
 
 ## Governance Structure
