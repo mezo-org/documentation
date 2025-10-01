@@ -34,6 +34,7 @@ topic: users
   * [resources](users/resources/README.md)
     * [Audits](users/resources/audits.md)
     * [Brand Kit](users/resources/brand-kit.md)
+    * [Chain Governance & Security Controls](users/resources/chain-governance-and-security-controls.md)
     * [Contracts Reference](users/resources/contracts-reference.md)
     * [FAQs](users/resources/faqs.md)
     * [Release Notes](users/resources/release-notes.md)

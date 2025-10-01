@@ -146,10 +146,10 @@ export default defineConfig({
                         label: 'MUSD',
                         collapsed: true,
                         items: [
-                              'docs/users/musd',
+                              'docs/users/musd/architecture-and-terminology',
                               'docs/users/musd/concepts',
-							  'docs/users/musd/architecture-and-terminology',
                               'docs/users/musd/fees',
+                              'docs/users/musd',
                               'docs/users/musd/mint-musd',
                               'docs/users/musd/liquidation-mechanics',
                               'docs/users/musd/musd-bridge',
@@ -178,6 +178,7 @@ export default defineConfig({
                         items: [
                               'docs/users/resources/audits',
                               'docs/users/resources/brand-kit',
+                              'docs/users/resources/chain-governance-and-security-controls',
                               'docs/users/resources/contracts-reference',
                               'docs/users/resources/faqs',
                               'docs/users/resources/release-notes',
