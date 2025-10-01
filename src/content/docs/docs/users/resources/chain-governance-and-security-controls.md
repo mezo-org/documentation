@@ -11,7 +11,7 @@ Mezo operates with a transparent, multi-layered security model designed to prote
 ## Governance Structure
 
 ### Primary Governance Multisig (5/9)
-A 5-of-9 multisignature wallet controlled by Thesis manages core protocol governance functions:
+A 5-of-9 multisignature wallet controlled by Thesis* manages core protocol governance functions:
 - Protocol upgrades and changes
 - Emergency chain pausing capabilities
 - Critical parameter adjustments
@@ -19,7 +19,7 @@ A 5-of-9 multisignature wallet controlled by Thesis manages core protocol govern
 **Address**: `0x98d8899c3030741925be630c710a98b57f397c7a`
 
 ### Technical Emergency Multisig (2/4)
-A 2-of-4 multisignature wallet controlled by Thesis technical leadership provides rapid response capabilities for bridge-related emergencies:
+A 2-of-4 multisignature wallet controlled by Thesis* technical leadership provides rapid response capabilities for bridge-related emergencies:
 - Emergency bridge pausing
 - Time-sensitive technical interventions
 
