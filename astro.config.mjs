@@ -26,6 +26,7 @@ export default defineConfig({
 			title: 'Mezo Documentation',
 			components: {
 				Header: './src/overrides/Header.astro',
+				Footer: './src/overrides/Footer.astro',
 			},
 			customCss: [
 				'./src/styles/custom.css',
@@ -36,6 +37,31 @@ export default defineConfig({
 				{
 				  tag: 'script',
 				  content: `window.addEventListener('load', () => document.querySelector('.site-title').href = 'https://mezo.org/docs')`,
+				},
+				// Ensure Open Graph/Twitter preview image across all pages
+				{
+				  tag: 'meta',
+				  attrs: { property: 'og:image', content: 'https://mezo.org/docs/images/mainnet/gitbookbanner.png' },
+				},
+				{
+				  tag: 'meta',
+				  attrs: { property: 'og:image:alt', content: 'Mezo' },
+				},
+				{
+				  tag: 'meta',
+				  attrs: { name: 'twitter:card', content: 'summary_large_image' },
+				},
+				{
+				  tag: 'meta',
+				  attrs: { name: 'twitter:image', content: 'https://mezo.org/docs/images/mainnet/gitbookbanner.png' },
+				},
+				{
+				  tag: 'meta',
+				  attrs: { name: 'twitter:site', content: '@MezoNetwork' },
+				},
+				{
+				  tag: 'meta',
+				  attrs: { name: 'twitter:creator', content: '@MezoNetwork' },
 				},
 				{
 				  tag: 'script',
