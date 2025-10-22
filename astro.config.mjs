@@ -138,6 +138,22 @@ export default defineConfig({
                         ]
                   },
                   {
+                        label: 'Integrations',
+                        collapsed: true,
+                        items: [
+                              {
+                                    label: 'Lolli',
+                                    collapsed: true,
+                                    items: [
+                                          'docs/users/integrations/lolli',
+                                          'docs/users/integrations/lolli/withdraw',
+                                          'docs/users/integrations/lolli/using-mezo',
+                                          'docs/users/integrations/lolli/faqs'
+                                    ]
+                              }
+                        ]
+                  },
+                  {
                         label: 'Features',
                         collapsed: true,
                         items: [
