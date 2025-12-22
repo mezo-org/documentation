@@ -1,6 +1,6 @@
 ---
 title: Using Mezo Pools
-description: How to deposit, manage your positions, claim rewards, and more
+description: 'How to deposit, manage your positions, claim rewards, and more'
 topic: users
 ---
 

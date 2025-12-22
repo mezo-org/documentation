@@ -5,6 +5,7 @@ description: >-
   infrastructure.
 topic: developers
 ---
+
 This guide covers how to deploy and manage subgraphs for Mezo protocols using Goldsky's infrastructure. Subgraphs enable efficient querying of blockchain data through GraphQL APIs.
 
 ## Overview
@@ -207,6 +208,7 @@ graph test
 ### Prerequisites
 
 1. **Create Goldsky Account**: Sign up at [goldsky.com](https://goldsky.com)
+
 2. **Install Goldsky CLI**:
 ```bash
 npm install -g @goldsky/cli

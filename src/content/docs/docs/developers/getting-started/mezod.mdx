@@ -5,6 +5,9 @@ description: >-
   for Mezo chain.
 topic: developers
 ---
+
+import { Steps } from '@astrojs/starlight/components';
+
 Mezod is the reference client implementation for the Mezo chain, a Bitcoin-first blockchain designed for user ownership, reliable bridging with tBTC, BTC for gas, dual staking model, and EVM compatibility.
 
 ## Overview
@@ -206,10 +209,17 @@ curl -X POST -H "Content-Type: application/json" \
 
 ### Building Contracts
 
+<Steps>
+
 1. **Write Solidity Contracts**: Use standard Ethereum tooling
+
 2. **Compile**: Use Hardhat, Truffle, or solc directly
+
 3. **Deploy**: Deploy to Mezo testnet/mainnet
+
 4. **Interact**: Use Web3 libraries or direct RPC calls
+
+</Steps>
 
 ### Testing
 
@@ -281,10 +291,18 @@ curl http://localhost:26660/metrics
 - Recommended: 16GB RAM, 500GB NVMe SSD
 
 **Steps**:
+
+<Steps>
+
 1. Configure firewall and network ports
+
 2. Set up proper access controls
+
 3. Deploy monitoring stack
+
 4. Start node with production config
+
+</Steps>
 
 ### Docker Deployment
 

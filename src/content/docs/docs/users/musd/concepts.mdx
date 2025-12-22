@@ -6,6 +6,8 @@ description: >-
 topic: users
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Before you [Borrow and Mint MUSD](./mint-musd.md), understand the core concepts for how the [MUSD stablecoin](https://mezo.org/feature/musd) works.
 
 ## Borrow limits
@@ -86,19 +88,27 @@ When you borrow MUSD, you accrue interest on the amount that you borrow. Interes
 
 To understand how this works, consider the following example:
 
+<Steps>
+
 1. Governance sets global interest rate at 3%
-1. Alice opens loan , so the Alice's new loan has an interest rate of 3%
-1. Governance sets the global interest rate to 6%.
-1. Bob opens a loan , so Bob’s new loan has an interest rate of 6%.
+2. Alice opens loan , so the Alice's new loan has an interest rate of 3%
+3. Governance sets the global interest rate to 6%.
+4. Bob opens a loan , so Bob’s new loan has an interest rate of 6%.
+
+</Steps>
 
 In this scenario, the interest rate on Alice's loan remains at 3% and Bob's loan remains at 6%.
 
 Additionally, borrowing MUSD after global interest have changed does not change the rate for the loan . Consider the following example:
 
+<Steps>
+
 1. Governance sets global interest rate at 3%.
-1. Alice opens a loan , so Alice’s new loan has an interest rate of 3%.
-1. Governance sets global interest rate at 6%.
-1. Alice borrows MUSD.
+2. Alice opens a loan , so Alice’s new loan has an interest rate of 3%.
+3. Governance sets global interest rate at 6%.
+4. Alice borrows MUSD.
+
+</Steps>
 
 In this scenario, Alice’s loan maintains an interest rate of 3%. However, the collateralization ratio is calculated based on increased principal now that the interest rate is higher.
 
@@ -149,10 +159,14 @@ Users deposit MUSD into the stability pool (SP) and receive shares. Those users 
 
 Consider the following example:
 
+<Steps>
+
 1. Alice deposited 20k MUSD into the SP. Alice owns 100% of the SP.
-1. Bob deposits 10k MUSD into SP. Alice now owns 2/3 of the SP and Bob owns 1/3 of the SP. The SP has 30k MUSD and 0 BTC.
-1. Carol is liquidated for 5k MUSD. 5400 USD worth of BTC from the collateral goes to the SP. The SP has now 25k MUSD and 5400 USD worth of BTC.
-1. Alice leaves the LP with 2/3 of the SP shares. Alice profits with a return calculated by the following equation:
+2. Bob deposits 10k MUSD into SP. Alice now owns 2/3 of the SP and Bob owns 1/3 of the SP. The SP has 30k MUSD and 0 BTC.
+3. Carol is liquidated for 5k MUSD. 5400 USD worth of BTC from the collateral goes to the SP. The SP has now 25k MUSD and 5400 USD worth of BTC.
+4. Alice leaves the LP with 2/3 of the SP shares. Alice profits with a return calculated by the following equation:
+
+</Steps>
 
 $$
 2/3 * (25000 MUSD + 5400 \text{USD worth of BTC}) = \\

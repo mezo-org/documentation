@@ -5,6 +5,9 @@ description: >-
   validator kit.
 topic: developers
 ---
+
+import { Steps } from '@astrojs/starlight/components';
+
 The Mezo Validator Kit provides a comprehensive solution for running Mezo nodes, including validators, RPC nodes, and seed nodes. This guide covers setup, configuration, and maintenance of Mezo infrastructure.
 
 ## Overview
@@ -66,60 +69,72 @@ The [Validator Kit repository](https://github.com/mezo-org/validator-kit.git) in
 
 ### Docker Deployment
 
+<Steps>
+
 1. **Clone Repository**:
-```bash
-git clone https://github.com/mezo-org/validator-kit.git
-cd validator-kit
-```
+   ```bash
+   git clone https://github.com/mezo-org/validator-kit.git
+   cd validator-kit
+   ```
 
 2. **Configure Environment**:
-```bash
-cp .env.example .env
-# Edit .env with your configuration
-```
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
 
 3. **Start Node**:
-```bash
-docker-compose up -d
-```
+   ```bash
+   docker-compose up -d
+   ```
+
+</Steps>
 
 ### Native Installation
 
-1. **Install Dependencies**:
-```bash
-# Ubuntu/Debian
-sudo apt update
-sudo apt install -y curl git make build-essential
+<Steps>
 
-# Install Go
-curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
-```
+1. **Install Dependencies**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install -y curl git make build-essential
+
+   # Install Go
+   curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
+   ```
 
 2. **Build Mezod**:
-```bash
-git clone https://github.com/mezo-org/mezod.git
-cd mezod
-make build
-```
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   make build
+   ```
 
 3. **Configure Node**:
-```bash
-./mezod init mynode --chain-id mezo-testnet
-```
+   ```bash
+   ./mezod init mynode --chain-id mezo-testnet
+   ```
+
+</Steps>
 
 ### Kubernetes Deployment
 
+<Steps>
+
 1. **Install Helm**:
-```bash
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-```
+   ```bash
+   curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   ```
 
 2. **Deploy with Helm**:
-```bash
-helm install mezo-node ./helm/mezo-node \
-  --set node.type=validator \
-  --set node.name=my-validator
-```
+   ```bash
+   helm install mezo-node ./helm/mezo-node \
+     --set node.type=validator \
+     --set node.name=my-validator
+   ```
+
+</Steps>
 
 ## Configuration
 

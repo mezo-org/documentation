@@ -4,7 +4,9 @@ description: Guide to depositing your assets into Mezo for self-service Bitcoin 
 topic: users
 ---
 
-You can deposit native Bitcoin or supported ERC-20 tokens (Bitcoin wrappers) to Mezo Mainnet. 
+import { Steps } from '@astrojs/starlight/components';
+
+You can deposit native Bitcoin or supported ERC-20 tokens (Bitcoin wrappers) to Mezo Mainnet.
 
 ## Before you begin
 
@@ -13,18 +15,26 @@ You can deposit native Bitcoin or supported ERC-20 tokens (Bitcoin wrappers) to 
 
 ## Deposit your assets
 
+<Steps>
+
 1. Go to the [Mezo App](https://mezo.org/overview) and sign in with a supported wallet.
-1. After you sign in and sign the transaction, click **Deposit Bitcoin**.
-1. Select the asset you want to bridge and specify the amount.
+
+2. After you sign in and sign the transaction, click **Deposit Bitcoin**.
+
+3. Select the asset you want to bridge and specify the amount.
 
     ![](/docs/images/mainnet/deposit-modal-preview.png)
 
-1. Click **Review** to review the transfer and generate a deposit address.
-1. Check the details of the transfer and make sure that they are correct.
-1. When you are ready to deposit the assets, copy the wallet address. Ensure that the address is displayed correctly in your wallet.
+4. Click **Review** to review the transfer and generate a deposit address.
+
+5. Check the details of the transfer and make sure that they are correct.
+
+6. When you are ready to deposit the assets, copy the wallet address. Ensure that the address is displayed correctly in your wallet.
 
     ![](/docs/images/mainnet/deposit-modal-address-screen.png)
 
-1. If the transaction is acceptable, confirm the transaction.
+7. If the transaction is acceptable, confirm the transaction.
+
+</Steps>
 
 After the transaction is complete, the bridging process begins. The process can take several minutes to complete before you receive your assets on Mainnet.

@@ -5,6 +5,9 @@ description: >-
   Native Token Transfer protocol.
 topic: users
 ---
+
+import { Steps } from '@astrojs/starlight/components';
+
 The [MUSD](https://mezo.org/feature/musd) bridge enables transfers between Mezo and Ethereum networks using Wormhole's Native Token Transfer (NTT) protocol. This bridge maintains token fungibility while providing secure cross-chain functionality.
 
 ## How it Works
@@ -20,6 +23,8 @@ This mechanism ensures that the total supply across both chains remains constant
 
 The easiest way to bridge MUSD tokens is through the [Portal UI](https://portalbridge.com/):
 
+<Steps>
+
 1. **Connect your wallet** to the Portal interface
 2. **Select source and destination chains** (Mezo ↔ Ethereum)
 3. **Choose MUSD** as the token to bridge
@@ -27,6 +32,8 @@ The easiest way to bridge MUSD tokens is through the [Portal UI](https://portalb
 5. **Review transaction details** including fees and estimated time
 6. **Confirm the transaction** in your wallet
 7. **Wait for confirmation** on both chains
+
+</Steps>
 
 The Portal UI provides a user-friendly interface that handles all the complex interactions with the underlying NTT contracts.
 

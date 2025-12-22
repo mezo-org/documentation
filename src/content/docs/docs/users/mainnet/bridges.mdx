@@ -6,6 +6,8 @@ description: >-
 topic: users
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 You can deposit and withdraw assets to and from Mezo using the Mezo Native Bridge.
 # Deposits
 
@@ -58,6 +60,8 @@ This guide explains how to bridge your assets out of Mezo back to the Ethereum o
 
 ### Bridging to Ethereum (for tBTC or ERC-20 tokens)
 
+<Steps>
+
 1.  **Click the 'Withdraw' button** in the top right of the Mezo App.
 2.  **Choose your asset:**
     - Select BTC to receive tBTC on Ethereum.
@@ -67,7 +71,11 @@ This guide explains how to bridge your assets out of Mezo back to the Ethereum o
 5.  **Confirm and submit** the transaction.
 6.  **If bridging mERC-20 tokens**, you may need to approve the transaction first.
 
+</Steps>
+
 ### Bridging to Bitcoin (for native BTC only)
+
+<Steps>
 
 1.  **Click the 'Withdraw' button** in the top right of the Mezo App.
 2.  **Choose BTC** as your asset.
@@ -79,6 +87,8 @@ This guide explains how to bridge your assets out of Mezo back to the Ethereum o
     - **Not supported:** Taproot addresses (starting with `bc1p`)
 6.  **Review the fees** and confirm.
 7.  **Submit** the transaction.
+
+</Steps>
 
 ## Understanding Bridge Routes
 

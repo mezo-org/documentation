@@ -4,6 +4,8 @@ description: How voting works on Mezo and what you earn as a veBTC holder
 topic: users
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Mezo's governance model is simple: lock your commitment, earn the right to direct the protocol's future. Through voting, veBTC holders capture the economic value of emissions and determine where the chain's value is allocated.
 
 ---
@@ -40,12 +42,16 @@ Mezo operates in 7-day epochs starting Thursday at 00:00 UTC. Each epoch is a fr
 
 **The cycle:**
 
+<Steps>
+
 1. Epoch begins
 2. You cast votes throughout the week
 3. Epoch ends and votes are tallied
 4. Mats emissions distributed to gauges based on votes
 5. Fees and incentives become claimable
 6. Repeat
+
+</Steps>
 
 > **Critical:** Votes don't carry over. If you don't vote in a given epoch, you forfeit your share of fees and incentives for that week.
 

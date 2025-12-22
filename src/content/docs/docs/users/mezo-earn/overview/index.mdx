@@ -4,6 +4,8 @@ description: 'Overview of Mezo Earn, yield sources, and key concepts'
 topic: users
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Mezo Earn is the economic engine powering the Mezo network. It enables bitcoin holders to earn yield on their BTC while participating in governance decisions that shape how the network allocates resources and rewards.
 
 By locking BTC into the system, users gain voting power, earn passive income from network activity, and help direct liquidity across the Mezo ecosystem.
@@ -34,11 +36,15 @@ veBTC (vote-escrowed BTC) is the foundation of Mezo Earn. When you lock your BTC
 
 **How it works:**
 
+<Steps>
+
 - Lock BTC for up to 28 days to receive veBTC
 - Your voting weight starts at maximum and decays linearly over the lock period
 - Longer locks = more voting power
 - veBTC NFTs can be merged (to combine positions) or split (to divide them)
 - You can extend your lock at any time to maintain voting power
+
+</Steps>
 
 **Example:** If you lock 1 BTC for 28 days, you start with a voting weight of 1. After 14 days, your weight has decayed to 0.5. Extending the lock resets your weight to the maximum.
 
@@ -48,9 +54,13 @@ Mezo Earn operates on a 7-day cycle called an **epoch**. Each epoch begins on Th
 
 **What happens each epoch:**
 
+<Steps>
+
 - Votes cast in epoch N determine reward distribution (mats) for epoch N+1
 - Fees generated in epoch N are distributed based on votes cast in epoch N
 - Lock durations align to epoch boundaries (always rounded down to full weeks)
+
+</Steps>
 
 This structure lets voters observe fee generation before deciding where to allocate their votes for the following period.
 
@@ -80,10 +90,14 @@ When you vote for a gauge, you're signaling that you want that pool, validator, 
 
 ## Getting Started
 
+<Steps>
+
 1. **Lock BTC** → Receive a veBTC NFT
 2. **Vote for gauges** → Direct where rewards flow
 3. **Claim rewards** → Collect fees and incentives each epoch
 4. **Extend or manage locks** → Maintain your voting power over time
+
+</Steps>
 
 ---
 
