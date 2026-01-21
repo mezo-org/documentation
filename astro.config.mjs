@@ -184,6 +184,13 @@ export default defineConfig({
                         ]
                   },
                   {
+                        label: 'MEZO',
+                        collapsed: true,
+                        items: [
+                              'docs/users/mezo/mezo-bridge'
+                        ]
+                  },
+                  {
                         label: 'Mezo Earn',
                         collapsed: true,
                         items: [
