@@ -1,20 +1,20 @@
 ---
 title: MEZO Bridge
 description: >-
-  Learn how to bridge MEZO tokens between Mezo and other networks (Ethereum, Base, BSC)
-  using Wormhole's Native Token Transfer protocol.
+  Learn how to bridge MEZO tokens between Mezo and other networks (Ethereum,
+  Base, BSC, Solana) using Wormhole's Native Token Transfer protocol.
 topic: users
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-The MEZO bridge enables transfers between Mezo and multiple networks including Ethereum, Base, and BSC using Wormhole's Native Token Transfer (NTT) protocol. This bridge maintains token fungibility while providing secure cross-chain functionality.
+The MEZO bridge enables transfers between Mezo and multiple networks including Ethereum, Base, BSC, and Solana using Wormhole's Native Token Transfer (NTT) protocol. This bridge maintains token fungibility while providing secure cross-chain functionality.
 
 ## How it Works
 
 The MEZO bridge uses Wormhole's Native Token Transfer protocol to facilitate cross-chain transfers:
 
-- **From Mezo to other chains**: MEZO tokens are locked on Mezo and the equivalent tokens are minted on the destination chain (Ethereum, Base, or BSC)
+- **From Mezo to other chains**: MEZO tokens are locked on Mezo and the equivalent tokens are minted on the destination chain (Ethereum, Base, BSC, or Solana)
 - **From other chains to Mezo**: MEZO tokens are burned on the source chain and equivalent tokens are unlocked on Mezo
 
 This mechanism ensures that the total supply across all chains remains constant while allowing users to move their tokens freely between networks.
@@ -57,12 +57,12 @@ The [Mezo dApp](https://mezo.org) provides a native bridging experience for tran
 
 ### Wormhole Portal Bridge UI
 
-For bridging MEZO tokens to Base, BSC or Ethereum use the [Portal UI](https://portalbridge.com/):
+For bridging MEZO tokens to Base, BSC, Solana or Ethereum use the [Portal UI](https://portalbridge.com/):
 
 <Steps>
 1. **Connect your wallet** to the Portal interface
 
-2. **Select source and destination chains** (Mezo ↔ Ethereum, Base, or BSC)
+2. **Select source and destination chains** (Mezo ↔ Ethereum, Base, BSC, or Solana)
 
 3. **Choose MEZO** as the token to bridge
 
@@ -82,24 +82,29 @@ Both interfaces provide user-friendly experiences that handle all the complex in
 The MEZO bridge is powered by the following smart contracts:
 
 ### Mezo Network
+- **MEZO Token**: [0x7B7c000000000000000000000000000000000001](https://explorer.mezo.org/token/0x7B7c000000000000000000000000000000000001)
 - **NTT Manager**: [0x5E668D912F69db0762CD0fE00647dA9fa6b29591](https://explorer.mezo.org/address/0x5E668D912F69db0762CD0fE00647dA9fa6b29591)
 - **Wormhole Transceiver**: [0x528edf2dBbC6Ae6978c88E54B260AB86B682D18c](https://explorer.mezo.org/address/0x528edf2dBbC6Ae6978c88E54B260AB86B682D18c)
-- **MEZO Token**: [0x7B7c000000000000000000000000000000000001](https://explorer.mezo.org/token/0x7B7c000000000000000000000000000000000001)
 
 ### Ethereum Network
+- **MEZO Token**: [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://etherscan.io/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
 - **NTT Manager**: [0x13916D0daB357DCBAa1600b594d62C641840686A](https://etherscan.io/address/0x13916D0daB357DCBAa1600b594d62C641840686A)
 - **Wormhole Transceiver**: [0x920871aF2D4106E76d204fEA7122fA129C9283b1](https://etherscan.io/address/0x920871aF2D4106E76d204fEA7122fA129C9283b1)
-- **MEZO Token**: [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://etherscan.io/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
 
 ### Base Network
+- **MEZO Token**: [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://basescan.org/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
 - **NTT Manager**: [0x0c46f496C410465975a427e34a976fc15a2edE4f](https://basescan.org/address/0x0c46f496C410465975a427e34a976fc15a2edE4f)
 - **Wormhole Transceiver**: [0x27321f84704a599aB740281E285cc4463d89A3D5](https://basescan.org/address/0x27321f84704a599aB740281E285cc4463d89A3D5)
-- **MEZO Token**: [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://basescan.org/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
 
 ### BSC Network
+- **MEZO Token**: [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://bscscan.com/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
 - **NTT Manager**: [0x09959798B95d00a3183d20FaC298E4594E599eab](https://bscscan.com/address/0x09959798B95d00a3183d20FaC298E4594E599eab)
 - **Wormhole Transceiver**: [0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747](https://bscscan.com/address/0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747)
-- **MEZO Token**: [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://bscscan.com/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
+
+### Solana Network
+- **MEZO Token**: [8niMFW4yuv3vLoqTtBaC6rchyasmUhgvpgSyPEeeCrw6](https://solscan.io/address/8niMFW4yuv3vLoqTtBaC6rchyasmUhgvpgSyPEeeCrw6)
+- **NTT Manager**: [Ntt4AnEASZ9oLw25PTmXFrwSFD473ufd3rCLWoX5Gg7](https://solscan.io/address/Ntt4AnEASZ9oLw25PTmXFrwSFD473ufd3rCLWoX5Gg7)
+- **Wormhole Transceiver**: [6aVRLvdjgrovCiZa5q5kifUtvD6p2ogaQ2J248MpfCa3](https://solscan.io/address/6aVRLvdjgrovCiZa5q5kifUtvD6p2ogaQ2J248MpfCa3)
 
 ## Additional Resources
 
