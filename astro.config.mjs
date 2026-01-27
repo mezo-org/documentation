@@ -713,5 +713,9 @@ export default defineConfig({
 			status: 301,
 			destination: '/docs/users/musd/architecture-and-terminology'
 		},
+		'/docs/users/mezo-earn': {
+			status: 301,
+			destination: '/docs/users/mezo-earn/overview'
+		},
 	}
 });
