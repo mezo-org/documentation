@@ -45,13 +45,32 @@ npm run linkcheck-local
 - We require at least one approval from a maintainer.
 - Squash-merge preferred; branch names and PR titles should clearly describe the change.
   
+### Sidebar navigation (important)
+
+The sidebar is **generated from `src/content/docs/docs/SUMMARY.md`**. Do not edit sidebar entries in `astro.config.mjs` directly — those changes will be overwritten.
+
+The build pipeline runs `scripts/process-gitbook.js` before every `dev` and `build` command. This script:
+1. Reads `SUMMARY.md` to determine the sidebar structure
+2. Converts section titles to human-readable labels (e.g. `mezo-earn` → "Mezo Earn")
+3. Overwrites the `starlightSidebarTopics(...)` block in `astro.config.mjs`
+
+**To add a new page to the sidebar:**
+1. Create the `.md` / `.mdx` file under `src/content/docs/docs/`
+2. Add an entry in `SUMMARY.md` at the correct indentation level
+3. Run `npm run dev` — the processor will regenerate `astro.config.mjs` automatically
+
+**To rename a sidebar section:**
+1. Change the link text in `SUMMARY.md` (e.g. `* [features](...)`  → `* [Mezo Earn](...)`)
+2. Run `npm run dev` to regenerate
+
 ### Project structure
+- `src/content/docs/docs/SUMMARY.md` — **source of truth for sidebar navigation**. All sidebar changes must be made here.
 - `src/content/docs/docs/` — primary markdown content organized by topic (e.g., `users/`, `developers/`).
 - `public/docs/` — static assets (images, PDFs) served as-is.
 - `src/assets/` — project assets referenced by the site.
-- `scripts/process-gitbook.js` — parses `SUMMARY.md`, transforms GitBook-style content, and updates sidebar topics in `astro.config.mjs`.
+- `scripts/process-gitbook.js` — parses `SUMMARY.md`, transforms GitBook-style content, and regenerates sidebar topics in `astro.config.mjs`.
 - `scripts/linkcheck.js` — simple crawler to check links when the site is running locally.
-- `astro.config.mjs` — Astro/Starlight configuration and custom head scripts.
+- `astro.config.mjs` — Astro/Starlight configuration and custom head scripts. **Sidebar section is auto-generated — do not edit manually.**
 
 Tips:
 - Add or update docs under `src/content/docs/docs/…`.
