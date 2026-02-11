@@ -42,7 +42,6 @@ const LABEL_MAP: Record<string, string> = {
   developers: 'Developer Documentation',
   mainnet: 'Mainnet',
   musd: 'MUSD',
-  mats: 'mats',
   mezo: 'MEZO',
   'mezo-earn': 'Mezo Earn',
   lock: 'Lock',
