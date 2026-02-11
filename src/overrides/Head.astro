@@ -1,176 +1,125 @@
 ---
-import config from 'virtual:starlight/user-config';
+/**
+ * Head override — single source of truth for all per-page JSON-LD.
+ *
+ * Replaces the default Starlight Head component and adds:
+ *  1. All default <head> entries (title, meta, canonical, OG, etc.)
+ *  2. WebPage / TechArticle schema (every page)
+ *  3. BreadcrumbList schema (every page)
+ *  4. FAQPage schema (FAQ pages only — parsed from raw markdown at build time)
+ *  5. HowTo schema (HowTo pages only — parsed from raw markdown at build time)
+ */
+import fs from 'node:fs';
+import {
+  buildWebPageSchema,
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+  buildHowToSchema,
+  extractFAQsFromMarkdown,
+  extractStepsFromMarkdown,
+  FAQ_PAGES,
+  HOWTO_PAGES,
+} from '../utils/structured-data';
+
+const route = Astro.locals.starlightRoute;
+const { head } = route;
+
+// Derive page metadata
+const origin = (Astro.site?.href ?? 'https://mezo.org/docs').replace(/\/$/, '');
+const siteOrigin = new URL(origin).origin; // https://mezo.org
+const pageUrl = siteOrigin + Astro.url.pathname;
+const pageTitle = route.entry.data.title ?? 'Mezo Documentation';
+const defaultDesc =
+  'Official Mezo documentation: Wallet setup, asset bridging, MUSD borrowing guides, and developer resources.';
+const pageDescription = route.entry.data.description ?? defaultDesc;
+
+// Page ID — normalised to lowercase for FAQ lookup
+const pageId = route.id;
+const pageIdLower = pageId.toLowerCase();
+
+// Build schemas
+const webPageSchema = buildWebPageSchema(pageTitle, pageDescription, pageUrl);
+const breadcrumbSchema = buildBreadcrumbSchema(
+  Astro.url.pathname,
+  pageTitle,
+  siteOrigin
+);
+
+// Conditionally build FAQ schema
+let faqSchema: ReturnType<typeof buildFAQSchema> | null = null;
+const faqConfig = FAQ_PAGES[pageIdLower] ?? FAQ_PAGES[pageId];
+if (faqConfig) {
+  let body: string | undefined;
+  // Try entry.body first (Astro content collection field)
+  try {
+    body = (route.entry as any).body;
+  } catch {
+    // noop
+  }
+  // Fallback: read from filesystem
+  if (!body && route.entry.filePath) {
+    try {
+      const raw = fs.readFileSync(route.entry.filePath, 'utf-8');
+      // Strip frontmatter
+      const fmEnd = raw.indexOf('---', raw.indexOf('---') + 3);
+      body = fmEnd !== -1 ? raw.slice(fmEnd + 3) : raw;
+    } catch {
+      // noop
+    }
+  }
+  if (body) {
+    const questions = extractFAQsFromMarkdown(body, faqConfig.format);
+    if (questions.length) {
+      faqSchema = buildFAQSchema(pageUrl, questions);
+    }
+  }
+}
+
+// Conditionally build HowTo schema
+let howToSchema: ReturnType<typeof buildHowToSchema> | null = null;
+const howToConfig = HOWTO_PAGES[pageIdLower] ?? HOWTO_PAGES[pageId];
+if (howToConfig) {
+  let body: string | undefined;
+  try {
+    body = (route.entry as any).body;
+  } catch {
+    // noop
+  }
+  if (!body && route.entry.filePath) {
+    try {
+      const raw = fs.readFileSync(route.entry.filePath, 'utf-8');
+      const fmEnd = raw.indexOf('---', raw.indexOf('---') + 3);
+      body = fmEnd !== -1 ? raw.slice(fmEnd + 3) : raw;
+    } catch {
+      // noop
+    }
+  }
+  if (body) {
+    const steps = extractStepsFromMarkdown(body);
+    if (steps.length >= 2) {
+      howToSchema = buildHowToSchema(pageUrl, howToConfig.name, steps);
+    }
+  }
+}
 ---
-{
-  // Open Graph + Twitter Card meta
-}
-{
-  (() => {
-    const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
-    const base = new URL(siteHref);
-    const origin = base.origin;
-    const pageUrl = origin + Astro.url.pathname;
-    const fm = (Astro.props as any)?.frontmatter ?? {};
-    const pageTitle = fm.title ?? (Astro.props as any)?.title ?? 'Mezo Documentation';
-    const defaultDesc = 'Official Mezo documentation: Wallet setup, asset bridging, MUSD borrowing guides, and developer resources. This is your complete guide to banking on yourself.';
-    const pageDescription = fm.description ?? (Astro.props as any)?.description ?? defaultDesc;
-    const ogImage = 'https://mezo.org/docs/images/mainnet/gitbookbanner.png';
 
-    return (
-      <>
-        <link rel="canonical" href={pageUrl} />
-        <meta name="description" content={pageDescription} />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Mezo Documentation" />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:image:alt" content="Mezo" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@MezoNetwork" />
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={pageDescription} />
-        <meta name="twitter:image" content={ogImage} />
-      </>
-    );
-  })()
-}
-{
-  // Server-rendered JSON-LD for WebPage + TechArticle
-}
-{
-  (() => {
-    const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
-    const base = new URL(siteHref);
-    const origin = base.origin; // https://mezo.org
-    const url = origin + Astro.url.pathname; // absolute page URL
-    const fm = (Astro.props as any)?.frontmatter ?? {};
-    const title = fm.title ?? (Astro.props as any)?.title ?? 'Mezo Documentation';
-    const description = fm.description ?? (Astro.props as any)?.description ?? 'Mezo Documentation';
-    const webPage = {
-      '@context': 'https://schema.org',
-      '@type': ['WebPage', 'TechArticle'],
-      headline: title,
-      name: title,
-      description,
-      url,
-      mainEntityOfPage: url,
-      publisher: {
-        '@type': 'Organization',
-        name: 'Mezo',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://raw.githubusercontent.com/mezo-org/documentation/main/src/assets/Mezo-Mark-Red.svg',
-        },
-        sameAs: [
-          'https://github.com/mezo-org',
-          'https://x.com/MezoNetwork',
-          'https://discord.mezo.org',
-        ],
-      },
-    };
-    return <script type="application/ld+json" set:html={JSON.stringify(webPage)} />;
-  })()
-}
+{/* Re-render all default Starlight head entries (title, meta, OG, canonical, etc.) */}
+{head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
 
-{
-  // Server-rendered JSON-LD for BreadcrumbList
-}
-{
-  (() => {
-    const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
-    const origin = new URL(siteHref).origin; // https://mezo.org
-    const path = Astro.url.pathname.replace(/\/$/, '');
-    const parts = path.split('/').filter(Boolean);
-    if (!parts.length) return null;
-    const labelMap: Record<string, string> = {
-      docs: 'Documentation',
-      users: 'User Documentation',
-      developers: 'Developer Documentation',
-      mainnet: 'Mainnet',
-      musd: 'MUSD',
-      features: 'Features',
-      resources: 'Resources',
-      'getting-started': 'Getting Started',
-      introduction: 'Introduction',
-      bridge: 'Bridge',
-      architecture: 'Architecture',
-      oracles: 'Oracles',
-    };
-    const fm = (Astro.props as any)?.frontmatter ?? {};
-    const finalTitle = fm.title ?? (Astro.props as any)?.title;
-    const items: any[] = [];
-    let acc = '';
-    parts.forEach((seg, idx) => {
-      acc += '/' + seg;
-      const isLast = idx === parts.length - 1;
-      const name = isLast && finalTitle ? finalTitle : (labelMap[seg] ?? seg.replace(/-/g, ' '));
-      items.push({
-        '@type': 'ListItem',
-        position: idx + 1,
-        name,
-        item: origin + acc + '/',
-      });
-    });
-    const breadcrumb = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: items,
-    };
-    return <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />;
-  })()
-}
+{/* WebPage / TechArticle — every page */}
+<script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
 
-{
-  // SSR HowTo for bridging page
-}
-{
-  (() => {
-    const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
-    const origin = new URL(siteHref).origin;
-    const path = Astro.url.pathname.replace(/\/$/, '');
-    if (path !== '/docs/users/getting-started/bridging') return null;
-    const url = origin + path;
-    const steps = [
-      { '@type': 'HowToStep', position: 1, name: 'Open Mezo App and sign in', text: 'Go to mezo.org/overview and sign in with a supported wallet.' },
-      { '@type': 'HowToStep', position: 2, name: 'Add funds', text: 'Click Add funds and select the asset you want to bridge and the amount.' },
-      { '@type': 'HowToStep', position: 3, name: 'Review and confirm', text: 'Review transfer details and confirm the transaction in your wallet.' },
-    ];
-    const howTo = {
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: 'How to Deposit Assets to Mezo',
-      mainEntityOfPage: url,
-      url,
-      step: steps,
-    };
-    return <script type="application/ld+json" set:html={JSON.stringify(howTo)} />;
-  })()
-}
+{/* BreadcrumbList — every page */}
+{breadcrumbSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+)}
 
-{
-  // SSR FAQPage for FAQs page
-}
-{
-  (() => {
-    const siteHref = Astro.site?.href ?? 'https://mezo.org/docs';
-    const origin = new URL(siteHref).origin;
-    const path = Astro.url.pathname.replace(/\/$/, '');
-    if (path !== '/docs/users/resources/faqs') return null;
-    const url = origin + path;
-    const faq = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntityOfPage: url,
-      url,
-      mainEntity: [
-        { '@type': 'Question', name: 'What is Mezo?', acceptedAnswer: { '@type': 'Answer', text: 'Mezo is a Bitcoin-centric platform enabling borrowing, spending, and building on Bitcoin.' } },
-        { '@type': 'Question', name: 'What is MUSD?', acceptedAnswer: { '@type': 'Answer', text: 'MUSD is Mezo’s Bitcoin-backed stablecoin used for borrowing and payments.' } }
-      ],
-    };
-    return <script type="application/ld+json" set:html={JSON.stringify(faq)} />;
-  })()
-}
+{/* FAQPage — FAQ pages only */}
+{faqSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}
 
-
+{/* HowTo — HowTo pages only */}
+{howToSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+)}
