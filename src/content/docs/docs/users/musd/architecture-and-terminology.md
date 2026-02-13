@@ -24,7 +24,7 @@ You can see all BTC backing MUSD in real time on the Mezo block explorer:
 - [CollSurplusPool](https://explorer.mezo.org/address/0xBF51807ACb3394B8550f0554FB9098856Ef5F491)
 - [GasPool](https://explorer.mezo.org/address/0x3EB418BdBE95b4b9cf465ecfBD8424685ACD1Bc1)
 
-tBTC, which is built by the same team behind Mezo, [Thesis*](https://thesis.co/?ref=blog.mezo.org), is powered by the [Threshold Network](https://threshold.network/?ref=blog.mezo.org). Threshold is a decentralized signer set that has operated the Threshold Bitcoin bridge since early 2020 and successfully bridged over 18k Bitcoin. Proof of reserves for tBTC have been live for the entire life of the bridge and are viewable at [tbtcscan](https://tbtcscan.com/wallets?ref=blog.mezo.org).
+tBTC, which is built by the same team behind Mezo, [Thesis*](https://thesis.co/?ref=blog.mezo.org), is powered by the [Threshold Network](https://threshold.network/?ref=blog.mezo.org). Threshold is a decentralized signer set that has operated the Threshold Bitcoin bridge since early 2020 and successfully bridged over 28k Bitcoin. Proof of reserves for tBTC have been live for the entire life of the bridge and are viewable at [tbtcscan](https://tbtcscan.com/wallets?ref=blog.mezo.org).
 
 For a thorough dive into tBTC, you can see the [Bitcoin Layers research report](https://mirror.xyz/0x715823F52163575f023b9090a775522249887619/3gaFbT7qQBKEbsjN3Gp_SQe6-QvdZNHuszoasNnvSUo?ref=blog.mezo.org) analyzing tBTC against other popular wrappers such as WBTC and cbBTC. Additional risk analysis has been done by the [LlamaRisk team](https://www.llamarisk.com/research/collateral-risk-tbtc?ref=blog.mezo.org) in advance of tBTC’s listing as collateral on Aave.
 

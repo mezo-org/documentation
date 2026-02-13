@@ -322,7 +322,7 @@ Token Generation Event. The moment when MEZO tokens were first created and distr
 
 ## Threshold Network
 
-A decentralized network that powers the [tBTC](#tbtc) bridge. Threshold operates a decentralized signer set that has bridged over 18,000 Bitcoin since early 2020. See [MUSD Architecture](/docs/users/musd/architecture-and-terminology).
+A decentralized network that powers the [tBTC](#tbtc) bridge. Threshold operates a decentralized signer set that has bridged over 28,000 Bitcoin since early 2020. See [MUSD Architecture](/docs/users/musd/architecture-and-terminology).
 
 ## Token Distribution
 
