@@ -1,62 +1,62 @@
 ---
 title: MUSD Stablecoin Overview
-description: 'Everything you need to know about MUSD, Mezo’s Bitcoin-backed stablecoin.'
+description: "Everything you need to know about MUSD, Mezo's Bitcoin-backed stablecoin."
 topic: users
 ---
 
 ## What is MUSD?
 
-MUSD is a permissionless [stablecoin 100% backed by Bitcoin reserves](https://mezo.org/feature/musd) and designed to maintain a 1:1 peg with the U.S. dollar. It is the native stablecoin on Mezo, accessible via Mezo’s ‘Borrow’ feature or decentralized exchanges on Mezo Network. 
+Bitcoin holders have historically faced an impossible choice: sell your BTC to cover expenses, trust a centralized lender to hold custody of your bitcoins, or hold indefinitely and miss out on the liquidity you need to support your life.
 
-Anyone can mint MUSD by [depositing BTC into Mezo borrow, thus creating a loan position](https://mezo.org/feature/borrow). Bitcoin collateral for MUSD positions is publicly verifiable onchain, and proof-of-reserves are viewable 24-7. For more details on the collateral management, see the “Collateral Management” section. Users can close their MUSD positions by returning the borrowed MUSD and accumulated interest to receive their initial Bitcoin collateral.
+MUSD changes that. It is a permissionless stablecoin, 100% backed by Bitcoin reserves, designed to maintain a 1:1 peg with the U.S. dollar. Mint MUSD by depositing BTC as collateral, spend it anywhere dollars are accepted, and keep your full Bitcoin exposure the entire time. When you're done, return the borrowed MUSD plus interest and get your BTC back.
 
-You must deposit a minimum of \$1800 US worth of BTC or other supported tokens as collateral in order to create a loan.
+![MUSD Lets You Keep and Spend BTC](/docs/images/musd/musd-keep-and-spend-btc.png)
 
-### MUSD solutions
+### Why MUSD?
 
-On Mezo, MUSD and Borrow provide solutions to several lending market challenges:
-
-* Permissionless access to a credit against up to 90% of your BTC holdings. Keep your BTC, tap into your Bitcoin equity, and pay your loan back whenever.
-* Loans are created onchain and [publicly verifiable 24/7](https://explorer.test.mezo.org/address/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503?tab=txs&ref=blog.mezo.org). Close your position whenever you want to receive your underlying Bitcoin collateral.
-* MUSD borrow rates are fixed for the life of the loan, starting at 1-5%. Lock in your low rate, and don’t worry about the market.
-
-This documentation provides details about the MUSD architecture, how it fits into the Mezo ecosystem, risks and mitigations, and guides through how to access MUSD. 
+1. **Never sell your Bitcoin** — Borrow against up to 90% of your BTC holdings. Keep your sats, tap into your Bitcoin equity, and pay your loan back whenever you want.
+2. **Fixed rates from 1–5%** — Your interest rate is locked when you open your loan and never changes. No variable rates, no surprises. Compare that to 7–20% APR at traditional banks or 8–9% on other DeFi platforms.
+3. **Fully onchain and verifiable** — Every loan and every dollar of collateral is visible onchain, 24/7. No opaque reserves, no custodians — just Bitcoin in a smart contract vault. [View the collateral live on the Mezo explorer](https://explorer.mezo.org/address/0x3012C2fE1240e3754E5C200A0946bb0E07474876).
+4. **Permissionless** — No credit checks, no applications, no minimums beyond the 1,800 MUSD floor. If you have BTC, you can borrow.
 
 ## How MUSD works
 
-MUSD uses a CDP (collateralized debt position) model.
+![The Lifecycle of MUSD](/docs/images/musd/musd-lifecycle.png)
 
-* Every outstanding MUSD is redeemable for Bitcoin.
-* \$1 in BTC collateral can be used to mint 1 MUSD
+MUSD uses a CDP (collateralized debt position) model. Every outstanding MUSD is redeemable for Bitcoin, and \$1 in BTC collateral can be used to mint 1 MUSD.
 
-The mint-and-redeem model helps maintain the \$1 peg in volatile environments. For example, MUSD may trade on the market at a premium or discount to its \$1 stable value. Below are the scenarios for how the peg can be re-established.
+This mint-and-redeem model is what keeps MUSD pegged to \$1 — even in volatile markets:
 
-* If MUSD is trading at a discount of \$0.99, arbitragers can buy MUSD on the market and redeem it for \$1 in underlying BTC. Users with a loan position can do this for no additional cost. Those without a loan position must pay a 0.75% redemption fee, which remains profitable until MUSD reaches a price of \$0.995.
-* If MUSD is trading at a premium of \$1.05, arbitragers can mint MUSD by supplying BTC to the protocol and sell the minted MUSD on the market for a profit; selling into another dollar-equivalent stablecoin like USDT or USDC. This scenario remains profitable until MUSD returns to a price of \$1.005.
+* **MUSD trading below \$1** — Arbitrageurs buy discounted MUSD on the market and redeem it for \$1 of underlying BTC. Users with an open loan can do this at no additional cost. Those without a loan pay a 0.75% redemption fee, which remains profitable until MUSD reaches \$0.995.
+* **MUSD trading above \$1** — Arbitrageurs mint new MUSD by supplying BTC to the protocol and sell it on the market for a profit. This remains profitable until MUSD returns to \$1.005.
 
 ![](/docs/images/musd/musd-redemption-and-peg-process.png)
 
-To ensure the peg is maintained during market volatility, sufficient BTC collateral must always back the outstanding MUSD. Outstanding loan positions must maintain a collateral ratio of above 110%, and the system has built-in liquidation mechanisms and stability pools to enforce this. These risk mitigations ensure that even with high LTVs, the system remains secure and resilient against market volatility.
+To ensure the peg holds during market volatility, all loan positions must maintain a collateral ratio above 110%. The system has built-in liquidation mechanisms and a stability pool to enforce this — so even with high LTVs, the protocol remains secure and resilient.
 
-Details on liquidations and risks can be read in further detail in [Risks and Mitigations](/docs/users/musd/risks).
+For details on how these safety mechanisms work, see [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
 
 ### Benefits of the MUSD model
 
-**Supply-Sided Market**
+**Supply-sided liquidity**
 
-MUSD is a single-sided lending market. The mint and redeem model that MUSD uses benefits the system as a whole by creating liquidity from the supply side rather than relying on pre-existing dollar pools. Instead of needing a fixed reservoir of dollars like traditional two-sided lending protocols that require a dynamic market driven interest rate to balance supply and demand for asset pairs, MUSD is minted directly from Bitcoin collateral. This approach means that as more users deposit Bitcoin to mint MUSD, liquidity grows organically in line with demand. 
+Unlike traditional two-sided lending protocols that need a pool of pre-existing dollars and use variable interest rates to balance supply and demand, MUSD is minted directly from Bitcoin collateral. Liquidity grows organically as more users deposit BTC — the system self-generates its supply, so liquidity is always available for new borrowers.
 
-The system isn’t constrained by traditional dollar liquidity—it self-generates its supply, ensuring that liquidity is always available for new depositors of BTC collateral.
+**Fixed, low borrowing rates**
 
-**Low Borrowing Rates**
+Because MUSD is minted rather than borrowed from a pool, there's no rate competition driving up costs. The result: fixed rates as low as 1%, locked in for the life of your loan. That makes MUSD significantly cheaper than conventional lending markets where rates are variable and can spike unpredictably.
 
-Because MUSD is created through the minting of “new money” backed by Bitcoin collateral, borrowers benefit from fixed interest rates. The process sidesteps the need for competitive borrowing from pre-existing dollar pools, which often drives up costs due to market pressures. Instead, the fixed, low rates (as low as 1%) stem from the efficient, collateralized minting mechanism of MUSD. 
+**Capital efficiency**
 
-With MUSD, users can unlock the value of their Bitcoin at a lower cost, making MUSD an attractive alternative to conventional lending markets where rates can be highly variable and significantly higher.
+MUSD supports a minimum collateralization ratio of just 110%, meaning borrowers can access up to 90% of their Bitcoin's value. For Bitcoin holders, this is the most capital-efficient way to unlock liquidity without selling. That said, higher collateral ratios provide a bigger safety buffer — always consider the risk profile of your position.
 
-**Extremely High LTV**
+## MUSD vs. traditional finance
 
-One of the standout features of MUSD is its ability to support extremely high loan-to-value (LTV) ratios. The collateralization requirement is 110% in its normal mode for total collateralization ratio of all loans or 150% in other modes. Borrowers can potentially access up to 90% of the value of their Bitcoin holdings, but it is recommended to always calculate the risk of your loan especially for lower collateralization ratios. This high LTV is crucial for Bitcoin holders because it allows them to maximize the liquidity they can unlock from their assets without having to sell them. 
+For Bitcoin holders, the financial system has always meant compromise: high fees, opaque custody, variable rates, and centralized intermediaries. MUSD brings the benefits of onchain finance — transparency, low cost, self-custody — directly to your Bitcoin.
+
+![MUSD vs Traditional Finance](/docs/images/musd/musd-vs-traditional.png)
+
+No wire fees, no FX spreads, no monthly account charges. Just your Bitcoin in a decentralized smart contract vault, working for you.
 
 ## MUSD comparison to existing stablecoins
 
@@ -64,11 +64,9 @@ The stablecoin market is broad, ranging from fiat-backed stables (USDT and USDC)
 
 MUSD aims to address these risks with its pure Bitcoin backing.
 
-![](/docs/images/musd/built-different.avif)
-
 **Fiat-Backed Stablecoins**
 
-Fiat-backed stablecoins like USDT and USDC make up more than 90% of the current stablecoin market. Not only are they a complete juxtaposition with crypto’s ethos, as they are backed by the U.S. dollar, but the dollar reserves must be held safely by a single entity. 
+Fiat-backed stablecoins like USDT and USDC make up more than 90% of the current stablecoin market. Not only are they a complete juxtaposition with crypto's ethos, as they are backed by the U.S. dollar, but the dollar reserves must be held safely by a single entity.
 
 Tether, the issuing entity for USDT (~\$150B in supply), has never released a proof of reserves audit. The company booked a \$13B profit in 2024.
 
@@ -78,10 +76,10 @@ Circle, a U.S. company issuing USDC, has the ability to [blacklist addresses at 
 
 Synthetic stablecoins (for example, USDe) often depend on centralized exchanges and custody solutions to maintain their value. The risk of this exposure became abundant as [Bybit recently faced the largest hack on record](https://apnews.com/article/bybit-exchange-crypto-hack-north-korea-7c8335c1397261554138090c2c38f457).
 
-Additionally, stablecoins that are synthetically backed by the yield from a basis trade are unpredictable and untested. Funding rates are variable, and the systems have not been tested against various external market pressures. 
+Additionally, stablecoins that are synthetically backed by the yield from a basis trade are unpredictable and untested. Funding rates are variable, and the systems have not been tested against various external market pressures.
 
 **CDP-Style Coins like USDS**
 
-CDP-based stablecoins typically collateralize their positions with a basket of tokens, including fiat-backed stables and various altcoins. 
+CDP-based stablecoins typically collateralize their positions with a basket of tokens, including fiat-backed stables and various altcoins.
 
-While this diversification can spread risk, it also brings significant challenges. The collateral, often composed of volatile assets like ETH-related tokens or other stablecoins, may react unpredictably under market stress and are often times significantly more volatile than BTC. This can compromise the stablecoin’s peg and complicate the redemption and liquidation processes.
+While this diversification can spread risk, it also brings significant challenges. The collateral, often composed of volatile assets like ETH-related tokens or other stablecoins, may react unpredictably under market stress and are often times significantly more volatile than BTC. This can compromise the stablecoin's peg and complicate the redemption and liquidation processes.
