@@ -6,6 +6,8 @@ topic: users
 
 MEZO is Mezo's native token—used to boost voting power and influence where protocol fees and incentives go.
 
+📄 **[Download Token Disclosures (PDF)](/docs/Mezo_Coinbase_Disclosure.pdf)**
+
 ## Token Distribution
 
 **Total Genesis Supply: 1,000,000,000 MEZO**
