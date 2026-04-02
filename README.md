@@ -49,15 +49,14 @@ npm run linkcheck-local
 - `src/content/docs/docs/` — primary markdown content organized by topic (e.g., `users/`, `developers/`).
 - `public/docs/` — static assets (images, PDFs) served as-is.
 - `src/assets/` — project assets referenced by the site.
-- `scripts/process-gitbook.js` — parses `SUMMARY.md`, transforms GitBook-style content, and updates sidebar topics in `astro.config.mjs`.
 - `scripts/linkcheck.js` — simple crawler to check links when the site is running locally.
 - `astro.config.mjs` — Astro/Starlight configuration and custom head scripts.
 
 Tips:
 - Add or update docs under `src/content/docs/docs/…`.
-- When adding a new page, update **both** `astro.config.mjs` (sidebar items array) **and** `src/content/docs/docs/SUMMARY.md` (table of contents). The sidebar config controls navigation on the live site, and `SUMMARY.md` is parsed by `process-gitbook.js` during the build.
+- When adding a new page, update `astro.config.mjs` (sidebar items array) to include it in the navigation.
 - Place large assets in `public/docs/...` and reference via site-relative paths.
-- Run `npm run dev` to auto-process and preview changes.
+- Run `npm run dev` to preview changes.
 
 
 ### Issue labels (suggested)
