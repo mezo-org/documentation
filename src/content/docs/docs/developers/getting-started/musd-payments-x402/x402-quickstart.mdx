@@ -278,115 +278,11 @@ app.get('/paid', (req: Request, res: Response) => {
 });
 
 app.listen(3000, () => {
-  console.log('seller listening on http://localhost:3000');
+  console.log('seller listening on http://localhost:3000/paid');
 });
 ```
 
-## Step 6: Apply library overrides
-
-<Aside type="caution" title="Required overrides prior to x402 release v2.11.0">
-`@x402/paywall` and `@x402/evm` need Mezo support to format MUSD and
-settle via `facilitator.vativ.io`. Canonical `2.11.0+` includes that
-support; prior versions do not. Mezo community provides a patched version 
-`v2.10.0-mezo.6` with support.
-
-Check your version now:
-</Aside>
-
-
-```bash
-pnpm list @x402/paywall
-```
-
-If the version is `2.11.0` or later, you can skip the rest of this
-step and go to Step 7.
-
-If it is `2.10.x`, apply the overrides below before running the
-server.
-
-### 6b. Add the overrides
-
-Open `package.json` (inside `mezo-x402-server/`) and add this block
-at the top level, alongside `dependencies`:
-
-<Tabs>
-  <TabItem label="pnpm">
-
-```json
-"pnpm": {
-  "overrides": {
-    "@x402/paywall": "https://github.com/vativ/x402-mezo-preview/releases/download/v2.10.0-mezo.6/x402-paywall-2.10.0-mezo.6.tgz",
-    "@x402/evm":     "https://github.com/vativ/x402-mezo-preview/releases/download/v2.10.0-mezo.6/x402-evm-2.10.0-mezo.6.tgz"
-  }
-}
-```
-
-Then reinstall:
-
-```bash
-pnpm install
-```
-
-  </TabItem>
-  <TabItem label="npm">
-
-Use npm's top-level `overrides` (not under a `pnpm` key):
-
-```json
-"overrides": {
-  "@x402/paywall": "https://github.com/vativ/x402-mezo-preview/releases/download/v2.10.0-mezo.6/x402-paywall-2.10.0-mezo.6.tgz",
-  "@x402/evm":     "https://github.com/vativ/x402-mezo-preview/releases/download/v2.10.0-mezo.6/x402-evm-2.10.0-mezo.6.tgz"
-}
-```
-
-Then reinstall:
-
-```bash
-npm install
-```
-
-  </TabItem>
-  <TabItem label="yarn">
-
-Use Yarn's `resolutions` block:
-
-```json
-"resolutions": {
-  "@x402/paywall": "https://github.com/vativ/x402-mezo-preview/releases/download/v2.10.0-mezo.6/x402-paywall-2.10.0-mezo.6.tgz",
-  "@x402/evm":     "https://github.com/vativ/x402-mezo-preview/releases/download/v2.10.0-mezo.6/x402-evm-2.10.0-mezo.6.tgz"
-}
-```
-
-Then reinstall:
-
-```bash
-yarn install
-```
-
-  </TabItem>
-</Tabs>
-
-### 6c. Verify
-
-Both packages should now report `2.10.0-mezo.6`:
-
-```bash
-grep '"version"' node_modules/@x402/paywall/package.json node_modules/@x402/evm/package.json
-```
-
-If either still reads plain `2.10.0`, the override did not apply.
-Check that the overrides block sits at the top level of
-`package.json` (alongside `dependencies`, not nested inside it) and
-rerun the install command for your package manager.
-
-<Aside type="caution" title="Override both packages together">
-Preview `@x402/paywall` imports `DEFAULT_STABLECOINS` from preview
-`@x402/evm`. If only one is overridden, the transitive canonical
-`@x402/evm` surfaces as `does not provide an export named
-'DEFAULT_STABLECOINS'` at runtime.
-</Aside>
-
-## Step 7: Run your seller and pay it yourself
+## Step 6: Run your seller and pay it yourself
 
 <Aside type="caution" title="Check for a stale seller on port 3000 first">
 If any process is already bound to `localhost:3000` such as a previous
@@ -419,7 +315,7 @@ EVM_ADDRESS=0xYOUR_ACCOUNT_B_ADDRESS_HERE \
   pnpm exec tsx server.ts
 ```
 
-You should see `seller listening on http://localhost:3000`. The
+You should see `seller listening on http://localhost:3000/paid`. The
 middleware will now intercept unpaid requests to `/paid` and respond
 with HTTP `402 Payment Required`. The **response body** depends on
 the client's `Accept` header: a browser (`Accept: text/html`) receives
@@ -499,8 +395,8 @@ in Account B on chain.
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
-| `does not provide an export named 'DEFAULT_STABLECOINS'` at runtime | Installed `@x402/paywall`/`@x402/evm` are canonical `2.10.x`, which lacks Mezo support | Apply the [Mezo preview overrides](#step-6-apply-the-mezo-preview-overrides-if-needed) |
-| Paywall shows `$10000000000.00` instead of `$0.001` | Same as above — canonical 2.10.x is formatting MUSD as 6-decimal USDC | Apply the [Mezo preview overrides](#step-6-apply-the-mezo-preview-overrides-if-needed) |
+| `does not provide an export named 'DEFAULT_STABLECOINS'` at runtime | A transitive dependency is pinning `@x402/paywall`/`@x402/evm` to `2.10.x`, which lacks Mezo support | <details><summary>Force both to `^2.11.0` via your package manager's overrides</summary><br/>**pnpm** — add to `package.json` (top level, alongside `dependencies`), then `pnpm install`:<br/>```<br/>"pnpm": { "overrides": { "@x402/paywall": "^2.11.0", "@x402/evm": "^2.11.0" } }<br/>```<br/>**npm** — top-level `"overrides": { ... }`, then `npm install`.<br/>**yarn** — `"resolutions": { ... }`, then `yarn install`.<br/>Override both packages together — `@x402/paywall` imports `DEFAULT_STABLECOINS` from `@x402/evm`.</details> |
+| Paywall shows `$10000000000.00` instead of `$0.001` | Same as above — `2.10.x` formats MUSD as 6-decimal USDC | <details><summary>Same fix — force `^2.11.0` via overrides</summary><br/>See the row above for the full snippet (`pnpm` / `npm` / `yarn` variants).</details> |
 | `EADDRINUSE: address already in use :::3000` | Another process is bound to port 3000 | Run `lsof -i :3000` to find the holder, or change `app.listen(3000, …)` to a free port |
 | `tsx: command not found` | `tsx` dev dep didn't install, or command is being run outside the project directory | Rerun `pnpm add -D tsx` inside the project; invoke as `pnpm exec tsx server.ts` |
 | `SyntaxError` on `import` / TS syntax errors from Node | Using Node.js &lt; 20 | Upgrade to Node.js 20+ (`node --version` to check) |
