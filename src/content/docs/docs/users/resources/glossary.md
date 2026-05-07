@@ -138,7 +138,7 @@ Rewards posted on gauges to attract votes. Protocols or users deposit incentives
 
 ## Liquidation
 
-The forced closure of an undercollateralized [trove](#trove). A trove can be liquidated when its [ICR](#collateralization-ratio-icr) falls below 110% (or 150% during [Recovery Mode](#recovery-mode)). The [Stability Pool](#stability-pool) absorbs the debt, and the liquidated collateral is distributed to Stability Pool depositors. See [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
+The forced closure of an undercollateralized [trove](#trove). A trove can be liquidated when its [ICR](#collateralization-ratio-icr) falls below 110%. The liquidation threshold remains at 110% even during [Recovery Mode](#recovery-mode). The [Stability Pool](#stability-pool) absorbs the debt, and the liquidated collateral is distributed to Stability Pool depositors. See [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
 
 ## Liquidity Pool
 
@@ -250,7 +250,7 @@ Anti-dilution distributions to veMEZO holders from weekly MEZO emissions. When t
 
 ## Recovery Mode
 
-A temporary safety state that activates when the system-wide Total Collateralization Ratio (TCR) falls below the [CCR](#critical-collateralization-ratio-ccr) of 150%. During Recovery Mode, the liquidation threshold increases from 110% to 150%, new loans cannot be opened below 150%, and refinancing is blocked. See [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
+A temporary safety state that activates when the system-wide Total Collateralization Ratio (TCR) falls below the [CCR](#critical-collateralization-ratio-ccr) of 150%. During Recovery Mode, the liquidation threshold remains at 110% (unlike Liquity v1, MUSD does not expand liquidations during Recovery Mode). However, new loans cannot be opened below 150%, and refinancing is blocked. See [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
 
 ## Redemption
 

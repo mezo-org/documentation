@@ -99,13 +99,14 @@ Important Note: The current user interface may not show your available surplus. 
 ## What is Recovery Mode?
 
 :::note
-Recovery Mode is a temporary safety state that activates if the entire MUSD system's total collateral ratio drops below 150%. It is a special system state with stricter liquidation rules.
+Recovery Mode is a temporary safety state that activates if the entire MUSD system's total collateral ratio (TCR) drops below 150%. It is a special system state with stricter borrowing rules.
 :::
 
 During Recovery Mode:
-- The minimum collateral ratio for liquidations increases from 110% to 150%.
-- This means loans with ratios below 150% can be liquidated.
-- The system encourages users to add collateral or repay debt to improve its overall health.
+- **Liquidations are not affected.** The liquidation threshold remains at 110% — the same as in Normal Mode. Unlike Liquity v1, MUSD does not expand liquidations to higher collateral ratios during Recovery Mode.
+- New loans cannot be opened below 150% collateral ratio.
+- Refinancing is blocked.
+- The system encourages users to add collateral or repay debt to restore the TCR above 150%.
 
 ---
 
@@ -116,7 +117,7 @@ The best defense against both liquidation and redemption is maintaining a high c
 :::
 
 ### To Avoid Liquidation:
-- Maintain a healthy buffer. Aim for a collateral ratio well above 150% to be safe from market volatility and Recovery Mode.
+- Maintain a healthy buffer. Aim for a collateral ratio well above 110% to stay safe from market volatility. A ratio above 150% also ensures you can borrow and refinance freely even if the system enters Recovery Mode.
 - Monitor your loan's health regularly, especially if the BTC price is dropping.
 - Be proactive: Add more collateral or repay some of your MUSD debt if your ratio gets too low.
 
