@@ -36,6 +36,11 @@ topic: developers
       </td>
     </tr>
     <tr>
+      <td>Backbone</td>
+      <td><span data-option="kho2A8rahGbq">Running</span></td>
+      <td><a href="https://decouple.co/">https://decouple.co/</a></td>
+    </tr>
+    <tr>
       <td>Beemeeupnow</td>
       <td><span data-option="kho2A8rahGbq">Running</span></td>
       <td><a href="https://x.com/beemeeupnow">https://x.com/beemeeupnow</a></td>
@@ -46,11 +51,6 @@ topic: developers
       <td>
         <a href="https://github.com/boar-network">https://github.com/boar-network</a>
       </td>
-    </tr>
-    <tr>
-      <td>Chorus One</td>
-      <td><span data-option="kho2A8rahGbq">Running</span></td>
-      <td><a href="https://chorus.one/">https://chorus.one/</a></td>
     </tr>
     <tr>
       <td>ChainDAQ</td>
