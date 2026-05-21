@@ -31,7 +31,7 @@ For advanced chain configuration and network parameters, see the [Chains Configu
 
 | Provider | HTTPS | WSS |
 |----------|-------|-----|
-| Boar | `https://rpc-http.mezo.boar.network` | `wss://rpc-ws.mezo.boar.network` |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
 | Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
 | Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
 | dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
@@ -45,7 +45,7 @@ module.exports = {
   defaultNetwork: "mezomainnet",
   networks: {
     mezomainnet: {
-      url: "https://rpc-http.mezo.boar.network",
+      url: "https://mezo-mainnet.boar.network",
       chainId: 31612,
       accounts: ["YOUR_PRIVATE_WALLET_KEY"] // Use environment variables for security
     }
@@ -70,7 +70,7 @@ To configure a Foundry project for Mezo Mainnet, set the following in your `foun
 ```toml
 [profile.default]
 chain_id = 31612
-eth_rpc_url = "https://rpc-http.mezo.boar.network"
+eth_rpc_url = "https://mezo-mainnet.boar.network"
 evm_version = 'london'
 ```
 

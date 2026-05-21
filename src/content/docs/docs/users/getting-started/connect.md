@@ -18,7 +18,7 @@ If Chainlist does not work, add the network manually using the network details b
 
 | Provider | HTTPS | WSS |
 |----------|-------|-----|
-| Boar | `https://rpc-http.mezo.boar.network` | `wss://rpc-ws.mezo.boar.network` |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
 | Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
 | Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
 
