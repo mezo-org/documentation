@@ -58,7 +58,6 @@
   "files": [
     {
       "location": "src/content/docs/**/*.{md,mdx}",
-      "ignore": ["**/404/**"],
       "pattern": "src/content/docs/@lang/@path",
       "type": "universal"
     }
