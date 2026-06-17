@@ -80,7 +80,7 @@ The system always starts with the loan that has the lowest collateral ratio—ev
 ### How to Get Your Leftover Collateral After a Full Redemption
 If your loan is fully paid off through a redemption, your surplus collateral is safe. You can reclaim it at any time.
 
-Important Note: The current user interface may not show your available surplus. If you do not see a "Loan redeemed" alert on the Borrow page, follow our [How To Claim Your Collateral After a Full Redemption](/docs/users/musd/claim-collateral-after-redemption/) guide to manually claim it through the Mezo Explorer.
+Important Note: The current user interface may not show your available surplus. If you do not see a "Loan redeemed" alert on the Borrow page, follow our [How To Claim Your Collateral After a Full Redemption](/docs/users/borrow/claim-collateral-after-redemption/) guide to manually claim it through the Mezo Explorer.
 
 ---
 
@@ -134,4 +134,4 @@ This tool allows you to:
 
 ---
 
-For a complete list of MUSD terms and definitions, see [Architecture & Terminology](/docs/users/musd/architecture-and-terminology#definitions).
+For a complete list of MUSD terms and definitions, see [Architecture & Terminology](/docs/users/borrow/architecture-and-terminology#definitions).

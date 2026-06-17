@@ -34,7 +34,7 @@ This mint-and-redeem model is what keeps MUSD pegged to \$1 — even in volatile
 
 To ensure the peg holds during market volatility, all loan positions must maintain a collateral ratio above 110%. The system has built-in liquidation mechanisms and a stability pool to enforce this — so even with high LTVs, the protocol remains secure and resilient.
 
-For details on how these safety mechanisms work, see [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
+For details on how these safety mechanisms work, see [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ### Benefits of the MUSD model
 
