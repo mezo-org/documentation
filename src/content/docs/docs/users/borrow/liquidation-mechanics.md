@@ -1,23 +1,22 @@
 ---
-title: MUSD Liquidations & Redemptions
+title: Liquidations & Redemptions
 description: >-
-  Learn how liquidations protect the system and how redemptions maintain the
-  MUSD peg.
+  Learn about liquidations and redemptions.
 topic: users
 ---
 
 ## Overview
-When you [borrow MUSD](https://mezo.org/feature/musd) using your Bitcoin as collateral, you create a loan position (also called a "Trove"). Two key system events can affect your loan:
+When you borrow against your Bitcoin as collateral, you create a loan position (also called a "Trove"). Two key system events can affect your loan:
 
 - **Liquidation**: A forced closure of your loan that happens only if its health, measured by the collateral ratio, drops below a critical minimum of 110%. In a liquidation, you lose your collateral.
-- **Redemption**: When other users exchange MUSD for BTC from the system to help keep the MUSD price at \$1. This can affect your loan even if it's healthy (above 110%), but it is not a loss. It pays down your debt and makes your loan safer.
+- **Redemption**: Anyone holding borrowed stablecoins can swap it with the protocol for $1 of BTC, which keeps the stablecoin near $1. The system pulls that BTC from the loans with the lowest collateral ratios first, so a redemption can shrink your loan even when your collateral ratio is above 110%. It removes debt and collateral in equal dollar amounts, so your loan ends up smaller and safer.
 
 ---
 
 ## Liquidations ⚠️
 
 ### What is a Liquidation?
-A liquidation is a safety mechanism that automatically closes a loan when it becomes too risky. This protects the entire MUSD system from becoming unstable.
+A liquidation is a safety mechanism that automatically closes a loan when it becomes too risky. This protects the entire system from becoming unstable.
 
 ### When Does a Liquidation Happen?
 
@@ -29,7 +28,7 @@ Your loan is at risk of liquidation if its collateral ratio falls below 110%. Th
 There are two ways the system handles a liquidation:
 
 #### Using the Stability Pool (Default Method):
-- The system uses MUSD from its safety reserve, the Stability Pool, to completely pay off your debt.
+- The system uses stablecoins from its safety reserve, the Stability Pool, to completely pay off your debt.
 - The person or bot who triggered the liquidation receives a small reward (a 200 MUSD gas fee and 0.5% of your collateral).
 - The rest of your collateral (99.5%) is transferred to the Stability Pool to repay its depositors.
 - Your loan is closed, and you lose all of your collateral.
@@ -49,10 +48,10 @@ There are two ways the system handles a liquidation:
 ## Redemptions 🛡️
 
 ### What is a Redemption?
-A redemption is a feature that allows anyone holding MUSD to swap it for an equal dollar value of BTC directly from the protocol. This process ensures MUSD always holds its \$1 peg. It is not a penalty and does not mean your loan is unsafe.
+A redemption is a feature that allows anyone holding a stablecoin to swap it for an equal dollar value of BTC directly from the protocol. This process ensures the stablecoin always holds its \$1 peg. It is not a penalty and does not mean your loan is unsafe.
 
 ### When Does a Redemption Happen?
-Redemptions can happen at any time. When a user wants to redeem their MUSD for BTC, the system looks for loans to source the collateral from.
+Redemptions can happen at any time. When a user wants to redeem their stablecoin for BTC, the system looks for loans to source the collateral from.
 
 ### Which Loans Are Chosen for Redemption?
 The system always starts with the loan that has the lowest collateral ratio—even if that ratio is healthy and well above 110%. If your loan is less collateralized than others, it is more likely to be chosen for a redemption.
@@ -99,7 +98,7 @@ Important Note: The current user interface may not show your available surplus. 
 ## What is Recovery Mode?
 
 :::note
-Recovery Mode is a temporary safety state that activates if the entire MUSD system's total collateral ratio (TCR) drops below 150%. It is a special system state with stricter borrowing rules.
+Recovery Mode is a temporary safety state that activates if the entire system's total collateral ratio (TCR) drops below 150%. It is a special system state with stricter borrowing rules.
 :::
 
 During Recovery Mode:
@@ -119,7 +118,7 @@ The best defense against both liquidation and redemption is maintaining a high c
 ### To Avoid Liquidation:
 - Maintain a healthy buffer. Aim for a collateral ratio well above 110% to stay safe from market volatility. A ratio above 150% also ensures you can borrow and refinance freely even if the system enters Recovery Mode.
 - Monitor your loan's health regularly, especially if the BTC price is dropping.
-- Be proactive: Add more collateral or repay some of your MUSD debt if your ratio gets too low.
+- Be proactive: Add more collateral or repay some of your debt if your ratio gets too low.
 
 ### To Reduce the Likelihood of Redemption:
 - Keep a high collateral ratio. Unlike liquidations, which are triggered at a fixed threshold, redemptions are relative—the system selects troves with the lowest collateral ratios first. The higher your ratio is compared to other troves, the less likely yours is to be redeemed. While 150% is typically a good baseline target, optimal positioning depends on current market conditions and the collateral ratios of other open troves. It's worth monitoring outstanding troves periodically and adjusting your ratio accordingly to stay well above the bottom of the pack.
@@ -130,7 +129,7 @@ For advanced monitoring, you can use [mezotools.cc](https://mezotools.cc).
 This tool allows you to:
 - Check real-time Trove health and Collateral Ratios.
 - View recent system-wide redemptions and liquidations.
-- Track BTC and MUSD prices directly from Mezo's on-chain oracles.
+- Track BTC and stablecoin prices directly from Mezo's on-chain oracles.
 
 ---
 
