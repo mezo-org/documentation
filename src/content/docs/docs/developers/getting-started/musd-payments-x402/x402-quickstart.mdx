@@ -31,6 +31,10 @@ A minimal two-part client/server app for purchasing a `/paid` API endpoint using
 - **Node.js 20+** and **pnpm 9+** on your machine.
 - A browser wallet extension that supports EVM networks (MetaMask, Rabby,
   Coinbase Wallet, or any wallet that exposes an EIP-1193 provider).
+- **A current `@x402` SDK.** Mezo support ships in the default registries —
+  Mainnet from `@x402/evm` v2.15.0 / Go v2.15.0 / Python v2.13.0 (2026-06-12),
+  Testnet from earlier releases. See the
+  [Mezo x402 reference](../#mezo-x402-reference) for the full matrix.
 - **~20–30 minutes.** Getting testnet MUSD involves a faucet drip + a
   borrow transaction; run those early (Steps 1–2) and they'll be ready
   by the time you need them.
@@ -221,10 +225,11 @@ Still inside `mezo-x402-server/` (from Step 4), create `server.ts`:
 
 ```typescript
 import express, { type Request, type Response } from 'express';
-import { paymentMiddleware } from '@x402/express';
-import { x402ResourceServer, HTTPFacilitatorClient } from '@x402/core/server';
+import { paymentMiddleware, x402ResourceServer } from '@x402/express';
 import { ExactEvmScheme } from '@x402/evm/exact/server';
-import { createPaywall, evmPaywall } from '@x402/paywall';
+import { HTTPFacilitatorClient } from '@x402/core/server';
+import { createPaywall } from '@x402/paywall';
+import { evmPaywall } from '@x402/paywall/evm';
 
 const EVM_ADDRESS     = process.env.EVM_ADDRESS;         // Your Mezo Testnet receiving address (0x + 40 hex chars)
 const FACILITATOR_URL = 'https://facilitator.vativ.io/'; // Mezo-capable facilitator provided by community
@@ -389,14 +394,42 @@ That's the full loop: you've just served a paywalled HTTP resource on
 Mezo Testnet, paid for it from Account A, and watched the MUSD land
 in Account B on chain.
 
+## Promote to mainnet
+
+Everything above runs on Mezo Testnet. Moving the same seller to Mezo
+Mainnet (`eip155:31612`) is a **one-line change** — a current SDK resolves the
+mainnet MUSD token and the canonical settlement proxy for you, and the
+facilitator is the same endpoint.
+
+In your `server.ts` route config, switch the network:
+
+```diff
+-            network: 'eip155:31611',     // Mezo Testnet, CAIP-2 string (not 'mezo-testnet')
++            network: 'eip155:31612',     // Mezo Mainnet, CAIP-2 string (not 'mezo-mainnet')
+```
+
+| What | Testnet → Mainnet | Change needed |
+|---|---|---|
+| `network` (CAIP-2) | `eip155:31611` → `eip155:31612` | **Yes — the one line above** |
+| MUSD asset | resolved by the SDK on both nets | No — `DEFAULT_STABLECOINS` maps it |
+| Facilitator URL | `facilitator.vativ.io` on both nets | No — same facilitator serves both |
+| Settlement proxy | canonical on both nets | No — the SDK auto-resolves it |
+
+<Aside type="caution" title="Mainnet moves real funds">
+Mainnet payments settle **real MUSD**, and the facilitator pays **real BTC**
+for gas — there is no faucet. Test with a small `price` first, and fund the
+receiving side with only what you intend to transact.
+</Aside>
+
 
 
 ## Troubleshooting
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
-| `does not provide an export named 'DEFAULT_STABLECOINS'` at runtime | A transitive dependency is pinning `@x402/paywall`/`@x402/evm` to `2.10.x`, which lacks Mezo support | <details><summary>Force both to `^2.11.0` via your package manager's overrides</summary><br/>**pnpm** — add to `package.json` (top level, alongside `dependencies`), then `pnpm install`:<br/>```<br/>"pnpm": { "overrides": { "@x402/paywall": "^2.11.0", "@x402/evm": "^2.11.0" } }<br/>```<br/>**npm** — top-level `"overrides": { ... }`, then `npm install`.<br/>**yarn** — `"resolutions": { ... }`, then `yarn install`.<br/>Override both packages together — `@x402/paywall` imports `DEFAULT_STABLECOINS` from `@x402/evm`.</details> |
-| Paywall shows `$10000000000.00` instead of `$0.001` | Same as above — `2.10.x` formats MUSD as 6-decimal USDC | <details><summary>Same fix — force `^2.11.0` via overrides</summary><br/>See the row above for the full snippet (`pnpm` / `npm` / `yarn` variants).</details> |
+| `does not provide an export named 'DEFAULT_STABLECOINS'` at runtime | A transitive dependency is pinning `@x402/paywall`/`@x402/evm` to a release older than your target network needs (Mainnet needs `≥ 2.15.0`, Testnet `≥ 2.10.0`) | <details><summary>Force both to a current release via your package manager's overrides</summary><br/>**pnpm** — add to `package.json` (top level, alongside `dependencies`), then `pnpm install`:<br/>```<br/>"pnpm": { "overrides": { "@x402/paywall": "^2.15.0", "@x402/evm": "^2.15.0" } }<br/>```<br/>**npm** — top-level `"overrides": { ... }`, then `npm install`.<br/>**yarn** — `"resolutions": { ... }`, then `yarn install`.<br/>Override both packages together — `@x402/paywall` imports `DEFAULT_STABLECOINS` from `@x402/evm`.</details> |
+| Paywall shows `$10000000000.00` instead of `$0.001` | Same as above — an older `@x402` formats MUSD as 6-decimal USDC | <details><summary>Same fix — force `^2.15.0` via overrides</summary><br/>See the row above for the full snippet (`pnpm` / `npm` / `yarn` variants).</details> |
+| `install` fails resolving `@solana/kit@6.10.0` → `@solana/keys@6.10.0` (no matching version) | `@x402/paywall` pulls a transitive Solana SDK whose `6.10.0` release references sub-packages not yet published (a transient upstream gap). EVM-only sellers never use the Solana paywall, but the dependency still resolves at install | Pin the last good version via an override, then reinstall: **npm** top-level `"overrides": { "@solana/kit": "6.9.0" }`; **pnpm** `"pnpm": { "overrides": { "@solana/kit": "6.9.0" } }`; **yarn** `"resolutions": { "@solana/kit": "6.9.0" }` |
 | `EADDRINUSE: address already in use :::3000` | Another process is bound to port 3000 | Run `lsof -i :3000` to find the holder, or change `app.listen(3000, …)` to a free port |
 | `tsx: command not found` | `tsx` dev dep didn't install, or command is being run outside the project directory | Rerun `pnpm add -D tsx` inside the project; invoke as `pnpm exec tsx server.ts` |
 | `SyntaxError` on `import` / TS syntax errors from Node | Using Node.js &lt; 20 | Upgrade to Node.js 20+ (`node --version` to check) |
@@ -407,6 +440,8 @@ in Account B on chain.
 | Facilitator returns `unsupported network` | `FACILITATOR_URL` in `server.ts` points at `x402.org/facilitator` (no Mezo support) | Set the constant to a Mezo-capable facilitator (`https://facilitator.vativ.io/` for Testnet) |
 | Paywall loads but **Pay now** never settles, no error | Wallet has no MUSD, or MUSD is on the wrong network | Revisit Step 2; confirm the testnet MUSD token contract shows a balance |
 | Step 3 demo (demo.vativ.io) never settles | Same wallet/MUSD/network issue — isolate here before proceeding to Step 4 | Do not skip the Step 3 smoke test; fix the wallet side before writing server code |
+| Payment is signed in the wallet but the facilitator rejects it / verification fails | The asset's EIP-712 domain **name** was hand-rolled incorrectly | MUSD's EIP-712 domain name is **`Mezo USD`** (version `1`), **not** the `MUSD` symbol — a mismatch fails signature verification. Let the SDK supply it via `getDefaultAsset`, or set `name: "Mezo USD", version: "1"` exactly if you build the asset metadata yourself |
+| Running your own facilitator/settler: intermittent gas-estimation failures on Mezo | Mezo gas estimation needs modest headroom | Raise the gas limit / estimation multiplier at the signer. You won't hit this with the hosted `facilitator.vativ.io`, which already accounts for it |
 
 ## See also
 
@@ -419,7 +454,3 @@ in Account B on chain.
   adapt.
 - <a href="/docs/users/musd/mint-musd/" target="_blank" rel="noopener noreferrer">Borrow and Mint MUSD ↗</a>. User-side flow for acquiring MUSD (opens in new tab).
 - [Mezo Faucet](https://faucet.test.mezo.org). Testnet BTC.
-
-{/* Screenshot placeholder template — replicate this block for each screenshot you insert throughout the quickstart. The `paywall-local-initial.png` below is the one remaining reference image; treat it as the example pattern and add more `import` + `<Image>` pairs as needed. */}
-
-<Image src={paywallLocalInitial} alt="The x402 paywall UI at localhost:3000/paid before any wallet is connected: a 'Payment Required' heading, the text 'A paid endpoint on Mezo. To access this content, please pay $0.001 Mezo USD.', a 'Need Mezo USD on Mezo Testnet? Get some here.' link, and a wallet-select dropdown next to a blue Connect wallet button." />
