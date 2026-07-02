@@ -250,7 +250,7 @@ content — it is the demo server's source file, verbatim:
  *
  *   Network:     Mezo testnet — eip155:31611 (CAIP-2)
  *   Asset:       MUSD  0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503  (18 decimals)
- *   Price:       $0.001
+ *   Price:       $0.001 (PRICE env overrides)
  *   Facilitator: https://facilitator.vativ.io  (verifies + settles payments)
  *
  *   pnpm install
@@ -268,6 +268,7 @@ const PORT = Number(process.env.PORT ?? 4021);
 const NETWORK = "eip155:31611"; // Mezo testnet
 const PAY_TO = process.env.PAY_TO ?? "0xC3376296a18ef364eA19287203EEd7a87f18e738";
 const FACILITATOR_URL = process.env.FACILITATOR_URL ?? "https://facilitator.vativ.io";
+const PRICE = process.env.PRICE ?? "$0.001";
 
 const app = express();
 
@@ -290,12 +291,12 @@ app.use(
       "GET /": {
         accepts: {
           scheme: "exact",
-          price: "$0.001",
+          price: PRICE,
           network: NETWORK,
           payTo: PAY_TO,
         },
         // No trailing period: the paywall appends ". To access this content, ...".
-        description: "Mezo x402 Quickstart — pay $0.001 in MUSD to unlock",
+        description: `Mezo x402 Quickstart — pay ${PRICE} in MUSD to unlock`,
       },
     },
     resourceServer,
@@ -320,7 +321,10 @@ Reading it top to bottom:
 - **Config block.** Everything environment-specific is an env-overridable
   constant. `PAY_TO` defaults to the hosted demo's receiving address —
   the same `0xC337…e738` you saw in Step 3's explorer check — and you
-  will override it with **your Account B** in Step 6.
+  will override it with **your Account B** in Step 6. The price is a
+  constant too: `PRICE` (default `$0.001`) flows into both the payment
+  requirements and the paywall copy, so overriding it (e.g.
+  `PRICE='$0.005'`) re-prices the route end to end.
 - **`HTTPFacilitatorClient` + `x402ResourceServer`.** The facilitator at
   `facilitator.vativ.io` verifies and settles payments; the resource
   server registers the `"exact"` EVM scheme for `eip155:31611`. A plain
