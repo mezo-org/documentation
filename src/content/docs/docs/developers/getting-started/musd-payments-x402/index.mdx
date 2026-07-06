@@ -55,20 +55,59 @@ message to authorize the transfer within a timebox.
 
 ## How MUSD fits into x402
 
-- **Network identifier:** CAIP-2 strings are used to identify the Mezo Network.
-  Mezo Testnet is `eip155:31611`, Mezo Mainnet is
-  `eip155:31612` (x402 will not accept short names like
-  `"mezo-testnet"`).
+- **Network identifier:** CAIP-2 strings identify the Mezo network — Mezo
+  Testnet is `eip155:31611`, Mezo Mainnet is `eip155:31612` (x402 will not
+  accept short names like `"mezo-testnet"`).
 - **Asset resolution:** x402 prices are dollar strings (`price: "$0.01"`).
-  `@x402/evm`'s `DEFAULT_STABLECOINS` registry maps
-  `eip155:31611` → MUSD (`0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503`,
-  18 decimals). You do not hardcode an asset address in route configs.
-- **Signing:** MUSD is a `permit2` + EIP-2612 token, so payment
-  authorization is a single EIP-712 signature, with no on-chain approval
-  transaction and no gas on the buyer's side.
-- **Facilitator:** Mezo Testnet is settled by `https://facilitator.vativ.io`
-  (A mainnet facilitator URL will be
-  published when MUSD payments activate on Mezo Mainnet)
+  `@x402/evm`'s `DEFAULT_STABLECOINS` registry resolves that to the correct
+  MUSD token for the chosen network at runtime — you do not hardcode an asset
+  address in route configs.
+- **Signing:** MUSD is a `permit2` + EIP-2612 token, so payment authorization
+  is a single EIP-712 signature, with no on-chain approval transaction and no
+  gas on the buyer's side.
+- **Facilitator:** both networks are settled by the same facilitator,
+  `https://facilitator.vativ.io`, which serves Testnet and Mainnet from one
+  endpoint.
+
+### Mezo x402 reference
+
+A current SDK resolves the asset and settlement proxy for you at runtime; the
+values below are for reference and on-chain verification — you don't hardcode
+them. Only the **network id** and the **MUSD asset** differ between Testnet and
+Mainnet:
+
+| Network | CAIP-2 | MUSD asset (18 decimals) |
+|---|---|---|
+| Mezo Testnet | `eip155:31611` | `0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503` |
+| Mezo Mainnet | `eip155:31612` | `0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186` |
+
+Everything else is identical on both networks:
+
+| Fact | Value |
+|---|---|
+| Facilitator | `https://facilitator.vativ.io` (serves both networks) |
+| Settlement proxy | `0x402085c248EeA27D92E8b30b2C58ed07f9E20001` — canonical CREATE2 deploy, auto-resolved by the SDK |
+| EIP-712 domain | name `Mezo USD`, version `1` — distinct from the `MUSD` symbol |
+| Transfer method | `permit2` + EIP-2612 |
+
+### SDK support
+**Mezo Mainnet** (`eip155:31612`) shipped in the following canonical x402 SDK
+
+| SDK | First Mezo Mainnet release |
+|---|---|
+| TypeScript `@x402/evm` | `v2.15.0` |
+| Go `github.com/x402-foundation/x402/go/v2` | `v2.15.0` |
+| Python `x402` (PyPI) | `v2.13.0` |
+
+**Mezo Testnet** (`eip155:31611`) shipped in the following canonical x402 SDK
+
+| SDK | First Mezo Testnet release |
+|---|---|
+| TypeScript `@x402/evm` | `v2.10.0` |
+| Go `github.com/x402-foundation/x402/go/v2` | `v2.9.0` |
+| Python `x402` (PyPI) | `v2.7.0` |
+
+A Java SDK is not yet available; use the TypeScript, Go, or Python SDK above.
 
 ## Why Mezo for x402
 
@@ -121,9 +160,9 @@ without managing subscriptions, API keys, or payment-processor accounts:
 
 ## Getting Started
 
-For a step-by-step walkthrough (install the SDK packages, build a
-seller with `@x402/express`, exercise the paywall flow with a browser
-wallet, run a programmatic `@x402/fetch` client), see the
+For a step-by-step walkthrough (install the SDK packages, run a
+paywalled seller built on `@x402/express` and the bundled
+`@x402/paywall` UI, then pay it with a browser wallet), see the
 **[Quickstart for x402](./x402-quickstart/)** guide.
 
 ## See also

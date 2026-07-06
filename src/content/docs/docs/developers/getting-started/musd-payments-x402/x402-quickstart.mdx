@@ -2,35 +2,51 @@
 title: Quickstart for x402
 description: >-
   End-to-end walkthrough. Prepare a wallet with testnet MUSD, pay a live demo
-  endpoint, then stand up your own MUSD-paid Express route using the @x402/*
-  SDKs.
+  endpoint, then run the same paywalled Express server locally using the @x402/*
+  SDKs and the bundled @x402/paywall UI.
 topic: developers
 ---
 
-import { Aside, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
+import { Aside, Steps } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import paywallLocalInitial from '../../../../../../assets/screenshots/x402/paywall-local-initial.png';
 
 This quickstart runs top to bottom. By the end, you will have paid
-$0.001 in MUSD on Mezo Testnet against your local Express seller server using the
-`@x402/*` SDKs.
+$0.001 in MUSD on Mezo Testnet against your own local Express seller server
+using the `@x402/*` SDKs — with the out-of-box `@x402/paywall` browser UI
+doing all the client-side work, so you write **zero client code**.
 
 For the conceptual context of what x402 is, start with the [x402 Overview](../).
 
 ## What you will build
 
-A minimal two-part client/server app for purchasing a `/paid` API endpoint using MUSD:
+A single-file Express server whose **root route `/`** is gated behind an
+MUSD payment:
 
-- **Merchant Server**: an Express server with one protected route that returns
-  JSON only after a valid MUSD payment settles.
-- **Buyer Client**: a browser client that loads the bundled x402 `paywall` UI, connects
-  a wallet, pays $0.001 MUSD on Mezo Testnet, and receives the protected API response.
+- A **browser** hitting `/` without payment gets `HTTP 402 Payment Required`
+  with the bundled `@x402/paywall` UI — wallet connect, pay, and retry are
+  all handled for you.
+- A **programmatic client** (`curl`, `fetch`, an AI agent) gets the same
+  `402` with a compact JSON body and the machine-readable payment
+  requirements in a `PAYMENT-REQUIRED` response header.
+- After a $0.001 MUSD payment settles, the route unlocks and returns its
+  JSON response.
+
+The server you build is the **exact code** that runs the hosted demo at
+[`https://demo.vativ.io/`](https://demo.vativ.io/) — you will pay the hosted
+instance first to prove your wallet setup (Step 3), then stand up and pay
+your own (Steps 4–6).
 
 ## Prerequisites
 
 - **Node.js 20+** and **pnpm 9+** on your machine.
 - A browser wallet extension that supports EVM networks (MetaMask, Rabby,
   Coinbase Wallet, or any wallet that exposes an EIP-1193 provider).
+- **A current `@x402` SDK.** Mezo support ships in the default registries —
+  Mainnet from `@x402/evm` v2.15.0 / Go v2.15.0 / Python v2.13.0 (2026-06-12),
+  Testnet from earlier releases. This quickstart pins `2.16.0`, the version
+  the hosted demo runs. See the
+  [Mezo x402 reference](../#mezo-x402-reference) for the full matrix.
 - **~20–30 minutes.** Getting testnet MUSD involves a faucet drip + a
   borrow transaction; run those early (Steps 1–2) and they'll be ready
   by the time you need them.
@@ -116,33 +132,35 @@ Step 2 funds going to Account A. Account B (Merchant) stays empty throughout.
      custom token. Account A will then show an MUSD line item.
 
 4. Confirm Account B shows **zero** MUSD — it shouldn't have any, and
-   won't until Step 7. Check at
+   won't until Step 6. Check at
    `https://explorer.test.mezo.org/address/<account-B-address>`.
 
 </Steps>
 
-The MUSD token page itself looks like this — useful if you want to
+The MUSD token page in the explorer is also useful if you want to
 cross-check the canonical contract address, decimals (18), or scan
-recent transfers:
+recent transfers.
 
 ## Step 3: Smoke test your wallet config
 
 Before installing any packages or writing any code, confirm that your
-wallet, network, and MUSD balance are all ready by paying a live x402
-seller. This isolates "did I set up my wallet correctly?" from "did I
-wire my own server correctly?" Any trouble you hit here is a wallet
-or MUSD issue, not a code issue.
+wallet, network, and MUSD balance are all ready by paying the live,
+hosted instance of this quickstart's server. This isolates "did I set
+up my wallet correctly?" from "did I wire my own server correctly?"
+Any trouble you hit here is a wallet or MUSD issue, not a code issue.
 
 <Steps>
 
-1. Open [`https://demo.vativ.io/joke`](https://demo.vativ.io/joke) in
+1. Open [`https://demo.vativ.io/`](https://demo.vativ.io/) in
    the same browser that holds your Mezo Testnet wallet. **Switch to
    Account A (Buyer)** before connecting — A has the MUSD.
 
 2. The paywall loads. You should see:
 
    - A **Payment Required** heading
-   - `please pay $0.001 Mezo USD`
+   - `Mezo x402 Quickstart — pay $0.001 in MUSD to unlock. To access
+     this content, please pay $0.001 Mezo USD.`
+   - A testnet hint (`Need Mezo USD on Mezo Testnet? Request some here.`)
    - A wallet-select dropdown and **Connect wallet** button
 
 3. Select your wallet and connect it from Account A. Confirm you are
@@ -154,36 +172,46 @@ or MUSD issue, not a code issue.
    {/* SCREENSHOT-TODO: MetaMask signature-request popup for the x402 payment authorization (sign typed data). */}
 
 5. The paywall retries the request with your payment. Once the
-   facilitator settles on chain, the joke renders in the browser.
+   facilitator settles on chain, the unlocked response renders:
+
+   ```json
+   { "ok": true, "message": "Paid! You unlocked the Mezo x402 Quickstart." }
+   ```
 
 6. Verify the payment on chain. Open
    `https://explorer.test.mezo.org/address/<account-A-address>`
    — you should see a fresh MUSD transfer out of Account A for
-   `0.001 MUSD` to the `demo.vativ.io` seller's receiving address 
-   (your account B's balance will not change).
+   `0.001 MUSD` to the demo's receiving address
+   (`0xC337…e738` — you will meet that address again as the default
+   `PAY_TO` in the server code; your Account B's balance will not change).
 
 </Steps>
 
 {/* SCREENSHOT-TODO: explorer.test.mezo.org token transfers tab for Account A showing the 0.001 MUSD outbound transfer after the smoke test payment. */}
 
-If the joke appears and the explorer shows the transfer, your wallet
-setup is proven. Proceed to Step 4.
+If the unlocked JSON appears and the explorer shows the transfer, your
+wallet setup is proven. Proceed to Step 4.
 
-If you don't reach the joke, stop here and fix the wallet side before
+If you don't get there, stop here and fix the wallet side before
 writing any server code — see [Troubleshooting](#troubleshooting) for
 common wallet/MUSD symptoms. A broken wallet at this step will look
-identical to a broken server at Step 7; sort it out now.
+identical to a broken server at Step 6; sort it out now.
 
 ## Step 4: Install x402 packages
 
-Create a fresh project for your own merchant server:
+Create a fresh project for your own seller:
 
 ```bash
-mkdir mezo-x402-server && cd mezo-x402-server
+mkdir mezo-x402-quickstart && cd mezo-x402-quickstart
 pnpm init
-pnpm add @x402/paywall @x402/evm @x402/core @x402/express express
-pnpm add -D typescript tsx @types/express @types/node
+pnpm add @x402/core@2.16.0 @x402/evm@2.16.0 @x402/express@2.16.0 @x402/paywall@2.16.0 express@^4.19.2
+pnpm add -D typescript tsx @types/express@^4.17.21 @types/node
 ```
+
+The `@x402/*` versions are pinned to `2.16.0` — the release the hosted
+demo runs — so what you build matches what you already paid in Step 3.
+Newer releases generally work too; see the
+[SDK support matrix](../#sdk-support) for the minimum versions per network.
 
 <Aside type="note" title="About pnpm init's defaults">
 `pnpm init` generates a `package.json` with `"main": "index.js"` and no
@@ -200,168 +228,208 @@ two `pnpm add` commands exit `0`. If a real error halts the install,
 `pnpm` prints in red and exits non-zero.
 </Aside>
 
-## Step 5: Build your own seller
+## Step 5: The seller, in one file
 
-The seller is an Express server that uses `@x402/express` middleware to
-gate a route behind an MUSD payment. The middleware wires together three
-pieces: an `x402ResourceServer` that negotiates with a facilitator, an
-`ExactEvmScheme` registered for Mezo Testnet, and a route config that
-says what the endpoint costs.
+The seller wires together three pieces: an `HTTPFacilitatorClient`
+that talks to the facilitator, an `x402ResourceServer` with the
+`"exact"` EVM payment scheme registered for Mezo Testnet, and the
+bundled `@x402/paywall` UI as the paywall provider. The
+`paymentMiddleware` call then protects `GET /` with a $0.001 price.
 
-Use **Account B (Merchant)** as the receiving address. Switch to
-Account B in your wallet and copy its `0x…` address — that goes into
-`EVM_ADDRESS` below. Account B never needs a balance; it only receives.
-
-(Technically you could reuse Account A, but then a successful payment
-is invisible on chain: MUSD leaves A and lands in A, so the token
-balance doesn't change. Two accounts give you a clean before/after
-signal in the explorer.)
-
-Still inside `mezo-x402-server/` (from Step 4), create `server.ts`:
+Create `server.ts` inside `mezo-x402-quickstart/` with exactly this
+content — it is the demo server's source file, verbatim:
 
 ```typescript
-import express, { type Request, type Response } from 'express';
-import { paymentMiddleware } from '@x402/express';
-import { x402ResourceServer, HTTPFacilitatorClient } from '@x402/core/server';
-import { ExactEvmScheme } from '@x402/evm/exact/server';
-import { createPaywall, evmPaywall } from '@x402/paywall';
+/**
+ * Mezo x402 Quickstart — the out-of-box @x402/paywall smoke test.
+ *
+ * Run this server and open http://localhost:4021/ in a browser: the
+ * @x402/paywall UI renders. That is the smoke test. The root route `/` is
+ * protected by the x402 payment middleware, so an unpaid browser GET returns
+ * HTTP 402 with the paywall; paying $0.001 in MUSD unlocks a success response.
+ *
+ *   Network:     Mezo testnet — eip155:31611 (CAIP-2)
+ *   Asset:       MUSD  0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503  (18 decimals)
+ *   Price:       $0.001 (PRICE env overrides)
+ *   Facilitator: https://facilitator.vativ.io  (verifies + settles payments)
+ *
+ *   pnpm install
+ *   pnpm exec tsx server.ts    (monorepo: pnpm --filter mezo-x402-quickstart start)
+ */
+import express from "express";
+import { paymentMiddleware, x402ResourceServer } from "@x402/express";
+import { ExactEvmScheme } from "@x402/evm/exact/server";
+import { HTTPFacilitatorClient } from "@x402/core/server";
+import { createPaywall } from "@x402/paywall";
+import { evmPaywall } from "@x402/paywall/evm";
 
-const EVM_ADDRESS     = process.env.EVM_ADDRESS;         // Your Mezo Testnet receiving address (0x + 40 hex chars)
-const FACILITATOR_URL = 'https://facilitator.vativ.io/'; // Mezo-capable facilitator provided by community
-
-if (!EVM_ADDRESS) throw new Error('Set EVM_ADDRESS to your Mezo Testnet receiving address.');
-if (!/^0x[0-9a-fA-F]{40}$/.test(EVM_ADDRESS)) {
-  throw new Error(`EVM_ADDRESS must be a 0x-prefixed 40-hex-character address, got: ${EVM_ADDRESS}`);
-}
+// --- Config (override any of these via environment variables) --------------
+const PORT = Number(process.env.PORT ?? 4021);
+const NETWORK = "eip155:31611"; // Mezo testnet
+const PAY_TO = process.env.PAY_TO ?? "0xC3376296a18ef364eA19287203EEd7a87f18e738";
+const FACILITATOR_URL = process.env.FACILITATOR_URL ?? "https://facilitator.vativ.io";
+const PRICE = process.env.PRICE ?? "$0.001";
 
 const app = express();
 
-const facilitatorClient = new HTTPFacilitatorClient({ url: FACILITATOR_URL });
+// The facilitator verifies and settles x402 payments. The resource server
+// registers the "exact" EVM payment scheme for our network. @x402/evm already
+// knows Mezo testnet, so a plain "$0.001" price resolves to MUSD automatically.
+const facilitator = new HTTPFacilitatorClient({ url: FACILITATOR_URL });
+const resourceServer = new x402ResourceServer(facilitator).register(
+  NETWORK,
+  new ExactEvmScheme(),
+);
 
-// Bundled paywall UI: knows how to render MUSD at 18 decimals and connect EVM
-// wallets. Without this, the middleware falls back to a stub that defaults to
-// USDC formatting (6 decimals) and shows an "Install @x402/paywall" placeholder.
-const paywall = createPaywall()
-  .withNetwork(evmPaywall)
-  .build();
+// The out-of-box @x402/paywall browser UI, scoped to EVM networks.
+const paywall = createPaywall().withNetwork(evmPaywall).build();
 
+// Protect the ROOT route. A browser GET / with no payment renders the paywall.
 app.use(
   paymentMiddleware(
     {
-      'GET /paid': {
-        accepts: [
-          {
-            scheme: 'exact',
-            price: '$0.001',             // charged in MUSD; resolves via DEFAULT_STABLECOINS
-            network: 'eip155:31611',     // Mezo Testnet, CAIP-2 string (not 'mezo-testnet')
-            payTo: EVM_ADDRESS,
-          },
-        ],
-        description: 'A paid endpoint on Mezo',
-        mimeType: 'application/json',
+      "GET /": {
+        accepts: {
+          scheme: "exact",
+          price: PRICE,
+          network: NETWORK,
+          payTo: PAY_TO,
+        },
+        // No trailing period: the paywall appends ". To access this content, ...".
+        description: `Mezo x402 Quickstart — pay ${PRICE} in MUSD to unlock`,
       },
     },
-    new x402ResourceServer(facilitatorClient).register(
-      'eip155:*',                  // EVM-family scheme handler; route config above pins the actual chain
-      new ExactEvmScheme(),
-    ),
-    undefined,    // paywallConfig (defaults are fine)
-    paywall,      // ← the actual bundled UI provider
+    resourceServer,
+    { appName: "Mezo x402 Quickstart", testnet: true },
+    paywall,
   ),
 );
 
-app.get('/paid', (req: Request, res: Response) => {
-  res.json({
-    message: 'Thank you for your payment.',
-    servedAt: new Date().toISOString(),
-  });
+// Unlocked content — served only after a payment settles.
+app.get("/", (_req, res) => {
+  res.json({ ok: true, message: "Paid! You unlocked the Mezo x402 Quickstart." });
 });
 
-app.listen(3000, () => {
-  console.log('seller listening on http://localhost:3000/paid');
+app.listen(PORT, () => {
+  console.log(`Mezo x402 Quickstart listening on http://localhost:${PORT}/`);
+  console.log("Open it in a browser to see the @x402/paywall UI.");
 });
 ```
 
+Reading it top to bottom:
+
+- **Config block.** Everything environment-specific is an env-overridable
+  constant. `PAY_TO` defaults to the hosted demo's receiving address —
+  the same `0xC337…e738` you saw in Step 3's explorer check — and you
+  will override it with **your Account B** in Step 6. The price is a
+  constant too: `PRICE` (default `$0.001`) flows into both the payment
+  requirements and the paywall copy, so overriding it (e.g.
+  `PRICE='$0.005'`) re-prices the route end to end.
+- **`HTTPFacilitatorClient` + `x402ResourceServer`.** The facilitator at
+  `facilitator.vativ.io` verifies and settles payments; the resource
+  server registers the `"exact"` EVM scheme for `eip155:31611`. A plain
+  dollar-string `price: "$0.001"` resolves to the right MUSD amount at
+  runtime — no token address in your code.
+- **`createPaywall().withNetwork(evmPaywall).build()`.** The bundled
+  browser UI, scoped to EVM networks. Without this provider the
+  middleware falls back to a stub that formats amounts as 6-decimal
+  USDC and shows an "Install @x402/paywall" placeholder.
+- **`paymentMiddleware(...)`.** Protects `GET /`. The third argument is
+  the paywall config — `appName` becomes the page title, and
+  `testnet: true` renders the `Need Mezo USD on Mezo Testnet?` faucet
+  hint you saw in Step 3.
+- **The unlocked route.** The plain `app.get("/")` handler only runs
+  after the middleware has verified and settled a payment.
+
+(Technically you could set `PAY_TO` to Account A and pay yourself, but
+then a successful payment is invisible on chain: MUSD leaves A and lands
+in A, so the token balance doesn't change. Two accounts give you a clean
+before/after signal in the explorer.)
+
 ## Step 6: Run your seller and pay it yourself
 
-<Aside type="caution" title="Check for a stale seller on port 3000 first">
-If any process is already bound to `localhost:3000` such as a previous
-`tsx server.ts` you forgot to stop, or anything else, the checks below
-will pass because the **other** process answered, not yours. Payments
-made in the browser then route to whatever `EVM_ADDRESS` that stale
-server was configured with, not what you just set. This failure mode
-looks identical to success; the only signal something is wrong is that
-your terminal shows no request logs while someone else's does.
+<Aside type="caution" title="Check for a stale seller on port 4021 first">
+If any process is already bound to `localhost:4021` — such as a previous
+`tsx server.ts` you forgot to stop — the checks below will pass because
+the **other** process answered, not yours. Payments made in the browser
+then route to whatever `PAY_TO` that stale server was configured with,
+not what you just set. This failure mode looks identical to success; the
+only signal something is wrong is that your terminal shows no request
+logs while someone else's does.
 
 Kill any stale listener before continuing:
 
 ```bash
-lsof -i :3000          # No output = port is free, skip the kill
-kill $(lsof -ti :3000) # If the command above printed anything, run this
+lsof -i :4021          # No output = port is free, skip the kill
+kill $(lsof -ti :4021) # If the command above printed anything, run this
 ```
 
-Alternatively, change `app.listen(3000, …)` in `server.ts` to assign a different
-port of your choosing.
+Alternatively, run on a different port: the server reads it from the
+environment, e.g. `PORT=5001 PAY_TO=0x… pnpm exec tsx server.ts`.
 </Aside>
 
-Start the server with Account B's address as the receiving address.
-Substitute the 40-hex-character address you copied from Account B;
-the literal placeholder below is not a valid hex address, so the
-format guard in `server.ts` will reject it and make the typo obvious
-instead of letting the server start with a nonsense `payTo`:
+Switch your wallet to **Account B (Merchant)**, copy its `0x…` address,
+and start the server with that address as the receiving address:
 
 ```bash
-EVM_ADDRESS=0xYOUR_ACCOUNT_B_ADDRESS_HERE \
+PAY_TO=0xYOUR_ACCOUNT_B_ADDRESS_HERE \
   pnpm exec tsx server.ts
 ```
 
-You should see `seller listening on http://localhost:3000/paid`. The
-middleware will now intercept unpaid requests to `/paid` and respond
-with HTTP `402 Payment Required`. The **response body** depends on
-the client's `Accept` header: a browser (`Accept: text/html`) receives
-a full HTML paywall page that renders the wallet-connect UI; other
-clients (plain `curl`, `fetch` with no `Accept`, `httpie`, etc.)
-receive a compact JSON body with the payment requirements in a
-`PAYMENT-REQUIRED` response header. Either way, no client-side code
-is required.
+<Aside type="caution" title="Don't skip PAY_TO">
+The server starts happily without `PAY_TO` — it falls back to the hosted
+demo's receiving address. Every payment you then make goes to the demo
+merchant instead of your Account B, and the run "works" while your
+explorer check in step 6 below stays empty. There is no format guard
+either: a typo'd address is silently used as-is. Copy the address
+directly from your wallet.
+</Aside>
+
+You should see `Mezo x402 Quickstart listening on http://localhost:4021/`.
+The middleware now intercepts unpaid requests to `/`. What a client gets
+back depends on how it identifies itself: a **browser** (an
+`Accept: text/html` header plus a browser `User-Agent`) receives the full
+HTML paywall page; **everything else** (`curl`, `fetch`, `httpie`, an AI
+agent) receives a compact JSON body with the payment requirements
+Base64-encoded in a `PAYMENT-REQUIRED` response header. Either way, no
+client-side code is required.
 
 <Steps>
 
 1. Sanity check that the server responds `402`:
 
    ```bash
-   curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3000/paid
+   curl -s -o /dev/null -w "%{http_code}\n" http://localhost:4021/
    # Expect: 402
    ```
 
    (The paywall **UI** only renders in a browser — that's the next
-   step. `curl -i` on the same URL shows the `402` headers plus a
-   compact JSON body with the payment requirements; the full HTML
-   page is only served to browser `Accept: text/html` requests.)
+   step. `curl -i` on the same URL shows the `402` status plus the
+   `PAYMENT-REQUIRED` header carrying the machine-readable payment
+   requirements — decode it with `base64 -d` to see the same
+   scheme/network/amount/payTo your route config declares.)
 
-2. Open `http://localhost:3000/paid` in the same browser you used for
+2. Open `http://localhost:4021/` in the same browser you used for
    the live-demo smoke test in Step 3. **Switch to Account A (Buyer)**
    before connecting — that's the account with MUSD.
 
-3. The paywall loads — same UI as Step 3, but now served by your own
-   code. The description text differs ("A paid endpoint on Mezo"
-   comes from your `server.ts` route config rather than the
-   `demo.vativ.io` demo's copy):
+3. The paywall loads — the same UI as Step 3, but now served by your
+   own code:
+
+   <Image
+     src={paywallLocalInitial}
+     alt="The @x402/paywall UI served by the local quickstart server: Payment Required heading, the route's description text, a testnet faucet hint, a wallet selector, and a Connect wallet button."
+   />
 
 4. Connect Account A, confirm **Mezo Testnet (chain ID `31611`)**,
    click **Pay now**, and sign the authorization in your wallet.
 
 5. The paywall retries the request. Once the facilitator settles on
-   chain, the JSON response body renders:
+   chain, the unlocked JSON response renders:
 
    ```json
-   {
-     "message": "Thank you for your payment.",
-     "servedAt": "2026-..."
-   }
+   { "ok": true, "message": "Paid! You unlocked the Mezo x402 Quickstart." }
    ```
-
-   {/* SCREENSHOT-TODO: browser showing the rendered JSON response after a successful payment on the local seller. */}
 
 6. Verify the A → B transfer on chain. Open both explorer tabs:
 
@@ -389,24 +457,58 @@ That's the full loop: you've just served a paywalled HTTP resource on
 Mezo Testnet, paid for it from Account A, and watched the MUSD land
 in Account B on chain.
 
+## Promote to mainnet
+
+Everything above runs on Mezo Testnet. Moving the same seller to Mezo
+Mainnet (`eip155:31612`) is a **one-line change** — a current SDK resolves the
+mainnet MUSD token and the canonical settlement proxy for you, and the
+facilitator is the same endpoint.
+
+In `server.ts`, switch the network constant:
+
+```diff
+-const NETWORK = "eip155:31611"; // Mezo testnet
++const NETWORK = "eip155:31612"; // Mezo mainnet
+```
+
+| What | Testnet → Mainnet | Change needed |
+|---|---|---|
+| `NETWORK` (CAIP-2) | `eip155:31611` → `eip155:31612` | **Yes — the one line above** |
+| `PAY_TO` | your testnet address → your mainnet address | **Yes — always set it explicitly on mainnet** |
+| MUSD asset | resolved by the SDK on both nets | No — `DEFAULT_STABLECOINS` maps it |
+| Facilitator URL | `facilitator.vativ.io` on both nets | No — same facilitator serves both |
+| Settlement proxy | canonical on both nets | No — the SDK auto-resolves it |
+
+<Aside type="caution" title="Mainnet moves real funds">
+Mainnet payments settle **real MUSD**, and the facilitator pays **real BTC**
+for gas — there is no faucet. Set `PAY_TO` to an address you control on
+mainnet (the built-in default is the demo's address — on mainnet, unset
+`PAY_TO` means paying someone else with real money). Test with a small
+`price` first, and fund the receiving side with only what you intend to
+transact.
+</Aside>
+
 
 
 ## Troubleshooting
 
 | Symptom | Cause | Fix |
 |---------|-------|-----|
-| `does not provide an export named 'DEFAULT_STABLECOINS'` at runtime | A transitive dependency is pinning `@x402/paywall`/`@x402/evm` to `2.10.x`, which lacks Mezo support | <details><summary>Force both to `^2.11.0` via your package manager's overrides</summary><br/>**pnpm** — add to `package.json` (top level, alongside `dependencies`), then `pnpm install`:<br/>```<br/>"pnpm": { "overrides": { "@x402/paywall": "^2.11.0", "@x402/evm": "^2.11.0" } }<br/>```<br/>**npm** — top-level `"overrides": { ... }`, then `npm install`.<br/>**yarn** — `"resolutions": { ... }`, then `yarn install`.<br/>Override both packages together — `@x402/paywall` imports `DEFAULT_STABLECOINS` from `@x402/evm`.</details> |
-| Paywall shows `$10000000000.00` instead of `$0.001` | Same as above — `2.10.x` formats MUSD as 6-decimal USDC | <details><summary>Same fix — force `^2.11.0` via overrides</summary><br/>See the row above for the full snippet (`pnpm` / `npm` / `yarn` variants).</details> |
-| `EADDRINUSE: address already in use :::3000` | Another process is bound to port 3000 | Run `lsof -i :3000` to find the holder, or change `app.listen(3000, …)` to a free port |
+| `does not provide an export named 'DEFAULT_STABLECOINS'` at runtime | A transitive dependency is pinning `@x402/paywall`/`@x402/evm` to a release older than your target network needs (Mainnet needs `≥ 2.15.0`, Testnet `≥ 2.10.0`) | <details><summary>Force both to a current release via your package manager's overrides</summary><br/>**pnpm** — add to `package.json` (top level, alongside `dependencies`), then `pnpm install`:<br/>```<br/>"pnpm": { "overrides": { "@x402/paywall": "^2.16.0", "@x402/evm": "^2.16.0" } }<br/>```<br/>**npm** — top-level `"overrides": { ... }`, then `npm install`.<br/>**yarn** — `"resolutions": { ... }`, then `yarn install`.<br/>Override both packages together — `@x402/paywall` imports `DEFAULT_STABLECOINS` from `@x402/evm`.</details> |
+| Paywall shows `$10000000000.00` instead of `$0.001` | Same as above — an older `@x402` formats MUSD as 6-decimal USDC | <details><summary>Same fix — force `^2.16.0` via overrides</summary><br/>See the row above for the full snippet (`pnpm` / `npm` / `yarn` variants).</details> |
+| `install` fails resolving `@solana/kit@6.10.0` → `@solana/keys@6.10.0` (no matching version) | `@x402/paywall` pulls a transitive Solana SDK whose `6.10.0` release references sub-packages not yet published (a transient upstream gap). EVM-only sellers never use the Solana paywall, but the dependency still resolves at install | Pin the last good version via an override, then reinstall: **npm** top-level `"overrides": { "@solana/kit": "6.9.0" }`; **pnpm** `"pnpm": { "overrides": { "@solana/kit": "6.9.0" } }`; **yarn** `"resolutions": { "@solana/kit": "6.9.0" }` |
+| `EADDRINUSE: address already in use :::4021` | Another process is bound to port 4021 | Run `lsof -i :4021` to find the holder, or run on a free port: `PORT=5001 PAY_TO=0x… pnpm exec tsx server.ts` |
 | `tsx: command not found` | `tsx` dev dep didn't install, or command is being run outside the project directory | Rerun `pnpm add -D tsx` inside the project; invoke as `pnpm exec tsx server.ts` |
 | `SyntaxError` on `import` / TS syntax errors from Node | Using Node.js &lt; 20 | Upgrade to Node.js 20+ (`node --version` to check) |
 | Wallet prompts to switch network / payment never confirms | Wallet is on the wrong Mezo network | Confirm the wallet is on the chain ID the seller expects (`31611` for Testnet, `31612` for Mainnet) |
 | `402 Payment Required` returned but paywall UI never renders | `network` string is not a CAIP-2 identifier | Use `'eip155:31611'` or `'eip155:31612'` exactly; `'mezo-testnet'` and bare `31611` are both rejected |
 | Wallet refuses to add "Mezo Testnet" — or adds it but balances / transactions look wrong | Chain ID entered in hex (e.g. `0x7A5B`) when the wallet field expects decimal, or Mainnet chain ID (`31612`) used when you wanted Testnet | Enter the chain ID as decimal **`31611`** for Testnet (`31612` for Mainnet). The RPC URL must also point at testnet (`https://rpc.test.mezo.org`) — a testnet chain ID against a mainnet RPC silently produces a network that looks real but holds nothing |
-| Server errors immediately with `EVM_ADDRESS must be a 0x-prefixed 40-hex-character address` | Env var was not set, was missing the `0x` prefix, contained non-hex characters, or wasn't the right length | Copy the receiving address directly from your wallet (MetaMask's address field always has the correct form); set it as `EVM_ADDRESS=0x…`. Do not wrap the value in quotes on the command line |
-| Facilitator returns `unsupported network` | `FACILITATOR_URL` in `server.ts` points at `x402.org/facilitator` (no Mezo support) | Set the constant to a Mezo-capable facilitator (`https://facilitator.vativ.io/` for Testnet) |
+| Everything "works" but Account B never receives MUSD | `PAY_TO` wasn't set (the server silently falls back to the hosted demo's receiving address), or the address was typo'd — there is no format guard | Stop the server and restart with `PAY_TO=0x…` copied directly from your wallet's Account B; re-check the explorer after the next payment |
+| Facilitator returns `unsupported network` | `FACILITATOR_URL` was overridden to a facilitator without Mezo support (e.g. `x402.org/facilitator`) | Unset `FACILITATOR_URL` — the built-in default `https://facilitator.vativ.io` serves both Mezo networks |
 | Paywall loads but **Pay now** never settles, no error | Wallet has no MUSD, or MUSD is on the wrong network | Revisit Step 2; confirm the testnet MUSD token contract shows a balance |
 | Step 3 demo (demo.vativ.io) never settles | Same wallet/MUSD/network issue — isolate here before proceeding to Step 4 | Do not skip the Step 3 smoke test; fix the wallet side before writing server code |
+| Payment is signed in the wallet but the facilitator rejects it / verification fails | The asset's EIP-712 domain **name** was hand-rolled incorrectly | MUSD's EIP-712 domain name is **`Mezo USD`** (version `1`), **not** the `MUSD` symbol — a mismatch fails signature verification. Let the SDK supply it via `getDefaultAsset`, or set `name: "Mezo USD", version: "1"` exactly if you build the asset metadata yourself |
+| Running your own facilitator/settler: intermittent gas-estimation failures on Mezo | Mezo gas estimation needs modest headroom | Raise the gas limit / estimation multiplier at the signer. You won't hit this with the hosted `facilitator.vativ.io`, which already accounts for it |
 
 ## See also
 
@@ -419,7 +521,3 @@ in Account B on chain.
   adapt.
 - <a href="/docs/users/musd/mint-musd/" target="_blank" rel="noopener noreferrer">Borrow and Mint MUSD ↗</a>. User-side flow for acquiring MUSD (opens in new tab).
 - [Mezo Faucet](https://faucet.test.mezo.org). Testnet BTC.
-
-{/* Screenshot placeholder template — replicate this block for each screenshot you insert throughout the quickstart. The `paywall-local-initial.png` below is the one remaining reference image; treat it as the example pattern and add more `import` + `<Image>` pairs as needed. */}
-
-<Image src={paywallLocalInitial} alt="The x402 paywall UI at localhost:3000/paid before any wallet is connected: a 'Payment Required' heading, the text 'A paid endpoint on Mezo. To access this content, please pay $0.001 Mezo USD.', a 'Need Mezo USD on Mezo Testnet? Get some here.' link, and a wallet-select dropdown next to a blue Connect wallet button." />
