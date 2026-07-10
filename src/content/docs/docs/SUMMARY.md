@@ -60,6 +60,7 @@ topic: users
       * [Pools Links and Resources](users/mezo-earn/pools/pools-links-and-resources.md)
     * [Vaults](users/mezo-earn/vaults/index.md)
       * [Vaults Overview](users/mezo-earn/vaults/index.md)
+      * [Vault Notices](users/mezo-earn/vaults/vault-notices.md)
       * [MUSD Savings Vault](users/mezo-earn/vaults/musd-savings-vault.md)
   * [passport](users/passport/README.md)
     * [Send Assets](users/passport/send-assets.md)

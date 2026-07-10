@@ -272,6 +272,7 @@ export default defineConfig({
                                     collapsed: true,
                                     items: [
                                           'docs/users/mezo-earn/vaults',
+                                          'docs/users/mezo-earn/vaults/vault-notices',
                                           'docs/users/mezo-earn/vaults/musd-savings-vault'
                                     ]
                               }
