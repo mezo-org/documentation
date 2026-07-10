@@ -43,7 +43,7 @@ If you have a position in the vault, start your withdrawal by **July 31, 2026**.
 2. Select **Withdraw** and follow the prompts for your position.
 3. Confirm the transaction and allow approximately 48 hours for the withdrawal queue to process.
 
-After July 31, 2026, the Stablecoin Vault will no longer appear in the app. If you miss the withdrawal window, [contact Mezo Support](/docs/users/resources/support) for help with a manual withdrawal.
+After July 31, 2026, the Stablecoin Vault will no longer appear in the app. Mellow will manage the remaining funds and process late withdrawals. If you miss the withdrawal window, [open a support ticket in Mellow's Discord](https://discord.com/invite/mellow).
 
 ## Where to put stablecoins next
 
