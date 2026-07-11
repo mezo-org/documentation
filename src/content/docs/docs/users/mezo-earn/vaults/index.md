@@ -36,7 +36,7 @@ Visit [mezo.org/earn/vaults](https://mezo.org/earn/vaults) to explore available 
 
 ### Mezo Vaults
 
-Vaults built and managed by Mezo, such as the [MUSD Savings Vault](/docs/users/mezo-earn/vaults/musd-savings-vault) and [USDC Savings Vault](/docs/users/mezo-earn/vaults/usdc-savings-vault).
+Vaults built and managed by Mezo, such as the [MUSD Savings Vault](/docs/users/mezo-earn/vaults/musd-savings-vault) and [USDC Lending Vault](/docs/users/mezo-earn/vaults/usdc-lending-vault).
 
 ### External Vaults
 
