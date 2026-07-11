@@ -1,6 +1,93 @@
 ---
 title: How to Borrow mUSDC
-description: How to borrow mUSDC on Mezo
+description: Step-by-step guide for borrowing USDC against your BTC on Mezo.
 topic: users
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
+You can now borrow USDC against your Bitcoin on Mezo. This guide shows you how to complete the borrow process in the [Mezo App](https://mezo.org/feature/borrow).
+
+:::note
+When USDC is on Mezo, it is represented in the app as **mUSDC**. 1 USDC = 1 mUSDC.
+:::
+
+## Before you begin
+
+Before you can borrow mUSDC, you must complete the following steps:
+
+- Go to [mezo.org](https://mezo.org/) and click **Sign in** to connect to your Mezo account.
+- Connect a wallet to Mezo. See the [Connect to Mezo](/docs/users/getting-started/connect/) guide for instructions.
+- Have BTC on Mezo for collateral and gas. See [Deposit Assets](/docs/users/getting-started/deposit-assets) if you still need to bridge or deposit.
+- Optionally, add the mUSDC token to your wallet. You can add the token using the UI on the Mezo Explorer. Click the **Add token to MetaMask** button next to the mUSDC token address:
+    - Mainnet: [0x04671C72Aab5AC02A03c1098314b1BB6B560c197](https://explorer.mezo.org/token/0x04671C72Aab5AC02A03c1098314b1BB6B560c197)
+
+## Borrow mUSDC
+
+After you sign in to [mezo.org](https://mezo.org/) on an account with BTC, you can borrow mUSDC.
+
+<Steps>
+1. In your browser, open [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+
+2. Select **mUSDC** as the currency you want to borrow.
+
+3. Specify the amount of USDC you want to borrow and the amount of BTC you want to use as collateral.
+
+4. Click **Review** to open the summary before you confirm.
+
+5. Check the summary details — borrowed amount, collateral amount, projected LTV, liquidation price, and position health — to confirm the information is as you expect.
+
+6. When you are ready to proceed, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC.
+</Steps>
+
+After the process is complete, you can check the loan status on [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+
+## Understand the borrowing terms
+
+mUSDC uses a variable APR that moves with demand in the mUSDC market. There is no forced repayment date on Mezo, so you can keep your position open as long as you want, provided your LTV stays below the market’s Liquidation LTV.
+
+Your collateral determines how much you can borrow. The more BTC you add, the more room your position has if the BTC price moves down. Your position’s projected loan-to-value (LTV) ratio updates as you adjust your collateral and borrow amount. LTV is the value of your debt relative to your collateral. A higher LTV means a higher risk of liquidation.
+
+Importantly, borrowers should pay attention to the market’s Liquidation LTV. Your position can be eligible for liquidation if your projected LTV crosses the market’s Liquidation LTV. The gap between your LTV and the Liquidation LTV is your buffer — how much your LTV can rise before liquidation. Your LTV rises when BTC falls, so the buffer measures how hard a drawdown your position can absorb. For example, if the mUSDC market’s Liquidation LTV is 86% and your projected LTV is 31%, BTC can fall roughly 64% before the position is at risk.
+
+Interest accrues on the borrowed amount, so be mindful of how your debt grows over time. When you’re ready to close your position, you’ll need enough mUSDC to cover your principal plus any accrued interest.
+
+### LTV vs. collateralization ratio
+
+If you borrowed MUSD before this update, you managed your position using the collateralization ratio, or CR. LTV and CR measure the same risk from opposite directions. LTV divides your debt by your collateral value. CR divides your collateral value by your debt. One is the inverse of the other: an LTV of 50% is a CR of 200%, and a 31% LTV is a CR of about 323%.
+
+The thresholds convert the same way. The mUSDC market’s 86% Liquidation LTV is a CR of about 116%. MUSD’s 90% Liquidation LTV is a CR of about 111%. The Mezo app now shows LTV across its borrowing products, so one number reads the same everywhere.
+
+Additionally, MUSD has a redemption mechanism that helps hold its \$1 peg, which means an MUSD position can be redeemed against even while healthy. mUSDC has no redemption mechanism and only uses LTV.
+
+## Manage your loan
+
+Once you have an active loan, you can manage it through the Mezo App. From the Borrow dashboard, you can track how much mUSDC you owe, how much BTC is locked as collateral, your current LTV, your liquidation price, your current APR, and your recent activity. You can also repay your mUSDC to close the loan — once repaid, your collateral becomes available again, and your closed position appears in your borrow history.
+
+## USDC Lending Vault
+
+The USDC Lending Vault gives investors direct exposure to a transparent market for BTC-backed credit.
+
+Every mUSDC loan on Mezo is funded by capital supplied through the USDC Lending Vault. Depositors provide mUSDC to the vault, which allocates that liquidity to borrowers using BTC as collateral. Interest paid by borrowers accrues to the vault and forms the underlying source of depositor yield.
+
+Loans are overcollateralized by BTC, and collateral balances, outstanding debt, interest rates, and position health are recorded onchain. Deposited assets are not rehypothecated. The return earned by the vault can be traced directly to interest paid by borrowers.
+
+There is no minimum deposit and no protocol fee to enter or exit the vault. Withdrawals may be requested at any time, subject to the amount of liquidity not currently deployed across active loans. As utilization rises, withdrawal liquidity may decline until borrowers repay debt or new capital enters the vault. Depositors may also stake their vault shares in the associated gauge to receive MEZO emissions.
+
+## FAQs
+
+### What happens if your position is liquidated?
+
+Liquidation can happen if your LTV crosses the market’s Liquidation LTV, whether because BTC fell or because accrued interest grew your debt.
+
+For mUSDC, liquidation means another party can repay the debt and receive collateral from the position, and a 4% liquidation penalty comes out of your collateral. This protects the lending market, but it costs you real BTC.
+
+The best way to reduce liquidation risk is to borrow conservatively and monitor your position.
+
+### LTV vs. collateralization ratio
+
+If you borrowed MUSD before this update, you managed your position using the collateralization ratio, or CR. LTV and CR measure the same risk from opposite directions. LTV divides your debt by your collateral value. CR divides your collateral value by your debt. One is the inverse of the other: an LTV of 50% is a CR of 200%, and a 31% LTV is a CR of about 323%.
+
+The thresholds convert the same way. The mUSDC market’s 86% Liquidation LTV is a CR of about 116%. MUSD’s 90% Liquidation LTV is a CR of about 111%. The Mezo app now shows LTV across its borrowing products, so one number reads the same everywhere.
+
+Additionally, MUSD has a redemption mechanism that helps hold its \$1 peg, which means an MUSD position can be redeemed against even while healthy. mUSDC has no redemption mechanism and only uses LTV.
