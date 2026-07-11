@@ -185,10 +185,11 @@ export default defineConfig({
                         ]
                   },
                   {
-                        label: 'MUSD',
+                        label: 'Borrow',
                         collapsed: true,
                         items: [
                               'docs/users/musd',
+                              'docs/users/musd/how-to-borrow-musdc',
                               'docs/users/musd/mint-musd',
                               'docs/users/musd/fees',
                               'docs/users/musd/architecture-and-terminology',

@@ -46,15 +46,15 @@ A waiting period before tokens begin to unlock. In Mezo's vesting schedule, the 
 
 ## Collateral
 
-Assets pledged to secure a loan. On Mezo, BTC is deposited as collateral to borrow [MUSD](#musd). If the collateral's value drops too low relative to the debt, the position may be [liquidated](#liquidation). See [Borrow and Mint MUSD](/docs/users/musd/mint-musd).
+Assets pledged to secure a loan. On Mezo, BTC is deposited as collateral to borrow [MUSD](#musd). If the collateral's value drops too low relative to the debt, the position may be [liquidated](#liquidation). See [Borrow and Mint MUSD](/docs/users/borrow/mint-musd).
 
 ## Collateral Surplus
 
-The excess collateral remaining after a [trove](#trove) is fully redeemed against. This surplus is sent to a holding contract for the borrower to claim. See [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
+The excess collateral remaining after a [trove](#trove) is fully redeemed against. This surplus is sent to a holding contract for the borrower to claim. See [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Collateralization Ratio (ICR)
 
-Individual Collateralization Ratio. The ratio of the dollar value of a trove's collateral to its total debt. For example, if your BTC collateral is worth $13,000 and your debt is $10,000, your ICR is 130%. See [MUSD Key Concepts](/docs/users/musd/concepts).
+Individual Collateralization Ratio. The ratio of the dollar value of a trove's collateral to its total debt. For example, if your BTC collateral is worth $13,000 and your debt is $10,000, your ICR is 130%. See [MUSD Key Concepts](/docs/users/borrow/concepts).
 
 ## CometBFT
 
@@ -66,7 +66,7 @@ The modular framework used to build the Mezo blockchain. Cosmos SDK provides the
 
 ## Critical Collateralization Ratio (CCR)
 
-The system-wide collateral threshold set at 150%. When the Total Collateralization Ratio (TCR) falls below the CCR, the system enters [Recovery Mode](#recovery-mode). See [MUSD Key Concepts](/docs/users/musd/concepts).
+The system-wide collateral threshold set at 150%. When the Total Collateralization Ratio (TCR) falls below the CCR, the system enters [Recovery Mode](#recovery-mode). See [MUSD Key Concepts](/docs/users/borrow/concepts).
 
 ## dApp
 
@@ -110,7 +110,7 @@ A service that distributes small amounts of testnet tokens for development purpo
 
 ## Gas Compensation
 
-A 200 MUSD refund paid to the caller of a [liquidation](#liquidation) function, along with 0.5% of the liquidated collateral. This ensures liquidations remain profitable for callers even during high network activity. The 200 MUSD is deducted when a loan is opened and returned when the loan is closed normally. See [MUSD Architecture](/docs/users/musd/architecture-and-terminology).
+A 200 MUSD refund paid to the caller of a [liquidation](#liquidation) function, along with 0.5% of the liquidated collateral. This ensures liquidations remain profitable for callers even during high network activity. The 200 MUSD is deducted when a loan is opened and returned when the loan is closed normally. See [MUSD Architecture](/docs/users/borrow/architecture-and-terminology).
 
 ## Gauge
 
@@ -118,7 +118,7 @@ A smart contract that receives and distributes rewards based on votes. The more 
 
 ## Global Interest Rate
 
-A single interest rate set by governance that applies to all newly opened MUSD loans. Once a loan is opened, it retains the rate at which it was created, even if the global rate changes. Users can [refinance](#refinance) to adopt the current global rate. See [MUSD Key Concepts](/docs/users/musd/concepts).
+A single interest rate set by governance that applies to all newly opened MUSD loans. Once a loan is opened, it retains the rate at which it was created, even if the global rate changes. Users can [refinance](#refinance) to adopt the current global rate. See [MUSD Key Concepts](/docs/users/borrow/concepts).
 
 ## Governance
 
@@ -138,7 +138,7 @@ Rewards posted on gauges to attract votes. Protocols or users deposit incentives
 
 ## Liquidation
 
-The forced closure of an undercollateralized [trove](#trove). A trove can be liquidated when its [ICR](#collateralization-ratio-icr) falls below 110%. The liquidation threshold remains at 110% even during [Recovery Mode](#recovery-mode). The [Stability Pool](#stability-pool) absorbs the debt, and the liquidated collateral is distributed to Stability Pool depositors. See [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
+The forced closure of an undercollateralized [trove](#trove). A trove can be liquidated when its [ICR](#collateralization-ratio-icr) falls below 110%. The liquidation threshold remains at 110% even during [Recovery Mode](#recovery-mode). The [Stability Pool](#stability-pool) absorbs the debt, and the liquidated collateral is distributed to Stability Pool depositors. See [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Liquidity Pool
 
@@ -170,7 +170,7 @@ The primary web interface at [mezo.org](https://mezo.org) for interacting with t
 
 ## Mezo Borrow
 
-The feature within the Mezo App that allows users to deposit BTC as collateral and borrow [MUSD](#musd) against it. Each borrowing position is called a [trove](#trove). See [Borrow and Mint MUSD](/docs/users/musd/mint-musd).
+The feature within the Mezo App that allows users to deposit BTC as collateral and borrow [MUSD](#musd) against it. Each borrowing position is called a [trove](#trove). See [Borrow and Mint MUSD](/docs/users/borrow/mint-musd).
 
 ## Mezo Bridge
 
@@ -194,15 +194,15 @@ The liquidity pool system on Mezo, functioning as automated on-chain liquidity r
 
 ## Minimum Collateralization Ratio (MCR)
 
-The minimum collateral ratio required for a [trove](#trove), set at 110%. If a trove's [ICR](#collateralization-ratio-icr) falls below the MCR, it becomes eligible for [liquidation](#liquidation). See [MUSD Key Concepts](/docs/users/musd/concepts).
+The minimum collateral ratio required for a [trove](#trove), set at 110%. If a trove's [ICR](#collateralization-ratio-icr) falls below the MCR, it becomes eligible for [liquidation](#liquidation). See [MUSD Key Concepts](/docs/users/borrow/concepts).
 
 ## MUSD
 
-Mezo's Bitcoin-backed stablecoin, pegged to $1 USD. Users borrow MUSD by depositing BTC as collateral in a [trove](#trove). The peg is maintained through [redemptions](#redemption) and the [Stability Pool](#stability-pool). See [MUSD Overview](/docs/users/musd).
+Mezo's Bitcoin-backed stablecoin, pegged to $1 USD. Users borrow MUSD by depositing BTC as collateral in a [trove](#trove). The peg is maintained through [redemptions](#redemption) and the [Stability Pool](#stability-pool). See [MUSD Overview](/docs/users/borrow).
 
 ## MUSD Bridge
 
-The cross-chain bridge for transferring MUSD between Mezo and Ethereum, powered by Wormhole's [Native Token Transfer (NTT)](#wormhole-ntt) protocol. See [MUSD Bridge](/docs/users/musd/musd-bridge).
+The cross-chain bridge for transferring MUSD between Mezo and Ethereum, powered by Wormhole's [Native Token Transfer (NTT)](#wormhole-ntt) protocol. See [MUSD Bridge](/docs/users/borrow/musd-bridge).
 
 ## MUSD Savings Rate Gauge
 
@@ -222,11 +222,11 @@ A service that provides external data (such as asset prices) to smart contracts 
 
 ## Origination Fee
 
-A one-time fee charged when borrowing MUSD, calculated as 0.1% of the borrowed amount. The fee is added to the loan's principal and accrues interest. A refinancing origination fee (a fraction of the regular fee) is charged when [refinancing](#refinance). See [MUSD Key Concepts](/docs/users/musd/concepts).
+A one-time fee charged when borrowing MUSD, calculated as 0.1% of the borrowed amount. The fee is added to the loan's principal and accrues interest. A refinancing origination fee (a fraction of the regular fee) is charged when [refinancing](#refinance). See [MUSD Key Concepts](/docs/users/borrow/concepts).
 
 ## PCV
 
-Protocol Controlled Value. A contract that manages fees collected from MUSD borrowing and refinancing. Fees are allocated between paying down the bootstrap loan and the gauge system. Once the bootstrap loan is repaid, fees accrue as protocol-owned liquidity in the [Stability Pool](#stability-pool). See [MUSD Architecture](/docs/users/musd/architecture-and-terminology).
+Protocol Controlled Value. A contract that manages fees collected from MUSD borrowing and refinancing. Fees are allocated between paying down the bootstrap loan and the gauge system. Once the bootstrap loan is repaid, fees accrue as protocol-owned liquidity in the [Stability Pool](#stability-pool). See [MUSD Architecture](/docs/users/borrow/architecture-and-terminology).
 
 ## Poke
 
@@ -238,7 +238,7 @@ The smart contract that deploys new liquidity pools on Mezo. Currently managed b
 
 ## Portal Bridge
 
-The user interface at [portalbridge.com](https://portalbridge.com/) for bridging MUSD between Mezo and Ethereum using the Wormhole NTT protocol. See [MUSD Bridge](/docs/users/musd/musd-bridge).
+The user interface at [portalbridge.com](https://portalbridge.com/) for bridging MUSD between Mezo and Ethereum using the Wormhole NTT protocol. See [MUSD Bridge](/docs/users/borrow/musd-bridge).
 
 ## Price Feed
 
@@ -250,15 +250,15 @@ Anti-dilution distributions to veMEZO holders from weekly MEZO emissions. When t
 
 ## Recovery Mode
 
-A temporary safety state that activates when the system-wide Total Collateralization Ratio (TCR) falls below the [CCR](#critical-collateralization-ratio-ccr) of 150%. During Recovery Mode, the liquidation threshold remains at 110% (unlike Liquity v1, MUSD does not expand liquidations during Recovery Mode). However, new loans cannot be opened below 150%, and refinancing is blocked. See [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
+A temporary safety state that activates when the system-wide Total Collateralization Ratio (TCR) falls below the [CCR](#critical-collateralization-ratio-ccr) of 150%. During Recovery Mode, the liquidation threshold remains at 110% (unlike Liquity v1, MUSD does not expand liquidations during Recovery Mode). However, new loans cannot be opened below 150%, and refinancing is blocked. See [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Redemption
 
-The act of swapping MUSD for an equivalent dollar value of BTC directly from the protocol. Any MUSD holder can redeem, regardless of whether they are a borrower. Redemptions target the [trove](#trove) with the lowest collateralization ratio first. This mechanism helps maintain the MUSD peg at $1. See [Liquidations & Redemptions](/docs/users/musd/liquidation-mechanics).
+The act of swapping MUSD for an equivalent dollar value of BTC directly from the protocol. Any MUSD holder can redeem, regardless of whether they are a borrower. Redemptions target the [trove](#trove) with the lowest collateralization ratio first. This mechanism helps maintain the MUSD peg at $1. See [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Refinance
 
-The process of updating a loan's interest rate to the current [global interest rate](#global-interest-rate). Refinancing incurs a reduced origination fee but avoids the need to close and reopen a loan. You can also refinance to extend your line of credit if BTC has appreciated. See [MUSD Key Concepts](/docs/users/musd/concepts).
+The process of updating a loan's interest rate to the current [global interest rate](#global-interest-rate). Refinancing incurs a reduced origination fee but avoids the need to close and reopen a loan. You can also refinance to extend your line of credit if BTC has appreciated. See [MUSD Key Concepts](/docs/users/borrow/concepts).
 
 ## Router Contract
 
@@ -282,7 +282,7 @@ A contract that divides MEZO emissions between two destinations. Split ratios ar
 
 ## Stability Pool
 
-A reserve of MUSD that serves as the first line of defense against [liquidations](#liquidation). Users deposit MUSD into the Stability Pool and receive a share of liquidated collateral in return. The [PCV](#pcv) contract seeds the pool with an initial 100M MUSD deposit. See [MUSD Key Concepts](/docs/users/musd/concepts).
+A reserve of MUSD that serves as the first line of defense against [liquidations](#liquidation). Users deposit MUSD into the Stability Pool and receive a share of liquidated collateral in return. The [PCV](#pcv) contract seeds the pool with an initial 100M MUSD deposit. See [MUSD Key Concepts](/docs/users/borrow/concepts).
 
 ## Stable Pool
 
@@ -302,7 +302,7 @@ Fees charged on each token swap in a [liquidity pool](#liquidity-pool). Volatile
 
 ## tBTC
 
-A decentralized Bitcoin wrapper built by Thesis and powered by the [Threshold Network](#threshold-network). tBTC is backed 1:1 by native Bitcoin and is the form BTC takes when bridged to Ethereum-compatible networks. On Mezo, deposited BTC is routed through tBTC's custody infrastructure. See [MUSD Architecture](/docs/users/musd/architecture-and-terminology).
+A decentralized Bitcoin wrapper built by Thesis and powered by the [Threshold Network](#threshold-network). tBTC is backed 1:1 by native Bitcoin and is the form BTC takes when bridged to Ethereum-compatible networks. On Mezo, deposited BTC is routed through tBTC's custody infrastructure. See [MUSD Architecture](/docs/users/borrow/architecture-and-terminology).
 
 ## Tail Emissions
 
@@ -318,7 +318,7 @@ Token Generation Event. The moment when MEZO tokens were first created and distr
 
 ## Threshold Network
 
-A decentralized network that powers the [tBTC](#tbtc) bridge. Threshold operates a decentralized signer set that has bridged over 28,000 Bitcoin since early 2020. See [MUSD Architecture](/docs/users/musd/architecture-and-terminology).
+A decentralized network that powers the [tBTC](#tbtc) bridge. Threshold operates a decentralized signer set that has bridged over 28,000 Bitcoin since early 2020. See [MUSD Architecture](/docs/users/borrow/architecture-and-terminology).
 
 ## Token Distribution
 
@@ -330,7 +330,7 @@ See [Swap Fees](#swap-fees).
 
 ## Trove
 
-A collateralized debt position on Mezo, bound to a single Ethereum address. Users open a trove by depositing BTC and borrowing [MUSD](#musd) against it. Also referred to as a "CDP" in similar protocols. See [Borrow and Mint MUSD](/docs/users/musd/mint-musd).
+A collateralized debt position on Mezo, bound to a single Ethereum address. Users open a trove by depositing BTC and borrowing [MUSD](#musd) against it. Also referred to as a "CDP" in similar protocols. See [Borrow and Mint MUSD](/docs/users/borrow/mint-musd).
 
 ## Validator
 
@@ -366,8 +366,8 @@ The influence a position has when voting for gauges. For veBTC, calculated as lo
 
 ## Wormhole
 
-A cross-chain messaging protocol that powers the [MUSD Bridge](#musd-bridge). Wormhole enables secure token transfers between Mezo and Ethereum. See [MUSD Bridge](/docs/users/musd/musd-bridge).
+A cross-chain messaging protocol that powers the [MUSD Bridge](#musd-bridge). Wormhole enables secure token transfers between Mezo and Ethereum. See [MUSD Bridge](/docs/users/borrow/musd-bridge).
 
 ## Wormhole NTT
 
-Wormhole Native Token Transfer. The specific Wormhole protocol used for the [MUSD Bridge](#musd-bridge). NTT maintains token fungibility by locking tokens on the source chain and minting on the destination, keeping total supply constant across chains. See [MUSD Bridge](/docs/users/musd/musd-bridge).
+Wormhole Native Token Transfer. The specific Wormhole protocol used for the [MUSD Bridge](#musd-bridge). NTT maintains token fungibility by locking tokens on the source chain and minting on the destination, keeping total supply constant across chains. See [MUSD Bridge](/docs/users/borrow/musd-bridge).

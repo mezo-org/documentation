@@ -250,4 +250,4 @@ pnpm coverage
 
 -   **[MUSD Main README](https://github.com/mezo-org/musd/blob/main/README.md)** - Comprehensive architectural overview.
 -   **[Demo Test Suite](https://github.com/mezo-org/musd/blob/main/test/integration/Demo.test.ts)** - Working code examples.
--   **[MUSD User Guide](/docs/users/musd/)** - End-user documentation.
+-   **[MUSD User Guide](/docs/users/borrow/)** - End-user documentation.

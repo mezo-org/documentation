@@ -19,9 +19,9 @@ The MUSD Savings Vault is Mezo's native savings product for MUSD holders.
 MUSD protocol fees are split 50/50 between two destinations:
 
 - **MUSD Savings Vault** — distributed to sMUSD holders, or redirected to veBTC voters for staked sMUSD
-- **[Protocol bootstrap loan](/docs/users/musd/architecture-and-terminology/#protocol-bootstrap-loan) repayment**
+- **[Protocol bootstrap loan](/docs/users/borrow/architecture-and-terminology/#protocol-bootstrap-loan) repayment**
 
-This split is governable via the MUSD splitter, with a minimum of 50% going toward loan repayment until the bootstrap loan is fully repaid. After repayment, all fees flow to the Savings Vault. See [MUSD Fees](/docs/users/musd/fees/) for full details.
+This split is governable via the MUSD splitter, with a minimum of 50% going toward loan repayment until the bootstrap loan is fully repaid. After repayment, all fees flow to the Savings Vault. See [MUSD Fees](/docs/users/borrow/fees/) for full details.
 
 ---
 
