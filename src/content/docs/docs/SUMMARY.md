@@ -64,6 +64,7 @@ topic: users
       * [Vaults Overview](users/mezo-earn/vaults/index.md)
       * [Vault Notices](users/mezo-earn/vaults/vault-notices.md)
       * [MUSD Savings Vault](users/mezo-earn/vaults/musd-savings-vault.md)
+      * [USDC Savings Vault](users/mezo-earn/vaults/usdc-savings-vault.md)
   * [passport](users/passport/README.md)
     * [Send Assets](users/passport/send-assets.md)
     * [Mezo ID](users/passport/mezo-id.md)
