@@ -271,7 +271,7 @@ export default defineConfig({
                               },
                               {
                                     label: 'Vaults',
-                                    collapsed: true,
+                                    collapsed: false,
                                     items: [
                                           'docs/users/mezo-earn/vaults',
                                           'docs/users/mezo-earn/vaults/vault-notices',
