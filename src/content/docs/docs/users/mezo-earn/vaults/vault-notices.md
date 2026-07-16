@@ -35,7 +35,7 @@ The BTC Vault's yield is variable. Review its current strategy, rate, and risks 
 
 The Stablecoin Vault, operated by Lhava on Mellow's vault framework, is winding down. Deposits are already paused.
 
-If you have a position in the vault, start your withdrawal by **July 31, 2026**. The vault supports positions funded with mUSDC, mUSDT, or MUSD and issues **msvUSD** receipt tokens.
+If you have a position in the vault, start your withdrawal by **July 31, 2026**. The vault supports positions funded with mUSDC, mUSDT, or MUSD and issues **msvUSD** receipt tokens. Withdrawals are processed in mUSDC, regardless of whether your position was funded with mUSDC, mUSDT, or MUSD.
 
 ### How to withdraw
 
