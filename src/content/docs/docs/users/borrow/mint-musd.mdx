@@ -7,7 +7,7 @@ topic: users
 import { Steps } from '@astrojs/starlight/components';
 import YouTube from '../../../../../components/YouTube.astro';
 
-[MUSD](https://mezo.org/feature/musd) is available on Mezo Mainnet and available for testing on Mezo Testnet. This guide shows you how to complete the borrow process using Mezo Testnet as an example or as a way to borrow and mint MUSD for development purposes. Later, go to the [Mezo App](mezo.org) and sign in on Mainnet to borrow and mint real MUSD.
+[MUSD](https://mezo.org/feature/musd) is available on Mezo Mainnet and available for testing on Mezo Testnet. This guide shows you how to complete the borrow process using Mezo Testnet as an example or as a way to borrow and mint MUSD for development purposes. Later, go to the [Mezo App](https://mezo.org/) and sign in on Mainnet to borrow and mint real MUSD.
 
 <YouTube id="wot3-SR-25E" title="How to Open a Bitcoin-backed Loan on Mezo" />
 
@@ -19,7 +19,7 @@ The minimum loan size is **1,800 MUSD** of borrowed debt. With the 200 MUSD gas 
 
 Before you can get testnet MUSD, you must complete the following steps:
 
-- Go to [mezo.org](https://mezo.org/) and click **Sign in** to connect to your Mezo account.
+- Go to [testnet.mezo.org](https://testnet.mezo.org/) and click **Sign in** to connect to your Mezo account.
 - Connect an Ethereum wallet to Mezo Testnet. See the [Connect to Mezo Testnet](/docs/users/getting-started/connect/) guide for instructions.
 - Get testnet BTC on Testnet. You can request testnet BTC in [Discord](https://discord.com/invite/mezo).
 - Add the MUSD token to your wallet. You can add the token using the UI on the Mezo Explorer. Click the **Add token to MetaMask** button next to the MUSD token address:
@@ -28,25 +28,23 @@ Before you can get testnet MUSD, you must complete the following steps:
 
 ## Borrow and mint
 
-After you sign in to [mezo.org](https://mezo.org/) on an account with testnet BTC, you can borrow MUSD.
+:::tip[Testnet vs. Mainnet]
+This guide walks through the **Testnet** flow, so every link below points to `testnet.mezo.org`. When you're ready to borrow and mint real MUSD, go to [mezo.org/feature/borrow](https://mezo.org/feature/borrow) on **Mainnet** instead.
+:::
+
+After you sign in to [testnet.mezo.org](https://testnet.mezo.org/) on an account with testnet BTC, you can borrow MUSD.
 
 <Steps>
-1. In your browser, open [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
-
+1. In your browser, open [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow).
 2. Click the **Let's Go** button to start the borrow process.
-
 3. Specify the amount of MUSD you want to borrow and the amount of BTC you want to use as collateral.
-
 4. Click **Review** to open the summary before you confirm.
-
 5. Check the summary details to confirm the information is as you expect.
-
 6. Ensure that your browser wallet is actively set to Mezo Testnet.
-
 7. When you are ready to proceed with the [Borrow and Mint](/docs/users/borrow/mint-musd) process, click **Confirm**. Your browser wallet prompts you to confirm the transaction and pay the gas fees using BTC on Testnet.
 </Steps>
 
-After the process is complete, you can check the loan status on [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+After the process is complete, you can check the loan status on [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow) (or [mezo.org/feature/borrow](https://mezo.org/feature/borrow) if you're on Mainnet).
 
 ## Understand the borrowing terms
 
@@ -61,4 +59,3 @@ Interest accrues on the borrowed amount (the minted MUSD), so be mindful of how 
 Once you have an active loan, you can manage it through the Mezo App. Watch this video to learn how to adjust your collateral, repay your loan, or close your position.
 
 <YouTube id="RBKC1XfAEHw" title="How to Manage Your Loan" />
-
