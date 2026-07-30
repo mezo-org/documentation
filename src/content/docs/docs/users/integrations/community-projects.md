@@ -20,6 +20,17 @@ URL: [https://antwyr.com/](https://antwyr.com/)
 - Decode raw transaction calldata so you can inspect function names, parameters, and token amounts before signing.
 - Generate a live heatmap that visualizes currency volumes transacted per block on the Mezo network in real time.
 
+## Aurove
+
+[Aurove](https://www.aurove.xyz/) is a liquid ve-yield layer for Mezo Earn that turns locked veBTC and veMEZO positions into liquid, composable assets while keeping them deployed in managed yield strategies.
+
+URL: [https://www.aurove.xyz/](https://www.aurove.xyz/)
+
+- Deposit BTC or MEZO, or an existing veBTC or veMEZO position, into a managed tranche and receive a liquid tokenized claim.
+- Swap supported assets and veNFT positions, or provide concentrated liquidity to Aurove pools and collect fees.
+- Claim tranche and gauge rewards, redeem during weekly settlement windows, and earn points through Aurove Academy.
+- Aurove currently operates on Mezo Testnet. See the [Aurove docs](https://www.aurove.xyz/docs/introduction/what-is-aurove) and [Aurove on X](https://x.com/aurove_xyz) for product details and deployment updates.
+
 ## Matchbox
 
 [Matchbox](https://matchbox.markets) is a matching market that connects veBTC holders with veMEZO holders on Mezo, creating a marketplace for voting, incentives, and boost.
@@ -49,6 +60,16 @@ URL: [https://mezotools.cc/](https://mezotools.cc/)
 - Track system-level collateralization and monitor MUSD health metrics.
 - Review individual troves, redemptions, and liquidation activity.
 - Use it for higher-frequency monitoring beyond the core app views.
+
+## Range
+
+[Range](https://range.opturafi.com/) is an automated concentrated-liquidity rebalancing vault for Mezo's Uniswap V3-compatible DEX.
+
+URL: [https://range.opturafi.com/](https://range.opturafi.com/)
+
+- Deposit MUSD or BTC into an ERC-4626 vault to earn concentrated-liquidity fees without manually managing tick ranges.
+- Choose a range strategy that matches your risk appetite.
+- Track vault TVL, share price, the current tick range, and the complete rebalance history from the dashboard.
 
 ## veBoost Calculator
 

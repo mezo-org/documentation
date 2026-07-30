@@ -25,6 +25,7 @@ Some of the token contracts are `TransparentUpgradableProxy` contracts. Add the 
 | mUSDT | USDT | [0xeB5a5d39dE4Ea42C2Aa6A57EcA2894376683bB8E](https://explorer.mezo.org/token/0xeB5a5d39dE4Ea42C2Aa6A57EcA2894376683bB8E) | [0xdAC17F958D2ee523a2206206994597C13D831ec7](https://etherscan.io/address/0xdAC17F958D2ee523a2206206994597C13D831ec7) |
 | mxSolvBTC | xSolvBTC | [0xdF708431162Ba247dDaE362D2c919e0fbAfcf9DE](https://explorer.mezo.org/address/0xdF708431162Ba247dDaE362D2c919e0fbAfcf9DE) | [0xd9D920AA40f578ab794426F5C90F6C731D159DEf](https://etherscan.io/address/0xd9D920AA40f578ab794426F5C90F6C731D159DEf) |
 | BTC | tBTC | [0x7b7C000000000000000000000000000000000000](https://explorer.mezo.org/address/0x7b7C000000000000000000000000000000000000) | [0x18084fbA666a33d37592fA2633fD49a74DD93a88](https://etherscan.io/address/0x18084fbA666a33d37592fA2633fD49a74DD93a88) |
+| sUSDat (Staked USDat) | sUSDat | [0xde402D7021f3F7F00be5D0Ab5C238B2bE1d2904F](https://explorer.mezo.org/address/0xde402D7021f3F7F00be5D0Ab5C238B2bE1d2904F) | [0xD166337499E176bbC38a1FBd113Ab144e5bd2Df7](https://etherscan.io/address/0xD166337499E176bbC38a1FBd113Ab144e5bd2Df7) |
 | aMUSD | aMUSD | Not yet available on Mezo* | [0x52317a47585A6ACDfbD7a29B494c3E2baAE96aBc](https://etherscan.io/address/0x52317a47585A6ACDfbD7a29B494c3E2baAE96aBc) |
 
 :::note
