@@ -14,10 +14,6 @@ Each validator has an associated gauge in the [ValidatorsVoter contract](https:/
 
 Each gauge has a single beneficiary address that is authorized to claim rewards. By default, the beneficiary is the validator operator address registered in the [Proof of Authority (PoA) contract](https://explorer.mezo.org/address/0x7B7C000000000000000000000000000000000011?tab=read_contract#ca1e7819).
 
-:::note[No UI Yet]
-There is currently no dedicated UI for validator gauge operations. All actions described below — changing the beneficiary, voting, and claiming rewards — must be performed through the [Mezo block explorer](https://explorer.mezo.org) or via a custom script.
-:::
-
 :::note[Reward Release Schedule]
 Allocated epoch rewards are not immediately available for claim—they are gradually released over the epoch. For example, if rewards are allocated to a gauge at the beginning of epoch N, 100% of epoch N rewards will be available at the epoch's end.
 :::
