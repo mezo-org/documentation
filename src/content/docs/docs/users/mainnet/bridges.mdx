@@ -40,7 +40,7 @@ For BTC wallets, you can sign in with UniSat, OKX, and Xverse. Use the following
 
 *Last updated: November 14, 2025*
 
-This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process. Currently, the minimum required amount to bridge is 0.01 BTC for BTC assets on native Bitcoin, 0.0002 BTC for BTC assets on EVM, 20 for USD tokens (USDC, USDT), and 1,500 for T tokens. See more details [here.](#bridging-to-ethereum)
+This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process. Currently, the minimum required amount to bridge is 0.01 BTC for withrawing to native Bitcoin, 0.0002 BTC for withdrawing BTC to Ethereum, 20 for USD tokens bridged via Native Bridge (USDC, USDT, USDe, DAI), 0.01 for tokens bridged via Wormhole Bridge (MEZO, MUSD, sUSDat), and 1,500 for T tokens. See more details [here.](#bridging-to-ethereum)
 
 ### From Mezo to Other Networks
 
@@ -49,7 +49,7 @@ This guide explains how to bridge your assets out of Mezo back to the Ethereum o
 | **BTC** | Ethereum | tBTC (ERC-20 token) | You always receive tBTC on Ethereum, not WBTC or other wrapped versions |
 | **BTC** | Bitcoin | Native BTC | Real Bitcoin sent to your Bitcoin wallet |
 | **mERC-20 tokens** | Ethereum | Original ERC-20 token | Get back the same tokens you originally bridged in (like USDC, USDT, etc.) |
-| **MUSD** | Ethereum, Base | MUSD | Bridge as little as 1 MUSD between Mezo, Base, and Ethereum. Bridge powered by Wormhole. |
+| **MUSD** | Ethereum, Base | MUSD | Bridge as little as 0.01 MUSD between Mezo, Base, and Ethereum. Bridge powered by Wormhole. |
 | **MEZO** | Ethereum, Base, BSC, Solana | MEZO | Bridge powered by Wormhole NTT. See the [MEZO Bridge guide](/docs/users/mezo/mezo-bridge) for details. |
 | **mERC-20 tokens** | Bitcoin | Not available | ERC-20 tokens can't be sent to Bitcoin |
 
@@ -127,8 +127,8 @@ Withdrawals from Mezo include a simple fee:
 
 Minimum Withdrawal Amounts
 
-- BTC-based tokens (tBTC): 0.0002
-- USD-based tokens (mUSDC, mUSDT): 20
+- BTC-based tokens (BTC, mcbBTC, mFBTC, mSolvBTC, mswBTC, mxSolvBTC): 0.0002
+- USD-based tokens bridged via Native Bridge (mUSDC, mUSDT, mDAI, mUSDe): 20
 - mT tokens: 1,500
 
 Fees
