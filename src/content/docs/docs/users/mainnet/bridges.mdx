@@ -117,7 +117,7 @@ Fees will be accurately displayed in the app depending on the bridge route used 
 
 When bridging out, you pay fees for the bridging service and network operations. All fees are clearly displayed before you confirm any transaction.
 
-### Fee Structure (v2)
+### Native Bridge's Fee Structure (v2)
 
 Withdrawals from Mezo include a simple fee:
 
@@ -133,12 +133,12 @@ Minimum Withdrawal Amounts
 
 Fees
 
-- Flat Fee: ≈ $3 USD (per token equivalent)
-- Gas Fee: Paid in BTC, varies with network conditions
+- Mezo Bridge Service Fee: ≈ $3 USD (per token equivalent)
+- Network Fee (Gas): Paid in BTC, varies with network conditions
 
 Example:
 
-Withdrawing 1,000 USDC → $3 flat fee → receive ~997 USDC.
+Withdrawing 1,000 USDC → $3 Service Fee + variable Gas Fee → receive ~997 USDC.
 
 #### Bridging to Bitcoin
 
@@ -146,14 +146,14 @@ Minimum Withdrawal Amount: 0.01 BTC
 
 Fees
 
-- Gas Fee: Paid in BTC, varies
-- Withdrawal Fee: ≈ $3 flat
-- tBTC Treasury Fee: 0.2%
-- tBTC Redemption Fee: up to 0.001 BTC (usually < $1)
+- Network Fee (Gas): Paid in BTC, varies
+- Mezo Bridge Service Fee: ≈ 0.000027 BTC
+- tBTC Bridge Service Fee: 0.2% (of bridge amount minus Mezo Bridge Service Fee)
+- tBTC Bridge Maximum Network Fee: up to 0.001 BTC (usually < $1)
 
 Example:
 
-Withdrawing 1 BTC → 0.000025 BTC (~$3 flat) + 0.001998 BTC (Treasury) → receive ~0.998 BTC.
+Withdrawing 1 BTC → 0.000027 BTC (Mezo Bridge Service Fee) + 0.001999946 BTC (tBTC Bridge Service Fee) + variable tBTC Bridge Network Fee and Gas Fee  → receive ~0.997973 BTC.
 
 ## What Happens After You Submit
 
@@ -256,7 +256,7 @@ A: Assets can be bridged between Ethereum, Mezo, Base, and Bitcoin. Additional n
 A: See [Track Your Native Bitcoin Deposit](/docs/users/mainnet/track-your-native-bitcoin-deposit) for a step-by-step guide on using tBTCScan to verify your deposit status.
 
 **Q: Who pays for the gas on the destination network?**
-A: For Ethereum, the bridge system handles the final delivery gas costs. For Bitcoin, the tBTC Bridge Redemption Transaction Fee covers the cost of the on-chain transaction.
+A: For Ethereum, the bridge system handles the final delivery gas costs. For Bitcoin, the tBTC Bridge Network Fee covers the cost of the on-chain transaction.
 
 ## Security Model
 
@@ -278,4 +278,4 @@ Remember: Always verify addresses carefully and understand the fees before confi
 
 ## Deposit Portal
 
-Deposits that are still in the portal as part of the early deposit program can be withdrawn back to the user's BTC wallet. The withdrawal fees from the portal for BTC will depend on the parameters set in the tBTC bridge. Currently, tBTC charges a 0.2% redemption fee, and these parameters are governance-controlled and can be viewed in the [tBTC fees documentation](https://docs.threshold.network/applications/tBTC-v2/fees).
+Deposits that are still in the portal as part of the early deposit program can be withdrawn back to the user's BTC wallet. The withdrawal fees from the portal for BTC will depend on the parameters set in the tBTC bridge. Currently, tBTC charges a 0.2% tBTC Bridge Service Fee and up to 0.001 BTC (typically significantly less) tBTC Bridge Network Fee, and these parameters are governance-controlled and can be viewed in the [tBTC fees documentation](https://docs.threshold.network/applications/tBTC-v2/fees).
