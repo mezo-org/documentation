@@ -10,7 +10,7 @@ topic: users
 | --- | --- | --- |
 | **Issuance fee** | 0.1% of borrowed MUSD | Opening or increasing a loan |
 | **Interest** | 1–5% APR (fixed at open) | Accrues on outstanding debt |
-| **Redemption fee** | 0.75% | Exchanging MUSD for BTC collateral (waived for borrowers) |
+| **Redemption fee** | 0.75% | Exchanging MUSD for BTC collateral |
 | **Refinance fee** | 0.1% | Refinancing a loan to a new rate |
 | **Gas deposit** | 200 MUSD (flat) | Opening a loan (returned on close) |
 
@@ -30,7 +30,7 @@ At launch, interest fees fund the MUSD treasury stability pool, which covers liq
 
 ## Redemption Fees (0.75%)
 
-This fee is paid when exchanging MUSD for the BTC collateral. When a user has an outstanding loan, the redemption fee is zero. Users who do not have an outstanding MUSD loan must pay the 0.75% redemption fee.
+This 0.75% fee is paid by the redeemer during redemption (operation of paying up someone else's MUSD debt in exchange for that borrower's BTC collateral).
 
 At launch, redemption fees fund the MUSD treasury stability pool, which covers liquidations and bad debt.
 
