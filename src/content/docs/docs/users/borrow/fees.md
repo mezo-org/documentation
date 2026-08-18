@@ -11,7 +11,7 @@ topic: users
 | **Issuance fee** | 0.1% of borrowed MUSD | Opening or increasing a loan |
 | **Interest** | 1–5% APR (fixed at open) | Accrues on outstanding debt |
 | **Redemption fee** | 0.75% | Exchanging MUSD for BTC collateral |
-| **Refinance fee** | 0.1% | Refinancing a loan to a new rate |
+| **Refinance fee** | 0.02% of debt | Refinancing a loan to a new rate |
 | **Gas deposit** | 200 MUSD (flat) | Opening a loan (returned on close) |
 
 ## Fee Distribution
@@ -38,9 +38,9 @@ At launch, redemption fees fund the MUSD treasury stability pool, which covers l
 
 The issuance fee is paid when an MUSD loan is opened. The fee is 0.1% of borrowed MUSD and is paid in MUSD. A $10,000 MUSD loan would pay a $10 issuance fee in MUSD. If you increase your loan, you pay the issuance fee on the newly borrowed MUSD.
 
-## Refinance Fee (0.1%)
+## Refinance Fee (0.02% of debt)
 
-The refinance fee is incurred when a MUSD loan holder extends their line of credit or reduces the amount of collateral backing their loan. Refinancing fees are paid in MUSD.
+The refinance fee is incurred when a MUSD loan holder requests to update the loan's interest rate. The borrower may want to refinance their loan if the interest rate offered for new loans is better than the fixed interest rate on the user's loan. Refinancing allows to update the loan's rate to the new rate. Each refinance request incurs a refinance fee of 0.02% of the debt and is paid in MUSD.  
 
 ## Gas Deposit (`$200` flat fee)
 
