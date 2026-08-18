@@ -71,11 +71,8 @@ BTC wallets are supported in the Mezo App and can receive a Mezo network address
 - Bridge EVM Assets
 - Borrow, repay, or manage collateral for a loan
 - Purchase items on the MUSD Market
-- Receive Assets on the Mezo Network
-
-BTC wallets cannot currently send assets on the Mezo Network.
-
-As the network evolves, more features and capabilities will be made available to BTC wallets.
+- Receive and send assets on the Mezo Network
+- Participate in Mezo Earn (lock, vote, deposit/withdraw to/from vaults and pools, claim rewards)
 
 ## OKX Wallet 
 ### Why can't I see my Mezo assets in OKX Wallet?
