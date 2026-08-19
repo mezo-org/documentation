@@ -42,9 +42,9 @@ The issuance fee is paid when an MUSD loan is opened or when a loan holder borro
 
 The refinance fee is incurred when a MUSD loan holder requests to update the loan's interest rate. The borrower may want to refinance their loan if the interest rate offered for new loans is better than the fixed interest rate on the user's loan. Refinancing allows to update the loan's rate to the new rate. Each refinance request incurs a refinance fee of 0.02% of the debt and is paid in MUSD.  
 
-## Gas Deposit (`$200` flat fee)
+## Gas Deposit (`200 MUSD` flat fee)
 
-A $200 deposit ensures that liquidations are viable. It is returned when the loan is closed. The gas deposit is minted as extra debt in the loan and held in escrow until the loan is closed. This debt counts towards calculating the collateralization ratio.
+A 200 MUSD deposit ensures that liquidations are viable. It is returned when the loan is closed. The gas deposit is minted as extra debt in the loan and held in escrow until the loan is closed. This debt counts towards calculating the collateralization ratio.
 
 ## Other Gas & Transaction Fees
 
