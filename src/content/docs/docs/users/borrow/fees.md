@@ -55,7 +55,7 @@ Users interacting with the MUSD system will have to pay transaction fees for eac
 :::caution
 Borrowing MUSD carries risk. Understanding these risks helps you protect your position.
 
-**Redemption risk** — To maintain the MUSD peg, the protocol can redeem MUSD against collateral, starting with the loans that have the **lowest collateral ratio**. If your loan is redeemed against, you lose exposure to BTC price upside and may face tax implications. To reduce this risk, keep your collateral ratio higher than other borrowers.
+**Redemption risk** — To maintain the MUSD peg, the protocol can redeem MUSD against collateral, starting with the loans that have the **lowest collateral ratio** (but are still above the 110% liquidation threshold). If your loan is redeemed against, you lose exposure to BTC price upside and may face tax implications. To reduce this risk, keep your collateral ratio higher than other borrowers.
 
 **Liquidation risk** — If your loan's collateral ratio falls **below 110%**, your position can be liquidated. You lose your collateral and keep the borrowed MUSD. To reduce this risk, monitor your loan regularly and add collateral when needed. For full details, see [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 :::
