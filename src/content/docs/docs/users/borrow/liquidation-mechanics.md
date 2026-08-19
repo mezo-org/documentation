@@ -1,5 +1,5 @@
 ---
-title: Liquidations & Redemptions
+title: MUSD Liquidations & Redemptions
 description: >-
   Learn about liquidations and redemptions.
 topic: users

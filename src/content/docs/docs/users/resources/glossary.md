@@ -50,7 +50,7 @@ Assets pledged to secure a loan. On Mezo, BTC is deposited as collateral to borr
 
 ## Collateral Surplus
 
-The excess collateral remaining after a [trove](#trove) is fully redeemed against. This surplus is sent to a holding contract for the borrower to claim. See [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
+The excess collateral remaining after a [trove](#trove) is fully redeemed against. This surplus is sent to a holding contract for the borrower to claim. See [MUSD Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Collateralization Ratio (ICR)
 
@@ -138,7 +138,7 @@ Rewards posted on gauges to attract votes. Protocols or users deposit incentives
 
 ## Liquidation
 
-The forced closure of an undercollateralized [trove](#trove). A trove can be liquidated when its [ICR](#collateralization-ratio-icr) falls below 110%. The liquidation threshold remains at 110% even during [Recovery Mode](#recovery-mode). The [Stability Pool](#stability-pool) absorbs the debt, and the liquidated collateral is distributed to Stability Pool depositors. See [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
+The forced closure of an undercollateralized [trove](#trove). A trove can be liquidated when its [ICR](#collateralization-ratio-icr) falls below 110%. The liquidation threshold remains at 110% even during [Recovery Mode](#recovery-mode). The [Stability Pool](#stability-pool) absorbs the debt, and the liquidated collateral is distributed to Stability Pool depositors. See [MUSD Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Liquidity Pool
 
@@ -250,11 +250,11 @@ Anti-dilution distributions to veMEZO holders from weekly MEZO emissions. When t
 
 ## Recovery Mode
 
-A temporary safety state that activates when the system-wide Total Collateralization Ratio (TCR) falls below the [CCR](#critical-collateralization-ratio-ccr) of 150%. During Recovery Mode, the liquidation threshold remains at 110% (unlike Liquity v1, MUSD does not expand liquidations during Recovery Mode). However, new loans cannot be opened below 150%, and refinancing is blocked. See [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
+A temporary safety state that activates when the system-wide Total Collateralization Ratio (TCR) falls below the [CCR](#critical-collateralization-ratio-ccr) of 150%. During Recovery Mode, the liquidation threshold remains at 110% (unlike Liquity v1, MUSD does not expand liquidations during Recovery Mode). However, new loans cannot be opened below 150%, and refinancing is blocked. See [MUSD Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Redemption
 
-The act of swapping MUSD for an equivalent dollar value of BTC directly from the protocol. Any MUSD holder can redeem, regardless of whether they are a borrower. Redemptions target the [trove](#trove) with the lowest collateralization ratio first. This mechanism helps maintain the MUSD peg at $1. See [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
+The act of swapping MUSD for an equivalent dollar value of BTC directly from the protocol. Any MUSD holder can redeem, regardless of whether they are a borrower. Redemptions target the [trove](#trove) with the lowest collateralization ratio first. This mechanism helps maintain the MUSD peg at $1. See [MUSD Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Refinance
 
