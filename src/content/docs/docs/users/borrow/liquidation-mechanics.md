@@ -9,7 +9,7 @@ topic: users
 When you borrow against your Bitcoin as collateral, you create a loan position (also called a "Trove"). Two key system events can affect your loan:
 
 - **Liquidation**: A forced closure of your loan that happens only if its health, measured by the collateral ratio, drops below a critical minimum of 110%. In a liquidation, you lose your collateral.
-- **Redemption**: Anyone holding borrowed stablecoins can swap it with the protocol for $1 of BTC, which keeps the stablecoin near $1. The system pulls that BTC from the loans with the lowest collateral ratios first, so a redemption can shrink your loan even when your collateral ratio is above 110%. It removes debt and collateral in equal dollar amounts, so your loan ends up smaller and safer.
+- **Redemption**: Anyone holding MUSD can exchange it with the protocol for BTC at $1 per MUSD (minus a redemption fee, currently 0.75%), which keeps MUSD's price close to $1 through arbitrage. Redemptions pull BTC from the trove with the lowest collateral ratio first (as long as it's still above the 110% liquidation threshold), so a redemption can shrink your loan even while your trove is safe from liquidation. If the redemption amount is smaller than that trove's debt, it's a partial redemption — only some of the debt is cancelled. If it's larger, the trove is fully redeemed and the leftover amount rolls over to the next-lowest-CR trove. Either way, debt and collateral are removed in equal dollar amounts, which raises the affected trove's collateralization ratio — though the borrower loses BTC exposure in the process.
 
 ---
 
@@ -48,13 +48,13 @@ There are two ways the system handles a liquidation:
 ## Redemptions 🛡️
 
 ### What is a Redemption?
-A redemption is a feature that allows anyone holding a stablecoin to swap it for an equal dollar value of BTC directly from the protocol. This process ensures the stablecoin always holds its \$1 peg. It is not a penalty and does not mean your loan is unsafe.
+A redemption is a feature that allows anyone holding a stablecoin to swap it for an equal dollar value of BTC (minus the redemption fee) directly from the protocol. This process helps keeping the stablecoin near its \$1 peg. It is not a penalty and does not mean your loan is unsafe.
 
 ### When Does a Redemption Happen?
 Redemptions can happen at any time. When a user wants to redeem their stablecoin for BTC, the system looks for loans to source the collateral from.
 
 ### Which Loans Are Chosen for Redemption?
-The system always starts with the loan that has the lowest collateral ratio—even if that ratio is healthy and well above 110%. If your loan is less collateralized than others, it is more likely to be chosen for a redemption.
+The system always starts with the loan that has the lowest collateral ratio, but is still above the 110% liquidation threshold — even if that ratio is healthy and well above 110%. If your loan is less collateralized than others, it is more likely to be chosen for a redemption.
 
 ### What Happens During a Redemption?
 
