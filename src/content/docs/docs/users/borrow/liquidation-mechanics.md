@@ -9,7 +9,7 @@ topic: users
 When you borrow against your Bitcoin as collateral, you create a loan position (also called a "Trove"). Two key system events can affect your loan:
 
 - **Liquidation**: A forced closure of your loan that happens only if its health, measured by the collateral ratio, drops below a critical minimum of 110%. In a liquidation, you lose your collateral.
-- **Redemption**: Anyone holding MUSD can exchange it with the protocol for BTC at $1 per MUSD (minus a redemption fee, currently 0.75%), which keeps MUSD's price close to $1 through arbitrage. Redemptions pull BTC from the trove with the lowest collateral ratio first (as long as it's still above the 110% liquidation threshold), so a redemption can shrink your loan even while your trove is safe from liquidation. If the redemption amount is smaller than that trove's debt, it's a partial redemption — only some of the debt is cancelled. If it's larger, the trove is fully redeemed and the leftover amount rolls over to the next-lowest-CR trove. Either way, debt and collateral are removed in equal dollar amounts, which raises the affected trove's collateralization ratio — though the borrower loses BTC exposure in the process.
+- **Redemption**: Anyone holding MUSD can exchange it with the protocol for BTC at \$1 per MUSD (minus a redemption fee, currently 0.75%), which keeps MUSD's price close to \$1 through arbitrage. Redemptions pull BTC from the trove with the lowest collateral ratio first (as long as it's still above the 110% liquidation threshold), so a redemption can shrink your loan even while your trove is safe from liquidation. If the redemption amount is smaller than that trove's debt, it's a partial redemption — only some of the debt is cancelled. If it's larger, the trove is fully redeemed and the leftover amount rolls over to the next-lowest-CR trove. Either way, debt and collateral are removed in equal dollar amounts, which raises the affected trove's collateralization ratio — though the borrower loses BTC exposure in the process.
 
 ---
 
@@ -77,7 +77,7 @@ The system always starts with the loan that has the lowest collateral ratio, but
   - Your new collateral ratio is now 160% (\$8,000 / 5,000 MUSD), making your loan much safer!
 
 ### How to Get Your Leftover Collateral After a Full Redemption
-If your loan is fully paid off through a redemption, your surplus collateral is safe. You can reclaim it at any time.
+If your loan is fully paid off through a redemption, your surplus collateral is safe. You can reclaim it at any time via Mezo app.
 
 Important Note: The current user interface may not show your available surplus. If you do not see a "Loan redeemed" alert on the Borrow page, follow our [How To Claim Your Collateral After a Full Redemption](/docs/users/borrow/claim-collateral-after-redemption/) guide to manually claim it through the Mezo Explorer.
 

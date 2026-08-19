@@ -54,7 +54,7 @@ The excess collateral remaining after a [trove](#trove) is fully redeemed agains
 
 ## Collateralization Ratio (ICR)
 
-Individual Collateralization Ratio. The ratio of the dollar value of a trove's collateral to its total debt. For example, if your BTC collateral is worth $13,000 and your debt is $10,000, your ICR is 130%. See [MUSD Key Concepts](/docs/users/borrow/concepts).
+Individual Collateralization Ratio. The ratio of the dollar value of a trove's collateral to its total debt. For example, if your BTC collateral is worth \$13,000 and your debt is \$10,000, your ICR is 130%. See [MUSD Key Concepts](/docs/users/borrow/concepts).
 
 ## CometBFT
 
@@ -198,7 +198,7 @@ The minimum collateral ratio required for a [trove](#trove), set at 110%. If a t
 
 ## MUSD
 
-Mezo's Bitcoin-backed stablecoin, pegged to $1 USD. Users borrow MUSD by depositing BTC as collateral in a [trove](#trove). The peg is maintained through [redemptions](#redemption) and the [Stability Pool](#stability-pool). See [MUSD Overview](/docs/users/borrow).
+Mezo's Bitcoin-backed stablecoin, pegged to \$1 USD. Users borrow MUSD by depositing BTC as collateral in a [trove](#trove). The peg is maintained through [redemptions](#redemption) and the [Stability Pool](#stability-pool). See [MUSD Overview](/docs/users/borrow).
 
 ## MUSD Bridge
 
@@ -254,7 +254,7 @@ A temporary safety state that activates when the system-wide Total Collateraliza
 
 ## Redemption
 
-The act of swapping MUSD for an equivalent dollar value of BTC directly from the protocol. Any MUSD holder can redeem, regardless of whether they are a borrower. Redemptions target the [trove](#trove) with the lowest collateralization ratio first. This mechanism helps maintain the MUSD peg at $1. See [MUSD Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
+The act of swapping MUSD for an equivalent dollar value of BTC directly from the protocol. Any MUSD holder can redeem, regardless of whether they are a borrower. Redemptions target the [trove](#trove) with the lowest collateralization ratio first. This mechanism helps maintain the MUSD peg at \$1. See [MUSD Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ## Refinance
 
