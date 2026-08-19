@@ -36,7 +36,7 @@ At launch, redemption fees fund the MUSD treasury stability pool, which covers l
 
 ## Issuance Fee (0.1%)
 
-The issuance fee is paid when an MUSD loan is opened. The fee is 0.1% of borrowed MUSD and is paid in MUSD. A $10,000 MUSD loan would pay a $10 issuance fee in MUSD. If you increase your loan, you pay the issuance fee on the newly borrowed MUSD.
+The issuance fee is paid when an MUSD loan is opened or when a loan holder borrows more MUSD. The fee is 0.1% of borrowed amount and is paid in MUSD. A $10,000 MUSD loan would pay a $10 issuance fee in MUSD. If you increase your loan, you pay the issuance fee on the newly borrowed MUSD.
 
 ## Refinance Fee (0.02% of debt)
 
