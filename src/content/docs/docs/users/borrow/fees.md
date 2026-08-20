@@ -30,7 +30,7 @@ At launch, interest fees fund the MUSD treasury stability pool, which covers liq
 
 ## Redemption Fees (0.75%)
 
-This 0.75% fee is paid by the redeemer during redemption (operation of paying up someone else's MUSD debt in exchange for that borrower's BTC collateral).
+A 0.75% fee withheld from the BTC a redeemer receives when they exchange MUSD for collateral during [redemption](/docs/users/borrow/liquidation-mechanics#redemptions-%EF%B8%8F). It is paid by the redeemer, not by the borrower whose loan is redeemed against.
 
 At launch, redemption fees fund the MUSD treasury stability pool, which covers liquidations and bad debt.
 
