@@ -38,9 +38,9 @@ For BTC wallets, you can sign in with UniSat, OKX, and Xverse. Use the following
 
 ## Moving Your Assets from Mezo to Other Networks
 
-*Last updated: August, 2026*
+*Last updated: September 2026*
 
-This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process. Currently, the minimum required amount to bridge is 0.01 BTC for withrawing to native Bitcoin, 0.0002 BTC for withdrawing BTC to Ethereum, 20 for USD tokens bridged via Native Bridge (USDC, USDT, USDe, DAI), 0.01 for tokens bridged via Wormhole Bridge (MEZO, MUSD, sUSDat), and 1,500 for T tokens. See more details [here.](#bridging-to-ethereum)
+This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process. Currently, the minimum required amount to bridge is 0.01 BTC for withrawing to native Bitcoin, 0.0002 BTC for withdrawing BTC to Ethereum, 20 of the token for USD tokens bridged via Native Bridge (USDC, USDT, USDe, DAI), 0.01 of the token for tokens bridged via Wormhole Bridge (MEZO, MUSD, sUSDat), and 1,500 T for T token. See more details [here.](#bridging-to-ethereum)
 
 ### From Mezo to Other Networks
 
@@ -133,7 +133,7 @@ Minimum Withdrawal Amounts
 
 Fees
 
-- Mezo Bridge Service Fee: ≈ $3 USD (per token equivalent)
+- Mezo Bridge Service Fee: ≈ $3 USD (computed in the target tokent)
 - Network Fee (Gas): Paid in BTC, varies with network conditions
 
 Example:
@@ -148,12 +148,19 @@ Fees
 
 - Network Fee (Gas): Paid in BTC, varies
 - Mezo Bridge Service Fee: ≈ 0.000027 BTC
-- tBTC Bridge Service Fee: 0.2% (of bridge amount minus Mezo Bridge Service Fee)
-- tBTC Bridge Maximum Network Fee: up to 0.001 BTC (usually < $1)
+- tBTC Bridge Service Fee: 0.2% (after Mezo Bridge Service Fee)
+- tBTC Bridge Maximum Network Fee: up to 0.001 BTC (though usually < $1)
 
-Example:
+##### Example:
 
-Withdrawing 1 BTC → 0.000027 BTC (Mezo Bridge Service Fee) + 0.001999946 BTC (tBTC Bridge Service Fee) + variable tBTC Bridge Network Fee and Gas Fee  → receive ~0.997973 BTC.
+Withdraw amount: 1 BTC
+
+Fees:
+  - 0.000027 BTC (Mezo Bridge Service Fee)
+  - 0.001999946 BTC (tBTC Bridge Service Fee)
+  - variable tBTC Bridge Network Fee and Gas Fee
+
+Received amount: ~0.997973 BTC.
 
 ## What Happens After You Submit
 
