@@ -1,0 +1,83 @@
+---
+title: How to Vote on Mezo Gauges
+description: Step-by-step guide to directing veMEZO voting power to Mezo Gauges
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezo Gauges are voted on with **veMEZO**, on their own page, independently of veBTC gauge voting and boost matching.
+
+## Prerequisites
+
+- A wallet connected to Mezo (MetaMask, Rabby, or any WalletConnect-supported wallet)
+- An active veMEZO position
+- A small amount of BTC for gas
+
+You do **not** need veBTC, an LP position, or a position in the destination pool to vote. See [How to Lock MEZO](/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) if you don't have veMEZO yet.
+
+---
+
+## Cast your vote
+
+<Steps>
+1. Go to the **Vote** tab on [mezo.org](https://mezo.org) and open the **Mezo Gauges** page.
+
+2. Review the available gauges. Each row shows the destination venue and chain, the pool, the votes already directed to it, and any incentives posted on the gauge.
+
+3. Enter the percentage of your veMEZO voting power you want to allocate to each gauge. You can split across several — for example 60% to Aerodrome USDC/MUSD and 40% to Curve USDT/USDC/MUSD.
+
+4. Click **Submit Votes** and sign the transaction.
+</Steps>
+
+Your allocation is registered for the current epoch as soon as the transaction confirms.
+
+:::note[Mezo Gauge rows show no vAPR]
+A staking gauge can quote a vAPR because emissions and fees land on Mezo. A Mezo Gauge cannot — the value lands on Curve, Uniswap, or Aerodrome, and accrues to positions there. Rather than render a misleading zero, the vAPR column is suppressed on these rows. Fees and TVL shown for a Mezo Gauge are pulled from the destination venue and accrue there; incentives shown are posted on Mezo and accrue to you.
+:::
+
+---
+
+## The voting window
+
+Mezo Gauges follow the same weekly cycle as the rest of Mezo Earn.
+
+- Epochs run **7 days, turning over Thursday 00:00 UTC**
+- Voting is open throughout the epoch and closes at the turnover
+- Votes are tallied at the turnover, and each gauge's MEZO allocation is set by its share of total veMEZO votes cast on Mezo Gauges
+
+**Unvoted emissions.** MEZO is split across Mezo Gauges strictly in proportion to the votes cast. A gauge that receives no votes receives no MEZO, and its share is spread across the gauges that did get votes. Voting power you leave unallocated simply does not influence the split — and earns you no incentives.
+
+---
+
+## Changing or resetting your vote
+
+Your allocation **persists across epochs** until you change it. If you are happy with your split, you do not need to re-submit every week — it keeps earning you a share of that gauge's incentives each epoch.
+
+**To change it:** return to the Mezo Gauges page, enter a new allocation, and submit. The new split replaces the old one from the epoch in which it confirms.
+
+**To reset it:** set your allocation to zero across all gauges and submit, which withdraws your voting power from Mezo Gauges entirely.
+
+You can change or reset as often as you like within an epoch; only your allocation at the epoch turnover counts toward that epoch's split.
+
+:::caution
+Changing your vote mid-epoch moves your **whole** weight for that epoch — you are not credited pro-rata for the part of the week your earlier allocation was in place.
+:::
+
+---
+
+## Does this affect my boost or my veBTC votes?
+
+No. Voting on Mezo Gauges is independent:
+
+- It does not consume veMEZO you are using to [boost](/docs/users/mezo-earn/lock/vemezo/boost-mechanism) a veBTC position, and does not reduce a boost you have already provided
+- It does not require a [poke](/docs/users/mezo-earn/vote/how-to-vote#important-poke-after-changes) — poking refreshes veBTC boosted weight, which Mezo Gauge voting does not touch
+- It has no effect on where your veBTC votes send staking gauge emissions
+
+---
+
+## Next steps
+
+- [Where Your Vote Goes](/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — what happens after the epoch closes
+- [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — how LPs collect the MEZO you directed
+- [Mezo Gauges Overview](/docs/users/mezo-earn/vote/mezo-gauges) — the mechanism and the eligible pools

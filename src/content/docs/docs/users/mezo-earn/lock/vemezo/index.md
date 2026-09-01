@@ -13,9 +13,10 @@ When you lock MEZO on Mezo, you receive a veMEZO NFT that represents your locked
 - Boost multiplier on your veBTC voting power (up to 5x)
 - Rebase rewards from weekly MEZO emissions to offset dilution
 - Participation in the matching market to earn incentives from veBTC holders
+- Votes on [Mezo Gauges](/docs/users/mezo-earn/vote/mezo-gauges), directing MEZO emissions to MUSD pools on Curve, Uniswap, and Aerodrome
 
 :::note[Important]
-veMEZO does not grant independent voting power. It only multiplies the voting power of veBTC positions. Without veBTC, your veMEZO cannot participate in gauge voting.
+veMEZO does not vote on **staking gauges** on its own — there it only multiplies the voting power of veBTC positions. It does vote in its own right on veBTC boost gauges and on [Mezo Gauges](/docs/users/mezo-earn/vote/mezo-gauges).
 :::
 
 ---
