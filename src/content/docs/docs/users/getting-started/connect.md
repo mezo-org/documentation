@@ -71,22 +71,8 @@ BTC wallets are supported in the Mezo App and can receive a Mezo network address
 - Bridge EVM Assets
 - Borrow, repay, or manage collateral for a loan
 - Purchase items on the MUSD Market
-- Receive Assets on the Mezo Network
-
-BTC wallets cannot currently send assets on the Mezo Network.
-
-As the network evolves, more features and capabilities will be made available to BTC wallets.
-
-## OKX Wallet 
-### Why can't I see my Mezo assets in OKX Wallet?
-While you can successfully add the Mezo network to OKX Wallet, there is currently a limitation where Mezo assets may not display directly in the wallet interface. What you need to check:
-
-- Verify the Mezo network is added - Make sure you've added the custom Mezo network to your wallet with the correct RPC URL and Chain ID (31612)
-- Check your network selection - Ensure the Mezo network is selected in the top right corner of your wallet
-- Custom asset limitation - Even with the Mezo network added, it may not appear in the networks dropdown when trying to add custom assets
-
-### Need help?
-If you're experiencing issues with displaying Mezo assets or adding custom tokens on OKX Wallet, please reach out to OKX Wallet Support on their Discord server for additional guidance and troubleshooting. They can provide specific assistance with wallet functionality and may have updates on supporting custom networks like Mezo.
+- Receive and send assets on the Mezo Network
+- Participate in Mezo Earn (lock, vote, deposit/withdraw to/from vaults and pools, claim rewards)
 
 ## Developers
 

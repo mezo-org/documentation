@@ -27,14 +27,14 @@ MUSD uses a CDP (collateralized debt position) model. Every outstanding MUSD is 
 
 This mint-and-redeem model is what keeps MUSD pegged to \$1 — even in volatile markets:
 
-* **MUSD trading below \$1** — Arbitrageurs buy discounted MUSD on the market and redeem it for \$1 of underlying BTC. Users with an open loan can do this at no additional cost. Those without a loan pay a 0.75% redemption fee, which remains profitable until MUSD reaches \$0.995.
+* **MUSD trading below \$1** — Arbitrageurs buy discounted MUSD on the market and redeem it for \$1 of underlying BTC, paying a 0.75% redemption fee, which remains profitable until MUSD reaches \$0.995.
 * **MUSD trading above \$1** — Arbitrageurs mint new MUSD by supplying BTC to the protocol and sell it on the market for a profit. This remains profitable until MUSD returns to \$1.005.
 
 ![](/docs/images/musd/musd-redemption-and-peg-process.png)
 
 To ensure the peg holds during market volatility, all loan positions must maintain a collateral ratio above 110%. The system has built-in liquidation mechanisms and a stability pool to enforce this — so even with high LTVs, the protocol remains secure and resilient.
 
-For details on how these safety mechanisms work, see [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
+For details on how these safety mechanisms work, see [MUSD Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 
 ### Benefits of the MUSD model
 

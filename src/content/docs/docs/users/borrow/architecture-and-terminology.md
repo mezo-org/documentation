@@ -105,4 +105,4 @@ The Stability Pool is bootstrapped with a protocol loan against future fees and 
 
 - **Offset:** Cancellation of liquidated debt with MUSD in the Stability Pool, and assignment of liquidated collateral to Stability Pool depositors, in proportion to their deposit.
 
-- **Gas compensation:** A refund in MUSD and collateral that automatically paid to the caller of a liquidation function, intended ensure liquidations are profitable during market stress. The \$200 MUSD was set based on Ethereum gas prices and block times. Designed to ensure that liquidators are not dissuaded by potentially high gas costs.
+- **Gas compensation:** A refund in MUSD and collateral that automatically paid to the caller of a liquidation function, intended ensure liquidations are profitable during market stress. The 200 MUSD was set based on Ethereum gas prices and block times. Designed to ensure that liquidators are not dissuaded by potentially high gas costs.

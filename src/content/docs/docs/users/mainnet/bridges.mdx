@@ -38,9 +38,9 @@ For BTC wallets, you can sign in with UniSat, OKX, and Xverse. Use the following
 
 ## Moving Your Assets from Mezo to Other Networks
 
-*Last updated: November 14, 2025*
+*Last updated: September 2026*
 
-This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process. Currently, the minimum required amount to bridge is 0.01 BTC for BTC assets on native Bitcoin, 0.0002 BTC for BTC assets on EVM, 20 for USD tokens (USDC, USDT), and 1,500 for T tokens. See more details [here.](#bridging-to-ethereum)
+This guide explains how to bridge your assets out of Mezo back to the Ethereum or Bitcoin networks. We'll cover what you can bridge, how to do it, the bridges used, fees involved, and what to expect during the process. Currently, the minimum required amount to bridge is 0.01 BTC for withrawing to native Bitcoin, 0.0002 BTC for withdrawing BTC to Ethereum, 20 of the token for USD tokens bridged via Native Bridge (USDC, USDT, USDe, DAI), 0.01 of the token for tokens bridged via Wormhole Bridge (MEZO, MUSD, sUSDat), and 1,500 T for T token. See more details [here.](#bridging-to-ethereum)
 
 ### From Mezo to Other Networks
 
@@ -49,7 +49,7 @@ This guide explains how to bridge your assets out of Mezo back to the Ethereum o
 | **BTC** | Ethereum | tBTC (ERC-20 token) | You always receive tBTC on Ethereum, not WBTC or other wrapped versions |
 | **BTC** | Bitcoin | Native BTC | Real Bitcoin sent to your Bitcoin wallet |
 | **mERC-20 tokens** | Ethereum | Original ERC-20 token | Get back the same tokens you originally bridged in (like USDC, USDT, etc.) |
-| **MUSD** | Ethereum, Base | MUSD | Bridge as little as 1 MUSD between Mezo, Base, and Ethereum. Bridge powered by Wormhole. |
+| **MUSD** | Ethereum, Base | MUSD | Bridge as little as 0.01 MUSD between Mezo, Base, and Ethereum. Bridge powered by Wormhole. |
 | **MEZO** | Ethereum, Base, BSC, Solana | MEZO | Bridge powered by Wormhole NTT. See the [MEZO Bridge guide](/docs/users/mezo/mezo-bridge) for details. |
 | **mERC-20 tokens** | Bitcoin | Not available | ERC-20 tokens can't be sent to Bitcoin |
 
@@ -117,7 +117,7 @@ Fees will be accurately displayed in the app depending on the bridge route used 
 
 When bridging out, you pay fees for the bridging service and network operations. All fees are clearly displayed before you confirm any transaction.
 
-### Fee Structure (v2)
+### Native Bridge's Fee Structure (v2)
 
 Withdrawals from Mezo include a simple fee:
 
@@ -127,18 +127,18 @@ Withdrawals from Mezo include a simple fee:
 
 Minimum Withdrawal Amounts
 
-- BTC-based tokens (tBTC): 0.0002
-- USD-based tokens (mUSDC, mUSDT): 20
+- BTC-based tokens (BTC, mcbBTC, mFBTC, mSolvBTC, mswBTC, mxSolvBTC): 0.0002
+- USD-based tokens bridged via Native Bridge (mUSDC, mUSDT, mDAI, mUSDe): 20
 - mT tokens: 1,500
 
 Fees
 
-- Flat Fee: ≈ $3 USD (per token equivalent)
-- Gas Fee: Paid in BTC, varies with network conditions
+- Mezo Bridge Service Fee: ≈ $3 USD (computed in the target tokent)
+- Network Fee (Gas): Paid in BTC, varies with network conditions
 
 Example:
 
-Withdrawing 1,000 USDC → $3 flat fee → receive ~997 USDC.
+Withdrawing 1,000 USDC → $3 Service Fee + variable Gas Fee → receive ~997 USDC.
 
 #### Bridging to Bitcoin
 
@@ -146,14 +146,21 @@ Minimum Withdrawal Amount: 0.01 BTC
 
 Fees
 
-- Gas Fee: Paid in BTC, varies
-- Withdrawal Fee: ≈ $3 flat
-- tBTC Treasury Fee: 0.2%
-- tBTC Redemption Fee: up to 0.001 BTC (usually < $1)
+- Network Fee (Gas): Paid in BTC, varies
+- Mezo Bridge Service Fee: ≈ 0.000027 BTC
+- tBTC Bridge Service Fee: 0.2% (after Mezo Bridge Service Fee)
+- tBTC Bridge Maximum Network Fee: up to 0.001 BTC (though usually < $1)
 
-Example:
+##### Example:
 
-Withdrawing 1 BTC → 0.000025 BTC (~$3 flat) + 0.001998 BTC (Treasury) → receive ~0.998 BTC.
+Withdraw amount: 1 BTC
+
+Fees:
+  - 0.000027 BTC (Mezo Bridge Service Fee)
+  - 0.001999946 BTC (tBTC Bridge Service Fee)
+  - variable tBTC Bridge Network Fee and Gas Fee
+
+Received amount: ~0.997973 BTC.
 
 ## What Happens After You Submit
 
@@ -247,7 +254,7 @@ A: The bridge currently supports standard Bitcoin address formats. Taproot (`bc1
 A: No, once submitted, bridge transactions cannot be cancelled. Your Mezo tokens are immediately burned as part of the process.
 
 **Q: How long does bridging take?**
-A: Most bridge transactions complete within 30-60 minutes, depending on network conditions and validator attestation speed.
+A: Most transactions bridging funds to Ethereum via Native Bridge complete within 30-60 minutes, depending on network conditions and validator attestation speed. Withdrawals routed via Wormhole Bridge typically take around 5 minutes to process. Transactions withdrawing funds to Bitcoin usually take a couple of hours to finalize.
 
 **Q: What networks can I bridge to?**
 A: Assets can be bridged between Ethereum, Mezo, Base, and Bitcoin. Additional network support will be added in the future.
@@ -256,7 +263,7 @@ A: Assets can be bridged between Ethereum, Mezo, Base, and Bitcoin. Additional n
 A: See [Track Your Native Bitcoin Deposit](/docs/users/mainnet/track-your-native-bitcoin-deposit) for a step-by-step guide on using tBTCScan to verify your deposit status.
 
 **Q: Who pays for the gas on the destination network?**
-A: For Ethereum, the bridge system handles the final delivery gas costs. For Bitcoin, the tBTC Bridge Redemption Transaction Fee covers the cost of the on-chain transaction.
+A: For Ethereum, the bridge system handles the final delivery gas costs. For Bitcoin, the tBTC Bridge Network Fee covers the cost of the on-chain transaction.
 
 ## Security Model
 
@@ -278,4 +285,4 @@ Remember: Always verify addresses carefully and understand the fees before confi
 
 ## Deposit Portal
 
-Deposits that are still in the portal as part of the early deposit program can be withdrawn back to the user's BTC wallet. The withdrawal fees from the portal for BTC will depend on the parameters set in the tBTC bridge. Currently, tBTC charges a 0.2% redemption fee, and these parameters are governance-controlled and can be viewed in the [tBTC fees documentation](https://docs.threshold.network/applications/tBTC-v2/fees).
+Deposits that are still in the portal as part of the early deposit program can be withdrawn back to the user's BTC wallet. The withdrawal fees from the portal for BTC will depend on the parameters set in the tBTC bridge. Currently, tBTC charges a 0.2% tBTC Bridge Service Fee and up to 0.001 BTC (typically significantly less) tBTC Bridge Network Fee, and these parameters are governance-controlled and can be viewed in the [tBTC fees documentation](https://docs.threshold.network/tbtc-v2#fees).

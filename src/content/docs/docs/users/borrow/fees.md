@@ -10,8 +10,8 @@ topic: users
 | --- | --- | --- |
 | **Issuance fee** | 0.1% of borrowed MUSD | Opening or increasing a loan |
 | **Interest** | 1–5% APR (fixed at open) | Accrues on outstanding debt |
-| **Redemption fee** | 0.75% | Exchanging MUSD for BTC collateral (waived for borrowers) |
-| **Refinance fee** | 0.1% | Refinancing a loan to a new rate |
+| **Redemption fee** | 0.75% | Exchanging MUSD for BTC collateral |
+| **Refinance fee** | 0.02% of debt | Refinancing a loan to a new rate |
 | **Gas deposit** | 200 MUSD (flat) | Opening a loan (returned on close) |
 
 ## Fee Distribution
@@ -30,21 +30,21 @@ At launch, interest fees fund the MUSD treasury stability pool, which covers liq
 
 ## Redemption Fees (0.75%)
 
-This fee is paid when exchanging MUSD for the BTC collateral. When a user has an outstanding loan, the redemption fee is zero. Users who do not have an outstanding MUSD loan must pay the 0.75% redemption fee.
+A 0.75% fee withheld from the BTC a redeemer receives when they exchange MUSD for collateral during [redemption](/docs/users/borrow/liquidation-mechanics#redemptions-%EF%B8%8F). It is paid by the redeemer, not by the borrower whose loan is redeemed against.
 
 At launch, redemption fees fund the MUSD treasury stability pool, which covers liquidations and bad debt.
 
 ## Issuance Fee (0.1%)
 
-The issuance fee is paid when an MUSD loan is opened. The fee is 0.1% of borrowed MUSD and is paid in MUSD. A $10,000 MUSD loan would pay a $10 issuance fee in MUSD. If you increase your loan, you pay the issuance fee on the newly borrowed MUSD.
+The issuance fee is paid when an MUSD loan is opened or when a loan holder borrows more MUSD. The fee is 0.1% of borrowed amount and is paid in MUSD. A \$10,000 MUSD loan would pay a \$10 issuance fee in MUSD. If you increase your loan, you pay the issuance fee on the newly borrowed MUSD.
 
-## Refinance Fee (0.1%)
+## Refinance Fee (0.02% of debt)
 
-The refinance fee is incurred when a MUSD loan holder extends their line of credit or reduces the amount of collateral backing their loan. Refinancing fees are paid in MUSD.
+The refinance fee is incurred when a MUSD loan holder requests to update the loan's interest rate. The borrower may want to refinance their loan if the interest rate offered for new loans is better than the fixed interest rate on the user's loan. Refinancing allows to update the loan's rate to the new rate. Each refinance request incurs a refinance fee of 0.02% of the debt and is paid in MUSD.  
 
-## Gas Deposit (`$200` flat fee)
+## Gas Deposit (`200 MUSD` flat fee)
 
-A $200 deposit ensures that liquidations are viable. It is returned when the loan is closed. The gas deposit is minted as extra debt in the loan and held in escrow until the loan is closed. This debt counts towards calculating the collateralization ratio.
+A 200 MUSD deposit ensures that liquidations are viable. It is returned when the loan is closed. The gas deposit is minted as extra debt in the loan and held in escrow until the loan is closed. This debt counts towards calculating the collateralization ratio.
 
 ## Other Gas & Transaction Fees
 
@@ -55,7 +55,7 @@ Users interacting with the MUSD system will have to pay transaction fees for eac
 :::caution
 Borrowing MUSD carries risk. Understanding these risks helps you protect your position.
 
-**Redemption risk** — To maintain the MUSD peg, the protocol can redeem MUSD against collateral, starting with the loans that have the **lowest collateral ratio**. If your loan is redeemed against, you lose exposure to BTC price upside and may face tax implications. To reduce this risk, keep your collateral ratio higher than other borrowers.
+**Redemption risk** — To maintain the MUSD peg, the protocol can redeem MUSD against collateral, starting with the loans that have the **lowest collateral ratio** (but are still above the 110% liquidation threshold). If your loan is redeemed against, you lose exposure to BTC price upside and may face tax implications. To reduce this risk, keep your collateral ratio higher than other borrowers.
 
-**Liquidation risk** — If your loan's collateral ratio falls **below 110%**, your position can be liquidated. You lose your collateral and keep the borrowed MUSD. To reduce this risk, monitor your loan regularly and add collateral when needed. For full details, see [Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
+**Liquidation risk** — If your loan's collateral ratio falls **below 110%**, your position can be liquidated. You lose your collateral and keep the borrowed MUSD. To reduce this risk, monitor your loan regularly and add collateral when needed. For full details, see [MUSD Liquidations & Redemptions](/docs/users/borrow/liquidation-mechanics).
 :::
