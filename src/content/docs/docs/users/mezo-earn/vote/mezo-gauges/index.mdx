@@ -1,5 +1,5 @@
 ---
-title: Mezo Gauges Overview
+title: MEZO Gauges Overview
 description: >-
   veMEZO holders direct MEZO emissions to MUSD liquidity pools on Curve,
   Uniswap, and Aerodrome
@@ -8,7 +8,7 @@ topic: users
 
 import { Steps } from '@astrojs/starlight/components';
 
-**Mezo Gauges let veMEZO holders vote to direct MEZO emissions to liquidity pools outside Mezo**, on Curve and Uniswap (Ethereum) and Aerodrome (Base).
+**MEZO Gauges let veMEZO holders vote to direct MEZO emissions to liquidity pools outside Mezo**, on Curve and Uniswap (Ethereum) and Aerodrome (Base).
 
 Until now, veMEZO had one job: [boosting](/docs/users/mezo-earn/lock/vemezo/boost-mechanism) a veBTC position. Now, veMEZO carries voting power of its own, over a real slice of weekly emissions.
 
@@ -20,17 +20,17 @@ MUSD is only useful if it is liquid where people already are. Thin pools off Mez
 
 ---
 
-## How Mezo Gauges differ from other gauges
+## How MEZO Gauges differ from other gauges
 
 Mezo operates three kinds of gauges:
-| | Staking gauge | veBTC boost gauge | **Mezo Gauge** |
+| | Staking gauge | veBTC boost gauge | **MEZO Gauge** |
 |---|---|---|---|
 | You vote with | veBTC | veMEZO | **veMEZO** |
 | Emissions land | On Mezo chain, to stakers | N/A | **Off Mezo chain, as pool incentives** |
 | Voter earns | Trading fees + incentives | Posted incentives | **Incentives posted on the gauge** |
 
 :::note
-Mezo Gauges are **non-staking gauges**: there is no LP token to stake on Mezo, because the liquidity being incentivised lives on another chain. Voting on them is entirely independent of your veBTC voting and of boost matching. Directing veMEZO to a Mezo Gauge does not consume or reduce any boost you are providing. The mechanism can support non-staking gauges that stay on Mezo in future.
+MEZO Gauges are **non-staking gauges**: there is no LP token to stake on Mezo, because the liquidity being incentivised lives on another chain. Voting on them is entirely independent of your veBTC voting and of boost matching. Directing veMEZO to a MEZO Gauge does not consume or reduce any boost you are providing. The mechanism can support non-staking gauges that stay on Mezo in future.
 :::
 
 ---
@@ -54,14 +54,14 @@ The set of eligible pools is an on-chain allowlist held by the remote gauge regi
 
 ## How much MEZO is directable
 
-Mezo Gauges are funded from the **non-staking gauge branch** of emissions, currently **8% of weekly emission rewards**. veBTC holders set that share through the [splitter](/docs/users/mezo-earn/overview/glossary#splitter). See [Emissions Schedule](/docs/users/mezo/emissions) for more info.
+MEZO Gauges are funded from the **non-staking gauge branch** of emissions, currently **8% of weekly emission rewards**. veBTC holders set that share through the [splitter](/docs/users/mezo-earn/overview/glossary#splitter). See [Emissions Schedule](/docs/users/mezo/emissions) for more info.
 
 ---
 
 ## The loop, end to end
 
 <Steps>
-1. **You vote.** Direct veMEZO voting power across the available Mezo Gauges during the epoch.
+1. **You vote.** Direct veMEZO voting power across the available MEZO Gauges during the epoch.
 2. **The epoch closes** Thursday 00:00 UTC and votes are tallied. Each gauge's share of MEZO is set by its share of veMEZO votes.
 3. **MEZO leaves Mezo.** Each gauge's allocation is claimed and routed to its destination.
 4. **It lands as an incentive** on the destination pool for LPers to claim on Merkl or voters on Aerodrome.
@@ -73,7 +73,7 @@ The exact timing and form differ by venue. See [Where Your Vote Goes](/docs/user
 
 ## What a voter earns
 
-You earn a share of the incentives posted on the gauge you vote for, sized by your share of that gauge's veMEZO votes. [Boost gauge](/docs/users/mezo-earn/lock/vemezo/matching-market) incentives work the same way. Anyone can post incentives on a Mezo Gauge, and voters can claim them.
+You earn a share of the incentives posted on the gauge you vote for, sized by your share of that gauge's veMEZO votes. [Boost gauge](/docs/users/mezo-earn/lock/vemezo/matching-market) incentives work the same way. Anyone can post incentives on a MEZO Gauge, and voters can claim them.
 
 The MEZO itself travels on. It lands on the destination pool and pays that pool's LPs or voters, according to the protocol. Your vote decides where MUSD liquidity gets paid for. The incentives sitting on the gauge are what pay you.
 
@@ -83,7 +83,7 @@ To collect the directed MEZO too, work both sides: LP into the destination pool,
 
 ## Next steps
 
-- [How to Vote on Mezo Gauges](/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — the walkthrough
+- [How to Vote on MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — the walkthrough
 - [Where Your Vote Goes](/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — how weight becomes incentives, and when
 - [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — for LPs in the destination pools
 - [How to Lock MEZO](/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) — if you don't hold veMEZO yet

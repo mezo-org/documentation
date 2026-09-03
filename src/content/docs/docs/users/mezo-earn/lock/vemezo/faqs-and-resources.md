@@ -14,7 +14,7 @@ No. Locks are permanent until expiration. Choose your duration carefully—veMEZ
 
 ### Can I vote on gauges with only veMEZO?
 
-Yes, on some of them. veMEZO votes in its own right on **veBTC boost gauges** and on **[Mezo Gauges](/docs/users/mezo-earn/vote/mezo-gauges)**, which direct MEZO emissions to MUSD pools on Curve, Uniswap, and Aerodrome.
+Yes, on some of them. veMEZO votes in its own right on **veBTC boost gauges** and on **[MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges)**, which direct MEZO emissions to MUSD pools on Curve, Uniswap, and Aerodrome.
 
 What veMEZO cannot do alone is vote on **staking gauges** — that needs veBTC, and veMEZO's role there is to multiply veBTC voting power.
 

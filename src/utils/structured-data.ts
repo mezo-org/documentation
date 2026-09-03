@@ -451,7 +451,7 @@ export const HOWTO_PAGES: Record<string, { name: string }> = {
     name: 'How to Use Mezo Pools',
   },
   'docs/users/mezo-earn/vote/how-to-vote': {
-    name: 'How to Vote on Mezo Gauges',
+    name: 'How to Vote on MEZO Gauges',
   },
   'docs/developers/features/mezo-earn/deploying-incentives': {
     name: 'How to Deploy Incentives on Mezo Earn',
