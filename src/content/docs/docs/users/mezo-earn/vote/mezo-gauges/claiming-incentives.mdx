@@ -1,0 +1,67 @@
+---
+title: Claiming Incentives
+description: How LPs and voters claim the MEZO directed by Mezo Gauges
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Who claims what, and where, depends on which side of the gauge you are on.
+
+| You are | You claim | Where |
+|---|---|---|
+| An LP in Curve USDT/USDC/MUSD or Uniswap USDC/MUSD | veMEZO locked for 3 months | [Merkl](https://app.merkl.xyz) |
+| A veAERO holder voting for Aerodrome USDC/MUSD or MEZO/MUSD | MEZO, as a voting incentive | [Aerodrome](https://aerodrome.finance) |
+| An LP in Aerodrome USDC/MUSD or MEZO/MUSD | AERO emissions | [Aerodrome](https://aerodrome.finance) |
+| A veMEZO holder who voted on a Mezo Gauge | Incentives posted on that gauge | The Vote tab on [mezo.org](https://mezo.org) |
+
+---
+
+## Curve and Uniswap LPs: Claim on Merkl
+
+Rewards are **not** pushed to your wallet. Merkl accrues a claim against your address, and you have to collect it.
+
+<Steps>
+1. Go to [app.merkl.xyz](https://app.merkl.xyz).
+2. Connect the wallet holding the LP position.
+3. Find the MUSD campaign for your pool — Curve USDT/USDC/MUSD or Uniswap USDC/MUSD, both on Ethereum.
+4. Click **Claim** and sign the transaction.
+</Steps>
+
+**What you receive:** veMEZO locked for 3 months, not liquid MEZO. Once claimed, it behaves like any other [veMEZO position](/docs/users/mezo-earn/lock/vemezo). It can boost a veBTC position, and it can vote on Mezo Gauges.
+
+If you LP in the pool, you can vote that veMEZO back onto the pool's Mezo Gauge to direct more emissions there. That is optional. Providing liquidity during the campaign is enough to claim.
+
+:::caution[Unclaimed rewards are forfeited]
+Merkl campaigns do not accrue indefinitely. If you never claim, you lose the rewards. If you LP in these pools, check Merkl periodically.
+:::
+
+You do not need to hold veMEZO, or have voted, to claim as an LP. Providing liquidity to the pool during the campaign is the only requirement.
+
+---
+
+## Aerodrome: Claim on Base
+
+MEZO directed to an Aerodrome gauge is deposited as a **voting incentive**, so it is claimed by veAERO voters, not by LPs.
+
+**If you hold veAERO and voted for USDC/MUSD or MEZO/MUSD:** go to [aerodrome.finance](https://aerodrome.finance), open your veAERO lock, and claim your rewards for the epoch. Your MEZO share is proportional to your share of the votes on that gauge.
+
+**If you LP in Aerodrome USDC/MUSD or MEZO/MUSD:** stake your position in the pool's gauge and claim **AERO** emissions there. Note the [two-epoch lag](/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#the-two-epoch-lag) between a Mezo vote and the AERO it produces.
+
+---
+
+## Mezo Gauge voters: Claim on Mezo
+
+If you directed veMEZO to a Mezo Gauge, you earn a share of any **incentives posted on that gauge**, proportional to your share of its votes.
+
+Claim these the same way as any other voting reward — on the **Vote** tab at [mezo.org](https://mezo.org), once the epoch has closed. See [Claiming Fees & Emissions](/docs/users/mezo-earn/vote/claiming-fees-emissions).
+
+These incentives are separate from the emissions you directed. The emissions go to the destination pool; the incentives are posted on Mezo to attract your vote there in the first place.
+
+---
+
+## Next steps
+
+- [Where Your Vote Goes](/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — the full path from vote to incentive
+- [Mezo Gauges Overview](/docs/users/mezo-earn/vote/mezo-gauges) — eligible pools and funding
+- [Claiming Fees & Emissions](/docs/users/mezo-earn/vote/claiming-fees-emissions) — all other Mezo Earn rewards

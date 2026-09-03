@@ -1,0 +1,82 @@
+---
+title: Where Your Vote Goes
+description: >-
+  How veMEZO voting weight becomes incentives on Curve, Uniswap, and Aerodrome
+  pools
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Each Mezo Gauge receives a share of the non-staking gauge emissions equal to its share of the veMEZO votes cast on Mezo Gauges that epoch.
+
+If 1,000,000 veMEZO votes across all Mezo Gauges and 300,000 of them go to one gauge, that gauge takes 30% of the epoch's directable MEZO. The rest of this page uses USDC/MUSD as an example. The same split applies to every Mezo Gauge.
+
+---
+
+## Curve and Uniswap via Merkl
+
+Curve USDT/USDC/MUSD and Uniswap USDC/MUSD are incentivised through [Merkl](https://merkl.xyz), the same mechanism Mezo already uses for these pools, now each with a Mezo Gauge.
+
+<Steps>
+1. **Epoch N closes.** Votes are tallied and each gauge's MEZO allocation is fixed.
+2. **The allocation is posted to Merkl** as a campaign on the destination pool.
+3. **LPs accrue a claim** proportional to their share of the pool over the campaign period. Claims occur on Merkl.
+</Steps>
+
+**Rewards arrive as veMEZO locked for 3 months**, not as liquid MEZO. This matches how these pools are incentivised today, but now voters decide how much emissions each pool gets.
+
+See [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) for the LP-side walkthrough.
+
+---
+
+## MEZO as voting incentives on Aerodrome
+
+Aerodrome gauges work differently, because Aerodrome is itself a ve(3,3) system with its own weekly vote. Take USDC/MUSD as an example. MEZO does not go to Aerodrome LPs directly. It is deposited as a **voting incentive** on the Aerodrome gauge for that pool, paid to the veAERO holders who vote for it.
+
+Those veAERO votes are what direct **AERO emissions** to the pool. The MEZO buys AERO emissions for the pool, and it is the AERO that reaches LPs. The same path applies to MEZO/MUSD on Aerodrome.
+
+Mechanically, the MEZO is claimed on Mezo, bridged to Base, and deposited on the Aerodrome gauge by an allocator contract. This runs automatically each epoch.
+
+### The two-epoch lag
+
+Aerodrome's vote is a week ahead of the incentive it responds to, which puts a gap between your vote and the liquidity it buys:
+
+| Epoch | What happens |
+|---|---|
+| **N** | You vote on Mezo. Epoch closes and the allocation is fixed. |
+| **N+1** | MEZO is deposited as a voting incentive on the Aerodrome gauge. veAERO holders vote on it during this epoch. |
+| **N+2** | AERO emissions flow to the pool, and LPs earn them. |
+
+**Votes cast in epoch N produce AERO emissions in epoch N+2.** This is a property of how Aerodrome sequences its own epochs as opposed to a delay Mezo adds.
+
+---
+
+## Capturing the value you direct
+
+Directing emissions is influence, not yield. The MEZO you send to a destination pool goes to the people on that pool — Merkl claimants on Curve and Uniswap, veAERO voters on Aerodrome. It does not come back to you as a Mezo Gauge voter.
+
+What you earn directly as a voter is your share of **incentives posted on the Mezo Gauge itself**, in proportion to your share of that gauge's votes.
+
+To capture the emissions themselves, you have to be on both sides of the loop. On Aerodrome, using USDC/MUSD as an example:
+
+<Steps>
+1. **LP** into the pool on Aerodrome and stake in its gauge.
+2. **Vote** for that pool's Mezo Gauge on Mezo, with veMEZO.
+3. **Vote** for the corresponding Aerodrome gauge on Base, with veAERO.
+4. **Collect** AERO for the LP position, and the MEZO voting incentive for the veAERO vote.
+</Steps>
+
+On Curve and Uniswap the loop is shorter: LP into the pool, vote for its Mezo Gauge, and claim the campaign on Merkl as an LP.
+
+:::note
+Running the full loop is optional. Plenty of veMEZO holders will vote purely to strengthen MUSD liquidity and to earn incentives posted on the gauge.
+:::
+
+---
+
+## Next steps
+
+- [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — claim on Merkl or Aerodrome
+- [How to Vote on Mezo Gauges](/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — the walkthrough
+- [Mezo Gauges Overview](/docs/users/mezo-earn/vote/mezo-gauges) — eligible pools and funding

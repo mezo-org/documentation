@@ -188,13 +188,13 @@ export default defineConfig({
                         label: 'Borrow',
                         collapsed: true,
                         items: [
-                              'docs/users/musd',
-                              'docs/users/musd/how-to-borrow-musdc',
-                              'docs/users/musd/mint-musd',
-                              'docs/users/musd/fees',
-                              'docs/users/musd/architecture-and-terminology',
-                              'docs/users/musd/liquidation-mechanics',
-                              'docs/users/musd/musd-bridge'
+                              'docs/users/borrow',
+                              'docs/users/borrow/how-to-borrow-musdc',
+                              'docs/users/borrow/mint-musd',
+                              'docs/users/borrow/fees',
+                              'docs/users/borrow/architecture-and-terminology',
+                              'docs/users/borrow/liquidation-mechanics',
+                              'docs/users/borrow/musd-bridge'
                         ]
                   },
                   {
@@ -254,7 +254,17 @@ export default defineConfig({
                                           'docs/users/mezo-earn/vote',
                                           'docs/users/mezo-earn/vote/how-to-vote',
                                           'docs/users/mezo-earn/vote/earning-and-managing-your-position',
-                                          'docs/users/mezo-earn/vote/claiming-fees-emissions'
+                                          'docs/users/mezo-earn/vote/claiming-fees-emissions',
+                                          {
+                                                label: 'Mezo Gauges',
+                                                collapsed: true,
+                                                items: [
+                                                      'docs/users/mezo-earn/vote/mezo-gauges',
+                                                      'docs/users/mezo-earn/vote/mezo-gauges/how-to-vote',
+                                                      'docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes',
+                                                      'docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives'
+                                                ]
+                                          }
                                     ]
                               },
                               {
@@ -271,7 +281,7 @@ export default defineConfig({
                               },
                               {
                                     label: 'Vaults',
-                                    collapsed: false,
+                                    collapsed: true,
                                     items: [
                                           'docs/users/mezo-earn/vaults',
                                           'docs/users/mezo-earn/vaults/vault-notices',
