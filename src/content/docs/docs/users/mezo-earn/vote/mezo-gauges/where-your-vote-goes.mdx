@@ -10,7 +10,7 @@ import { Steps } from '@astrojs/starlight/components';
 
 Each Mezo Gauge receives a share of the non-staking gauge emissions equal to its share of the veMEZO votes cast on Mezo Gauges that epoch.
 
-If 1,000,000 veMEZO votes across all Mezo Gauges and 300,000 of them go to Aerodrome USDC/MUSD, that gauge takes 30% of the epoch's directable MEZO.
+If 1,000,000 veMEZO votes across all Mezo Gauges and 300,000 of them go to one gauge, that gauge takes 30% of the epoch's directable MEZO. The rest of this page uses USDC/MUSD as an example. The same split applies to every Mezo Gauge.
 
 ---
 
@@ -32,9 +32,9 @@ See [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incent
 
 ## MEZO as voting incentives on Aerodrome
 
-Aerodrome USDC/MUSD works differently, because Aerodrome is itself a ve(3,3) system with its own weekly vote. MEZO does not go to Aerodrome LPs directly. It is deposited as a **voting incentive** on the Aerodrome gauge for that pool paid to the veAERO holders who vote for it.
+Aerodrome gauges work differently, because Aerodrome is itself a ve(3,3) system with its own weekly vote. Take USDC/MUSD as an example. MEZO does not go to Aerodrome LPs directly. It is deposited as a **voting incentive** on the Aerodrome gauge for that pool, paid to the veAERO holders who vote for it.
 
-Those veAERO votes are what direct **AERO emissions** to the pool. So the MEZO buys AERO emissions for USDC/MUSD, and it is the AERO that reaches LPs.
+Those veAERO votes are what direct **AERO emissions** to the pool. The MEZO buys AERO emissions for the pool, and it is the AERO that reaches LPs. The same path applies to MEZO/MUSD on Aerodrome.
 
 Mechanically, the MEZO is claimed on Mezo, bridged to Base, and deposited on the Aerodrome gauge by an allocator contract. This runs automatically each epoch.
 
@@ -46,7 +46,7 @@ Aerodrome's vote is a week ahead of the incentive it responds to, which puts a g
 |---|---|
 | **N** | You vote on Mezo. Epoch closes and the allocation is fixed. |
 | **N+1** | MEZO is deposited as a voting incentive on the Aerodrome gauge. veAERO holders vote on it during this epoch. |
-| **N+2** | AERO emissions flow to USDC/MUSD, and LPs earn them. |
+| **N+2** | AERO emissions flow to the pool, and LPs earn them. |
 
 **Votes cast in epoch N produce AERO emissions in epoch N+2.** This is a property of how Aerodrome sequences its own epochs as opposed to a delay Mezo adds.
 
@@ -58,12 +58,12 @@ Directing emissions is influence, not yield. The MEZO you send to a destination 
 
 What you earn directly as a voter is your share of **incentives posted on the Mezo Gauge itself**, in proportion to your share of that gauge's votes.
 
-To capture the emissions themselves, you have to be on both sides of the loop. On Aerodrome, that means:
+To capture the emissions themselves, you have to be on both sides of the loop. On Aerodrome, using USDC/MUSD as an example:
 
 <Steps>
-1. **LP** into USDC/MUSD on Aerodrome and stake in its gauge.
-2. **Vote** for the Aerodrome Mezo Gauge on Mezo, with veMEZO.
-3. **Vote** for the corresponding USDC/MUSD gauge on Aerodrome, with veAERO.
+1. **LP** into the pool on Aerodrome and stake in its gauge.
+2. **Vote** for that pool's Mezo Gauge on Mezo, with veMEZO.
+3. **Vote** for the corresponding Aerodrome gauge on Base, with veAERO.
 4. **Collect** AERO for the LP position, and the MEZO voting incentive for the veAERO vote.
 </Steps>
 

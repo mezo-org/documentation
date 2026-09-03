@@ -10,7 +10,7 @@ Mezo Gauges are voted on with **veMEZO**, on their own page, independently of ve
 
 ## Prerequisites
 
-- A wallet connected to Mezo (MetaMask, Rabby, or any WalletConnect-supported wallet)
+- A [wallet connected to Mezo](/docs/users/getting-started/connect)
 - An active veMEZO position
 - A small amount of BTC for gas
 
@@ -23,17 +23,17 @@ You do **not** need veBTC, an LP position, or a position in the destination pool
 <Steps>
 1. Go to the **Vote** tab on [mezo.org](https://mezo.org) and open the **Mezo Gauges** page.
 
-2. Review the available gauges. Each row shows the destination venue and chain, the pool, the votes already directed to it, and any incentives posted on the gauge.
+2. Review the available gauges. Each row lists the pool, the destination protocol and chain, and any incentives posted on the gauge.
 
-3. Enter the percentage of your veMEZO voting power you want to allocate to each gauge. You can split across several — for example 60% to Aerodrome USDC/MUSD and 40% to Curve USDT/USDC/MUSD.
+3. Enter the percentage of your veMEZO voting power you want to allocate to each gauge. You can split across several, for example 60% to Aerodrome USDC/MUSD and 40% to Curve USDT/USDC/MUSD.
 
 4. Click **Submit Votes** and sign the transaction.
 </Steps>
 
 Your allocation is registered for the current epoch as soon as the transaction confirms.
 
-:::note[Mezo Gauge rows show no vAPR]
-A staking gauge can quote a vAPR because emissions and fees land on Mezo. A Mezo Gauge cannot — the value lands on Curve, Uniswap, or Aerodrome, and accrues to positions there. Rather than render a misleading zero, the vAPR column is suppressed on these rows. Fees and TVL shown for a Mezo Gauge are pulled from the destination venue and accrue there; incentives shown are posted on Mezo and accrue to you.
+:::note[Gauge, Protocol, Incentives]
+The Mezo Gauges table has those three columns. There is no vAPR, fees, or TVL, because those accrue on Curve, Uniswap, or Aerodrome rather than on Mezo. Protocol is a link to the destination venue. Incentives are posted on the Mezo Gauge and paid to veMEZO voters.
 :::
 
 ---
@@ -46,7 +46,7 @@ Mezo Gauges follow the same weekly cycle as the rest of Mezo Earn.
 - Voting is open throughout the epoch and closes at the turnover
 - Votes are tallied at the turnover, and each gauge's MEZO allocation is set by its share of total veMEZO votes cast on Mezo Gauges
 
-**Unvoted emissions.** MEZO is split across Mezo Gauges strictly in proportion to the votes cast. A gauge that receives no votes receives no MEZO, and its share is spread across the gauges that did get votes. Voting power you leave unallocated simply does not influence the split — and earns you no incentives.
+**Unvoted emissions.** MEZO is split across Mezo Gauges strictly in proportion to the votes cast. A gauge that receives no votes receives no MEZO, and its share is spread across the gauges that did get votes. Voting power you leave unallocated simply does not influence the split, and earns you no incentives.
 
 ---
 
@@ -61,7 +61,7 @@ Your allocation **persists across epochs** until you change it. If you are happy
 You can change or reset as often as you like within an epoch; only your allocation at the epoch turnover counts toward that epoch's split.
 
 :::caution
-Changing your vote mid-epoch moves your **whole** weight for that epoch — you are not credited pro-rata for the part of the week your earlier allocation was in place.
+Changing your vote mid-epoch moves your **whole** weight for that epoch. You are not credited pro-rata for the part of the week your earlier allocation was in place.
 :::
 
 ---
