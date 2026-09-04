@@ -256,7 +256,7 @@ export default defineConfig({
                                           'docs/users/mezo-earn/vote/earning-and-managing-your-position',
                                           'docs/users/mezo-earn/vote/claiming-fees-emissions',
                                           {
-                                                label: 'Mezo Gauges',
+                                                label: 'MEZO Gauges',
                                                 collapsed: true,
                                                 items: [
                                                       'docs/users/mezo-earn/vote/mezo-gauges',
