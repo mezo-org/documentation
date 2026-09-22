@@ -14,7 +14,7 @@ Vote-escrowed BTC. An NFT representing locked Bitcoin that grants base voting po
 
 ## veMEZO
 
-Vote-escrowed MEZO. An NFT representing locked MEZO tokens that can boost veBTC voting power up to 5x, and that votes in its own right on veBTC boost gauges and [Mezo Gauges](/docs/users/mezo-earn/vote/mezo-gauges). It carries no governance weight of its own and cannot vote on staking gauges without veBTC. Max lock is 4 years.
+Vote-escrowed MEZO. An NFT representing locked MEZO tokens that can boost veBTC voting power up to 5x, and that votes in its own right on veBTC boost gauges and [MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges). It carries no governance weight of its own and cannot vote on staking gauges without veBTC. Max lock is 4 years.
 
 ## Boost
 
@@ -48,9 +48,9 @@ A gauge attached to a specific veBTC NFT. veMEZO holders vote on these gauges to
 
 A gauge with no staking token, voted on with veMEZO. Its emissions are routed to a destination the gauge names rather than paid to stakers on Mezo. Voting on one is independent of veBTC gauge voting and of boost matching.
 
-## Mezo Gauge
+## MEZO Gauge
 
-A non-staking gauge that directs MEZO emissions to MUSD liquidity pools outside Mezo — Curve and Uniswap on Ethereum, and Aerodrome on Base. See [Mezo Gauges](/docs/users/mezo-earn/vote/mezo-gauges).
+A non-staking gauge that directs MEZO emissions to MUSD liquidity pools outside Mezo — Curve and Uniswap on Ethereum, and Aerodrome on Base. See [MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Voting Weight
 
