@@ -8,11 +8,11 @@ topic: users
 
 **Do I need to vote every week?**
 
-No. However, if you don't vote in a given week, you forfeit your share of fees and incentives for that epoch. Votes don't carry over between epochs.
+No. Your vote allocation persists across epochs until you change or reset it, and it keeps earning its share of fees and incentives each epoch. Re-voting is how you change the allocation, not how you keep it.
 
 **Can I change my votes during an epoch?**
 
-Yes. You can update your vote allocation as many times as you want during the 7-day epoch. Your final allocation at epoch end determines your rewards.
+Each lock can vote once per epoch. If the lock has not voted yet this epoch, you can submit a new split at any point in the voting window and it replaces your standing allocation. Once a vote confirms, that lock's allocation is locked in until the next epoch turnover (Thursday 00:00 UTC).
 
 **Can I split my votes across multiple gauges?**
 

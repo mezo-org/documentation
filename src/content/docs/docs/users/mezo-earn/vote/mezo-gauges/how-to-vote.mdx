@@ -21,9 +21,9 @@ You do **not** need veBTC, an LP position, or a position in the destination pool
 ## Cast your vote
 
 <Steps>
-1. Go to the **Vote** tab on [mezo.org](https://mezo.org) and switch to **veMEZO** voting — the veMEZO gauge list at [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo).
+1. Go to the **Vote** tab on [mezo.org](https://mezo.org), switch to **veMEZO** voting, and open the **MEZO Gauges** page at [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo).
 
-2. Review the available gauges. Each row lists the pool, the destination protocol and chain, and the distribution date.
+2. Review the available gauges. Each row lists the destination protocol and chain, the gauge (destination pool), any incentives posted on the gauge, and the distribution date.
 
 3. Enter the percentage of your veMEZO voting power you want to allocate to each gauge. You can split across several, for example 60% to Aerodrome USDC/MUSD and 40% to Curve USDT/USDC/MUSD.
 
@@ -32,8 +32,10 @@ You do **not** need veBTC, an LP position, or a position in the destination pool
 
 Your allocation is registered for the current epoch as soon as the transaction confirms.
 
-:::note[Gauge, Protocol, Distribution date]
-Those are the three columns on the Mezo Gauges table. Protocol links to the destination venue. Distribution date is when that epoch's incentives land on the target pool or gauge, in UTC. When you allocate, a Vote distribution column is added for the percentages.
+:::note[Protocol, Gauge, Incentives, Distribution date]
+Those are the four columns on the MEZO Gauges table. **Protocol** links to the destination venue. **Gauge** shows the destination pool. **Incentives** are the tokens posted on the gauge this epoch. **Distribution date** is when this epoch's incentives land on the target pool or gauge, in UTC.
+
+There is no vAPR, fees, or TVL shown here because those accrue on Curve, Uniswap, or Aerodrome rather than on Mezo. When you allocate, a **Vote distribution** column is added for the percentages.
 :::
 
 ---
@@ -43,7 +45,7 @@ Those are the three columns on the Mezo Gauges table. Protocol links to the dest
 MEZO Gauges follow the same weekly cycle as the rest of Mezo Earn.
 
 - Epochs run **7 days, turning over Thursday 00:00 UTC**
-- Voting is open throughout the epoch and closes at the turnover
+- Voting opens one hour into the epoch (Thursday 01:00 UTC) and closes one hour before the next turnover (Wednesday 23:00 UTC)
 - Votes are tallied at the turnover, and each gauge's MEZO allocation is set by its share of total veMEZO votes cast on MEZO Gauges
 
 **Unvoted emissions.** MEZO is split across MEZO Gauges strictly in proportion to the votes cast. A gauge that receives no votes receives no MEZO, and its share is spread across the gauges that did get votes. Voting power you leave unallocated simply does not influence the split, and earns you no incentives.
@@ -54,14 +56,14 @@ MEZO Gauges follow the same weekly cycle as the rest of Mezo Earn.
 
 Your allocation **persists across epochs** until you change it. If you are happy with your split, you do not need to re-submit every week — it keeps earning you a share of that gauge's incentives each epoch.
 
-**To change it:** return to the MEZO Gauges page, enter a new allocation, and submit. The new split replaces the old one from the epoch in which it confirms.
+**You can only vote once per epoch per lock.** Once your vote confirms, that lock's MEZO Gauge allocation is locked in for the rest of the epoch and the page shows it as read-only until the next turnover.
 
-**To reset it:** set your allocation to zero across all gauges and submit, which withdraws your voting power from MEZO Gauges entirely.
+**To change it:** return to the MEZO Gauges page, enter a new allocation, and submit — the new split fully replaces the old one. If the lock already voted this epoch, it cannot vote again until the next turnover.
 
-You can change or reset as often as you like within an epoch; only your allocation at the epoch turnover counts toward that epoch's split.
+**To reset it:** use **Reset** to withdraw your voting power from MEZO Gauges entirely. You cannot reset in the same epoch you already voted, because each lock gets one voter action per epoch.
 
 :::caution
-Changing your vote mid-epoch moves your **whole** weight for that epoch. You are not credited pro-rata for the part of the week your earlier allocation was in place.
+Because each lock votes once per epoch, a lock that has already voted cannot react to new gauges or incentives until the next turnover.
 :::
 
 ---
