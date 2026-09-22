@@ -49,7 +49,7 @@ By [voting for gauges](/docs/users/mezo-earn/vote), you earn additional rewards 
 The more voting weight you allocate to a gauge, the larger your share of that gauge's fees and incentives.
 
 :::note[Important]
-You must vote each epoch to earn active rewards. See [Epochs](#epochs) below.
+Your allocation persists across epochs and keeps earning until you change it — you do not need to re-vote every week. See [Epochs](#epochs) below.
 :::
 
 
@@ -61,7 +61,7 @@ Mezo Earn operates in **7-day cycles called epochs**. Each epoch begins on Thurs
 
 ### Why Epochs Matter
 
-- **Votes do not persist.** You must vote every epoch to earn fees and emissions. If you don't vote in an epoch, you forfeit active earnings for that period.
+- **Votes persist.** Your allocation carries across epochs until you change or reset it. Each lock can vote once per epoch, so a confirmed allocation cannot be changed until the next turnover.
 - **Votes cast in epoch N** determine emission allocation for epoch N+1
 - **Fees generated in epoch N** are distributed based on votes cast in epoch N
 
