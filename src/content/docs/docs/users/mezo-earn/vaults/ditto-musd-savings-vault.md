@@ -25,15 +25,15 @@ These checks govern automated execution; they do not eliminate smart contract, b
 
 ## Vault details
 
-| Parameter          | Value                                                                                                      |
-| ------------------ | ---------------------------------------------------------------------------------------------------------- |
-| Deposit asset      | MUSD on Mezo                                                                                               |
-| Receipt token      | dMUSD                                                                                                      |
-| Vault operator     | Ditto Network                                                                                              |
-| Initial allocation | Spark Savings on Ethereum                                                                                  |
-| Redemption asset   | MUSD on Mezo                                                                                               |
-| Withdrawals        | Asynchronous — allow time for processing                                                                   |
-| Current APY        | Variable — check the [vault page](https://mezo.org/earn/vaults/0x9171Cb787C3fEEbBC808D07CaB62B1d789CE14F8) |
+| Parameter          | Value                                                                                                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Deposit asset      | MUSD on Mezo                                                                                                                                                                   |
+| Receipt token      | dMUSD                                                                                                                                                                          |
+| Vault operator     | Ditto Network                                                                                                                                                                  |
+| Initial allocation | Spark Savings on Ethereum                                                                                                                                                      |
+| Redemption asset   | MUSD on Mezo                                                                                                                                                                   |
+| Withdrawals        | Asynchronous — allow time for processing                                                                                                                                       |
+| Current APY        | Approx. 3.60% as of September 29, 2026, in line with Spark Savings — variable; check the [vault page](https://mezo.org/earn/vaults/0x9171Cb787C3fEEbBC808D07CaB62B1d789CE14F8) |
 
 Past performance does not reflect current performance or guarantee future returns. Review the current rate, any fees, withdrawal terms, and risks in the app before depositing.
 
