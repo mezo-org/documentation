@@ -286,6 +286,7 @@ export default defineConfig({
                                           'docs/users/mezo-earn/vaults',
                                           'docs/users/mezo-earn/vaults/vault-notices',
                                           'docs/users/mezo-earn/vaults/musd-savings-vault',
+                                          'docs/users/mezo-earn/vaults/ditto-musd-savings-vault',
                                           'docs/users/mezo-earn/vaults/usdc-lending-vault'
                                     ]
                               }

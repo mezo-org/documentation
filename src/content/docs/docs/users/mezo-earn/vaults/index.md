@@ -40,6 +40,8 @@ Vaults built and managed by Mezo, such as the [MUSD Savings Vault](/docs/users/m
 
 ### External Vaults
 
+The [Ditto MUSD Savings Vault](/docs/users/mezo-earn/vaults/ditto-musd-savings-vault) accepts MUSD on Mezo and issues dMUSD. Ditto Network handles swaps, bridging, and an initial allocation to Spark Savings on Ethereum. Redemptions return MUSD on Mezo and are processed asynchronously.
+
 Vaults built by partner protocols (e.g., August, UWI, Upshift) that deploy assets into their own strategies. These can also appear as featured banners on the vaults page and link out to the partner's platform for deposits.
 
 ---
