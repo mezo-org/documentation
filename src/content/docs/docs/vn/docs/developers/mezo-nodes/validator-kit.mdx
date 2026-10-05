@@ -1,0 +1,443 @@
+---
+title: Hướng dẫn phát triển với Validator Kit
+description: >-
+  Hướng dẫn đầy đủ để thiết lập và vận hành node validator Mezo bằng Validator
+  Kit.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezo Validator Kit là giải pháp toàn diện để vận hành các node Mezo, bao gồm validator, node RPC và seed node. Hướng dẫn này trình bày cách thiết lập, cấu hình và bảo trì hạ tầng Mezo.
+
+## Tổng quan
+
+[Validator Kit](https://github.com/mezo-org/validator-kit.git) giúp đơn giản hóa việc triển khai node Mezo với nhiều phương án triển khai:
+
+- **Docker**: Triển khai bằng container
+- **Daemon gốc**: Cài đặt trực tiếp lên hệ thống
+- **Kubernetes**: Helm chart để điều phối (orchestration)
+- **Triển khai trên đám mây**: Hỗ trợ AWS, GCP, Azure
+
+### Các loại node
+
+1. **Node validator**: Tham gia đồng thuận và tạo khối
+2. **Node RPC**: Cung cấp endpoint API cho dApp
+3. **Seed node**: Giúp khởi tạo kết nối (bootstrap) cho mạng
+
+## Cấu trúc kho mã
+
+[Kho mã Validator Kit](https://github.com/mezo-org/validator-kit.git) bao gồm:
+
+- **[Cấu hình Docker](https://github.com/mezo-org/validator-kit/tree/main/docker)**: Thiết lập và điều phối container
+- **[Manifest Kubernetes](https://github.com/mezo-org/validator-kit/tree/main/kubernetes)**: Helm chart và tài nguyên K8s
+- **[Mẫu cấu hình](https://github.com/mezo-org/validator-kit/tree/main/configs)**: Các tệp cấu hình node
+- **[Giám sát](https://github.com/mezo-org/validator-kit/tree/main/monitoring)**: Prometheus, Grafana và cảnh báo
+- **[Script](https://github.com/mezo-org/validator-kit/tree/main/scripts)**: Công cụ tự động hóa và bảo trì
+
+## Yêu cầu phần cứng
+
+### Yêu cầu tối thiểu
+
+**Node validator**:
+- CPU: 4 nhân
+- RAM: 8GB
+- Lưu trữ: 100GB SSD
+- Mạng: 100 Mbps
+
+**Node RPC**:
+- CPU: 2 nhân
+- RAM: 4GB
+- Lưu trữ: 50GB SSD
+- Mạng: 50 Mbps
+
+**Seed node**:
+- CPU: 1 nhân
+- RAM: 2GB
+- Lưu trữ: 20GB SSD
+- Mạng: 10 Mbps
+
+### Yêu cầu khuyến nghị
+
+**Node validator**:
+- CPU: 8 nhân
+- RAM: 16GB
+- Lưu trữ: 500GB NVMe SSD
+- Mạng: 1 Gbps
+
+## Phương thức cài đặt
+
+### Triển khai bằng Docker
+
+<Steps>
+1. **Clone kho mã**:
+   ```bash
+   git clone https://github.com/mezo-org/validator-kit.git
+   cd validator-kit
+   ```
+
+2. **Cấu hình môi trường**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+3. **Khởi động node**:
+   ```bash
+   docker-compose up -d
+   ```
+</Steps>
+
+### Cài đặt gốc
+
+<Steps>
+1. **Cài đặt các gói phụ thuộc**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install -y curl git make build-essential
+
+   # Install Go
+   curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
+   ```
+
+2. **Build Mezod**:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   make build
+   ```
+
+3. **Cấu hình node**:
+   ```bash
+   ./mezod init mynode --chain-id mezo-testnet
+   ```
+</Steps>
+
+### Triển khai bằng Kubernetes
+
+<Steps>
+1. **Cài đặt Helm**:
+   ```bash
+   curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   ```
+
+2. **Triển khai bằng Helm**:
+   ```bash
+   helm install mezo-node ./helm/mezo-node \
+     --set node.type=validator \
+     --set node.name=my-validator
+   ```
+</Steps>
+
+## Cấu hình
+
+### Cấu hình node
+
+**config.toml**:
+```toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+```
+
+**app.toml**:
+```toml
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[evm]
+rpc_address = "0.0.0.0:8545"
+ws_address = "0.0.0.0:8546"
+```
+
+### Biến môi trường
+
+```bash
+# Node configuration
+NODE_TYPE=validator
+CHAIN_ID=mezo-mainnet
+MONIKER=my-validator
+
+# Network configuration
+P2P_PORT=26656
+RPC_PORT=26657
+API_PORT=1317
+GRPC_PORT=9090
+EVM_RPC_PORT=8545
+
+# Security
+PRIV_VALIDATOR_KEY_FILE=/config/priv_validator_key.json
+NODE_KEY_FILE=/config/node_key.json
+```
+
+## Thiết lập validator
+
+### Điều kiện tiên quyết
+
+1. **Proof of Authority (PoA)**: Đăng ký để trở thành validator
+2. **Yêu cầu về stake**: Số lượng stake tối thiểu
+3. **Yêu cầu kỹ thuật**: Đáp ứng thông số phần cứng
+
+### Cấu hình validator
+
+```bash
+# Initialize validator
+./mezod init validator --chain-id mezo-mainnet
+
+# Create validator key
+./mezod keys add validator --keyring-backend file
+
+# Create validator transaction
+./mezod tx staking create-validator \
+  --amount=1000000umezo \
+  --pubkey=$(./mezod tendermint show-validator) \
+  --moniker="My Validator" \
+  --chain-id=mezo-mainnet \
+  --from=validator
+```
+
+## Thiết lập node RPC
+
+### Mục đích
+
+Node RPC cung cấp:
+- **Endpoint API**: API REST và gRPC
+- **EVM RPC**: JSON-RPC tương thích Ethereum
+- **WebSocket**: Luồng dữ liệu theo thời gian thực
+- **Cân bằng tải**: Phân phối lưu lượng giữa các node
+
+### Cấu hình
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  rpc-node:
+    image: mezod:latest
+    ports:
+      - "26657:26657"  # Tendermint RPC
+      - "1317:1317"    # Cosmos API
+      - "9090:9090"    # gRPC
+      - "8545:8545"    # EVM RPC
+    environment:
+      - NODE_TYPE=rpc
+      - CHAIN_ID=mezo-mainnet
+    volumes:
+      - ./data:/root/.mezod
+```
+
+## Giám sát và khả năng quan sát
+
+### Cấu hình Prometheus
+
+```yaml
+# prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'mezod'
+    static_configs:
+      - targets: ['localhost:26660']
+    metrics_path: /metrics
+```
+
+### Bảng điều khiển Grafana
+
+Các chỉ số chính cần theo dõi:
+- **Chiều cao khối**: Chiều cao hiện tại của blockchain
+- **Trạng thái validator**: Đang hoạt động/không hoạt động
+- **Kết nối mạng**: Các kết nối peer
+- **Mức sử dụng tài nguyên**: CPU, bộ nhớ, ổ đĩa
+- **Thông lượng giao dịch**: Chỉ số TPS
+
+### Quy tắc cảnh báo
+
+```yaml
+# alerts.yml
+groups:
+  - name: mezod
+    rules:
+      - alert: NodeDown
+        expr: up{job="mezod"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Mezod node is down"
+```
+
+## Các phương pháp bảo mật hay nhất
+
+### Bảo mật mạng
+
+1. **Cấu hình tường lửa**:
+```bash
+# Allow only necessary ports
+ufw allow 26656/tcp  # P2P
+ufw allow 26657/tcp  # RPC
+ufw allow 1317/tcp   # API
+ufw allow 8545/tcp   # EVM RPC
+```
+
+2. **Kiểm soát truy cập**:
+```bash
+# Restrict RPC access
+iptables -A INPUT -p tcp --dport 26657 -s TRUSTED_IP -j ACCEPT
+iptables -A INPUT -p tcp --dport 26657 -j DROP
+```
+
+### Quản lý khóa
+
+1. **Lưu trữ an toàn**: Sử dụng mô-đun bảo mật phần cứng (HSM)
+2. **Chiến lược sao lưu**: Sao lưu khóa định kỳ
+3. **Kiểm soát truy cập**: Giới hạn quyền truy cập khóa
+
+**Quan trọng**: Tuyệt đối không commit khóa validator vào hệ thống quản lý phiên bản!
+
+## Bảo trì
+
+### Công việc định kỳ
+
+1. **Cập nhật phần mềm**:
+```bash
+# Update mezod
+git pull origin main
+make build
+systemctl restart mezod
+```
+
+2. **Bảo trì cơ sở dữ liệu**:
+```bash
+# Prune old data (use with caution)
+./mezod tendermint unsafe-reset-all
+```
+
+3. **Xoay vòng log**:
+```bash
+# Configure logrotate
+cat > /etc/logrotate.d/mezod << EOF
+/var/log/mezod/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+EOF
+```
+
+### Chiến lược sao lưu
+
+1. **Sao lưu cấu hình**:
+```bash
+tar -czf config-backup.tar.gz ~/.mezod/config/
+```
+
+2. **Sao lưu khóa** (lưu trữ an toàn):
+```bash
+# Backup validator keys to secure location
+cp ~/.mezod/config/priv_validator_key.json /secure/backup/
+```
+
+## Khắc phục sự cố
+
+### Các sự cố thường gặp
+
+1. **Sự cố đồng bộ**:
+```bash
+# Check sync status
+./mezod status
+
+# Reset and resync
+./mezod tendermint unsafe-reset-all
+```
+
+2. **Sự cố kết nối**:
+```bash
+# Check peer connections
+./mezod tendermint show-node-id
+
+# Update persistent peers in config.toml
+```
+
+3. **Sự cố hiệu năng**:
+```bash
+# Monitor resource usage
+htop
+iotop
+netstat -tulpn
+```
+
+### Lệnh gỡ lỗi
+
+```bash
+# View logs
+journalctl -u mezod -f
+
+# Check node status
+./mezod status
+
+# View configuration
+./mezod config
+
+# Test RPC endpoints
+curl http://localhost:26657/status
+```
+
+## Tích hợp khi phát triển
+
+### Phát triển cục bộ
+
+1. **Khởi động node cục bộ**:
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
+
+2. **Kết nối dApp**:
+```javascript
+const provider = new ethers.JsonRpcProvider('http://localhost:8545');
+```
+
+### Môi trường kiểm thử
+
+1. **Node testnet**:
+```bash
+./mezod init testnode --chain-id mezo-testnet
+```
+
+2. **Kiểm thử tích hợp**:
+```bash
+npm test
+```
+
+## Tài nguyên bổ sung
+
+- **[Kho mã Validator Kit](https://github.com/mezo-org/validator-kit.git)** - Kho mã chính
+- **[Kho mã Mezod](https://github.com/mezo-org/mezod.git)** - Client của chuỗi
+- **[Tài liệu về node Mezo](/docs/vn/docs/developers/mezo-nodes/)** - Vận hành node
+- **[Tài liệu Docker](https://docs.docker.com/)** - Tài liệu tham khảo Docker
+- **[Tài liệu Kubernetes](https://kubernetes.io/docs/)** - Tài liệu tham khảo K8s
+
+:::note
+Để biết chi tiết về yêu cầu đối với validator, quy trình đăng ký và các cấu hình nâng cao, hãy tham khảo tài liệu trong [kho mã Validator Kit](https://github.com/mezo-org/validator-kit.git).
+:::
+
+## Hỗ trợ
+
+Để được hỗ trợ về validator:
+- Tham gia [Discord của Mezo](https://discord.com/invite/mezo)
+- Xem [GitHub Issues](https://github.com/mezo-org/validator-kit/issues)
+- Xem [câu hỏi thường gặp](/docs/vn/docs/developers/getting-started/FAQs)

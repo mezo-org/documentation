@@ -1,9 +1,9 @@
 ---
-title: Hướng dẫn sử dụng và Tài liệu
+title: Hướng dẫn và tài liệu cho người dùng
 description: >-
-  Tài liệu chính thức của Mezo: Thiết lập ví, chuyển tài sản qua cầu nối, hướng
-  dẫn vay MUSD, và tài nguyên dành cho nhà phát triển. Đây là hướng dẫn đầy đủ
-  để bạn tự chủ tài chính.
+  Tài liệu chính thức của Mezo: thiết lập ví, chuyển tài sản qua cầu nối, hướng
+  dẫn vay MUSD và tài nguyên cho nhà phát triển. Đây là cẩm nang đầy đủ để bạn
+  tự làm chủ tài chính của mình.
 topic: users
 ---
 
@@ -11,30 +11,63 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 ## Bắt đầu
 
-Tìm hiểu những kiến thức cơ bản về gửi tài sản và [vay tài sản](https://mezo.org/feature/borrow) trong Ứng dụng Mezo hoặc kết nối với Mezo Mainnet.
+Tìm hiểu những điều cơ bản về nạp tài sản và [vay tài sản](https://mezo.org/feature/borrow) trong Mezo App, hoặc kết nối với Mezo Mainnet.
 
 <CardGrid>
-  <LinkCard title="Tạo tài khoản" href="/docs/vn/docs/users/getting-started/creating-an-account" description="Tìm hiểu cách thiết lập tài khoản và bắt đầu sử dụng Mezo." />
-  <LinkCard title="Kết nối ví của bạn" href="/docs/vn/docs/users/getting-started/connect" description="Kết nối ví hiện có của bạn với mạng Mezo." />
-  <LinkCard title="Gửi tài sản" href="/docs/vn/docs/users/getting-started/deposit-assets" description="Chuyển tài sản của bạn sang Mezo để bắt đầu kiếm lợi nhuận và vay." />
+  <LinkCard
+    title="Tạo tài khoản"
+    href="/docs/vn/docs/users/getting-started/creating-an-account"
+    description="Tìm hiểu cách thiết lập tài khoản và bắt đầu sử dụng Mezo."
+  />
+  <LinkCard
+    title="Kết nối ví của bạn"
+    href="/docs/vn/docs/users/getting-started/connect"
+    description="Kết nối ví bạn đang có với Mezo."
+  />
+  <LinkCard
+    title="Nạp tài sản"
+    href="/docs/vn/docs/users/getting-started/deposit-assets"
+    description="Chuyển tài sản của bạn sang Mezo qua cầu nối để bắt đầu kiếm lợi nhuận và vay."
+  />
+  <LinkCard
+    title="Gửi tài sản"
+    href="/docs/vn/docs/users/passport/send-assets"
+    description="Gửi tài sản cho người dùng khác trên Mezo bằng địa chỉ ví, địa chỉ Bitcoin hoặc Mezo ID."
+  />
 </CardGrid>
 
 ## Tìm hiểu
 
-Tìm hiểu về mạng Mezo, MUSD, và cách chúng cung cấp quyền truy cập vào vốn chủ sở hữu Bitcoin.
+Tìm hiểu về mạng Mezo, MUSD và cách chúng giúp bạn khai thác giá trị tài sản Bitcoin của mình.
 
 <CardGrid>
-  <LinkCard title="Tại sao Bitcoin cần Ngân hàng" href="/docs/vn/docs/users/introduction/why-bitcoin-needs-banking" description="Khám phá những lý do cơ bản đằng sau mạng Mezo." />
-  <LinkCard title="Ngân hàng Tự phục vụ" href="/docs/vn/docs/users/introduction/mezo-self-service-banking" description="Tìm hiểu sâu về nền kinh tế ngân hàng tự do của Mezo dành cho người dùng Bitcoin." />
-  <LinkCard title="MUSD là gì?" href="/docs/vn/docs/users/borrow" description="Tìm hiểu về stablecoin được hỗ trợ bởi Bitcoin của Mezo." />
+  <LinkCard
+    title="Vì sao Bitcoin cần ngân hàng"
+    href="/docs/vn/docs/users/introduction/why-bitcoin-needs-banking"
+    description="Khám phá những lý do cốt lõi đằng sau mạng Mezo."
+  />
+  <LinkCard
+    title="Ngân hàng tự phục vụ"
+    href="/docs/vn/docs/users/introduction/mezo-self-service-banking"
+    description="Tìm hiểu sâu về nền kinh tế ngân hàng tự do của Mezo dành cho Bitcoiner."
+  />
+  <LinkCard
+    title="MUSD là gì?"
+    href="/docs/vn/docs/users/borrow"
+    description="Tìm hiểu về stablecoin gốc của Mezo được bảo đảm bằng Bitcoin."
+  />
 </CardGrid>
 
-## Vay và phát hành
+## Khoản vay Bitcoin
 
-Sử dụng tài sản của bạn để mở khóa sức mua từ Bitcoin.
+Dùng tài sản của bạn để khai mở sức chi tiêu từ Bitcoin của mình.
 
 <CardGrid>
-  <LinkCard title="Vay và Phát hành MUSD" href="/docs/vn/docs/users/borrow/mint-musd" description="Sử dụng tài sản của bạn để mở khóa sức mua từ Bitcoin." />
+  <LinkCard
+    title="Vay và đúc MUSD"
+    href="/docs/vn/docs/users/borrow/mint-musd"
+    description="Dùng tài sản của bạn để khai mở sức chi tiêu từ Bitcoin của mình."
+  />
 </CardGrid>
 
 ## Tích hợp
@@ -42,13 +75,31 @@ Sử dụng tài sản của bạn để mở khóa sức mua từ Bitcoin.
 Kết nối với các nền tảng đối tác để nâng cao trải nghiệm Bitcoin của bạn.
 
 <CardGrid>
-  <LinkCard title="Tích hợp Lolli" href="/docs/vn/docs/users/integrations/lolli" description="Kết nối với các nền tảng đối tác để nâng cao trải nghiệm Bitcoin của bạn." />
+  <LinkCard
+    title="Lolli"
+    href="/docs/vn/docs/users/integrations/lolli"
+    description="Kết nối với các nền tảng đối tác để nâng cao trải nghiệm Bitcoin của bạn."
+  />
+  <LinkCard
+    title="Safe"
+    href="/docs/vn/docs/users/integrations/safe"
+    description="Dùng ví multisig Safe trên Mezo để quản lý quỹ chung với cơ chế bảo mật đa chữ ký."
+  />
+  <LinkCard
+    title="Dự án cộng đồng"
+    href="/docs/vn/docs/users/integrations/community-projects"
+    description="Khám phá các tích hợp do cộng đồng xây dựng, bao gồm Mezo Tools, Matchbox và Vezo."
+  />
 </CardGrid>
 
 ## Nhà phát triển
 
-Bạn muốn phát triển trên Mezo? Bắt đầu với tài liệu dành cho nhà phát triển.
+Bạn muốn phát triển trên Mezo? Hãy bắt đầu với tài liệu dành cho nhà phát triển.
 
 <CardGrid>
-  <LinkCard title="Tài liệu Nhà phát triển" href="/docs/vn/docs/developers" description="Bạn muốn phát triển trên Mezo? Bắt đầu với tài liệu dành cho nhà phát triển." />
+  <LinkCard
+    title="Tài liệu cho nhà phát triển"
+    href="/docs/vn/docs/developers"
+    description="Bạn muốn phát triển trên Mezo? Hãy bắt đầu với tài liệu dành cho nhà phát triển."
+  />
 </CardGrid>

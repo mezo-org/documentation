@@ -1,0 +1,86 @@
+---
+title: MEZO Bridge
+description: Chuyển token MEZO qua cầu nối giữa Mezo và các mạng khác bằng Wormhole NTT
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+Cầu nối MEZO cho phép chuyển token giữa Mezo và nhiều mạng, bao gồm Ethereum, Base, BSC và Solana, bằng giao thức Native Token Transfer (NTT) của Wormhole. Cầu nối này duy trì tính có thể thay thế của token, đồng thời cung cấp chức năng cross-chain an toàn.
+
+## Cách hoạt động
+
+Cầu nối MEZO sử dụng giao thức Native Token Transfer của Wormhole để thực hiện chuyển token cross-chain:
+
+- **Từ Mezo sang các chuỗi khác**: Token MEZO bị khóa trên Mezo và lượng token tương đương được đúc trên chuỗi đích (Ethereum, Base, BSC hoặc Solana)
+- **Từ các chuỗi khác sang Mezo**: Token MEZO bị đốt trên chuỗi nguồn và lượng token tương đương được mở khóa trên Mezo
+
+Cơ chế này đảm bảo tổng cung trên tất cả các chuỗi luôn không đổi, đồng thời cho phép người dùng tự do chuyển token giữa các mạng.
+
+## Các lựa chọn cầu nối
+
+Có hai giao diện người dùng để chuyển token MEZO qua cầu nối:
+
+### Mezo dApp
+
+[Mezo dApp](https://mezo.org) cung cấp trải nghiệm chuyển qua cầu nối gốc để chuyển token MEZO, chỉ giữa Mezo và mạng Ethereum.
+
+**Để chuyển từ Mezo sang Ethereum (rút):**
+
+<Steps>
+1. **Kết nối ví của bạn** với Mezo dApp
+
+2. **Nhấp vào "Withdraw"** để chuyển token ra khỏi Mezo
+
+3. **Chọn token MEZO** và nhập số lượng muốn rút
+
+4. **Xác nhận giao dịch** trong ví của bạn
+
+5. **Chờ xác nhận** trên cả hai chuỗi
+</Steps>
+
+**Để chuyển từ Ethereum sang Mezo (nạp):**
+
+<Steps>
+1. **Kết nối ví của bạn** với Mezo dApp
+
+2. **Nhấp vào "Deposit"** để chuyển token vào Mezo
+
+3. **Chọn token MEZO** và nhập số lượng muốn nạp
+
+4. **Xác nhận giao dịch** trong ví của bạn
+
+5. **Chờ xác nhận** trên cả hai chuỗi
+</Steps>
+
+### Giao diện Wormhole Portal Bridge
+
+Để chuyển token MEZO qua cầu nối tới Base, BSC, Solana hoặc Ethereum, hãy dùng [giao diện Portal](https://portalbridge.com/):
+
+<Steps>
+1. **Kết nối ví của bạn** với giao diện Portal
+
+2. **Chọn chuỗi nguồn và chuỗi đích** (Mezo ↔ Ethereum, Base, BSC hoặc Solana)
+
+3. **Chọn MEZO** làm token cần chuyển
+
+4. **Nhập số lượng** bạn muốn chuyển
+
+5. **Kiểm tra chi tiết giao dịch**, bao gồm phí và thời gian ước tính
+
+6. **Xác nhận giao dịch** trong ví của bạn
+
+7. **Chờ xác nhận** trên cả hai chuỗi
+</Steps>
+
+Cả hai giao diện đều mang lại trải nghiệm thân thiện, tự động xử lý mọi tương tác phức tạp với các hợp đồng NTT bên dưới.
+
+## Hợp đồng thông minh
+
+Để xem tất cả địa chỉ hợp đồng token và cầu nối MEZO, hãy xem trang tham chiếu [Địa chỉ hợp đồng và token](../../resources/contracts-reference).
+
+## Tài nguyên bổ sung
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Tài liệu Wormhole NTT</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">Tham chiếu hợp đồng</LinkButton>

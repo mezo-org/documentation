@@ -1,0 +1,67 @@
+---
+title: Nhận khoản khuyến khích
+description: Cách LP và người bỏ phiếu nhận lượng MEZO do MEZO Gauges điều hướng
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Ai nhận gì, và nhận ở đâu, phụ thuộc vào việc bạn đứng ở phía nào của gauge.
+
+| Bạn là | Bạn nhận | Nơi nhận |
+|---|---|---|
+| LP trong Curve USDT/USDC/MUSD hoặc Uniswap USDC/MUSD | veMEZO khóa trong 3 tháng | [Merkl](https://app.merkl.xyz) |
+| Người nắm giữ veAERO bỏ phiếu cho Aerodrome USDC/MUSD hoặc MEZO/MUSD | MEZO, dưới dạng khoản khuyến khích bỏ phiếu | [Aerodrome](https://aerodrome.finance) |
+| LP trong Aerodrome USDC/MUSD hoặc MEZO/MUSD | Lượng phát thải AERO | [Aerodrome](https://aerodrome.finance) |
+| Người nắm giữ veMEZO đã bỏ phiếu cho một MEZO Gauge | Khoản khuyến khích được đăng trên gauge đó | Tab Vote trên [mezo.org](https://mezo.org) |
+
+---
+
+## LP của Curve và Uniswap: nhận trên Merkl
+
+Phần thưởng **không** được tự động gửi vào ví của bạn. Merkl ghi nhận một khoản có thể nhận cho địa chỉ của bạn, và bạn phải tự nhận khoản đó.
+
+<Steps>
+1. Truy cập [app.merkl.xyz](https://app.merkl.xyz).
+2. Kết nối ví đang nắm giữ vị thế LP.
+3. Mở **Dashboard**. Sau khi bạn kết nối, trang này liệt kê mọi phần thưởng mà ví đó đủ điều kiện nhận, vì vậy bạn không cần tìm kiếm chiến dịch.
+4. Nhấp vào **Claim** và ký giao dịch.
+</Steps>
+
+**Bạn nhận được gì:** veMEZO khóa trong 3 tháng, không phải MEZO có thể dùng ngay. Sau khi nhận, nó hoạt động như mọi [vị thế veMEZO](/docs/vn/docs/users/mezo-earn/lock/vemezo) khác. Nó có thể boost một vị thế veBTC và có thể bỏ phiếu cho MEZO Gauges.
+
+Nếu bạn cung cấp thanh khoản cho pool, bạn có thể tạo vòng lặp bằng cách dùng veMEZO đã nhận để bỏ phiếu trở lại cho MEZO Gauge của chính pool đó, nhờ vậy gửi thêm lượng phát thải tới vị thế mà bạn đang nắm giữ. Việc này là tùy chọn. Chỉ cần cung cấp thanh khoản trong thời gian diễn ra chiến dịch là đủ để nhận thưởng. Xem [Phiếu bầu của bạn đi về đâu](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#thu-về-giá-trị-mà-bạn-điều-hướng) để biết toàn bộ quy trình.
+
+:::caution[Phần thưởng không được nhận sẽ bị mất]
+Các chiến dịch Merkl không tích lũy vô thời hạn. Nếu bạn không bao giờ nhận, bạn sẽ mất phần thưởng. Nếu bạn cung cấp thanh khoản cho các pool này, hãy kiểm tra Merkl định kỳ.
+:::
+
+Bạn không cần nắm giữ veMEZO hay đã bỏ phiếu để nhận thưởng với tư cách LP. Cung cấp thanh khoản cho pool trong thời gian diễn ra chiến dịch là yêu cầu duy nhất.
+
+---
+
+## Aerodrome: nhận trên Base
+
+MEZO được điều hướng tới một gauge Aerodrome sẽ được gửi vào dưới dạng **khoản khuyến khích bỏ phiếu**, vì vậy người nhận là những người bỏ phiếu veAERO, không phải LP.
+
+**Nếu bạn nắm giữ veAERO và đã bỏ phiếu cho USDC/MUSD hoặc MEZO/MUSD:** truy cập [aerodrome.finance](https://aerodrome.finance), mở khoản khóa veAERO của bạn và nhận phần thưởng của epoch. Phần MEZO của bạn tương ứng với tỷ phần phiếu bầu của bạn trên gauge đó.
+
+**Nếu bạn cung cấp thanh khoản cho Aerodrome USDC/MUSD hoặc MEZO/MUSD:** stake vị thế của bạn vào gauge của pool và nhận lượng phát thải **AERO** tại đó. Lưu ý [độ trễ hai epoch](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#độ-trễ-hai-epoch) giữa một phiếu bầu trên Mezo và lượng AERO mà phiếu bầu đó tạo ra.
+
+---
+
+## Người bỏ phiếu MEZO Gauge: nhận trên Mezo
+
+Nếu bạn đã điều hướng veMEZO tới một MEZO Gauge, bạn kiếm được một phần của mọi **khoản khuyến khích được đăng trên gauge đó**, tương ứng với tỷ phần phiếu bầu của bạn.
+
+Hãy nhận các khoản này giống như mọi phần thưởng bỏ phiếu khác — trong tab **Vote** tại [mezo.org](https://mezo.org), sau khi epoch đã kết thúc. Xem [Nhận phí và lượng phát thải](/docs/vn/docs/users/mezo-earn/vote/claiming-fees-emissions).
+
+Các khoản khuyến khích này tách biệt với lượng phát thải mà bạn đã điều hướng. Lượng phát thải đi tới pool đích; còn khoản khuyến khích được đăng trên Mezo nhằm thu hút phiếu bầu của bạn tới đó ngay từ đầu.
+
+---
+
+## Bước tiếp theo
+
+- [Phiếu bầu của bạn đi về đâu](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — toàn bộ quy trình từ phiếu bầu đến khoản khuyến khích
+- [Tổng quan về MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges) — các pool đủ điều kiện và nguồn vốn
+- [Nhận phí và lượng phát thải](/docs/vn/docs/users/mezo-earn/vote/claiming-fees-emissions) — tất cả các phần thưởng Mezo Earn khác

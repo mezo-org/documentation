@@ -1,0 +1,92 @@
+---
+title: Sử dụng Mezo Pools
+description: 'Cách gửi tài sản, quản lý vị thế, nhận phần thưởng và nhiều thao tác khác'
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Cung cấp thanh khoản trên Mezo Pools giúp bạn kiếm phí giao dịch, đồng thời làm sâu thêm thị trường cho các tài sản được bảo chứng bằng Bitcoin. Hướng dẫn này đưa bạn đi qua toàn bộ quy trình.
+
+<YouTube id="6rthu_iub7E" title="Sử dụng Mezo Pools" start={128} />
+
+## Điều kiện tiên quyết
+
+Trước khi bắt đầu, hãy đảm bảo bạn có:
+
+- Một ví tương thích đã kết nối với Mezo
+- Hai token trong cặp pool mong muốn với giá trị tính bằng **đô la** bằng nhau
+- Đủ BTC để trả phí gas
+
+---
+
+## Gửi tài sản
+
+Để cung cấp thanh khoản, bạn cần có giá trị bằng nhau của cả hai tài sản trong một cặp giao dịch. Với pool BTC/MUSD, bạn có thể gửi lượng BTC trị giá 50 MUSD và 50 MUSD.
+
+Truy cập [mezo.org/earn/pools](https://mezo.org/earn/pools) và chọn pool bạn muốn. Nhập số lượng của một token mà bạn muốn gửi — giao diện sẽ tự động tính số lượng cần thiết của token thứ hai. Kiểm tra số LP token ước tính, xác nhận giao dịch và phê duyệt việc chi tiêu token nếu đây là lần đầu bạn thực hiện. Sau khi hoàn tất, LP token đại diện cho tỷ phần tương ứng của bạn sẽ được đúc vào ví của bạn.
+
+### Tìm hiểu về LP token
+
+Khi bạn gửi tài sản vào một pool, số LP token bạn nhận được tính bằng `sqrt(x × y)` đối với khoản gửi đầu tiên vào một pool mới, trong đó x và y là số lượng của hai token. Với các khoản gửi tiếp theo, số LP token của bạn tương ứng với tỷ phần của bạn trong tổng giá trị pool.
+
+Các token này đại diện cho quyền sở hữu của bạn đối với tài sản trong pool và cho bạn quyền:
+
+- Nhận phần tương ứng của toàn bộ phí giao dịch do pool tạo ra
+- Rút lại các tài sản cơ sở bằng cách đốt LP token
+
+---
+
+
+## Gauge
+
+Gauge quyết định cách lượng phát thải được phân phối giữa các pool. Mỗi pool có một gauge tương ứng, và lượng phát thải được tính lại mỗi epoch (7 ngày) dựa trên phiếu bầu của người nắm giữ veBTC. Phiếu bầu được giữ nguyên giữa các epoch trừ khi người bỏ phiếu thay đổi, và pool nào có nhiều phiếu bầu hơn sẽ nhận phần lượng phát thải lớn hơn. Nếu người bỏ phiếu tăng quyền biểu quyết của mình, họ cần [poke phiếu bầu](/docs/vn/docs/users/mezo-earn/vote/how-to-vote/#quan-trọng-poke-sau-khi-thay-đổi) để trọng số mới được áp dụng.
+
+Pool có nhiều phiếu bầu gauge hơn sẽ nhận nhiều lượng phát thải hơn, thu hút thêm thanh khoản, từ đó giảm trượt giá (slippage) và tăng khối lượng giao dịch. Khối lượng cao hơn tạo ra nhiều phí hơn cho LP, hình thành một vòng phản hồi tích cực trong toàn hệ sinh thái và gắn kết lợi ích của LP, người bỏ phiếu và nhà giao dịch.
+
+---
+
+## Quản lý
+
+Là LP, bạn kiếm thu nhập từ hai nguồn:
+
+### Phí giao dịch
+
+- Pool biến động: 0,30% mỗi lần swap
+- Pool ổn định: 0,02% mỗi lần swap
+- Được thu bằng cả hai token của cặp
+- Được lưu riêng trong các hợp đồng PoolFees
+- Có thể nhận bất cứ lúc nào mà không cần hủy stake
+
+### Lượng phát thải MEZO (khi đã stake)
+
+- Kiếm được dựa trên phiếu bầu của người nắm giữ veBTC cho các gauge
+- Lượng phân phối do quản trị cộng đồng quyết định
+
+---
+
+## Nhận
+
+**Nhận phí:** Mở vị thế của bạn, nhấp vào "Claim Fees", và cả hai token sẽ được gửi về ví của bạn. Bạn có thể nhận phí mà không cần hủy stake LP token.
+
+**Nhận phần thưởng:** Nhấp vào "Claim Rewards" từ vị thế đã stake để nhận các khoản khuyến khích bạn đã kiếm được.
+
+---
+
+## Rút
+
+ LP token của bạn được trả về ví và ngừng kiếm lượng phát thải, nhưng phí giao dịch vẫn tiếp tục tích lũy.
+ 
+ **Hủy stake:** Chọn "Unstake", nhập số lượng và xác nhận. 
+
+**Rút thanh khoản:** Hủy stake LP token trước nếu cần, sau đó nhấp vào "Remove Liquidity" và xác nhận. LP token của bạn bị đốt và cả hai token cơ sở được trả về ví của bạn theo tỷ lệ tương ứng.
+
+---
+
+## Rủi ro
+
+### Tổn thất tạm thời
+Cung cấp thanh khoản khiến bạn chịu rủi ro tổn thất tạm thời — khi tỷ lệ giá giữa các token của bạn thay đổi, giá trị bạn có thể thấp hơn so với việc chỉ đơn giản nắm giữ cả hai token. Các pool biến động như BTC/MUSD có rủi ro tổn thất tạm thời cao hơn các pool ổn định như MUSD/USDC.
+
+### Rủi ro hợp đồng thông minh
+Mezo Pools đã được kiểm toán, nhưng hợp đồng thông minh luôn tiềm ẩn rủi ro. Xem các báo cáo kiểm toán tại [mezo.org/audits](https://mezo.org/audits) và chỉ gửi số tiền mà bạn cảm thấy thoải mái.

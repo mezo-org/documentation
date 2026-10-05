@@ -1,5 +1,5 @@
 ---
-title: kiến trúc
+title: Kiến trúc
 topic: developers
 ---
-# kiến trúc
+# Kiến trúc

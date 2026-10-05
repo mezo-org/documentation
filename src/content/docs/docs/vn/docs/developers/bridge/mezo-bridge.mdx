@@ -1,18 +1,18 @@
 ---
-title: Tổng quan Mezo Bridge
+title: Tổng quan về Mezo Bridge
 topic: developers
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Mezo Bridge cho phép di chuyển tài sản gốc giữa Bitcoin, Ethereum và Mezo. Dưới đây là các luồng chính với tham chiếu đến các RFC thiết kế.
+Mezo Bridge cho phép chuyển tài sản gốc giữa Bitcoin, Ethereum và Mezo. Dưới đây là các luồng chính, kèm tham chiếu đến các RFC thiết kế.
 
-### Bridge Vào Mezo
+### Chuyển vào Mezo
 
 Từ Bitcoin → Mezo
 
 <Steps>
-1. Khóa BTC vào địa chỉ do bridge kiểm soát với metadata xác định người nhận Mezo.
+1. Khóa BTC vào địa chỉ do cầu nối kiểm soát, kèm metadata xác định người nhận trên Mezo.
 
 2. Gửi bằng chứng và chứng thực đến hợp đồng Mezo Bridge.
 
@@ -24,21 +24,21 @@ Từ Bitcoin → Mezo
 Từ Ethereum → Mezo
 
 <Steps>
-1. Khóa ERC-20 trên Ethereum thông qua hợp đồng Mezo Bridge, phát ra sự kiện `AssetLocked` với người nhận Mezo.
+1. Khóa token ERC-20 trên Ethereum thông qua hợp đồng Mezo Bridge; hợp đồng phát ra sự kiện `AssetLocked` kèm người nhận trên Mezo.
 
-2. Các validator bridge lắng nghe các sự kiện như vậy.
+2. Các validator của cầu nối lắng nghe những sự kiện này.
 
-3. Các validator bridge xác thực sự kiện và đại biểu validator.
+3. Các validator của cầu nối xác thực việc sự kiện đã được ghi nhận và ngưỡng đồng thuận tối thiểu (quorum) của validator.
 
 4. Đúc tài sản tương ứng trên Mezo cho người nhận.
 </Steps>
 
-### Bridge Ra khỏi Mezo
+### Chuyển ra khỏi Mezo
 
 Từ Mezo → Bitcoin
 
 <Steps>
-1. Đốt tài sản trên Mezo chỉ định địa chỉ người nhận Bitcoin.
+1. Đốt tài sản trên Mezo, chỉ định địa chỉ Bitcoin của người nhận.
 
 2. Gửi bằng chứng và chứng thực đến hợp đồng Mezo Bridge.
 
@@ -50,57 +50,70 @@ Từ Mezo → Bitcoin
 Từ Mezo → Ethereum
 
 <Steps>
-1. Đốt tài sản trên Mezo chỉ định người nhận Ethereum.
+1. Đốt tài sản trên Mezo, chỉ định người nhận trên Ethereum.
 
-2. Các validator bridge lắng nghe sự kiện `AssetsUnlocked`.
+2. Các validator của cầu nối lắng nghe sự kiện `AssetsUnlocked`.
 
-3. Các validator bridge xác thực sự kiện và đại biểu validator.
+3. Các validator của cầu nối xác thực việc sự kiện đã được ghi nhận và ngưỡng đồng thuận tối thiểu (quorum) của validator.
 
-4. Sau khi xác minh, ERC-20 được giải phóng cho người nhận.
+4. Sau khi xác minh, token ERC-20 được giải phóng cho người nhận.
 </Steps>
 
 ### Kiến trúc
 
-- **Khóa/Đốt tại Nguồn**: Tài sản được khóa trên Bitcoin/Ethereum (hoặc đốt trên Mezo) với dữ liệu xác định người nhận dự kiến và chuỗi đích.
-- **Chứng thực & Chuyển tiếp**: Các client offchain tạo chứng thực trên các sự kiện chuỗi nguồn và chuyển tiếp bằng chứng đến chuỗi đích.
-- **Đúc/Giải phóng tại Đích**: Sau khi chứng thực hợp lệ và xác minh bằng chứng, hợp đồng đích đúc tài sản wrapped hoặc giải phóng quỹ đã khóa.
+- **Khóa/đốt tại chuỗi nguồn**: Tài sản được khóa trên Bitcoin/Ethereum (hoặc đốt trên Mezo) kèm dữ liệu xác định người nhận dự kiến và chuỗi đích.
+- **Chứng thực và chuyển tiếp**: Các client offchain tạo chứng thực cho các sự kiện trên chuỗi nguồn và chuyển tiếp bằng chứng đến chuỗi đích.
+- **Đúc/giải phóng tại chuỗi đích**: Khi chứng thực hợp lệ và bằng chứng được xác minh, các hợp đồng trên chuỗi đích sẽ đúc tài sản wrapped hoặc giải phóng số tiền đã khóa.
 
-### Luồng Cốt lõi
+### Luồng cốt lõi
 
 <Steps>
-1. Người dùng khởi tạo chuyển bridge chỉ định địa chỉ đích và số lượng.
+1. Người dùng khởi tạo một giao dịch chuyển qua cầu nối, chỉ định địa chỉ đích và số lượng.
 
-2. Hợp đồng/sự kiện chuỗi nguồn được phát ra sau khóa/đốt; sự kiện bao gồm ID chuỗi duy nhất và các tham số.
+2. Hợp đồng trên chuỗi nguồn phát ra sự kiện sau khi khóa/đốt; sự kiện chứa ID thứ tự (sequence ID) duy nhất và các tham số.
 
-3. Client offchain thu thập xác nhận/tính cuối cùng theo ngưỡng RFC và gửi bằng chứng+chứng thực đến hợp đồng đích.
+3. Client offchain thu thập số xác nhận/tính hoàn tất (finality) theo ngưỡng quy định trong RFC rồi gửi bằng chứng và chứng thực đến hợp đồng trên chuỗi đích.
 
-4. Đích xác minh:
+4. Chuỗi đích xác minh:
    - tính xác thực của sự kiện
-   - đại biểu/chữ ký validator
+   - ngưỡng đồng thuận tối thiểu/chữ ký của validator
 
-5. Khi thành công, đích thực hiện đúc/giải phóng và ghi nhận hoàn thành.
+5. Nếu thành công, chuỗi đích thực hiện đúc/giải phóng và ghi nhận việc hoàn tất.
 </Steps>
+
+### Khoản nạp qua Enclave
+
+Mezo Enclaves là tính năng dành cho tổ chức, cho phép các tổ chức có yêu cầu
+lưu ký theo quy định pháp lý vẫn sử dụng được BTC của mình trên Mezo mà không
+cần nạp qua các cầu nối thông thường. Enclave được cấp những khả năng đặc biệt
+gắn với các thỏa thuận pháp lý quy định số lượng chuyển qua cầu nối và các giới
+hạn sử dụng. Mọi khoản nạp vào enclave vẫn được bảo đảm bằng các UTXO trên chuỗi
+Bitcoin; các UTXO này được ghi nhận trong giao dịch nạp qua cầu nối ba bên và
+được duy trì trong trạng thái chuỗi. Từng enclave được multisig quản trị của Mezo
+đưa vào danh sách cho phép (allowlist). Thông tin chi tiết về cách triển khai cầu
+nối ba bên có trong [`mezod` RFC-6](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md).
 
 ### Hợp đồng
 
 Mainnet:
 
 - Mezo Bridge: [0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c](https://etherscan.io/address/0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c)
-- Danh sách token đã bridge [list](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
+- [Danh sách](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens) token đã chuyển qua cầu nối
 
 Sepolia:
 
 - Mezo Bridge: [0x3a3BaE133739f92a885070DbF3300d61B232497C](https://sepolia.etherscan.io/address/0x3a3BaE133739f92a885070DbF3300d61B232497C)
-- Danh sách token đã bridge [list](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
+- [Danh sách](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens) token đã chuyển qua cầu nối
 
 ### Kiểm toán
 
-Vui lòng xem trang [Kiểm toán](https://github.com/mezo-org/audits) để biết các kiểm toán mới nhất.
+Xem trang [Kiểm toán](https://github.com/mezo-org/audits) để biết các báo cáo kiểm toán mới nhất.
 
-## Tài nguyên Bổ sung
+## Tài nguyên bổ sung
 
-Để biết chi tiết kỹ thuật đầy đủ, định dạng tin nhắn và lý do bảo mật, xem các RFC sau:
+Để biết đầy đủ chi tiết kỹ thuật, định dạng thông điệp và lý do thiết kế bảo mật, hãy xem các RFC sau:
 
-- [RFC-2: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
-- [RFC-4: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
-- [RFC-5: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-2: Chuyển Bitcoin vào Mezo qua cầu nối](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
+- [RFC-4: Cầu nối cho tài sản gốc không phải Bitcoin](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
+- [RFC-5: Chuyển tài sản ra khỏi Mezo qua cầu nối](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-6: Chuyển BTC qua cầu nối ba bên](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md)

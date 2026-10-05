@@ -1,0 +1,85 @@
+---
+title: Cách bỏ phiếu trên MEZO Gauges
+description: Hướng dẫn từng bước để điều hướng quyền biểu quyết veMEZO đến MEZO Gauges
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Việc bỏ phiếu cho MEZO Gauges dùng **veMEZO**, diễn ra trên một trang riêng và độc lập với việc bỏ phiếu gauge veBTC cũng như cơ chế ghép cặp boost.
+
+## Điều kiện tiên quyết
+
+- Một [ví đã kết nối với Mezo](/docs/vn/docs/users/getting-started/connect)
+- Một vị thế veMEZO đang hoạt động
+- Một lượng nhỏ BTC để trả phí gas
+
+Bạn **không** cần veBTC, vị thế thanh khoản hay vị thế trong pool đích để bỏ phiếu. Xem [Cách khóa MEZO](/docs/vn/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) nếu bạn chưa có veMEZO.
+
+---
+
+## Bỏ phiếu
+
+<Steps>
+1. Mở tab **Vote** trên [mezo.org](https://mezo.org), chuyển sang chế độ bỏ phiếu **veMEZO** và mở trang **MEZO Gauges** tại [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo).
+
+2. Xem các gauge hiện có. Mỗi hàng liệt kê giao thức và chuỗi đích, gauge (pool đích), các khoản khuyến khích được đăng trên gauge (nếu có) và ngày phân phối.
+
+3. Nhập tỷ lệ phần trăm quyền biểu quyết veMEZO mà bạn muốn phân bổ cho từng gauge. Bạn có thể chia cho nhiều gauge, ví dụ 60% cho Aerodrome USDC/MUSD và 40% cho Curve USDT/USDC/MUSD.
+
+4. Nhấp vào **Submit Votes** và ký giao dịch.
+</Steps>
+
+Phân bổ của bạn được ghi nhận cho epoch hiện tại ngay khi giao dịch được xác nhận.
+
+:::note[Protocol, Gauge, Incentives, Distribution date]
+Đây là bốn cột trong bảng MEZO Gauges. **Protocol** liên kết đến nền tảng đích. **Gauge** hiển thị pool đích. **Incentives** là các token được đăng trên gauge trong epoch này. **Distribution date** là thời điểm các khoản khuyến khích của epoch này được chuyển đến pool hoặc gauge đích, theo giờ UTC.
+
+Ở đây không hiển thị vAPR, phí hay TVL vì những giá trị đó phát sinh trên Curve, Uniswap hoặc Aerodrome chứ không phải trên Mezo. Khi bạn phân bổ, cột **Vote distribution** sẽ xuất hiện để hiển thị các tỷ lệ phần trăm.
+:::
+
+---
+
+## Khung thời gian bỏ phiếu
+
+MEZO Gauges tuân theo cùng chu kỳ hằng tuần như phần còn lại của Mezo Earn.
+
+- Mỗi epoch kéo dài **7 ngày, chuyển sang epoch mới vào Thứ Năm lúc 00:00 UTC**
+- Việc bỏ phiếu mở sau khi epoch bắt đầu một giờ (Thứ Năm lúc 01:00 UTC) và đóng một giờ trước thời điểm chuyển epoch tiếp theo (Thứ Tư lúc 23:00 UTC)
+- Phiếu bầu được kiểm đếm tại thời điểm chuyển epoch, và phần MEZO phân bổ cho mỗi gauge được xác định theo tỷ phần của gauge đó trong tổng số phiếu bầu veMEZO được bỏ cho MEZO Gauges
+
+**Lượng phát thải không được bỏ phiếu.** MEZO được chia cho các MEZO Gauge hoàn toàn theo tỷ lệ phiếu bầu. Gauge không nhận được phiếu nào sẽ không nhận được MEZO, và phần của gauge đó được chia cho các gauge có nhận phiếu. Quyền biểu quyết bạn để chưa phân bổ đơn giản là không ảnh hưởng đến việc phân chia, và không mang lại cho bạn khoản khuyến khích nào.
+
+---
+
+## Thay đổi hoặc đặt lại phiếu bầu
+
+Phân bổ của bạn **được giữ nguyên qua các epoch** cho đến khi bạn thay đổi. Nếu bạn hài lòng với cách chia của mình, bạn không cần gửi lại mỗi tuần — phân bổ đó vẫn tiếp tục mang về cho bạn một phần khoản khuyến khích của gauge mỗi epoch.
+
+**Mỗi khoản khóa chỉ có thể bỏ phiếu một lần mỗi epoch.** Khi phiếu bầu đã được xác nhận, phân bổ MEZO Gauge của khoản khóa đó được cố định trong phần còn lại của epoch và trang sẽ hiển thị ở chế độ chỉ đọc cho đến thời điểm chuyển epoch tiếp theo.
+
+**Để thay đổi:** quay lại trang MEZO Gauges, nhập phân bổ mới và gửi — cách chia mới sẽ thay thế hoàn toàn cách chia cũ. Nếu khoản khóa đã bỏ phiếu trong epoch này, khoản khóa đó không thể bỏ phiếu lại cho đến thời điểm chuyển epoch tiếp theo.
+
+**Để đặt lại:** dùng **Reset** để rút toàn bộ quyền biểu quyết của bạn khỏi MEZO Gauges. Bạn không thể đặt lại trong cùng epoch mà bạn đã bỏ phiếu, vì mỗi khoản khóa chỉ được thực hiện một hành động bỏ phiếu mỗi epoch.
+
+:::caution
+Vì mỗi khoản khóa chỉ bỏ phiếu một lần mỗi epoch, khoản khóa đã bỏ phiếu sẽ không thể phản ứng với gauge hoặc khoản khuyến khích mới cho đến thời điểm chuyển epoch tiếp theo.
+:::
+
+---
+
+## Việc này có ảnh hưởng đến boost hoặc phiếu bầu veBTC của tôi không?
+
+Không. Việc bỏ phiếu trên MEZO Gauges là độc lập:
+
+- Việc này không dùng đến lượng veMEZO bạn đang dùng để [boost](/docs/vn/docs/users/mezo-earn/lock/vemezo/boost-mechanism) một vị thế veBTC, và không làm giảm mức boost bạn đã cung cấp
+- Việc này không cần [poke](/docs/vn/docs/users/mezo-earn/vote/how-to-vote#quan-trọng-poke-sau-khi-thay-đổi) — poke làm mới trọng số được boost của veBTC, thứ mà việc bỏ phiếu MEZO Gauge không tác động đến
+- Việc này không ảnh hưởng đến nơi phiếu bầu veBTC của bạn điều hướng lượng phát thải của gauge staking
+
+---
+
+## Bước tiếp theo
+
+- [Phiếu bầu của bạn đi về đâu](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — điều gì xảy ra sau khi epoch kết thúc
+- [Nhận khoản khuyến khích](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — cách LP nhận lượng MEZO mà bạn đã điều hướng
+- [Tổng quan về MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges) — cơ chế và các pool đủ điều kiện
