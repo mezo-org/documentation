@@ -1,0 +1,39 @@
+---
+title: Governance
+description: 'Governanceparameters, beperkingen en toekomstige ontwikkeling van MEZO'
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Met de governance van Mezo Network kunnen veBTC-houders protocolparameters en emissiestromen vormgeven. Governance is verankerd in BTC: veMEZO versterkt de stemkracht van veBTC in plaats van zelf gewicht in governance te hebben.
+
+## Protocolparameters
+
+De volgende parameters bepalen hoe MEZO-emissies worden verdeeld:
+
+| Parameter | Beschrijving | Status |
+|---|---|---|
+| Verhouding van de Chain Splitter | Aandeel van de emissies voor validators (20%) tegenover het ecosysteem (80%) | Vast, vergrendeld via governance |
+| Verhouding van de Ecosystem Splitter | Aandeel van de emissies voor staking gauges (90%) tegenover ecosysteemgauges (10%) | Vast, vergrendeld via governance |
+| Maximale boostfactor | Maximale veMEZO-boost op veBTC | Momenteel 5x |
+
+De verhoudingen van de Splitters liggen momenteel vast en kunnen niet via stemmen worden gewijzigd. Mogelijk worden ze in de toekomst aanpasbaar via nieuwe governancemechanismen.
+
+![Emissieschema van Mezo](/docs/images/mezo-token/mezo-emissions.png)
+
+<LinkButton href="/docs/nl/docs/users/mezo/emissions">Meer informatie over de emissies van het MEZO-token</LinkButton>
+
+## Beperkingen van governance
+
+- **In BTC verankerd stemmen**: alleen veBTC-houders kunnen stemmen over governancevoorstellen. veMEZO boost de stemkracht van veBTC, maar geeft zelf geen bestuursrechten. veMEZO stemt wel zelfstandig op [veBTC-boostgauges](/docs/nl/docs/users/mezo-earn/lock/vemezo/matching-market) en [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges), die emissies sturen in plaats van protocolparameters vast te stellen.
+
+## Toekomstige ontwikkeling
+
+De governancestructuren kunnen worden uitgebreid met:
+
+- Formele mechanismen voor voorstellen en stemmen (bijvoorbeeld Governor Bravo)
+- Aanvullende parameters waarover governance beslist
+- Selectie van validators via stemmen op gauges onder proof-of-stake
+
+Details worden bekendgemaakt zodra de governancefuncties definitief zijn.

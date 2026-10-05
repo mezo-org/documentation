@@ -1,0 +1,65 @@
+---
+title: Mezo Swap
+description: Lees meer over Mezo Swap en hoe je activa verhandelt in het Mezo-ecosysteem
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+# Overzicht
+
+[Mezo Swap](https://mezo.org/overview?modal=swap) is de geïntegreerde gedecentraliseerde exchange (DEX) van het Mezo-ecosysteem. Hiermee kunnen gebruikers moeiteloos handelen tussen activa zoals BTC, MUSD en USDC, zonder tussenpersonen of orderboeken en zonder de BitcoinFi-economie te verlaten. De functie wordt aangedreven door [Mezo Pools](/docs/nl/docs/users/mezo-earn/pools) en maakt directe, gedecentraliseerde tokenswaps mogelijk met liquiditeitsreserves op basis van smart contracts.
+
+<YouTube id="eRuWVR7R6Q0" title="Zo swap je op Mezo" />
+
+## Belangrijkste kenmerken
+
+- **Permissionless**: swap 24/7 tussen ondersteunde activa, zonder afhankelijk te zijn van tussenpersonen of goedkeuringen.
+- **Lage slippage**: stabiele pools (bijv. MUSD en USDC) gebruiken een gespecialiseerde curve om de prijsimpact bij transacties tussen vergelijkbare activa zo klein mogelijk te houden.
+- **Directe liquiditeit**: dankzij het model van de Automated Market Maker (AMM) kun je altijd handelen, zonder orderboeken of market makers.
+- **LP-beloningen**: verschaf liquiditeit aan pools en verdien een deel van de swapvergoedingen. LP-tokens houden je evenredige opbrengsten bij.
+- **Onchain transparantie**: elke swap, elke vergoeding en elke liquiditeitspositie wordt onchain vastgelegd en is voor iedereen in te zien.
+
+## Ondersteunde activa
+
+Mezo Swap ondersteunt momenteel transacties tussen de volgende activa. Deze lijst wordt bijgewerkt wanneer er tokens worden toegevoegd:
+
+- BTC
+- MUSD
+- USDC
+- USDT
+
+## Hoe het werkt
+
+### Prijsmechanisme
+
+Mezo Swap gebruikt een model met een Automated Market Maker (AMM) en twee verschillende prijscurves:
+
+- **Volatiele pools**: gebruiken de constant-product-formule `(x × y = k)` voor activa zoals BTC/USDC, geoptimaliseerd voor prijsvorming tussen niet-gecorreleerde activa.
+- **Stabiele pools**: gebruiken een gespecialiseerde stable-swap-curve `(x³y + y³x ≥ k)` voor vergelijkbare activa zoals MUSD/USDC, ontworpen om slippage te minimaliseren bij transacties tussen tokens met een vergelijkbare waarde.
+
+Prijzen worden bepaald door de verhouding tussen de tokens in elke pool en worden bij elke transactie automatisch bijgewerkt.  
+
+### Slippage
+
+Slippage treedt op wanneer de werkelijke swapprijs afwijkt van de opgegeven prijs, doordat:
+
+- Er transacties vóór de jouwe zijn uitgevoerd
+- Er te weinig liquiditeit is voor de gekozen activa
+
+Wanneer je Mezo Swap gebruikt, kun je een maximale slippagetolerantie instellen (standaard: 0,5% voor stabiele paren, 1% voor volatiele paren).
+
+![Voorbeeld van slippage](/docs/images/mainnet/slippage-example.png)
+
+Veranderen de marktomstandigheden meer dan je tolerantie toelaat, dan wordt de transactie teruggedraaid om je te beschermen tegen ongunstige transacties. Grote transacties krijgen te maken met meer slippage vanwege hun prijsimpact op de pool.
+
+Wil je de totale beschikbare liquiditeit zien, ga dan naar [Mezo Pools](https://mezo.org/explore/pools). Daar vind je alle pools met bijbehorende statistieken, waaronder de totale liquiditeit (TVL).
+
+## Kosten
+
+- **Protocolkosten**: 0,02% voor stabiele pools, 0,3% voor volatiele pools (uitbetaald aan liquiditeitsverschaffers)
+- **Netwerkkosten**: standaard gaskosten voor het onchain uitvoeren van de swaptransactie
+
+Wanneer je in de Mezo-app een voorbeeld van een swap bekijkt, zie je de bijbehorende kosten, de slippage, de netwerkkosten en de swapkoers.
+
+![Voorbeeld van een swap](/docs/images/mainnet/Swap-MUSD-to-BTC.png)

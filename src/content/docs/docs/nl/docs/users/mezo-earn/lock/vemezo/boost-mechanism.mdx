@@ -1,0 +1,92 @@
+---
+title: Boostmechanisme
+description: Hoe veMEZO de stemkracht van veBTC via de matchingmarkt tot 5x boost
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+veMEZO boost de stemkracht van je veBTC tot 5x. Op deze pagina lees je hoe de boostformule werkt en hoe de matchingmarkt veBTC- en veMEZO-houders aan elkaar koppelt.
+
+## Zo werkt boost
+
+Je geboost stemgewicht combineert je veBTC met alle veMEZO die aan je positie is toegewezen:
+
+$$
+\text{Boosted Weight} = |\text{veBTC}| \times \min(5, \; 1 + \text{Boost})
+$$
+
+Daarbij is de term Boost:
+
+$$
+\text{Boost} = 4 \times \frac{|\text{veBTC}|_{\text{total}}}{|\text{veBTC}|} \times \frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}}
+$$
+
+### Belangrijkste eigenschappen
+
+- **Minimale vermenigvuldiger: 1x**: een veBTC-positie zonder veMEZO-stemmen werkt op basisgewicht
+- **Maximale vermenigvuldiger: 5x**: geen enkele combinatie van bezittingen kan boven 5x uitkomen
+- **Relatief, niet absoluut**: je boost hangt af van je aandeel in de totale veBTC en de totale veMEZO, niet van absolute hoeveelheden
+
+---
+
+## De formule begrijpen
+
+De boostformule heeft belangrijke gevolgen:
+
+**Grotere veBTC-posities hebben meer veMEZO nodig.** De formule bevat |veBTC|_total / |veBTC| in de teller. Naarmate je aandeel in veBTC groeit, wordt deze verhouding kleiner en heb je naar verhouding meer veMEZO nodig om hetzelfde boostniveau te behouden.
+
+**Je bereikt de maximale boost wanneer je aandelen gelijk zijn.** Een deelnemer bereikt het plafond van 5x wanneer zijn aandeel in veMEZO gelijk is aan of groter is dan zijn aandeel in veBTC:
+
+$$
+\frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}} \geq \frac{|\text{veBTC}|}{|\text{veBTC}|_{\text{total}}}
+$$
+
+:::note[Voorbeeld]
+Als je 1% van alle veBTC bezit, heb je minstens 1% van alle veMEZO nodig om de maximale vermenigvuldiger van 5x te bereiken.
+:::
+
+---
+
+## De matchingmarkt
+
+Elke veBTC-NFT heeft een eigen veBTC-boostgauge. veMEZO-houders stemmen op deze gauges om boost toe te wijzen.
+
+### Zo werkt het
+
+1. **Een veBTC-houder maakt een positie aan**: er wordt een veBTC-NFT gemint met een bijbehorende boostgauge
+2. **veMEZO-houders stemmen**: ze wijzen veMEZO-gewicht toe aan veBTC-gauges
+3. **De boost wordt berekend en toegepast**: de boost van de veBTC-positie hangt af van het totale aantal veMEZO-stemmen dat ze ontvangt. De stappenwizard Pair & Boost in de dApp werkt de stemkracht van de veBTC bij en vernieuwt bestaande stemmen automatisch.
+
+### Waarom dit een markt creëert
+
+**Gebruikers met veel BTC** kunnen boost aantrekken door incentives op hun veBTC-gauge te plaatsen. Is het incentiverendement per eenheid veMEZO aantrekkelijk, dan stemmen veMEZO-houders op die gauge.
+
+**Gebruikers met veel MEZO** verdienen door te stemmen op veBTC-gauges met goede incentives, ook als ze zelf weinig BTC hebben.
+
+De matchingmarkt prijst boost als een permissionless, verhandelbare dienst.
+
+---
+
+## Boost zonder MEZO te bezitten
+
+Je hoeft zelf geen MEZO te bezitten om van boost te profiteren. Als je aantrekkelijke incentives op je veBTC-gauge plaatst, kunnen andere veMEZO-houders erop stemmen. Zo krijgt je positie een vermenigvuldiger zonder dat je zelf MEZO vergrendelt.
+
+Omgekeerd geldt dat een veBTC-positie zonder veMEZO-stemmen nog steeds:
+
+- Haar volledige basisstemgewicht behoudt (vermenigvuldiger van 1x)
+- Passieve bridgevergoedingen verdient
+- Op gauges kan stemmen om vergoedingen en emissies te verdienen
+
+Boost verhoogt je opbrengsten, maar is niet vereist om deel te nemen.
+
+---
+
+## Samenvatting
+
+| Scenario | Vermenigvuldiger | Opmerkingen |
+|---|---|---|
+| Alleen veBTC, geen veMEZO-stemmen | 1x | Basisgewicht, verdient nog steeds vergoedingen |
+| veBTC + enkele veMEZO-stemmen | 1x–5x | Vermenigvuldiger schaalt mee met het veMEZO-aandeel |
+| veBTC + evenredig veMEZO-aandeel | 5x | Maximale boost bereikt |
+| Alleen veMEZO, geen veBTC | — | Geen stem op staking-gauges; kan stemmen op boostgauges en [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges), en verdient rebases |

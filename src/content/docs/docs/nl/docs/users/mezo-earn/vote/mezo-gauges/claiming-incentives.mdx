@@ -1,0 +1,67 @@
+---
+title: Incentives claimen
+description: Hoe LP's en stemmers de MEZO claimen die door MEZO Gauges wordt gestuurd
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Wie wat claimt, en waar, hangt af van de kant van de gauge waarop je staat.
+
+| Je bent | Je claimt | Waar |
+|---|---|---|
+| LP in Curve USDT/USDC/MUSD of Uniswap USDC/MUSD | veMEZO, 3 maanden vergrendeld | [Merkl](https://app.merkl.xyz) |
+| veAERO-houder die stemt op Aerodrome USDC/MUSD of MEZO/MUSD | MEZO, als stemincentive | [Aerodrome](https://aerodrome.finance) |
+| LP in Aerodrome USDC/MUSD of MEZO/MUSD | AERO-emissies | [Aerodrome](https://aerodrome.finance) |
+| veMEZO-houder die op een MEZO Gauge heeft gestemd | Incentives die op die gauge zijn geplaatst | Het tabblad Vote op [mezo.org](https://mezo.org) |
+
+---
+
+## LP's van Curve en Uniswap: claimen op Merkl
+
+Beloningen worden **niet** automatisch naar je wallet gestuurd. Merkl bouwt een claim op voor jouw adres, en die moet je zelf innen.
+
+<Steps>
+1. Ga naar [app.merkl.xyz](https://app.merkl.xyz).
+2. Verbind de wallet met de LP-positie.
+3. Open **Dashboard**. Na het verbinden zie je daar elke beloning die je met die wallet kunt claimen, dus je hoeft niet naar de campagne te zoeken.
+4. Klik op **Claim** en onderteken de transactie.
+</Steps>
+
+**Wat je ontvangt:** veMEZO die 3 maanden is vergrendeld, geen liquide MEZO. Na het claimen gedraagt die zich als elke andere [veMEZO-positie](/docs/nl/docs/users/mezo-earn/lock/vemezo). Je kunt er een veBTC-positie mee boosten en ermee stemmen op MEZO Gauges.
+
+Verschaf je liquiditeit aan de pool, dan kun je een kringloop maken door met de geclaimde veMEZO weer te stemmen op de MEZO Gauge van die pool. Zo stuur je meer emissies naar de positie die je al hebt. Dit is optioneel: liquiditeit verschaffen tijdens de campagne is genoeg om te kunnen claimen. Zie [Waar je stem naartoe gaat](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#de-waarde-benutten-die-je-stuurt) voor het volledige pad.
+
+:::caution[Niet-geclaimde beloningen vervallen]
+Merkl-campagnes bouwen niet onbeperkt op. Claim je nooit, dan verlies je de beloningen. Verschaf je liquiditeit aan deze pools, controleer Merkl dan regelmatig.
+:::
+
+Je hoeft geen veMEZO te hebben of te hebben gestemd om als LP te claimen. Liquiditeit verschaffen aan de pool tijdens de campagne is de enige voorwaarde.
+
+---
+
+## Aerodrome: claimen op Base
+
+MEZO die naar een Aerodrome-gauge wordt gestuurd, wordt gestort als **stemincentive**. Die wordt dus geclaimd door veAERO-stemmers, niet door LP's.
+
+**Heb je veAERO en heb je gestemd op USDC/MUSD of MEZO/MUSD?** Ga dan naar [aerodrome.finance](https://aerodrome.finance), open je veAERO-vergrendeling en claim je beloningen voor de epoch. Je deel van de MEZO is evenredig met jouw aandeel in de stemmen op die gauge.
+
+**Verschaf je liquiditeit aan Aerodrome USDC/MUSD of MEZO/MUSD?** Stake je positie dan in de gauge van de pool en claim daar de **AERO**-emissies. Houd rekening met de [vertraging van twee epochs](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#de-vertraging-van-twee-epochs) tussen een stem op Mezo en de AERO die die oplevert.
+
+---
+
+## Stemmers op MEZO Gauges: claimen op Mezo
+
+Heb je veMEZO naar een MEZO Gauge gestuurd, dan verdien je een deel van alle **incentives die op die gauge zijn geplaatst**, naar verhouding van jouw aandeel in de stemmen erop.
+
+Je claimt deze op dezelfde manier als elke andere stembeloning: op het tabblad **Vote** op [mezo.org](https://mezo.org), zodra de epoch is afgesloten. Zie [Vergoedingen en emissies claimen](/docs/nl/docs/users/mezo-earn/vote/claiming-fees-emissions).
+
+Deze incentives staan los van de emissies die je hebt gestuurd. De emissies gaan naar de doelpool; de incentives worden op Mezo geplaatst om jouw stem daar in de eerste plaats aan te trekken.
+
+---
+
+## Volgende stappen
+
+- [Waar je stem naartoe gaat](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes): het volledige pad van stem tot incentive
+- [Overzicht van MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges): geschikte pools en financiering
+- [Vergoedingen en emissies claimen](/docs/nl/docs/users/mezo-earn/vote/claiming-fees-emissions): alle andere beloningen van Mezo Earn

@@ -3,4 +3,4 @@ title: Wormhole MUSD Bridge
 topic: developers
 ---
 
-De MUSD-brug wordt aangedreven door het Wormhole Native Token Transfer (NTT)-protocol, dat veilige cross-chain transfers mogelijk maakt met behoud van token-fungibiliteit. Voor meer informatie over de MUSD-brug, zie de pagina [MUSD-brug](/docs/nl/docs/users/borrow/musd-bridge).
+De MUSD Bridge draait op het Native Token Transfer-protocol (NTT) van Wormhole, dat veilige cross-chain overdrachten mogelijk maakt en de fungibiliteit van het token behoudt. Zie de pagina [MUSD Bridge](/docs/nl/docs/users/borrow/musd-bridge) voor meer informatie over de MUSD Bridge.

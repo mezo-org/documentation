@@ -1,6 +1,6 @@
 ---
-title: architectuur
+title: Architectuur
 topic: developers
 ---
 
-# architectuur
+# Architectuur
