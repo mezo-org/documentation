@@ -52,7 +52,7 @@ Obtén fondos de testnet con el faucet de Mezo: [https://faucet.test.mezo.org/](
 
 #### ¿Cómo me integro con Mezo Passport? <a href="#how-do-i-integrate-with-mezo-passport" id="how-do-i-integrate-with-mezo-passport"></a>
 
-​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) es la biblioteca oficial de conexión de billeteras, creada específicamente para ofrecer una experiencia de usuario fluida y unificada en la red Mezo. Gestiona la complejidad de conectar a tu dApp tanto billeteras nativas de Bitcoin (como Xverse y Unisat) como billeteras EVM estándar (como MetaMask). Para consultar la guía de integración más actual y detallada, incluidas las instrucciones de instalación, la configuración, los hooks disponibles y ejemplos de código, los desarrolladores deben consultar la [**documentación oficial de Mezo Passport**](https://www.npmjs.com/package/@mezo-org/passport)**.**
+​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) es la biblioteca oficial de conexión de billeteras, creada específicamente para ofrecer una experiencia de usuario fluida y unificada en la red Mezo. Gestiona la complejidad de conectar a tu dApp tanto billeteras nativas de Bitcoin (como Xverse y Unisat) como billeteras EVM estándar (como MetaMask). Para consultar la guía de integración más actual y detallada, incluidas las instrucciones de instalación, la configuración, los hooks disponibles y ejemplos de código, los desarrolladores deberían consultar la [**documentación oficial de Mezo Passport**](https://www.npmjs.com/package/@mezo-org/passport)**.**
 
 #### ¿Cómo puedo obtener financiación y soporte para mi proyecto? <a href="#how-can-i-get-funding-and-support-for-my-project" id="how-can-i-get-funding-and-support-for-my-project"></a>
 

@@ -58,7 +58,7 @@ El pool BTC/MUSD-200 usa un tick spacing de 200 con una comisión de swap del 0.
 
 - **Rango más amplio**: gana comisiones de forma más constante, pero con menor eficiencia de capital. Es mejor si prefieres no intervenir activamente.
 - **Rango más estrecho**: gana más comisiones mientras el precio está dentro del rango, pero requiere supervisión y reajustes activos. El riesgo de quedar fuera del rango es mayor.
-- **El precio actual debe estar dentro de tu rango**: si el precio actual está fuera de tu rango, tu posición estará íntegramente en un solo token y no ganará comisiones hasta que el precio vuelva a entrar en el rango.
+- **El precio actual debería estar dentro de tu rango**: si el precio actual está fuera de tu rango, tu posición estará íntegramente en un solo token y no ganará comisiones hasta que el precio vuelva a entrar en el rango.
 
 ## Staking para obtener emisiones (próximamente)
 
