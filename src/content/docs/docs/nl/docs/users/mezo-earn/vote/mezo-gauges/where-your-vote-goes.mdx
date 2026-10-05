@@ -1,0 +1,82 @@
+---
+title: Waar je stem naartoe gaat
+description: >-
+  Hoe veMEZO-stemgewicht wordt omgezet in incentives op pools van Curve, Uniswap
+  en Aerodrome
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Elke MEZO Gauge ontvangt een deel van de emissies voor niet-staking-gauges dat gelijk is aan haar aandeel in de veMEZO-stemmen die in die epoch op MEZO Gauges zijn uitgebracht.
+
+Stemt er in totaal 1.000.000 veMEZO op alle MEZO Gauges en gaan daarvan 300.000 stemmen naar één gauge, dan krijgt die gauge 30% van de stuurbare MEZO van die epoch. In de rest van deze pagina gebruiken we USDC/MUSD als voorbeeld. Dezelfde verdeling geldt voor elke MEZO Gauge.
+
+---
+
+## Curve en Uniswap via Merkl
+
+Curve USDT/USDC/MUSD en Uniswap USDC/MUSD krijgen incentives via [Merkl](https://merkl.xyz). Dat is hetzelfde mechanisme dat Mezo al voor deze pools gebruikt, alleen heeft nu elke pool een eigen MEZO Gauge.
+
+<Steps>
+1. **Epoch N sluit.** De stemmen worden geteld en de MEZO-toewijzing van elke gauge ligt vast.
+2. **De toewijzing wordt op Merkl geplaatst** als campagne op de doelpool.
+3. **LP's bouwen een claim op** naar verhouding van hun aandeel in de pool gedurende de campagneperiode. Claimen gebeurt op Merkl.
+</Steps>
+
+**Beloningen komen binnen als veMEZO die 3 maanden is vergrendeld**, niet als liquide MEZO. Zo krijgen deze pools nu ook al hun incentives, maar voortaan bepalen stemmers hoeveel emissies elke pool krijgt.
+
+Zie [Incentives claimen](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) voor de stapsgewijze uitleg aan de kant van de LP.
+
+---
+
+## MEZO als stemincentives op Aerodrome
+
+Aerodrome-gauges werken anders, omdat Aerodrome zelf een ve(3,3)-systeem is met een eigen wekelijkse stemming. Neem USDC/MUSD als voorbeeld. MEZO gaat niet rechtstreeks naar LP's op Aerodrome. De MEZO wordt als **stemincentive** gestort op de Aerodrome-gauge van die pool en uitbetaald aan de veAERO-houders die erop stemmen.
+
+Die veAERO-stemmen sturen de **AERO-emissies** naar de pool. Met de MEZO koop je dus AERO-emissies voor de pool, en het is de AERO die bij de LP's terechtkomt. Hetzelfde pad geldt voor MEZO/MUSD op Aerodrome.
+
+Technisch gezien wordt de MEZO op Mezo geclaimd, naar Base gebridged en door een allocatorcontract op de Aerodrome-gauge gestort. Dit gebeurt elke epoch automatisch.
+
+### De vertraging van twee epochs
+
+De stemming op Aerodrome loopt een week voor op de incentive waarop ze reageert. Daardoor zit er tijd tussen jouw stem en de liquiditeit die ermee wordt gekocht:
+
+| Epoch | Wat er gebeurt |
+|---|---|
+| **N** | Je stemt op Mezo. De epoch sluit en de toewijzing ligt vast. |
+| **N+1** | MEZO wordt als stemincentive gestort op de Aerodrome-gauge. veAERO-houders stemmen er in deze epoch op. |
+| **N+2** | AERO-emissies stromen naar de pool en LP's verdienen ze. |
+
+**Stemmen die in epoch N worden uitgebracht, leveren AERO-emissies op in epoch N+2.** Dit komt door de manier waarop Aerodrome zijn eigen epochs indeelt; het is geen vertraging die Mezo toevoegt.
+
+---
+
+## De waarde benutten die je stuurt
+
+Emissies sturen is invloed, geen rendement. De MEZO die je naar een doelpool stuurt, gaat naar de mensen in die pool: claimers op Merkl bij Curve en Uniswap, veAERO-stemmers bij Aerodrome. Je krijgt die niet terug als stemmer op een MEZO Gauge.
+
+Wat je als stemmer rechtstreeks verdient, is je deel van de **incentives die op de MEZO Gauge zelf zijn geplaatst**, naar verhouding van jouw aandeel in de stemmen op die gauge.
+
+Wil je de emissies zelf binnenhalen, dan moet je aan beide kanten van de kringloop staan. Op Aerodrome, met USDC/MUSD als voorbeeld:
+
+<Steps>
+1. **Verschaf liquiditeit** aan de pool op Aerodrome en stake in de gauge ervan.
+2. **Stem** op Mezo met veMEZO op de MEZO Gauge van die pool.
+3. **Stem** op Base met veAERO op de bijbehorende Aerodrome-gauge.
+4. **Ontvang** AERO voor je LP-positie en de MEZO-stemincentive voor je veAERO-stem.
+</Steps>
+
+Op Curve en Uniswap is de kringloop korter: verschaf liquiditeit aan de pool, stem op de MEZO Gauge ervan en claim de campagne als LP op Merkl.
+
+:::note
+De volledige kringloop doorlopen is optioneel. Veel veMEZO-houders zullen alleen stemmen om de liquiditeit van MUSD te versterken en om de incentives te verdienen die op de gauge zijn geplaatst.
+:::
+
+---
+
+## Volgende stappen
+
+- [Incentives claimen](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives): claimen op Merkl of Aerodrome
+- [Stemmen op MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote): de stapsgewijze uitleg
+- [Overzicht van MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges): geschikte pools en financiering
