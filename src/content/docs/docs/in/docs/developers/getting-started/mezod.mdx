@@ -1,0 +1,357 @@
+---
+title: Mezod चेन क्लाइंट डेवलपमेंट गाइड
+description: >-
+  Mezo चेन के रेफ़रेंस क्लाइंट इम्प्लीमेंटेशन, Mezod के साथ डेवलपमेंट की पूरी
+  गाइड।
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezod, Mezo चेन का रेफ़रेंस क्लाइंट इम्प्लीमेंटेशन है। Mezo एक बिटकॉइन-फ़र्स्ट ब्लॉकचेन है, जिसे यूज़र ओनरशिप, tBTC के साथ भरोसेमंद ब्रिजिंग, गैस के लिए BTC, डुअल स्टेकिंग मॉडल और EVM कम्पैटिबिलिटी को ध्यान में रखकर डिज़ाइन किया गया है।
+
+## अवलोकन
+
+Mezo, Cosmos SDK पर आधारित EVM-कम्पैटिबल चेन है, जो Comet BFT कंसेंसस इंजन पर चलती है। Mezod क्लाइंट का कोडबेस Evmos के LGPL वर्ज़न से फ़ोर्क किया गया था और Mezo की खास ज़रूरतों के लिए इसमें काफ़ी बदलाव किए गए हैं।
+
+### मुख्य फ़ीचर
+
+- **बिटकॉइन-फ़र्स्ट डिज़ाइन**: नेटिव BTC इंटीग्रेशन और गैस पेमेंट
+- **EVM कम्पैटिबिलिटी**: Ethereum Virtual Machine का पूरा सपोर्ट
+- **tBTC ब्रिजिंग**: भरोसेमंद क्रॉस-चेन बिटकॉइन ट्रांसफ़र
+- **डुअल स्टेकिंग मॉडल**: रिवॉर्ड और वैलिडेशन मैकेनिज़्म
+- **यूज़र ओनरशिप**: डिसेंट्रलाइज़्ड गवर्नेंस और कंट्रोल
+
+## रिपॉज़िटरी संरचना
+
+[Mezod रिपॉज़िटरी](https://github.com/mezo-org/mezod.git) में ये शामिल हैं:
+
+- **[Go मॉड्यूल](https://github.com/mezo-org/mezod/tree/main)**: मुख्य ब्लॉकचेन क्लाइंट इम्प्लीमेंटेशन
+- **[x/ मॉड्यूल](https://github.com/mezo-org/mezod/tree/main/x)**: कस्टम Cosmos SDK मॉड्यूल
+- **[EVM इंटीग्रेशन](https://github.com/mezo-org/mezod/tree/main/x/evm)**: Ethereum कम्पैटिबिलिटी लेयर
+- **[कॉन्फ़िगरेशन](https://github.com/mezo-org/mezod/tree/main/config)**: चेन कॉन्फ़िगरेशन और पैरामीटर
+
+## डेवलपमेंट सेटअप
+
+### पूर्व-आवश्यकताएं
+
+- Go 1.21+ (सटीक वर्ज़न के लिए [`go.mod`](https://github.com/mezo-org/mezod/blob/main/go.mod) देखें)
+- Git
+- Make
+- Docker (वैकल्पिक, कंटेनर-आधारित डेवलपमेंट के लिए)
+
+### इंस्टॉलेशन
+
+<Steps>
+1. रिपॉज़िटरी क्लोन करें:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   ```
+
+2. Go डिपेंडेंसी इंस्टॉल करें:
+   ```bash
+   go mod download
+   ```
+
+3. क्लाइंट बिल्ड करें:
+   ```bash
+   make build
+   ```
+</Steps>
+
+### डेवलपमेंट एनवायरनमेंट
+
+<Steps>
+1. **लोकल डेवलपमेंट**:
+   ```bash
+   # Start local development node
+   make dev
+
+   # Run tests
+   make test
+
+   # Lint code
+   make lint
+   ```
+
+2. **Docker डेवलपमेंट**:
+   ```bash
+   # Build Docker image
+   docker build -t mezod .
+
+   # Run containerized node
+   docker run -p 26657:26657 -p 8545:8545 mezod
+   ```
+</Steps>
+
+## चेन कॉन्फ़िगरेशन
+
+### नेटवर्क पैरामीटर
+
+Mezod कई नेटवर्क कॉन्फ़िगरेशन सपोर्ट करता है:
+
+- **मेननेट**: प्रोडक्शन Mezo नेटवर्क
+- **टेस्टनेट**: पब्लिक टेस्टिंग नेटवर्क
+- **लोकल**: डेवलपमेंट नेटवर्क
+
+### कॉन्फ़िगरेशन फ़ाइलें
+
+मुख्य कॉन्फ़िगरेशन फ़ाइलें:
+- `config.toml`: नोड कॉन्फ़िगरेशन
+- `app.toml`: एप्लिकेशन से जुड़ी सेटिंग
+- `client.toml`: क्लाइंट कॉन्फ़िगरेशन
+
+उदाहरण कॉन्फ़िगरेशन:
+
+```toml
+# config.toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+```
+
+## EVM इंटीग्रेशन
+
+### Ethereum कम्पैटिबिलिटी
+
+Mezod पूरी EVM कम्पैटिबिलिटी देता है, जिससे आप:
+
+- Ethereum स्मार्ट कॉन्ट्रैक्ट डिप्लॉय कर सकते हैं
+- Ethereum टूलिंग (Hardhat, Truffle वगैरह) इस्तेमाल कर सकते हैं
+- Web3 लाइब्रेरी के ज़रिए कॉन्ट्रैक्ट के साथ इंटरैक्ट कर सकते हैं
+
+### Web3 के ज़रिए कनेक्ट करना
+
+```javascript
+import { ethers } from 'ethers';
+
+// Connect to Mezo network
+const provider = new ethers.JsonRpcProvider('https://rpc.mezo.org');
+
+// Get network info
+const network = await provider.getNetwork();
+console.log('Network:', network);
+
+// Deploy contract
+const factory = new ethers.ContractFactory(abi, bytecode, signer);
+const contract = await factory.deploy();
+await contract.waitForDeployment();
+```
+
+### गैस और फीस
+
+- **गैस के लिए BTC**: ट्रांज़ैक्शन फीस बिटकॉइन में चुकाएं
+- **डायनामिक प्राइसिंग**: गैस की कीमतें नेटवर्क की स्थिति के हिसाब से बदलती हैं
+- **EVM गैस मॉडल**: Ethereum की गैस गणना के साथ कम्पैटिबल
+
+## नोड के प्रकार
+
+### फ़ुल नोड
+
+एक पूरा नोड, जो पूरी ब्लॉकचेन स्टोर करता है:
+
+```bash
+# Start full node
+mezod start
+```
+
+### लाइट क्लाइंट
+
+मोबाइल और सीमित संसाधनों वाले एनवायरनमेंट के लिए एक हल्का क्लाइंट:
+
+```bash
+# Start light client
+mezod start --mode light
+```
+
+### आर्काइव नोड
+
+एक नोड, जो पूरा ऐतिहासिक डेटा स्टोर करता है:
+
+```bash
+# Start archive node
+mezod start --mode archive
+```
+
+## RPC एंडपॉइंट
+
+### Cosmos SDK RPC
+
+- **पोर्ट**: 26657
+- **एंडपॉइंट**: स्टैंडर्ड Cosmos SDK RPC मेथड
+- **WebSocket**: रियल-टाइम अपडेट
+
+```bash
+# Query node status
+curl http://localhost:26657/status
+```
+
+### EVM RPC
+
+- **पोर्ट**: 8545
+- **एंडपॉइंट**: Ethereum-कम्पैटिबल JSON-RPC
+- **मेथड**: eth_getBalance, eth_sendTransaction वगैरह
+
+```bash
+# Query EVM balance
+curl -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x...", "latest"],"id":1}' \
+  http://localhost:8545
+```
+
+## डेवलपमेंट वर्कफ़्लो
+
+### कॉन्ट्रैक्ट बिल्ड करना
+
+<Steps>
+1. **Solidity कॉन्ट्रैक्ट लिखें**: स्टैंडर्ड Ethereum टूलिंग का इस्तेमाल करें
+
+2. **कंपाइल करें**: Hardhat, Truffle, या सीधे solc का इस्तेमाल करें
+
+3. **डिप्लॉय करें**: Mezo टेस्टनेट/मेननेट पर डिप्लॉय करें
+
+4. **इंटरैक्ट करें**: Web3 लाइब्रेरी या सीधे RPC कॉल का इस्तेमाल करें
+</Steps>
+
+### टेस्टिंग
+
+```bash
+# Run unit tests
+make test
+
+# Run integration tests
+make test-integration
+
+# Run specific test package
+go test ./x/evm/...
+```
+
+## इंटीग्रेशन के उदाहरण
+
+### Cosmos SDK इंटीग्रेशन
+
+```go
+package main
+
+import (
+    "context"
+    "github.com/cosmos/cosmos-sdk/client"
+    "github.com/cosmos/cosmos-sdk/client/tx"
+)
+
+func main() {
+    // Create client context
+    clientCtx := client.Context{}
+
+    // Create transaction builder
+    txBuilder := clientCtx.TxConfig.NewTxBuilder()
+
+    // Build and send transaction
+    // ... transaction logic
+}
+```
+
+## मॉनिटरिंग और डीबगिंग
+
+### लॉगिंग
+
+```bash
+# Enable debug logging
+mezod start --log-level debug
+
+# Log to file
+mezod start --log-file /path/to/logfile
+```
+
+### मेट्रिक्स
+
+- **Prometheus**: पोर्ट 26660 पर बिल्ट-इन मेट्रिक्स कलेक्शन
+- **Grafana**: मॉनिटरिंग के लिए डैशबोर्ड
+- **हेल्थ चेक**: हेल्थ मॉनिटरिंग के लिए HTTP एंडपॉइंट
+
+```bash
+# Check metrics
+curl http://localhost:26660/metrics
+```
+
+## डिप्लॉयमेंट
+
+### प्रोडक्शन डिप्लॉयमेंट
+
+**हार्डवेयर आवश्यकताएं**:
+- न्यूनतम: 8GB RAM, 100GB SSD
+- अनुशंसित: 16GB RAM, 500GB NVMe SSD
+
+**स्टेप**:
+
+<Steps>
+1. फ़ायरवॉल और नेटवर्क पोर्ट कॉन्फ़िगर करें
+
+2. सही एक्सेस कंट्रोल सेट अप करें
+
+3. मॉनिटरिंग स्टैक डिप्लॉय करें
+
+4. प्रोडक्शन कॉन्फ़िगरेशन के साथ नोड शुरू करें
+</Steps>
+
+### Docker डिप्लॉयमेंट
+
+```bash
+# Production Docker deployment
+docker run -d \
+  --name mezod \
+  -p 26657:26657 \
+  -p 8545:8545 \
+  -v /data:/root/.mezod \
+  mezod:latest start
+```
+
+## ट्रबलशूटिंग
+
+### आम समस्याएं
+
+1. **कनेक्शन से जुड़ी समस्याएं**: RPC एंडपॉइंट और नेटवर्क कनेक्टिविटी जांचें
+2. **सिंक से जुड़ी समस्याएं**: ब्लॉकचेन सिंक्रोनाइज़ेशन की पुष्टि करें
+3. **गैस से जुड़ी समस्याएं**: गैस की कीमतों पर नज़र रखें और उसी हिसाब से बदलाव करें
+
+### डीबग कमांड
+
+```bash
+# Check node status
+mezod status
+
+# View logs
+mezod logs
+
+# Reset node (caution: deletes data)
+mezod unsafe-reset-all
+```
+
+## अतिरिक्त संसाधन
+
+- **[Mezod रिपॉज़िटरी](https://github.com/mezo-org/mezod.git)** - मुख्य रिपॉज़िटरी
+- **[Mezo दस्तावेज़ीकरण](/docs/in/docs/developers/getting-started/configure-environment)** - पूरा दस्तावेज़ीकरण
+- **[Cosmos SDK दस्तावेज़ीकरण](https://docs.cosmos.network/)** - Cosmos SDK रेफ़रेंस
+- **[EVM दस्तावेज़ीकरण](https://ethereum.org/en/developers/docs/evm/)** - EVM स्पेसिफ़िकेशन
+- **[टेस्टनेट गाइड](/docs/in/docs/developers/testnet)** - टेस्टनेट एक्सेस और इस्तेमाल
+
+:::note
+चेन आर्किटेक्चर, मॉड्यूल स्पेसिफ़िकेशन और प्रोटोकॉल मैकेनिक्स की विस्तृत जानकारी के लिए, Mezod रिपॉज़िटरी का दस्तावेज़ीकरण देखें।
+:::
+
+## सहायता
+
+डेवलपमेंट में सहायता के लिए:
+- [Mezo Discord](https://discord.com/invite/mezo) से जुड़ें
+- [GitHub Issues](https://github.com/mezo-org/mezod/issues) देखें
+- [FAQ](/docs/in/docs/developers/getting-started/FAQs) पढ़ें
