@@ -1,0 +1,39 @@
+---
+title: Gobernanza
+description: 'Parámetros de gobernanza de MEZO, restricciones y desarrollo futuro'
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+La gobernanza de la red Mezo permite a los titulares de veBTC definir los parámetros del protocolo y los flujos de emisiones. La gobernanza está anclada en BTC: veMEZO amplifica el poder de voto de veBTC en lugar de tener un peso de gobernanza propio.
+
+## Parámetros del protocolo
+
+Los siguientes parámetros definen cómo se distribuyen las emisiones de MEZO:
+
+| Parámetro | Descripción | Estado |
+|---|---|---|
+| Proporción del Chain Splitter | Parte de las emisiones para los validadores (20%) frente al ecosistema (80%) | Fija, bloqueada mediante gobernanza |
+| Proporción del Ecosystem Splitter | Parte de las emisiones para los gauges de staking (90%) frente a los gauges del ecosistema (10%) | Fija, bloqueada mediante gobernanza |
+| Multiplicador de boost máximo | Boost máximo de veMEZO sobre veBTC | Actualmente 5x |
+
+Actualmente, las proporciones de los splitters son fijas y no pueden cambiarse mediante votación. Es posible que estas proporciones pasen a ser ajustables mediante futuros mecanismos de gobernanza.
+
+![Calendario de emisiones de Mezo](/docs/images/mezo-token/mezo-emissions.png)
+
+<LinkButton href="/docs/es/docs/users/mezo/emissions">Más información sobre las emisiones del token MEZO</LinkButton>
+
+## Restricciones de la gobernanza
+
+- **Votación anclada en BTC**: solo los titulares de veBTC pueden votar las propuestas de gobernanza. veMEZO potencia el poder de voto de veBTC, pero no otorga derechos de gobernanza propios. veMEZO sí vota de forma independiente en los [gauges de boost de veBTC](/docs/es/docs/users/mezo-earn/lock/vemezo/matching-market) y en los [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges), que dirigen las emisiones en lugar de fijar parámetros del protocolo.
+
+## Desarrollo futuro
+
+Las estructuras de gobernanza podrían evolucionar para incluir:
+
+- Mecanismos formales de propuesta y votación (p. ej., Governor Bravo)
+- Parámetros adicionales sujetos a gobernanza
+- Selección de validadores mediante votación de gauges en un modelo de prueba de participación (proof-of-stake)
+
+Los detalles se anunciarán cuando se finalicen las funciones de gobernanza.

@@ -1,0 +1,164 @@
+---
+title: Ganancias y gestión de tu posición
+description: >-
+  Cómo funcionan el poder de voto, las ganancias y la gestión de posiciones en
+  Mezo
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Cómo funciona el poder de voto
+
+Cuando bloqueas BTC, tu poder de voto se tokeniza como un NFT. Este NFT representa tu peso en la gobernanza y te da derecho a:
+
+- Una parte proporcional de las comisiones de trading generadas por los gauges por los que votas
+- Una parte proporcional de los incentivos depositados para esos gauges
+- Comisiones pasivas de puente y de la cadena (proporcionales a tu peso con boost)
+- La posibilidad de votar hacia dónde se dirigen las emisiones
+
+### Peso base frente a peso con boost
+
+**Peso base:** el peso de tu veBTC sin ningún boost de veMEZO. Funciona con un multiplicador de 1x.
+
+**Peso con boost:** cuando se dirigen votos de veMEZO a tu posición de veBTC, tu peso efectivo se multiplica hasta por 5x.
+
+El boost depende de tu participación en el total de veBTC y de la parte del total de veMEZO dirigida a tu posición. Las posiciones de BTC más grandes requieren proporcionalmente más veMEZO para alcanzar el boost máximo.
+
+### Mecánica del decaimiento
+
+Tu poder de voto decae de forma lineal con el tiempo. Si bloqueas 1 BTC durante 28 días, tu peso empieza en 1.0, pero disminuye de forma continua hasta llegar a cero en el vencimiento. Puedes extender tu bloqueo en cualquier momento para mantener la máxima influencia.
+
+---
+
+## Ganancias como votante de veBTC
+
+Cuando tienes veBTC y votas, obtienes ganancias de varias fuentes:
+
+### Comisiones de trading
+
+- **Origen:** el 100% de las comisiones de trading generadas por el pool específico por el que votaste
+- **Distribución:** recibes una parte proporcional según tu peso de voto. Si un pool genera 10,000 USD en comisiones y tú aportaste el 5% de los votos de ese gauge, ganas 500 USD.
+- **Reclamables:** se pagan en los tokens del pool (por ejemplo, BTC y MUSD)
+
+### Incentivos
+
+- **Origen:** incentivos externos que depositan los protocolos para atraer votos hacia sus gauges
+- **Distribución:** al igual que las comisiones, los incentivos se reparten de forma proporcional entre todos los votantes de ese gauge
+- **Reclamables:** se pagan en el token que depositó el protocolo
+
+### Comisiones pasivas de puente
+
+- **Origen:** comisiones por transferir activos a Mezo mediante el puente y por la actividad general de la cadena
+- **Distribución:** todos los titulares de veBTC reciben una parte proporcional a su peso con boost
+- **Reclamables:** no es necesario votar; las ganas simplemente por tener veBTC
+
+
+---
+
+## Ganancias como titular de veMEZO
+
+Los titulares de veMEZO obtienen ganancias de forma distinta a los titulares de veBTC:
+
+### Incentivos de los gauges de boost
+
+- **Origen:** incentivos que publican los titulares de veBTC en sus gauges de boost
+- **Cómo:** dirige tus votos de veMEZO a gauges de boost con incentivos atractivos
+- **Reclamables:** al final de la época, de forma proporcional a tu participación en los votos de veMEZO de ese gauge
+
+### Distribuciones de rebase
+
+- **Origen:** una parte de las emisiones semanales de MEZO
+- **Cómo:** se acumulan automáticamente para los titulares de veMEZO según el ratio de bloqueo
+- **Finalidad:** protegen frente a la dilución; cuantas menos personas bloquean, mayores son los rebases
+
+**Importante:** los titulares de veMEZO **no** reciben comisiones de trading, ingresos de MUSD ni comisiones de puente. Estos van a los titulares de veBTC. veMEZO obtiene ganancias mediante los incentivos de boost y los rebases.
+
+---
+
+## Gestión de tu posición
+
+### La época semanal
+
+Mezo funciona en épocas de 7 días que empiezan el jueves a las 00:00 UTC. Tu asignación de votos se mantiene de una época a otra hasta que la cambies o la restablezcas: no necesitas volver a emitir tu voto cada semana. Cada bloqueo puede votar una vez por época, por lo que una asignación confirmada no se puede cambiar hasta el siguiente cambio de época.
+
+### Cómo reclamar recompensas
+
+Las comisiones y los incentivos se acumulan en tu posición a medida que avanza la época. Sin embargo, solo se pueden reclamar cuando termina la época.
+
+<Steps>
+1. Ve a tu panel
+2. Haz clic en **Claim All**
+3. Las comisiones y los incentivos que has ganado se envían a tu billetera
+</Steps>
+
+En el caso de los titulares de veMEZO, las distribuciones de rebase se reclaman por separado y se añaden a tu posición de veMEZO (lo que aumenta tu peso de veMEZO).
+
+### Cómo extender los bloqueos
+
+Para mantener tu influencia en la distribución de recompensas, vigila la duración de tu bloqueo. A medida que tu bloqueo decae, tu poder de voto disminuye.
+
+**Para veBTC:** selecciona **Extend Lock** en tu NFT para restablecer todo el peso.
+
+**Para veMEZO:** extiende tu bloqueo para mantener tu capacidad de aportar boost y tus ganancias por rebase.
+
+Consulta [Gestionar bloqueos y cobrar recompensas](/docs/es/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) para obtener más información.
+
+### Hacer poke al voto
+
+El **poke** actualiza el poder de voto de tu bloqueo para que refleje su estado actual. Si ya votaste en la época actual, tus votos no se actualizan automáticamente cuando cambia tu poder de voto. Hacer poke garantiza que tus votos se cuenten con tu poder de voto más reciente.
+
+**¿Cuándo cambia el poder de voto?**
+
+- Al añadir más BTC a tu bloqueo
+- Al extender la duración de tu bloqueo
+- Al reclamar distribuciones de rebase de veMEZO (actualiza el boost de tu veBTC)
+- Al recibir más votos de veMEZO dirigidos a tu posición de veBTC
+- Al dirigir tu propio veMEZO a tu posición de veBTC
+- Por el decaimiento natural a medida que tu bloqueo se acerca al vencimiento
+
+**¿Cuándo deberías hacer poke?**
+
+Para los titulares de veBTC:
+- Después de aumentar la cantidad de BTC bloqueada
+- Después de extender la duración de tu bloqueo
+- Cuando cambie tu situación de veMEZO (nuevos votos recibidos, rebase reclamado, etc.)
+
+Para los titulares de veMEZO:
+- Después de reclamar distribuciones de rebase
+- Después de extender la duración de tu bloqueo
+
+Las posiciones bloqueadas de forma permanente mantienen un poder de voto estable y no requieren poke, a menos que se produzcan cambios relacionados con veMEZO.
+
+**Nota:** el poke no requiere permisos: cualquiera puede hacer poke a cualquier bloqueo. Otras personas pueden hacer poke a tu posición si tu poder de voto ha decaído de forma significativa.
+
+---
+
+## Estrategias para maximizar tus rendimientos
+
+### Para usuarios con mucho BTC
+
+<Steps>
+1. Bloquea BTC durante la duración máxima (28 días) y sigue extendiendo el bloqueo
+2. Vota de forma constante en cada época por gauges con comisiones altas
+3. Considera adquirir MEZO para aplicarte autoboost, o publica incentivos para atraer votos de veMEZO
+4. Haz poke después de cualquier cambio en el boost
+</Steps>
+
+### Para usuarios con mucho MEZO
+
+<Steps>
+1. Bloquea MEZO durante periodos más largos (hasta 4 años) para maximizar el peso de veMEZO
+2. Analiza los gauges de boost para encontrar los mejores rendimientos por incentivos
+3. Diversifica entre varios gauges de boost para reducir el riesgo
+4. Considera combinarlo con una posición de veBTC para acceder directamente a las comisiones de trading
+</Steps>
+
+### Para usuarios que tienen ambos
+
+<Steps>
+1. Aplica autoboost a tu veBTC con tu veMEZO para obtener el máximo poder de voto
+2. Vota por gauges con comisiones altas para maximizar las ganancias por comisiones
+3. Haz poke después de cualquier cambio para mantener un boost óptimo
+4. Reclama los rebases con regularidad para hacer crecer tu posición de veMEZO
+</Steps>

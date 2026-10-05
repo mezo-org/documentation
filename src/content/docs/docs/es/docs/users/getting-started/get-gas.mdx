@@ -1,0 +1,74 @@
+---
+title: Swaps sin gas
+description: >-
+  Aprende a usar la función Get Gas para intercambiar una pequeña cantidad de
+  MUSD o MEZO por BTC para gas cuando tu saldo sea bajo.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+La función **Get Gas** te permite obtener una pequeña cantidad de BTC para cubrir las comisiones de transacción (gas) en Mezo, incluso si no tienes BTC en tu billetera. Funciona mediante un **swap sin gas**, que intercambia una pequeña cantidad de MUSD o MEZO por exactamente **0.0001 BTC**, suficiente para cubrir varias transacciones en la red.
+
+Como el swap no requiere gas (funciona con metatransacciones), no necesitas tener BTC previamente para usarlo.
+
+## ¿Cuándo aparece?
+
+Un botón **"Get Gas"** aparece automáticamente en la app de Mezo cuando el saldo de BTC de tu billetera baja de **0.000001 BTC**. Así siempre tienes una forma de recargar gas sin necesidad de transferir más BTC mediante el puente ni de usar un exchange externo.
+
+## Tokens compatibles
+
+Los tokens compatibles con los swaps de Get Gas son **MUSD** y **MEZO**. Esto significa que los usuarios que llegan a la cadena solo con MEZO pueden obtener un swap gratuito a BTC para gas sin necesidad de transferir activos adicionales mediante el puente.
+
+## Cómo obtener gas
+
+<Steps>
+
+1. **Abre el modal de Get Gas**
+
+   Cuando tu saldo de BTC sea bajo, haz clic en el botón **"Get Gas"** que aparece en la app.
+
+2. **Selecciona un token**
+
+   Selecciona MUSD o MEZO como token de origen. El modal mostrará el costo estimado del swap.
+
+3. **Revisa la cotización**
+
+   La app cotiza la cantidad de MUSD o MEZO necesaria para recibir exactamente **0.0001 BTC**. La cantidad de salida es fija, así que siempre obtienes una cantidad de gas predecible, sin importar el precio del token.
+
+4. **Confirma el swap**
+
+   Haz clic en **"Get Gas"** para iniciar el swap. Se te pedirá que firmes dos mensajes en tu billetera:
+   - Una **firma de permiso** (aprobación del token)
+   - Una **firma de ejecución** (autorización del swap)
+
+   Estas firmas no requieren pagar ninguna comisión de gas.
+
+5. **Espera la confirmación**
+
+   La app enviará tu transacción y consultará automáticamente su confirmación. Una vez confirmada, verás una pantalla de éxito con el hash de la transacción.
+
+</Steps>
+
+## Cómo funciona
+
+La función Get Gas usa **metatransacciones** para ejecutar el swap sin que el usuario tenga que pagar gas:
+
+1. **Permiso**: firmas un mensaje offchain que otorga al relé permiso para gastar la cantidad necesaria del token que hayas elegido.
+2. **Relé**: un servicio de relé del backend envía la transacción de swap en tu nombre y cubre el costo del gas.
+3. **Swap**: la transacción se ejecuta onchain e intercambia tu token por **0.0001 BTC**, que se depositan directamente en tu billetera.
+
+Gracias a este diseño, siempre puedes obtener gas mientras tengas MUSD o MEZO: no necesitas BTC para empezar.
+
+## Detalles clave
+
+| Detalle | Valor |
+|---|---|
+| **Cantidad de salida** | 0.0001 BTC (fija) |
+| **Tokens admitidos** | MUSD, MEZO |
+| **Gas necesario** | Ninguno (sin gas gracias a las metatransacciones) |
+| **Activación** | Saldo de BTC inferior a 0.000001 BTC |
+
+:::note
+El costo en MUSD o MEZO variará según los precios actuales de los pools. La cotización que se muestra en el modal refleja la tasa en tiempo real en el momento del swap.
+:::

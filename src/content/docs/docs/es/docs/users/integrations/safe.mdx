@@ -1,0 +1,48 @@
+---
+title: Safe
+description: >-
+  Usa billeteras multisig de Safe en Mezo para gestionar fondos compartidos con
+  seguridad multifirma.
+topic: users
+---
+
+import { LinkButton, Steps } from '@astrojs/starlight/components';
+
+[Safe](https://safe.global/) (antes Gnosis Safe) es la billetera multisig más utilizada en el mundo cripto. Mezo tiene un despliegue nativo de Safe en [safe.mezo.org](https://safe.mezo.org), gestionado por [Den](https://www.onchainden.com/).
+
+Una billetera multisig (multifirma) requiere que varias personas aprueben una transacción antes de que se ejecute. En lugar de que una sola persona controle los fondos con una única clave privada, un grupo define reglas como "3 de 5 firmantes deben aprobar".
+
+<LinkButton href="https://safe.mezo.org" target="_blank">Abrir Safe en Mezo</LinkButton>
+
+## Primeros pasos
+
+<Steps>
+
+1. Ve a [safe.mezo.org](https://safe.mezo.org).
+
+2. Conecta tu billetera.
+
+3. Haz clic en **Create new Safe Account**.
+
+4. Añade las direcciones de billetera de tus cofirmantes.
+
+5. Establece el umbral de confirmación: el número de aprobaciones necesarias para ejecutar una transacción (por ejemplo, 2 de 3).
+
+6. Revisa y despliega tu Safe.
+
+</Steps>
+
+Tras el despliegue, puedes enviar y recibir BTC y otros tokens en Mezo a través de tu Safe, y cada transacción requerirá el umbral de aprobación que hayas configurado.
+
+## Funciones
+
+- **Seguridad multifirma**: exige que varios firmantes aprueben las transacciones antes de ejecutarlas.
+- **Módulos y guards**: personaliza tu Safe con módulos conectables para límites de gasto, recuperación, transacciones automatizadas y más.
+- **Acceso al ecosistema**: interactúa con dApps en Mezo directamente desde tu Safe con el navegador de apps integrado.
+- **Cuentas de observación**: monitorea cualquier cuenta de Safe sin conectar una billetera.
+
+## Recursos
+
+- [Safe en Mezo](https://safe.mezo.org)
+- [Documentación de Safe](https://docs.safe.global/)
+- [Documentación de Den](https://docs.onchainden.com/overview/den)

@@ -1,5 +1,5 @@
 ---
-title: Descripción General de Mezo Bridge
+title: Descripción general de Mezo Bridge
 topic: developers
 ---
 
@@ -7,14 +7,14 @@ import { Steps } from '@astrojs/starlight/components';
 
 Mezo Bridge permite el movimiento nativo de activos entre Bitcoin, Ethereum y Mezo. A continuación se presentan los flujos principales con referencias a los RFC de diseño.
 
-### Entrada a Mezo (Bridge In)
+### Entrada a Mezo
 
 De Bitcoin → Mezo
 
 <Steps>
-1. Bloquea BTC en la dirección controlada por el bridge con metadatos que identifican al destinatario en Mezo.
+1. Se bloquea BTC en la dirección controlada por el puente con metadatos que identifican al destinatario en Mezo.
 
-2. Envía la prueba y la atestación al contrato de Mezo Bridge.
+2. Se envían la prueba y la atestación al contrato de Mezo Bridge.
 
 3. El contrato verifica la prueba.
 
@@ -24,23 +24,23 @@ De Bitcoin → Mezo
 De Ethereum → Mezo
 
 <Steps>
-1. Bloquea el ERC-20 en Ethereum a través del contrato de Mezo Bridge, emitiendo un evento `AssetLocked` con el destinatario en Mezo.
+1. Se bloquea el ERC-20 en Ethereum a través del contrato de Mezo Bridge, emitiendo un evento `AssetLocked` con el destinatario en Mezo.
 
-2. Los validadores del bridge escuchan dichos eventos.
+2. Los validadores del puente escuchan dichos eventos.
 
-3. Los validadores del bridge validan la inclusión de eventos y el quórum de validadores.
+3. Los validadores del puente validan la inclusión de los eventos y el quórum de validadores.
 
 4. Se acuña el activo correspondiente en Mezo para el destinatario.
 </Steps>
 
-### Salida de Mezo (Bridge Out)
+### Salida de Mezo
 
 De Mezo → Bitcoin
 
 <Steps>
-1. Quema el activo en Mezo especificando la dirección del destinatario en Bitcoin.
+1. Se quema el activo en Mezo especificando la dirección del destinatario en Bitcoin.
 
-2. Envía la prueba y la atestación al contrato de Mezo Bridge.
+2. Se envían la prueba y la atestación al contrato de Mezo Bridge.
 
 3. El contrato verifica la prueba.
 
@@ -50,25 +50,25 @@ De Mezo → Bitcoin
 De Mezo → Ethereum
 
 <Steps>
-1. Quema el activo en Mezo especificando el destinatario en Ethereum.
+1. Se quema el activo en Mezo especificando el destinatario en Ethereum.
 
-2. Los validadores del bridge escuchan los eventos `AssetsUnlocked`.
+2. Los validadores del puente escuchan los eventos `AssetsUnlocked`.
 
-3. Los validadores del bridge validan la inclusión de eventos y el quórum de validadores.
+3. Los validadores del puente validan la inclusión de los eventos y el quórum de validadores.
 
 4. Una vez verificado, se libera el ERC-20 al destinatario.
 </Steps>
 
 ### Arquitectura
 
-- **Bloqueo/Quema en el Origen**: Los activos se bloquean en Bitcoin/Ethereum (o se queman en Mezo) con datos que identifican al destinatario previsto y la cadena de destino.
-- **Atestación y Retransmisión**: Los clientes offchain producen atestaciones sobre los eventos de la cadena origen y retransmiten las pruebas a la cadena de destino.
-- **Acuñación/Liberación en el Destino**: Tras una atestación válida y la verificación de pruebas, los contratos de destino acuñan activos envueltos o liberan fondos bloqueados.
+- **Bloqueo/quema en el origen**: Los activos se bloquean en Bitcoin/Ethereum (o se queman en Mezo) con datos que identifican al destinatario previsto y la cadena de destino.
+- **Atestación y retransmisión**: Los clientes offchain producen atestaciones sobre los eventos de la cadena origen y retransmiten las pruebas a la cadena de destino.
+- **Acuñación/liberación en el destino**: Tras una atestación válida y la verificación de pruebas, los contratos de destino acuñan activos envueltos o liberan fondos bloqueados.
 
-### Flujo Principal
+### Flujo principal
 
 <Steps>
-1. El usuario inicia una transferencia (bridge) especificando la dirección de destino y el monto.
+1. El usuario inicia una transferencia por el puente especificando la dirección de destino y la cantidad.
 
 2. Se emite un evento del contrato/cadena origen después del bloqueo/quema; el evento incluye un ID de secuencia único y parámetros.
 
@@ -81,26 +81,39 @@ De Mezo → Ethereum
 5. En caso de éxito, el destino ejecuta la acuñación/liberación y registra la finalización.
 </Steps>
 
+### Depósitos en enclaves
+
+Los Mezo Enclaves son una función institucional que permite a las instituciones con
+requisitos regulatorios de custodia usar igualmente su BTC en Mezo sin
+depositarlo en puentes explícitos. Los enclaves reciben capacidades especiales
+asociadas a acuerdos legales que describen las cantidades transferidas por el puente y las
+limitaciones de uso. Todos los depósitos en enclaves siguen estando respaldados por UTXO en la
+cadena de Bitcoin, que se registran en la transacción de depósito tripartita del puente
+y se mantienen en el estado de la cadena. La multisig de gobernanza de Mezo incluye
+cada enclave en la lista de permitidos de forma individual. Encontrarás más información sobre la
+implementación subyacente del puente tripartito en [`mezod` RFC-6](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md).
+
 ### Contratos
 
 Mainnet:
 
 - Mezo Bridge: [0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c](https://etherscan.io/address/0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c)
-- Lista de tokens bridgeados [aquí](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
+- [Lista](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens) de tokens puenteados
 
 Sepolia:
 
 - Mezo Bridge: [0x3a3BaE133739f92a885070DbF3300d61B232497C](https://sepolia.etherscan.io/address/0x3a3BaE133739f92a885070DbF3300d61B232497C)
-- Lista de tokens bridgeados [aquí](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
+- [Lista](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens) de tokens puenteados
 
 ### Auditorías
 
 Consulta la página de [Auditorías](https://github.com/mezo-org/audits) para ver las auditorías más recientes.
 
-## Recursos Adicionales
+## Recursos adicionales
 
 Para detalles técnicos completos, formatos de mensajes y fundamentos de seguridad, consulta los siguientes RFC:
 
-- [RFC-2: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
-- [RFC-4: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
-- [RFC-5: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-2: Transferir Bitcoin a Mezo mediante un puente](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
+- [RFC-4: Puente nativo para activos distintos de Bitcoin](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
+- [RFC-5: Transferir activos fuera de Mezo mediante un puente](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-6: Puente tripartito de BTC](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md)
