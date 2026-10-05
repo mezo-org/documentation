@@ -18,7 +18,7 @@ Mezo est une plateforme blockchain sans permission : elle est donc accessible d
 
 **Lolli → Mezo :** vous pouvez retirer 0,0003 BTC (30 000 sats) ou plus de Lolli vers Mezo. Ce minimum vous permet d'acheter une carte cadeau Bitrefill d'au moins 25 $ sur Mezo Market tout en conservant suffisamment de sats pour couvrir les frais de transaction.
 
-**Mezo → Bitcoin Layer 1 :** Mezo exige actuellement un minimum de 0,01 BTC (1 million de sats) pour effectuer un retrait vers Bitcoin Layer 1. Tant que vous n'avez pas 1 million de sats dans votre portefeuille Mezo, vous ne pourrez pas effectuer de retrait vers votre portefeuille Bitcoin L1.
+**Mezo → Bitcoin Layer 1 :** Mezo exige actuellement un minimum de 0,01 BTC (1 million de sats) pour effectuer un retrait vers la couche 1 de Bitcoin (Layer 1). Tant que vous n'avez pas 1 million de sats dans votre portefeuille Mezo, vous ne pourrez pas effectuer de retrait vers votre portefeuille Bitcoin L1.
 
 Nous travaillons à réduire le montant minimum de retrait sur Mezo. 
 

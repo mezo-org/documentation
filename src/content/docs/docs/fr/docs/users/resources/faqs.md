@@ -26,7 +26,7 @@ Les produits de Mezo s'inscrivent dans sa mission : bâtir un paradigme financi
 
 ## Comment emprunter avec mes bitcoins en garantie ?
 
-MUSD est le stablecoin de Mezo adossé au Bitcoin : 1 MUSD peut être racheté contre 1 $ de BTC. Pour emprunter des MUSD, vous bloquez des BTC en garantie.
+MUSD est le stablecoin de Mezo adossé au Bitcoin : 1 MUSD peut être racheté contre 1 $ de BTC. Pour emprunter des MUSD, vous verrouillez des BTC en garantie.
 
 * Si le ratio de collatéralisation total du protocole reste solide (couverture supérieure à 150 %) :
   * Les nouveaux prêts nécessitent une garantie minimale de 110 % (par exemple, 110 $ de BTC pour 100 MUSD de dette).

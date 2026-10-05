@@ -10,7 +10,7 @@ Le MUSD Savings Vault est le produit d'épargne natif de Mezo destiné aux déte
 
 - Déposez des MUSD et recevez des sMUSD, un jeton de reçu représentant votre part du coffre
 - Le rendement s'accumule dans le taux de change des sMUSD : au fil du temps, 1 sMUSD devient échangeable contre plus de 1 MUSD. Lors de votre retrait, vous recevrez plus de MUSD que vous n'en avez déposé.
-- Le rendement provient de deux sources au sein du système MUSD : les frais du protocole MUSD (intérêts d'emprunt, frais d'ouverture, frais de refinancement) et les frais en BTC issus des opérations de prêt MUSD, qui sont convertis en MUSD et distribués chaque semaine
+- Le rendement provient de deux sources au sein du système MUSD : les frais du protocole MUSD (intérêts d'emprunt, frais d'origination, frais de refinancement) et les frais en BTC issus des opérations de prêt MUSD, qui sont convertis en MUSD et distribués chaque semaine
 - Ces deux flux sont distribués au coffre par le protocole à un rythme hebdomadaire
 - L'APR est variable et dépend de l'activité du protocole : consultez le taux actuel sur [mezo.org/earn/vaults](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC)
 
@@ -21,7 +21,7 @@ Les frais du protocole MUSD sont répartis à parts égales (50/50) entre deux d
 - **MUSD Savings Vault** : distribués aux détenteurs de sMUSD, ou redirigés vers les votants veBTC dans le cas des sMUSD stakés
 - **Remboursement du [prêt d'amorçage du protocole](/docs/fr/docs/users/borrow/architecture-and-terminology/#prêt-damorçage-du-protocole)**
 
-Cette répartition peut être modifiée par la gouvernance via le répartiteur MUSD, avec un minimum de 50 % affecté au remboursement du prêt jusqu'au remboursement intégral du prêt d'amorçage. Une fois celui-ci remboursé, l'ensemble des frais est versé au Savings Vault. Consultez [Frais MUSD](/docs/fr/docs/users/borrow/fees/) pour tous les détails.
+Cette répartition peut être modifiée par la gouvernance via le splitter MUSD, avec un minimum de 50 % affecté au remboursement du prêt jusqu'au remboursement intégral du prêt d'amorçage. Une fois celui-ci remboursé, l'ensemble des frais est versé au Savings Vault. Consultez [Frais MUSD](/docs/fr/docs/users/borrow/fees/) pour tous les détails.
 
 ---
 
@@ -32,7 +32,7 @@ Les sMUSD sont votre jeton de reçu pour le Mezo MUSD Savings Vault. Quelques po
 - **Le rendement se reflète dans le taux de change, pas dans votre solde.** Votre solde de sMUSD reste identique après le dépôt, mais chaque sMUSD devient échangeable contre davantage de MUSD au fil du temps, à mesure que le coffre accumule des frais. Vous constaterez la différence lors du retrait.
 - **Le rendement est distribué chaque semaine.** Le protocole distribue chaque semaine au coffre les frais accumulés. Le taux de change sMUSD/MUSD est mis à jour à chaque distribution.
 - **Les sMUSD sont transférables.** Vous pouvez envoyer ou détenir des sMUSD comme n'importe quel autre jeton. C'est le détenteur au moment du retrait qui récupère le rendement accumulé.
-- **Si vous stakez vos sMUSD dans le gauge, votre rendement est redirigé.** Les sMUSD stakés rapportent des émissions de MEZO au lieu des revenus directs issus des frais. Les revenus de frais qui vous auraient été versés sont redirigés vers les votants veBTC qui ont voté pour le gauge MUSD Savings. L'unstaking rétablit l'accumulation directe du rendement.
+- **Si vous stakez vos sMUSD dans le gauge, votre rendement est redirigé.** Les sMUSD stakés rapportent des émissions de MEZO au lieu des revenus directs issus des frais. Les revenus de frais qui vous auraient été versés sont redirigés vers les votants veBTC qui ont voté pour le gauge MUSD Savings. Le retrait du staking rétablit l'accumulation directe du rendement.
 
 ---
 

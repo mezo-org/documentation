@@ -53,11 +53,11 @@ Le protocole perçoit des frais à quatre niveaux :
 
 ### Prêt d'amorçage du protocole et Stability Pool
 
-Contrairement aux protocoles qui encouragent les dépôts dans le stability pool par des récompenses en jetons, le Stability Pool de MUSD est initialement alimenté par un prêt d'amorçage. Ces MUSD ne peuvent servir qu'aux liquidations. Lorsque les MUSD du protocole sont utilisés dans une liquidation, ils servent d'abord à rembourser le solde restant dû du prêt du protocole, ce qui garantit que le prêt d'amorçage ne peut pas être retiré. Les remboursements de ce prêt sont prévus sur une base hebdomadaire.
+Contrairement aux protocoles qui encouragent les dépôts dans le Stability Pool par des récompenses en jetons, le Stability Pool de MUSD est initialement alimenté par un prêt d'amorçage. Ces MUSD ne peuvent servir qu'aux liquidations. Lorsque les MUSD du protocole sont utilisés dans une liquidation, ils servent d'abord à rembourser le solde restant dû du prêt du protocole, ce qui garantit que le prêt d'amorçage ne peut pas être retiré. Les remboursements de ce prêt sont prévus sur une base hebdomadaire.
 
-### Protocol Controlled Value (PCV)
+### Valeur contrôlée par le protocole (PCV)
 
-Au fil du temps, à mesure que le protocole accumule des intérêts et des frais, le prêt d'amorçage est remboursé et la part des MUSD du Stability Pool qui constitue la Protocol Controlled Value augmente. Le contrat PCV gère la distribution des MUSD accumulés grâce aux intérêts et aux frais, la répartition entre le remboursement du prêt et un destinataire des frais étant modifiable par la gouvernance.
+Au fil du temps, à mesure que le protocole accumule des intérêts et des frais, le prêt d'amorçage est remboursé et la part des MUSD du Stability Pool qui constitue la valeur contrôlée par le protocole (Protocol Controlled Value) augmente. Le contrat PCV gère la distribution des MUSD accumulés grâce aux intérêts et aux frais, la répartition entre le remboursement du prêt et un destinataire des frais étant modifiable par la gouvernance.
 
 ### Immutabilité et évolutivité
 
@@ -236,16 +236,16 @@ pnpm coverage
 ## Principales différences par rapport à THUSD
 
 -   **Emprunt à taux fixe** : les taux d'intérêt sont fixés à l'ouverture d'un trove et peuvent être refinancés.
--   **Protocol Controlled Value (PCV)** : gère les frais destinés au remboursement du prêt et aux autres besoins du système.
+-   **Valeur contrôlée par le protocole (PCV)** : gère les frais destinés au remboursement du prêt et aux autres besoins du système.
 -   **Vérification de signatures EIP-712** : permet des autorisations de transactions sans gaz (gasless).
--   **Aucune liquidation spécifique au Recovery Mode** : les liquidations suivent un processus unique.
+-   **Aucune liquidation spécifique au mode de récupération (Recovery Mode)** : les liquidations suivent un processus unique.
 
 ## Définitions
 
 -   **Trove** : une position de dette garantie (CDP).
 -   **ICR** : ratio de collatéralisation individuel (Individual Collateralization Ratio) d'un trove.
 -   **TCR** : ratio de collatéralisation total (Total Collateralization Ratio) de l'ensemble du système.
--   **Recovery Mode** : mode activé si le TCR passe sous 150 %, qui impose des règles d'emprunt plus strictes.
+-   **Mode de récupération** : mode activé si le TCR passe sous 150 %, qui impose des règles d'emprunt plus strictes.
 
 ## Ressources supplémentaires
 

@@ -1,6 +1,6 @@
 ---
-title: mezo-nodes
+title: Nœuds Mezo
 topic: developers
 ---
-# mezo-nodes
+# Nœuds Mezo
 

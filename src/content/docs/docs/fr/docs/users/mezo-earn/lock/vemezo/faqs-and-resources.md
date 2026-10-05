@@ -23,7 +23,7 @@ En revanche, veMEZO ne peut pas voter seul sur les **gauges de staking** : cela
 Vous pouvez tout de même :
 
 - gagner des récompenses de rebase issues des émissions hebdomadaires ;
-- voter sur les gauges de boost veBTC d'autres utilisateurs pour gagner les incentives qu'ils publient.
+- voter sur les gauges de boost veBTC d'autres utilisateurs pour gagner les incentives (incitations) qu'ils publient.
 
 ### Comment booster ma position veBTC ?
 

@@ -22,7 +22,7 @@ Ce sont vos bitcoins, et c'est à vous de décider ce que vous en faites.
 
 ## Fonctionnalités principales
 ### Prêts Bitcoin (MUSD)
-Des prêts en libre-service à un taux fixe de 1 %. Empruntez des MUSD avec vos bitcoins en garantie et gérez tout vous-même. Accédez jusqu'à 90 % de la valeur de vos bitcoins.
+Des prêts en libre-service à un taux fixe de 1 %. Empruntez des MUSD avec vos bitcoins en garantie et gérez tout vous-même. Mobilisez jusqu'à 90 % de la valeur de vos bitcoins.
 
 ### Comptes d'épargne Bitcoin (coffres de rendement)
 Déposez des BTC ou des MUSD dans des coffres automatisés qui génèrent du rendement grâce au prêt, à la fourniture de liquidité et à des stratégies DeFi. Comme un compte d'épargne à haut rendement, mais transparent et onchain. Aucun solde minimum, retrait à tout moment.
@@ -37,7 +37,7 @@ Dépensez vos MUSD en biens et services réels. Achetez des cartes cadeaux, paye
 Chaque transaction sur Mezo est payée en Bitcoin. L'expérience reste ainsi 100 % Bitcoin, tout en créant une source de revenus qui revient aux participants de l'écosystème Mezo.
 
 ### Construit sur tBTC
-Le pont Bitcoin décentralisé le plus éprouvé, avec plus de 24k BTC transférés via le pont depuis 2020. Les réserves sont vérifiables 24 h/24, 7 j/7 : vous n'avez donc pas besoin de vous fier à des tiers de confiance.
+Le pont Bitcoin décentralisé le plus éprouvé, avec plus de 24 000 BTC transférés via le pont depuis 2020. Les réserves sont vérifiables 24 h/24, 7 j/7 : vous n'avez donc pas besoin de vous fier à des tiers de confiance.
 
 ### Développement sans permission
 La compatibilité EVM complète permet aux développeurs de construire sans demander de permission. Créez de nouveaux produits financiers, intégrez des protocoles existants ou inventez des cas d'usage entièrement nouveaux. La même philosophie que Bitcoin : ouvert, sans permission, inarrêtable.

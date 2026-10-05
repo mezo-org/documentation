@@ -6,17 +6,17 @@ Mezo Pools permet aux utilisateurs d'échanger des jetons et de fournir de la li
 
 ## Pools basiques
 
-Les pools basiques utilisent un AMM de type Aerodrome avec une tarification soit à produit constant (volatile), soit à courbe stable (stable).
+Les pools basiques utilisent un AMM de type Aerodrome avec une tarification soit à produit constant (volatil), soit à courbe stable (stable).
 
 - **Pool Factory :** `0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248`
-- **Frais de swap :** 0,30 % pour les pools volatiles, 0,02 % pour les pools stables
+- **Frais de swap :** 0,30 % pour les pools volatils, 0,02 % pour les pools stables
 - **Type de position :** jetons LP fongibles (ERC-20)
 
 ### Pools basiques pris en charge
 
 | Pool | Type | Adresse |
 |------|------|---------|
-| MUSD/BTC | Volatile | `0x52e604c44417233b6CcEDDDc0d640A405Caacefb` |
+| MUSD/BTC | Volatil | `0x52e604c44417233b6CcEDDDc0d640A405Caacefb` |
 | MUSD/mUSDC | Stable | `0xEd812AEc0Fecc8fD882Ac3eccC43f3aA80A6c356` |
 | MUSD/mUSDT | Stable | `0x10906a9E9215939561597b4C8e4b98F93c02031A` |
 
@@ -44,7 +44,7 @@ Les pools CL permettent aux fournisseurs de liquidité de déposer dans des plag
 
 ### Tick spacing et frais
 
-Les pools CL sont créés avec un tick spacing (espacement des ticks) spécifique qui détermine la granularité des plages de prix. Les pools dont le tick spacing est inférieur à 100 sont classés comme stables ; ceux à partir de 100 sont volatiles.
+Les pools CL sont créés avec un tick spacing (espacement des ticks) spécifique qui détermine la granularité des plages de prix. Les pools dont le tick spacing est inférieur à 100 sont classés comme stables ; ceux à partir de 100 sont volatils.
 
 | Tick spacing | Frais par défaut |
 |---|---|

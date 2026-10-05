@@ -46,7 +46,7 @@ Ce guide explique comment transférer vos actifs hors de Mezo via un pont, vers 
 
 | Votre actif sur Mezo | Réseau de destination | Ce que vous recevrez | Remarques |
 |-------------------|-------------------|-------------------|--------|
-| **BTC** | Ethereum | tBTC (jeton ERC-20) | Vous recevez toujours des tBTC sur Ethereum, et non des WBTC ou d'autres versions wrappées |
+| **BTC** | Ethereum | tBTC (jeton ERC-20) | Vous recevez toujours des tBTC sur Ethereum, et non des WBTC ou d'autres versions encapsulées |
 | **BTC** | Bitcoin | BTC natif | De vrais bitcoins envoyés vers votre portefeuille Bitcoin |
 | **Jetons mERC-20** | Ethereum | Jeton ERC-20 d'origine | Récupérez les mêmes jetons que ceux que vous aviez initialement transférés via le pont (USDC, USDT, etc.) |
 | **MUSD** | Ethereum, Base | MUSD | Transférez à partir de seulement 0,01 MUSD entre Mezo, Base et Ethereum. Pont fourni par Wormhole. |
@@ -54,9 +54,9 @@ Ce guide explique comment transférer vos actifs hors de Mezo via un pont, vers 
 | **Jetons mERC-20** | Bitcoin | Non disponible | Les jetons ERC-20 ne peuvent pas être envoyés vers Bitcoin |
 
 :::note[Points clés]
-- Vous pouvez transférer vos actifs via un pont entre Mezo et Bitcoin mainnet, Ethereum et le réseau Base.
+- Vous pouvez transférer vos actifs via un pont entre Mezo et le mainnet Bitcoin, Ethereum et le réseau Base.
 - Les BTC peuvent être transférés vers Ethereum (sous forme de tBTC) ou vers Bitcoin (sous forme de BTC natif).
-- Les jetons comme USDC ou T (représentés sous forme de m-tokens sur Mezo) ne peuvent être renvoyés que vers Ethereum.
+- Les jetons comme USDC ou T (représentés sur Mezo sous forme de jetons m, ou m-tokens) ne peuvent être renvoyés que vers Ethereum.
 - MEZO et MUSD peuvent être transférés depuis et vers le réseau Base via [Wormhole NTT](/docs/fr/docs/users/mezo/mezo-bridge).
 - Les jetons MEZO peuvent également être transférés vers BSC et Solana via [Wormhole NTT](/docs/fr/docs/users/mezo/mezo-bridge).
 - Les adresses Bitcoin Taproot (commençant par `bc1p`) ne sont pas encore prises en charge.
@@ -197,7 +197,7 @@ Vous pouvez suivre votre transaction à l'aide du hash de transaction fourni dan
 ### Pour les destinations Bitcoin
 Types d'adresses pris en charge :
 -   Adresses Legacy (commençant par `1`)
--   Adresses SegWit wrappées (commençant par `3`)
+-   Adresses SegWit encapsulées (commençant par `3`)
 -   Adresses Native SegWit (commençant par `bc1q`)
 
 **Non prises en charge :** adresses Taproot (commençant par `bc1p`)

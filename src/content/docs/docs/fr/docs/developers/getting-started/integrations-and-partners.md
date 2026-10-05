@@ -21,13 +21,13 @@ Stork est un protocole d'oracle qui permet des connexions à très faible latenc
 
 ## Supra 
 
-Supra est un réseau d'oracles cross-chain conçu pour alimenter les dApps de différents écosystèmes blockchain avec des solutions de données rapides, sécurisées, décentralisées et évolutives. Le [Distributed Oracle Agreement (DORA)](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora) de Supra est disponible sur Mezo Testnet. Consultez la page [Available Networks](https://docs.supra.com/oracles/data-feeds/pull-oracle/networks) de Supra pour trouver les bonnes adresses du contrat pull et du contrat de stockage.
+Supra est un réseau d'oracles inter-chaînes conçu pour alimenter les dApps de différents écosystèmes blockchain avec des solutions de données rapides, sécurisées, décentralisées et évolutives. Le [Distributed Oracle Agreement (DORA)](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora) de Supra est disponible sur Mezo Testnet. Consultez la page [Available Networks](https://docs.supra.com/oracles/data-feeds/pull-oracle/networks) de Supra pour trouver les bonnes adresses du contrat pull et du contrat de stockage.
 
 - **[Documentation de Supra](https://docs.supra.com/)**
 
 ## Pyth
 
-[Pyth Network](https://pyth.network/) est l'un des plus grands réseaux d'oracles first-party et fournit des données en temps réel sur plusieurs chaînes, dont Mezo. Pyth introduit une [conception d'oracle pull](https://docs.pyth.network/documentation/pythnet-price-feeds/on-demand) innovante à faible latence, dans laquelle les utilisateurs peuvent récupérer onchain les mises à jour de prix au moment où ils en ont besoin. Cela permet à tous les acteurs de l'environnement onchain d'accéder efficacement aux données. Pyth Network met à jour les prix toutes les 400 ms, ce qui fait de Pyth l'un des oracles onchain les plus rapides.
+[Pyth Network](https://pyth.network/) est l'un des plus grands réseaux d'oracles de première main (first-party) et fournit des données en temps réel sur plusieurs chaînes, dont Mezo. Pyth introduit une [conception d'oracle pull](https://docs.pyth.network/documentation/pythnet-price-feeds/on-demand) innovante à faible latence, dans laquelle les utilisateurs peuvent récupérer onchain les mises à jour de prix au moment où ils en ont besoin. Cela permet à tous les acteurs de l'environnement onchain d'accéder efficacement aux données. Pyth Network met à jour les prix toutes les 400 ms, ce qui fait de Pyth l'un des oracles onchain les plus rapides.
 
 Contrats Pyth :
 - Mezo Mainnet (proxy) : [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
@@ -37,6 +37,6 @@ Consultez la [documentation de Pyth](https://docs.pyth.network/home) pour savoir
 
 ## Onchain Den
 
-Den fournit un portefeuille multisignature en auto-garde pour les organisations onchain et est disponible sur Mezo. Onchain Den a également collaboré avec Mezo pour fournir une infrastructure SAFE sur [safe.mezo.org](http://safe.mezo.org/).
+Den fournit un portefeuille multisignature en auto-conservation pour les organisations onchain et est disponible sur Mezo. Onchain Den a également collaboré avec Mezo pour fournir une infrastructure SAFE sur [safe.mezo.org](http://safe.mezo.org/).
 
 - **[Documentation de Den](https://docs.onchainden.com/overview/den)**

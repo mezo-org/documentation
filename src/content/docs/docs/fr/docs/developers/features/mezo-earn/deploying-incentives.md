@@ -17,7 +17,7 @@ Pour la liste complète des adresses de jetons autorisés pouvant être ajoutés
 2. Cliquez sur l'onglet **Contract**, puis sélectionnez **Write proxy** et choisissez `createPoolGauge`.
 
 3. Pour le paramètre `_poolFactory`, utilisez l'une des adresses suivantes :
-   - **Pools Basic :** `0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248`
+   - **Pools basiques :** `0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248`
    - **Pools CL :** `0xBB24AF5c6fB88F1d191FA76055e30BF881BeEb79`
 
 4. Saisissez l'adresse du pool dans `_pool`.

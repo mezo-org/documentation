@@ -36,7 +36,7 @@ Vous verrez 6 champs de saisie. Voici comment les remplir :
 
 ## Option A : rapide et simple (gaz plus élevé)
 
-Utilisez cette option si vous souhaitez effectuer un rachat rapidement sans calculer de hints.
+Utilisez cette option si vous souhaitez effectuer un rachat rapidement sans calculer de hints (indications).
 
 - `_amount` : [votre montant en wei – voir la conversion ci-dessous]   
 - `_firstRedemptionHint` : 0x0000000000000000000000000000000000000000   

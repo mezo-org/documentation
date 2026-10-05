@@ -38,7 +38,7 @@ URL : [https://www.aurove.xyz/](https://www.aurove.xyz/)
 URL : [https://matchbox.markets/](https://matchbox.markets/)
 
 - Les détenteurs de veBTC peuvent proposer des incentives pour attirer les votes veMEZO et booster leurs positions veBTC (jusqu'à 5x).
-- Les détenteurs de veMEZO peuvent utiliser leur pouvoir de vote sur des gauges offrant des incentives attractives afin de gagner des récompenses.
+- Les détenteurs de veMEZO peuvent utiliser leur pouvoir de vote sur des gauges offrant des incentives attractifs afin de gagner des récompenses.
 - Consultez la [documentation Matchbox](https://matchbox.markets/docs) pour accéder aux guides, aux concepts et aux FAQ.
 
 ## MezoAgent

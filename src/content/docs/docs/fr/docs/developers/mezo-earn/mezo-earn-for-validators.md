@@ -44,14 +44,14 @@ Dans les grandes lignes :
 Pour comprendre Mezo Earn, nous distinguons trois notions économiques :
 
 - **Récompenses :** ce que les acteurs reçoivent en échange de leur travail (par exemple, les émissions de MEZO).
-- **Incentives :** les règles ou avantages conçus pour encourager des comportements précis (par exemple, obtenir un boost en détenant du veMEZO).
+- **Incentives :** les règles ou avantages conçus pour encourager des comportements précis (par exemple, obtenir un boost en détenant des veMEZO).
 - **Bribes :** un budget temporaire fourni par des protocoles ou des utilisateurs pour encourager une action précise (par exemple, voter pour un gauge donné).
 
 ### Acteurs de Mezo Earn
 
 Mezo Earn coordonne cinq acteurs principaux :
 
-1. **Utilisateurs finaux / verrouilleurs de veBTC et veMEZO :** ils verrouillent des BTC ou des MEZO, reçoivent des NFT veBTC et veMEZO, votent dans les gauges et réclament des frais/émissions.
+1. **Utilisateurs finaux / détenteurs de verrouillages veBTC et veMEZO :** ils verrouillent des BTC ou des MEZO, reçoivent des NFT veBTC et veMEZO, votent dans les gauges et réclament des frais/émissions.
 2. **Fournisseurs de liquidité (LP) :** ils fournissent de la liquidité au DEX et reçoivent des jetons LP ainsi que des frais ; ils peuvent, s'ils le souhaitent, staker leurs jetons LP dans des gauges de staking pour échanger leurs frais contre des émissions de MEZO.
 3. **Validateurs :** ils exécutent des nœuds de la chaîne Mezo, participent au consensus et reçoivent des émissions de MEZO via le Chain Splitter.
 4. **Protocoles :** ils déploient des bribes sur les gauges pour attirer de la liquidité ou des votes de gouvernance.
@@ -61,7 +61,7 @@ Mezo Earn coordonne cinq acteurs principaux :
 
 ## Comment les validateurs reçoivent des émissions
 
-Le chain splitter envoie aux validateurs une part fixe des émissions de récompenses, actuellement fixée à 20 % des émissions de récompenses. Ce ratio est verrouillé par la gouvernance.
+Le Chain Splitter envoie aux validateurs une part fixe des émissions de récompenses, actuellement fixée à 20 % des émissions de récompenses. Ce ratio est verrouillé par la gouvernance.
 
 Les émissions des validateurs sont réparties à parts égales entre les validateurs actifs. Il n'existe actuellement aucun mécanisme permettant aux détenteurs de veBTC de voter pour des validateurs individuels ou d'orienter les émissions vers des validateurs spécifiques.
 
@@ -102,14 +102,14 @@ Les LP fournissent de la liquidité aux pools du DEX sur Mezo et reçoivent des 
 **L'échange économique :**
 
 - Les LP échangent un rendement réel direct (les frais) contre des émissions de MEZO.
-- Les votants veBTC + veMEZO échangent leur pouvoir de vote contre des droits sur ces frais redirigés et sur les éventuelles incentives ajoutées au gauge.
+- Les votants veBTC + veMEZO échangent leur pouvoir de vote contre des droits sur ces frais redirigés et sur les éventuels incentives ajoutés au gauge.
 
 ### Incidence du staking de LP sur les validateurs
 
 Via l'arborescence des splitters :
 
-- Le **chain splitter** détermine la part de l'enveloppe de récompenses attribuée aux activités des validateurs par rapport aux autres activités. Ce ratio est actuellement fixé à 20 % pour les validateurs / 80 % pour l'écosystème et verrouillé par la gouvernance.
-- L'**ecosystem splitter** oriente l'enveloppe hors validateurs vers les gauges de staking (pools LP + épargne MUSD). Ce ratio est actuellement fixe et verrouillé par la gouvernance.
+- Le **Chain Splitter** détermine la part de l'enveloppe de récompenses attribuée aux activités des validateurs par rapport aux autres activités. Ce ratio est actuellement fixé à 20 % pour les validateurs / 80 % pour l'écosystème et verrouillé par la gouvernance.
+- L'**Ecosystem Splitter** oriente l'enveloppe hors validateurs vers les gauges de staking (pools LP + épargne MUSD). Ce ratio est actuellement fixe et verrouillé par la gouvernance.
 - Les gauges LP sont ensuite en concurrence avec le gauge d'épargne MUSD et les autres gauges LP pour les émissions au sein de leur branche.
 
 ---
@@ -140,7 +140,7 @@ Le taux d'épargne MUSD est implémenté sous la forme d'un autre gauge de staki
   - en contrepartie, ils reçoivent les émissions de MEZO attribuées à ce gauge.
 - Les détenteurs de veBTC qui votent sur le gauge d'épargne MUSD reçoivent :
   - le rendement MUSD (provenant des intérêts et des frais d'origination et de refinancement) ;
-  - les éventuelles incentives en MEZO attribuées à ce gauge.
+  - les éventuels incentives en MEZO attribués à ce gauge.
 
 Ce gauge est en concurrence directe avec les gauges LP pour les émissions de la branche staking et pour l'attention des votants.
 

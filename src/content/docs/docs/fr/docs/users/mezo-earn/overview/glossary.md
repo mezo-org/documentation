@@ -42,7 +42,7 @@ Un gauge lié à un jeton de staking (comme les jetons LP ou les reçus d'éparg
 
 ## Gauge de boost veBTC
 
-Un gauge rattaché à un NFT veBTC spécifique. Les détenteurs de veMEZO votent sur ces gauges pour apporter un boost à cette position veBTC en échange d'incentives.
+Un gauge rattaché à un NFT veBTC spécifique. Les détenteurs de veMEZO votent sur ces gauges pour apporter un boost à cette position veBTC en échange d'incentives (incitations).
 
 ## Gauge sans staking
 
@@ -70,15 +70,15 @@ Le mécanisme économique par lequel les détenteurs de veBTC peuvent attirer de
 
 ## Incentives
 
-Des récompenses (incitations) publiées sur des gauges pour attirer des votes. Des protocoles ou des utilisateurs déposent des incentives (sous la forme de n'importe quel jeton ERC-20) pour attirer du pouvoir de vote vers des gauges spécifiques.
+Des récompenses publiées sur des gauges pour attirer des votes. Des protocoles ou des utilisateurs déposent des incentives (sous la forme de n'importe quel jeton ERC-20) pour attirer du pouvoir de vote vers des gauges spécifiques.
 
 ## Rebase
 
 Des distributions anti-dilution versées aux détenteurs de veMEZO. Lorsque le ratio de verrouillage (offre de veMEZO / offre totale de MEZO) est faible, une plus grande part des émissions est consacrée aux rebases, ce qui protège les premiers à verrouiller contre la dilution.
 
-## Répartiteur
+## Splitter
 
-Un contrat (splitter) qui répartit les émissions entre deux destinations (par exemple, les validateurs et l'écosystème). Les ratios de répartition sont actuellement fixes et verrouillés par la gouvernance.
+Un contrat qui répartit les émissions entre deux destinations (par exemple, les validateurs et l'écosystème). Les ratios de répartition sont actuellement fixes et verrouillés par la gouvernance.
 
 ## MUSD
 
@@ -92,10 +92,10 @@ Un gauge de staking pour le coffre d'épargne MUSD. Les utilisateurs qui dépose
 
 Nouveaux jetons MEZO distribués à chaque époque aux gauges de staking, aux validateurs et aux détenteurs de veMEZO (sous forme de rebases). Les émissions suivent un calendrier de halving : 25 % annualisés de l'année 0 à l'année 2, puis une baisse jusqu'à environ 2 % après l'année 8.
 
-## Répartiteur de chaîne
+## Chain Splitter
 
-Le premier répartiteur de la hiérarchie des émissions. Il détermine le pourcentage des émissions attribué aux validateurs (initialement 20 %) par rapport au reste du système.
+Le premier splitter de la hiérarchie des émissions. Il détermine le pourcentage des émissions attribué aux validateurs (initialement 20 %) par rapport au reste du système.
 
-## Répartiteur d'écosystème
+## Ecosystem Splitter
 
-Le second répartiteur. Il oriente les émissions non destinées aux validateurs vers les gauges de staking. Ce ratio est actuellement fixe et verrouillé par la gouvernance.
+Le second splitter. Il oriente les émissions non destinées aux validateurs vers les gauges de staking. Ce ratio est actuellement fixe et verrouillé par la gouvernance.

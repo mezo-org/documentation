@@ -8,7 +8,7 @@ topic: users
 * [Utilisateurs](users/README.md)
   * [Introduction](users/introduction/README.md)
     * [Pourquoi Bitcoin a besoin de services bancaires](users/introduction/why-bitcoin-needs-banking.md)
-    * [Mezo : une économie bancaire libre et en libre-service pour les Bitcoiners](users/introduction/mezo-self-service-banking.md)
+    * [Mezo : une économie bancaire libre et en libre-service pour les bitcoiners](users/introduction/mezo-self-service-banking.md)
   * [Premiers pas](users/getting-started/README.md)
     * [Déposer des actifs](users/getting-started/deposit-assets.md)
     * [Connecter votre portefeuille à Mezo](users/getting-started/connect.md)

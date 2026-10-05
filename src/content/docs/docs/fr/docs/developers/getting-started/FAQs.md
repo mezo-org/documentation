@@ -13,7 +13,7 @@ Pour les développeurs, Mezo offre une proposition de valeur distincte et convai
 
 #### Qu'est-ce que MUSD ?
 
-Au cœur de l'écosystème Mezo se trouve MUSD, son stablecoin natif. MUSD est conçu pour être adossé à 100 % à des réserves de Bitcoin et pour maintenir une parité stable de 1:1 avec le dollar américain. Sa fonction première est de servir de moyen d'échange liquide qui alimente l'économie Mezo, en permettant aux utilisateurs de libérer la valeur de leurs avoirs en Bitcoin. Le mécanisme est simple : les utilisateurs peuvent déposer leurs Bitcoin (sous forme de tBTC) dans un coffre onchain sécurisé et frapper des MUSD en contrepartie. Ces MUSD nouvellement frappés peuvent ensuite être utilisés dans tout l'écosystème pour un large éventail d'activités, notamment payer des biens et services, trader sur des exchanges décentralisés, fournir de la liquidité pour générer du rendement ou participer à d'autres protocoles DeFi.
+Au cœur de l'écosystème Mezo se trouve MUSD, son stablecoin natif. MUSD est conçu pour être adossé à 100 % à des réserves de Bitcoin et pour maintenir une parité stable de 1:1 avec le dollar américain. Sa fonction première est de servir de moyen d'échange liquide qui alimente l'économie Mezo, en permettant aux utilisateurs de libérer la valeur de leurs avoirs en Bitcoin. Le mécanisme est simple : les utilisateurs peuvent déposer leurs Bitcoin (sous forme de tBTC) dans un coffre onchain sécurisé et frapper des MUSD en contrepartie. Ces MUSD nouvellement frappés peuvent ensuite être utilisés dans tout l'écosystème pour un large éventail d'activités, notamment payer des biens et services, trader sur des plateformes d'échange décentralisées, fournir de la liquidité pour générer du rendement ou participer à d'autres protocoles DeFi.
 
 Pour les développeurs, Mezo et MUSD forment un écosystème « tout compris » qui offre des avantages stratégiques :
 
@@ -74,7 +74,7 @@ Obtenez des fonds de testnet avec le faucet Mezo : [https://faucet.test.mezo.or
 
 **​**[**BitcoinFi Accelerator**](https://bitcoinfi.network/)
 
-Pour les projets plus matures ou ayant des ambitions de croissance importantes, la Supernormal Foundation s'associe à des sociétés de capital-risque de premier plan, **Boost VC, Draper Associates et Thesis**, pour proposer un programme d'accélération dédié. Ce programme intensif apporte un investissement initial et un accompagnement sur mesure, notamment un mentorat approfondi sur la stratégie produit et l'exécution go-to-market, afin d'aider les équipes à passer d'un produit fonctionnel à une entreprise capable de passer à l'échelle.
+Pour les projets plus matures ou ayant des ambitions de croissance importantes, la Supernormal Foundation s'associe à des sociétés de capital-risque de premier plan, **Boost VC, Draper Associates et Thesis**, pour proposer un programme d'accélération dédié. Ce programme intensif apporte un investissement initial et un accompagnement sur mesure, notamment un mentorat approfondi sur la stratégie produit et la mise sur le marché (go-to-market), afin d'aider les équipes à passer d'un produit fonctionnel à une entreprise capable de passer à l'échelle.
 
 #### Où trouver du soutien auprès de la communauté et poser des questions techniques ? <a href="#where-can-i-find-community-support-and-ask-technical-questions" id="where-can-i-find-community-support-and-ask-technical-questions"></a>
 

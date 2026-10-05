@@ -77,7 +77,7 @@ Les contrats Mezo Earn sont organisés dans le répertoire [`solidity/`](https:/
 - **Contrats de jetons** : implémentations ERC20
 - **Contrats utilitaires** : fonctions d'aide et bibliothèques
 
-### Workflow de développement
+### Flux de travail de développement
 
 1. **Écrire les contrats** : créez ou modifiez des fichiers Solidity dans `solidity/`
 2. **Tester les contrats** : écrivez des tests complets pour vos contrats

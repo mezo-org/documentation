@@ -26,7 +26,7 @@ Vous pouvez consulter en temps réel l'ensemble des BTC qui adossent le MUSD sur
 - [CollSurplusPool](https://explorer.mezo.org/address/0xBF51807ACb3394B8550f0554FB9098856Ef5F491)
 - [GasPool](https://explorer.mezo.org/address/0x3EB418BdBE95b4b9cf465ecfBD8424685ACD1Bc1)
 
-tBTC, conçu par l'équipe à l'origine de Mezo, [Thesis*](https://thesis.co/?ref=blog.mezo.org), repose sur le [Threshold Network](https://threshold.network/?ref=blog.mezo.org). Threshold est un ensemble décentralisé de signataires qui exploite le pont Bitcoin de Threshold depuis début 2020 et a transféré avec succès plus de 28k bitcoins via ce pont. Les preuves de réserves de tBTC sont disponibles depuis la mise en service du pont et peuvent être consultées sur [tbtcscan](https://tbtcscan.com/wallets?ref=blog.mezo.org).
+tBTC, conçu par l'équipe à l'origine de Mezo, [Thesis*](https://thesis.co/?ref=blog.mezo.org), repose sur le [Threshold Network](https://threshold.network/?ref=blog.mezo.org). Threshold est un ensemble décentralisé de signataires qui exploite le pont Bitcoin de Threshold depuis début 2020 et a transféré avec succès plus de 28 000 bitcoins via ce pont. Les preuves de réserves de tBTC sont disponibles depuis la mise en service du pont et peuvent être consultées sur [tbtcscan](https://tbtcscan.com/wallets?ref=blog.mezo.org).
 
 Pour une analyse approfondie de tBTC, vous pouvez consulter le [rapport de recherche de Bitcoin Layers](https://mirror.xyz/0x715823F52163575f023b9090a775522249887619/3gaFbT7qQBKEbsjN3Gp_SQe6-QvdZNHuszoasNnvSUo?ref=blog.mezo.org), qui compare tBTC à d'autres wrappers populaires comme WBTC et cbBTC. Une analyse des risques complémentaire a été réalisée par l'[équipe LlamaRisk](https://www.llamarisk.com/research/collateral-risk-tbtc?ref=blog.mezo.org) en amont de l'inscription de tBTC comme garantie sur Aave.
 
@@ -58,7 +58,7 @@ Les taux d'intérêt sont **fixes pendant toute la durée du prêt**. Le taux qu
 * Contrôle par la gouvernance : le taux d'intérêt et d'autres paramètres critiques sont contrôlés par la gouvernance. Toute modification de ces paramètres nécessite une proposition de gouvernance et un délai minimal avant de pouvoir être appliquée.
 * Propositions de taux d'intérêt : de nouveaux taux d'intérêt peuvent être proposés par la gouvernance. Ces propositions doivent être approuvées après un délai minimal afin de garantir la stabilité et la prévisibilité.
 
-## Protocol Controlled Value (PCV)
+## Valeur contrôlée par le protocole (PCV)
 
 Le contrat Protocol Controlled Value (PCV, valeur contrôlée par le protocole) est un composant clé du système, chargé de gérer les frais perçus sur les emprunts et les refinancements. Voici un aperçu du fonctionnement du PCV :
 

@@ -55,7 +55,7 @@ Comme pour les autres produits Earn de Mezo, vous choisissez comment chaque part
 
 Une même part ne peut pas rapporter les deux à la fois, mais vous pouvez répartir vos avoirs : staker une partie pour les émissions et conserver le reste pour les intérêts. Le dépôt et le staking sont des étapes distinctes dans l'application : déposez d'abord pour recevoir des parts, puis stakez si vous le souhaitez.
 
-**Pour sortir d'une position stakée :** effectuez l'unstaking, puis reconvertissez en parts du coffre, puis retirez en mUSDC. L'unstaking ne vous fait pas perdre les MEZO réclamables.
+**Pour sortir d'une position stakée :** retirez vos parts du staking, reconvertissez-les en parts du coffre, puis retirez-les en mUSDC. Le retrait du staking ne vous fait pas perdre les MEZO réclamables.
 
 ---
 
@@ -65,7 +65,7 @@ Les retraits vous restituent vos mUSDC (plus les intérêts accumulés si vous c
 
 - L'application affiche un montant **Available to withdraw** basé sur la liquidité actuelle du coffre
 - Lorsque le taux d'utilisation est élevé, un retrait important peut n'être que partiellement exécutable ou temporairement bloqué jusqu'à ce que des emprunteurs remboursent ou qu'une nouvelle offre arrive
-- Les parts stakées doivent être unstakées avant de pouvoir être retirées
+- Les parts stakées doivent d'abord être sorties du staking avant de pouvoir être retirées
 
 Il s'agit du comportement normal d'un marché de prêt, et non d'une défaillance du coffre.
 

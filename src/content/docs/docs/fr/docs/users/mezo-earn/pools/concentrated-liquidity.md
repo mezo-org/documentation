@@ -19,7 +19,7 @@ Dans un **pool de liquidité concentrée**, vous choisissez une fourchette de pr
 | **Fourchette de liquidité** | Courbe de prix complète (de 0 à l'infini) | Fourchette de prix personnalisée que vous définissez |
 | **Efficacité du capital** | Plus faible : la majeure partie du capital est inactive | Plus élevée : tout le capital est actif dans la fourchette |
 | **Type de position** | Jetons LP fongibles (ERC-20) | Positions NFT (ERC-721) |
-| **Gestion** | Configurer et oublier | Nécessite une surveillance et un rééquilibrage |
+| **Gestion** | Passive, une fois configurée | Nécessite une surveillance et un rééquilibrage |
 | **Perte impermanente** | Standard | Amplifiée dans la fourchette choisie |
 
 ## Pools CL actifs

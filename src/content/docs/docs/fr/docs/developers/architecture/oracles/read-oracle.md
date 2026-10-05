@@ -102,7 +102,7 @@ contract ReadPythPrice {
 
 Vous pouvez interroger les flux de prix et les métadonnées directement depuis le réseau Pyth sans interagir avec la blockchain :
 
-- **Hermes API :** [https://hermes.pyth.network/docs/#/rest/price_feeds_metadata](https://hermes.pyth.network/docs/#/rest/price_feeds_metadata)
+- **API Hermes :** [https://hermes.pyth.network/docs/#/rest/price_feeds_metadata](https://hermes.pyth.network/docs/#/rest/price_feeds_metadata)
 - **Identifiants des flux de prix :** [https://docs.pyth.network/price-feeds/price-feeds#feed-ids](https://docs.pyth.network/price-feeds/price-feeds#feed-ids)
 
 ## Flux de prix disponibles

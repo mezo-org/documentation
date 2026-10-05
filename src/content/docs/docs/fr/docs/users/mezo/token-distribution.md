@@ -6,7 +6,7 @@ topic: users
 
 MEZO est le jeton natif de Mezo, utilisé pour augmenter le pouvoir de vote et influencer la destination des frais du protocole et des incentives (incitations).
 
-📄 **[Télécharger les informations réglementaires sur le jeton (PDF)](/docs/MEZO_Disclosure.pdf)**
+📄 **[Télécharger le document d'information sur le jeton (PDF)](/docs/MEZO_Disclosure.pdf)**
 
 ## Distribution des jetons
 

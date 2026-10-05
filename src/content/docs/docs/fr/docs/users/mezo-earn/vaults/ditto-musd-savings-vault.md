@@ -1,7 +1,7 @@
 ---
 title: Ditto MUSD Savings Vault
 description: >-
-  Déposez des MUSD sur Mezo et recevez des dMUSD pour un coffre cross-chain
+  Déposez des MUSD sur Mezo et recevez des dMUSD pour un coffre inter-chaînes
   automatisé avec une allocation initiale vers Spark Savings
 topic: users
 ---
@@ -35,7 +35,7 @@ Ces vérifications encadrent l'exécution automatisée ; elles n'éliminent pas
 | Allocation initiale | Spark Savings sur Ethereum                                                                                                                                                      |
 | Actif de rachat   | MUSD sur Mezo                                                                                                                                                                   |
 | Retraits        | Asynchrones : prévoyez un délai de traitement                                                                                                                                       |
-| APY actuel        | Environ 3,60 % au 29 septembre 2026, en ligne avec Spark Savings ; variable : consultez la [page du coffre](https://mezo.org/earn/vaults/0x9171Cb787C3fEEbBC808D07CaB62B1d789CE14F8) |
+| APY actuel        | Environ 3,60 % au 29 septembre 2026, conforme au taux de Spark Savings ; variable, consultez la [page du coffre](https://mezo.org/earn/vaults/0x9171Cb787C3fEEbBC808D07CaB62B1d789CE14F8) |
 
 Les performances passées ne reflètent pas les performances actuelles et ne garantissent pas les rendements futurs. Vérifiez dans l'application le taux actuel, les éventuels frais, les conditions de retrait et les risques avant de déposer.
 
@@ -50,7 +50,7 @@ Les performances passées ne reflètent pas les performances actuelles et ne gar
 
 Demandez un rachat depuis la page du coffre et suivez les invites pour votre position en dMUSD. Ditto dénoue l'allocation sous-jacente, effectue les transferts via un pont et les swaps nécessaires, puis restitue des MUSD sur Mezo.
 
-**Les retraits sont asynchrones.** L'envoi d'une demande de rachat ne signifie pas que les MUSD sont immédiatement disponibles dans votre portefeuille. Prévoyez un délai pour le traitement de la stratégie sous-jacente et des opérations cross-chain, et suivez les éventuelles étapes de finalisation affichées dans l'application. Le délai de traitement peut varier ; ne partez pas du principe que la fenêtre de retrait est fixe.
+**Les retraits sont asynchrones.** L'envoi d'une demande de rachat ne signifie pas que les MUSD sont immédiatement disponibles dans votre portefeuille. Prévoyez un délai pour le traitement de la stratégie sous-jacente et des opérations inter-chaînes, et suivez les éventuelles étapes de finalisation affichées dans l'application. Le délai de traitement peut varier ; ne partez pas du principe que la fenêtre de retrait est fixe.
 
 Si vous avez besoin d'aide concernant un rachat en attente, contactez le [support Mezo](/docs/fr/docs/users/resources/support) en indiquant l'adresse de votre portefeuille, le hash de la transaction et l'heure de votre demande.
 
@@ -66,7 +66,7 @@ Ces jetons de reçu représentent des coffres différents. Consultez les conditi
 ## Risques
 
 - **Risque lié aux contrats intelligents :** un bug ou une exploitation de faille dans le coffre, les contrats d'automatisation ou les protocoles sous-jacents pourrait entraîner une perte de fonds.
-- **Risque cross-chain :** les swaps et les transferts via un pont ajoutent des dépendances. Des défaillances du pont, des retards du réseau ou une exécution défavorable peuvent affecter la position et le processus de rachat.
+- **Risque inter-chaînes :** les swaps et les transferts via un pont ajoutent des dépendances. Des défaillances du pont, des retards du réseau ou une exécution défavorable peuvent affecter la position et le processus de rachat.
 - **Risque lié à la stratégie et aux stablecoins :** les rendements dépendent de Spark Savings et des actifs utilisés par la stratégie. Les taux peuvent évoluer et les stablecoins peuvent perdre leur parité.
 - **Risque lié aux opérateurs :** le traitement dépend d'un nombre suffisant d'approbations d'opérateurs et d'une exécution réussie. Une indisponibilité ou une défaillance des opérateurs peut retarder les actions du coffre.
 - **Risque lié aux retraits :** les actifs doivent être libérés de l'allocation sous-jacente et restitués sur Mezo. Il se peut que vous ne puissiez pas accéder à vos MUSD immédiatement après avoir demandé un rachat.

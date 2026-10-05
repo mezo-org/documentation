@@ -66,7 +66,7 @@ Framework modulaire utilisé pour construire la blockchain Mezo. Cosmos SDK four
 
 ## Ratio de collatéralisation critique (CCR)
 
-Seuil de garantie à l'échelle du système, fixé à 150 %. Lorsque le ratio de collatéralisation total (TCR) passe sous le CCR, le système entre en [mode de récupération](#mode-de-récupération-recovery-mode). Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
+Seuil de garantie à l'échelle du système, fixé à 150 %. Lorsque le ratio de collatéralisation total (TCR) passe sous le CCR, le système entre en [mode de récupération](#mode-de-récupération-recovery-mode) (Recovery Mode). Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
 
 ## dApp
 
@@ -114,7 +114,7 @@ Remboursement de 200 MUSD versé à l'appelant d'une fonction de [liquidation](#
 
 ## Gauge
 
-Contrat intelligent qui reçoit et distribue des récompenses en fonction des votes. Plus un gauge reçoit de poids de vote, plus sa part des émissions de MEZO pour l'époque concernée est importante. Les types de gauges comprennent les [gauges de staking](#gauge-de-staking), les [veBTC boost gauges](#vebtc-boost-gauge) et les [gauges sans staking](#gauge-sans-staking), comme les [MEZO Gauges](#mezo-gauge). Consultez le [glossaire Mezo Earn](/docs/fr/docs/users/mezo-earn/overview/glossary).
+Contrat intelligent qui reçoit et distribue des récompenses en fonction des votes. Plus un gauge reçoit de poids de vote, plus sa part des émissions de MEZO pour l'époque concernée est importante. Les types de gauges comprennent les [gauges de staking](#gauge-de-staking), les [gauges de boost veBTC](#gauge-de-boost-vebtc) et les [gauges sans staking](#gauge-sans-staking), comme les [MEZO Gauges](#mezo-gauge). Consultez le [glossaire Mezo Earn](/docs/fr/docs/users/mezo-earn/overview/glossary).
 
 ## Taux d'intérêt global
 
@@ -158,7 +158,7 @@ Réseau blockchain de production, sur lequel sont traités les actifs et les tra
 
 ## Marché d'appariement
 
-Mécanisme économique par lequel les détenteurs de veBTC peuvent attirer des votes veMEZO en publiant des [incentives](#incentives) sur leurs boost gauges, et les détenteurs de veMEZO peuvent obtenir du rendement en votant pour des gauges offrant des incentives attractives. Consultez la page [Marché d'appariement](/docs/fr/docs/users/mezo-earn/lock/vemezo/matching-market).
+Mécanisme économique par lequel les détenteurs de veBTC peuvent attirer des votes veMEZO en publiant des [incentives](#incentives) sur leurs gauges de boost, et les détenteurs de veMEZO peuvent obtenir du rendement en votant pour des gauges offrant des incentives attractifs. Consultez la page [Marché d'appariement](/docs/fr/docs/users/mezo-earn/lock/vemezo/matching-market).
 
 ## MEZO
 
@@ -314,7 +314,7 @@ Wrapper Bitcoin décentralisé conçu par Thesis et reposant sur le [Threshold N
 
 ## Émissions de traîne (tail emissions)
 
-Taux d'émission annuel perpétuel de 2 % de MEZO, qui commence après la huitième année du [calendrier de halving](#calendrier-de-halving). Les émissions de traîne fournissent indéfiniment des incentives continues aux validateurs, aux fournisseurs de liquidité et aux participants à la gouvernance. Consultez la page [Calendrier des émissions](/docs/fr/docs/users/mezo/emissions).
+Taux d'émission annuel perpétuel de 2 % de MEZO, qui commence après la huitième année du [calendrier de halving](#calendrier-de-halving). Les émissions de traîne fournissent indéfiniment des incentives continus aux validateurs, aux fournisseurs de liquidité et aux participants à la gouvernance. Consultez la page [Calendrier des émissions](/docs/fr/docs/users/mezo/emissions).
 
 ## Testnet
 
@@ -352,13 +352,13 @@ Boîte à outils complète pour déployer et gérer des nœuds Mezo. Elle prend 
 
 Vote-escrowed BTC (BTC en séquestre de vote). NFT représentant des bitcoins verrouillés, qui confère un pouvoir de vote et un droit de percevoir des frais dans Mezo Earn. Le poids de vote décroît de manière linéaire sur la période de verrouillage. Le verrouillage maximal est de 28 jours. Consultez l'[aperçu de veBTC](/docs/fr/docs/users/mezo-earn/lock/vebtc).
 
-## veBTC boost gauge
+## Gauge de boost veBTC
 
 [Gauge](#gauge) rattaché à un NFT veBTC spécifique. Les détenteurs de veMEZO votent pour ces gauges afin d'apporter un [boost](#boost) à la position veBTC concernée en échange d'[incentives](#incentives). Consultez la page [Marché d'appariement](/docs/fr/docs/users/mezo-earn/lock/vemezo/matching-market).
 
 ## veMEZO
 
-Vote-escrowed MEZO (MEZO en séquestre de vote). NFT représentant des jetons MEZO verrouillés, qui peut [booster](#boost) jusqu'à 5x le pouvoir de vote de veBTC et qui vote également en son nom propre pour les [veBTC boost gauges](#vebtc-boost-gauge) et les [MEZO Gauges](#mezo-gauge). Il ne dispose d'aucun poids de gouvernance propre et ne peut pas voter pour les [gauges de staking](#gauge-de-staking) sans veBTC. Le verrouillage maximal est de 4 ans. Consultez l'[aperçu de veMEZO](/docs/fr/docs/users/mezo-earn/lock/vemezo).
+Vote-escrowed MEZO (MEZO en séquestre de vote). NFT représentant des jetons MEZO verrouillés, qui peut [booster](#boost) jusqu'à 5x le pouvoir de vote de veBTC et qui vote également en son nom propre pour les [gauges de boost veBTC](#gauge-de-boost-vebtc) et les [MEZO Gauges](#mezo-gauge). Il ne dispose d'aucun poids de gouvernance propre et ne peut pas voter pour les [gauges de staking](#gauge-de-staking) sans veBTC. Le verrouillage maximal est de 4 ans. Consultez l'[aperçu de veMEZO](/docs/fr/docs/users/mezo-earn/lock/vemezo).
 
 ## Calendrier de vesting
 

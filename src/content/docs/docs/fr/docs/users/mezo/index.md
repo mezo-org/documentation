@@ -27,7 +27,7 @@ MEZO permet de :
 
 ## Propriétés clés
 
-- **Deux rôles** : veMEZO multiplie le poids veBTC sur les gauges de staking et vote en son nom propre pour les [veBTC boost gauges](/docs/fr/docs/users/mezo-earn/lock/vemezo/matching-market) et les [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges). Il ne dispose d'aucun poids de gouvernance propre.
+- **Deux rôles** : veMEZO multiplie le poids veBTC sur les gauges de staking et vote en son nom propre pour les [gauges de boost veBTC](/docs/fr/docs/users/mezo-earn/lock/vemezo/matching-market) et les [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges). Il ne dispose d'aucun poids de gouvernance propre.
 - **Pas de vote autonome pour les gauges de staking** : veMEZO ne peut pas voter pour les gauges de staking sans veBTC.
 - **Pondéré par le temps** : verrouillage plus long = poids veMEZO plus élevé
 - **Transférable en tant que NFT** : les positions veMEZO sont des NFT ERC-721 qui peuvent être transférés ou fusionnés

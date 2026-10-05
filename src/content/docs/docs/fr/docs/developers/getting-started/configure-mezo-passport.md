@@ -74,7 +74,7 @@ export const YourApp = () => {
 };
 ```
 
-### Étapes suivantes
+### Prochaines étapes
 
 
 
