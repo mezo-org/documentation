@@ -1,0 +1,72 @@
+---
+title: Cách khóa MEZO
+description: Hướng dẫn từng bước để khóa MEZO và nhận một NFT veMEZO
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+Khóa MEZO mang lại cho bạn một NFT veMEZO, giúp boost quyền biểu quyết veBTC của bạn lên tối đa 5x. Xem [Tổng quan về veMEZO](/docs/vn/docs/users/mezo-earn/lock/vemezo) để biết chi tiết về những gì bạn kiếm được.
+
+## Điều kiện tiên quyết
+
+Trước khi khóa MEZO, hãy đảm bảo bạn có:
+
+- Token MEZO trong ví
+- Một ví đã kết nối
+- Đủ BTC để trả phí gas
+
+Xem phần [Bắt đầu](/docs/vn/docs/users/getting-started/deposit-assets) để được hướng dẫn.
+
+:::note[Lưu ý]
+veMEZO không tự bỏ phiếu cho **gauge staking** — ở đó, veMEZO nhân quyền biểu quyết của vị thế veBTC của bạn. Không có veBTC, bạn vẫn có thể kiếm phần thưởng rebase, bỏ phiếu cho gauge boost veBTC và bỏ phiếu cho [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges).
+:::
+
+---
+
+## Mở trang Lock
+
+<Steps>
+1. Mở Mezo app
+
+2. Nhấp vào **Lock** ở thanh bên trái (trong mục "Earn")
+
+3. Bạn sẽ thấy các tài sản đủ điều kiện của mình
+</Steps>
+
+---
+
+## Bắt đầu khóa
+
+Tìm thẻ tài sản MEZO hiển thị số dư khả dụng của bạn và nhấp vào **Lock**. Một hộp thoại cấu hình khoản khóa sẽ xuất hiện để bạn thiết lập vị thế.
+
+**Số lượng:** Nhập lượng MEZO bạn muốn khóa. Bạn có thể khóa bất kỳ lượng nào, tối đa bằng số dư khả dụng.
+
+**Thời hạn:** Chọn thời hạn khóa từ 1 tuần đến 4 năm. Khoản khóa càng dài thì trọng số veMEZO càng cao, đồng nghĩa với tiềm năng boost lớn hơn. Giao diện hiển thị trọng số veMEZO ban đầu ước tính của bạn.
+
+:::note[Lưu ý]
+Thời hạn khóa được căn theo ranh giới epoch và làm tròn xuống tuần trọn vẹn gần nhất. Xem [Epoch](/docs/vn/docs/users/mezo-earn/lock/vebtc#epoch) để biết chi tiết.
+:::
+
+---
+
+## Xác nhận giao dịch
+
+Kiểm tra lại chi tiết khoản khóa:
+
+- Lượng MEZO
+- Thời hạn khóa
+- Trọng số veMEZO ban đầu
+- Ngày hết hạn khóa
+
+Nhấp vào **Confirm Lock**, phê duyệt giao dịch trong ví của bạn và chờ blockchain xác nhận.
+
+---
+
+## Xem vị thế của bạn
+
+Sau khi giao dịch được xác nhận, bạn có thể xem chi tiết khoản khóa trên trang Lock, bao gồm:
+
+- Trọng số veMEZO hiện tại (suy giảm theo thời gian)
+- Ngày hết hạn khóa
+- Các tùy chọn gia hạn khoản khóa

@@ -1,0 +1,48 @@
+---
+title: Safe
+description: >-
+  Dùng ví multisig Safe trên Mezo để quản lý quỹ chung với cơ chế bảo mật đa chữ
+  ký.
+topic: users
+---
+
+import { LinkButton, Steps } from '@astrojs/starlight/components';
+
+[Safe](https://safe.global/) (trước đây là Gnosis Safe) là ví multisig được sử dụng rộng rãi nhất trong crypto. Mezo có một bản triển khai Safe gốc tại [safe.mezo.org](https://safe.mezo.org), do [Den](https://www.onchainden.com/) quản lý.
+
+Ví multisig (đa chữ ký) yêu cầu nhiều người phê duyệt một giao dịch trước khi giao dịch đó được thực thi. Thay vì một người kiểm soát quỹ bằng một khóa riêng tư duy nhất, một nhóm sẽ đặt ra quy tắc, chẳng hạn "3 trên 5 người ký phải phê duyệt".
+
+<LinkButton href="https://safe.mezo.org" target="_blank">Mở Safe trên Mezo</LinkButton>
+
+## Bắt đầu
+
+<Steps>
+
+1. Truy cập [safe.mezo.org](https://safe.mezo.org).
+
+2. Kết nối ví của bạn.
+
+3. Nhấp vào **Create new Safe Account**.
+
+4. Thêm địa chỉ ví của những người đồng ký.
+
+5. Đặt ngưỡng xác nhận — số lượt phê duyệt cần thiết để thực thi một giao dịch (ví dụ: 2 trên 3).
+
+6. Kiểm tra lại và triển khai Safe của bạn.
+
+</Steps>
+
+Sau khi triển khai, bạn có thể gửi và nhận BTC cùng các token khác trên Mezo thông qua Safe của mình, với mỗi giao dịch đều cần đạt ngưỡng phê duyệt mà bạn đã cấu hình.
+
+## Tính năng
+
+- **Bảo mật đa chữ ký** — Yêu cầu nhiều người ký phê duyệt giao dịch trước khi thực thi.
+- **Module và guard** — Tùy chỉnh Safe của bạn bằng các module bổ sung cho hạn mức chi tiêu, khôi phục, giao dịch tự động và nhiều tính năng khác.
+- **Truy cập hệ sinh thái** — Tương tác trực tiếp với các dApp trên Mezo từ Safe của bạn bằng trình duyệt ứng dụng tích hợp sẵn.
+- **Tài khoản theo dõi** — Theo dõi bất kỳ tài khoản Safe nào mà không cần kết nối ví.
+
+## Tài nguyên
+
+- [Safe trên Mezo](https://safe.mezo.org)
+- [Tài liệu Safe](https://docs.safe.global/)
+- [Tài liệu Den](https://docs.onchainden.com/overview/den)

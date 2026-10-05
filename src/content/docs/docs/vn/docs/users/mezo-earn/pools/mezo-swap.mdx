@@ -1,0 +1,65 @@
+---
+title: Mezo Swap
+description: Tìm hiểu về Mezo Swap và cách giao dịch tài sản trong hệ sinh thái Mezo
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+# Tổng quan
+
+[Mezo Swap](https://mezo.org/overview?modal=swap) là sàn giao dịch phi tập trung (DEX) tích hợp của hệ sinh thái Mezo. Mezo Swap cho phép người dùng giao dịch liền mạch giữa các tài sản như BTC, MUSD và USDC mà không cần bên trung gian, sổ lệnh hay rời khỏi nền kinh tế BitcoinFi. Tính năng này được vận hành bởi [Mezo Pools](/docs/vn/docs/users/mezo-earn/pools), cho phép swap token tức thì và phi tập trung bằng các quỹ dự trữ thanh khoản dựa trên hợp đồng thông minh.
+
+<YouTube id="eRuWVR7R6Q0" title="Cách swap trên Mezo" />
+
+## Tính năng chính
+
+- **Không cần cấp phép**: Swap giữa các tài sản được hỗ trợ 24/7, không phụ thuộc vào bên trung gian hay sự phê duyệt nào.
+- **Trượt giá thấp**: Các pool ổn định (ví dụ: MUSD và USDC) dùng một đường cong chuyên biệt để giảm thiểu tác động giá đối với giao dịch giữa các tài sản tương đồng.
+- **Thanh khoản tức thì**: Giao dịch luôn khả dụng nhờ mô hình nhà tạo lập thị trường tự động (AMM), không cần sổ lệnh hay nhà tạo lập thị trường.
+- **Phần thưởng cho LP**: Cung cấp thanh khoản cho pool và nhận một phần phí swap. LP token theo dõi thu nhập theo tỷ lệ của bạn.
+- **Minh bạch onchain**: Mọi giao dịch swap, khoản phí và vị thế thanh khoản đều được ghi nhận onchain và bất kỳ ai cũng có thể xem.
+
+## Tài sản được hỗ trợ
+
+Mezo Swap hiện hỗ trợ giao dịch giữa các tài sản sau. Danh sách này sẽ được cập nhật khi có thêm token mới:
+
+- BTC
+- MUSD
+- USDC
+- USDT
+
+## Cách hoạt động
+
+### Cơ chế định giá
+
+Mezo Swap sử dụng mô hình nhà tạo lập thị trường tự động (AMM) với hai đường cong định giá riêng biệt:
+
+- **Pool biến động**: Dùng công thức tích không đổi `(x × y = k)` cho các tài sản như BTC/USDC, được tối ưu cho việc khám phá giá giữa các tài sản không tương quan.
+- **Pool ổn định**: Dùng đường cong stable swap chuyên biệt `(x³y + y³x ≥ k)` cho các tài sản tương đồng như MUSD/USDC, được thiết kế để giảm thiểu trượt giá cho giao dịch giữa các token có giá trị tương tự.
+
+Giá được xác định bởi tỷ lệ token trong mỗi pool và tự động cập nhật sau mỗi giao dịch.  
+
+### Trượt giá
+
+Trượt giá (slippage) xảy ra khi giá swap thực tế khác với giá được báo do một trong hai nguyên nhân:
+
+- Các giao dịch khác được hoàn tất trước giao dịch của bạn
+- Thiếu thanh khoản cho các tài sản đã chọn
+
+Khi dùng Mezo Swap, bạn có thể đặt mức chấp nhận trượt giá tối đa (mặc định: 0,5% cho các cặp ổn định, 1% cho các cặp biến động).
+
+![Ví dụ về trượt giá](/docs/images/mainnet/slippage-example.png)
+
+Nếu điều kiện thị trường thay đổi vượt quá mức chấp nhận của bạn, giao dịch sẽ bị hoàn tác để bảo vệ bạn khỏi các giao dịch bất lợi. Giao dịch lớn sẽ chịu trượt giá nhiều hơn do tác động giá của chúng lên pool.
+
+Để xem tổng thanh khoản khả dụng, hãy truy cập [Mezo Pools](https://mezo.org/explore/pools), nơi bạn sẽ thấy tất cả các pool cùng số liệu thống kê liên quan, bao gồm tổng thanh khoản (TVL).
+
+## Phí
+
+- **Phí giao thức**: 0,02% cho pool ổn định, 0,3% cho pool biến động (trả cho nhà cung cấp thanh khoản)
+- **Phí mạng**: Phí gas tiêu chuẩn để thực thi giao dịch swap onchain
+
+Khi xem trước một giao dịch swap trong Mezo app, bạn sẽ thấy các khoản phí liên quan, trượt giá, chi phí mạng và tỷ giá swap.
+
+![Ví dụ về swap](/docs/images/mainnet/Swap-MUSD-to-BTC.png)

@@ -1,0 +1,94 @@
+---
+title: Cơ chế boost
+description: >-
+  Cách veMEZO boost quyền biểu quyết veBTC lên tới 5x thông qua thị trường ghép
+  cặp
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+veMEZO boost quyền biểu quyết veBTC của bạn lên tới 5x. Trang này giải thích cách công thức boost hoạt động và cách thị trường ghép cặp (matching market) kết nối người nắm giữ veBTC với người nắm giữ veMEZO.
+
+## Cách boost hoạt động
+
+Trọng số phiếu bầu được boost của bạn kết hợp veBTC với lượng veMEZO được phân bổ cho vị thế của bạn:
+
+$$
+\text{Boosted Weight} = |\text{veBTC}| \times \min(5, \; 1 + \text{Boost})
+$$
+
+Trong đó, thành phần Boost là:
+
+$$
+\text{Boost} = 4 \times \frac{|\text{veBTC}|_{\text{total}}}{|\text{veBTC}|} \times \frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}}
+$$
+
+### Các đặc tính chính
+
+- **Hệ số nhân tối thiểu: 1x** — Vị thế veBTC không có phiếu bầu veMEZO hoạt động ở trọng số cơ bản
+- **Hệ số nhân tối đa: 5x** — Không có tổ hợp nắm giữ nào có thể vượt quá 5x
+- **Tương đối, không tuyệt đối** — Mức boost của bạn phụ thuộc vào tỷ phần của bạn trong tổng lượng veBTC và tổng lượng veMEZO, không phải số lượng thô
+
+---
+
+## Hiểu công thức
+
+Công thức boost có những hệ quả quan trọng:
+
+**Vị thế veBTC càng lớn thì càng cần nhiều veMEZO.** Công thức có |veBTC|_total / |veBTC| ở tử số. Khi tỷ phần veBTC của bạn tăng, tỷ số này giảm, nên bạn cần lượng veMEZO lớn hơn tương ứng để duy trì cùng mức boost.
+
+**Bạn đạt boost tối đa khi các tỷ phần bằng nhau.** Một người tham gia chạm mức trần 5x khi tỷ phần veMEZO của họ bằng hoặc vượt tỷ phần veBTC:
+
+$$
+\frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}} \geq \frac{|\text{veBTC}|}{|\text{veBTC}|_{\text{total}}}
+$$
+
+:::note[Ví dụ]
+Nếu bạn nắm giữ 1% tổng lượng veBTC, bạn cần ít nhất 1% tổng lượng veMEZO để đạt hệ số nhân tối đa 5x.
+:::
+
+---
+
+## Thị trường ghép cặp
+
+Mỗi NFT veBTC có một gauge boost veBTC riêng. Người nắm giữ veMEZO bỏ phiếu cho các gauge này để phân bổ boost.
+
+### Cách hoạt động
+
+1. **Người nắm giữ veBTC tạo vị thế** — Một NFT veBTC được đúc kèm theo một gauge boost tương ứng
+2. **Người nắm giữ veMEZO bỏ phiếu** — Họ phân bổ trọng số veMEZO cho các gauge veBTC
+3. **Boost được tính và áp dụng** — Mức boost của vị thế veBTC phụ thuộc vào tổng số phiếu bầu veMEZO mà vị thế đó nhận được. Trình hướng dẫn từng bước Pair & Boost trong dApp tự động cập nhật quyền biểu quyết của veBTC và làm mới mọi phiếu bầu hiện có.
+
+### Vì sao điều này tạo ra một thị trường
+
+**Người dùng nắm nhiều BTC** có thể thu hút boost bằng cách đăng khoản khuyến khích trên gauge veBTC của mình. Nếu lợi suất khuyến khích trên mỗi đơn vị veMEZO hấp dẫn, người nắm giữ veMEZO sẽ bỏ phiếu cho gauge đó.
+
+**Người dùng nắm nhiều MEZO** kiếm được thu nhập bằng cách bỏ phiếu cho các gauge veBTC có khoản khuyến khích tốt, ngay cả khi bản thân họ nắm giữ rất ít BTC.
+
+Thị trường ghép cặp định giá boost như một dịch vụ không cần cấp phép và có thể giao dịch.
+
+---
+
+## Boost mà không cần nắm giữ MEZO
+
+Bạn không cần tự nắm giữ MEZO để hưởng lợi từ boost. Nếu bạn đăng khoản khuyến khích hấp dẫn trên gauge veBTC của mình, những người nắm giữ veMEZO khác có thể bỏ phiếu cho gauge đó — mang lại hệ số nhân cho vị thế của bạn mà bạn không cần khóa MEZO nào.
+
+Ngược lại, một vị thế veBTC không có phiếu bầu veMEZO vẫn:
+
+- Giữ nguyên toàn bộ trọng số phiếu bầu cơ bản (hệ số nhân 1x)
+- Kiếm phí cầu nối một cách thụ động
+- Có thể bỏ phiếu cho gauge để kiếm phí và lượng phát thải
+
+Boost giúp tăng lợi nhuận nhưng không bắt buộc để tham gia.
+
+---
+
+## Tóm tắt
+
+| Tình huống | Hệ số nhân | Ghi chú |
+|---|---|---|
+| Chỉ có veBTC, không có phiếu bầu veMEZO | 1x | Trọng số cơ bản, vẫn kiếm phí |
+| veBTC + một số phiếu bầu veMEZO | 1x–5x | Hệ số nhân tăng theo tỷ phần veMEZO |
+| veBTC + tỷ phần veMEZO tương ứng | 5x | Đạt boost tối đa |
+| Chỉ có veMEZO, không có veBTC | — | Không bỏ phiếu cho gauge staking; có thể bỏ phiếu cho gauge boost và [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges), đồng thời nhận rebase |

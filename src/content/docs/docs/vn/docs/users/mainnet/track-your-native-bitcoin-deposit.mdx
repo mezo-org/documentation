@@ -1,0 +1,50 @@
+---
+title: Theo dõi khoản nạp Bitcoin gốc của bạn
+description: >-
+  Tìm hiểu cách kiểm tra trạng thái khoản nạp Bitcoin gốc vào Mezo bằng
+  tBTCScan.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Sau khi nạp Bitcoin gốc vào Mezo, tiền của bạn thường xuất hiện trong khoảng 1,5 giờ. Khoản nạp của bạn trải qua một số bước trước khi đến tài khoản:
+
+1. **Xác nhận onchain** — Giao dịch Bitcoin của bạn phải được xác nhận trên mạng Bitcoin (cần 1–6 lần xác nhận, tùy thuộc vào số tiền nạp).
+2. **Công bố lên cầu nối** — Sau khi được xác nhận, bot tBTC phát hiện khoản nạp của bạn và công bố (reveal) khoản nạp đó lên cầu nối tBTC. Việc này thường diễn ra nhanh chóng, nhưng trong một số ít trường hợp có thể mất tới 5 giờ.
+3. **Đúc trên Ethereum** — Cầu nối tBTC xử lý khoản nạp của bạn và đúc tBTC trên Ethereum. Việc này thường mất khoảng 1–1,5 giờ.
+4. **Chuyển qua cầu nối vào Mezo** — Sau khi tBTC được đúc, tBTC được chuyển qua cầu nối vào Mezo và BTC xuất hiện trong tài khoản của bạn. Việc này mất khoảng 15–20 phút.
+
+Trong một số trường hợp hiếm gặp, quy trình có thể mất nhiều thời gian hơn.
+
+## Cách kiểm tra trạng thái khoản nạp
+
+Nếu khoản nạp của bạn chưa xuất hiện trên Mezo sau 1 giờ 30 phút, bạn có thể kiểm tra trạng thái bằng [tbtcscan](https://tbtcscan.com/), một trình khám phá khối của bên thứ ba dành cho cầu nối tBTC.
+
+![Giao diện tìm kiếm khoản nạp trên tBTCScan](/docs/images/tbtc/tbtc1.webp)
+
+<Steps>
+1. **Tìm ID giao dịch của bạn** – Tìm hash giao dịch Bitcoin trong ví hoặc lịch sử ví của bạn.
+
+2. **Truy cập tab Deposits của tBTCScan** – Công cụ của bên thứ ba này hiển thị dữ liệu nạp qua cầu nối theo thời gian thực.
+
+3. **Tìm kiếm giao dịch của bạn** – Nhập hash giao dịch vào thanh tìm kiếm.
+
+4. **Kiểm tra trạng thái:**
+   - **Không có kết quả** → Khoản nạp chưa được công bố lên cầu nối. Việc này thường diễn ra trong vòng 20 phút sau khi xác nhận onchain, nhưng trong một số ít trường hợp có thể mất tới 5 giờ.
+   - **MINTING IN PROGRESS** → Khoản nạp của bạn đã được công bố và tBTC đang được đúc trên Ethereum. Việc này thường mất khoảng 1–1,5 giờ.
+   - **MINTING FINALIZED** → tBTC đã được đúc trên Ethereum. Khoản nạp sẽ xuất hiện trong tài khoản Mezo của bạn trong vòng 15–20 phút.
+</Steps>
+
+:::tip
+Tìm kiếm trên tBTCScan yêu cầu tải lại trang giữa các lần tìm kiếm liên tiếp để hiển thị kết quả mới.
+:::
+
+![Kết quả trạng thái khoản nạp trên tBTCScan](/docs/images/tbtc/tbtc2.webp)
+
+## Nếu khoản nạp của tôi không xuất hiện thì sao?
+
+Nếu khoản nạp của bạn hiển thị MINTING FINALIZED trên tbtcscan nhưng vẫn chưa xuất hiện trong tài khoản Mezo sau 15 phút, hoặc nếu bạn không thấy kết quả nào trên tbtcscan sau 5 giờ, vui lòng liên hệ bộ phận hỗ trợ bằng cách mở ticket trong [Discord của Mezo](https://discord.gg/mezo) kèm theo:
+
+- Hash giao dịch của bạn
+- Địa chỉ tài khoản bạn dùng để đăng nhập vào Mezo (hoặc ID tài khoản Mezo của bạn)

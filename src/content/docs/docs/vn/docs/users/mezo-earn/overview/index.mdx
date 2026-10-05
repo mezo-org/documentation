@@ -1,0 +1,162 @@
+---
+title: Tổng quan về Mezo Earn
+description: 'Tổng quan về Mezo Earn, các nguồn lợi suất và những khái niệm chính'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Mezo Earn là động cơ kinh tế vận hành mạng Mezo. Mezo Earn cho phép người nắm giữ bitcoin kiếm lợi suất từ BTC của mình, đồng thời tham gia vào các quyết định quản trị định hình cách mạng lưới phân bổ tài nguyên và phần thưởng.
+
+Khi khóa BTC vào hệ thống, người dùng nhận được quyền biểu quyết, kiếm thu nhập thụ động từ hoạt động của mạng và góp phần điều hướng thanh khoản trong toàn hệ sinh thái Mezo.
+
+[Tải xuống Sách trắng Mezo Earn (PDF)](/docs/Mezo_Earn_Whitepaper.pdf)
+
+<YouTube id="6rthu_iub7E" title="Tổng quan về Mezo Earn" />
+
+![Tổng quan về Mezo Earn](/docs/images/mezo-token/EARN%20Chart%2012.png)
+
+---
+
+## Lợi suất đến từ đâu?
+
+Mezo Earn tạo ra lợi suất từ hoạt động kinh tế thực trên mạng. Có ba nguồn chính:
+
+### 1. Phí swap
+
+Khi người dùng giao dịch tài sản trên DEX của Mezo, mỗi lần swap đều phát sinh phí. Các khoản phí này tích lũy trong pool thanh khoản và được phân phối cho những người tham gia bỏ phiếu cho các pool đó.
+
+### 2. Doanh thu cho vay MUSD
+
+Mezo cho phép người dùng vay MUSD (một stablecoin được bảo chứng bằng bitcoin) bằng tài sản thế chấp BTC của họ. Tiền lãi, phí khởi tạo khoản vay và phí tái cấp vốn phát sinh từ các khoản vay này được đưa trở lại hệ thống và phân phối cho những người tham gia tích cực.
+
+### 3. Phí cầu nối và phí giao dịch
+
+Việc chuyển tài sản vào Mezo, thực hiện giao dịch và các hoạt động onchain khác đều phát sinh phí. Các khoản phí này được phân phối trực tiếp cho người nắm giữ veBTC dưới dạng lợi suất thụ động — **không cần bỏ phiếu**.
+
+---
+
+## Mô hình hai token
+
+Mezo Earn vận hành theo hệ thống hai token, giữ Bitcoin ở vị trí trung tâm của quản trị, đồng thời dùng MEZO để khuếch đại và điều hướng mức ảnh hưởng.
+
+![Mô hình hai token](/docs/images/mezo-token/EARN%20Chart%207.png)
+
+### veBTC: Mỏ neo
+
+veBTC (vote-escrowed BTC) là nền tảng của quyền biểu quyết. Khi khóa BTC, bạn nhận được một NFT veBTC mang lại:
+
+- Trọng số phiếu bầu cơ bản (hệ số nhân 1x)
+- Lợi suất thụ động từ phí cầu nối và phí chuỗi
+- Quyền bỏ phiếu cho gauge và điều hướng lượng phát thải
+
+**Tham số:**
+- Khóa tối đa: 28 ngày
+- Khóa tối thiểu: 1 ngày
+- Suy giảm: tuyến tính (trọng số phiếu bầu giảm dần khi khoản khóa tiến gần đến thời điểm hết hạn)
+
+### veMEZO: Bộ khuếch đại
+
+veMEZO (vote-escrowed MEZO) khuếch đại quyền biểu quyết của veBTC nhưng không có trọng số quản trị độc lập. Khóa MEZO thành veMEZO cho phép bạn:
+
+- Boost vị thế veBTC lên tới 5x trọng số cơ bản
+- Kiếm khoản khuyến khích bằng cách hướng phiếu bầu đến các gauge veBTC
+- Nhận các khoản phân phối rebase giúp bảo vệ khỏi bị pha loãng
+
+**Tham số:**
+- Khóa tối đa: 4 năm
+- Khóa tối thiểu: 1 tuần
+- Suy giảm: tuyến tính
+
+**Nguyên tắc then chốt:** MEZO không thể tạo thành quyền quản trị độc lập. MEZO chỉ khuếch đại trọng số của lượng Bitcoin đã khóa.
+
+---
+
+## Các khái niệm chính
+
+### Trọng số được boost
+
+Khi veBTC và veMEZO được ghép cặp, chúng tạo ra một "trọng số được boost" kết hợp, quyết định phần phí bạn nhận được và mức ảnh hưởng của bạn đối với lượng phát thải. Mức boost phụ thuộc vào tỷ phần tương đối của bạn trong tổng lượng veBTC và veMEZO của hệ thống.
+
+- Vị thế veBTC không có veMEZO hoạt động ở mức 1x (trọng số cơ bản)
+- Thêm veMEZO có thể nâng mức này lên tối đa 5x
+- Vị thế BTC càng lớn thì càng cần nhiều MEZO tương ứng để đạt boost tối đa
+
+### Epoch
+
+Mezo Earn vận hành theo chu kỳ 7 ngày gọi là **epoch**. Mỗi epoch bắt đầu vào Thứ Năm lúc 00:00 UTC.
+
+**Điều gì diễn ra trong mỗi epoch:**
+
+- Phiếu bầu trong epoch N quyết định việc phân bổ lượng phát thải cho epoch N+1
+- Phí phát sinh trong epoch N được phân phối dựa trên phiếu bầu trong epoch N
+- Thời hạn khóa được căn theo ranh giới epoch (luôn làm tròn xuống theo tuần đầy đủ)
+
+Cấu trúc này cho phép người bỏ phiếu quan sát mức phí phát sinh trước khi quyết định phân bổ phiếu bầu cho kỳ tiếp theo.
+
+### Gauge
+
+Gauge là các hợp đồng thông minh nhận và phân phối giá trị kinh tế dựa trên phiếu bầu. Hãy hình dung chúng là điểm đến cho quyền biểu quyết của bạn — gauge nhận được càng nhiều phiếu bầu thì phần thưởng của nó càng lớn.
+
+**Các loại gauge:**
+
+| Loại gauge | Chức năng |
+| --- | --- |
+| **Gauge staking** | Gắn với pool thanh khoản trên DEX hoặc vault tiết kiệm MUSD. Người stake kiếm lượng phát thải MEZO; người bỏ phiếu kiếm phí. |
+| **Gauge validator** | Điều hướng phần thưởng đến các validator bảo mật chuỗi. |
+| **Gauge hệ sinh thái** | Hỗ trợ các giao thức đối tác và việc phát triển hệ sinh thái. |
+| **Gauge boost veBTC** | Mỗi NFT veBTC có gauge riêng, nơi người nắm giữ veMEZO có thể bỏ phiếu để cung cấp boost. |
+
+---
+
+## Thị trường ghép cặp
+
+Mezo Earn tạo ra một thị trường rõ ràng giữa người nắm giữ BTC và người nắm giữ MEZO thông qua cơ chế boost.
+
+![Thị trường ghép cặp](/docs/images/mezo-token/EARN%20Chart%205.png)
+
+**Cách hoạt động:**
+
+1. Khi bạn khóa BTC, hệ thống tạo một gauge boost riêng cho vị thế veBTC của bạn
+2. Người nắm giữ veMEZO có thể bỏ phiếu cho gauge của bạn để cung cấp boost
+3. Đổi lại, bạn có thể đăng khoản khuyến khích trên gauge của mình để thu hút phiếu bầu veMEZO
+4. Boost có hiệu lực sau khi một giao dịch "poke" làm mới vị thế của bạn
+
+Điều này biến boost thành một dịch vụ có thể giao dịch. Người nắm giữ BTC muốn có hệ số nhân cao hơn có thể tự mua MEZO hoặc trả khoản khuyến khích để thu hút phiếu bầu veMEZO. Người nắm giữ MEZO có thể kiếm lợi suất bằng cách hướng phiếu bầu đến các gauge có khoản khuyến khích hấp dẫn.
+
+---
+
+## Phần thưởng được phân phối như thế nào
+
+**Lợi suất thụ động:** Mọi người nắm giữ veBTC đều nhận một phần phí cầu nối và phí chuỗi tương ứng với trọng số phiếu bầu được boost của họ — không cần làm gì thêm ngoài việc khóa.
+
+**Lợi suất chủ động:** Bằng cách bỏ phiếu cho những gauge cụ thể, bạn có thể kiếm thêm phí và khoản khuyến khích từ các pool và giao thức mà bạn ủng hộ.
+
+**Lợi suất veMEZO:** Người nắm giữ veMEZO kiếm khoản khuyến khích được đăng trên các gauge veBTC mà họ bỏ phiếu, cộng với các khoản phân phối rebase giúp bảo vệ khỏi bị pha loãng.
+
+---
+
+## Bắt đầu
+
+<Steps>
+1. **Khóa BTC** → Nhận một NFT veBTC với quyền biểu quyết cơ bản
+2. **Bỏ phiếu cho gauge** → Điều hướng lượng phát thải và kiếm phí
+3. **Nhận phần thưởng** → Nhận phí và khoản khuyến khích mỗi epoch
+4. **(Tùy chọn) Khóa MEZO** → Tạo veMEZO để boost veBTC của bạn hoặc kiếm lợi suất bằng cách bỏ phiếu cho gauge boost của người khác
+5. **Gia hạn hoặc quản lý khoản khóa** → Duy trì quyền biểu quyết của bạn theo thời gian
+</Steps>
+
+---
+
+## Tra cứu nhanh
+
+| Tham số | Giá trị |
+| --- | --- |
+| Thời lượng epoch | 7 ngày |
+| Thời điểm bắt đầu epoch | Thứ Năm lúc 00:00 UTC |
+| Thời hạn khóa BTC tối đa | 28 ngày |
+| Thời hạn khóa BTC tối thiểu | 1 ngày |
+| Thời hạn khóa MEZO tối đa | 4 năm |
+| Thời hạn khóa MEZO tối thiểu | 1 tuần |
+| Hệ số boost tối đa | 5x |

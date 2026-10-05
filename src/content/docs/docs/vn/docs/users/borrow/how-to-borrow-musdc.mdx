@@ -1,0 +1,85 @@
+---
+title: Cách vay mUSDC
+description: Hướng dẫn từng bước để vay USDC bằng BTC của bạn trên Mezo.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Giờ đây bạn có thể vay USDC bằng Bitcoin của mình trên Mezo. Hướng dẫn này chỉ cho bạn cách hoàn tất quy trình vay trong [Mezo App](https://mezo.org/feature/borrow).
+
+:::note
+Khi ở trên Mezo, USDC được thể hiện trong app dưới dạng **mUSDC**. 1 USDC = 1 mUSDC.
+:::
+
+## Trước khi bắt đầu
+
+Trước khi có thể vay mUSDC, bạn phải hoàn thành các bước sau:
+
+- Truy cập [mezo.org](https://mezo.org/) và nhấp vào **Sign in** để kết nối với tài khoản Mezo của bạn.
+- Kết nối một ví với Mezo. Xem hướng dẫn [Kết nối với Mezo](/docs/vn/docs/users/getting-started/connect/) để biết cách thực hiện.
+- Có BTC trên Mezo để làm tài sản thế chấp và trả phí gas. Xem [Nạp tài sản](/docs/vn/docs/users/getting-started/deposit-assets) nếu bạn vẫn cần chuyển qua cầu nối hoặc nạp tài sản.
+- Tùy chọn: thêm token mUSDC vào ví. Bạn có thể thêm token qua giao diện của Mezo Explorer. Nhấp vào nút **Add token to MetaMask** bên cạnh địa chỉ token mUSDC:
+    - Mainnet: [0x04671C72Aab5AC02A03c1098314b1BB6B560c197](https://explorer.mezo.org/token/0x04671C72Aab5AC02A03c1098314b1BB6B560c197)
+
+## Vay mUSDC
+
+Sau khi đăng nhập vào [mezo.org](https://mezo.org/) bằng một tài khoản có BTC, bạn có thể vay mUSDC.
+
+<Steps>
+1. Trong trình duyệt, mở [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+
+2. Chọn **mUSDC** làm loại tiền bạn muốn vay.
+
+3. Nhập số USDC bạn muốn vay và số BTC bạn muốn dùng làm tài sản thế chấp.
+
+4. Nhấp vào **Review** để mở phần tóm tắt trước khi xác nhận.
+
+5. Kiểm tra chi tiết trong phần tóm tắt — số tiền vay, lượng tài sản thế chấp, LTV dự kiến, giá thanh lý và tình trạng vị thế — để chắc chắn thông tin đúng như bạn mong đợi.
+
+6. Khi đã sẵn sàng, nhấp vào **Confirm**. Ví trình duyệt sẽ yêu cầu bạn xác nhận giao dịch và trả phí gas bằng BTC.
+</Steps>
+
+Sau khi hoàn tất quy trình, bạn có thể kiểm tra trạng thái khoản vay tại [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+
+## Tìm hiểu các điều khoản vay
+
+mUSDC sử dụng APR thả nổi, thay đổi theo nhu cầu trên thị trường mUSDC. Mezo không có ngày bắt buộc trả nợ, vì vậy bạn có thể giữ vị thế mở bao lâu tùy thích, miễn là LTV của bạn vẫn thấp hơn LTV thanh lý (Liquidation LTV) của thị trường.
+
+Tài sản thế chấp quyết định bạn có thể vay bao nhiêu. Bạn càng thêm nhiều BTC, vị thế của bạn càng có nhiều dư địa nếu giá BTC giảm. Tỷ lệ khoản vay trên giá trị tài sản (LTV) dự kiến của vị thế được cập nhật khi bạn điều chỉnh lượng tài sản thế chấp và số tiền vay. LTV là giá trị khoản nợ của bạn so với tài sản thế chấp. LTV càng cao thì rủi ro bị thanh lý càng cao.
+
+Điều quan trọng là người vay nên chú ý đến LTV thanh lý của thị trường. Vị thế của bạn có thể bị thanh lý nếu LTV dự kiến vượt quá LTV thanh lý của thị trường. Khoảng cách giữa LTV của bạn và LTV thanh lý là vùng đệm của bạn — mức LTV có thể tăng thêm trước khi bị thanh lý. LTV của bạn tăng khi BTC giảm giá, vì vậy vùng đệm cho biết vị thế của bạn chịu được mức sụt giảm mạnh đến đâu. Ví dụ: nếu LTV thanh lý của thị trường mUSDC là 86% và LTV dự kiến của bạn là 31%, BTC có thể giảm khoảng 64% trước khi vị thế gặp rủi ro.
+
+Lãi được tính trên số tiền đã vay, vì vậy hãy lưu ý khoản nợ của bạn tăng lên theo thời gian như thế nào. Khi muốn đóng vị thế, bạn cần có đủ mUSDC để trả tiền gốc cùng toàn bộ lãi đã tích lũy.
+
+### LTV và tỷ lệ thế chấp
+
+Nếu bạn đã vay MUSD trước bản cập nhật này, bạn quản lý vị thế bằng tỷ lệ thế chấp, hay CR. LTV và CR đo cùng một rủi ro theo hai chiều ngược nhau. LTV lấy khoản nợ chia cho giá trị tài sản thế chấp. CR lấy giá trị tài sản thế chấp chia cho khoản nợ. Chỉ số này là nghịch đảo của chỉ số kia: LTV 50% tương ứng với CR 200%, và LTV 31% tương ứng với CR khoảng 323%.
+
+Các ngưỡng cũng được chuyển đổi theo cách tương tự. LTV thanh lý 86% của thị trường mUSDC tương ứng với CR khoảng 116%. LTV thanh lý 90% của MUSD tương ứng với CR khoảng 111%. Mezo app hiện hiển thị LTV trên tất cả các sản phẩm vay, nên một con số được hiểu giống nhau ở mọi nơi.
+
+Ngoài ra, MUSD có cơ chế quy đổi giúp duy trì tỷ giá neo \$1, nghĩa là một vị thế MUSD vẫn có thể bị quy đổi ngay cả khi đang lành mạnh. mUSDC không có cơ chế quy đổi và chỉ sử dụng LTV.
+
+## Quản lý khoản vay
+
+Khi đã có khoản vay đang hoạt động, bạn có thể quản lý khoản vay đó trong Mezo App. Từ bảng điều khiển Borrow, bạn có thể theo dõi số mUSDC bạn đang nợ, lượng BTC đang bị khóa làm tài sản thế chấp, LTV hiện tại, giá thanh lý, APR hiện tại và các hoạt động gần đây. Bạn cũng có thể trả mUSDC để đóng khoản vay — sau khi trả xong, tài sản thế chấp của bạn sẽ khả dụng trở lại và vị thế đã đóng sẽ xuất hiện trong lịch sử vay của bạn.
+
+Để cung cấp mUSDC và kiếm lợi suất từ lãi của người vay, hãy xem [USDC Lending Vault](/docs/vn/docs/users/mezo-earn/vaults/usdc-lending-vault).
+
+## Câu hỏi thường gặp
+
+### Điều gì xảy ra nếu vị thế của bạn bị thanh lý?
+
+Việc thanh lý có thể xảy ra nếu LTV của bạn vượt quá LTV thanh lý của thị trường, dù là do BTC giảm giá hay do lãi tích lũy làm khoản nợ của bạn tăng lên.
+
+Đối với mUSDC, thanh lý có nghĩa là một bên khác có thể trả khoản nợ và nhận tài sản thế chấp từ vị thế, đồng thời một khoản phạt thanh lý 4% sẽ bị trừ vào tài sản thế chấp của bạn. Cơ chế này bảo vệ thị trường cho vay, nhưng bạn sẽ mất BTC thật.
+
+Cách tốt nhất để giảm rủi ro bị thanh lý là vay một cách thận trọng và theo dõi vị thế của bạn.
+
+### LTV và tỷ lệ thế chấp
+
+Nếu bạn đã vay MUSD trước bản cập nhật này, bạn quản lý vị thế bằng tỷ lệ thế chấp, hay CR. LTV và CR đo cùng một rủi ro theo hai chiều ngược nhau. LTV lấy khoản nợ chia cho giá trị tài sản thế chấp. CR lấy giá trị tài sản thế chấp chia cho khoản nợ. Chỉ số này là nghịch đảo của chỉ số kia: LTV 50% tương ứng với CR 200%, và LTV 31% tương ứng với CR khoảng 323%.
+
+Các ngưỡng cũng được chuyển đổi theo cách tương tự. LTV thanh lý 86% của thị trường mUSDC tương ứng với CR khoảng 116%. LTV thanh lý 90% của MUSD tương ứng với CR khoảng 111%. Mezo app hiện hiển thị LTV trên tất cả các sản phẩm vay, nên một con số được hiểu giống nhau ở mọi nơi.
+
+Ngoài ra, MUSD có cơ chế quy đổi giúp duy trì tỷ giá neo \$1, nghĩa là một vị thế MUSD vẫn có thể bị quy đổi ngay cả khi đang lành mạnh. mUSDC không có cơ chế quy đổi và chỉ sử dụng LTV.
