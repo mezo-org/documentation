@@ -28,7 +28,7 @@ Una economía circular de Bitcoin es un sistema autosostenible en el que Bitcoin
 La combinación de Mezo y MUSD crea un ciclo económico que se refuerza a sí mismo:
 
 1. **Liberar:** los titulares de Bitcoin depositan su BTC y acuñan MUSD, activando su capital sin vender su activo principal.
-2. **Transaccionar:** usan este MUSD para todo, desde trading y préstamos hasta pagos cotidianos.
+2. **Operar:** usan este MUSD para todo, desde trading y préstamos hasta pagos cotidianos.
 3. **Reforzar:** esta actividad onchain genera comisiones de transacción (pagadas en BTC), que aseguran la red y refuerzan la utilidad de Bitcoin como activo transaccional, además de como reserva de valor.
 
 Mezo aporta las vías y MUSD aporta el combustible, lo que ofrece a los desarrolladores una plataforma única para crear aplicaciones que aporten valor tangible al enorme y desatendido mercado de usuarios de Bitcoin.
@@ -39,7 +39,7 @@ La cadena Mezo está diseñada con una arquitectura híbrida pensada para maximi
 
 Este stack técnico ofrece una potente combinación de características:
 
-* **Compatibilidad con EVM**: permite que la enorme comunidad global de desarrolladores de Ethereum y Solidity despliegue sus contratos inteligentes y aplicaciones descentralizadas (dApps) existentes en Mezo con cambios mínimos o nulos en el código. Pueden seguir usando las cadenas de herramientas conocidas y maduras a las que están acostumbrados, como MetaMask, Hardhat, Remix y Foundry, lo que reduce drásticamente la barrera de entrada para construir dentro del ecosistema de Bitcoin.
+* **Compatibilidad con EVM**: permite que la enorme comunidad global de desarrolladores de Ethereum y Solidity despliegue sus contratos inteligentes y aplicaciones descentralizadas (dApps) existentes en Mezo con cambios mínimos o nulos en el código. Pueden seguir usando las herramientas conocidas y maduras a las que están acostumbrados, como MetaMask, Hardhat, Remix y Foundry, lo que reduce drásticamente la barrera de entrada para construir dentro del ecosistema de Bitcoin.
 * **Cosmos SDK**: construir sobre Cosmos SDK otorga a Mezo soberanía de cadena, lo que le permite personalizar su lógica y su gobernanza.
 
 #### ¿Qué token se usa para las comisiones de gas en Mezo? <a href="#what-token-is-used-for-gas-fees-on-mezo" id="what-token-is-used-for-gas-fees-on-mezo"></a>
@@ -80,6 +80,6 @@ Para proyectos más maduros o con planes de crecimiento ambiciosos, la Supernorm
 
 El centro principal de toda la interacción de la comunidad y los desarrolladores dentro del ecosistema Mezo es el [servidor oficial de Discord.](https://discord.com/invite/mezo)​
 
-#### ¿Quiénes son sus socios y cómo los integro? <a href="#who-are-your-partners-and-how-do-i-integrate-them" id="who-are-your-partners-and-how-do-i-integrate-them"></a>
+#### ¿Quiénes son los socios de Mezo y cómo los integro? <a href="#who-are-your-partners-and-how-do-i-integrate-them" id="who-are-your-partners-and-how-do-i-integrate-them"></a>
 
 Consulta la lista actualizada en [Integraciones y socios](https://mezo.org/docs/developers/getting-started/integrations-and-partners).

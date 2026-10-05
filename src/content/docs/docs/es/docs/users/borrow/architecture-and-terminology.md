@@ -13,7 +13,7 @@ El sistema [MUSD](https://mezo.org/feature/musd) consta de cuatro grupos princip
 | **Token (MUSD)** | La stablecoin en el centro del sistema, diseñada para mantener la paridad con el USD |
 | **Protocolo principal** | Se encarga de abrir y cerrar posiciones, gestionar el colateral y mantener la estabilidad del sistema |
 | **Pools de activos** | Gestiona los distintos pools de colateral y de liquidez del sistema |
-| **Contratos de soporte** | Proporciona servicios esenciales como feeds de precios, ordenación de posiciones y gestión del valor controlado por el protocolo |
+| **Contratos auxiliares** | Proporciona servicios esenciales como feeds de precios, ordenación de posiciones y gestión del valor controlado por el protocolo |
 
 ## Custodia y gestión del colateral
 

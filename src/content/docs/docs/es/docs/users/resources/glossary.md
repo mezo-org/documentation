@@ -96,7 +96,7 @@ Ciclo de 7 días que rige la votación y la distribución de recompensas en Mezo
 
 ## ERC-20
 
-Interfaz estándar para tokens fungibles en blockchains compatibles con EVM. Los tokens transferidos mediante puente desde Ethereum a Mezo se representan como tokens mERC-20 (p. ej., mUSDC, mUSDT). Consulta [Puentes](/docs/es/docs/users/mainnet/bridges).
+Interfaz estándar para tokens fungibles en blockchains compatibles con EVM. Los tokens transferidos mediante el puente desde Ethereum a Mezo se representan como tokens mERC-20 (p. ej., mUSDC, mUSDT). Consulta [Puentes](/docs/es/docs/users/mainnet/bridges).
 
 ## EVM
 
@@ -248,7 +248,7 @@ Contrato inteligente que despliega nuevos pools de liquidez en Mezo. Actualmente
 
 ## Portal Bridge
 
-Interfaz de usuario en [portalbridge.com](https://portalbridge.com/) para transferir MUSD mediante puente entre Mezo y Ethereum con el protocolo Wormhole NTT. Consulta [MUSD Bridge](/docs/es/docs/users/borrow/musd-bridge).
+Interfaz de usuario en [portalbridge.com](https://portalbridge.com/) para transferir MUSD mediante el puente entre Mezo y Ethereum con el protocolo Wormhole NTT. Consulta [MUSD Bridge](/docs/es/docs/users/borrow/musd-bridge).
 
 ## Feed de precios
 
@@ -312,7 +312,7 @@ Comisiones que se cobran en cada swap de tokens en un [pool de liquidez](#pool-d
 
 ## tBTC
 
-Wrapper descentralizado de Bitcoin creado por Thesis e impulsado por [Threshold Network](#threshold-network). tBTC está respaldado 1:1 por Bitcoin nativo y es la forma que adopta BTC cuando se transfiere mediante puente a redes compatibles con Ethereum. En Mezo, el BTC depositado se canaliza a través de la infraestructura de custodia de tBTC. Consulta [Arquitectura de MUSD](/docs/es/docs/users/borrow/architecture-and-terminology).
+Wrapper descentralizado de Bitcoin creado por Thesis e impulsado por [Threshold Network](#threshold-network). tBTC está respaldado 1:1 por Bitcoin nativo y es la forma que adopta BTC cuando se transfiere mediante un puente a redes compatibles con Ethereum. En Mezo, el BTC depositado se canaliza a través de la infraestructura de custodia de tBTC. Consulta [Arquitectura de MUSD](/docs/es/docs/users/borrow/architecture-and-terminology).
 
 ## Emisiones de cola
 
@@ -328,7 +328,7 @@ Token Generation Event (evento de generación de tokens). Momento en que se crea
 
 ## Threshold Network
 
-Red descentralizada que impulsa el puente de [tBTC](#tbtc). Threshold opera un conjunto descentralizado de firmantes que ha transferido mediante puente más de 28,000 Bitcoin desde principios de 2020. Consulta [Arquitectura de MUSD](/docs/es/docs/users/borrow/architecture-and-terminology).
+Red descentralizada que impulsa el puente de [tBTC](#tbtc). Threshold opera un conjunto descentralizado de firmantes que ha transferido mediante su puente más de 28,000 Bitcoin desde principios de 2020. Consulta [Arquitectura de MUSD](/docs/es/docs/users/borrow/architecture-and-terminology).
 
 ## Distribución de tokens
 

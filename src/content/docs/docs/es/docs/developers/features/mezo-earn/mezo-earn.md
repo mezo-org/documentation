@@ -1,11 +1,11 @@
 ---
 title: Guía de desarrollo de Mezo Earn
 description: >-
-  Guía completa para construir sobre Mezo Earn, el sistema de gauges y el DEX de
-  Mezo inspirados en Solidly.
+  Guía completa para desarrollar sobre Mezo Earn, el sistema de gauges y el DEX
+  de Mezo inspirados en Solidly.
 topic: developers
 ---
-Mezo Earn es el sistema de contratos inteligentes que impulsa el sistema de gauges y el exchange descentralizado (DEX) de Mezo. Esta guía te ayudará a entender cómo construir con los contratos de Mezo Earn e interactuar con ellos.
+Mezo Earn es el sistema de contratos inteligentes que impulsa el sistema de gauges y el exchange descentralizado (DEX) de Mezo. Esta guía te ayudará a entender cómo desarrollar con los contratos de Mezo Earn e interactuar con ellos.
 
 📄 **[Descarga el whitepaper de Mezo Earn (PDF)](/docs/Mezo_Earn_Whitepaper.pdf)**: para obtener una visión completa del marco de incentivos económicos, el modelo de doble token y la tokenómica.
 

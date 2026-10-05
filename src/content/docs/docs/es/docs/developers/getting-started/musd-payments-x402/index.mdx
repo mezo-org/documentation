@@ -55,10 +55,10 @@ mensaje para autorizar la transferencia dentro de una ventana de tiempo.
 
 ## Cómo encaja MUSD en x402
 
-- **Identificador de red:** las cadenas CAIP-2 identifican la red Mezo:
+- **Identificador de red:** las cadenas de texto CAIP-2 identifican la red Mezo:
   Mezo Testnet es `eip155:31611` y Mezo Mainnet es `eip155:31612` (x402 no
   acepta nombres cortos como `"mezo-testnet"`).
-- **Resolución del activo:** los precios de x402 son cadenas en dólares (`price: "$0.01"`).
+- **Resolución del activo:** los precios de x402 son cadenas de texto en dólares (`price: "$0.01"`).
   El registro `DEFAULT_STABLECOINS` de `@x402/evm` las resuelve en tiempo de ejecución
   al token MUSD correcto para la red elegida, por lo que no tienes que fijar en el código
   una dirección de activo en la configuración de las rutas.

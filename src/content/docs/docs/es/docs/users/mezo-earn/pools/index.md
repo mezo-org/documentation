@@ -8,7 +8,7 @@ topic: users
 
 ![Diagrama de Mezo Pools](/docs/images/mainnet/Mezo%20Pools.png)
 
-[Mezo Pools](https://mezo.org/explore/pools) te permite ganar comisiones aportando liquidez para swaps de tokens. Cuando depositas dos tokens en un pool, los traders pueden intercambiar uno por otro, y tú ganas una parte de las comisiones de trading.
+[Mezo Pools](https://mezo.org/explore/pools) te permiten ganar comisiones aportando liquidez para swaps de tokens. Cuando depositas dos tokens en un pool, los traders pueden intercambiar uno por otro, y tú ganas una parte de las comisiones de trading.
 
 Cuando un usuario deposita un valor proporcional de los tokens requeridos en un pool, se convierte en proveedor de liquidez (LP). Esta acción es fundamental para el funcionamiento del sistema, ya que aumenta la liquidez disponible y reduce el deslizamiento de precio (slippage) para los traders. A cambio de su aportación, los LP reciben tokens LP. Estos tokens LP representan la parte proporcional de un LP sobre los activos totales del pool. Otorgan algorítmicamente a su titular el derecho a una parte de las comisiones de trading generadas por el pool y sirven como mecanismo para redimir los activos subyacentes que depositó.
 
@@ -32,7 +32,7 @@ Para recuperar tu parte de los activos subyacentes, debes "quemar" tus tokens LP
 
 El protocolo Mezo se diseñó sin depender de estructuras financieras tradicionales como los libros de órdenes. Aunque los libros de órdenes son eficaces en las finanzas centralizadas, plantean desafíos importantes en un entorno descentralizado, ya que a menudo requieren una gestión activa por parte de creadores de mercado profesionales y una infraestructura centralizada para alojar y emparejar las órdenes.
 
-[Mezo Pools](https://mezo.org/explore/pools) está diseñado específicamente para un entorno descentralizado y aprovecha los puntos fuertes propios de la tecnología blockchain:
+[Mezo Pools](https://mezo.org/explore/pools) están diseñados específicamente para un entorno descentralizado y aprovecha los puntos fuertes propios de la tecnología blockchain:
 
 * **Autónomo y sin permisos**: cada pool es un contrato inteligente de acceso abierto. Cualquier usuario o aplicación puede interactuar con él sin necesidad de permisos, llamando a funciones como swap() para operar o mint() para aportar liquidez.
 * **Capacidades avanzadas**: Mezo Pool funciona como un oráculo TWAP (Time-Weighted Average Price, precio promedio ponderado por tiempo) onchain, que proporciona datos de precios resistentes a la manipulación para otros protocolos. También admite préstamos flash (flash loans), que permiten estrategias DeFi complejas en una sola transacción.

@@ -2,7 +2,7 @@
 title: Mezo Pools
 topic: developers
 ---
-Mezo Pools permite a los usuarios hacer swaps de tokens y aportar liquidez mediante una mecánica de pools optimizada. Mezo admite dos arquitecturas de pools: **pools básicos** (AMM de producto constante y de curva estable) y **pools de liquidez concentrada (CL)** con rangos de precios personalizados.
+Mezo Pools permiten a los usuarios hacer swaps de tokens y aportar liquidez mediante una mecánica de pools optimizada. Mezo admite dos arquitecturas de pools: **pools básicos** (AMM de producto constante y de curva estable) y **pools de liquidez concentrada (CL)** con rangos de precios personalizados.
 
 ## Pools básicos
 
@@ -84,7 +84,7 @@ Las posiciones CL se pueden poner en staking en gauges para obtener emisiones de
 
 ### Funcionalidades clave
 
-- **Control del slippage:** se proporciona en el frontend o mediante los parámetros `amountOutMinimum` / `sqrtPriceLimitX96`
+- **Control del deslizamiento (slippage):** se proporciona en el frontend o mediante los parámetros `amountOutMinimum` / `sqrtPriceLimitX96`
 - **Oráculo TWAP integrado:** cada pool CL mantiene un oráculo de precio promedio ponderado por tiempo
 - **Comisiones dinámicas:** módulos de comisiones conectables para aplicar una lógica de comisiones personalizada en cada pool
 

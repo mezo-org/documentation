@@ -16,10 +16,10 @@ MUSD cambia eso. Es una stablecoin sin permisos, respaldada al 100% por reservas
 
 ### ¿Por qué MUSD?
 
-1. **No vendas nunca tu Bitcoin**: pide prestado con hasta el 90% de tus tenencias de BTC como respaldo. Conserva tus sats, aprovecha el valor de tu Bitcoin y reembolsa tu préstamo cuando quieras.
+1. **No vendas nunca tu Bitcoin**: pide prestado hasta el 90% del valor de tus tenencias de BTC. Conserva tus sats, aprovecha el valor de tu Bitcoin y reembolsa tu préstamo cuando quieras.
 2. **Tasas fijas del 1–5%**: tu tasa de interés se fija al abrir el préstamo y nunca cambia. Sin tasas variables ni sorpresas. Compáralo con el 7–20% APR de los bancos tradicionales o el 8–9% de otras plataformas DeFi.
 3. **Totalmente onchain y verificable**: cada préstamo y cada dólar de colateral son visibles onchain, 24/7. Sin reservas opacas ni custodios: solo Bitcoin en una bóveda de contrato inteligente. [Consulta el colateral en tiempo real en el explorador de Mezo](https://explorer.mezo.org/address/0x3012C2fE1240e3754E5C200A0946bb0E07474876).
-4. **Sin permisos**: sin comprobaciones de crédito, sin solicitudes y sin más mínimos que el mínimo de 1,800 MUSD. Si tienes BTC, puedes pedir prestado.
+4. **Sin permisos**: sin verificaciones de crédito, sin solicitudes y sin más mínimos que el mínimo de 1,800 MUSD. Si tienes BTC, puedes pedir prestado.
 
 ## Cómo funciona MUSD
 

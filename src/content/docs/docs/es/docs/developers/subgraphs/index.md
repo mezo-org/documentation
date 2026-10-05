@@ -409,10 +409,10 @@ Problemas comunes y soluciones:
 
 ## Recursos adicionales
 
-- **[Documentación de Goldsky](https://docs.goldsky.com/)** - documentación de la plataforma Goldsky
-- **[Documentación de The Graph](https://thegraph.com/docs/)** - guía de desarrollo de subgraphs
-- **[Documentación de GraphQL](https://graphql.org/)** - lenguaje de consultas GraphQL
-- **[Documentación de AssemblyScript](https://www.assemblyscript.org/)** - lenguaje de los mappings
+- **[Documentación de Goldsky](https://docs.goldsky.com/)**: documentación de la plataforma Goldsky
+- **[Documentación de The Graph](https://thegraph.com/docs/)**: guía de desarrollo de subgraphs
+- **[Documentación de GraphQL](https://graphql.org/)**: lenguaje de consultas GraphQL
+- **[Documentación de AssemblyScript](https://www.assemblyscript.org/)**: lenguaje de los mappings
 
 :::note
 Para ver en detalle los esquemas de subgraphs, las configuraciones de despliegue y los mappings específicos de cada protocolo, consulta los repositorios de subgraphs individuales de la organización de Mezo.

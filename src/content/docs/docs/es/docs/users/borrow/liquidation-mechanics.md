@@ -111,11 +111,11 @@ Durante el Recovery Mode:
 ## Cómo mantener tu préstamo seguro
 
 :::tip
-La mejor defensa tanto frente a la liquidación como frente a la redención es mantener un ratio de colateral alto: apunta a uno muy por encima del 150%.
+La mejor defensa tanto frente a la liquidación como frente a la redención es mantener un ratio de colateral alto: procura que esté muy por encima del 150%.
 :::
 
 ### Para evitar la liquidación:
-- Mantén un margen saludable. Apunta a un ratio de colateral muy por encima del 110% para protegerte de la volatilidad del mercado. Un ratio superior al 150% también te garantiza poder pedir prestado y refinanciar libremente aunque el sistema entre en Recovery Mode.
+- Mantén un margen saludable. Procura tener un ratio de colateral muy por encima del 110% para protegerte de la volatilidad del mercado. Un ratio superior al 150% también te garantiza poder pedir prestado y refinanciar libremente aunque el sistema entre en Recovery Mode.
 - Vigila la salud de tu préstamo con regularidad, sobre todo si el precio de BTC está bajando.
 - Actúa de forma proactiva: añade más colateral o reembolsa parte de tu deuda si tu ratio baja demasiado.
 

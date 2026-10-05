@@ -61,16 +61,16 @@ De Mezo → Ethereum
 
 ### Arquitectura
 
-- **Bloqueo/quema en el origen**: Los activos se bloquean en Bitcoin/Ethereum (o se queman en Mezo) con datos que identifican al destinatario previsto y la cadena de destino.
-- **Atestación y retransmisión**: Los clientes offchain producen atestaciones sobre los eventos de la cadena origen y retransmiten las pruebas a la cadena de destino.
-- **Acuñación/liberación en el destino**: Tras una atestación válida y la verificación de pruebas, los contratos de destino acuñan activos envueltos o liberan fondos bloqueados.
+- **Bloqueo/quema en el origen**: los activos se bloquean en Bitcoin/Ethereum (o se queman en Mezo) con datos que identifican al destinatario previsto y la cadena de destino.
+- **Atestación y retransmisión**: los clientes offchain producen atestaciones sobre los eventos de la cadena de origen y retransmiten las pruebas a la cadena de destino.
+- **Acuñación/liberación en el destino**: tras una atestación válida y la verificación de pruebas, los contratos de destino acuñan activos envueltos o liberan fondos bloqueados.
 
 ### Flujo principal
 
 <Steps>
 1. El usuario inicia una transferencia por el puente especificando la dirección de destino y la cantidad.
 
-2. Se emite un evento del contrato/cadena origen después del bloqueo/quema; el evento incluye un ID de secuencia único y parámetros.
+2. Se emite un evento del contrato/cadena de origen después del bloqueo/quema; el evento incluye un ID de secuencia único y parámetros.
 
 3. El cliente offchain recopila confirmaciones/finalidad según los umbrales del RFC y envía la prueba+atestación al contrato de destino.
 

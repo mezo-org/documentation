@@ -22,8 +22,8 @@ MEZO se usa para:
 |  | MEZO | veMEZO |
 |---|---|---|
 | Qué es | Token líquido y transferible | NFT que representa MEZO bloqueado |
-| Cómo se obtiene | Comprándolo, ganándolo o recibiéndolo mediante airdrop | Bloquea MEZO de 1 semana a 4 años |
-| Qué hace | Mantenerlo o negociarlo | Potencia el poder de voto de veBTC, vota en los MEZO Gauges y gana rebases |
+| Cómo se obtiene | Comprándolo, ganándolo o recibiéndolo mediante airdrop | Bloqueando MEZO entre 1 semana y 4 años |
+| Qué hace | Se puede mantener o negociar | Potencia el poder de voto de veBTC, vota en los MEZO Gauges y gana rebases |
 
 ## Propiedades clave
 

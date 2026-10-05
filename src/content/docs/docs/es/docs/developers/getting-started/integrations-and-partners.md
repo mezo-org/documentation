@@ -27,7 +27,7 @@ Supra es una red de oráculos cross-chain diseñada para impulsar dApps en disti
 
 ## Pyth
 
-[Pyth Network](https://pyth.network/) es una de las mayores redes de oráculos con datos de primera mano y ofrece datos en tiempo real en varias cadenas, entre ellas Mezo. Pyth introduce un innovador [diseño de oráculo pull](https://docs.pyth.network/documentation/pythnet-price-feeds/on-demand) de baja latencia, en el que los usuarios pueden traer actualizaciones de precios onchain cuando las necesitan. Esto permite que cualquiera en el entorno onchain acceda a los datos de forma eficiente. La red Pyth actualiza los precios cada 400ms, lo que convierte a Pyth en uno de los oráculos onchain más rápidos.
+[Pyth Network](https://pyth.network/) es una de las mayores redes de oráculos con datos de primera mano y ofrece datos en tiempo real en varias cadenas, entre ellas Mezo. Pyth introduce un innovador [diseño de oráculo pull](https://docs.pyth.network/documentation/pythnet-price-feeds/on-demand) de baja latencia, en el que los usuarios pueden obtener actualizaciones de precios onchain cuando las necesitan. Esto permite que cualquiera en el entorno onchain acceda a los datos de forma eficiente. La red Pyth actualiza los precios cada 400ms, lo que convierte a Pyth en uno de los oráculos onchain más rápidos.
 
 Contratos de Pyth:
 - Mezo Mainnet (proxy): [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
@@ -37,6 +37,6 @@ Consulta la [documentación de Pyth](https://docs.pyth.network/home) para aprend
 
 ## Onchain Den
 
-Den ofrece una billetera multifirma sin custodia para organizaciones onchain y está disponible en Mezo. Onchain Den también colaboró con Mezo para ofrecer la infraestructura de SAFE en [safe.mezo.org](http://safe.mezo.org/).
+Den ofrece una billetera multifirma en autocustodia para organizaciones onchain y está disponible en Mezo. Onchain Den también colaboró con Mezo para ofrecer la infraestructura de SAFE en [safe.mezo.org](http://safe.mezo.org/).
 
 - **[Documentación de Den](https://docs.onchainden.com/overview/den)**

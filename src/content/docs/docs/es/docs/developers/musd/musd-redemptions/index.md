@@ -8,7 +8,7 @@ topic: developers
 ## Descripción rápida
 Redimir te permite quemar 1 MUSD para recibir `$1` en BTC (menos una comisión de redención del 0.75% y las comisiones de gas). El sistema realiza la redención empezando por el trove con el ratio de colateralización más bajo por encima del 110%. Si la cantidad de MUSD supera la de un solo trove, la redención continúa en orden ascendente de ratio de colateralización.
 
-Los troves con ratios de colateralización inferiores al 110% pueden ser liquidados y no pueden ser objeto de redención.
+Los troves con ratios de colateralización inferiores al 110% se pueden liquidar y no pueden ser objeto de redención.
 
 ---
 

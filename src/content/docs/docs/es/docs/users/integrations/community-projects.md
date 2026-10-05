@@ -6,7 +6,7 @@ description: >-
 topic: users
 ---
 
-Estas herramientas creadas por la comunidad dan soporte a distintos flujos de trabajo en el ecosistema de Mezo.
+Estas herramientas creadas por la comunidad sirven para distintos flujos de trabajo en el ecosistema de Mezo.
 
 :::caution[Advertencia]
 Los proyectos que aparecen en esta página son herramientas creadas por la comunidad que terceros desarrollan, despliegan y mantienen de forma independiente. No son proyectos de Mezo y no están respaldados, patrocinados, controlados ni operados por Mezo ni por ninguna otra entidad afiliada. Los materiales se ofrecen únicamente con fines informativos y no deben interpretarse como asesoramiento financiero, legal ni profesional de otro tipo. No se ofrece ninguna declaración ni garantía de ningún tipo, expresa o implícita, sobre estos proyectos, incluidas su seguridad, fiabilidad, exactitud, disponibilidad o idoneidad para un fin concreto. Al interactuar con estos proyectos, todas las acciones que realices son bajo tu propio riesgo.
@@ -29,7 +29,7 @@ URL: [https://antwyr.com/](https://antwyr.com/)
 URL: [https://www.aurove.xyz/](https://www.aurove.xyz/)
 
 - Deposita BTC o MEZO, o una posición existente de veBTC o veMEZO, en un tramo gestionado y recibe un derecho tokenizado líquido.
-- Haz swaps de activos compatibles y posiciones veNFT, o aporta liquidez concentrada a los pools de Aurove y cobra comisiones.
+- Intercambia activos compatibles y posiciones veNFT, o aporta liquidez concentrada a los pools de Aurove y cobra comisiones.
 - Reclama las recompensas de tramos y gauges, redime durante las ventanas de liquidación semanales y gana puntos a través de Aurove Academy.
 - Aurove opera actualmente en Mezo Testnet. Consulta la [documentación de Aurove](https://www.aurove.xyz/docs/introduction/what-is-aurove) y [Aurove en X](https://x.com/aurove_xyz) para conocer los detalles del producto y las novedades sobre su despliegue.
 
@@ -50,7 +50,7 @@ URL: [https://matchbox.markets/](https://matchbox.markets/)
 URL: [https://github.com/LowPolyDuck/MezoAgent](https://github.com/LowPolyDuck/MezoAgent)
 
 - Envía BTC y mUSD a cualquier dirección con comandos en lenguaje natural, en lugar de construir las transacciones manualmente.
-- Haz swaps de mUSD por BTC a través de DumpySwap directamente mediante instrucciones conversacionales.
+- Intercambia mUSD por BTC a través de DumpySwap directamente mediante instrucciones conversacionales.
 - Creado con LangChain y web3.py, usa análisis de salida estructurada para extraer los parámetros de la transacción a partir de texto libre.
 
 ## Mezo Tools

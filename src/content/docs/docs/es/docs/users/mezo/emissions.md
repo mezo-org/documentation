@@ -34,7 +34,7 @@ La siguiente tabla muestra el calendario de emisiones semanales de cada trimestr
   <thead>
     <tr style="background:#1a1a1a;color:#fff;">
       <th style="padding:12px 16px;text-align:left;">Semana</th>
-      <th style="padding:12px 16px;text-align:left;">Fecha</th>
+      <th style="padding:12px 16px;text-align:left;">Fecha (MM/DD/AAAA)</th>
       <th style="padding:12px 16px;text-align:right;">Suministro de tokens</th>
       <th style="padding:12px 16px;text-align:right;">Emisión semanal</th>
       <th style="padding:12px 16px;text-align:right;">Emisiones totales de MEZO desde el inicio</th>

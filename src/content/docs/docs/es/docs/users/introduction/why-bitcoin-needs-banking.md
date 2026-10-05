@@ -7,7 +7,7 @@ topic: users
 ---
 
 ## La llamada de atención de 2008
-El sistema financiero tradicional mostró sus cartas en 2008. Los bancos recibieron rescates mientras la gente perdía sus casas. Los bancos centrales imprimieron billones, enriqueciendo a los de dentro mientras todos los demás se empobrecían por la inflación. El sistema estaba amañado, y todo el mundo podía verlo.
+El sistema financiero tradicional mostró sus cartas en 2008. Los bancos recibieron rescates mientras la gente perdía sus casas. Los bancos centrales imprimieron billones y enriquecieron a los de dentro mientras todos los demás se empobrecían por la inflación. El sistema estaba amañado, y todo el mundo podía verlo.
 
 Bitcoin nació de este fracaso: un sistema monetario que ninguna autoridad central puede manipular, inflar ni controlar.
 

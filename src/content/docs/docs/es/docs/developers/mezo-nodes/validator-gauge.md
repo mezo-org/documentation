@@ -49,8 +49,8 @@ Votar es imprescindible para ganar emisiones de MEZO: un gauge de validador que 
 
 veBTC es el activo principal que se usa para votar. veMEZO se puede usar para aplicar un boost a tu poder de voto. Una vez emitido, un voto se traslada automáticamente a las épocas siguientes, a menos que se restablezca explícitamente.
 
-:::note[Hacer poke de tu posición]
-Es posible que necesites hacer poke de tu posición antes de votar para asegurarte de que esté actualizada. Hacer poke de un voto existente también es útil si tu poder de voto de veBTC ha aumentado (por ejemplo, por una recarga), ya que actualiza tu peso de voto para reflejar el nuevo poder. Consulta la [documentación sobre poke](/docs/es/docs/users/mezo-earn/vote/claiming-fees-emissions/#poke) para obtener más detalles.
+:::note[Hacer poke a tu posición]
+Es posible que necesites hacer poke a tu posición antes de votar para asegurarte de que esté actualizada. Hacer poke a un voto existente también es útil si tu poder de voto de veBTC ha aumentado (por ejemplo, por una recarga), ya que actualiza tu peso de voto para reflejar el nuevo poder. Consulta la [documentación sobre poke](/docs/es/docs/users/mezo-earn/vote/claiming-fees-emissions/#poke) para obtener más detalles.
 :::
 
 ### Cómo votar

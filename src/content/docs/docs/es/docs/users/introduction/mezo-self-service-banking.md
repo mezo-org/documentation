@@ -10,7 +10,7 @@ Mezo es la plataforma de banca onchain con Bitcoin que pertenece a sus usuarios.
 
 Los bancos tradicionales obtienen beneficios con tus depósitos mientras te cobran por acceder a tu propio dinero. Los mercados de préstamo bilaterales te atrapan con tasas variables del 8-9% que pueden dispararse de forma impredecible, sobre todo en los sistemas financieros descentralizados. Ambos sistemas ponen intermediarios entre tú y tu patrimonio.
 
-Mezo los elimina a todos y te da el poder de gestionar tus finanzas de forma inteligente y en tus propios términos.
+Mezo los elimina a todos y te da el poder de gestionar tus finanzas de forma inteligente y según tus propias reglas.
 
 ## Función estrella: préstamos con Bitcoin a tasa fija
 ### MUSD: dinero respaldado por Bitcoin con total autonomía

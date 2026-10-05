@@ -20,7 +20,7 @@ Los retiros de la Stablecoin Vault no son instantáneos. Usan una cola de retiro
 
 La BTC Vault (mbhBTC), operada con Mellow y Sense Capital, está en proceso de cierre. Los depósitos están cerrados. Retira tus fondos a más tardar el **28 de octubre de 2026**.
 
-Los retiros pasan por una cola, así que empieza con tiempo. Debes solicitar tu retiro a más tardar el 28 de octubre; el procesamiento y el reclamo pueden realizarse después. Solicitar un retiro no devuelve tus fondos a tu billetera de inmediato.
+Los retiros pasan por una cola, así que empieza con tiempo. Debes solicitar tu retiro a más tardar el 28 de octubre; el procesamiento y la reclamación de los tokens pueden realizarse después. Solicitar un retiro no devuelve tus fondos a tu billetera de inmediato.
 
 ### Cómo retirar de la BTC Vault
 

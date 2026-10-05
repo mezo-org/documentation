@@ -4,7 +4,7 @@ description: Cómo funcionan los depósitos institucionales de BTC en Mezo media
 topic: users
 ---
 
-Mezo Enclaves es una vía de depósito institucional que permite a las instituciones con requisitos regulatorios de custodia desplegar BTC en Mezo sin usar el puente estándar.
+Mezo Enclaves es una vía de depósito institucional que permite a las instituciones con requisitos regulatorios de custodia emplear BTC en Mezo sin usar el puente estándar.
 
 ## Cómo funcionan los enclaves
 

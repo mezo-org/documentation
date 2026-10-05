@@ -23,7 +23,7 @@ Para la configuración avanzada de la cadena y los parámetros de red, consulta 
 | Parámetro | Valor |
 |-----------|-------|
 | Nombre de la red | Mezo Mainnet |
-| Chain ID | `31612` |
+| ID de cadena | `31612` |
 | Moneda | BTC (18 decimales) |
 | Explorador de bloques | [explorer.mezo.org](https://explorer.mezo.org/) |
 
@@ -83,7 +83,7 @@ evm_version = 'london'
 | Parámetro | Valor |
 |-----------|-------|
 | Nombre de la red | Mezo Testnet |
-| Chain ID | `31611` |
+| ID de cadena | `31611` |
 | Moneda | BTC (18 decimales) |
 | Explorador de bloques | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
 

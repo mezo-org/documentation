@@ -1,8 +1,8 @@
 ---
 title: Guía de primeros pasos para desarrolladores
 description: >-
-  Guía de incorporación paso a paso para desarrolladores que construyen en la
-  plataforma de Mezo centrada en Bitcoin.
+  Guía de incorporación paso a paso para desarrolladores que crean aplicaciones
+  en la plataforma de Mezo centrada en Bitcoin.
 topic: developers
 ---
 
@@ -17,7 +17,7 @@ Mezo está diseñada para transformar Bitcoin de una reserva de valor pasiva en 
 La cadena Mezo se basa en una arquitectura híbrida diseñada para lograr la máxima accesibilidad para desarrolladores y el máximo rendimiento.
 
 - Compatibilidad con EVM: Mezo es una blockchain totalmente compatible con EVM, lo que permite a los desarrolladores de Solidity desplegar contratos inteligentes existentes y usar herramientas conocidas como Hardhat y Foundry con cambios mínimos en el código.
-- Base en Cosmos SDK: el cliente central, `mezod`, es un fork muy modificado de Evmos, construido con Cosmos SDK y que funciona sobre el motor de consenso CometBFT. Esto aporta soberanía de cadena y un alto throughput.
+- Base en Cosmos SDK: el cliente central, `mezod`, es un fork muy modificado de Evmos, construido con Cosmos SDK y que funciona sobre el motor de consenso CometBFT. Esto aporta soberanía de cadena y una alta capacidad de procesamiento.
 - BTC como gas: todas las comisiones de transacción en Mezo se pagan en BTC, lo que refuerza la utilidad de Bitcoin como activo transaccional.
 - Cliente central: la implementación de cliente de referencia para la cadena Mezo es `mezod`.
 
@@ -34,7 +34,7 @@ Para configurar tu billetera (p. ej., MetaMask, RainbowKit) o tu entorno de desa
 | Nombre de la red | Mezo Testnet |
 | Endpoint RPC (HTTPS) | `https://rpc.test.mezo.org` |
 | Endpoint RPC (WSS) | `wss://rpc-ws.test.mezo.org` |
-| Chain ID | `31611` |
+| ID de cadena | `31611` |
 | Moneda nativa | BTC |
 | Decimales | 18 |
 | Explorador de bloques | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
@@ -105,7 +105,7 @@ pnpm test
 
 ### 3.2 Integración de Mezo Passport (opcional)
 
-Mezo Passport es la biblioteca oficial de conexión de billeteras, construida sobre RainbowKit, que permite conectar sin fricciones tanto billeteras nativas de Bitcoin (p. ej., Xverse, Unisat) como billeteras EVM estándar (p. ej., MetaMask). La integración es opcional y no es necesaria para construir en Mezo.
+Mezo Passport es la biblioteca oficial de conexión de billeteras, construida sobre RainbowKit, que permite conectar sin fricciones tanto billeteras nativas de Bitcoin (p. ej., Xverse, Unisat) como billeteras EVM estándar (p. ej., MetaMask). La integración es opcional y no es necesaria para desarrollar en Mezo.
 
 Instalación:
 
@@ -186,7 +186,7 @@ Para despliegues en producción, usa los siguientes datos de Mainnet. Se recomie
 | Parámetro | Valor |
 | --- | --- |
 | Nombre de la red | Mezo Mainnet |
-| Chain ID | `31612` |
+| ID de cadena | `31612` |
 | Moneda nativa | BTC |
 | Decimales | 18 |
 | Explorador de bloques | [explorer.mezo.org](https://explorer.mezo.org/) |

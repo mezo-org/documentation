@@ -57,7 +57,7 @@ Consulta la guía [Configurar el entorno de desarrollo](/docs/es/docs/developers
 
 ## Añadir Mezo a tu billetera manualmente
 
-Si necesitas añadir la red a tu billetera manualmente, sigue estas instrucciones para agregar una red personalizada según tu billetera:
+Si necesitas añadir la red a tu billetera manualmente, sigue estas instrucciones para añadir una red personalizada según tu billetera:
 
 * MetaMask: [Cómo añadir una red RPC personalizada](https://support.metamask.io/networks-and-sidechains/managing-networks/how-to-add-a-custom-network-rpc/)
 * Brave Wallet: [Añadir una red personalizada](https://support.brave.com/hc/en-us/articles/15614704959757-Adding-a-New-Chain)

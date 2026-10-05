@@ -21,7 +21,7 @@ Explora [Ditto MUSD Savings Vault](https://mezo.org/earn/vaults/0x9171Cb787C3fEE
 
 ### Cómo funciona la automatización
 
-Varios operadores verifican de forma independiente las acciones propuestas para la bóveda antes de firmarlas. La ejecución requiere un número mínimo de aprobaciones de operadores, y los contratos inteligentes aplican comprobaciones adicionales onchain. La valoración de la bóveda (valor liquidativo neto, o NAV) también se publica onchain a través del proceso firmado.
+Varios operadores verifican de forma independiente las acciones propuestas para la bóveda antes de firmarlas. La ejecución requiere un número mínimo de aprobaciones de operadores, y los contratos inteligentes aplican comprobaciones adicionales onchain. La valoración de la bóveda (valor neto de los activos, o NAV) también se publica onchain a través del proceso firmado.
 
 Estas comprobaciones rigen la ejecución automatizada; no eliminan el riesgo de contratos inteligentes, de puente, de operadores ni de estrategia.
 
