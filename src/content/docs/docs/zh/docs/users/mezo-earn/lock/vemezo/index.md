@@ -4,7 +4,7 @@ description: 锁定 MEZO，为投票权提供加成并赚取 Rebase
 topic: users
 ---
 
-veMEZO 是在 Mezo 网络上锁定的 MEZO 的代币化（NFT）表示。锁定 MEZO 可将您的 veBTC 投票权最高提升至 5x，从而放大您的收益，并通过 MEZO 排放获得反稀释的 Rebase。
+veMEZO 是在 Mezo 网络上锁定的 MEZO 的代币化（NFT）表示。锁定 MEZO 可为您的 veBTC 投票权提供最高 5x 的加成，从而放大您的收益，并通过 MEZO 排放获得反稀释的 Rebase。
 
 ## 什么是 veMEZO？
 

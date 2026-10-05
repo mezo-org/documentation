@@ -43,7 +43,7 @@ URL：[https://matchbox.markets/](https://matchbox.markets/)
 
 ## MezoAgent
 
-[MezoAgent](https://github.com/LowPolyDuck/MezoAgent) 是一个基于 LangChain 的 Web3 AI 代理，可让您在 Mezo 上用简单的英语完成 BTC 和 mUSD 交易。
+[MezoAgent](https://github.com/LowPolyDuck/MezoAgent) 是一个基于 LangChain 的 Web3 AI 智能体，可让您在 Mezo 上用简单的英语完成 BTC 和 mUSD 交易。
 
 URL：[https://github.com/LowPolyDuck/MezoAgent](https://github.com/LowPolyDuck/MezoAgent)
 

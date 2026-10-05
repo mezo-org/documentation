@@ -31,11 +31,11 @@ Mezo 与 MUSD 的结合形成了一个自我强化的经济循环：
 2. **交易：** 他们将这些 MUSD 用于从交易、借贷到日常支付的各种用途。
 3. **强化：** 这些链上活动会产生交易费用（以 BTC 支付），从而保障网络安全，并强化比特币作为交易资产和价值储存手段的效用。
 
-Mezo 提供轨道，MUSD 提供燃料，为开发者提供了一个独特的平台，用于构建能为庞大且服务不足的比特币用户市场带来切实价值的应用。
+Mezo 铺设轨道，MUSD 提供燃料，为开发者提供了一个独特的平台，用于构建能为规模庞大却长期缺乏金融服务的比特币用户市场带来切实价值的应用。
 
 #### Mezo 链的架构是什么？
 
-Mezo 链采用混合架构，旨在同时最大化开发者可及性和网络性能。它是一条完全兼容 EVM 的区块链，基于 Cosmos SDK 构建，并运行在 CometBFT 共识引擎之上。其代码库是 Evmos 经过大量修改的分叉。
+Mezo 链采用混合架构，旨在同时最大限度地提升开发者易用性和网络性能。它是一条完全兼容 EVM 的区块链，基于 Cosmos SDK 构建，并运行在 CometBFT 共识引擎之上。其代码库是 Evmos 经过大量修改的分叉。
 
 这一技术栈具备一组强大的特性组合：
 
@@ -52,7 +52,7 @@ BTC（底层[通过 tBTC 实现](https://mezo.org/blog/how-bitcoin-native-gas-tu
 
 #### 如何集成 Mezo Passport？ <a href="#how-do-i-integrate-with-mezo-passport" id="how-do-i-integrate-with-mezo-passport"></a>
 
-​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) 是官方钱包连接库，专为在 Mezo 网络上提供顺畅、统一的用户体验而构建。它负责处理将比特币原生钱包（如 Xverse 和 Unisat）和标准 EVM 钱包（如 MetaMask）连接到您的 dApp 时的复杂细节。如需最新、最详细的集成指南（包括安装说明、配置、可用的 hooks 和代码示例），开发者应参阅 [**Mezo Passport 官方文档**](https://www.npmjs.com/package/@mezo-org/passport)**。**
+​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) 是官方钱包连接库，专为在 Mezo 网络上提供顺畅、统一的用户体验而构建。它负责处理将比特币原生钱包（如 Xverse 和 Unisat）和标准 EVM 钱包（如 MetaMask）连接到您的 dApp 时的复杂细节。如需最新、最详细的集成指南（包括安装说明、配置、可用的 Hook 和代码示例），开发者应参阅 [**Mezo Passport 官方文档**](https://www.npmjs.com/package/@mezo-org/passport)**。**
 
 #### 如何为我的项目获取资金和支持？ <a href="#how-can-i-get-funding-and-support-for-my-project" id="how-can-i-get-funding-and-support-for-my-project"></a>
 

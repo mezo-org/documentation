@@ -8,11 +8,11 @@ import { Steps } from '@astrojs/starlight/components';
 
 ## 1. Mezo 简介
 
-Mezo 旨在将比特币从被动的价值储存手段转变为具有生产力的动态金融资产。通过将比特币的安全性与现代区块链的灵活性相结合，Mezo 为去中心化应用（dApp）提供了一个稳健的平台，服务于庞大且服务不足的比特币社区。
+Mezo 旨在将比特币从被动的价值储存手段转变为具有生产力的动态金融资产。通过将比特币的安全性与现代区块链的灵活性相结合，Mezo 为去中心化应用（dApp）提供了一个稳健的平台，面向规模庞大却长期缺乏金融服务的比特币社区。
 
 ### 1.1 核心架构
 
-Mezo 链基于混合架构构建，旨在最大化开发者可及性和性能。
+Mezo 链基于混合架构构建，旨在最大限度地提升开发者易用性和性能。
 
 - EVM 兼容性：Mezo 是一条完全兼容 EVM 的区块链，Solidity 开发者只需极少的代码改动，即可部署现有智能合约，并使用 Hardhat、Foundry 等熟悉的工具。
 - Cosmos SDK 基础：核心客户端 `mezod` 是 Evmos 经过大量修改的分叉，基于 Cosmos SDK 构建，并运行在 CometBFT 共识引擎之上。这带来了链主权和高吞吐量。
@@ -198,4 +198,4 @@ mezod --home=<mezod_home_path> --rpc-url <rpc_url> poa submit-application <key_n
 | Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
 | dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
 
-有关完整的 Hardhat 和 Foundry 主网配置，请参阅[设置开发者环境](/docs/zh/docs/developers/getting-started/configure-environment)。
+有关完整的 Hardhat 和 Foundry 主网配置，请参阅[设置开发环境](/docs/zh/docs/developers/getting-started/configure-environment)。

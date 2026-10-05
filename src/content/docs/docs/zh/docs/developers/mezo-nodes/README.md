@@ -1,6 +1,6 @@
 ---
-title: mezo-nodes
+title: Mezo 节点
 topic: developers
 ---
-# mezo-nodes
+# Mezo 节点
 

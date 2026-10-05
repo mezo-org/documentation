@@ -4,7 +4,7 @@ description: MEZO 创世供应量、分配明细与归属计划
 topic: users
 ---
 
-MEZO 是 Mezo 的原生代币——用于提升投票权，并影响协议费用和激励的流向。
+MEZO 是 Mezo 的原生代币——用于为投票权提供加成，并影响协议费用和激励的流向。
 
 📄 **[下载代币披露文件（PDF）](/docs/MEZO_Disclosure.pdf)**
 

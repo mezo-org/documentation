@@ -139,7 +139,7 @@ pnpm preview
 
 1. **获取合约地址**：Mezo 测试网/主网上已部署的合约地址
 2. **集成 ABI**：导入合约 ABI 以进行交互
-3. **Web3 Provider**：通过 RPC 连接到 Mezo 网络
+3. **Web3 提供程序**：通过 RPC 连接到 Mezo 网络
 
 ### 集成示例
 

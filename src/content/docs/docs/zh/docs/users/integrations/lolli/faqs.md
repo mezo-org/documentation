@@ -18,7 +18,7 @@ Mezo 是一个无需许可的区块链平台，这意味着全球任何拥有比
 
 **Lolli → Mezo：** 您可以从 Lolli 向 Mezo 提现 0.0003 BTC（30,000 sats）或更多。设置这一最低金额，是为了确保您可以在 Mezo Market 上购买至少 $25 的 Bitrefill 礼品卡，并留有足够的 sats 支付交易费用。
 
-**Mezo → 比特币 Layer 1：** Mezo 目前要求提现回比特币 Layer 1 的最低金额为 0.01 BTC（1 million sats）。在您的 Mezo 钱包中有 1M sats 之前，您将无法提现到您的比特币 L1 钱包。
+**Mezo → 比特币 Layer 1：** Mezo 目前要求提现回比特币 Layer 1 的最低金额为 0.01 BTC（100 万 sats）。在您的 Mezo 钱包中有 1M sats 之前，您将无法提现到您的比特币 L1 钱包。
 
 我们正在努力降低 Mezo 的最低提现金额。
 

@@ -1,6 +1,6 @@
 ---
 title: MEZO 概览
-description: 用于提升投票权和捕获价值的原生代币
+description: 用于为投票权提供加成并捕获价值的原生代币
 topic: users
 ---
 
@@ -12,7 +12,7 @@ MEZO 是 Mezo 网络的战略协调资产。它并不取代 BTC 作为优质抵�
 
 MEZO 的用途：
 
-- **提升投票权**——将 MEZO 锁定为 veMEZO，可将您的 veBTC 投票权重最高放大至 5x
+- **投票权加成**——将 MEZO 锁定为 veMEZO，可将您的 veBTC 投票权重最高放大至 5x
 - **赚取 Rebase 奖励**——veMEZO 持有者可从每周排放中获得反稀释 Rebase
 
 ---
@@ -21,7 +21,7 @@ MEZO 的用途：
 
 |  | MEZO | veMEZO |
 |---|---|---|
-| 是什么 | 流动的、可转让的代币 | 代表已锁定 MEZO 的 NFT |
+| 是什么 | 具有流动性、可转让的代币 | 代表已锁定 MEZO 的 NFT |
 | 如何获得 | 购买、赚取或通过空投获得 | 将 MEZO 锁定 1 周至 4 年 |
 | 有什么用 | 持有或交易 | 为 veBTC 投票权提供加成、对 MEZO Gauges 投票、赚取 Rebase |
 

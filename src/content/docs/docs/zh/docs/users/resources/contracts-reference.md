@@ -36,60 +36,60 @@ aMUSD 是用户向 Morpho Alpha MUSD Core Vault 存款后获得的凭证代币�
 
 ### MUSD 代币与跨链桥
 
-MUSD 跨链桥由 Wormhole 的原生代币转移（NTT）协议提供支持，可在保持代币可替代性的同时实现安全的跨链转账。借助 NTT，代币可以在源链上锁定并在目标链上铸造，桥接回来时则会被销毁并解锁。请使用 [Portal UI](https://portalbridge.com/) 桥接代币。
+MUSD 跨链桥由 Wormhole 的原生代币转移（NTT）协议提供支持，可在保持代币可互换性的同时实现安全的跨链转账。借助 NTT，代币可以在源链上锁定并在目标链上铸造，桥接回来时则会被销毁并解锁。请使用 [Portal UI](https://portalbridge.com/) 桥接代币。
 
 有关 NTT 的更多信息，请参阅 [Wormhole 官方文档](https://wormhole.com/docs/products/native-token-transfers/overview/)。
 
 #### Mezo
-- 主网 MUSD： [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
-- 测试网 MUSD： [0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
-- NTT Manager： [0x7efb386675d75280D39Aae42964A6776DE0ee0bD](https://explorer.mezo.org/address/0x7efb386675d75280D39Aae42964A6776DE0ee0bD)
-- Wormhole Transceiver： [0x56E27f1A8425515FFD4BD76A254Ac1a5c0B66D71](https://explorer.mezo.org/address/0x56E27f1A8425515FFD4BD76A254Ac1a5c0B66D71)
+- 主网 MUSD：[0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+- 测试网 MUSD：[0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
+- NTT Manager：[0x7efb386675d75280D39Aae42964A6776DE0ee0bD](https://explorer.mezo.org/address/0x7efb386675d75280D39Aae42964A6776DE0ee0bD)
+- Wormhole Transceiver：[0x56E27f1A8425515FFD4BD76A254Ac1a5c0B66D71](https://explorer.mezo.org/address/0x56E27f1A8425515FFD4BD76A254Ac1a5c0B66D71)
 
 #### 以太坊
-- 主网 MUSD： [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://etherscan.io/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
-- NTT Manager： [0x5293158bf7a81ED05418DA497a80F7e6Dbf4477E](https://etherscan.io/address/0x5293158bf7a81ED05418DA497a80F7e6Dbf4477E)
-- Wormhole Transceiver： [0x76ddB3f1dDe02391Ef0A28664499B74C29d18d3E](https://etherscan.io/address/0x76ddB3f1dDe02391Ef0A28664499B74C29d18d3E)
+- 主网 MUSD：[0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://etherscan.io/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+- NTT Manager：[0x5293158bf7a81ED05418DA497a80F7e6Dbf4477E](https://etherscan.io/address/0x5293158bf7a81ED05418DA497a80F7e6Dbf4477E)
+- Wormhole Transceiver：[0x76ddB3f1dDe02391Ef0A28664499B74C29d18d3E](https://etherscan.io/address/0x76ddB3f1dDe02391Ef0A28664499B74C29d18d3E)
 
 #### Base
-- 主网 MUSD： [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://basescan.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
-- NTT Manager： [0x3EB418BdBE95b4b9cf465ecfBD8424685ACD1Bc1](https://basescan.org/address/0x3EB418BdBE95b4b9cf465ecfBD8424685ACD1Bc1)
-- Wormhole Transceiver： [0x15C465E7dF34f8cA06FDCae0569206cEDf3f4467](https://basescan.org/address/0x15C465E7dF34f8cA06FDCae0569206cEDf3f4467)
+- 主网 MUSD：[0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://basescan.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+- NTT Manager：[0x3EB418BdBE95b4b9cf465ecfBD8424685ACD1Bc1](https://basescan.org/address/0x3EB418BdBE95b4b9cf465ecfBD8424685ACD1Bc1)
+- Wormhole Transceiver：[0x15C465E7dF34f8cA06FDCae0569206cEDf3f4467](https://basescan.org/address/0x15C465E7dF34f8cA06FDCae0569206cEDf3f4467)
 
 
 ### MEZO 代币与跨链桥
 
-MEZO 跨链桥由 Wormhole 的原生代币转移（NTT）协议提供支持，可在保持代币可替代性的同时实现安全的跨链转账。请使用 [Portal UI](https://portalbridge.com/) 或 [Mezo dApp](https://mezo.org) 桥接代币。
+MEZO 跨链桥由 Wormhole 的原生代币转移（NTT）协议提供支持，可在保持代币可互换性的同时实现安全的跨链转账。请使用 [Portal UI](https://portalbridge.com/) 或 [Mezo dApp](https://mezo.org) 桥接代币。
 
 有关 NTT 的更多信息，请参阅 [Wormhole 官方文档](https://wormhole.com/docs/products/native-token-transfers/overview/)。
 
 #### Mezo
-- MEZO 代币： [0x7B7c000000000000000000000000000000000001](https://explorer.mezo.org/token/0x7B7c000000000000000000000000000000000001)
-- NTT Manager： [0x5E668D912F69db0762CD0fE00647dA9fa6b29591](https://explorer.mezo.org/address/0x5E668D912F69db0762CD0fE00647dA9fa6b29591)
-- Wormhole Transceiver： [0x528edf2dBbC6Ae6978c88E54B260AB86B682D18c](https://explorer.mezo.org/address/0x528edf2dBbC6Ae6978c88E54B260AB86B682D18c)
+- MEZO 代币：[0x7B7c000000000000000000000000000000000001](https://explorer.mezo.org/token/0x7B7c000000000000000000000000000000000001)
+- NTT Manager：[0x5E668D912F69db0762CD0fE00647dA9fa6b29591](https://explorer.mezo.org/address/0x5E668D912F69db0762CD0fE00647dA9fa6b29591)
+- Wormhole Transceiver：[0x528edf2dBbC6Ae6978c88E54B260AB86B682D18c](https://explorer.mezo.org/address/0x528edf2dBbC6Ae6978c88E54B260AB86B682D18c)
 
 #### 以太坊
-- MEZO 代币： [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://etherscan.io/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
-- NTT Manager： [0x13916D0daB357DCBAa1600b594d62C641840686A](https://etherscan.io/address/0x13916D0daB357DCBAa1600b594d62C641840686A)
-- Wormhole Transceiver： [0x920871aF2D4106E76d204fEA7122fA129C9283b1](https://etherscan.io/address/0x920871aF2D4106E76d204fEA7122fA129C9283b1)
+- MEZO 代币：[0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://etherscan.io/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
+- NTT Manager：[0x13916D0daB357DCBAa1600b594d62C641840686A](https://etherscan.io/address/0x13916D0daB357DCBAa1600b594d62C641840686A)
+- Wormhole Transceiver：[0x920871aF2D4106E76d204fEA7122fA129C9283b1](https://etherscan.io/address/0x920871aF2D4106E76d204fEA7122fA129C9283b1)
 
 #### Base
-- MEZO 代币： [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://basescan.org/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
-- NTT Manager： [0x0c46f496C410465975a427e34a976fc15a2edE4f](https://basescan.org/address/0x0c46f496C410465975a427e34a976fc15a2edE4f)
-- Wormhole Transceiver： [0x27321f84704a599aB740281E285cc4463d89A3D5](https://basescan.org/address/0x27321f84704a599aB740281E285cc4463d89A3D5)
+- MEZO 代币：[0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://basescan.org/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
+- NTT Manager：[0x0c46f496C410465975a427e34a976fc15a2edE4f](https://basescan.org/address/0x0c46f496C410465975a427e34a976fc15a2edE4f)
+- Wormhole Transceiver：[0x27321f84704a599aB740281E285cc4463d89A3D5](https://basescan.org/address/0x27321f84704a599aB740281E285cc4463d89A3D5)
 
 #### BSC
-- MEZO 代币： [0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://bscscan.com/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
-- NTT Manager： [0x09959798B95d00a3183d20FaC298E4594E599eab](https://bscscan.com/address/0x09959798B95d00a3183d20FaC298E4594E599eab)
-- Wormhole Transceiver： [0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747](https://bscscan.com/address/0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747)
+- MEZO 代币：[0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b](https://bscscan.com/address/0x8e4cbBcc33dB6c0a18561fDE1F6bA35906d4848b)
+- NTT Manager：[0x09959798B95d00a3183d20FaC298E4594E599eab](https://bscscan.com/address/0x09959798B95d00a3183d20FaC298E4594E599eab)
+- Wormhole Transceiver：[0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747](https://bscscan.com/address/0xa10aD2570ea7b93d19fDae6Bd7189fF4929Bc747)
 
 #### Solana
-- MEZO 代币： [8niMFW4yuv3vLoqTtBaC6rchyasmUhgvpgSyPEeeCrw6](https://solscan.io/address/8niMFW4yuv3vLoqTtBaC6rchyasmUhgvpgSyPEeeCrw6)
-- NTT Manager： [Ntt4AnEASZ9oLw25PTmXFrwSFD473ufd3rCLWoX5Gg7](https://solscan.io/address/Ntt4AnEASZ9oLw25PTmXFrwSFD473ufd3rCLWoX5Gg7)
-- Wormhole Transceiver： [6aVRLvdjgrovCiZa5q5kifUtvD6p2ogaQ2J248MpfCa3](https://solscan.io/address/6aVRLvdjgrovCiZa5q5kifUtvD6p2ogaQ2J248MpfCa3)
+- MEZO 代币：[8niMFW4yuv3vLoqTtBaC6rchyasmUhgvpgSyPEeeCrw6](https://solscan.io/address/8niMFW4yuv3vLoqTtBaC6rchyasmUhgvpgSyPEeeCrw6)
+- NTT Manager：[Ntt4AnEASZ9oLw25PTmXFrwSFD473ufd3rCLWoX5Gg7](https://solscan.io/address/Ntt4AnEASZ9oLw25PTmXFrwSFD473ufd3rCLWoX5Gg7)
+- Wormhole Transceiver：[6aVRLvdjgrovCiZa5q5kifUtvD6p2ogaQ2J248MpfCa3](https://solscan.io/address/6aVRLvdjgrovCiZa5q5kifUtvD6p2ogaQ2J248MpfCa3)
 
 ### 使用 MUSD Monitor 关注您的贷款
-如需进行高级监控，您可以使用 [mezotools.cc](https://mezotools.cc)。
+如需高级监控，您可以使用 [mezotools.cc](https://mezotools.cc)。
 
 借助该工具，您可以：
 - 实时查看 Trove（抵押债务仓位）的健康状况和抵押率。
@@ -102,9 +102,9 @@ MEZO 跨链桥由 Wormhole 的原生代币转移（NTT）协议提供支持，�
 | 名称 | 地址 |
 |----- | ------- |
 | PoolFactory | [0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248](https://explorer.mezo.org/address/0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248) |
-| MUSD/BTC 池 | [0x52e604c44417233b6CcEDDDc0d640A405Caacefb](https://explorer.mezo.org/address/0x52e604c44417233b6CcEDDDc0d640A405Caacefb) |
-| MUSD/mUSDC 池 | [0xEd812AEc0Fecc8fD882Ac3eccC43f3aA80A6c356](https://explorer.mezo.org/address/0xEd812AEc0Fecc8fD882Ac3eccC43f3aA80A6c356) |
-| MUSD/mUSDT 池 | [0x10906a9E9215939561597b4C8e4b98F93c02031A](https://explorer.mezo.org/address/0x10906a9E9215939561597b4C8e4b98F93c02031A) |
+| MUSD/BTC 流动性池 | [0x52e604c44417233b6CcEDDDc0d640A405Caacefb](https://explorer.mezo.org/address/0x52e604c44417233b6CcEDDDc0d640A405Caacefb) |
+| MUSD/mUSDC 流动性池 | [0xEd812AEc0Fecc8fD882Ac3eccC43f3aA80A6c356](https://explorer.mezo.org/address/0xEd812AEc0Fecc8fD882Ac3eccC43f3aA80A6c356) |
+| MUSD/mUSDT 流动性池 | [0x10906a9E9215939561597b4C8e4b98F93c02031A](https://explorer.mezo.org/address/0x10906a9E9215939561597b4C8e4b98F93c02031A) |
 
 ## 主网上线前的合约
 

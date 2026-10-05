@@ -14,7 +14,7 @@ Goldsky 是面向 web3 构建者的索引器，提供子图托管和实时数据
 
 ## Stork
 
-Stork 是一个预言机协议，可在数据提供方与链上及链下应用之间实现超低延迟连接。Stork 最常见的用例是以实时价格数据源的形式拉取并使用市场数据，服务于 DeFi。Stork [已在 Mezo 测试网上可用](https://docs.stork.network/resources/contract-addresses/evm#mezo)。
+Stork 是一个预言机协议，可在数据提供方与链上及链下应用之间实现超低延迟连接。Stork 最常见的用途是为 DeFi 拉取并使用实时价格数据源形式的市场数据。Stork [已在 Mezo 测试网上可用](https://docs.stork.network/resources/contract-addresses/evm#mezo)。
 
 - **[Stork 文档](https://docs.stork.network/)**
 - **[Mezo 测试网上已部署的合约](https://docs.stork.network/resources/contract-addresses/evm#mezo)**

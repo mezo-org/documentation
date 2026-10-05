@@ -1,5 +1,5 @@
 ---
-title: 为什么比特币需要银行
+title: 为什么比特币需要银行服务
 description: 了解 Mezo 如何提供自助式比特币银行服务，让您以 BTC 为抵押借款。
 topic: users
 ---

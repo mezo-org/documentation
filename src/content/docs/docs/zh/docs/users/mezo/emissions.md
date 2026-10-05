@@ -94,6 +94,6 @@ MEZO 采用借鉴比特币的排放模型，通胀可预测且逐步递减。因
 
 4. **验证者**运行 Mezo 链节点。他们通过 Chain Splitter 获得固定份额（20%）的 MEZO 排放。
 
-5. **Ecosystem Splitter** 将剩余的 80% 在质押 Gauge 和非质押 Gauge 之间分配，目前比例为 90/10。非质押分支约占排放奖励的 8%，用于资助 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)，veMEZO 持有者可在其中投票，将 MEZO 发送到 Curve、Uniswap 和 Aerodrome 上的 MUSD 池。
+5. **Ecosystem Splitter** 将剩余的 80% 在质押 Gauge 和非质押 Gauge 之间分配，目前比例为 90/10。非质押分支约占排放奖励的 8%，用于资助 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)，veMEZO 持有者可在其中投票，将 MEZO 发送到 Curve、Uniswap 和 Aerodrome 上的 MUSD 流动性池。
 
 6. **质押 Gauge** 获得最大份额的排放。质押 LP 代币的 LP 以及质押凭证代币的 MUSD 储户可在此赚取 MEZO。作为交换，他们放弃直接的交易手续费——这些手续费将转而流向 veBTC 投票者。

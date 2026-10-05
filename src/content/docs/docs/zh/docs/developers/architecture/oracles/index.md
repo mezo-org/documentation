@@ -4,7 +4,7 @@ description: 了解 Mezo 预言机如何为您的应用程序提供安全、去�
 topic: developers
 ---
 
-Mezo 在其验证者节点中内置了预言机。同时也支持第三方预言机。
+Mezo 在其验证者节点中内置了预言机，同时也可使用第三方预言机。
 
 ## Skip Connect
 
@@ -26,14 +26,14 @@ Skip Connect 包含多个可在侧车中配置的[提供者](https://github.com/
 
 ## Stork
 
-Stork 是一个预言机协议，能够在数据提供者与链上和链下应用之间实现超低延迟连接。Stork 最常见的用例是为 DeFi 拉取和消费实时价格数据。Stork [已在 Mezo 测试网上可用](https://docs.stork.network/resources/contract-addresses/evm#mezo)。
+Stork 是一个预言机协议，能够在数据提供者与链上和链下应用之间实现超低延迟连接。Stork 最常见的用途是为 DeFi 拉取并使用实时价格数据源形式的市场数据。Stork [已在 Mezo 测试网上可用](https://docs.stork.network/resources/contract-addresses/evm#mezo)。
 
 - **[Stork 文档](https://docs.stork.network/)**
 - **[Mezo 测试网上的已部署合约](https://docs.stork.network/resources/contract-addresses/evm#mezo)**
 
 ## Supra
 
-Supra 是一个跨链预言机网络，旨在通过快速、安全、去中心化和可扩展的数据解决方案为各区块链生态系统的 dApp 提供支持。Supra 的[分布式预言机协议（DORA）](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora) 已在 Mezo 测试网上可用。请参阅 Supra 的[可用网络](https://docs.supra.com/oracles/data-feeds/pull-oracle/networks)页面，获取正确的拉取合约和存储合约地址。
+Supra 是一个跨链预言机网络，旨在通过快速、安全、去中心化和可扩展的数据解决方案为各区块链生态系统的 dApp 提供支持。Supra 的[分布式预言机协议（DORA）](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora)已在 Mezo 测试网上可用。请参阅 Supra 的[可用网络](https://docs.supra.com/oracles/data-feeds/pull-oracle/networks)页面，获取正确的拉取合约和存储合约地址。
 
 - **[Supra 文档](https://docs.supra.com/)**
 

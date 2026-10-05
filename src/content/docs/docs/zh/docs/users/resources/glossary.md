@@ -122,7 +122,7 @@ EVM 兼容区块链上同质化代币的标准接口。从以太坊桥接到 Mez
 
 ## Governance（治理）
 
-veBTC 持有者塑造协议参数和排放的机制。veMEZO 可为投票权提供加成，但不具备独立的治理权。请参阅[治理](/docs/zh/docs/users/mezo/governance)。
+veBTC 持有者借以参与决定协议参数和排放的机制。veMEZO 可为投票权提供加成，但不具备独立的治理权。请参阅[治理](/docs/zh/docs/users/mezo/governance)。
 
 ## Halving Schedule（减半计划）
 
@@ -158,11 +158,11 @@ veBTC 持有者塑造协议参数和排放的机制。veMEZO 可为投票权提�
 
 ## Matching Market（配对市场）
 
-一种经济机制：veBTC 持有者可以通过在其加成 Gauge 上投放[激励](#incentives激励)来吸引 veMEZO 投票，而 veMEZO 持有者则可以通过为激励丰厚的 Gauge 投票来赚取收益。请参阅[配对市场](/docs/zh/docs/users/mezo-earn/lock/vemezo/matching-market)。
+一种经济机制：veBTC 持有者可以通过在其 Boost Gauge 上投放[激励](#incentives激励)来吸引 veMEZO 投票，而 veMEZO 持有者则可以通过为激励丰厚的 Gauge 投票来赚取收益。请参阅[配对市场](/docs/zh/docs/users/mezo-earn/lock/vemezo/matching-market)。
 
 ## MEZO
 
-Mezo 的原生代币，用于提升投票权，并影响协议费用和激励的流向。MEZO 可以锁定为 [veMEZO](#vemezo)，将 veBTC 投票权重最高放大至 5x，并赚取 Rebase 奖励。创世总供应量为 1,000,000,000 MEZO。请参阅 [MEZO 概览](/docs/zh/docs/users/mezo)。
+Mezo 的原生代币，用于为投票权提供加成，并影响协议费用和激励的流向。MEZO 可以锁定为 [veMEZO](#vemezo)，将 veBTC 投票权重最高放大至 5x，并赚取 Rebase 奖励。创世总供应量为 1,000,000,000 MEZO。请参阅 [MEZO 概览](/docs/zh/docs/users/mezo)。
 
 ## Mezo App
 
@@ -206,7 +206,7 @@ Mezo 的比特币支持稳定币，与 1 美元（\$1 USD）锚定。用户通�
 
 ## MUSD Bridge
 
-用于在 Mezo 与以太坊之间转移 MUSD 的跨链桥，由 Wormhole 的[原生代币转移（NTT）](#wormhole-ntt)协议提供支持。请参阅 [MUSD 跨链桥](/docs/zh/docs/users/borrow/musd-bridge)。
+用于在 Mezo 与以太坊之间转移 MUSD 的跨链桥，由 Wormhole 的[原生代币转移（NTT）](#wormhole-ntt)协议提供支持。请参阅 [MUSD Bridge](/docs/zh/docs/users/borrow/musd-bridge)。
 
 ## MUSD Savings Rate Gauge
 
@@ -246,7 +246,7 @@ Mezo 面向 MUSD 持有者的原生储蓄产品。存入 MUSD，即可赚取借�
 
 ## Portal Bridge
 
-位于 [portalbridge.com](https://portalbridge.com/) 的用户界面，可通过 Wormhole NTT 协议在 Mezo 与以太坊之间桥接 MUSD。请参阅 [MUSD 跨链桥](/docs/zh/docs/users/borrow/musd-bridge)。
+位于 [portalbridge.com](https://portalbridge.com/) 的用户界面，可通过 Wormhole NTT 协议在 Mezo 与以太坊之间桥接 MUSD。请参阅 [MUSD Bridge](/docs/zh/docs/users/borrow/musd-bridge)。
 
 ## Price Feed（价格数据源）
 
@@ -258,7 +258,7 @@ Mezo 面向 MUSD 持有者的原生储蓄产品。存入 MUSD，即可赚取借�
 
 ## Recovery Mode（恢复模式）
 
-当全系统的系统总抵押率（TCR）跌破 150% 的 [CCR](#critical-collateralization-ratio临界抵押率ccr) 时启动的临时安全状态。在恢复模式期间，清算阈值仍为 110%（与 Liquity v1 不同，MUSD 不会在恢复模式期间扩大清算范围）。但是，不能以低于 150% 的抵押率开立新贷款，并且再融资将被阻止。请参阅 [MUSD 清算与赎回](/docs/zh/docs/users/borrow/liquidation-mechanics)。
+当系统总抵押率（TCR）跌破 150% 的 [CCR](#critical-collateralization-ratio临界抵押率ccr) 时启动的临时安全状态。在恢复模式期间，清算阈值仍为 110%（与 Liquity v1 不同，MUSD 不会在恢复模式期间扩大清算范围）。但是，不能以低于 150% 的抵押率开立新贷款，并且再融资将被阻止。请参阅 [MUSD 清算与赎回](/docs/zh/docs/users/borrow/liquidation-mechanics)。
 
 ## Redemption（赎回）
 
@@ -294,7 +294,7 @@ Mezo 面向 MUSD 持有者的原生储蓄产品。存入 MUSD，即可赚取借�
 
 ## Stable Pool（稳定型池）
 
-针对价值高度相关的资产（例如 MUSD 和 USDC）之间的交易进行优化的[流动性池](#liquidity-pool流动性池)。稳定型池使用专门的公式来提供低得多的[滑点](#slippage滑点)，并收取 0.02% 的交易手续费。请参阅[流动性池费用](/docs/zh/docs/users/mezo-earn/pools/pools-fees)。
+专为价值高度相关的资产（例如 MUSD 和 USDC）之间的交易而优化的[流动性池](#liquidity-pool流动性池)。稳定型池使用专门的公式来提供低得多的[滑点](#slippage滑点)，并收取 0.02% 的交易手续费。请参阅[流动性池费用](/docs/zh/docs/users/mezo-earn/pools/pools-fees)。
 
 ## Staking Gauge（质押 Gauge）
 
@@ -310,7 +310,7 @@ Mezo 面向 MUSD 持有者的原生储蓄产品。存入 MUSD，即可赚取借�
 
 ## tBTC
 
-由 Thesis 构建、[Threshold Network](#threshold-network) 提供支持的去中心化比特币包装资产。tBTC 由原生比特币 1:1 支持，是 BTC 被桥接到以太坊兼容网络时所采用的形式。在 Mezo 上，存入的 BTC 会通过 tBTC 的托管基础设施进行路由。请参阅 [MUSD 架构](/docs/zh/docs/users/borrow/architecture-and-terminology)。
+由 Thesis 构建、[Threshold Network](#threshold-network) 提供支持的去中心化比特币包装资产。tBTC 由原生比特币 1:1 支持，是 BTC 被桥接到以太坊兼容网络时所采用的形式。在 Mezo 上，存入的 BTC 会通过 tBTC 的托管基础设施路由。请参阅 [MUSD 架构](/docs/zh/docs/users/borrow/architecture-and-terminology)。
 
 ## Tail Emissions（尾部排放）
 
@@ -374,8 +374,8 @@ Mezo 上绑定到单个以太坊地址的抵押债务仓位。用户通过存入
 
 ## Wormhole
 
-为 [MUSD Bridge](#musd-bridge) 提供支持的跨链消息传递协议。Wormhole 支持在 Mezo 与以太坊之间安全地转移代币。请参阅 [MUSD 跨链桥](/docs/zh/docs/users/borrow/musd-bridge)。
+为 [MUSD Bridge](#musd-bridge) 提供支持的跨链消息传递协议。Wormhole 支持在 Mezo 与以太坊之间安全地转移代币。请参阅 [MUSD Bridge](/docs/zh/docs/users/borrow/musd-bridge)。
 
 ## Wormhole NTT
 
-Wormhole 原生代币转移（Native Token Transfer）。[MUSD Bridge](#musd-bridge) 所使用的特定 Wormhole 协议。NTT 通过在源链上锁定代币、在目标链上铸造代币来保持代币的可互换性，从而使各链上的总供应量保持不变。请参阅 [MUSD 跨链桥](/docs/zh/docs/users/borrow/musd-bridge)。
+Wormhole 原生代币转移（Native Token Transfer）。[MUSD Bridge](#musd-bridge) 所使用的特定 Wormhole 协议。NTT 通过在源链上锁定代币、在目标链上铸造代币来保持代币的可互换性，从而使各链上的总供应量保持不变。请参阅 [MUSD Bridge](/docs/zh/docs/users/borrow/musd-bridge)。

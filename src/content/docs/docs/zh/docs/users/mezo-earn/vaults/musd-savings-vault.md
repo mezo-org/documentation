@@ -43,8 +43,8 @@ sMUSD 是您在 Mezo MUSD Savings Vault 中的凭证代币。以下几点需要�
 | 存入代币 | MUSD |
 | 凭证代币 | sMUSD |
 | 策略管理方 | Mezo |
-| 提款费 | 无 |
-| 提款时间锁 | 0h |
+| 提取费 | 无 |
+| 提取时间锁 | 0h |
 | 当前 APR | 浮动——请查看 [mezo.org/earn/vaults](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC) |
 
 ---

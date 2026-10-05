@@ -1,5 +1,5 @@
 ---
-title: 设置开发者环境
+title: 设置开发环境
 description: 配置开发环境，以便在 Mezo 上构建和部署。
 topic: developers
 ---

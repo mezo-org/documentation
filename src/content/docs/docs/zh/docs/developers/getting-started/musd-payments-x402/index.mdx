@@ -95,7 +95,7 @@ import { Image } from 'astro:assets';
 大多数支持 x402 的链以 USDC 结算。Mezo 的定位则有所不同：
 
 - **比特币原生的结算资产。** MUSD 在 Mezo 经济中以 BTC 抵押品铸造。以 MUSD 计价的收入始终留在比特币生态中，无需经由 ETH 或中心化稳定币发行方绕一圈。
-- **18 位小数精度，支持真正的微支付。** 一笔 $0.001 的收费是一项一等操作，而不是舍入误差。计量计费的 API、按推理次数计价的 AI 服务以及按请求计费的内容访问，都可以按实际成本定价，而无需批量处理。
+- **18 位小数精度，支持真正的微支付。** 一笔 $0.001 的收费是被原生支持的正常操作，而不是舍入误差。计量计费的 API、按推理次数计价的 AI 服务以及按请求计费的内容访问，都可以按实际成本定价，而无需批量处理。
 - **买方零 Gas（由促成方以 BTC 支付）。** 位于 `facilitator.vativ.io` 的 Mezo 促成方会以原生 BTC 为每一笔链上结算交易代付 Gas。买方（包括 AI 智能体）只需持有用于支出的 MUSD 和用于签署 EIP-712 permit2 授权的私钥；无需充值 BTC 作为 Gas，无需桥接 Gas 代币，在首次支付前也无需预先注资。
 - **可预测的链上经济模型。** Mezo 围绕由比特币支持的金融原语专门构建，因此 MUSD 的供应量和借款成本遵循锚定于 BTC 抵押品基础的规则，而非稳定币发行方的政策。
 
@@ -108,7 +108,7 @@ import { Image } from 'astro:assets';
 - **按推理次数付费的 AI 服务。** 将 LLM、图像生成器、STT、嵌入模型或微调模型封装在 x402 端点中。调用方按每次调用付费，借助 18 位小数的 MUSD 实现按实际成本定价。
 - **机器对机器（M2M）支付。** 配备 `@x402/fetch` 客户端和私钥的 AI 智能体可以自主进行交易：发现付费工具、读取 `402` 要求、结算、使用。无需账户，无需交换凭证，每笔支付也无需人工介入。由于 Gas 由促成方代付，智能体只需持有 MUSD 和签名密钥；无需充值 BTC 即可开始交易。
 - **付费 MCP 服务器。** 通过模型上下文协议（Model Context Protocol）公开智能体工具，并通过 x402 按调用次数定价。天然适合由自主智能体作为使用方。
-- **替代基于用量的 SaaS。** 对于用量具有突发性或不确定性的工具、仪表板或内部服务，以按次计费取代订阅计费。
+- **以按用量计费替代 SaaS 订阅。** 对于用量具有突发性或不确定性的工具、仪表板或内部服务，以按次计费取代订阅计费。
 
 ## 快速开始
 
@@ -117,7 +117,7 @@ import { Image } from 'astro:assets';
 ## 另请参阅
 
 - [x402 快速入门](./x402-quickstart/)。分步实践指南。
-- [设置开发者环境](/docs/zh/docs/developers/getting-started/configure-environment)。Mezo RPC 端点和网络参数。
+- [设置开发环境](/docs/zh/docs/developers/getting-started/configure-environment)。Mezo RPC 端点和网络参数。
 - [网络与 RPC](/docs/zh/docs/developers/chains/)。链配置详情。
 - <a href="/docs/zh/docs/users/borrow/mint-musd/" target="_blank" rel="noopener noreferrer">借款并铸造 MUSD ↗</a>。用户获取 MUSD 的流程（在新标签页中打开）。
 - [x402.org](https://x402.org)。x402 协议的官方文档。

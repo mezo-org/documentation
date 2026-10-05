@@ -108,10 +108,10 @@ topic: developers
 
 ## 常见问题
 
-**"Cannot redeem when TCR < MCR"**
+**“Cannot redeem when TCR < MCR”**
 → 系统 TCR 低于 110%。请等待其恢复。
 
-**"Unable to redeem any amount"**
+**“Unable to redeem any amount”**
 → 这可能由以下几个原因导致：
 - 没有抵押率高于 110% 的可用 Trove
 - 提示已过期（特别是 NICR 提示）
@@ -129,7 +129,7 @@ topic: developers
 
 ---
 
-## 提示
+## 使用技巧
 
 - **在赎回前立即生成提示**——如果其他人先完成赎回，提示就会过期
 - **小额赎回请使用方案 A**（< `$10,000`）——较高的 Gas 成本可以忽略不计

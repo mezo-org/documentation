@@ -14,7 +14,7 @@ topic: users
 
 ## veMEZO
 
-投票托管（vote-escrowed）MEZO。一种代表已锁定 MEZO 代币的 NFT，可将 veBTC 的投票权最高提升至 5x，并能以自身名义在 veBTC Boost Gauge 和 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 上投票。它本身不具备治理权重，且没有 veBTC 就无法在质押 Gauge 上投票。最长锁定期限为 4 年。
+投票托管（vote-escrowed）MEZO。一种代表已锁定 MEZO 代币的 NFT，可为 veBTC 投票权提供最高 5x 的加成，并能以自身名义在 veBTC Boost Gauge 和 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 上投票。它本身不具备治理权重，且没有 veBTC 就无法在质押 Gauge 上投票。最长锁定期限为 4 年。
 
 ## 加成
 
@@ -34,7 +34,7 @@ veBTC 与 veMEZO 配对后的合并投票权重，计算方式为您的 veBTC �
 
 ## 锁定
 
-将 BTC 或 MEZO 投入一段固定期限，以获得 veBTC 或 veMEZO 的行为。锁定期限越长，初始投票权重越高。
+将 BTC 或 MEZO 锁定一段固定期限，以获得 veBTC 或 veMEZO 的行为。锁定期限越长，初始投票权重越高。
 
 ## 质押 Gauge
 
@@ -82,7 +82,7 @@ veBTC 与 veMEZO 配对后的合并投票权重，计算方式为您的 veBTC �
 
 ## MUSD
 
-Mezo 的比特币支持的稳定币。用户可以用 BTC 作为抵押品借入 MUSD。
+Mezo 以比特币为支撑的稳定币。用户可以用 BTC 作为抵押品借入 MUSD。
 
 ## MUSD Savings Rate Gauge
 
