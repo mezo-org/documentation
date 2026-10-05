@@ -1,0 +1,80 @@
+---
+title: 투표가 반영되는 곳
+description: 'veMEZO 투표 가중치가 Curve, Uniswap, Aerodrome 풀의 인센티브로 전환되는 방식'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+각 MEZO Gauge는 해당 에포크에 MEZO Gauges에 행사된 veMEZO 투표 중 자신이 받은 투표의 비율만큼 비스테이킹 게이지 에미션을 배분받습니다.
+
+모든 MEZO Gauges에 1,000,000 veMEZO가 투표되고 그중 300,000이 한 게이지에 투표되었다면, 해당 게이지는 그 에포크에 지정 가능한 MEZO의 30%를 가져갑니다. 이 페이지의 나머지 부분에서는 USDC/MUSD를 예로 들어 설명합니다. 모든 MEZO Gauge에 동일한 배분 방식이 적용됩니다.
+
+---
+
+## Merkl을 통한 Curve 및 Uniswap
+
+Curve USDT/USDC/MUSD와 Uniswap USDC/MUSD는 [Merkl](https://merkl.xyz)을 통해 인센티브를 받습니다. 이는 Mezo가 이미 이 풀들에 사용하고 있는 것과 같은 메커니즘이며, 이제 각 풀에 MEZO Gauge가 있습니다.
+
+<Steps>
+1. **에포크 N이 종료됩니다.** 투표가 집계되고 각 게이지의 MEZO 배분이 확정됩니다.
+2. **배분이 Merkl에 게시됩니다.** 대상 풀의 캠페인으로 게시됩니다.
+3. **LP에게 청구 권리가 누적됩니다.** 캠페인 기간 동안 풀에서 차지한 지분에 비례하며, 청구는 Merkl에서 이루어집니다.
+</Steps>
+
+**보상은 유동 MEZO가 아니라 3개월 동안 잠긴 veMEZO로 지급됩니다.** 이는 현재 이 풀들에 인센티브가 지급되는 방식과 같지만, 이제는 각 풀이 받을 에미션의 양을 투표자가 결정합니다.
+
+LP 측 안내는 [인센티브 청구](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives)를 참조하세요.
+
+---
+
+## Aerodrome의 투표 인센티브로서의 MEZO
+
+Aerodrome 게이지는 다르게 작동합니다. Aerodrome 자체가 주간 투표를 갖춘 ve(3,3) 시스템이기 때문입니다. USDC/MUSD를 예로 들어 보겠습니다. MEZO는 Aerodrome LP에게 직접 지급되지 않습니다. 대신 해당 풀의 Aerodrome 게이지에 **투표 인센티브**로 예치되며, 그 게이지에 투표하는 veAERO 보유자에게 지급됩니다.
+
+이러한 veAERO 투표가 **AERO 에미션**을 풀로 지정합니다. MEZO는 풀을 위해 AERO 에미션을 확보하며, LP에게 도달하는 것은 AERO입니다. Aerodrome의 MEZO/MUSD에도 같은 경로가 적용됩니다.
+
+구체적으로는 할당 컨트랙트가 Mezo에서 MEZO를 청구하고, Base로 브리지한 다음, Aerodrome 게이지에 예치합니다. 이 과정은 에포크마다 자동으로 실행됩니다.
+
+### 두 에포크 지연
+
+Aerodrome의 투표는 그것이 반응하는 인센티브보다 한 주 앞서 진행되므로, 투표와 그 투표로 확보되는 유동성 사이에 시차가 생깁니다.
+
+| 에포크 | 진행 내용 |
+|---|---|
+| **N** | Mezo에서 투표합니다. 에포크가 종료되고 배분이 확정됩니다. |
+| **N+1** | MEZO가 Aerodrome 게이지에 투표 인센티브로 예치됩니다. veAERO 보유자가 이 에포크 동안 해당 게이지에 투표합니다. |
+| **N+2** | AERO 에미션이 풀로 유입되고 LP가 이를 얻습니다. |
+
+**에포크 N에 행사한 투표는 에포크 N+2에 AERO 에미션을 만들어 냅니다.** 이는 Mezo가 추가하는 지연이 아니라 Aerodrome이 자체 에포크를 진행하는 방식에서 비롯된 특성입니다.
+
+---
+
+## 배분한 가치 확보하기
+
+에미션을 지정하는 것은 영향력이지 수익이 아닙니다. 대상 풀로 보낸 MEZO는 그 풀의 참여자, 즉 Curve와 Uniswap에서는 Merkl 청구자, Aerodrome에서는 veAERO 투표자에게 돌아갑니다. MEZO Gauge 투표자인 나에게 돌아오지 않습니다.
+
+투표자로서 직접 얻는 것은 **MEZO Gauge 자체에 게시된 인센티브** 중 해당 게이지 투표에서 내가 차지하는 지분에 비례하는 몫입니다.
+
+에미션 자체를 확보하려면 순환 구조의 양쪽 모두에 참여해야 합니다. Aerodrome에서 USDC/MUSD를 예로 들면 다음과 같습니다.
+
+<Steps>
+1. Aerodrome의 풀에 **유동성을 공급**하고 해당 풀의 게이지에 스테이킹하세요.
+2. Mezo에서 veMEZO로 해당 풀의 MEZO Gauge에 **투표**하세요.
+3. Base에서 veAERO로 해당하는 Aerodrome 게이지에 **투표**하세요.
+4. LP 포지션에 대한 AERO와 veAERO 투표에 대한 MEZO 투표 인센티브를 **수령**하세요.
+</Steps>
+
+Curve와 Uniswap에서는 순환 구조가 더 짧습니다. 풀에 유동성을 공급하고, 해당 풀의 MEZO Gauge에 투표한 뒤, LP로서 Merkl에서 캠페인 보상을 청구하면 됩니다.
+
+:::note
+전체 순환 구조를 실행하는 것은 선택 사항입니다. 많은 veMEZO 보유자는 순수하게 MUSD 유동성을 강화하고 게이지에 게시된 인센티브를 얻기 위해 투표합니다.
+:::
+
+---
+
+## 다음 단계
+
+- [인센티브 청구](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — Merkl 또는 Aerodrome에서 청구하기
+- [MEZO Gauges에서 투표하는 방법](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — 단계별 안내
+- [MEZO Gauges 개요](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges) — 대상 풀과 자금 조달

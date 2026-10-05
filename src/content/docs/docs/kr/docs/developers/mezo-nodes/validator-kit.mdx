@@ -1,0 +1,441 @@
+---
+title: Validator Kit 개발 가이드
+description: Validator Kit를 사용해 Mezo 검증자 노드를 설정하고 운영하는 방법을 다루는 종합 가이드입니다.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezo Validator Kit는 검증자, RPC 노드, 시드 노드를 포함한 Mezo 노드 운영을 위한 종합 솔루션을 제공합니다. 이 가이드에서는 Mezo 인프라의 설정, 구성, 유지 관리를 다룹니다.
+
+## 개요
+
+[Validator Kit](https://github.com/mezo-org/validator-kit.git)는 여러 배포 옵션을 제공하여 Mezo 노드 배포를 간소화합니다.
+
+- **Docker**: 컨테이너 기반 배포
+- **네이티브 데몬**: 시스템에 직접 설치
+- **Kubernetes**: 오케스트레이션을 위한 Helm 차트
+- **클라우드 배포**: AWS, GCP, Azure 지원
+
+### 노드 유형
+
+1. **검증자 노드**: 합의와 블록 생성에 참여합니다
+2. **RPC 노드**: dApp에 API 엔드포인트를 제공합니다
+3. **시드 노드**: 네트워크 부트스트랩을 돕습니다
+
+## 저장소 구조
+
+[Validator Kit 저장소](https://github.com/mezo-org/validator-kit.git)에는 다음이 포함되어 있습니다.
+
+- **[Docker 구성](https://github.com/mezo-org/validator-kit/tree/main/docker)**: 컨테이너 설정 및 오케스트레이션
+- **[Kubernetes 매니페스트](https://github.com/mezo-org/validator-kit/tree/main/kubernetes)**: Helm 차트 및 K8s 리소스
+- **[구성 템플릿](https://github.com/mezo-org/validator-kit/tree/main/configs)**: 노드 설정 파일
+- **[모니터링](https://github.com/mezo-org/validator-kit/tree/main/monitoring)**: Prometheus, Grafana 및 알림
+- **[스크립트](https://github.com/mezo-org/validator-kit/tree/main/scripts)**: 자동화 및 유지 관리 도구
+
+## 하드웨어 요구 사항
+
+### 최소 요구 사항
+
+**검증자 노드**:
+- CPU: 4코어
+- RAM: 8GB
+- 스토리지: 100GB SSD
+- 네트워크: 100 Mbps
+
+**RPC 노드**:
+- CPU: 2코어
+- RAM: 4GB
+- 스토리지: 50GB SSD
+- 네트워크: 50 Mbps
+
+**시드 노드**:
+- CPU: 1코어
+- RAM: 2GB
+- 스토리지: 20GB SSD
+- 네트워크: 10 Mbps
+
+### 권장 요구 사항
+
+**검증자 노드**:
+- CPU: 8코어
+- RAM: 16GB
+- 스토리지: 500GB NVMe SSD
+- 네트워크: 1 Gbps
+
+## 설치 방법
+
+### Docker 배포
+
+<Steps>
+1. **저장소 클론**:
+   ```bash
+   git clone https://github.com/mezo-org/validator-kit.git
+   cd validator-kit
+   ```
+
+2. **환경 설정**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+3. **노드 시작**:
+   ```bash
+   docker-compose up -d
+   ```
+</Steps>
+
+### 네이티브 설치
+
+<Steps>
+1. **종속성 설치**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install -y curl git make build-essential
+
+   # Install Go
+   curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
+   ```
+
+2. **Mezod 빌드**:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   make build
+   ```
+
+3. **노드 설정**:
+   ```bash
+   ./mezod init mynode --chain-id mezo-testnet
+   ```
+</Steps>
+
+### Kubernetes 배포
+
+<Steps>
+1. **Helm 설치**:
+   ```bash
+   curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   ```
+
+2. **Helm으로 배포**:
+   ```bash
+   helm install mezo-node ./helm/mezo-node \
+     --set node.type=validator \
+     --set node.name=my-validator
+   ```
+</Steps>
+
+## 구성
+
+### 노드 구성
+
+**config.toml**:
+```toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+```
+
+**app.toml**:
+```toml
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[evm]
+rpc_address = "0.0.0.0:8545"
+ws_address = "0.0.0.0:8546"
+```
+
+### 환경 변수
+
+```bash
+# Node configuration
+NODE_TYPE=validator
+CHAIN_ID=mezo-mainnet
+MONIKER=my-validator
+
+# Network configuration
+P2P_PORT=26656
+RPC_PORT=26657
+API_PORT=1317
+GRPC_PORT=9090
+EVM_RPC_PORT=8545
+
+# Security
+PRIV_VALIDATOR_KEY_FILE=/config/priv_validator_key.json
+NODE_KEY_FILE=/config/node_key.json
+```
+
+## 검증자 설정
+
+### 사전 요구 사항
+
+1. **권한 증명(PoA)**: 검증자 자격을 신청합니다
+2. **스테이크 요구 사항**: 최소 스테이크 수량
+3. **기술 요구 사항**: 하드웨어 사양 충족
+
+### 검증자 구성
+
+```bash
+# Initialize validator
+./mezod init validator --chain-id mezo-mainnet
+
+# Create validator key
+./mezod keys add validator --keyring-backend file
+
+# Create validator transaction
+./mezod tx staking create-validator \
+  --amount=1000000umezo \
+  --pubkey=$(./mezod tendermint show-validator) \
+  --moniker="My Validator" \
+  --chain-id=mezo-mainnet \
+  --from=validator
+```
+
+## RPC 노드 설정
+
+### 용도
+
+RPC 노드는 다음을 제공합니다.
+- **API 엔드포인트**: REST 및 gRPC API
+- **EVM RPC**: 이더리움 호환 JSON-RPC
+- **WebSocket**: 실시간 데이터 스트림
+- **로드 밸런싱**: 여러 노드에 트래픽 분산
+
+### 구성
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  rpc-node:
+    image: mezod:latest
+    ports:
+      - "26657:26657"  # Tendermint RPC
+      - "1317:1317"    # Cosmos API
+      - "9090:9090"    # gRPC
+      - "8545:8545"    # EVM RPC
+    environment:
+      - NODE_TYPE=rpc
+      - CHAIN_ID=mezo-mainnet
+    volumes:
+      - ./data:/root/.mezod
+```
+
+## 모니터링 및 관측 가능성
+
+### Prometheus 구성
+
+```yaml
+# prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'mezod'
+    static_configs:
+      - targets: ['localhost:26660']
+    metrics_path: /metrics
+```
+
+### Grafana 대시보드
+
+모니터링해야 할 주요 지표는 다음과 같습니다.
+- **블록 높이**: 현재 블록체인 높이
+- **검증자 상태**: 활성/비활성 상태
+- **네트워크 연결성**: 피어 연결
+- **리소스 사용량**: CPU, 메모리, 디스크
+- **트랜잭션 처리량**: TPS 지표
+
+### 알림 규칙
+
+```yaml
+# alerts.yml
+groups:
+  - name: mezod
+    rules:
+      - alert: NodeDown
+        expr: up{job="mezod"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Mezod node is down"
+```
+
+## 보안 모범 사례
+
+### 네트워크 보안
+
+1. **방화벽 구성**:
+```bash
+# Allow only necessary ports
+ufw allow 26656/tcp  # P2P
+ufw allow 26657/tcp  # RPC
+ufw allow 1317/tcp   # API
+ufw allow 8545/tcp   # EVM RPC
+```
+
+2. **접근 제어**:
+```bash
+# Restrict RPC access
+iptables -A INPUT -p tcp --dport 26657 -s TRUSTED_IP -j ACCEPT
+iptables -A INPUT -p tcp --dport 26657 -j DROP
+```
+
+### 키 관리
+
+1. **안전한 보관**: 하드웨어 보안 모듈(HSM)을 사용하세요
+2. **백업 전략**: 키를 정기적으로 백업하세요
+3. **접근 제어**: 키 접근 권한을 제한하세요
+
+**중요**: 검증자 키를 절대 버전 관리 시스템에 커밋하지 마세요!
+
+## 유지 관리
+
+### 정기 작업
+
+1. **소프트웨어 업데이트**:
+```bash
+# Update mezod
+git pull origin main
+make build
+systemctl restart mezod
+```
+
+2. **데이터베이스 유지 관리**:
+```bash
+# Prune old data (use with caution)
+./mezod tendermint unsafe-reset-all
+```
+
+3. **로그 순환**:
+```bash
+# Configure logrotate
+cat > /etc/logrotate.d/mezod << EOF
+/var/log/mezod/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+EOF
+```
+
+### 백업 전략
+
+1. **구성 백업**:
+```bash
+tar -czf config-backup.tar.gz ~/.mezod/config/
+```
+
+2. **키 백업**(안전하게 보관하세요):
+```bash
+# Backup validator keys to secure location
+cp ~/.mezod/config/priv_validator_key.json /secure/backup/
+```
+
+## 문제 해결
+
+### 일반적인 문제
+
+1. **동기화 문제**:
+```bash
+# Check sync status
+./mezod status
+
+# Reset and resync
+./mezod tendermint unsafe-reset-all
+```
+
+2. **연결 문제**:
+```bash
+# Check peer connections
+./mezod tendermint show-node-id
+
+# Update persistent peers in config.toml
+```
+
+3. **성능 문제**:
+```bash
+# Monitor resource usage
+htop
+iotop
+netstat -tulpn
+```
+
+### 디버그 명령어
+
+```bash
+# View logs
+journalctl -u mezod -f
+
+# Check node status
+./mezod status
+
+# View configuration
+./mezod config
+
+# Test RPC endpoints
+curl http://localhost:26657/status
+```
+
+## 개발 통합
+
+### 로컬 개발
+
+1. **로컬 노드 시작**:
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
+
+2. **dApp 연결**:
+```javascript
+const provider = new ethers.JsonRpcProvider('http://localhost:8545');
+```
+
+### 테스트 환경
+
+1. **테스트넷 노드**:
+```bash
+./mezod init testnode --chain-id mezo-testnet
+```
+
+2. **통합 테스트**:
+```bash
+npm test
+```
+
+## 추가 리소스
+
+- **[Validator Kit 저장소](https://github.com/mezo-org/validator-kit.git)** - 메인 저장소
+- **[Mezod 저장소](https://github.com/mezo-org/mezod.git)** - 체인 클라이언트
+- **[Mezo 노드 문서](/docs/kr/docs/developers/mezo-nodes/)** - 노드 운영
+- **[Docker 문서](https://docs.docker.com/)** - Docker 레퍼런스
+- **[Kubernetes 문서](https://kubernetes.io/docs/)** - K8s 레퍼런스
+
+:::note
+검증자 요구 사항, 신청 절차, 고급 구성에 대한 자세한 내용은 [Validator Kit 저장소](https://github.com/mezo-org/validator-kit.git) 문서를 참조하세요.
+:::
+
+## 지원
+
+검증자 지원이 필요하면 다음을 이용하세요.
+- [Mezo Discord](https://discord.com/invite/mezo)에 참여하세요
+- [GitHub Issues](https://github.com/mezo-org/validator-kit/issues)를 확인하세요
+- [자주 묻는 질문](/docs/kr/docs/developers/getting-started/FAQs)을 검토하세요

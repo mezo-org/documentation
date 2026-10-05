@@ -1,0 +1,166 @@
+---
+title: 개요
+description: >-
+  x402로 HTTP 리소스에 대한 Mezo USD 결제를 받으세요. Mezo에서 프로토콜이 작동하는 방식, 비트코인 기반 결제에 적합한
+  이유, 만들 수 있는 것, 직접 실습하는 방법을 안내합니다.
+topic: developers
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import x402MezoFlow from '../../../../../../../../assets/diagrams/x402-mezo-flow.svg';
+import { Image } from 'astro:assets';
+
+**[x402](https://x402.org)**는 인터넷 네이티브 결제를 위한 개방형 표준입니다.
+서버는 비용을 기계가 읽을 수 있는 형태로 기술한 `HTTP 402 Payment Required`
+응답을 반환합니다. 클라이언트는 서명된 결제 메시지를 첨부하여 요청을 재시도하고,
+퍼실리테이터가 온체인에서 결제를 정산하면 서버는 구매한 콘텐츠와 함께 영수증을
+클라이언트에 반환합니다.
+
+Mezo에서 기본 정산 자산은 **MUSD**입니다. 판매자가 $0.01 같은 가격을 정하면
+x402 SDK가 런타임에 이를 MUSD 금액으로 변환하고(18자리 소수, `permit2` + EIP-2612),
+구매자의 지갑은 정해진 시간 범위 내에서 전송을 승인하는 메시지에 서명합니다.
+
+## 결제 흐름 한눈에 보기
+
+<Image
+  src={x402MezoFlow}
+  alt="Mezo에서의 x402 결제 흐름 시퀀스 다이어그램: 클라이언트/구매자, 판매자/서버, 퍼실리테이터(facilitator.vativ.io), Mezo 블록체인(eip155:31611)."
+/>
+
+1. `Client`가 `server`에 HTTP 요청을 보냅니다.
+
+2. `Server`는 `402 Payment Required` 상태와 함께 `PaymentRequired` b64 객체를 `PAYMENT-REQUIRED` HTTP 헤더로 반환합니다.
+
+3. `Client`는 서버 응답으로 반환된 `PaymentRequirements` 중 하나를 선택하고, 선택한 `PaymentRequirements`의 `scheme` 및 `network`를 바탕으로 `PaymentPayload`를 생성합니다.
+
+4. `Client`는 이번에는 `PaymentPayload`가 담긴 `PAYMENT-SIGNATURE` HTTP 헤더를 포함하여 서버에 HTTP 요청을 재시도합니다.
+
+5. `Server`는 로컬 검증을 하거나 `PaymentPayload`와 `PaymentRequirements`를 `facilitator`의 `/verify` 엔드포인트로 POST하여 `PaymentPayload`가 유효한지 검증합니다.
+
+6. `Facilitator`는 `PaymentPayload`의 `scheme`과 `network`를 바탕으로 객체를 검증하고 `Verification Response`를 반환합니다.
+
+7. `Verification Response`가 유효하면 서버는 요청을 처리하는 작업을 수행합니다. `Verification Response`가 유효하지 않으면 리소스 서버는 `402 Payment Required` 상태와 함께 응답 본문에 `Payment Required Response` JSON 객체를 반환합니다.
+
+8. `Server`는 블록체인과 직접 상호작용하거나, `Payment Payload`와 `Payment PaymentRequirements`를 `facilitator`의 `/settle` 엔드포인트로 POST하여 결제를 정산합니다.
+
+9. `Facilitator`는 `Payment Payload`의 `scheme`과 `network`를 바탕으로 결제를 블록체인에 제출합니다.
+
+10. `Facilitator`는 블록체인에서 결제가 컨펌될 때까지 기다립니다.
+
+11. `Facilitator`는 서버에 `Payment Execution Response`를 반환합니다.
+
+12. 결제가 성공적으로 실행되면 `Server`는 `Client`에 `200 OK` 응답을 반환합니다. 이 응답에는 요청한 리소스가 HTTP 응답 본문으로 포함되고, Base64로 인코딩된 JSON 형식의 `Settlement Response`가 담긴 `PAYMENT-RESPONSE` 헤더가 포함됩니다.
+
+## x402에서 MUSD의 역할
+
+- **네트워크 식별자:** CAIP-2 문자열로 Mezo 네트워크를 식별합니다. Mezo
+  테스트넷은 `eip155:31611`, Mezo 메인넷은 `eip155:31612`입니다(x402는
+  `"mezo-testnet"` 같은 짧은 이름을 허용하지 않습니다).
+- **자산 결정:** x402 가격은 달러 문자열(`price: "$0.01"`)입니다.
+  `@x402/evm`의 `DEFAULT_STABLECOINS` 레지스트리가 런타임에 이를 선택한
+  네트워크에 맞는 MUSD 토큰으로 변환하므로, 라우트 설정에 자산 주소를
+  하드코딩하지 않습니다.
+- **서명:** MUSD는 `permit2` + EIP-2612 토큰이므로 결제 승인은 EIP-712 서명
+  한 번으로 이루어집니다. 온체인 승인 트랜잭션이 없으며 구매자 측 가스도
+  필요하지 않습니다.
+- **퍼실리테이터:** 두 네트워크 모두 같은 퍼실리테이터인
+  `https://facilitator.vativ.io`가 정산하며, 이 퍼실리테이터는 하나의
+  엔드포인트로 테스트넷과 메인넷을 모두 처리합니다.
+
+### Mezo x402 참조 정보
+
+최신 SDK는 런타임에 자산과 정산 프록시를 자동으로 결정합니다. 아래 값은 참조 및
+온체인 검증용이며, 하드코딩하지 않습니다. 테스트넷과 메인넷 사이에서 다른 것은
+**네트워크 ID**와 **MUSD 자산**뿐입니다.
+
+| 네트워크 | CAIP-2 | MUSD 자산(18자리 소수) |
+|---|---|---|
+| Mezo 테스트넷 | `eip155:31611` | `0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503` |
+| Mezo 메인넷 | `eip155:31612` | `0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186` |
+
+그 밖의 모든 항목은 두 네트워크에서 동일합니다.
+
+| 항목 | 값 |
+|---|---|
+| 퍼실리테이터 | `https://facilitator.vativ.io`(두 네트워크 모두 처리) |
+| 정산 프록시 | `0x402085c248EeA27D92E8b30b2C58ed07f9E20001` — 표준 CREATE2 배포, SDK가 자동으로 결정 |
+| EIP-712 도메인 | name `Mezo USD`, version `1` — `MUSD` 심볼과 다름 |
+| 전송 방식 | `permit2` + EIP-2612 |
+
+### SDK 지원
+**Mezo 메인넷**(`eip155:31612`)은 다음 표준 x402 SDK에서 지원되기 시작했습니다.
+
+| SDK | Mezo 메인넷을 처음 지원한 릴리스 |
+|---|---|
+| TypeScript `@x402/evm` | `v2.15.0` |
+| Go `github.com/x402-foundation/x402/go/v2` | `v2.15.0` |
+| Python `x402` (PyPI) | `v2.13.0` |
+
+**Mezo 테스트넷**(`eip155:31611`)은 다음 표준 x402 SDK에서 지원되기 시작했습니다.
+
+| SDK | Mezo 테스트넷을 처음 지원한 릴리스 |
+|---|---|
+| TypeScript `@x402/evm` | `v2.10.0` |
+| Go `github.com/x402-foundation/x402/go/v2` | `v2.9.0` |
+| Python `x402` (PyPI) | `v2.7.0` |
+
+Java SDK는 아직 제공되지 않습니다. 위의 TypeScript, Go 또는 Python SDK를 사용하세요.
+
+## x402에 Mezo를 사용하는 이유
+
+x402를 지원하는 대부분의 체인은 USDC로 정산합니다. Mezo의 강점은 다릅니다.
+
+- **비트코인 네이티브 정산 자산.** MUSD는 Mezo 경제에서 BTC 담보를 기반으로
+  발행됩니다. MUSD로 표시된 수익은 ETH나 중앙화된 스테이블코인 발행사를 거치지
+  않고 비트코인 생태계 안에 머뭅니다.
+- **진정한 소액 결제를 위한 18자리 소수 정밀도.** $0.001 요금도 반올림 오차가
+  아니라 정식 연산으로 처리됩니다. 종량제 API, 추론 단위 AI 가격 책정, 요청 단위
+  콘텐츠 접근도 일괄 처리 없이 현실적인 가격을 매길 수 있습니다.
+- **구매자 가스 비용 0(퍼실리테이터가 BTC로 지불).** `facilitator.vativ.io`의
+  Mezo 퍼실리테이터가 모든 온체인 정산 트랜잭션의 가스를 네이티브 BTC로
+  대신 지불합니다. 구매자(AI 에이전트 포함)는 지출할 MUSD와 EIP-712 permit2
+  승인에 서명할 개인 키만 있으면 됩니다. BTC 가스 충전도, 브리지된 가스 토큰도,
+  첫 결제 전 사전 자금 충전 단계도 필요하지 않습니다.
+- **예측 가능한 체인 경제.** Mezo는 비트코인 기반 금융 프리미티브를 중심으로
+  설계되었으므로, MUSD 공급량과 대출 비용은 스테이블코인 발행사의 정책이 아니라
+  BTC 담보 기반에 뿌리를 둔 규칙을 따릅니다.
+
+## 만들 수 있는 것
+
+Mezo의 x402 + MUSD는 판매자가 구독, API 키, 결제 대행사 계정을 관리하지 않고
+HTTP 네이티브 가격 책정을 원하는 모든 곳에 적합합니다.
+
+- **유료 콘텐츠.** 기사, 스트림, 보고서, 리서치 자료.
+  보호된 URL마다 `402` 하나로, 자산별로 가격을 매깁니다.
+- **종량제 API.** 날씨 데이터, 암호화폐 피드, 분석 엔드포인트, 사용자 지정
+  비즈니스 로직에 요청 단위로 요금을 부과하세요. 요청 한도를 맞추느라 애쓸
+  필요도, API 키 수명 주기를 관리할 필요도 없습니다.
+- **추론당 과금 AI 서비스.** LLM, 이미지 생성기, STT, 임베딩, 파인튜닝된 모델을
+  x402 엔드포인트로 감싸세요. 호출자는 18자리 소수 MUSD 덕분에 가능한 실제 원가
+  기준 가격으로 호출마다 비용을 지불합니다.
+- **기계 간(M2M) 결제.** `@x402/fetch` 클라이언트와 개인 키를 갖춘 AI 에이전트는
+  자율적으로 거래합니다. 유료 도구를 찾고, `402` 요구 사항을 읽고, 정산하고,
+  사용합니다. 계정도, 자격 증명 교환도, 결제마다 사람이 개입할 필요도 없습니다.
+  퍼실리테이터가 가스를 대신 지불하므로 에이전트에는 MUSD와 서명 키만 있으면
+  되며, 거래를 시작하기 위해 BTC를 충전할 필요가 없습니다.
+- **유료 MCP 서버.** Model Context Protocol로 에이전트 도구를 노출하고 x402를
+  통해 호출 단위로 가격을 매기세요. 자율 에이전트 소비자와 자연스럽게 어울립니다.
+- **사용량 기반 SaaS 대체.** 사용량이 들쭉날쭉하거나 예측하기 어려운 도구,
+  대시보드, 내부 서비스의 구독 과금을 사용량 기반 가격 책정으로 대체하세요.
+
+## 시작하기
+
+단계별 안내(SDK 패키지 설치, `@x402/express`와 번들로 제공되는 `@x402/paywall`
+UI로 만든 유료 판매자 서버 실행, 브라우저 지갑으로 결제하기)는
+**[x402 빠른 시작](./x402-quickstart/)** 가이드를 참조하세요.
+
+## 함께 보기
+
+- [x402 빠른 시작](./x402-quickstart/). 직접 실습하는 단계별
+  가이드입니다.
+- [개발자 환경 설정](/docs/kr/docs/developers/getting-started/configure-environment).
+  Mezo RPC 엔드포인트와 네트워크 매개변수.
+- [네트워크 및 RPC](/docs/kr/docs/developers/chains/). 체인 설정 세부
+  정보.
+- <a href="/docs/kr/docs/users/borrow/mint-musd/" target="_blank" rel="noopener noreferrer">MUSD 대출 및 발행 ↗</a>. 사용자 측에서 MUSD를 확보하는 흐름(새 탭에서 열림).
+- [x402.org](https://x402.org). 표준 x402 프로토콜 문서.
