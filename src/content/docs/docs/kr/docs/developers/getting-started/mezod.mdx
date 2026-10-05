@@ -1,0 +1,355 @@
+---
+title: Mezod 체인 클라이언트 개발 가이드
+description: Mezo 체인의 레퍼런스 클라이언트 구현체인 Mezod로 개발하기 위한 종합 가이드입니다.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezod는 Mezo 체인의 레퍼런스 클라이언트 구현체입니다. Mezo 체인은 사용자 소유권, tBTC를 통한 안정적인 브리지, 가스로 사용하는 BTC, 이중 스테이킹 모델, EVM 호환성을 위해 설계된 비트코인 우선 블록체인입니다.
+
+## 개요
+
+Mezo는 Comet BFT 합의 엔진 위에서 실행되는, EVM과 호환되는 Cosmos SDK 기반 체인입니다. Mezod 클라이언트 코드베이스는 Evmos의 LGPL 버전에서 포크되었으며, Mezo의 고유한 요구 사항에 맞게 대폭 수정되었습니다.
+
+### 주요 기능
+
+- **비트코인 우선 설계**: 네이티브 BTC 통합 및 가스 결제
+- **EVM 호환성**: 이더리움 가상 머신(EVM) 완전 지원
+- **tBTC 브리지**: 안정적인 크로스체인 비트코인 전송
+- **이중 스테이킹 모델**: 보상 및 검증 메커니즘
+- **사용자 소유권**: 탈중앙화된 거버넌스와 통제
+
+## 저장소 구조
+
+[Mezod 저장소](https://github.com/mezo-org/mezod.git)에는 다음이 포함되어 있습니다.
+
+- **[Go 모듈](https://github.com/mezo-org/mezod/tree/main)**: 핵심 블록체인 클라이언트 구현
+- **[x/ 모듈](https://github.com/mezo-org/mezod/tree/main/x)**: 사용자 지정 Cosmos SDK 모듈
+- **[EVM 통합](https://github.com/mezo-org/mezod/tree/main/x/evm)**: 이더리움 호환성 계층
+- **[설정](https://github.com/mezo-org/mezod/tree/main/config)**: 체인 설정 및 매개변수
+
+## 개발 환경 설정
+
+### 사전 요구 사항
+
+- Go 1.21+(정확한 버전은 [`go.mod`](https://github.com/mezo-org/mezod/blob/main/go.mod) 확인)
+- Git
+- Make
+- Docker(선택 사항, 컨테이너 기반 개발용)
+
+### 설치
+
+<Steps>
+1. 저장소를 클론하세요.
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   ```
+
+2. Go 종속성을 설치하세요.
+   ```bash
+   go mod download
+   ```
+
+3. 클라이언트를 빌드하세요.
+   ```bash
+   make build
+   ```
+</Steps>
+
+### 개발 환경
+
+<Steps>
+1. **로컬 개발**:
+   ```bash
+   # Start local development node
+   make dev
+
+   # Run tests
+   make test
+
+   # Lint code
+   make lint
+   ```
+
+2. **Docker 개발**:
+   ```bash
+   # Build Docker image
+   docker build -t mezod .
+
+   # Run containerized node
+   docker run -p 26657:26657 -p 8545:8545 mezod
+   ```
+</Steps>
+
+## 체인 설정
+
+### 네트워크 매개변수
+
+Mezod는 여러 네트워크 설정을 지원합니다.
+
+- **메인넷**: 프로덕션 Mezo 네트워크
+- **테스트넷**: 공개 테스트 네트워크
+- **로컬**: 개발용 네트워크
+
+### 설정 파일
+
+주요 설정 파일:
+- `config.toml`: 노드 설정
+- `app.toml`: 애플리케이션별 설정
+- `client.toml`: 클라이언트 설정
+
+설정 예시:
+
+```toml
+# config.toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+```
+
+## EVM 통합
+
+### 이더리움 호환성
+
+Mezod는 완전한 EVM 호환성을 제공하므로 다음을 할 수 있습니다.
+
+- 이더리움 스마트 컨트랙트 배포
+- 이더리움 도구(Hardhat, Truffle 등) 사용
+- Web3 라이브러리로 컨트랙트와 상호작용
+
+### Web3로 연결하기
+
+```javascript
+import { ethers } from 'ethers';
+
+// Connect to Mezo network
+const provider = new ethers.JsonRpcProvider('https://rpc.mezo.org');
+
+// Get network info
+const network = await provider.getNetwork();
+console.log('Network:', network);
+
+// Deploy contract
+const factory = new ethers.ContractFactory(abi, bytecode, signer);
+const contract = await factory.deploy();
+await contract.waitForDeployment();
+```
+
+### 가스 및 수수료
+
+- **가스로 사용하는 BTC**: 트랜잭션 수수료를 비트코인으로 지불
+- **동적 가격 책정**: 네트워크 상황에 따라 가스 가격 조정
+- **EVM 가스 모델**: 이더리움 가스 계산과 호환
+
+## 노드 유형
+
+### 풀 노드
+
+전체 블록체인을 저장하는 완전한 노드입니다.
+
+```bash
+# Start full node
+mezod start
+```
+
+### 라이트 클라이언트
+
+모바일 및 리소스가 제한된 환경을 위한 경량 클라이언트입니다.
+
+```bash
+# Start light client
+mezod start --mode light
+```
+
+### 아카이브 노드
+
+모든 과거 데이터를 저장하는 노드입니다.
+
+```bash
+# Start archive node
+mezod start --mode archive
+```
+
+## RPC 엔드포인트
+
+### Cosmos SDK RPC
+
+- **포트**: 26657
+- **엔드포인트**: 표준 Cosmos SDK RPC 메서드
+- **WebSocket**: 실시간 업데이트
+
+```bash
+# Query node status
+curl http://localhost:26657/status
+```
+
+### EVM RPC
+
+- **포트**: 8545
+- **엔드포인트**: 이더리움 호환 JSON-RPC
+- **메서드**: eth_getBalance, eth_sendTransaction 등
+
+```bash
+# Query EVM balance
+curl -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x...", "latest"],"id":1}' \
+  http://localhost:8545
+```
+
+## 개발 워크플로
+
+### 컨트랙트 빌드
+
+<Steps>
+1. **Solidity 컨트랙트 작성**: 표준 이더리움 도구를 사용하세요
+
+2. **컴파일**: Hardhat, Truffle 또는 solc를 직접 사용하세요
+
+3. **배포**: Mezo 테스트넷/메인넷에 배포하세요
+
+4. **상호작용**: Web3 라이브러리나 직접 RPC 호출을 사용하세요
+</Steps>
+
+### 테스트
+
+```bash
+# Run unit tests
+make test
+
+# Run integration tests
+make test-integration
+
+# Run specific test package
+go test ./x/evm/...
+```
+
+## 통합 예시
+
+### Cosmos SDK 통합
+
+```go
+package main
+
+import (
+    "context"
+    "github.com/cosmos/cosmos-sdk/client"
+    "github.com/cosmos/cosmos-sdk/client/tx"
+)
+
+func main() {
+    // Create client context
+    clientCtx := client.Context{}
+
+    // Create transaction builder
+    txBuilder := clientCtx.TxConfig.NewTxBuilder()
+
+    // Build and send transaction
+    // ... transaction logic
+}
+```
+
+## 모니터링 및 디버깅
+
+### 로깅
+
+```bash
+# Enable debug logging
+mezod start --log-level debug
+
+# Log to file
+mezod start --log-file /path/to/logfile
+```
+
+### 메트릭
+
+- **Prometheus**: 포트 26660에서 기본 제공 메트릭 수집
+- **Grafana**: 모니터링용 대시보드
+- **상태 확인**: 상태 모니터링용 HTTP 엔드포인트
+
+```bash
+# Check metrics
+curl http://localhost:26660/metrics
+```
+
+## 배포
+
+### 프로덕션 배포
+
+**하드웨어 요구 사항**:
+- 최소: 8GB RAM, 100GB SSD
+- 권장: 16GB RAM, 500GB NVMe SSD
+
+**단계**:
+
+<Steps>
+1. 방화벽과 네트워크 포트를 설정하세요
+
+2. 적절한 접근 제어를 설정하세요
+
+3. 모니터링 스택을 배포하세요
+
+4. 프로덕션 설정으로 노드를 시작하세요
+</Steps>
+
+### Docker 배포
+
+```bash
+# Production Docker deployment
+docker run -d \
+  --name mezod \
+  -p 26657:26657 \
+  -p 8545:8545 \
+  -v /data:/root/.mezod \
+  mezod:latest start
+```
+
+## 문제 해결
+
+### 자주 발생하는 문제
+
+1. **연결 문제**: RPC 엔드포인트와 네트워크 연결 상태를 확인하세요
+2. **동기화 문제**: 블록체인 동기화 상태를 확인하세요
+3. **가스 문제**: 가스 가격을 모니터링하고 그에 맞게 조정하세요
+
+### 디버그 명령어
+
+```bash
+# Check node status
+mezod status
+
+# View logs
+mezod logs
+
+# Reset node (caution: deletes data)
+mezod unsafe-reset-all
+```
+
+## 추가 리소스
+
+- **[Mezod 저장소](https://github.com/mezo-org/mezod.git)** - 메인 저장소
+- **[Mezo 문서](/docs/kr/docs/developers/getting-started/configure-environment)** - 전체 문서
+- **[Cosmos SDK 문서](https://docs.cosmos.network/)** - Cosmos SDK 레퍼런스
+- **[EVM 문서](https://ethereum.org/en/developers/docs/evm/)** - EVM 사양
+- **[테스트넷 가이드](/docs/kr/docs/developers/testnet)** - 테스트넷 접근 및 사용
+
+:::note
+자세한 체인 아키텍처, 모듈 사양, 프로토콜 메커니즘은 Mezod 저장소 문서를 참조하세요.
+:::
+
+## 지원
+
+개발 지원이 필요하면 다음을 이용하세요.
+- [Mezo Discord](https://discord.com/invite/mezo)에 참여하세요
+- [GitHub Issues](https://github.com/mezo-org/mezod/issues)를 확인하세요
+- [자주 묻는 질문](/docs/kr/docs/developers/getting-started/FAQs)을 검토하세요

@@ -1,0 +1,87 @@
+---
+title: MEZO Gauges 개요
+description: 'veMEZO 보유자는 MEZO 에미션을 Curve, Uniswap, Aerodrome의 MUSD 유동성 풀로 보낼 수 있습니다'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+**MEZO Gauges를 사용하면 veMEZO 보유자가 투표를 통해 MEZO 에미션을 Mezo 외부의 유동성 풀로 보낼 수 있습니다.** 대상은 Curve와 Uniswap(이더리움), Aerodrome(Base)의 풀입니다.
+
+지금까지 veMEZO의 역할은 veBTC 포지션을 [부스트](/docs/kr/docs/users/mezo-earn/lock/vemezo/boost-mechanism)하는 한 가지뿐이었습니다. 이제 veMEZO는 주간 에미션의 실제 일부에 대해 자체 투표력을 갖습니다.
+
+---
+
+## 다른 체인의 LP에게 보상하는 이유
+
+MUSD는 사람들이 이미 있는 곳에서 유동성이 풍부해야만 유용합니다. Mezo 밖의 풀이 얕으면 MUSD를 큰 규모로 매수하거나 매도할 수 없고, 이는 MUSD 부채 규모가 안전하게 성장할 수 있는 한도를 제한합니다.
+
+---
+
+## MEZO Gauges가 다른 게이지와 다른 점
+
+Mezo는 세 종류의 게이지를 운영합니다.
+| | 스테이킹 게이지 | veBTC 부스트 게이지 | **MEZO Gauge** |
+|---|---|---|---|
+| 투표에 사용하는 토큰 | veBTC | veMEZO | **veMEZO** |
+| 에미션 도착지 | Mezo 체인 내 스테이커 | 해당 없음 | **Mezo 체인 외부, 풀 인센티브로** |
+| 투표자 수익 | 거래 수수료 + 인센티브 | 걸린 인센티브 | **게이지에 걸린 인센티브** |
+
+:::note
+MEZO Gauges는 **비스테이킹 게이지**입니다. 인센티브 대상 유동성이 다른 체인에 있으므로 Mezo에서 스테이킹할 LP 토큰이 없습니다. 이 게이지에 대한 투표는 veBTC 투표나 부스트 매칭과 완전히 독립적입니다. veMEZO를 MEZO Gauge에 배분해도 제공 중인 부스트는 소모되거나 줄어들지 않습니다. 이 메커니즘은 향후 Mezo 내에 머무는 비스테이킹 게이지도 지원할 수 있습니다.
+:::
+
+---
+
+## 대상 풀
+
+출시 시점에 네 개의 게이지가 운영됩니다.
+
+| 게이지 | 풀 | 거래소 | 체인 | 배분 방식 |
+|---|---|---|---|---|
+| Uniswap USDC/MUSD | USDC/MUSD | Uniswap | 이더리움 | Merkl |
+| Curve USDT/USDC/MUSD | USDT/USDC/MUSD | Curve | 이더리움 | Merkl |
+| Aerodrome USDC/MUSD | USDC/MUSD | Aerodrome | Base | Aerodrome 투표 인센티브 |
+| Aerodrome MEZO/MUSD | MEZO/MUSD | Aerodrome | Base | Aerodrome 투표 인센티브 |
+
+### 목록이 변경되는 방식
+
+대상 풀 목록은 원격 게이지 레지스트리가 보유하고 거버넌스가 관리하는 온체인 허용 목록입니다. 풀은 누구나 권한 없이 게이지를 만드는 방식이 아니라 거버넌스 조치를 통해 추가되거나 제거됩니다. 목록이 변경되면 이 페이지와 Vote 페이지에 반영됩니다.
+
+---
+
+## 배분 가능한 MEZO 규모
+
+MEZO Gauges의 재원은 에미션의 **비스테이킹 게이지 분기**이며, 현재 **주간 에미션 보상의 8%**입니다. veBTC 보유자는 [Splitter](/docs/kr/docs/users/mezo-earn/overview/glossary#splitter)를 통해 이 비율을 정합니다. 자세한 내용은 [에미션 일정](/docs/kr/docs/users/mezo/emissions)을 참조하세요.
+
+---
+
+## 전체 흐름
+
+<Steps>
+1. **투표합니다.** 에포크 동안 사용 가능한 MEZO Gauges에 veMEZO 투표력을 배분하세요.
+2. **에포크가 종료됩니다.** 목요일 00:00 UTC에 에포크가 끝나고 투표가 집계됩니다. 각 게이지의 MEZO 몫은 veMEZO 투표에서 차지하는 비중으로 정해집니다.
+3. **MEZO가 Mezo를 떠납니다.** 각 게이지의 배분량이 청구되어 목적지로 전송됩니다.
+4. **인센티브로 도착합니다.** 목적지 풀에 인센티브로 지급되며, LP는 Merkl에서, 투표자는 Aerodrome에서 이를 청구합니다.
+</Steps>
+
+정확한 시점과 형태는 거래소마다 다릅니다. [투표가 반영되는 곳](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes)을 참조하세요.
+
+---
+
+## 투표자가 얻는 수익
+
+투표한 게이지에 걸린 인센티브 중 해당 게이지의 veMEZO 투표에서 내가 차지하는 비중만큼을 받습니다. [부스트 게이지](/docs/kr/docs/users/mezo-earn/lock/vemezo/matching-market) 인센티브도 같은 방식으로 작동합니다. 누구나 MEZO Gauge에 인센티브를 걸 수 있으며, 투표자는 이를 청구할 수 있습니다.
+
+MEZO 자체는 그대로 이동합니다. 목적지 풀에 도착하여 프로토콜에 따라 해당 풀의 LP나 투표자에게 지급됩니다. 내 투표는 MUSD 유동성에 대한 보상이 어디로 갈지를 결정합니다. 내가 받는 보상은 게이지에 걸린 인센티브입니다.
+
+배분된 MEZO까지 받으려면 양쪽 모두에 참여하세요. 목적지 풀에 유동성을 공급하고, Aerodrome의 경우 Base에서 해당 게이지에 투표하세요. 이 흐름은 [투표가 반영되는 곳](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#배분한-가치-확보하기)에서 자세히 설명합니다.
+
+---
+
+## 다음 단계
+
+- [MEZO Gauges에서 투표하는 방법](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — 단계별 안내
+- [투표가 반영되는 곳](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — 가중치가 인센티브로 바뀌는 방식과 시점
+- [인센티브 청구하기](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — 목적지 풀의 LP를 위한 안내
+- [MEZO를 잠그는 방법](/docs/kr/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) — 아직 veMEZO가 없는 경우

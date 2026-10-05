@@ -1,0 +1,42 @@
+---
+title: Mezo에 자산을 입금하는 방법
+description: 셀프 서비스 비트코인 뱅킹을 위해 Mezo에 자산을 입금하는 가이드
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+네이티브 비트코인 또는 지원되는 ERC-20 토큰(비트코인 래퍼)을 Mezo 메인넷에 입금할 수 있습니다.
+
+<YouTube id="DinlFeUZB3U" title="Mezo에 입금하는 방법" />
+
+## 시작하기 전에
+
+- 지원되는 자산을 확인하세요. 해당 자산의 토큰 주소는 [컨트랙트 참조](/docs/kr/docs/users/resources/contracts-reference#토큰-컨트랙트) 페이지에서 확인할 수 있습니다.
+- Mezo 메인넷의 모든 트랜잭션 비용은 입금한 네이티브 BTC 또는 tBTC로 지불합니다. 네트워크를 사용하기 전에 트랜잭션에 필요한 가스를 확보할 수 있도록 계정에 BTC 또는 tBTC를 충전해 두는 것이 좋습니다.
+
+## 자산 입금하기
+
+<Steps>
+1. [Mezo App](https://mezo.org/overview)으로 이동해 지원되는 지갑으로 로그인하세요.
+
+2. 로그인하고 트랜잭션에 서명한 후 **Deposit Bitcoin**을 클릭하세요.
+
+3. 브리지할 자산을 선택하고 금액을 지정하세요.
+
+    ![](/docs/images/mainnet/deposit-modal-preview.png)
+
+4. **Review**를 클릭해 전송 내용을 검토하고 입금 주소를 생성하세요.
+
+5. 전송 세부 정보를 살펴보고 정확한지 확인하세요.
+
+6. 자산을 입금할 준비가 되면 지갑 주소를 복사하세요. 지갑에 주소가 올바르게 표시되는지 확인하세요.
+
+    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
+
+7. 트랜잭션 내용에 문제가 없으면 트랜잭션을 확인하세요.
+</Steps>
+
+트랜잭션이 완료되면 브리지 과정이 시작됩니다. 메인넷에서 자산을 받기까지 몇 분 정도 걸릴 수 있습니다.
+

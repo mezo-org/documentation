@@ -1,85 +1,95 @@
 ---
-title: Mezo 브리지 개요
+title: Mezo Bridge 개요
 topic: developers
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Mezo 브리지는 Bitcoin, Ethereum, Mezo 간의 네이티브 자산 이동을 가능하게 합니다. 아래는 설계 RFC를 참조한 주요 흐름입니다.
+Mezo Bridge는 비트코인, 이더리움, Mezo 간의 네이티브 자산 이동을 가능하게 합니다. 아래는 설계 RFC 참조와 함께 정리한 주요 흐름입니다.
 
-### Mezo로 브리지 인
+### Mezo로 브리지하기
 
-Bitcoin → Mezo
+비트코인 → Mezo
 
 <Steps>
-1. Mezo 수신자를 식별하는 메타데이터와 함께 브리지 제어 주소로 BTC를 잠급니다.
+1. Mezo 수신자를 식별하는 메타데이터와 함께 브리지가 제어하는 주소로 BTC를 잠급니다.
 
-2. Mezo 브리지 컨트랙트에 증명과 인증을 제출합니다.
+2. Mezo Bridge 컨트랙트에 증명과 증명서(attestation)를 제출합니다.
 
 3. 컨트랙트가 증명을 검증합니다.
 
 4. Mezo에서 수신자에게 해당 자산을 발행합니다.
 </Steps>
 
-Ethereum → Mezo
+이더리움 → Mezo
 
 <Steps>
-1. Mezo 브리지 컨트랙트를 통해 Ethereum에서 ERC-20을 잠그고, Mezo 수신자와 함께 `AssetLocked` 이벤트를 발생시킵니다.
+1. Mezo Bridge 컨트랙트를 통해 이더리움에서 ERC-20 토큰을 잠그며, 이때 Mezo 수신자 정보가 담긴 `AssetLocked` 이벤트가 발생합니다.
 
-2. 브리지 밸리데이터가 해당 이벤트를 수신합니다.
+2. 브리지 검증자가 이러한 이벤트를 수신합니다.
 
-3. 브리지 밸리데이터가 이벤트 포함 및 밸리데이터 쿼럼을 검증합니다.
+3. 브리지 검증자가 이벤트 포함 여부와 검증자 쿼럼을 검증합니다.
 
 4. Mezo에서 수신자에게 해당 자산을 발행합니다.
 </Steps>
 
-### Mezo에서 브리지 아웃
+### Mezo 밖으로 브리지하기
 
-Mezo → Bitcoin
+Mezo → 비트코인
 
 <Steps>
-1. Bitcoin 수신자 주소를 지정하여 Mezo에서 자산을 소각합니다.
+1. 비트코인 수신자 주소를 지정하여 Mezo에서 자산을 소각합니다.
 
-2. Mezo 브리지 컨트랙트에 증명과 인증을 제출합니다.
+2. Mezo Bridge 컨트랙트에 증명과 증명서(attestation)를 제출합니다.
 
 3. 컨트랙트가 증명을 검증합니다.
 
-4. 검증이 완료되면 수신자 주소로 BTC가 릴리스됩니다.
+4. 검증이 완료되면 BTC가 수신자 주소로 지급됩니다.
 </Steps>
 
-Mezo → Ethereum
+Mezo → 이더리움
 
 <Steps>
-1. Ethereum 수신자를 지정하여 Mezo에서 자산을 소각합니다.
+1. 이더리움 수신자를 지정하여 Mezo에서 자산을 소각합니다.
 
-2. 브리지 밸리데이터가 `AssetsUnlocked` 이벤트를 수신합니다.
+2. 브리지 검증자가 `AssetsUnlocked` 이벤트를 수신합니다.
 
-3. 브리지 밸리데이터가 이벤트 포함 및 밸리데이터 쿼럼을 검증합니다.
+3. 브리지 검증자가 이벤트 포함 여부와 검증자 쿼럼을 검증합니다.
 
-4. 검증이 완료되면 수신자에게 ERC-20이 릴리스됩니다.
+4. 검증이 완료되면 ERC-20 토큰이 수신자에게 지급됩니다.
 </Steps>
 
 ### 아키텍처
 
-- **소스에서 잠금/소각**: 자산은 Bitcoin/Ethereum에서 잠기거나 (또는 Mezo에서 소각되며) 대상 수신자와 타겟 체인을 식별하는 데이터와 함께 처리됩니다.
-- **인증 및 릴레이**: 오프체인 클라이언트가 소스 체인 이벤트에 대한 인증을 생성하고 증명을 목적지 체인으로 릴레이합니다.
-- **목적지에서 발행/릴리스**: 유효한 인증 및 증명 검증이 완료되면, 목적지 컨트랙트가 래핑된 자산을 발행하거나 잠긴 자금을 릴리스합니다.
+- **소스 체인에서 잠금/소각**: 자산은 비트코인/이더리움에서 잠기거나 Mezo에서 소각되며, 이때 의도한 수신자와 대상 체인을 식별하는 데이터가 함께 기록됩니다.
+- **증명서 생성 및 릴레이**: 오프체인 클라이언트가 소스 체인 이벤트에 대한 증명서를 생성하고 증명을 대상 체인으로 릴레이합니다.
+- **대상 체인에서 발행/해제**: 유효한 증명서와 증명 검증이 확인되면 대상 체인의 컨트랙트가 래핑된 자산을 발행하거나 잠긴 자금을 해제합니다.
 
 ### 핵심 흐름
 
 <Steps>
-1. 사용자가 목적지 주소와 금액을 지정하여 브리지 전송을 시작합니다.
+1. 사용자가 대상 주소와 금액을 지정하여 브리지 전송을 시작합니다.
 
 2. 잠금/소각 후 소스 체인 컨트랙트/이벤트가 발생하며, 이벤트에는 고유한 시퀀스 ID와 매개변수가 포함됩니다.
 
-3. 오프체인 클라이언트가 RFC 임계값에 따라 확인/최종성을 수집하고 증명+인증을 목적지 컨트랙트에 제출합니다.
+3. 오프체인 클라이언트가 RFC 임계값에 따라 컨펌/완결성을 수집하고 증명과 증명서를 대상 체인의 컨트랙트에 제출합니다.
 
-4. 목적지에서 검증:
-   - 이벤트 진위성
-   - 밸리데이터 쿼럼/서명
+4. 대상 체인에서 다음을 검증합니다.
+   - 이벤트 진위
+   - 검증자 쿼럼/서명
 
-5. 성공 시, 목적지에서 발행/릴리스를 실행하고 완료를 기록합니다.
+5. 검증에 성공하면 대상 체인에서 발행/해제를 실행하고 완료를 기록합니다.
 </Steps>
+
+### Enclave 입금
+
+Mezo Enclaves는 규제상 수탁 요건이 있는 기관이 별도의 브리지에 입금하지 않고도
+Mezo에서 BTC를 사용할 수 있게 해 주는 기관용 기능입니다. Enclave에는 브리지 금액과
+사용 제한을 규정한 법적 계약과 연계된 특별한 권한이 부여됩니다. Enclave로의 모든 입금은
+여전히 비트코인 체인의 UTXO로 뒷받침되며, 이 UTXO는 3자간 브리지 입금 트랜잭션에
+기록되고 체인 상태에 유지됩니다. Enclave는 Mezo 거버넌스 멀티시그가 개별적으로
+허용 목록에 추가합니다. 기반이 되는 3자간 브리지 구현에 대한 자세한 내용은
+[`mezod` RFC-6](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md)에서 확인할 수 있습니다.
 
 ### 컨트랙트
 
@@ -95,12 +105,13 @@ Sepolia:
 
 ### 감사
 
-최신 감사 내용은 [감사](https://github.com/mezo-org/audits) 페이지를 참조하세요.
+최신 감사 보고서는 [감사](https://github.com/mezo-org/audits) 페이지를 참조하세요.
 
 ## 추가 리소스
 
-전체 기술 세부 사항, 메시지 형식 및 보안 근거에 대해서는 다음 RFC를 참조하세요:
+전체 기술 세부 사항, 메시지 형식, 보안 설계 근거는 다음 RFC를 참조하세요.
 
-- [RFC-2: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
-- [RFC-4: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
-- [RFC-5: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-2: 비트코인을 Mezo로 브리지하기](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
+- [RFC-4: 비트코인 외 네이티브 자산 브리지](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
+- [RFC-5: Mezo 밖으로 자산 브리지하기](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-6: 3자간 BTC 브리지](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md)
