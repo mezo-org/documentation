@@ -1,0 +1,72 @@
+---
+title: MUSD Bridge
+description: >-
+  Saiba como transferir tokens MUSD pela ponte entre Ethereum, Base e Mezo
+  usando o protocolo Native Token Transfer da Wormhole.
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+A ponte do [MUSD](https://mezo.org/feature/musd) permite transferências entre as redes Mezo, Ethereum e Base usando o protocolo Native Token Transfer (NTT) da Wormhole. Essa ponte mantém a fungibilidade do token e oferece uma funcionalidade cross-chain segura.
+
+## Como funciona
+
+A ponte do MUSD usa o protocolo Native Token Transfer da Wormhole para viabilizar transferências cross-chain:
+
+- **Do Mezo para Ethereum/Base**: os tokens MUSD são bloqueados no Mezo e a quantidade equivalente de tokens é cunhada na cadeia de destino
+- **De Ethereum/Base para o Mezo**: os tokens MUSD são queimados na cadeia de origem e a quantidade equivalente de tokens é desbloqueada no Mezo
+
+Esse mecanismo garante que a oferta total em todas as cadeias permaneça constante e, ao mesmo tempo, permite que os usuários movimentem seus tokens livremente entre as redes.
+
+## Opções de ponte
+
+Há duas interfaces disponíveis para transferir tokens MUSD pela ponte:
+
+### dApp do Mezo
+
+O [dApp do Mezo](https://mezo.org) oferece uma experiência nativa para transferir tokens MUSD pela ponte entre as redes Mezo e Ethereum.
+
+<Steps>
+1. **Conecte sua carteira** ao dApp do Mezo
+
+2. **Clique em "Withdraw"** para sair do Mezo pela ponte, ou em **"Deposit"** para entrar no Mezo pela ponte
+
+3. **Selecione o token MUSD** e informe a quantidade
+
+4. **Confirme a transação** na sua carteira
+
+5. **Aguarde a confirmação** nas duas cadeias
+</Steps>
+
+### Interface da Portal Bridge
+
+Para transferir tokens MUSD pela ponte para Base ou Ethereum, você também pode usar a [interface do Portal](https://portalbridge.com/):
+
+<Steps>
+1. **Conecte sua carteira** à interface do Portal
+
+2. **Selecione as cadeias de origem e de destino** (Mezo ↔ Ethereum ↔ Base)
+
+3. **Escolha MUSD** como o token a ser transferido
+
+4. **Informe a quantidade** que deseja transferir
+
+5. **Revise os detalhes da transação**, incluindo taxas e tempo estimado
+
+6. **Confirme a transação** na sua carteira
+
+7. **Aguarde a confirmação** nas duas cadeias
+</Steps>
+
+As duas interfaces oferecem experiências fáceis de usar, que cuidam de todas as interações complexas com os contratos NTT subjacentes.
+
+## Contratos inteligentes
+
+Para ver todos os endereços dos contratos da ponte e do token MUSD, consulte a página de referência [Endereços de contratos e tokens](../../resources/contracts-reference).
+
+## Recursos adicionais
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Documentação do Wormhole NTT</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">Referência de contratos</LinkButton>

@@ -1,0 +1,88 @@
+---
+title: MEZO Bridge
+description: >-
+  Transfira tokens MEZO pela ponte entre o Mezo e outras redes usando o Wormhole
+  NTT
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+A ponte do MEZO permite transferências entre o Mezo e várias redes, incluindo Ethereum, Base, BSC e Solana, usando o protocolo Native Token Transfer (NTT) da Wormhole. Essa ponte mantém a fungibilidade do token e oferece uma funcionalidade cross-chain segura.
+
+## Como funciona
+
+A ponte do MEZO usa o protocolo Native Token Transfer da Wormhole para viabilizar transferências cross-chain:
+
+- **Do Mezo para outras cadeias**: os tokens MEZO são bloqueados no Mezo e a quantidade equivalente de tokens é cunhada na cadeia de destino (Ethereum, Base, BSC ou Solana)
+- **De outras cadeias para o Mezo**: os tokens MEZO são queimados na cadeia de origem e a quantidade equivalente de tokens é desbloqueada no Mezo
+
+Esse mecanismo garante que a oferta total em todas as cadeias permaneça constante e, ao mesmo tempo, permite que os usuários movimentem seus tokens livremente entre as redes.
+
+## Opções de ponte
+
+Há duas interfaces disponíveis para transferir tokens MEZO pela ponte:
+
+### dApp do Mezo
+
+O [dApp do Mezo](https://mezo.org) oferece uma experiência nativa para transferir tokens MEZO pela ponte somente entre as redes Mezo e Ethereum.
+
+**Para transferir do Mezo para o Ethereum pela ponte (saque):**
+
+<Steps>
+1. **Conecte sua carteira** ao dApp do Mezo
+
+2. **Clique em "Withdraw"** para transferir tokens do Mezo pela ponte
+
+3. **Selecione o token MEZO** e informe a quantidade a sacar
+
+4. **Confirme a transação** na sua carteira
+
+5. **Aguarde a confirmação** nas duas cadeias
+</Steps>
+
+**Para transferir do Ethereum para o Mezo pela ponte (depósito):**
+
+<Steps>
+1. **Conecte sua carteira** ao dApp do Mezo
+
+2. **Clique em "Deposit"** para transferir tokens para o Mezo pela ponte
+
+3. **Selecione o token MEZO** e informe a quantidade a depositar
+
+4. **Confirme a transação** na sua carteira
+
+5. **Aguarde a confirmação** nas duas cadeias
+</Steps>
+
+### Interface da Wormhole Portal Bridge
+
+Para transferir tokens MEZO pela ponte para Base, BSC, Solana ou Ethereum, use a [interface do Portal](https://portalbridge.com/):
+
+<Steps>
+1. **Conecte sua carteira** à interface do Portal
+
+2. **Selecione as cadeias de origem e de destino** (Mezo ↔ Ethereum, Base, BSC ou Solana)
+
+3. **Escolha MEZO** como o token a ser transferido
+
+4. **Informe a quantidade** que deseja transferir
+
+5. **Revise os detalhes da transação**, incluindo taxas e tempo estimado
+
+6. **Confirme a transação** na sua carteira
+
+7. **Aguarde a confirmação** nas duas cadeias
+</Steps>
+
+As duas interfaces oferecem experiências fáceis de usar, que cuidam de todas as interações complexas com os contratos NTT subjacentes.
+
+## Contratos inteligentes
+
+Para ver todos os endereços dos contratos da ponte e do token MEZO, consulte a página de referência [Endereços de contratos e tokens](../../resources/contracts-reference).
+
+## Recursos adicionais
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Documentação do Wormhole NTT</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">Referência de contratos</LinkButton>
