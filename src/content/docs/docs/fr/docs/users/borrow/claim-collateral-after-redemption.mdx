@@ -1,0 +1,59 @@
+---
+title: Comment récupérer votre garantie après un rachat complet
+description: >-
+  Guide étape par étape pour récupérer la garantie restante après le rachat
+  complet de votre prêt MUSD (trove).
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Lorsqu'un autre utilisateur rachète des MUSD sur votre prêt (trove) et que celui-ci est entièrement remboursé, votre dette est soldée, mais la garantie restante éventuelle reste dans les contrats intelligents MUSD jusqu'à ce que vous la récupériez. Votre garantie est en sécurité et peut être récupérée à tout moment.
+
+En principe, une alerte « Loan redeemed » s'affiche sur la page Borrow et vous permet de récupérer votre garantie directement depuis l'interface. Pour cela, cliquez sur le bouton situé à droite de l'alerte, comme le montre la capture d'écran ci-dessous.
+
+![Alerte « Loan redeemed » sur la page Borrow](/docs/images/musd/loan-redeemed.webp)
+
+Si cette alerte ne s'affiche pas, vous pouvez récupérer votre garantie manuellement en appelant la fonction `claimCollateral` du contrat BorrowerOperations via le Mezo Explorer. Suivez les étapes ci-dessous.
+
+<Steps>
+
+1. **Accédez au contrat BorrowerOperations**
+
+   Rendez-vous sur la page du [contrat BorrowerOperations sur le Mezo Explorer](https://explorer.mezo.org/address/0x44b1bac67dDA612a41a58AAf779143B181dEe031).
+
+2. **Cliquez sur l'onglet « Contract »**
+
+   Dans la barre d'onglets, à côté de Transactions, Token transfers et Tokens, cliquez sur **Contract**.
+
+   Quatre sous-onglets apparaissent alors : **Code**, **Read proxy**, **Write contract** et **Write proxy**.
+
+3. **Cliquez sur « Write proxy »**
+
+   Cliquez sur l'onglet **Write proxy**. C'est cet onglet qui expose toutes les fonctions d'écriture du contrat d'implémentation BorrowerOperations sous-jacent.
+
+   :::caution
+   Veillez à sélectionner **Write proxy** (et non « Write contract ») : l'onglet du proxy reflète la logique réelle de BorrowerOperations.
+   :::
+
+4. **Connectez votre portefeuille**
+
+   Un bandeau jaune/orange s'affiche en haut de la zone des fonctions du contrat, avec la mention « Disconnected » et un bouton **Connect wallet**.
+
+   Cliquez sur **Connect wallet** et approuvez la connexion dans votre portefeuille (par exemple MetaMask). Veillez à vous connecter avec la même adresse de portefeuille que celle qui détenait le trove racheté, car seule cette adresse peut récupérer la garantie correspondante.
+
+5. **Trouvez la fonction claimCollateral**
+
+   Faites défiler la liste des fonctions du contrat jusqu'à atteindre :
+
+   **7. claimCollateral**
+
+   Cliquez dessus pour déplier la fonction. Elle ne nécessite aucun paramètre d'entrée : elle se contente de récupérer toute la garantie mise de côté pour votre adresse après le rachat complet.
+
+6. **Cliquez sur « Write »**
+
+   Une fois votre portefeuille connecté, cliquez sur le bouton **Write** situé sous la fonction `claimCollateral`.
+
+   Votre portefeuille vous invite à confirmer la transaction. Vérifiez les frais de gaz, puis confirmez. Une fois la transaction terminée, votre garantie (en BTC) est envoyée directement dans votre portefeuille.
+
+</Steps>

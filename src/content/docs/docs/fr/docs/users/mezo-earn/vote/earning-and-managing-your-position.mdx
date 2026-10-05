@@ -1,0 +1,162 @@
+---
+title: Gagner des revenus et gérer votre position
+description: 'Comprendre le pouvoir de vote, les gains et la gestion de position sur Mezo'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Comprendre le pouvoir de vote
+
+Lorsque vous verrouillez des BTC, votre pouvoir de vote est tokenisé sous la forme d'un NFT. Ce NFT représente votre poids de gouvernance et vous donne droit à :
+
+- une part proportionnelle des frais de trading générés par les gauges pour lesquels vous votez ;
+- une part proportionnelle des incentives (incitations) déposés pour ces gauges ;
+- des frais de pont et de chaîne passifs (proportionnels à votre poids boosté) ;
+- la possibilité de voter sur la destination des émissions.
+
+### Poids de base et poids boosté
+
+**Poids de base :** votre poids veBTC sans aucun boost veMEZO. Il s'applique avec un multiplicateur de 1x.
+
+**Poids boosté :** lorsque des votes veMEZO sont dirigés vers votre position veBTC, votre poids effectif est multiplié jusqu'à 5x.
+
+Le boost dépend de votre part du total de veBTC et de la part du total de veMEZO dirigée vers votre position. Les positions en BTC plus importantes nécessitent proportionnellement plus de veMEZO pour atteindre le boost maximal.
+
+### Mécanisme de décroissance
+
+Votre pouvoir de vote décroît de manière linéaire au fil du temps. Si vous verrouillez 1 BTC pendant 28 jours, votre poids commence à 1,0 puis diminue en continu jusqu'à atteindre zéro à l'expiration. Vous pouvez prolonger votre verrouillage à tout moment pour conserver une influence maximale.
+
+---
+
+## Gagner des revenus en tant que votant veBTC
+
+Lorsque vous détenez des veBTC et votez, vous percevez des revenus de plusieurs sources :
+
+### Frais de trading
+
+- **Source :** 100 % des frais de trading générés par le pool spécifique pour lequel vous avez voté
+- **Distribution :** vous percevez une part proportionnelle à votre poids de vote. Si un pool génère 10 000 USD de frais et que vous avez fourni 5 % des votes de ce gauge, vous gagnez 500 USD.
+- **Réclamables :** versés dans les jetons du pool (par exemple BTC et MUSD)
+
+### Incentives
+
+- **Source :** incentives externes déposés par des protocoles pour attirer des votes vers leurs gauges
+- **Distribution :** comme les frais, les incentives sont répartis proportionnellement entre tous les votants de ce gauge
+- **Réclamables :** versés dans le jeton déposé par le protocole
+
+### Frais de pont passifs
+
+- **Source :** frais issus du transfert d'actifs vers Mezo via le pont et de l'activité générale de la chaîne
+- **Distribution :** tous les détenteurs de veBTC perçoivent une part proportionnelle à leur poids boosté
+- **Réclamables :** aucun vote n'est nécessaire : vous les percevez du simple fait de détenir des veBTC
+
+
+---
+
+## Gagner des revenus en tant que détenteur de veMEZO
+
+Les détenteurs de veMEZO perçoivent des revenus différemment des détenteurs de veBTC :
+
+### Incentives des gauges de boost
+
+- **Source :** incentives publiés par les détenteurs de veBTC sur leurs gauges de boost
+- **Comment :** dirigez vos votes veMEZO vers des gauges de boost proposant des incentives attractifs
+- **Réclamables :** à la fin de l'époque, proportionnellement à votre part des votes veMEZO sur ce gauge
+
+### Distributions de rebase
+
+- **Source :** une partie des émissions hebdomadaires de MEZO
+- **Comment :** elles s'accumulent automatiquement au profit des détenteurs de veMEZO en fonction du ratio de verrouillage
+- **Objectif :** protéger contre la dilution : moins il y a de verrouillages, plus les rebases sont élevés
+
+**Important :** les détenteurs de veMEZO ne perçoivent **pas** de frais de trading, de revenus MUSD ni de frais de pont. Ceux-ci reviennent aux détenteurs de veBTC. veMEZO génère des revenus grâce aux incentives de boost et aux rebases.
+
+---
+
+## Gérer votre position
+
+### L'époque hebdomadaire
+
+Mezo fonctionne par époques de 7 jours qui commencent le jeudi à 00:00 UTC. Votre allocation de vote est conservée d'une époque à l'autre jusqu'à ce que vous la modifiiez ou la réinitialisiez : vous n'avez pas besoin de revoter chaque semaine. Chaque verrouillage ne peut voter qu'une fois par époque : une allocation confirmée ne peut donc pas être modifiée avant le prochain changement d'époque.
+
+### Réclamer les récompenses
+
+Les frais et les incentives s'accumulent sur votre position au fil de l'époque. Ils ne deviennent toutefois réclamables qu'à la fin de l'époque.
+
+<Steps>
+1. Accédez à votre tableau de bord
+2. Cliquez sur **Claim All**
+3. Les frais et incentives que vous avez gagnés sont envoyés dans votre portefeuille
+</Steps>
+
+Pour les détenteurs de veMEZO, les distributions de rebase sont réclamées séparément et sont ajoutées à votre position veMEZO (ce qui augmente votre poids veMEZO).
+
+### Prolonger les verrouillages
+
+Pour conserver votre influence sur la distribution des récompenses, surveillez la durée de votre verrouillage. À mesure que votre verrouillage décroît, votre pouvoir de vote diminue.
+
+**Pour veBTC :** sélectionnez **Extend Lock** sur votre NFT pour rétablir la totalité du poids.
+
+**Pour veMEZO :** prolongez votre verrouillage pour conserver votre capacité à apporter du boost et vos gains de rebase.
+
+Consultez [Gérer les verrouillages et collecter les récompenses](/docs/fr/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) pour plus d'informations.
+
+### Poke du vote
+
+Le **poke** actualise le pouvoir de vote de votre verrouillage pour refléter son état actuel. Si vous avez déjà voté au cours de l'époque en cours, vos votes ne sont pas automatiquement mis à jour lorsque votre pouvoir de vote change. Le poke garantit que vos votes sont comptabilisés avec votre pouvoir de vote le plus récent.
+
+**Quand le pouvoir de vote change-t-il ?**
+
+- Lorsque vous ajoutez des BTC à votre verrouillage
+- Lorsque vous prolongez la durée de votre verrouillage
+- Lorsque vous réclamez des distributions de rebase veMEZO (ce qui met à jour votre boost veBTC)
+- Lorsque vous recevez davantage de votes veMEZO dirigés vers votre position veBTC
+- Lorsque vous dirigez vos propres veMEZO vers votre position veBTC
+- Du fait de la décroissance naturelle à mesure que votre verrouillage approche de son expiration
+
+**Quand devriez-vous effectuer un poke ?**
+
+Pour les détenteurs de veBTC :
+- après avoir augmenté le montant de BTC verrouillés ;
+- après avoir prolongé la durée de votre verrouillage ;
+- lorsque votre situation veMEZO évolue (nouveaux votes reçus, rebase réclamé, etc.).
+
+Pour les détenteurs de veMEZO :
+- après avoir réclamé des distributions de rebase ;
+- après avoir prolongé la durée de votre verrouillage.
+
+Les positions verrouillées de façon permanente conservent un pouvoir de vote stable et ne nécessitent pas de poke, sauf en cas de modifications liées à veMEZO.
+
+**Remarque :** le poke est sans permission : n'importe qui peut effectuer un poke de n'importe quel verrouillage. D'autres utilisateurs peuvent effectuer un poke de votre position si votre pouvoir de vote a sensiblement décru.
+
+---
+
+## Stratégies pour maximiser vos rendements
+
+### Pour les utilisateurs détenant principalement des BTC
+
+<Steps>
+1. Verrouillez vos BTC pour la durée maximale (28 jours) et continuez à prolonger
+2. Votez régulièrement, à chaque époque, pour les gauges générant beaucoup de frais
+3. Envisagez d'acquérir des MEZO pour vous auto-booster, ou publiez des incentives pour attirer des votes veMEZO
+4. Effectuez un poke après toute modification de votre boost
+</Steps>
+
+### Pour les utilisateurs détenant principalement des MEZO
+
+<Steps>
+1. Verrouillez vos MEZO pour des durées plus longues (jusqu'à 4 ans) afin de maximiser votre poids veMEZO
+2. Passez en revue les gauges de boost pour trouver les meilleurs rendements en incentives
+3. Diversifiez-vous sur plusieurs gauges de boost pour réduire le risque
+4. Envisagez de vous associer à une position veBTC pour accéder directement aux frais de trading
+</Steps>
+
+### Pour les utilisateurs détenant les deux
+
+<Steps>
+1. Auto-boostez vos veBTC avec vos veMEZO pour obtenir un pouvoir de vote maximal
+2. Votez pour les gauges générant beaucoup de frais afin de maximiser vos gains en frais
+3. Effectuez un poke après toute modification pour conserver un boost optimal
+4. Réclamez régulièrement les rebases pour faire croître votre position veMEZO
+</Steps>

@@ -1,0 +1,87 @@
+---
+title: Comment voter sur les MEZO Gauges
+description: >-
+  Guide étape par étape pour diriger votre pouvoir de vote veMEZO vers les MEZO
+  Gauges
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Le vote sur les MEZO Gauges s'effectue avec **veMEZO**, sur une page dédiée, indépendamment du vote veBTC sur les gauges et de l'appariement de boost.
+
+## Prérequis
+
+- Un [portefeuille connecté à Mezo](/docs/fr/docs/users/getting-started/connect)
+- Une position veMEZO active
+- Une petite quantité de BTC pour le gaz
+
+Vous n'avez **pas** besoin de veBTC, d'une position LP ni d'une position dans le pool de destination pour voter. Consultez [Comment verrouiller des MEZO](/docs/fr/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) si vous ne détenez pas encore de veMEZO.
+
+---
+
+## Exprimer votre vote
+
+<Steps>
+1. Accédez à l'onglet **Vote** sur [mezo.org](https://mezo.org), passez au vote **veMEZO** et ouvrez la page **MEZO Gauges** à l'adresse [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo).
+
+2. Examinez les gauges disponibles. Chaque ligne indique le protocole et la chaîne de destination, le gauge (pool de destination), les éventuels incentives (incitations) publiés sur le gauge et la date de distribution.
+
+3. Saisissez le pourcentage de votre pouvoir de vote veMEZO que vous souhaitez allouer à chaque gauge. Vous pouvez le répartir entre plusieurs gauges, par exemple 60 % pour Aerodrome USDC/MUSD et 40 % pour Curve USDT/USDC/MUSD.
+
+4. Cliquez sur **Submit Votes** et signez la transaction.
+</Steps>
+
+Votre allocation est enregistrée pour l'époque en cours dès que la transaction est confirmée.
+
+:::note[Protocol, Gauge, Incentives, Distribution date]
+Ce sont les quatre colonnes du tableau des MEZO Gauges. **Protocol** renvoie vers la plateforme de destination. **Gauge** indique le pool de destination. **Incentives** correspond aux jetons publiés sur le gauge pour cette époque. **Distribution date** indique quand les incentives de cette époque arrivent sur le pool ou le gauge cible, en UTC.
+
+Le vAPR, les frais et la TVL n'y sont pas affichés, car ils s'accumulent sur Curve, Uniswap ou Aerodrome et non sur Mezo. Lorsque vous effectuez une allocation, une colonne **Vote distribution** est ajoutée pour les pourcentages.
+:::
+
+---
+
+## La fenêtre de vote
+
+Les MEZO Gauges suivent le même cycle hebdomadaire que le reste de Mezo Earn.
+
+- Les époques durent **7 jours et changent le jeudi à 00:00 UTC**
+- Le vote ouvre une heure après le début de l'époque (jeudi 01:00 UTC) et ferme une heure avant le changement d'époque suivant (mercredi 23:00 UTC)
+- Les votes sont comptabilisés au changement d'époque, et l'allocation de MEZO de chaque gauge est fixée par sa part du total des votes veMEZO exprimés sur les MEZO Gauges
+
+**Émissions non votées.** Les MEZO sont répartis entre les MEZO Gauges strictement en proportion des votes exprimés. Un gauge qui ne reçoit aucun vote ne reçoit aucun MEZO, et sa part est répartie entre les gauges qui ont reçu des votes. Le pouvoir de vote que vous laissez non alloué n'influence tout simplement pas la répartition et ne vous rapporte aucun incentive.
+
+---
+
+## Modifier ou réinitialiser votre vote
+
+Votre allocation est **conservée d'une époque à l'autre** jusqu'à ce que vous la modifiiez. Si votre répartition vous convient, vous n'avez pas besoin de la soumettre de nouveau chaque semaine : elle continue de vous rapporter, à chaque époque, une part des incentives de ce gauge.
+
+**Vous ne pouvez voter qu'une fois par époque et par verrouillage.** Une fois votre vote confirmé, l'allocation MEZO Gauge de ce verrouillage est figée pour le reste de l'époque, et la page l'affiche en lecture seule jusqu'au prochain changement d'époque.
+
+**Pour la modifier :** revenez sur la page MEZO Gauges, saisissez une nouvelle allocation et soumettez-la : la nouvelle répartition remplace entièrement l'ancienne. Si le verrouillage a déjà voté au cours de cette époque, il ne peut plus voter avant le prochain changement d'époque.
+
+**Pour la réinitialiser :** utilisez **Reset** pour retirer entièrement votre pouvoir de vote des MEZO Gauges. Vous ne pouvez pas réinitialiser au cours de l'époque pendant laquelle vous avez déjà voté, car chaque verrouillage dispose d'une seule action de vote par époque.
+
+:::caution
+Comme chaque verrouillage vote une fois par époque, un verrouillage qui a déjà voté ne peut pas réagir à de nouveaux gauges ou incentives avant le prochain changement d'époque.
+:::
+
+---
+
+## Cela affecte-t-il mon boost ou mes votes veBTC ?
+
+Non. Le vote sur les MEZO Gauges est indépendant :
+
+- il ne consomme pas les veMEZO que vous utilisez pour [booster](/docs/fr/docs/users/mezo-earn/lock/vemezo/boost-mechanism) une position veBTC et ne réduit pas un boost que vous avez déjà apporté ;
+- il ne nécessite pas de [poke](/docs/fr/docs/users/mezo-earn/vote/how-to-vote#important-effectuez-un-poke-après-toute-modification) : le poke actualise le poids boosté veBTC, auquel le vote sur les MEZO Gauges ne touche pas ;
+- il n'a aucun effet sur la destination des émissions des gauges de staking déterminée par vos votes veBTC.
+
+---
+
+## Étapes suivantes
+
+- [Où va votre vote](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) : ce qui se passe après la fin de l'époque
+- [Réclamer les incentives](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) : comment les LP perçoivent les MEZO que vous avez dirigés
+- [Aperçu des MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges) : le mécanisme et les pools éligibles

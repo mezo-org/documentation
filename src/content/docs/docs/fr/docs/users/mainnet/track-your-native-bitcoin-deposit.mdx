@@ -1,0 +1,50 @@
+---
+title: Suivre votre dépôt de Bitcoin natif
+description: >-
+  Découvrez comment vérifier le statut de votre dépôt de Bitcoin natif sur Mezo
+  à l'aide de tBTCScan.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Après un dépôt de Bitcoin natif sur Mezo, vos fonds apparaissent généralement dans un délai d'environ 1,5 heure. Votre dépôt passe par plusieurs étapes avant d'arriver sur votre compte :
+
+1. **Confirmation onchain** : votre transaction Bitcoin doit être confirmée sur le réseau Bitcoin (1 à 6 confirmations requises, selon le montant du dépôt).
+2. **Révélation au pont** : une fois la transaction confirmée, le bot tBTC détecte votre dépôt et le révèle au pont tBTC. Cette étape est généralement rapide, mais peut, dans de rares cas, prendre jusqu'à 5 heures.
+3. **Frappe sur Ethereum** : le pont tBTC traite votre dépôt et frappe des tBTC sur Ethereum. Cette étape prend généralement environ 1 à 1,5 heure.
+4. **Transfert vers Mezo** : une fois les tBTC frappés, ils sont transférés via le pont vers Mezo et les BTC arrivent sur votre compte. Cette étape prend environ 15 à 20 minutes.
+
+Dans de rares cas particuliers, le processus peut prendre plus de temps.
+
+## Comment vérifier le statut de votre dépôt
+
+Si votre dépôt n'est toujours pas apparu sur Mezo au bout d'1 heure et 30 minutes, vous pouvez vérifier son statut à l'aide de [tbtcscan](https://tbtcscan.com/), un explorateur de blocs tiers pour le pont tBTC.
+
+![Interface de recherche de dépôts de tBTCScan](/docs/images/tbtc/tbtc1.webp)
+
+<Steps>
+1. **Repérez l'identifiant de votre transaction** : retrouvez le hash de la transaction Bitcoin dans votre portefeuille ou dans son historique.
+
+2. **Ouvrez l'onglet Deposits de tBTCScan** : cet outil tiers affiche en temps réel les données des dépôts du pont.
+
+3. **Recherchez votre transaction** : saisissez le hash de votre transaction dans la barre de recherche.
+
+4. **Vérifiez le statut :**
+   - **Aucun résultat** → le dépôt n'a pas encore été révélé au pont. Cela se produit généralement dans les 20 minutes qui suivent la confirmation onchain, mais peut, dans de rares cas, prendre jusqu'à 5 heures.
+   - **MINTING IN PROGRESS** → votre dépôt a été révélé et des tBTC sont en cours de frappe sur Ethereum. Cette étape prend généralement environ 1 à 1,5 heure.
+   - **MINTING FINALIZED** → les tBTC ont été frappés sur Ethereum. Votre dépôt devrait apparaître sur votre compte Mezo dans les 15 à 20 minutes.
+</Steps>
+
+:::tip
+La recherche tBTCScan nécessite d'actualiser la page entre deux recherches consécutives pour afficher les nouveaux résultats.
+:::
+
+![Résultats de statut de dépôt de tBTCScan](/docs/images/tbtc/tbtc2.webp)
+
+## Que faire si mon dépôt n'apparaît pas ?
+
+Si votre dépôt affiche MINTING FINALIZED sur tbtcscan mais n'est toujours pas apparu sur votre compte Mezo au bout de 15 minutes, ou si aucun résultat ne s'affiche sur tbtcscan après 5 heures, veuillez contacter le support en ouvrant un ticket sur le [Discord de Mezo](https://discord.gg/mezo) en indiquant :
+
+- Le hash de votre transaction
+- L'adresse du compte que vous utilisez pour vous connecter à Mezo (ou l'identifiant de votre compte Mezo)

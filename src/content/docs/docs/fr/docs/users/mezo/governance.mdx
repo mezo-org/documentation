@@ -1,0 +1,39 @@
+---
+title: Gouvernance
+description: 'Paramètres, contraintes et évolutions futures de la gouvernance MEZO'
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+La gouvernance du réseau Mezo permet aux détenteurs de veBTC de façonner les paramètres du protocole et les flux d'émissions. La gouvernance est ancrée dans le BTC : veMEZO amplifie le pouvoir de vote de veBTC, sans disposer d'un poids de gouvernance propre.
+
+## Paramètres du protocole
+
+Les paramètres suivants définissent la manière dont les émissions de MEZO sont distribuées :
+
+| Paramètre | Description | Statut |
+|---|---|---|
+| Ratio du Chain Splitter | Part des émissions attribuée aux validateurs (20 %) par rapport à l'écosystème (80 %) | Fixe, verrouillé par la gouvernance |
+| Ratio de l'Ecosystem Splitter | Part des émissions attribuée aux gauges de staking (90 %) par rapport aux gauges de l'écosystème (10 %) | Fixe, verrouillé par la gouvernance |
+| Multiplicateur de boost maximal | Boost veMEZO maximal sur veBTC | Actuellement 5x |
+
+Les ratios des splitters sont actuellement fixes et ne peuvent pas être modifiés par un vote. Ils pourraient devenir ajustables grâce à de futurs mécanismes de gouvernance.
+
+![Calendrier des émissions de Mezo](/docs/images/mezo-token/mezo-emissions.png)
+
+<LinkButton href="/docs/fr/docs/users/mezo/emissions">En savoir plus sur les émissions du jeton MEZO</LinkButton>
+
+## Contraintes de gouvernance
+
+- **Vote ancré dans le BTC** : seuls les détenteurs de veBTC peuvent voter sur les propositions de gouvernance. veMEZO augmente le pouvoir de vote de veBTC, mais ne confère aucun droit de gouvernance propre. veMEZO vote toutefois de manière indépendante pour les [veBTC boost gauges](/docs/fr/docs/users/mezo-earn/lock/vemezo/matching-market) et les [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges), qui orientent les émissions plutôt qu'ils ne fixent les paramètres du protocole.
+
+## Évolutions futures
+
+Les structures de gouvernance pourraient évoluer pour inclure :
+
+- des mécanismes formels de proposition et de vote (par exemple Governor Bravo) ;
+- des paramètres supplémentaires soumis à la gouvernance ;
+- la sélection des validateurs par le vote des gauges dans le cadre de la preuve d'enjeu (proof-of-stake).
+
+Les détails seront annoncés une fois les fonctionnalités de gouvernance finalisées.

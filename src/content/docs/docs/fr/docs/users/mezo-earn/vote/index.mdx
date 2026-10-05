@@ -1,0 +1,148 @@
+---
+title: Aperçu du vote
+description: >-
+  Fonctionnement du vote sur Mezo et ce que vous gagnez en tant que détenteur de
+  veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Le modèle de gouvernance de Mezo est simple : verrouillez votre engagement et gagnez le droit d'orienter l'avenir du protocole. Grâce au vote, les détenteurs de veBTC captent la valeur économique des frais et déterminent où la valeur de la chaîne est allouée.
+
+---
+
+## Fonctionnement du vote
+
+Lorsque vous verrouillez des BTC, vous recevez un pouvoir de vote tokenisé sous la forme d'un NFT. Chaque semaine (époque), vous pouvez répartir ce pouvoir entre différents gauges : des pools comme BTC/MUSD, le MUSD Savings Rate ou d'autres fonctions du protocole. Vos votes déterminent où sont dirigées les émissions hebdomadaires de MEZO : les gauges qui reçoivent le plus de votes obtiennent une plus grande part des émissions. En retour, les votants perçoivent les frais des stakers de ces gauges, qui renoncent à leurs revenus de frais en échange d'émissions de MEZO.
+
+Davantage d'émissions attirent davantage de fournisseurs de liquidité. Une liquidité accrue peut augmenter le volume de trading, ce qui peut augmenter les frais. Ces frais vous reviennent, à vous le votant, ce qui crée une boucle vertueuse dans laquelle votre influence grandit au rythme du succès du protocole.
+
+---
+
+## Ce que vous gagnez
+
+**Frais de trading :** 100 % des frais générés par les pools pour lesquels vous votez, distribués proportionnellement. Si vous avez alloué 1 % des votes d'un gauge et que ce pool a généré 50 000 MUSD de frais, vous gagnez 500 MUSD.
+
+**Incentives :** des protocoles externes déposent des incentives (incitations) pour attirer les votes vers les gauges de leur choix. Ces incentives sont répartis entre tous les votants de ce gauge, ce qui crée une source de revenus secondaire.
+
+**Frais de pont passifs :** tous les détenteurs de veBTC perçoivent des frais de pont et de chaîne proportionnels à leur poids boosté, sans qu'aucun vote soit nécessaire.
+
+Cela crée un marché des votes. Les protocoles rivalisent pour attirer votre pouvoir de vote, et vous captez la valeur de cette concurrence.
+
+---
+
+## Pouvoir de vote et boost
+
+Votre pouvoir de vote effectif dépend de deux facteurs : votre poids veBTC de base et l'éventuel boost apporté par veMEZO.
+
+### Poids de base (veBTC uniquement)
+
+Sans veMEZO, votre pouvoir de vote est égal à votre poids veBTC, qui décroît de manière linéaire à mesure que votre verrouillage approche de son expiration. Verrouillez 1 BTC pendant 28 jours : votre pouvoir initial est de 1,0 et décroît en continu jusqu'à atteindre zéro à l'expiration.
+
+### Poids boosté (veBTC + veMEZO)
+
+Lorsque des votes veMEZO sont dirigés vers votre position veBTC, votre pouvoir de vote est multiplié par un facteur de boost compris entre 1x et 5x. Le boost dépend :
+
+- de votre part du total de veBTC dans le système ;
+- de la part du total de veMEZO dirigée vers votre position.
+
+**Points clés :**
+- Les positions en BTC plus importantes nécessitent proportionnellement plus de veMEZO pour atteindre le boost maximal
+- Vous pouvez recevoir du boost en détenant vous-même des veMEZO, ou en attirant des votes veMEZO grâce à des incentives
+- Le boost doit faire l'objet d'un « poke » pour prendre effet après une modification
+
+Pour conserver votre pouvoir de vote, prolongez régulièrement votre verrouillage. Consultez [Gérer les verrouillages](/docs/fr/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) pour plus de détails.
+
+---
+
+## L'époque hebdomadaire
+
+Mezo fonctionne par époques de 7 jours qui commencent le jeudi à 00:00 UTC. Chaque époque est un nouveau cycle pour le pouvoir de vote, les frais et les incentives.
+
+**Le cycle :**
+
+<Steps>
+1. L'époque commence
+2. Vous votez tout au long de la semaine
+3. L'époque se termine et les votes sont comptabilisés
+4. Les émissions de MEZO sont distribuées aux gauges en fonction des votes
+5. Les frais et les incentives deviennent réclamables
+6. Le cycle recommence
+</Steps>
+
+> **Remarque :** vos allocations de vote restent enregistrées d'une époque à l'autre jusqu'à ce que vous les réinitialisiez ou les modifiiez. Tant que vos votes sont en place, vous continuez de percevoir à chaque époque votre part des frais de trading et des incentives, en fonction de vos allocations actuelles. Le poke sert à actualiser votre pouvoir de vote : par exemple pour l'augmenter après un appariement avec des veMEZO, ou pour permettre à d'autres de le réduire à mesure qu'il décroît.
+
+### Alignement sur les époques
+
+Les durées de verrouillage sont alignées sur les limites des époques et arrondies à la semaine complète inférieure. Cela signifie que :
+
+- un verrouillage maximum de 28 jours créé en milieu d'époque aura une durée effective d'environ 21 à 28 jours, selon le moment où vous verrouillez ;
+- les verrouillages expirent toujours lors d'un changement d'époque (jeudi 00:00 UTC).
+
+Cela garantit la cohérence du calcul des poids de vote dans l'ensemble du système.
+
+---
+
+## Deux façons de participer avec veMEZO
+
+### En tant que détenteur de veBTC en quête de boost
+
+Si vous détenez des veBTC et souhaitez maximiser votre pouvoir de vote :
+
+<Steps>
+1. **Auto-boost :** verrouillez des MEZO en veMEZO et dirigez-les vers votre propre position veBTC
+2. **Attirer du boost :** publiez des incentives sur le gauge de boost de votre veBTC pour attirer les votes veMEZO d'autres utilisateurs
+</Steps>
+
+Chacune de ces approches peut multiplier votre pouvoir de vote effectif jusqu'à 5x.
+
+### En tant que détenteur de veMEZO en quête de rendement
+
+Si vous détenez des veMEZO et souhaitez générer du rendement :
+
+<Steps>
+1. Parcourez les gauges de boost veBTC pour trouver ceux qui proposent des incentives attractifs
+2. Votez pour ces gauges afin de gagner les incentives publiés
+3. Réclamez les incentives à la fin de l'époque
+</Steps>
+
+Remarque : les détenteurs de veMEZO ne perçoivent aucune part des frais de trading, des revenus MUSD ni des frais de pont que gagnent les positions veBTC. Ils perçoivent les incentives publiés sur les gauges pour lesquels ils votent.
+
+### En tant que détenteur de veMEZO orientant les émissions
+
+veMEZO vote également sur les **[MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges)**, des gauges sans staking qui dirigent les émissions de MEZO vers des pools de liquidité MUSD sur Curve et Uniswap (Ethereum) et sur Aerodrome (Base). Cela ne nécessite ni veBTC ni position LP, et c'est indépendant de l'appariement de boost.
+
+<Steps>
+1. Ouvrez l'onglet **Vote** sur mezo.org et passez au vote veMEZO, à l'adresse [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo)
+2. Répartissez votre pouvoir de vote veMEZO entre les gauges disponibles
+3. Gagnez une part des incentives publiés sur les gauges pour lesquels vous avez voté
+</Steps>
+
+---
+
+## Choisir où voter
+
+Chaque gauge offre des opportunités différentes. Voici quelques facteurs que vous pouvez prendre en compte pour répartir vos votes :
+
+- le volume de trading et la génération de frais ;
+- les incentives publiés par les protocoles ;
+- le total des votes déjà alloués à un gauge ;
+- vos propres priorités pour l'écosystème Mezo.
+
+Pour les détenteurs de veMEZO qui votent sur des gauges de boost :
+- les montants des incentives publiés par les détenteurs de veBTC ;
+- la durée et la fiabilité des publications d'incentives ;
+- la cohérence avec vos propres positions veBTC (le cas échéant).
+
+Surveillez à chaque époque les poids des gauges, la génération de frais et les marchés d'incentives pour éclairer vos décisions.
+
+---
+
+## Étapes suivantes
+
+Prêt à voter ? Consultez [Comment voter](/docs/fr/docs/users/mezo-earn/vote/how-to-vote) pour le guide complet.
+
+Vous souhaitez booster votre position ? Consultez [Mécanisme de boost](/docs/fr/docs/users/mezo-earn/lock/vemezo/boost-mechanism) et [Marché d'appariement](/docs/fr/docs/users/mezo-earn/lock/vemezo/matching-market) pour plus de détails.
+
+Vous détenez des veMEZO et souhaitez orienter les émissions ? Consultez [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges).

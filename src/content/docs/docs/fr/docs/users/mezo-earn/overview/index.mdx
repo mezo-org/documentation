@@ -1,0 +1,162 @@
+---
+title: Aperçu de Mezo Earn
+description: 'Aperçu de Mezo Earn, des sources de rendement et des concepts clés'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Mezo Earn est le moteur économique du réseau Mezo. Il permet aux détenteurs de bitcoins d'obtenir du rendement sur leurs BTC tout en participant aux décisions de gouvernance qui déterminent la manière dont le réseau alloue ses ressources et ses récompenses.
+
+En verrouillant des BTC dans le système, les utilisateurs obtiennent du pouvoir de vote, perçoivent des revenus passifs issus de l'activité du réseau et contribuent à orienter la liquidité dans l'ensemble de l'écosystème Mezo.
+
+[Télécharger le livre blanc de Mezo Earn (PDF)](/docs/Mezo_Earn_Whitepaper.pdf)
+
+<YouTube id="6rthu_iub7E" title="Aperçu de Mezo Earn" />
+
+![Aperçu de Mezo Earn](/docs/images/mezo-token/EARN%20Chart%2012.png)
+
+---
+
+## D'où vient le rendement ?
+
+Mezo Earn génère du rendement à partir d'une activité économique réelle sur le réseau. Il existe trois sources principales :
+
+### 1. Frais de swap
+
+Lorsque des utilisateurs échangent des actifs sur le DEX de Mezo, chaque swap entraîne des frais. Ces frais s'accumulent dans les pools de liquidité et sont distribués aux participants qui votent pour ces pools.
+
+### 2. Revenus de prêt MUSD
+
+Mezo permet aux utilisateurs d'emprunter des MUSD (un stablecoin adossé au bitcoin) en utilisant leurs BTC en garantie. Les intérêts, les frais d'ouverture et les frais de refinancement générés par ces prêts sont réinjectés dans le système et distribués aux participants actifs.
+
+### 3. Frais de pont et de transaction
+
+Le transfert d'actifs vers Mezo, l'exécution de transactions et les autres activités onchain génèrent tous des frais. Ces frais sont distribués directement aux détenteurs de veBTC sous forme de rendement passif, **sans qu'aucun vote soit nécessaire**.
+
+---
+
+## Le modèle à double jeton
+
+Mezo Earn repose sur un système à double jeton qui place le Bitcoin au centre de la gouvernance, tout en utilisant MEZO pour amplifier et orienter l'influence.
+
+![Le modèle à double jeton](/docs/images/mezo-token/EARN%20Chart%207.png)
+
+### veBTC : l'ancre
+
+veBTC (BTC placés sous séquestre de vote, « vote-escrowed BTC ») constitue le socle du pouvoir de vote. Lorsque vous verrouillez des BTC, vous recevez un NFT veBTC qui vous confère :
+
+- un poids de vote de base (multiplicateur de 1x) ;
+- un rendement passif issu des frais de pont et de la chaîne ;
+- le droit de voter pour des gauges et d'orienter les émissions.
+
+**Paramètres :**
+- Verrouillage maximum : 28 jours
+- Verrouillage minimum : 1 jour
+- Décroissance : linéaire (le poids de vote diminue à mesure que le verrouillage approche de son expiration)
+
+### veMEZO : le boost
+
+veMEZO (MEZO placés sous séquestre de vote, « vote-escrowed MEZO ») amplifie le pouvoir de vote de veBTC, mais ne dispose d'aucun poids de gouvernance indépendant. Verrouiller des MEZO sous forme de veMEZO vous permet :
+
+- de booster des positions veBTC jusqu'à 5x leur poids de base ;
+- de gagner des incentives (incitations) en orientant vos votes vers des gauges veBTC ;
+- de recevoir des distributions de rebase qui vous protègent contre la dilution.
+
+**Paramètres :**
+- Verrouillage maximum : 4 ans
+- Verrouillage minimum : 1 semaine
+- Décroissance : linéaire
+
+**Principe clé :** MEZO ne peut pas constituer de pouvoir de gouvernance indépendant. Il ne fait qu'amplifier le poids des bitcoins verrouillés.
+
+---
+
+## Concepts clés
+
+### Poids boosté
+
+Lorsque veBTC et veMEZO sont appariés, ils créent un « poids boosté » combiné qui détermine votre part des frais et votre influence sur les émissions. Le boost dépend de votre part relative du total de veBTC et de veMEZO dans le système.
+
+- Une position veBTC sans veMEZO fonctionne à 1x (poids de base)
+- L'ajout de veMEZO peut porter ce multiplicateur jusqu'à un maximum de 5x
+- Les positions en BTC plus importantes nécessitent proportionnellement plus de MEZO pour atteindre le boost maximum
+
+### Époques
+
+Mezo Earn fonctionne par cycles de 7 jours appelés **époques**. Chaque époque commence le jeudi à 00:00 UTC.
+
+**Ce qui se passe à chaque époque :**
+
+- Les votes exprimés pendant l'époque N déterminent l'allocation des émissions pour l'époque N+1
+- Les frais générés pendant l'époque N sont distribués en fonction des votes exprimés pendant l'époque N
+- Les durées de verrouillage sont alignées sur les limites des époques (toujours arrondies à la semaine complète inférieure)
+
+Cette structure permet aux votants d'observer la génération de frais avant de décider où allouer leurs votes pour la période suivante.
+
+### Gauges
+
+Les gauges sont des contrats intelligents qui reçoivent et distribuent de la valeur économique en fonction des votes. Considérez-les comme les destinations de votre pouvoir de vote : plus un gauge reçoit de votes, plus sa part des récompenses est importante.
+
+**Types de gauges :**
+
+| Type de gauge | Rôle |
+| --- | --- |
+| **Gauges de staking** | Associés aux pools de liquidité du DEX ou au coffre d'épargne MUSD. Les stakers gagnent des émissions de MEZO ; les votants gagnent des frais. |
+| **Gauges de validateurs** | Orientent les récompenses vers les validateurs du réseau qui sécurisent la chaîne. |
+| **Gauges d'écosystème** | Soutiennent les protocoles partenaires et le développement de l'écosystème. |
+| **Gauges de boost veBTC** | Chaque NFT veBTC possède son propre gauge, sur lequel les détenteurs de veMEZO peuvent voter pour apporter du boost. |
+
+---
+
+## Le marché d'appariement
+
+Grâce au mécanisme de boost, Mezo Earn crée un marché explicite entre les détenteurs de BTC et de MEZO.
+
+![Le marché d'appariement](/docs/images/mezo-token/EARN%20Chart%205.png)
+
+**Fonctionnement :**
+
+1. Lorsque vous verrouillez des BTC, le système crée un gauge de boost dédié à votre position veBTC
+2. Les détenteurs de veMEZO peuvent voter sur votre gauge pour apporter du boost
+3. En échange, vous pouvez publier des incentives sur votre gauge pour attirer des votes veMEZO
+4. Le boost prend effet après qu'une transaction « poke » a actualisé votre position
+
+Le boost devient ainsi un service négociable. Les détenteurs de BTC qui souhaitent des multiplicateurs plus élevés peuvent soit acquérir eux-mêmes des MEZO, soit payer des incentives pour attirer des votes veMEZO. Les détenteurs de MEZO peuvent obtenir du rendement en orientant leurs votes vers des gauges proposant des incentives attractifs.
+
+---
+
+## Circulation des récompenses
+
+**Rendement passif :** tous les détenteurs de veBTC reçoivent une part des frais de pont et de la chaîne, proportionnelle à leur poids de vote boosté, sans aucune action requise au-delà du verrouillage.
+
+**Rendement actif :** en votant pour des gauges spécifiques, vous pouvez gagner des frais et des incentives supplémentaires provenant des pools et des protocoles que vous soutenez.
+
+**Rendement veMEZO :** les détenteurs de veMEZO gagnent les incentives publiés sur les gauges veBTC pour lesquels ils votent, ainsi que des distributions de rebase qui les protègent contre la dilution.
+
+---
+
+## Premiers pas
+
+<Steps>
+1. **Verrouillez des BTC** → recevez un NFT veBTC doté d'un pouvoir de vote de base
+2. **Votez pour des gauges** → orientez la destination des émissions et gagnez des frais
+3. **Réclamez vos récompenses** → collectez les frais et les incentives à chaque époque
+4. **(Facultatif) Verrouillez des MEZO** → créez des veMEZO pour booster vos veBTC ou pour gagner des revenus en votant sur les gauges de boost d'autres utilisateurs
+5. **Prolongez ou gérez vos verrouillages** → conservez votre pouvoir de vote dans la durée
+</Steps>
+
+---
+
+## Référence rapide
+
+| Paramètre | Valeur |
+| --- | --- |
+| Durée d'une époque | 7 jours |
+| Début d'une époque | Jeudi 00:00 UTC |
+| Verrouillage maximum de BTC | 28 jours |
+| Verrouillage minimum de BTC | 1 jour |
+| Verrouillage maximum de MEZO | 4 ans |
+| Verrouillage minimum de MEZO | 1 semaine |
+| Multiplicateur de boost maximum | 5x |

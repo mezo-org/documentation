@@ -1,33 +1,35 @@
 ---
-title: Guides Utilisateur et Documentation
-description: >-
-  Documentation officielle de Mezo : Configuration de portefeuille, bridge
-  d'actifs, guides d'emprunt MUSD et ressources pour développeurs. Votre guide
-  complet pour gérer vos finances vous-même.
+title: Guides et documentation utilisateur
+description: "Documentation officielle de Mezo\_: configuration du portefeuille, transfert d'actifs via un pont, guides d'emprunt de MUSD et ressources pour les développeurs. Votre guide complet pour devenir votre propre banque."
 topic: users
 ---
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Commencer
+## Premiers pas
 
-Apprenez les bases du dépôt et de l'[emprunt d'actifs](https://mezo.org/feature/borrow) dans l'application Mezo ou connectez-vous au Mainnet Mezo.
+Apprenez les bases du dépôt et de l'[emprunt d'actifs](https://mezo.org/feature/borrow) dans l'application Mezo, ou connectez-vous à Mezo Mainnet.
 
 <CardGrid>
   <LinkCard
     title="Créer un compte"
     href="/docs/fr/docs/users/getting-started/creating-an-account"
-    description="Découvrez comment configurer votre compte et commencer avec Mezo."
+    description="Découvrez comment configurer votre compte et bien démarrer avec Mezo."
   />
   <LinkCard
     title="Connecter votre portefeuille"
     href="/docs/fr/docs/users/getting-started/connect"
-    description="Connectez votre portefeuille existant au réseau Mezo."
+    description="Connectez votre portefeuille existant à Mezo."
   />
   <LinkCard
     title="Déposer des actifs"
     href="/docs/fr/docs/users/getting-started/deposit-assets"
-    description="Transférez vos actifs vers Mezo pour commencer à gagner et emprunter."
+    description="Transférez vos actifs vers Mezo via un pont pour commencer à gagner des revenus et à emprunter."
+  />
+  <LinkCard
+    title="Envoyer des actifs"
+    href="/docs/fr/docs/users/passport/send-assets"
+    description="Envoyez des actifs à d'autres utilisateurs sur Mezo à l'aide d'une adresse de portefeuille, d'une adresse Bitcoin ou d'un Mezo ID."
   />
 </CardGrid>
 
@@ -39,7 +41,7 @@ Découvrez le réseau Mezo, MUSD, et comment ils donnent accès au capital Bitco
   <LinkCard
     title="Pourquoi Bitcoin a besoin de services bancaires"
     href="/docs/fr/docs/users/introduction/why-bitcoin-needs-banking"
-    description="Explorez les raisons fondamentales derrière le réseau Mezo."
+    description="Explorez les raisons fondamentales qui ont motivé la création du réseau Mezo."
   />
   <LinkCard
     title="Banque en libre-service"
@@ -47,19 +49,19 @@ Découvrez le réseau Mezo, MUSD, et comment ils donnent accès au capital Bitco
     description="Une analyse approfondie de l'économie bancaire libre de Mezo pour les Bitcoiners."
   />
   <LinkCard
-    title="Qu'est-ce que MUSD ?"
+    title="Qu'est-ce que MUSD ?"
     href="/docs/fr/docs/users/borrow"
-    description="Découvrez la stablecoin native de Mezo adossée au Bitcoin."
+    description="Découvrez le stablecoin natif de Mezo adossé au Bitcoin."
   />
 </CardGrid>
 
-## Emprunter et créer
+## Prêts en Bitcoin
 
 Utilisez vos actifs pour libérer le pouvoir d'achat de votre Bitcoin.
 
 <CardGrid>
   <LinkCard
-    title="Emprunter et créer des MUSD"
+    title="Emprunter et frapper des MUSD"
     href="/docs/fr/docs/users/borrow/mint-musd"
     description="Utilisez vos actifs pour libérer le pouvoir d'achat de votre Bitcoin."
   />
@@ -67,24 +69,34 @@ Utilisez vos actifs pour libérer le pouvoir d'achat de votre Bitcoin.
 
 ## Intégrations
 
-Connectez-vous aux plateformes partenaires pour améliorer votre expérience Bitcoin.
+Connectez-vous aux plateformes partenaires pour enrichir votre expérience Bitcoin.
 
 <CardGrid>
   <LinkCard
-    title="Intégration Lolli"
+    title="Lolli"
     href="/docs/fr/docs/users/integrations/lolli"
-    description="Connectez-vous aux plateformes partenaires pour améliorer votre expérience Bitcoin."
+    description="Connectez-vous aux plateformes partenaires pour enrichir votre expérience Bitcoin."
+  />
+  <LinkCard
+    title="Safe"
+    href="/docs/fr/docs/users/integrations/safe"
+    description="Utilisez les portefeuilles multisig Safe sur Mezo pour gérer des fonds partagés avec la sécurité de la multisignature."
+  />
+  <LinkCard
+    title="Projets de la communauté"
+    href="/docs/fr/docs/users/integrations/community-projects"
+    description="Explorez les intégrations créées par la communauté, notamment Mezo Tools, Matchbox et Vezo."
   />
 </CardGrid>
 
 ## Développeurs
 
-Vous souhaitez développer sur Mezo ? Commencez avec la documentation pour développeurs.
+Vous souhaitez développer sur Mezo ? Commencez par la documentation pour les développeurs.
 
 <CardGrid>
   <LinkCard
-    title="Documentation pour Développeurs"
+    title="Documentation pour les développeurs"
     href="/docs/fr/docs/developers"
-    description="Vous souhaitez développer sur Mezo ? Commencez avec la documentation pour développeurs."
+    description="Vous souhaitez développer sur Mezo ? Commencez par la documentation pour les développeurs."
   />
 </CardGrid>

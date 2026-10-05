@@ -1,0 +1,203 @@
+---
+title: Guide de démarrage pour développeurs
+description: >-
+  Guide d'intégration pas à pas pour les développeurs qui construisent sur la
+  plateforme Mezo centrée sur Bitcoin.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 1. Introduction à Mezo
+
+Mezo est conçu pour transformer Bitcoin, simple réserve de valeur passive, en un actif financier productif et dynamique. En associant la sécurité de Bitcoin à la flexibilité d'une blockchain moderne, Mezo fournit une plateforme robuste aux applications décentralisées (dApps) qui servent l'immense communauté Bitcoin, encore mal desservie.
+
+### 1.1 Architecture de base
+
+La chaîne Mezo repose sur une architecture hybride conçue pour offrir un maximum d'accessibilité aux développeurs et de performances.
+
+- Compatibilité EVM : Mezo est une blockchain entièrement compatible EVM, ce qui permet aux développeurs Solidity de déployer des contrats intelligents existants et d'utiliser des outils familiers comme Hardhat et Foundry avec un minimum de modifications de code.
+- Base Cosmos SDK : le client principal, `mezod`, est un fork fortement modifié d'Evmos, construit avec le Cosmos SDK et fonctionnant sur le moteur de consensus CometBFT. Cela apporte la souveraineté de la chaîne et un débit élevé.
+- BTC comme gaz : tous les frais de transaction sur Mezo sont payés en BTC, ce qui renforce l'utilité de Bitcoin en tant qu'actif transactionnel.
+- Client principal : l'implémentation de référence du client de la chaîne Mezo est `mezod`.
+
+## 2. Démarrage rapide : délai jusqu'à la première transaction (TTFT)
+
+Cette section présente le chemin le plus rapide pour déployer un contrat et interagir avec Mezo Testnet.
+
+### 2.1 Détails du réseau (Testnet)
+
+Pour configurer votre portefeuille (par exemple MetaMask, RainbowKit) ou votre environnement de développement, utilisez les paramètres Testnet suivants :
+
+| Paramètre | Valeur |
+| --- | --- |
+| Nom du réseau | Mezo Testnet |
+| Endpoint RPC (HTTPS) | `https://rpc.test.mezo.org` |
+| Endpoint RPC (WSS) | `wss://rpc-ws.test.mezo.org` |
+| Chain ID | `31611` |
+| Devise native | BTC |
+| Décimales | 18 |
+| Explorateur de blocs | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
+
+### 2.2 Obtenir des BTC de testnet
+
+Pour payer les frais de gaz sur le Testnet, vous aurez besoin de BTC de testnet.
+
+<Steps>
+1. Faucet Mezo : obtenez des BTC de testnet depuis le [faucet Mezo](https://faucet.test.mezo.org/) officiel.
+   - Remarque : le faucet est protégé par un CAPTCHA pour éviter les abus.
+
+2. Configuration du portefeuille : assurez-vous d'avoir installé un portefeuille de navigateur compatible avec Ethereum (EVM).
+</Steps>
+
+### 2.3 Configuration de l'environnement (exemple Hardhat)
+
+Pour les développeurs Solidity, Mezo est entièrement compatible avec Hardhat et Foundry.
+
+Pour configurer Hardhat pour Mezo Testnet, modifiez votre fichier `hardhat.config.js` (ou `.ts`) :
+
+```javascript
+module.exports = {
+  defaultNetwork: "mezotestnet",
+  networks: {
+    mezotestnet: {
+      url: "https://rpc.test.mezo.org",
+      chainId: 31611,
+      accounts: ["YOUR_PRIVATE_WALLET_KEY"] // Use environment variables for security
+    }
+  },
+  solidity: {
+    version: "0.8.28",
+    settings: {
+      evmVersion: "london",
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+};
+```
+
+## 3. Composants de développement essentiels
+
+### 3.1 Le stablecoin MUSD
+
+MUSD est le stablecoin natif de l'écosystème Mezo, adossé à Bitcoin. Les développeurs peuvent intégrer MUSD pour les paiements, la liquidité et les produits financiers.
+
+- Dépôt : les contrats intelligents et l'implémentation de la dApp sont disponibles dans le dépôt GitHub de MUSD : [mezo-org/musd](https://github.com/mezo-org/musd).
+- Environnement de développement (pnpm) :
+
+```bash
+pnpm install --frozen-lockfile
+cd solidity
+pnpm install --frozen-lockfile
+```
+
+- Tester les contrats :
+
+```bash
+cd solidity
+pnpm test
+```
+
+- Déploiement (exemple) : les contrats peuvent être déployés avec la commande `pnpm run deploy` dans le répertoire `solidity`. Consultez le dépôt pour plus de détails : [mezo-org/musd](https://github.com/mezo-org/musd).
+
+### 3.2 Intégration de Mezo Passport (facultative)
+
+Mezo Passport est la bibliothèque officielle de connexion de portefeuilles, construite sur RainbowKit, qui permet une connexion fluide aussi bien des portefeuilles Bitcoin natifs (par exemple Xverse, Unisat) que des portefeuilles EVM standard (par exemple MetaMask). L'intégration est facultative et n'est pas requise pour développer sur Mezo.
+
+Installation :
+
+```bash
+npm install @mezo-org/passport @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
+```
+
+Configuration (React/TypeScript) :
+
+Utilisez la méthode `getConfig` de `@mezo-org/passport` pour configurer votre `WagmiProvider`.
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+// Note: We use the consistent 'mezoTestnet' chain name for clarity.
+import { getConfig, mezoTestnet } from "@mezo-org/passport";
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <WagmiProvider config={getConfig({ appName: "Your Mezo dApp" })}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider initialChain={mezoTestnet}>
+          {/* Your App component */}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  </React.StrictMode>,
+);
+```
+
+## 4. Infrastructure et exploitation des nœuds
+
+Le Validator Kit est la ressource principale pour installer et exploiter un nœud Mezo : [mezo-org/validator-kit](https://github.com/mezo-org/validator-kit).
+
+### 4.1 Configuration matérielle requise pour les nœuds
+
+Voici les spécifications matérielles minimales recommandées pour exécuter les différents types de nœuds Mezo :
+
+| Type de nœud | vCPU | RAM | Disque |
+| --- | --- | --- | --- |
+| Validateur | 4 | 16 Go | 256 Go |
+| RPC | 8 | 32 Go | 512 Go |
+| Seed | 2 | 8 Go | 128 Go |
+
+### 4.2 Options de déploiement
+
+Le Validator Kit prend en charge plusieurs méthodes de déploiement, adaptées à différents niveaux de complexité opérationnelle :
+
+<Steps>
+1. Docker : recommandé pour l'installation la plus simple, avec Docker Compose.
+
+2. Natif : exécution directe du binaire `mezod`.
+
+3. Helm : pour un déploiement sur des clusters Kubernetes.
+
+4. Manuel : guide pas à pas pour un contrôle manuel complet.
+</Steps>
+
+### 4.3 Intégration des validateurs (Proof of Authority)
+
+Les validateurs Mezo doivent postuler au Proof of Authority (PoA) pour participer au consensus.
+
+- Commande de candidature : une fois votre nœud configuré, soumettez votre candidature à l'aide de la CLI `mezod` :
+
+```bash
+mezod --home=<mezod_home_path> --rpc-url <rpc_url> poa submit-application <key_name>
+```
+
+## 5. Détails du réseau Mainnet
+
+Pour les déploiements en production, utilisez les détails Mainnet suivants. Il est recommandé d'utiliser un fournisseur RPC dédié pour bénéficier de limites de débit plus élevées et d'une meilleure stabilité.
+
+| Paramètre | Valeur |
+| --- | --- |
+| Nom du réseau | Mezo Mainnet |
+| Chain ID | `31612` |
+| Devise native | BTC |
+| Décimales | 18 |
+| Explorateur de blocs | [explorer.mezo.org](https://explorer.mezo.org/) |
+
+### 5.1 Fournisseurs RPC recommandés
+
+| Fournisseur | Endpoint HTTPS | Endpoint WSS | Remarques |
+| --- | --- | --- | --- |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
+| Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
+| Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
+| dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
+
+Pour la configuration complète de Hardhat et Foundry pour le mainnet, consultez [Configurer l'environnement de développement](/docs/fr/docs/developers/getting-started/configure-environment).

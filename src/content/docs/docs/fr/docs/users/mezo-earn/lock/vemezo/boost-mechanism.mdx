@@ -1,0 +1,94 @@
+---
+title: Mécanisme de boost
+description: >-
+  Comment veMEZO booste jusqu'à 5x le pouvoir de vote de veBTC grâce au marché
+  d'appariement
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+veMEZO booste jusqu'à 5x le pouvoir de vote de vos veBTC. Cette page explique le fonctionnement de la formule du boost et la manière dont le marché d'appariement met en relation les détenteurs de veBTC et de veMEZO.
+
+## Fonctionnement du boost
+
+Votre poids de vote boosté combine vos veBTC avec les veMEZO alloués à votre position :
+
+$$
+\text{Boosted Weight} = |\text{veBTC}| \times \min(5, \; 1 + \text{Boost})
+$$
+
+Où le terme Boost est :
+
+$$
+\text{Boost} = 4 \times \frac{|\text{veBTC}|_{\text{total}}}{|\text{veBTC}|} \times \frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}}
+$$
+
+### Propriétés clés
+
+- **Multiplicateur minimum : 1x** : une position veBTC sans votes veMEZO fonctionne à son poids de base
+- **Multiplicateur maximum : 5x** : aucune combinaison d'avoirs ne peut dépasser 5x
+- **Relatif, et non absolu** : votre boost dépend de votre part du total de veBTC et du total de veMEZO, et non des montants bruts
+
+---
+
+## Comprendre la formule
+
+La formule du boost a des conséquences importantes :
+
+**Les positions veBTC plus importantes nécessitent davantage de veMEZO.** La formule contient |veBTC|_total / |veBTC| au numérateur. À mesure que votre part de veBTC augmente, ce ratio diminue, ce qui exige proportionnellement plus de veMEZO pour maintenir le même niveau de boost.
+
+**Vous atteignez le boost maximum lorsque vos parts concordent.** Un participant atteint le plafond de 5x lorsque sa part de veMEZO est égale ou supérieure à sa part de veBTC :
+
+$$
+\frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}} \geq \frac{|\text{veBTC}|}{|\text{veBTC}|_{\text{total}}}
+$$
+
+:::note[Exemple]
+Si vous détenez 1 % de l'ensemble des veBTC, vous avez besoin d'au moins 1 % de l'ensemble des veMEZO pour atteindre le multiplicateur maximum de 5x.
+:::
+
+---
+
+## Le marché d'appariement
+
+Chaque NFT veBTC possède son propre gauge de boost veBTC. Les détenteurs de veMEZO votent sur ces gauges pour allouer du boost.
+
+### Fonctionnement
+
+1. **Le détenteur de veBTC crée une position** : un NFT veBTC est frappé avec un gauge de boost associé
+2. **Les détenteurs de veMEZO votent** : ils allouent leur poids veMEZO à des gauges veBTC
+3. **Le boost est calculé et appliqué** : le boost de la position veBTC dépend du total des votes veMEZO qu'elle reçoit. L'assistant Pair & Boost de la dApp se charge de mettre à jour le pouvoir de vote du veBTC et d'actualiser automatiquement les votes existants.
+
+### Pourquoi cela crée un marché
+
+**Les utilisateurs disposant de beaucoup de BTC** peuvent attirer du boost en publiant des incentives (incitations) sur leur gauge veBTC. Si le rendement des incentives par unité de veMEZO est attractif, les détenteurs de veMEZO voteront pour ce gauge.
+
+**Les utilisateurs disposant de beaucoup de MEZO** gagnent des revenus en votant sur des gauges veBTC bien dotés en incentives, même s'ils détiennent eux-mêmes peu de BTC.
+
+Le marché d'appariement fixe le prix du boost comme celui d'un service négociable et sans permission.
+
+---
+
+## Bénéficier du boost sans détenir de MEZO
+
+Vous n'avez pas besoin de détenir vous-même des MEZO pour bénéficier du boost. Si vous publiez des incentives attractifs sur votre gauge veBTC, d'autres détenteurs de veMEZO pourront voter pour celui-ci, ce qui donnera un multiplicateur à votre position sans que vous ayez à verrouiller de MEZO.
+
+À l'inverse, une position veBTC sans votes veMEZO :
+
+- conserve la totalité de son poids de vote de base (multiplicateur de 1x) ;
+- gagne des frais de pont passifs ;
+- peut voter pour des gauges afin de gagner des frais et des émissions.
+
+Le boost améliore les rendements, mais n'est pas nécessaire pour participer.
+
+---
+
+## Récapitulatif
+
+| Scénario | Multiplicateur | Remarques |
+|---|---|---|
+| veBTC uniquement, sans votes veMEZO | 1x | Poids de base, gagne tout de même des frais |
+| veBTC + quelques votes veMEZO | 1x–5x | Le multiplicateur évolue avec la part de veMEZO |
+| veBTC + part proportionnelle de veMEZO | 5x | Boost maximum atteint |
+| veMEZO uniquement, sans veBTC | — | Pas de vote sur les gauges de staking ; peut voter sur les gauges de boost et les [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges), et gagne des rebases |

@@ -1,0 +1,288 @@
+---
+title: Aperçu des ponts Mainnet
+description: >-
+  Découvrez comment accéder aux ponts sur Mezo Mainnet et les utiliser pour
+  déplacer vos actifs en toute simplicité.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Vous pouvez déposer des actifs sur Mezo et les en retirer à l'aide du Mezo Native Bridge.
+# Dépôts
+
+## Dépôts via le Mezo Native Bridge
+
+L'application Mezo comprend un pont natif qui vous permet de déposer plusieurs actifs sur Mezo Mainnet. Consultez le guide [Déposer des actifs](/docs/fr/docs/users/getting-started/deposit-assets) pour comprendre le fonctionnement du processus, ou rendez-vous directement sur [mezo.org/overview](https://mezo.org/overview), connectez-vous et cliquez sur **Deposit Bitcoin** pour commencer.
+
+:::note[Remarque]
+Toutes les transactions sur Mezo Mainnet sont payées à l'aide de dépôts de BTC natif ou de tBTC. Avant d'utiliser le réseau, il est recommandé d'approvisionner votre compte en BTC ou en tBTC afin de disposer du gaz nécessaire pour payer les transactions.
+:::
+
+
+## Dépôts de BTC natif
+
+Vous pouvez déposer des BTC directement depuis un portefeuille Bitcoin vers l'application Mezo. Les actifs sont automatiquement transférés via le pont en tBTC, puis vers Mezo Mainnet.
+
+Les BTC natifs sont convertis en tBTC via le pont avant d'être transférés vers le [contrat de l'application Mezo](/docs/fr/docs/users/resources/contracts-reference).
+
+Pour les portefeuilles BTC, vous pouvez vous connecter avec UniSat, OKX et Xverse. Utilisez les adresses suivantes :
+
+| Nom            | Type de script | Préfixe d'adresse |
+| -------------- | -------------- | ----------------- |
+| Legacy         | P2PKH          | 1                 |
+| Native SegWit  | P2WPKH         | bc1q              |
+| Nested SegWit  | P2SH-P2WPKH    | 3                 |
+
+# Retraits 
+
+## Transférer vos actifs de Mezo vers d'autres réseaux
+
+*Dernière mise à jour : septembre 2026*
+
+Ce guide explique comment transférer vos actifs hors de Mezo via un pont, vers les réseaux Ethereum ou Bitcoin. Nous verrons ce que vous pouvez transférer, comment procéder, quels ponts sont utilisés, les frais applicables et à quoi vous attendre au cours du processus. Actuellement, le montant minimum requis pour un transfert est de 0,01 BTC pour un retrait vers du Bitcoin natif, de 0,0002 BTC pour un retrait de BTC vers Ethereum, de 20 unités du jeton pour les jetons en USD transférés via le Native Bridge (USDC, USDT, USDe, DAI), de 0,01 unité du jeton pour les jetons transférés via le Wormhole Bridge (MEZO, MUSD, sUSDat) et de 1 500 T pour le jeton T. Plus de détails [ici.](#transfert-vers-ethereum)
+
+### De Mezo vers d'autres réseaux
+
+| Votre actif sur Mezo | Réseau de destination | Ce que vous recevrez | Remarques |
+|-------------------|-------------------|-------------------|--------|
+| **BTC** | Ethereum | tBTC (jeton ERC-20) | Vous recevez toujours des tBTC sur Ethereum, et non des WBTC ou d'autres versions wrappées |
+| **BTC** | Bitcoin | BTC natif | De vrais bitcoins envoyés vers votre portefeuille Bitcoin |
+| **Jetons mERC-20** | Ethereum | Jeton ERC-20 d'origine | Récupérez les mêmes jetons que ceux que vous aviez initialement transférés via le pont (USDC, USDT, etc.) |
+| **MUSD** | Ethereum, Base | MUSD | Transférez à partir de seulement 0,01 MUSD entre Mezo, Base et Ethereum. Pont fourni par Wormhole. |
+| **MEZO** | Ethereum, Base, BSC, Solana | MEZO | Pont fourni par Wormhole NTT. Consultez le [guide MEZO Bridge](/docs/fr/docs/users/mezo/mezo-bridge) pour plus de détails. |
+| **Jetons mERC-20** | Bitcoin | Non disponible | Les jetons ERC-20 ne peuvent pas être envoyés vers Bitcoin |
+
+:::note[Points clés]
+- Vous pouvez transférer vos actifs via un pont entre Mezo et Bitcoin mainnet, Ethereum et le réseau Base.
+- Les BTC peuvent être transférés vers Ethereum (sous forme de tBTC) ou vers Bitcoin (sous forme de BTC natif).
+- Les jetons comme USDC ou T (représentés sous forme de m-tokens sur Mezo) ne peuvent être renvoyés que vers Ethereum.
+- MEZO et MUSD peuvent être transférés depuis et vers le réseau Base via [Wormhole NTT](/docs/fr/docs/users/mezo/mezo-bridge).
+- Les jetons MEZO peuvent également être transférés vers BSC et Solana via [Wormhole NTT](/docs/fr/docs/users/mezo/mezo-bridge).
+- Les adresses Bitcoin Taproot (commençant par `bc1p`) ne sont pas encore prises en charge.
+:::
+
+## Comment sortir de Mezo
+
+### Transfert vers Ethereum (pour les tBTC ou les jetons ERC-20)
+
+<Steps>
+1. **Cliquez sur le bouton « Withdraw »** en haut à droite de l'application Mezo.
+
+2. **Choisissez votre actif :**
+   - Sélectionnez BTC pour recevoir des tBTC sur Ethereum.
+   - Sélectionnez n'importe quel jeton mERC-20 pour recevoir le jeton d'origine sur Ethereum.
+
+3. **Saisissez le montant** que vous souhaitez transférer.
+
+4. **Vérifiez les frais** affichés à l'écran.
+
+5. **Confirmez et soumettez** la transaction.
+
+6. **Si vous transférez des jetons mERC-20**, vous devrez peut-être d'abord approuver la transaction.
+</Steps>
+
+### Transfert vers Bitcoin (BTC natif uniquement)
+
+<Steps>
+1. **Cliquez sur le bouton « Withdraw »** en haut à droite de l'application Mezo.
+
+2. **Choisissez BTC** comme actif.
+
+3. **Sélectionnez Bitcoin** comme réseau de destination.
+
+4. **Saisissez le montant** à transférer.
+
+5. **Collez votre adresse Bitcoin**. Formats pris en charge :
+   - Adresses Legacy (commençant par `1`)
+   - Adresses SegWit (commençant par `3` ou `bc1q`)
+   - **Non prises en charge :** adresses Taproot (commençant par `bc1p`)
+
+6. **Vérifiez les frais** et confirmez.
+
+7. **Soumettez** la transaction.
+</Steps>
+
+## Comprendre les routes de pont
+
+Lorsque vous retirez des actifs de Mezo, le système détermine automatiquement le pont à utiliser. Cette information apparaît sur la ligne « Bridge » de votre fenêtre de retrait.
+
+-   **Mezo Native Bridge :** utilisé pour tous les retraits standards d'actifs comme les BTC et les jetons mERC-20.
+-   **Wormhole Bridge :** un pont tiers utilisé pour les retraits de MUSD vers Ethereum et pour les [transferts de jetons MEZO](/docs/fr/docs/users/mezo/mezo-bridge) vers Ethereum, Base, BSC et Solana.
+-   **Super Bridge (bientôt disponible) :** un pont natif de Mezo qui prendra en charge les dépôts et les retraits de plus petits montants d'actifs.
+
+Les frais sont affichés avec précision dans l'application en fonction de la route de pont utilisée pour votre transaction.
+
+## Comprendre les frais
+
+Lorsque vous sortez de Mezo via un pont, vous payez des frais pour le service de pont et pour les opérations réseau. Tous les frais sont clairement affichés avant que vous ne confirmiez une transaction.
+
+### Structure des frais du Native Bridge (v2)
+
+Les retraits depuis Mezo comportent des frais simples :
+
+- Frais forfaitaires : un montant fixe équivalant à environ 3 $ US dans la valeur du jeton concerné.
+
+#### Transfert vers Ethereum
+
+Montants minimums de retrait
+
+- Jetons basés sur le BTC (BTC, mcbBTC, mFBTC, mSolvBTC, mswBTC, mxSolvBTC) : 0,0002
+- Jetons basés sur l'USD transférés via le Native Bridge (mUSDC, mUSDT, mDAI, mUSDe) : 20
+- Jetons mT : 1 500
+
+Frais
+
+- Frais de service du Mezo Bridge : ≈ 3 $ US (calculés dans le jeton cible)
+- Frais de réseau (gaz) : payés en BTC, variables selon les conditions du réseau
+
+Exemple :
+
+Retrait de 1 000 USDC → 3 $ de frais de service + frais de gaz variables → vous recevez ~997 USDC.
+
+#### Transfert vers Bitcoin
+
+Montant minimum de retrait : 0,01 BTC
+
+Frais
+
+- Frais de réseau (gaz) : payés en BTC, variables
+- Frais de service du Mezo Bridge : ≈ 0,000027 BTC
+- Frais de service du tBTC Bridge : 0,2 % (après les frais de service du Mezo Bridge)
+- Frais de réseau maximums du tBTC Bridge : jusqu'à 0,001 BTC (mais généralement < 1 $)
+
+##### Exemple :
+
+Montant retiré : 1 BTC
+
+Frais :
+  - 0,000027 BTC (frais de service du Mezo Bridge)
+  - 0,001999946 BTC (frais de service du tBTC Bridge)
+  - frais de réseau du tBTC Bridge et frais de gaz variables
+
+Montant reçu : ~0,997973 BTC.
+
+## Que se passe-t-il après la soumission ?
+
+Une fois que vous avez lancé une transaction de sortie via le pont, le processus est le suivant :
+
+<Steps>
+1. **Validation :** le système vérifie que votre demande remplit toutes les conditions.
+
+2. **Brûlage des jetons :** vos jetons sur Mezo sont brûlés (retirés définitivement de la circulation).
+
+3. **Attestation :** les validateurs Mezo confirment votre demande de retrait.
+
+4. **Livraison :** vos actifs sont envoyés à votre adresse de destination.
+</Steps>
+
+### Délais et mises à jour du statut
+
+Votre transaction de pont affichera les mises à jour de statut suivantes :
+
+-   **Created :** votre demande a été enregistrée.
+-   **Attesting :** les validateurs confirment votre retrait.
+-   **Ready to Withdraw :** les confirmations sont terminées, les actifs sont en cours d'envoi.
+-   **Withdrawn/Redeemed :** les actifs ont bien été livrés à votre adresse de destination.
+
+Vous pouvez suivre votre transaction à l'aide du hash de transaction fourni dans l'interface.
+
+## Exigences importantes concernant les adresses
+
+### Pour les destinations Ethereum
+-   Il doit s'agir d'une adresse Ethereum valide (`0x` suivi de 40 caractères).
+-   Il peut s'agir d'un portefeuille classique ou d'un contrat intelligent qui accepte les transferts de jetons standards.
+-   Les adresses de dépôt des plateformes d'échange fonctionnent si elles acceptent les transferts directs de jetons.
+
+### Pour les destinations Bitcoin
+Types d'adresses pris en charge :
+-   Adresses Legacy (commençant par `1`)
+-   Adresses SegWit wrappées (commençant par `3`)
+-   Adresses Native SegWit (commençant par `bc1q`)
+
+**Non prises en charge :** adresses Taproot (commençant par `bc1p`)
+
+## Rappels de sécurité
+
+Avant de confirmer une transaction de pont :
+
+-   ✅ **Vérifiez soigneusement l'adresse de destination** : les transactions sont irréversibles.
+-   ✅ **Vérifiez que vous avez sélectionné le bon réseau** (Ethereum ou Bitcoin).
+-   ✅ **Confirmez le montant des frais** affiché dans l'application.
+-   ✅ **N'oubliez pas qu'une sortie via le pont ne peut pas être annulée** une fois soumise.
+-   ✅ **Assurez-vous que le format de votre adresse de destination est pris en charge.**
+
+:::danger[Avertissement]
+Si vous envoyez des fonds à une adresse incorrecte mais au format valide, vos fonds seront définitivement perdus. Copiez-collez toujours les adresses et vérifiez-les attentivement.
+:::
+
+
+### Résolution des problèmes courants
+
+#### Message « Approval Required »
+**Pour les jetons mERC-20 :** vous devez d'abord autoriser le contrat du pont à dépenser vos jetons. Cliquez sur « Approve » lorsque vous y êtes invité, confirmez la transaction, puis poursuivez le transfert via le pont.
+
+#### « Unsupported Asset for Destination »
+Rappel :
+-   Les jetons mERC-20 et les MUSD ne peuvent être envoyés que vers Ethereum.
+-   Les BTC peuvent être envoyés vers Ethereum (sous forme de tBTC) ou vers Bitcoin.
+
+#### « Invalid Recipient Address »
+Vérifiez que :
+-   Les adresses Ethereum commencent par `0x` et comptent 42 caractères au total.
+-   Les adresses Bitcoin utilisent des formats pris en charge (pas d'adresses Taproot `bc1p`).
+-   Vous n'utilisez pas une adresse de testnet pour une transaction sur mainnet.
+
+#### La transaction semble bloquée
+Vérifiez le statut dans votre historique de transactions :
+-   Si le statut affiché est « Created » ou « Attesting », les validateurs sont toujours en train de traiter la demande.
+-   Si le statut affiché est « Ready to Withdraw », le transfert est en cours sur le réseau de destination.
+-   Contactez le support en indiquant l'identifiant de votre transaction si elle est en attente depuis une durée anormalement longue.
+
+### Questions fréquentes
+
+**Q : Quelle est la différence entre les BTC sur Mezo et les tBTC sur Ethereum ?**
+R : Lorsque vous transférez des BTC de Mezo vers Ethereum via le pont, ils deviennent des tBTC, un jeton ERC-20 qui représente le Bitcoin sur le réseau Ethereum. Le tBTC est adossé à 1:1 à du Bitcoin natif et peut être échangé contre celui-ci.
+
+**Q : Puis-je transférer mes jetons mERC-20 vers Bitcoin ?**
+R : Non, les jetons ERC-20 sont natifs des réseaux compatibles avec Ethereum. Vous ne pouvez les renvoyer que vers Ethereum.
+
+**Q : Pourquoi ne puis-je pas utiliser mon adresse Bitcoin Taproot ?**
+R : Le pont prend actuellement en charge les formats d'adresses Bitcoin standards. La prise en charge de Taproot (`bc1p`) est prévue dans une future mise à jour.
+
+**Q : Puis-je annuler une transaction de pont ?**
+R : Non, une fois soumises, les transactions de pont ne peuvent pas être annulées. Vos jetons Mezo sont immédiatement brûlés dans le cadre du processus.
+
+**Q : Combien de temps prend un transfert via le pont ?**
+R : La plupart des transactions qui transfèrent des fonds vers Ethereum via le Native Bridge se terminent en 30 à 60 minutes, selon les conditions du réseau et la vitesse d'attestation des validateurs. Les retraits acheminés via le Wormhole Bridge prennent généralement environ 5 minutes. Les transactions de retrait de fonds vers Bitcoin prennent généralement quelques heures avant d'être finalisées.
+
+**Q : Vers quels réseaux puis-je transférer mes actifs ?**
+R : Les actifs peuvent être transférés entre Ethereum, Mezo, Base et Bitcoin. D'autres réseaux seront pris en charge à l'avenir.
+
+**Q : Mon dépôt de Bitcoin natif n'apparaît pas encore. Comment vérifier son statut ?**
+R : Consultez la page [Suivre votre dépôt de Bitcoin natif](/docs/fr/docs/users/mainnet/track-your-native-bitcoin-deposit) pour un guide étape par étape sur l'utilisation de tBTCScan afin de vérifier le statut de votre dépôt.
+
+**Q : Qui paie le gaz sur le réseau de destination ?**
+R : Pour Ethereum, le système de pont prend en charge les coûts de gaz de la livraison finale. Pour Bitcoin, les frais de réseau du tBTC Bridge couvrent le coût de la transaction onchain.
+
+## Modèle de sécurité
+
+Votre transaction de pont doit être approuvée par au moins deux tiers des validateurs du pont de Mezo avant que vos actifs ne soient libérés. Cette approche multisignature garantit qu'aucune partie ne peut à elle seule autoriser des retraits, ce qui préserve la sécurité de vos fonds tout au long du processus de transfert.
+
+## Besoin d'aide ?
+
+Si vous rencontrez des problèmes non traités dans ce guide :
+
+<Steps>
+1. Notez l'identifiant de votre transaction ou le numéro de séquence de déverrouillage.
+
+2. Faites une capture d'écran des éventuels messages d'erreur.
+
+3. Contactez le support de Mezo en lui communiquant ces informations.
+</Steps>
+
+Rappel : vérifiez toujours attentivement les adresses et assurez-vous de bien comprendre les frais avant de confirmer une transaction de pont.
+
+## Portail de dépôt
+
+Les dépôts qui se trouvent encore dans le portail dans le cadre du programme de dépôt anticipé peuvent être retirés vers le portefeuille BTC de l'utilisateur. Les frais de retrait du portail pour les BTC dépendent des paramètres définis dans le pont tBTC. Actuellement, tBTC applique des frais de service du tBTC Bridge de 0,2 % et des frais de réseau du tBTC Bridge pouvant aller jusqu'à 0,001 BTC (généralement bien moins), et ces paramètres sont contrôlés par la gouvernance et peuvent être consultés dans la [documentation sur les frais tBTC](https://docs.threshold.network/tbtc-v2#fees).

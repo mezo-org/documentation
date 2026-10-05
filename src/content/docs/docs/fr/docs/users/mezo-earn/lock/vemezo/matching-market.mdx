@@ -1,0 +1,103 @@
+---
+title: Aperçu du marché d'appariement
+description: >-
+  Comment le marché d'appariement met en relation les détenteurs de veBTC et de
+  veMEZO dans leur intérêt mutuel
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Le marché d'appariement est le mécanisme par lequel veBTC et veMEZO sont associés. Il permet aux détenteurs de BTC d'accéder au boost sans détenir de MEZO, et aux détenteurs de MEZO d'obtenir du rendement sans détenir une quantité importante de BTC.
+
+## Le problème qu'il résout
+
+Le système à double jeton de Mezo requiert à la fois des veBTC et des veMEZO pour maximiser le pouvoir de vote. Mais tout le monde ne détient pas les deux :
+
+- **Les utilisateurs disposant de beaucoup de BTC** veulent le boost de 5x, mais n'ont pas forcément de MEZO
+- **Les utilisateurs disposant de beaucoup de MEZO** ont des veMEZO, mais peu de BTC avec lesquels voter
+
+Le marché d'appariement met en relation ces deux catégories.
+
+---
+
+## Fonctionnement
+
+Chaque position veBTC possède son propre gauge de boost. Ce gauge ne distribue pas d'émissions : il détermine le niveau de boost veMEZO que reçoit cette position veBTC.
+
+### Le déroulement
+
+1. **Le détenteur de veBTC verrouille des BTC** → il reçoit un NFT veBTC associé à un gauge de boost
+2. **Le détenteur de veBTC publie des incentives** → il dépose des jetons (n'importe quel ERC-20) sur son gauge de boost pour attirer des votes veMEZO
+3. **Les détenteurs de veMEZO votent** → ils allouent leur poids veMEZO aux gauges de boost attractifs
+4. **Le boost est appliqué** → le multiplicateur de la position veBTC augmente en fonction des votes veMEZO reçus
+5. **Les incentives sont réclamés** → les votants veMEZO réclament leur part des incentives à la fin de l'époque
+
+---
+
+## Les deux côtés du marché
+
+### Si vous disposez de beaucoup de BTC
+
+Vous voulez du boost, mais vous ne disposez pas de suffisamment de MEZO. Vos options :
+
+- Publier des incentives (incitations) sur votre gauge veBTC pour attirer des votes veMEZO
+- Payer pour obtenir du boost plutôt que de verrouiller vous-même des MEZO
+- Le marché détermine le prix courant du boost
+
+### Si vous disposez de beaucoup de MEZO
+
+Vous avez des veMEZO, mais peu de BTC. Vos options :
+
+- Voter sur des gauges veBTC bien dotés en incentives pour obtenir du rendement
+- Fournir du boost en tant que service aux détenteurs de BTC prêts à payer
+- Obtenir des rendements sur vos MEZO sans avoir besoin d'une exposition importante aux BTC
+
+---
+
+## Pourquoi c'est important
+
+Le marché d'appariement transforme le boost en un service doté d'un prix et négociable :
+
+- **Le boost a un prix de marché** déterminé par l'offre et la demande
+- **Les utilisateurs n'ont pas besoin de détenir les deux jetons** pour tirer parti du système
+- **L'efficacité du capital s'améliore** : les détenteurs de BTC se concentrent sur les BTC, les détenteurs de MEZO sur les MEZO
+
+Sans le marché d'appariement, les utilisateurs devraient détenir des montants proportionnels des deux jetons pour participer efficacement. Le marché supprime cette friction.
+
+---
+
+## Concepts clés
+
+| Terme | Définition |
+|---|---|
+| Gauge de boost | Un gauge rattaché à chaque NFT veBTC, qui reçoit des votes veMEZO |
+| Incentives | Des jetons publiés par les détenteurs de veBTC pour attirer des votes veMEZO |
+| Fournisseur de boost | Un détenteur de veMEZO qui vote sur les gauges de boost d'autres utilisateurs en échange d'incentives |
+| Demandeur de boost | Un détenteur de veBTC qui publie des incentives pour attirer des votes veMEZO |
+
+---
+
+## Matchbox
+
+:::caution[Avertissement concernant un outil communautaire]
+L'implémentation actuelle du marché d'appariement (Matchbox) est un outil conçu par la communauté. Il n'est ni développé, ni maintenu, ni approuvé officiellement par Mezo. Les utilisateurs doivent effectuer leurs propres recherches et faire preuve de prudence lorsqu'ils interagissent avec des applications tierces.
+:::
+
+<LinkButton href="https://matchbox.markets/">Protocole d'appariement veBTC + veMEZO : gagnez des bribes avec vos veMEZO, ou payez pour obtenir un boost</LinkButton>
+
+Pour des tutoriels détaillés sur l'utilisation de Matchbox afin de booster vos gains sur Mezo, consultez la [documentation de Matchbox](https://matchbox.markets/docs).
+
+---
+
+## Risques
+
+En tant qu'outil conçu par la communauté, le marché d'appariement comporte des risques supplémentaires :
+
+- **Risque lié aux contrats intelligents** : les contrats n'ont peut-être pas été audités selon les mêmes normes que le protocole principal de Mezo
+- **Aucune assistance officielle** : Mezo ne peut fournir ni assistance ni aide pour les problèmes liés au marché d'appariement
+- **Risque opérationnel** : l'outil peut être modifié, abandonné ou subir des interruptions sans préavis
+
+:::note[Remarque]
+Pour toute question ou demande d'assistance concernant le marché d'appariement, veuillez contacter directement les développeurs de la communauté. L'assistance de Mezo ne peut pas vous aider avec les outils tiers.
+:::

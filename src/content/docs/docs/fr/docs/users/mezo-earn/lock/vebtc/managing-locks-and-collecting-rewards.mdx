@@ -1,0 +1,92 @@
+---
+title: Gérer vos verrouillages et collecter vos récompenses
+description: Comprendre la durée de verrouillage et la décroissance du poids pour veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Une fois que vous avez verrouillé des BTC et reçu votre NFT veBTC, vous pouvez gérer votre position, prolonger votre verrouillage et réclamer vos récompenses.
+
+---
+
+## Consulter les détails de votre position
+
+Accédez à la page Lock pour voir :
+
+- **BTC verrouillés** : le montant de votre position
+- **veBTC actuel** : votre pouvoir de vote à cet instant
+- **Expiration du verrouillage** : la date à partir de laquelle vous pouvez retirer vos fonds
+- **Gains** : les récompenses accumulées
+
+---
+
+## Prolonger votre verrouillage
+
+Conservez votre pouvoir de vote en prolongeant la durée de verrouillage avant son expiration.
+
+<Steps>
+1. Accédez à la page Lock
+
+2. Sélectionnez votre position veBTC
+
+3. Cliquez sur **Extend Lock**
+
+4. Sélectionnez votre nouvelle durée (1 à 28 jours)
+
+5. Confirmez la prolongation
+</Steps>
+
+La prolongation réinitialise votre poids de vote en fonction de la nouvelle durée de verrouillage.
+
+---
+
+## Réclamer les récompenses
+
+Les récompenses de vote s'accumulent tout au long de chaque époque et peuvent être réclamées une fois l'époque terminée.
+
+<Steps>
+1. Accédez à votre position veBTC
+
+2. Cliquez sur **Claim Rewards**
+
+3. Recevez les frais et les incentives que vous avez gagnés
+</Steps>
+
+Les récompenses sont versées dans les jetons générés par les pools pour lesquels vous avez voté.
+
+:::note[Remarque]
+Les récompenses ne se capitalisent pas automatiquement. Vous devez les réclamer et les redéployer manuellement.
+:::
+
+
+### Période de réclamation
+
+Vous pouvez réclamer les frais de la chaîne accumulés au cours d'une époque dès le début de l'époque suivante. Les gains non réclamés continuent de s'accumuler, mais ne peuvent être réclamés que pendant **50 époques**. Tous les frais non réclamés au-delà de cette période sont perdus.
+
+---
+
+## Après l'expiration du verrouillage
+
+Une fois votre verrouillage expiré, votre pouvoir de vote tombe à zéro et vous pouvez retirer vos BTC. Trois options s'offrent à vous :
+
+- **Créer un nouveau verrouillage** : verrouillez à nouveau pour retrouver du pouvoir de vote
+- **Attendre** : vos BTC restent en sécurité ; vous pourrez décider plus tard
+- **Retirer** : renvoyez vos BTC vers votre portefeuille
+
+Pour effectuer un retrait :
+
+<Steps>
+1. Accédez à votre position expirée
+
+2. Cliquez sur **Withdraw**
+
+3. Vos BTC d'origine sont renvoyés vers votre portefeuille et le NFT veBTC est brûlé
+</Steps>
+
+---
+
+## Prochaines étapes
+
+- [Comment voter pour des gauges](/docs/fr/docs/users/mezo-earn/vote) : commencez à gagner des frais et des émissions
+- [FAQ et ressources](/docs/fr/docs/users/mezo-earn/lock/vebtc/faqs-and-resources) : questions fréquentes sur veBTC
