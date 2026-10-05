@@ -20,7 +20,7 @@ Zeker. Je kunt je stemkracht verdelen zoals je wilt: 50% naar BTC/MUSD, 30% naar
 
 **Wat is het verschil tussen stemmen met veBTC en met veMEZO?**
 
-veBTC-houders stemmen op staking gauges. Zij verdienen handelsvergoedingen, incentives en passieve bridgevergoedingen.
+veBTC-houders stemmen op staking-gauges. Zij verdienen handelsvergoedingen, incentives en passieve bridgevergoedingen.
 
 veMEZO-houders stemmen op veBTC-boostgauges. Zij verdienen incentives die zijn geplaatst door veBTC-houders die een boost zoeken, plus rebase-uitkeringen.
 
@@ -127,7 +127,7 @@ Vergoedingen en incentives kunnen worden geclaimd zodra de epoch is afgelopen. T
 
 Nee. Je verdient alleen vergoedingen en incentives van de specifieke gauges waaraan je stemkracht hebt toegewezen. Heb je 100% op BTC/MUSD gestemd, dan verdien je niets van de MUSD/USDC-pool.
 
-Uitzondering: passieve bridgevergoedingen worden verdeeld over alle veBTC-houders naar verhouding van hun geboost gewicht, ongeacht hoe ze stemmen.
+Uitzondering: passieve bridgevergoedingen worden verdeeld over alle veBTC-houders naar verhouding van hun geboost gewicht, ongeacht of ze stemmen.
 
 **Wat zijn rebases en hoe claim ik ze?**
 

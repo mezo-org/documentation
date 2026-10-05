@@ -40,7 +40,7 @@ Kluizen die door Mezo zijn gebouwd en worden beheerd, zoals de [MUSD Savings Vau
 
 ### Externe kluizen
 
-De [Ditto MUSD Savings Vault](/docs/nl/docs/users/mezo-earn/vaults/ditto-musd-savings-vault) accepteert MUSD op Mezo en geeft dMUSD uit. Ditto Network verzorgt swaps, bridging en een eerste allocatie aan Spark Savings op Ethereum. Inwisselingen leveren MUSD op Mezo op en worden asynchroon verwerkt.
+De [Ditto MUSD Savings Vault](/docs/nl/docs/users/mezo-earn/vaults/ditto-musd-savings-vault) accepteert MUSD op Mezo en geeft dMUSD uit. Ditto Network verzorgt de swaps, het bridgen en een initiële toewijzing aan Spark Savings op Ethereum. Inwisselingen leveren MUSD op Mezo op en worden asynchroon verwerkt.
 
 Kluizen die door partnerprotocollen zijn gebouwd (bijv. August, UWI, Upshift) en activa in hun eigen strategieën inzetten. Deze kunnen ook als uitgelichte banners op de kluizenpagina verschijnen en voor stortingen doorlinken naar het platform van de partner.
 

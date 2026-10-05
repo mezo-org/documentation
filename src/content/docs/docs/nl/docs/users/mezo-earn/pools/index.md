@@ -47,7 +47,7 @@ Wil je liquiditeitsverschaffer worden? Aan de slag gaan is eenvoudig. Ga naar [M
 
 1. **Je activa voorbereiden**: om liquiditeit te verschaffen heb je een gelijke waarde van beide activa in een paar nodig (bijvoorbeeld `$50 of BTC` en `$50 of MUSD`).
    * MUSD nodig? Mint het met je BTC via Mezo Borrow.
-   * Andere activa of MUSD nodig? Gebruik [Mezo Pools](https://mezo.org/explore/pools) om ze te verhandelen.
+   * Andere activa of MUSD nodig? Gebruik [Mezo Pools](https://mezo.org/explore/pools) om ze via een swap te verkrijgen.
 2. **Liquiditeit toevoegen**: ga naar de [poolpagina op Mezo Explore](https://mezo.org/explore/pools). Kies de gewenste pool, geef op hoeveel je wilt storten en bevestig de transactie. Je ontvangt LP-tokens in je wallet die je aandeel in de pool vertegenwoordigen.
 3. **Staken en verdienen (binnenkort beschikbaar)**: zodra staking live is, ga je gewoon terug naar de [poolpagina](https://mezo.org/explore/pools), kies je je positie en stake je je LP-tokens om extra beloningen te verdienen. Houd het in de gaten.
 

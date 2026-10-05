@@ -5,7 +5,7 @@ topic: developers
 
 #### Wat is Mezo? De waardepropositie voor bouwers <a href="#what-is-mezo-the-value-proposition-for-builders" id="what-is-mezo-the-value-proposition-for-builders"></a>
 
-Mezo is een permissionless Bitcoin-financieringsplatform zonder banken, ontworpen om Bitcoin te veranderen van een passieve waardeopslag in een productief, dynamisch financieel activum. De kernmissie van het platform is om de meer dan 100 miljoen Bitcoin-houders wereldwijd in staat te stellen met een doel te HODL'en, door de waarde van hun activa te gebruiken zonder ze te hoeven verkopen. Dit wordt bereikt met een robuuste infrastructuur die goedkope, snelle en veilige transacties mogelijk maakt voor uiteenlopende praktijktoepassingen.
+Mezo is een permissionless financieel platform voor Bitcoin zonder banken, ontworpen om Bitcoin te veranderen van een passieve waardeopslag in een productief, dynamisch financieel activum. De kernmissie van het platform is om de meer dan 100 miljoen Bitcoin-houders wereldwijd in staat te stellen met een doel te HODL'en, door de waarde van hun activa te gebruiken zonder ze te hoeven verkopen. Dit wordt bereikt met een robuuste infrastructuur die goedkope, snelle en veilige transacties mogelijk maakt voor uiteenlopende praktijktoepassingen.
 
 De uiteindelijke visie voor Mezo is om het gebruik van Bitcoin supernormal te maken: een situatie waarin Bitcoin gebruiken voor alledaagse financiële activiteiten zo naadloos en geïntegreerd is dat het een vanzelfsprekend, onopvallend onderdeel van het leven wordt, net als het gebruik van een betaalpas.
 
@@ -52,7 +52,7 @@ Haal testnet-tegoed op via de faucet van Mezo: [https://faucet.test.mezo.org/](h
 
 #### Hoe integreer ik met Mezo Passport? <a href="#how-do-i-integrate-with-mezo-passport" id="how-do-i-integrate-with-mezo-passport"></a>
 
-​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is de officiële library voor walletverbindingen, speciaal gebouwd voor een naadloze en uniforme gebruikerservaring op het Mezo-netwerk. De library regelt de complexiteit van het verbinden van zowel Bitcoin-native wallets (zoals Xverse en Unisat) als standaard EVM-wallets (zoals MetaMask) met je dApp. Voor de meest actuele en gedetailleerde integratiehandleiding, inclusief installatie-instructies, configuratie, beschikbare hooks en codevoorbeelden, kunnen ontwikkelaars de [**officiële documentatie van Mezo Passport**](https://www.npmjs.com/package/@mezo-org/passport) raadplegen**.**
+​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is de officiële library voor walletverbindingen, speciaal gebouwd voor een naadloze en uniforme gebruikerservaring op het Mezo-netwerk. De library regelt de complexiteit van het verbinden van zowel Bitcoin-native wallets (zoals Xverse en Unisat) als standaard EVM-wallets (zoals MetaMask) met je dApp. Voor de meest actuele en gedetailleerde integratiehandleiding, inclusief installatie-instructies, configuratie, beschikbare hooks en codevoorbeelden, zouden ontwikkelaars de [**officiële documentatie van Mezo Passport**](https://www.npmjs.com/package/@mezo-org/passport) moeten raadplegen**.**
 
 #### Hoe krijg ik financiering en ondersteuning voor mijn project? <a href="#how-can-i-get-funding-and-support-for-my-project" id="how-can-i-get-funding-and-support-for-my-project"></a>
 

@@ -2,17 +2,17 @@
 title: Mezo Pools
 topic: developers
 ---
-Met Mezo Pools kunnen gebruikers tokens swappen en liquiditeit verschaffen via geoptimaliseerde poolmechanismen. Mezo ondersteunt twee poolarchitecturen: **basic pools** (AMM's met constant product en stable curve) en **pools met geconcentreerde liquiditeit (CL)** met aangepaste prijsbereiken.
+Met Mezo Pools kunnen gebruikers tokens swappen en liquiditeit verschaffen via geoptimaliseerde poolmechanismen. Mezo ondersteunt twee poolarchitecturen: **basispools** (AMM's met constant product en stable curve) en **pools met geconcentreerde liquiditeit (CL)** met aangepaste prijsbereiken.
 
-## Basic pools
+## Basispools
 
-Basic pools gebruiken een AMM in Aerodrome-stijl met prijsvorming via constant product (volatiel) of stable curve (stabiel).
+Basispools gebruiken een AMM in Aerodrome-stijl met prijsvorming via constant product (volatiel) of stable curve (stabiel).
 
 - **Poolfactory:** `0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248`
 - **Swapkosten:** 0,30% voor volatiele pools, 0,02% voor stabiele pools
 - **Type positie:** fungibele LP-tokens (ERC-20)
 
-### Ondersteunde basic pools
+### Ondersteunde basispools
 
 | Pool | Type | Adres |
 |------|------|---------|
@@ -20,7 +20,7 @@ Basic pools gebruiken een AMM in Aerodrome-stijl met prijsvorming via constant p
 | MUSD/mUSDC | Stabiel | `0xEd812AEc0Fecc8fD882Ac3eccC43f3aA80A6c356` |
 | MUSD/mUSDT | Stabiel | `0x10906a9E9215939561597b4C8e4b98F93c02031A` |
 
-### Swapflow bij basic pools
+### Swapflow bij basispools
 
 **Routercontract:** `0x16A76d3cd3C1e3CE843C6680d6B37E9116b5C706`
 
@@ -90,7 +90,7 @@ CL-posities kunnen in gauges worden gestaket voor MEZO-emissies. Gestakete liqui
 
 ## Contractadressen
 
-### Mainnet: contracten voor basic pools
+### Mainnet: contracten voor basispools
 
 | Naam | Adres |
 |------|---------|
@@ -122,7 +122,7 @@ CL-posities kunnen in gauges worden gestaket voor MEZO-emissies. Gestakete liqui
 | VeBTCEpochGovernor | `0x1494102fa1b240c3844f02e0810002125fb5F054` |
 | ChainFeeSplitter | `0xcb79aE130b0777993263D0cdb7890e6D9baBE117` |
 
-### Testnet: contracten voor basic pools
+### Testnet: contracten voor basispools
 
 | Naam | Adres |
 |------|---------|

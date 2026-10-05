@@ -48,7 +48,7 @@ Een gauge die gekoppeld is aan een specifieke veBTC-NFT. veMEZO-houders stemmen 
 
 Een gauge zonder stakingtoken waarop met veMEZO wordt gestemd. De emissies gaan naar een bestemming die de gauge zelf aanwijst, in plaats van naar stakers op Mezo. Stemmen op zo'n gauge staat los van het stemmen op veBTC-gauges en van boostmatching.
 
-## MEZO-gauge
+## MEZO Gauge
 
 Een niet-staking-gauge die MEZO-emissies naar MUSD-liquiditeitspools buiten Mezo stuurt: Curve en Uniswap op Ethereum, en Aerodrome op Base. Zie [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges).
 

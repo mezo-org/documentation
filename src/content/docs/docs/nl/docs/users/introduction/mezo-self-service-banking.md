@@ -37,7 +37,7 @@ Geef je MUSD uit aan echte goederen en diensten. Koop cadeaukaarten, betaal abon
 Elke transactie op Mezo wordt in Bitcoin betaald. Zo blijft de ervaring puur Bitcoin, terwijl er een inkomstenstroom ontstaat die terugvloeit naar de deelnemers in het Mezo-ecosysteem.
 
 ### Gebouwd op tBTC
-De meest beproefde gedecentraliseerde Bitcoin-bridge, met meer dan 24k BTC gebridged sinds 2020. De reserves zijn 24/7 verifieerbaar, zodat je niet hoeft te vertrouwen op vertrouwde derden.
+De meest beproefde gedecentraliseerde Bitcoin-bridge, met meer dan 24k BTC gebridged sinds 2020. De reserves zijn 24/7 verifieerbaar, zodat je niet afhankelijk bent van vertrouwde derden.
 
 ### Permissionless bouwen
 Dankzij volledige EVM-compatibiliteit kunnen ontwikkelaars bouwen zonder toestemming te vragen. Maak nieuwe financiële producten, integreer bestaande protocollen of bedenk volledig nieuwe toepassingen. Hetzelfde ethos als Bitcoin: open, permissionless, niet te stoppen.

@@ -8,7 +8,7 @@ topic: users
 Wanneer je leent met je Bitcoin als onderpand, maak je een leenpositie aan (ook wel een "Trove" genoemd). Twee belangrijke systeemgebeurtenissen kunnen invloed hebben op je lening:
 
 - **Liquidatie**: het gedwongen sluiten van je lening. Dit gebeurt alleen als de gezondheid van je lening, gemeten aan de onderpandratio, onder een kritiek minimum van 110% zakt. Bij een liquidatie verlies je je onderpand.
-- **Inwisseling**: iedereen die MUSD heeft, kan dat bij het protocol omwisselen voor BTC tegen \$1 per MUSD (min inwisselingskosten, momenteel 0,75%). Via arbitrage blijft de prijs van MUSD zo dicht bij \$1. Inwisselingen halen eerst BTC uit de Trove met de laagste onderpandratio (zolang die nog boven de liquidatiedrempel van 110% ligt). Een inwisseling kan je lening dus verkleinen, ook al loopt je Trove geen risico op liquidatie. Is het inwisselingsbedrag kleiner dan de schuld van die Trove, dan wordt het verwerkt als een gedeeltelijke inwisseling: er wordt dan maar een deel van de schuld kwijtgescholden. Is het groter, dan wordt de Trove volledig ingewisseld en gaat het resterende bedrag door naar de Trove met de op één na laagste ratio. In beide gevallen worden schuld en onderpand in gelijke dollarbedragen verwijderd, wat de collateralisatieratio van de betreffende Trove verhoogt. De lener verliest daarbij wel blootstelling aan BTC.
+- **Inwisseling**: iedereen die MUSD heeft, kan dat bij het protocol omwisselen voor BTC tegen \$1 per MUSD (min inwisselingskosten, momenteel 0,75%). Zo blijft de prijs van MUSD via arbitrage dicht bij \$1. Inwisselingen halen eerst BTC uit de Trove met de laagste onderpandratio (zolang die nog boven de liquidatiedrempel van 110% ligt). Een inwisseling kan je lening dus verkleinen, ook al loopt je Trove geen risico op liquidatie. Is het inwisselingsbedrag kleiner dan de schuld van die Trove, dan wordt het verwerkt als een gedeeltelijke inwisseling: er wordt dan maar een deel van de schuld kwijtgescholden. Is het groter, dan wordt de Trove volledig ingewisseld en gaat het resterende bedrag door naar de Trove met de op één na laagste ratio. In beide gevallen worden schuld en onderpand in gelijke dollarbedragen verwijderd, wat de collateralisatieratio van de betreffende Trove verhoogt. De lener verliest daarbij wel blootstelling aan BTC.
 
 ---
 
@@ -76,7 +76,7 @@ Het systeem begint altijd bij de lening met de laagste onderpandratio die nog bo
   - Je nieuwe onderpandratio is nu 160% (\$8.000 / 5.000 MUSD), waardoor je lening veel veiliger is!
 
 ### Je resterende onderpand terugkrijgen na een volledige inwisseling
-Wordt je lening via een inwisseling volledig afbetaald, dan is je onderpandoverschot veilig. Je kunt het op elk moment terugvorderen via de Mezo-app.
+Wordt je lening via een inwisseling volledig afbetaald, dan is je onderpandoverschot veilig. Je kunt het op elk moment terugvorderen via de Mezo App.
 
 Belangrijke opmerking: de huidige gebruikersinterface toont je beschikbare overschot mogelijk niet. Zie je op de pagina Borrow geen melding "Loan redeemed", volg dan onze handleiding [Je onderpand opeisen na een volledige inwisseling](/docs/nl/docs/users/borrow/claim-collateral-after-redemption/) om het handmatig via de Mezo Explorer op te eisen.
 

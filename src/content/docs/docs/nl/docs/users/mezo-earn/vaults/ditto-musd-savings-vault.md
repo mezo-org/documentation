@@ -6,7 +6,7 @@ description: >-
 topic: users
 ---
 
-De Ditto MUSD Savings Vault geeft MUSD-houders nog een manier om hun activa via Mezo Earn te laten renderen. Stort MUSD op Mezo en ontvang **dMUSD**, een ontvangstbewijstoken dat je positie in de kluis vertegenwoordigt. Ditto Network regelt achter de schermen de swaps, het bridgen en de toewijzing van de kluis, met een initiële toewijzing aan **Spark Savings op Ethereum**.
+De Ditto MUSD Savings Vault geeft MUSD-houders nog een manier om hun activa via Mezo Earn te laten renderen. Stort MUSD op Mezo en ontvang **dMUSD**, een ontvangsttoken dat je positie in de kluis vertegenwoordigt. Ditto Network regelt achter de schermen de swaps, het bridgen en de toewijzing van de kluis, met een initiële toewijzing aan **Spark Savings op Ethereum**.
 
 Je houdt een kluispositie aan op Mezo, terwijl Ditto de stappen beheert die nodig zijn om het onderliggende rendement op een andere chain te benutten.
 
@@ -44,7 +44,7 @@ Resultaten uit het verleden geven de huidige prestaties niet weer en bieden geen
 1. Open de [Ditto MUSD Savings Vault](https://mezo.org/earn/vaults/0x9171Cb787C3fEEbBC808D07CaB62B1d789CE14F8) en verbind je wallet op Mezo.
 2. Bekijk de strategie, het actuele tarief en de opnamevoorwaarden.
 3. Vul in hoeveel MUSD je wilt storten en volg de aanwijzingen in de app voor goedkeuring en storting.
-4. Bevestig de vereiste transacties in je wallet. Je dMUSD-ontvangstbewijstokens vertegenwoordigen je kluispositie.
+4. Bevestig de vereiste transacties in je wallet. Je dMUSD-ontvangsttokens vertegenwoordigen je kluispositie.
 
 ## Opnames
 
@@ -61,7 +61,7 @@ De Ditto-kluis is een ander product dan de eigen [MUSD Savings Vault](/docs/nl/d
 - **dMUSD:** een positie in de kluis die door Ditto wordt beheerd en in eerste instantie is toegewezen aan Spark Savings op Ethereum. Inwisselingen geven via een asynchroon proces MUSD terug op Mezo.
 - **sMUSD:** een positie in de eigen spaarkluis van Mezo, die rendement verdient uit de activiteit van het MUSD-protocol.
 
-De ontvangstbewijstokens vertegenwoordigen verschillende kluizen. Bekijk de voorwaarden van elke kluis voordat je stort of inwisselt.
+De ontvangsttokens vertegenwoordigen verschillende kluizen. Bekijk de voorwaarden van elke kluis voordat je stort of inwisselt.
 
 ## Risico's
 

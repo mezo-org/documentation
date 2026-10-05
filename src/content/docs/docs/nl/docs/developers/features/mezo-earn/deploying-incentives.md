@@ -17,7 +17,7 @@ Een volledige lijst van tokenadressen op de whitelist die als incentives aan de 
 2. Klik op het tabblad **Contract**, selecteer dan **Write proxy** en kies `createPoolGauge`.
 
 3. Gebruik voor de parameter `_poolFactory` een van de volgende adressen:
-   - **Basic-pools:** `0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248`
+   - **Basispools:** `0x83FE469C636C4081b87bA5b3Ae9991c6Ed104248`
    - **CL-pools:** `0xBB24AF5c6fB88F1d191FA76055e30BF881BeEb79`
 
 4. Vul het pooladres in bij `_pool`.

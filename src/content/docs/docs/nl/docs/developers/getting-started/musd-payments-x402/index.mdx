@@ -14,10 +14,10 @@ import { Image } from 'astro:assets';
 **[x402](https://x402.org)** is een open standaard voor internet-native betalingen. 
 Een server retourneert een `HTTP 402 Payment Required`-response met een
 machineleesbare beschrijving van wat iets kost; een client voegt een ondertekend
-betalingsbericht toe en probeert het opnieuw; een facilitator verrekent de betaling onchain en 
+betalingsbericht toe en probeert het opnieuw; een facilitator wikkelt de betaling onchain af en 
 de server stuurt een ontvangstbewijs samen met de gekochte content terug naar de client. 
 
-Op Mezo is **MUSD** het standaardactivum voor verrekening. Een verkoper noemt een prijs, zoals $0,01; 
+Op Mezo is **MUSD** het standaardactivum voor afwikkeling. Een verkoper noemt een prijs, zoals $0,01; 
 de x402-SDK zet die tijdens runtime om naar een bedrag in MUSD
 (18 decimalen, `permit2` + EIP-2612) en de wallet van de koper ondertekent een 
 bericht dat de overdracht binnen een tijdvenster autoriseert. 
@@ -43,7 +43,7 @@ bericht dat de overdracht binnen een tijdvenster autoriseert.
 
 7. Is de `Verification Response` geldig, dan voert de server het werk uit om aan de request te voldoen. Is de `Verification Response` ongeldig, dan retourneert de resourceserver de status `402 Payment Required` en een JSON-object `Payment Required Response` in de body van de response.
 
-8. `Server` verrekent de betaling door rechtstreeks met een blockchain te communiceren, of door de `Payment Payload` en `Payment PaymentRequirements` via een POST naar het endpoint `/settle` van een `facilitator` te sturen.
+8. `Server` wikkelt de betaling af door rechtstreeks met een blockchain te communiceren, of door de `Payment Payload` en `Payment PaymentRequirements` via een POST naar het endpoint `/settle` van een `facilitator` te sturen.
 
 9. `Facilitator` dient de betaling in op de blockchain op basis van het `scheme` en `network` van de `Payment Payload`.
 
@@ -65,7 +65,7 @@ bericht dat de overdracht binnen een tijdvenster autoriseert.
 - **Ondertekening:** MUSD is een `permit2` + EIP-2612-token, dus de betalingsautorisatie
   is één EIP-712-handtekening, zonder onchain goedkeuringstransactie en zonder
   gas voor de koper.
-- **Facilitator:** beide netwerken worden verrekend door dezelfde facilitator,
+- **Facilitator:** beide netwerken worden afgewikkeld door dezelfde facilitator,
   `https://facilitator.vativ.io`, die Testnet en Mainnet vanaf één
   endpoint bedient.
 
@@ -111,9 +111,9 @@ Er is nog geen Java-SDK beschikbaar; gebruik de bovenstaande SDK voor TypeScript
 
 ## Waarom Mezo voor x402
 
-De meeste chains die x402 ondersteunen, verrekenen in USDC. Mezo pakt het anders aan:
+De meeste chains die x402 ondersteunen, wikkelen betalingen af in USDC. Mezo pakt het anders aan:
 
-- **Bitcoin-native activum voor verrekening.** MUSD wordt in de Mezo-economie gemint tegen BTC
+- **Bitcoin-native activum voor afwikkeling.** MUSD wordt in de Mezo-economie gemint tegen BTC
   als onderpand. Inkomsten in MUSD blijven binnen
   het Bitcoin-ecosysteem, zonder omweg via ETH of gecentraliseerde
   uitgevers van stablecoins.
@@ -122,7 +122,7 @@ De meeste chains die x402 ondersteunen, verrekenen in USDC. Mezo pakt het anders
   AI-prijzen per inferentie en toegang tot content per request kunnen
   realistisch worden geprijsd zonder batching.
 - **Geen gas voor kopers (de facilitator betaalt in BTC).** De
-  facilitator van Mezo op `facilitator.vativ.io` sponsort elke onchain settle-transactie
+  facilitator van Mezo op `facilitator.vativ.io` sponsort elke onchain afwikkelingstransactie
   in native BTC. Kopers (inclusief AI-agents) hebben alleen
   MUSD nodig om uit te geven en een private key om een EIP-712-autorisatie voor permit2
   te ondertekenen; geen BTC-gas bijvullen, geen gebridged gastoken, geen
@@ -147,7 +147,7 @@ zonder abonnementen, API-sleutels of accounts bij betaalverwerkers te beheren:
   aanroep tegen echte kostprijs, mogelijk gemaakt door MUSD met 18 decimalen.
 - **Machine-to-machine-betalingen (M2M).** AI-agents met een
   `@x402/fetch`-client en een private key handelen autonoom:
-  een betaalde tool vinden, de `402`-vereisten lezen, verrekenen, gebruiken.
+  een betaalde tool vinden, de `402`-vereisten lezen, afwikkelen, gebruiken.
   Geen accounts, geen uitwisseling van inloggegevens, geen mens in de lus per
   betaling. Omdat de facilitator het gas sponsort, heeft de agent alleen MUSD
   en een ondertekeningssleutel nodig; geen BTC bijvullen om te beginnen met transacties.

@@ -101,10 +101,10 @@ De Stability Pool wordt opgestart met een protocollening tegen toekomstige koste
 
 - **Inwisseling:** het omwisselen van MUSD-tokens met het systeem in ruil voor onderpand van gelijke waarde. Elk account met een MUSD-tokensaldo kan deze inwisselen, ongeacht of het een lener is.
 
-- **Liquidatie:** het gedwongen sluiten van een onvoldoende gedekte lening en het herverdelen van het onderpand en de schuld ervan. Als de Stability Pool groot genoeg is, wordt de geliquideerde schuld verrekend met de Stability Pool en wordt het onderpand verdeeld onder de inleggers. Kan de geliquideerde schuld niet met de pool worden verrekend, dan herverdeelt het systeem het geliquideerde onderpand en de schuld rechtstreeks over de actieve leningen met een collateralisatieratio van meer dan 110%. Liquidatie is permissionless en openbaar beschikbaar: iedereen kan een onvoldoende gedekte lening liquideren of leningen in batch liquideren.
+- **Liquidatie:** het gedwongen sluiten van een onvoldoende gedekte lening en het herverdelen van het onderpand en de schuld ervan. Als de Stability Pool groot genoeg is, wordt de geliquideerde schuld verrekend met de Stability Pool en wordt het onderpand verdeeld onder de storters. Kan de geliquideerde schuld niet met de pool worden verrekend, dan herverdeelt het systeem het geliquideerde onderpand en de schuld rechtstreeks over de actieve leningen met een collateralisatieratio van meer dan 110%. Liquidatie is permissionless en openbaar beschikbaar: iedereen kan een onvoldoende gedekte lening liquideren of leningen in batch liquideren.
 
 - **Onderpandoverschot:** het onderpandoverschot is het extra onderpand van leners dat ze kunnen terugvorderen als hun lening volledig is ingewisseld.
 
-- **Verrekening (offset):** het wegstrepen van geliquideerde schuld tegen MUSD in de Stability Pool en het toewijzen van geliquideerd onderpand aan inleggers in de Stability Pool, naar verhouding van hun inleg.
+- **Verrekening (offset):** het wegstrepen van geliquideerde schuld tegen MUSD in de Stability Pool en het toewijzen van geliquideerd onderpand aan storters in de Stability Pool, naar verhouding van hun storting.
 
 - **Gascompensatie:** een vergoeding in MUSD en onderpand die automatisch wordt betaald aan degene die een liquidatiefunctie aanroept, bedoeld om liquidaties ook bij marktstress winstgevend te houden. Het bedrag van 200 MUSD is vastgesteld op basis van de gasprijzen en bloktijden van Ethereum. Zo worden liquidators niet afgeschrikt door mogelijk hoge gaskosten.

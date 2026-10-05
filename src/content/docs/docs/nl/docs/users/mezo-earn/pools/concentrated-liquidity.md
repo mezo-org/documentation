@@ -58,7 +58,7 @@ De BTC/MUSD-200-pool gebruikt een tick spacing van 200 met een swaptarief van 0,
 
 - **Breder bereik**: levert gelijkmatiger vergoedingen op, maar met een lagere kapitaalefficiëntie. Beter als je er weinig naar wilt omkijken.
 - **Smaller bereik**: levert meer vergoedingen op zolang de prijs binnen het bereik blijft, maar vereist actieve monitoring en herbalancering. De kans dat de prijs buiten je bereik komt, is groter.
-- **De huidige prijs moet binnen je bereik liggen**: ligt de huidige prijs buiten je bereik, dan bestaat je positie volledig uit één token en verdient ze geen vergoedingen totdat de prijs weer binnen het bereik komt.
+- **De huidige prijs zou binnen je bereik moeten liggen**: ligt de huidige prijs buiten je bereik, dan bestaat je positie volledig uit één token en verdient ze geen vergoedingen totdat de prijs weer binnen het bereik komt.
 
 ## Staken voor emissies (binnenkort beschikbaar)
 

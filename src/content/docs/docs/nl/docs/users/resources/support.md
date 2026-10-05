@@ -24,7 +24,7 @@ Laat ons weten of je een gebruiker of een partner/validator bent die technische 
 
 ### Technische ondersteuning (route voor gebruikers)
 
-Zoek je als gebruiker technische ondersteuning, laat ons dan weten of je probleem gaat over een bug die je wilt melden, een probleem met het bridgen van tegoeden naar Mezo, een probleem met lenen in MUSD, of iets anders.
+Zoek je als gebruiker technische ondersteuning, laat ons dan weten of je probleem gaat over een bug die je wilt melden, een probleem met het bridgen van tegoeden naar Mezo, een probleem met het lenen van MUSD, of iets anders.
 
   ![](/docs/images/portal/user-engineering-support.png)
 

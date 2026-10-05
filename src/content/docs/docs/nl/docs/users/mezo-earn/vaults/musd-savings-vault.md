@@ -44,7 +44,7 @@ sMUSD is je ontvangsttoken voor de MUSD Savings Vault van Mezo. Een paar dingen 
 | Ontvangsttoken | sMUSD |
 | Strateeg | Mezo |
 | Opnamekosten | Geen |
-| Tijdslot op opnames | 0 u |
+| Timelock op opnames | 0 u |
 | Huidige APR | Variabel; bekijk [mezo.org/earn/vaults](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC) |
 
 ---

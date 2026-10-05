@@ -27,7 +27,7 @@ MEZO wordt gebruikt om:
 
 ## Belangrijkste eigenschappen
 
-- **Twee taken**: veMEZO vermenigvuldigt het gewicht van veBTC op staking gauges en stemt zelfstandig op [veBTC-boostgauges](/docs/nl/docs/users/mezo-earn/lock/vemezo/matching-market) en [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges). veMEZO heeft zelf geen gewicht in governance.
-- **Geen zelfstandige stem op staking gauges**: veMEZO kan zonder veBTC niet op staking gauges stemmen.
+- **Twee taken**: veMEZO vermenigvuldigt het gewicht van veBTC op staking-gauges en stemt zelfstandig op [veBTC-boostgauges](/docs/nl/docs/users/mezo-earn/lock/vemezo/matching-market) en [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges). veMEZO heeft zelf geen gewicht in governance.
+- **Geen zelfstandige stem op staking-gauges**: veMEZO kan zonder veBTC niet op staking-gauges stemmen.
 - **Tijdgewogen**: langere vergrendelingen = hoger veMEZO-gewicht
 - **Overdraagbaar als NFT**: veMEZO-posities zijn ERC-721-NFT's die kunnen worden overgedragen of samengevoegd

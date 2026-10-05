@@ -4,7 +4,7 @@ description: Instructies om Mezo Passport in te stellen
 topic: developers
 ---
 
-[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is een package dat is gebouwd op [RainbowKit](https://rainbowkit.com/) en extra opties biedt om wallets te verbinden, specifiek afgestemd op Bitcoin-wallets en Mezo. Met dit package kunnen developers ondersteuning voor Bitcoin-wallets integreren naast Ethereum-compatibele (EVM-)wallets, zodat gebruikers een veelzijdigere verbindingservaring krijgen. Passport integreert met de libraries [viem](https://viem.sh/) en [wagmi](https://wagmi.sh/) voor gestroomlijnd walletbeheer in zowel het Bitcoin- als het EVM-ecosysteem.
+[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) is een package dat is gebouwd op [RainbowKit](https://rainbowkit.com/) en extra opties biedt om wallets te verbinden, specifiek afgestemd op Bitcoin-wallets en Mezo. Met dit package kunnen ontwikkelaars ondersteuning voor Bitcoin-wallets integreren naast Ethereum-compatibele (EVM-)wallets, zodat gebruikers een veelzijdigere verbindingservaring krijgen. Passport integreert met de libraries [viem](https://viem.sh/) en [wagmi](https://wagmi.sh/) voor gestroomlijnd walletbeheer in zowel het Bitcoin- als het EVM-ecosysteem.
 
 Download het NPM-package [@mezo-org/passport](https://www.npmjs.com/package/@mezo-org/passport)
 

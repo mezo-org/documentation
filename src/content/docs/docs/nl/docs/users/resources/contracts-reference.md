@@ -31,7 +31,7 @@ Sommige tokencontracten zijn `TransparentUpgradableProxy`-contracten. Voeg in da
 | aMUSD | aMUSD | Nog niet beschikbaar op Mezo* | [0x52317a47585A6ACDfbD7a29B494c3E2baAE96aBc](https://etherscan.io/address/0x52317a47585A6ACDfbD7a29B494c3E2baAE96aBc) |
 
 :::note
-aMUSD is het ontvangstbewijstoken dat gebruikers krijgen wanneer ze storten in de Morpho Alpha MUSD Core Vault. Het is momenteel alleen beschikbaar op Ethereum.
+aMUSD is het ontvangsttoken dat gebruikers krijgen wanneer ze storten in de Morpho Alpha MUSD Core Vault. Het is momenteel alleen beschikbaar op Ethereum.
 :::
 
 

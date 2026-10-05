@@ -1,8 +1,8 @@
 ---
 title: Waarom Bitcoin bankieren nodig heeft
 description: >-
-  Ontdek hoe Mezo een selfservicebank voor Bitcoin biedt waar je kunt lenen met
-  BTC als onderpand.
+  Lees hoe Mezo een dienst voor Bitcoin-bankieren in eigen beheer biedt waarmee
+  je kunt lenen tegen BTC als onderpand.
 topic: users
 ---
 
@@ -42,14 +42,14 @@ Dat pakt een fundamenteel probleem aan waar elke Bitcoiner mee te maken heeft: d
 
 Door Bitcoin gedekt bankieren lost dit elegant op. Je kunt tegen een vast tarief stablecoins lenen met je Bitcoin als onderpand, de zwakkere valuta uitgeven voor dagelijkse behoeften en je in waarde stijgende BTC houden. Zo volg je de wet van Gresham perfect, zonder compromissen.
 
-## De evolutie naar selfservicebankieren
+## De evolutie naar bankieren in eigen beheer
 We zijn getuige van de natuurlijke evolutie van geld en bankieren:
 
 **Tijdperk van centraal bankieren (1913-2008):** centrale autoriteiten beheersen de geldhoeveelheid, insiders profiteren van hun nabijheid tot geldcreatie, verliezen worden via reddingsoperaties afgewenteld op de samenleving en ondoorzichtigheid maakt manipulatie mogelijk.
 
 **Bitcoin-tijdperk (2009-2020):** een vaste voorraad maakt een einde aan inflatie en iedereen heeft zonder toestemming toegang, maar het beperkte nut buiten aanhouden creëert het dilemma "HODLen of uitgeven".
 
-**Tijdperk van selfservicebankieren (nu):** door Bitcoin gedekt geld zonder centrale autoriteit, vaste transparante tarieven zonder voordelen voor insiders, en de community is eigenaar van de infrastructuur.
+**Tijdperk van bankieren in eigen beheer (nu):** door Bitcoin gedekt geld zonder centrale autoriteit, vaste transparante tarieven zonder voordelen voor insiders, en de community is eigenaar van de infrastructuur.
 
 ## Wat free banking vandaag betekent
 Modern free banking op Bitcoin-infrastructuur levert wat het oude systeem beloofde maar nooit waarmaakte:
@@ -68,7 +68,7 @@ Als banken vandaag failliet gaan, redt de belastingbetaler ze. Bij free banking 
 
 Free banking op Bitcoin is geen theorie meer: de infrastructuur die Finney voor ogen had, is er.
 
-Mezo heeft het onchain Bitcoin-bankplatform gebouwd dat eigendom is van zijn gebruikers. Selfservice-Bitcoin-leningen beginnen bij een vast tarief van 1%. Geen kredietadviseurs, geen kredietcontroles, geen bankuren. Alleen permissionless bankieren dat de wet van Gresham oplost, het Cantillon-effect uitschakelt en ons terugbrengt naar stabiel, concurrerend bankieren dat echt werkte.
+Mezo heeft het onchain Bitcoin-bankplatform gebouwd dat eigendom is van zijn gebruikers. Bitcoin-leningen in eigen beheer beginnen bij een vast tarief van 1%. Geen kredietadviseurs, geen kredietcontroles, geen bankuren. Alleen permissionless bankieren dat de wet van Gresham oplost, het Cantillon-effect uitschakelt en ons terugbrengt naar stabiel, concurrerend bankieren dat echt werkte.
 
 De vraag is niet of Bitcoin-bankieren er komt. Het gebeurt al.
 

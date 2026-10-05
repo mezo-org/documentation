@@ -6,7 +6,7 @@ topic: users
 
 ## Wat is Mezo?
 
-Mezo is een Bitcoin-financiële app waarmee je van je Bitcoin kunt leven zonder die uit te geven. De belangrijkste functies zijn Mezo Borrow en MUSD.
+Mezo is een financiële app voor Bitcoin waarmee je van je Bitcoin kunt leven zonder die uit te geven. De belangrijkste functies zijn Mezo Borrow en MUSD.
 
 ## Wat kan ik met Mezo doen? 
 

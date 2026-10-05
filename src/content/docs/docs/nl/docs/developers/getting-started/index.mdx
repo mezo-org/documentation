@@ -1,7 +1,7 @@
 ---
-title: Aan de slag als developer
+title: Aan de slag als ontwikkelaar
 description: >-
-  Stapsgewijze onboardinghandleiding voor developers die bouwen op het
+  Stapsgewijze onboardinghandleiding voor ontwikkelaars die bouwen op het
   Bitcoin-gerichte platform van Mezo.
 topic: developers
 ---
@@ -14,9 +14,9 @@ Mezo is ontworpen om Bitcoin te veranderen van een passieve waardeopslag in een 
 
 ### 1.1 Kernarchitectuur
 
-De Mezo-chain is gebouwd op een hybride architectuur die is ontworpen voor maximale toegankelijkheid voor developers en maximale prestaties.
+De Mezo-chain is gebouwd op een hybride architectuur die is ontworpen voor maximale toegankelijkheid voor ontwikkelaars en maximale prestaties.
 
-- EVM-compatibiliteit: Mezo is een volledig EVM-compatibele blockchain. Solidity-developers kunnen bestaande smart contracts deployen en vertrouwde tools zoals Hardhat en Foundry gebruiken met minimale codewijzigingen.
+- EVM-compatibiliteit: Mezo is een volledig EVM-compatibele blockchain. Solidity-ontwikkelaars kunnen bestaande smart contracts deployen en vertrouwde tools zoals Hardhat en Foundry gebruiken met minimale codewijzigingen.
 - Basis op Cosmos SDK: de kernclient, `mezod`, is een sterk aangepaste fork van Evmos, gebouwd met de Cosmos SDK en draaiend op de consensusengine CometBFT. Dit zorgt voor soevereiniteit van de chain en een hoge doorvoer.
 - BTC als gas: alle transactiekosten op Mezo worden betaald in BTC, wat het nut van Bitcoin als transactieactivum versterkt.
 - Kernclient: de referentie-implementatie van de client voor de Mezo-chain is `mezod`.
@@ -52,7 +52,7 @@ Om gaskosten op Testnet te betalen, heb je testnet-BTC nodig.
 
 ### 2.3 Omgeving instellen (voorbeeld met Hardhat)
 
-Voor Solidity-developers is Mezo volledig compatibel met Hardhat en Foundry.
+Voor Solidity-ontwikkelaars is Mezo volledig compatibel met Hardhat en Foundry.
 
 Pas je bestand `hardhat.config.js` (of `.ts`) aan om Hardhat te configureren voor Mezo Testnet:
 
@@ -83,7 +83,7 @@ module.exports = {
 
 ### 3.1 De MUSD-stablecoin
 
-MUSD is de native, door Bitcoin gedekte stablecoin van het Mezo-ecosysteem. Developers kunnen MUSD integreren voor betalingen, liquiditeit en financiële producten.
+MUSD is de native, door Bitcoin gedekte stablecoin van het Mezo-ecosysteem. Ontwikkelaars kunnen MUSD integreren voor betalingen, liquiditeit en financiële producten.
 
 - Repository: de smart contracts en de dApp-implementatie staan in de GitHub-repository van MUSD: [mezo-org/musd](https://github.com/mezo-org/musd).
 - Ontwikkelomgeving (pnpm):

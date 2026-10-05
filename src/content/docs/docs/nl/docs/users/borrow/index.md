@@ -17,7 +17,7 @@ MUSD verandert dat. Het is een permissionless stablecoin, voor 100% gedekt door 
 ### Waarom MUSD?
 
 1. **Verkoop nooit je Bitcoin**: leen tot 90% van je BTC-bezit. Houd je sats, gebruik de waarde van je Bitcoin en los je lening af wanneer je maar wilt.
-2. **Vaste tarieven vanaf 1–5%**: je rentetarief wordt vastgelegd wanneer je je lening opent en verandert nooit. Geen variabele tarieven, geen verrassingen. Vergelijk dat met 7–20% APR bij traditionele banken of 8–9% op andere DeFi-platforms.
+2. **Vaste tarieven van 1–5%**: je rentetarief wordt vastgelegd wanneer je je lening opent en verandert nooit. Geen variabele tarieven, geen verrassingen. Vergelijk dat met 7–20% APR bij traditionele banken of 8–9% op andere DeFi-platforms.
 3. **Volledig onchain en verifieerbaar**: elke lening en elke dollar aan onderpand is 24/7 onchain zichtbaar. Geen ondoorzichtige reserves, geen custodians: alleen Bitcoin in een smart-contractkluis. [Bekijk het onderpand live in de Mezo Explorer](https://explorer.mezo.org/address/0x3012C2fE1240e3754E5C200A0946bb0E07474876).
 4. **Permissionless**: geen kredietcontroles, geen aanvragen en geen minimumbedragen behalve de ondergrens van 1.800 MUSD. Heb je BTC, dan kun je lenen.
 

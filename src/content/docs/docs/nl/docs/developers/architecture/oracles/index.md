@@ -28,7 +28,7 @@ Skip Connect bevat verschillende [providers](https://github.com/skip-mev/connect
 
 ## Stork
 
-Stork is een orakelprotocol dat ultrasnelle verbindingen met lage latentie mogelijk maakt tussen dataproviders en zowel onchain- als offchain-applicaties. Het meest voorkomende gebruik van Stork is het ophalen en consumeren van marktgegevens in de vorm van realtime prijsfeeds voor DeFi. Stork [is beschikbaar op Mezo Testnet](https://docs.stork.network/resources/contract-addresses/evm#mezo).
+Stork is een orakelprotocol dat ultrasnelle verbindingen met lage latentie mogelijk maakt tussen dataproviders en zowel onchain- als offchain-applicaties. Het meest voorkomende gebruik van Stork is het ophalen en gebruiken van marktgegevens in de vorm van realtime prijsfeeds voor DeFi. Stork [is beschikbaar op Mezo Testnet](https://docs.stork.network/resources/contract-addresses/evm#mezo).
 
 - **[Stork-documentatie](https://docs.stork.network/)**
 - **[Gedeployde contracten op Mezo Testnet](https://docs.stork.network/resources/contract-addresses/evm#mezo)**

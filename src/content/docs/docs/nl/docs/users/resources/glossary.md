@@ -182,7 +182,7 @@ De native bridge voor het storten en opnemen van activa tussen Mezo en Ethereum 
 
 Het complete systeem voor verdienen en governance op Mezo, met vergrendelen ([veBTC](#vebtc), [veMEZO](#vemezo)), stemmen op [gauges](#gauge), liquiditeit verschaffen in [pools](#liquiditeitspool) en storten in [kluizen](#musd-savings-vault). Zie [Overzicht van Mezo Earn](/docs/nl/docs/users/mezo-earn/overview).
 
-## MEZO-gauge
+## MEZO Gauge
 
 Een [niet-staking-gauge](#niet-staking-gauge) waarop veMEZO-houders stemmen om MEZO-emissies naar MUSD-liquiditeitspools buiten Mezo te sturen: Curve en Uniswap op Ethereum, en Aerodrome op Base. Wordt gefinancierd uit de niet-staking-tak van de emissies (momenteel 8% van de wekelijkse emissiebeloningen). Zie [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges).
 
@@ -292,7 +292,7 @@ Een contract dat MEZO-emissies over twee bestemmingen verdeelt. De verdeelverhou
 
 ## Stability Pool
 
-Een reserve van MUSD die de eerste verdedigingslinie tegen [liquidaties](#liquidatie) vormt. Gebruikers storten MUSD in de Stability Pool en ontvangen in ruil daarvoor een deel van het geliquideerde onderpand. Het [PCV](#pcv)-contract vult de pool aan met een eerste storting van 100 miljoen MUSD. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
+Een reserve van MUSD die de eerste verdedigingslinie tegen [liquidaties](#liquidatie) vormt. Gebruikers storten MUSD in de Stability Pool en ontvangen in ruil daarvoor een deel van het geliquideerde onderpand. Het [PCV](#pcv)-contract voorziet de pool van een eerste storting van 100 miljoen MUSD. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
 
 ## Stabiele pool
 
@@ -324,7 +324,7 @@ Een testnetwerk waarop ontwikkelaars applicaties kunnen deployen en testen zonde
 
 ## TGE
 
-Token Generation Event. Het moment waarop MEZO-tokens voor het eerst werden aangemaakt en verdeeld. De allocaties voor de community en de Foundation werden bij de TGE ontgrendeld, terwijl voor de allocaties van het team en de investeerders een cliff van 1 jaar en een lineaire vesting van 3 jaar gelden. Zie [Tokenverdeling](/docs/nl/docs/users/mezo/token-distribution).
+Token Generation Event. Het moment waarop MEZO-tokens voor het eerst werden aangemaakt en verdeeld. De allocaties voor de community en de stichting werden bij de TGE ontgrendeld, terwijl voor de allocaties van het team en de investeerders een cliff van 1 jaar en een lineaire vesting van 3 jaar gelden. Zie [Tokenverdeling](/docs/nl/docs/users/mezo/token-distribution).
 
 ## Threshold Network
 
@@ -332,7 +332,7 @@ Een gedecentraliseerd netwerk dat de [tBTC](#tbtc)-bridge aandrijft. Threshold b
 
 ## Tokenverdeling
 
-De verdeling van de genesisvoorraad van 1.000.000.000 MEZO: community (40%), investeerders en partners (30%), team (20%) en Foundation (10%). Alle vesting is binnen 36 maanden na de [TGE](#tge) voltooid. Zie [Tokenverdeling](/docs/nl/docs/users/mezo/token-distribution).
+De verdeling van de genesisvoorraad van 1.000.000.000 MEZO: community (40%), investeerders en partners (30%), team (20%) en stichting (10%). Alle vesting is binnen 36 maanden na de [TGE](#tge) voltooid. Zie [Tokenverdeling](/docs/nl/docs/users/mezo/token-distribution).
 
 ## Handelsvergoedingen
 

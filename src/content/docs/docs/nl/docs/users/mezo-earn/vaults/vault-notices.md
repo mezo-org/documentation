@@ -8,9 +8,9 @@ Op deze pagina staan de actuele meldingen over migraties en afbouw van kluizen o
 
 | Kluis                | Status                                                     | Wat je moet doen                           |
 | -------------------- | ---------------------------------------------------------- | ------------------------------------------ |
-| **BTC Vault**        | Wordt afgebouwd. Stortingen zijn gesloten.                 | Neem op vóór **28 oktober 2026**           |
+| **BTC Vault**        | Wordt afgebouwd. Stortingen zijn gesloten.                 | Neem uiterlijk **28 oktober 2026** op       |
 | **cbBTC Vault**      | Stortingen zijn gesloten. De migratie naar de BTC Vault is beëindigd. | Neem je resterende tegoed in de cbBTC Vault op |
-| **Stablecoin Vault** | Stortingen zijn gepauzeerd en de kluis wordt afgebouwd     | Start je opname vóór **31 juli 2026**      |
+| **Stablecoin Vault** | Stortingen zijn gepauzeerd en de kluis wordt afgebouwd     | Start je opname uiterlijk **31 juli 2026**  |
 
 :::caution[Opnames kosten tijd]
 Opnames uit de Stablecoin Vault zijn niet direct. Ze verlopen via een opnamewachtrij, waarvan de verwerking ongeveer 48 uur kan duren.
@@ -18,7 +18,7 @@ Opnames uit de Stablecoin Vault zijn niet direct. Ze verlopen via een opnamewach
 
 ## Afbouw van de BTC Vault
 
-De BTC Vault (mbhBTC), beheerd met Mellow en Sense Capital, wordt afgebouwd. Stortingen zijn gesloten. Neem je tegoed op vóór **28 oktober 2026**.
+De BTC Vault (mbhBTC), beheerd met Mellow en Sense Capital, wordt afgebouwd. Stortingen zijn gesloten. Neem je tegoed uiterlijk **28 oktober 2026** op.
 
 Opnames komen in een wachtrij, dus begin op tijd. Je moet je opname uiterlijk op 28 oktober aanvragen; de verwerking en het claimen kunnen daarna plaatsvinden. Het aanvragen van een opname zet je tegoed niet direct terug in je wallet.
 
@@ -49,7 +49,7 @@ Open [Mezo Vaults](https://mezo.org/earn/vaults), verbind de wallet met je posit
 
 De Stablecoin Vault, beheerd door Lhava op het kluisframework van Mellow, wordt afgebouwd. Stortingen zijn al gepauzeerd.
 
-Heb je een positie in de kluis, start je opname dan vóór **31 juli 2026**. De kluis ondersteunt posities die met mUSDC, mUSDT of MUSD zijn gefinancierd en geeft **msvUSD**-ontvangsttokens uit. Opnames worden in mUSDC verwerkt, ongeacht of je positie met mUSDC, mUSDT of MUSD is gefinancierd.
+Heb je een positie in de kluis, start je opname dan uiterlijk **31 juli 2026**. De kluis ondersteunt posities die met mUSDC, mUSDT of MUSD zijn gefinancierd en geeft **msvUSD**-ontvangsttokens uit. Opnames worden in mUSDC verwerkt, ongeacht of je positie met mUSDC, mUSDT of MUSD is gefinancierd.
 
 ### Zo neem je op
 
@@ -65,7 +65,7 @@ Vergelijk in de app het ondersteunde activum, de strategie, de opnamevoorwaarden
 
 | Optie                         | Hoe het werkt                                                                                                       | Waar je op moet letten                                                                                                                                                                                             | Bekijken                                                                                                 |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| **MUSD Savings Vault**        | Stort MUSD en ontvang sMUSD. Het rendement komt uit activiteit van het MUSD-protocol en wordt opgebouwd in de wisselkoers van sMUSD. | Een optie met één activum, zonder opnamekosten of tijdslot. Het tarief varieert met de protocolactiviteit. Als je sMUSD staket, verandert de manier waarop je beloningen verdient. | [MUSD Savings Vault bekijken](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC)   |
+| **MUSD Savings Vault**        | Stort MUSD en ontvang sMUSD. Het rendement komt uit activiteit van het MUSD-protocol en wordt opgebouwd in de wisselkoers van sMUSD. | Een optie met één activum, zonder opnamekosten of timelock. Het tarief varieert met de protocolactiviteit. Als je sMUSD staket, verandert de manier waarop je beloningen verdient. | [MUSD Savings Vault bekijken](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC)   |
 | **USDC Lending Vault**        | Stort mUSDC in de Morpho-uitleenmarkt BTC/mUSDC. Verdien rente van leners, of stake voor MEZO-emissies.             | Bekijk het actuele tarief, de beschikbare opnameliquiditeit en de risico's van uitlenen. Bij een hoge benutting kunnen opnames beperkt zijn. Zie de handleiding voor de [USDC Lending Vault](/docs/nl/docs/users/mezo-earn/vaults/usdc-lending-vault). | [USDC Lending Vault bekijken](https://mezo.org/earn/vaults/0x06291b67e3d7660240ab44Afc9a708d82b976a8B)   |
 | **mUSDC/MUSD Stable CL-pool** | Verschaf mUSDC- en MUSD-liquiditeit binnen een gekozen prijsbereik om handelsvergoedingen en eventuele beschikbare incentives te verdienen. | Vereist actief beheer van het bereik. Een positie die buiten het bereik raakt, verdient geen vergoedingen meer, en liquiditeitsverschaffers lopen het risico op impermanent loss en smart-contractrisico. | [mUSDC/MUSD Stable CL-pool bekijken](https://mezo.org/earn/pools/0xCC372B7E15535aB225fe17c1075831D38ef7aC1a) |
 
