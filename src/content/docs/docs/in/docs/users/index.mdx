@@ -2,7 +2,7 @@
 title: उपयोगकर्ता गाइड और दस्तावेज़ीकरण
 description: >-
   आधिकारिक Mezo दस्तावेज़ीकरण: वॉलेट सेटअप, एसेट ब्रिजिंग, MUSD उधार लेने की
-  गाइड, और डेवलपर संसाधन। यह आपकी खुद की बैंकिंग करने की संपूर्ण गाइड है।
+  गाइड, और डेवलपर संसाधन। खुद अपना बैंक बनने के लिए यह आपकी पूरी गाइड है।
 topic: users
 ---
 
@@ -10,7 +10,7 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 ## शुरू करें
 
-Mezo ऐप में एसेट जमा करने और [उधार लेने](https://mezo.org/feature/borrow) की मूल बातें जानें या Mezo मेननेट से कनेक्ट करें।
+Mezo App में एसेट जमा करने और [एसेट उधार लेने](https://mezo.org/feature/borrow) की बुनियादी बातें जानें, या Mezo मेननेट से कनेक्ट करें।
 
 <CardGrid>
   <LinkCard
@@ -21,12 +21,17 @@ Mezo ऐप में एसेट जमा करने और [उधार �
   <LinkCard
     title="अपना वॉलेट कनेक्ट करें"
     href="/docs/in/docs/users/getting-started/connect"
-    description="अपने मौजूदा वॉलेट को Mezo नेटवर्क से कनेक्ट करें।"
+    description="अपने मौजूदा वॉलेट को Mezo से कनेक्ट करें।"
   />
   <LinkCard
     title="एसेट जमा करें"
     href="/docs/in/docs/users/getting-started/deposit-assets"
-    description="कमाई और उधार लेना शुरू करने के लिए अपने एसेट Mezo में ब्रिज करें।"
+    description="कमाई और उधार लेना शुरू करने के लिए अपने एसेट Mezo पर ब्रिज करें।"
+  />
+  <LinkCard
+    title="एसेट भेजें"
+    href="/docs/in/docs/users/passport/send-assets"
+    description="वॉलेट एड्रेस, Bitcoin एड्रेस या Mezo ID का इस्तेमाल करके Mezo पर दूसरे यूज़र्स को एसेट भेजें।"
   />
 </CardGrid>
 
@@ -43,7 +48,7 @@ Mezo नेटवर्क, MUSD, और वे बिटकॉइन इक्�
   <LinkCard
     title="सेल्फ-सर्विस बैंकिंग"
     href="/docs/in/docs/users/introduction/mezo-self-service-banking"
-    description="बिटकॉइनर्स के लिए Mezo की फ्री-बैंकिंग अर्थव्यवस्था में गहन अध्ययन।"
+    description="बिटकॉइनर्स के लिए Mezo की फ्री-बैंकिंग अर्थव्यवस्था पर विस्तृत जानकारी।"
   />
   <LinkCard
     title="MUSD क्या है?"
@@ -52,7 +57,7 @@ Mezo नेटवर्क, MUSD, और वे बिटकॉइन इक्�
   />
 </CardGrid>
 
-## उधार लें और मिंट करें
+## बिटकॉइन लोन
 
 अपने बिटकॉइन की खर्च करने की शक्ति को अनलॉक करने के लिए अपने एसेट का उपयोग करें।
 
@@ -70,9 +75,19 @@ Mezo नेटवर्क, MUSD, और वे बिटकॉइन इक्�
 
 <CardGrid>
   <LinkCard
-    title="Lolli इंटीग्रेशन"
+    title="Lolli"
     href="/docs/in/docs/users/integrations/lolli"
     description="अपने बिटकॉइन अनुभव को बेहतर बनाने के लिए पार्टनर प्लेटफॉर्म से जुड़ें।"
+  />
+  <LinkCard
+    title="Safe"
+    href="/docs/in/docs/users/integrations/safe"
+    description="मल्टी-सिग्नेचर सुरक्षा के साथ साझा फंड मैनेज करने के लिए Mezo पर Safe मल्टीसिग वॉलेट का इस्तेमाल करें।"
+  />
+  <LinkCard
+    title="कम्युनिटी प्रोजेक्ट"
+    href="/docs/in/docs/users/integrations/community-projects"
+    description="Mezo Tools, Matchbox और Vezo सहित कम्युनिटी द्वारा बनाए गए इंटीग्रेशन देखें।"
   />
 </CardGrid>
 

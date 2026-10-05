@@ -1,0 +1,443 @@
+---
+title: Validator Kit डेवलपमेंट गाइड
+description: >-
+  Validator Kit का इस्तेमाल करके Mezo वैलिडेटर नोड्स सेट अप करने और चलाने की
+  पूरी गाइड।
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezo Validator Kit, वैलिडेटर, RPC नोड और सीड नोड सहित Mezo नोड्स चलाने के लिए एक व्यापक समाधान देता है। यह गाइड Mezo इंफ्रास्ट्रक्चर के सेटअप, कॉन्फ़िगरेशन और मेंटेनेंस को कवर करती है।
+
+## अवलोकन
+
+[Validator Kit](https://github.com/mezo-org/validator-kit.git) कई डिप्लॉयमेंट विकल्पों के साथ Mezo नोड्स के डिप्लॉयमेंट को आसान बनाता है:
+
+- **Docker**: कंटेनराइज़्ड डिप्लॉयमेंट
+- **नेटिव Daemon**: सीधे सिस्टम पर इंस्टॉलेशन
+- **Kubernetes**: ऑर्केस्ट्रेशन के लिए Helm चार्ट
+- **क्लाउड डिप्लॉयमेंट**: AWS, GCP, Azure सपोर्ट
+
+### नोड टाइप
+
+1. **वैलिडेटर नोड**: कंसेंसस और ब्लॉक प्रोडक्शन में हिस्सा लेते हैं
+2. **RPC नोड**: dApps के लिए API एंडपॉइंट देते हैं
+3. **सीड नोड**: नेटवर्क को बूटस्ट्रैप करने में मदद करते हैं
+
+## रिपॉज़िटरी संरचना
+
+[Validator Kit रिपॉज़िटरी](https://github.com/mezo-org/validator-kit.git) में शामिल हैं:
+
+- **[Docker कॉन्फ़िगरेशन](https://github.com/mezo-org/validator-kit/tree/main/docker)**: कंटेनर सेटअप और ऑर्केस्ट्रेशन
+- **[Kubernetes मैनिफ़ेस्ट](https://github.com/mezo-org/validator-kit/tree/main/kubernetes)**: Helm चार्ट और K8s रिसोर्स
+- **[कॉन्फ़िगरेशन टेम्पलेट](https://github.com/mezo-org/validator-kit/tree/main/configs)**: नोड कॉन्फ़िगरेशन फ़ाइलें
+- **[मॉनिटरिंग](https://github.com/mezo-org/validator-kit/tree/main/monitoring)**: Prometheus, Grafana और अलर्टिंग
+- **[स्क्रिप्ट](https://github.com/mezo-org/validator-kit/tree/main/scripts)**: ऑटोमेशन और मेंटेनेंस टूल
+
+## हार्डवेयर आवश्यकताएं
+
+### न्यूनतम आवश्यकताएं
+
+**वैलिडेटर नोड**:
+- CPU: 4 कोर
+- RAM: 8GB
+- स्टोरेज: 100GB SSD
+- नेटवर्क: 100 Mbps
+
+**RPC नोड**:
+- CPU: 2 कोर
+- RAM: 4GB
+- स्टोरेज: 50GB SSD
+- नेटवर्क: 50 Mbps
+
+**सीड नोड**:
+- CPU: 1 कोर
+- RAM: 2GB
+- स्टोरेज: 20GB SSD
+- नेटवर्क: 10 Mbps
+
+### सुझाई गई आवश्यकताएं
+
+**वैलिडेटर नोड**:
+- CPU: 8 कोर
+- RAM: 16GB
+- स्टोरेज: 500GB NVMe SSD
+- नेटवर्क: 1 Gbps
+
+## इंस्टॉलेशन के तरीके
+
+### Docker डिप्लॉयमेंट
+
+<Steps>
+1. **रिपॉज़िटरी क्लोन करें**:
+   ```bash
+   git clone https://github.com/mezo-org/validator-kit.git
+   cd validator-kit
+   ```
+
+2. **एनवायरनमेंट कॉन्फ़िगर करें**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+3. **नोड शुरू करें**:
+   ```bash
+   docker-compose up -d
+   ```
+</Steps>
+
+### नेटिव इंस्टॉलेशन
+
+<Steps>
+1. **डिपेंडेंसी इंस्टॉल करें**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install -y curl git make build-essential
+
+   # Install Go
+   curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
+   ```
+
+2. **Mezod बिल्ड करें**:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   make build
+   ```
+
+3. **नोड कॉन्फ़िगर करें**:
+   ```bash
+   ./mezod init mynode --chain-id mezo-testnet
+   ```
+</Steps>
+
+### Kubernetes डिप्लॉयमेंट
+
+<Steps>
+1. **Helm इंस्टॉल करें**:
+   ```bash
+   curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   ```
+
+2. **Helm से डिप्लॉय करें**:
+   ```bash
+   helm install mezo-node ./helm/mezo-node \
+     --set node.type=validator \
+     --set node.name=my-validator
+   ```
+</Steps>
+
+## कॉन्फ़िगरेशन
+
+### नोड कॉन्फ़िगरेशन
+
+**config.toml**:
+```toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+```
+
+**app.toml**:
+```toml
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[evm]
+rpc_address = "0.0.0.0:8545"
+ws_address = "0.0.0.0:8546"
+```
+
+### एनवायरनमेंट वेरिएबल
+
+```bash
+# Node configuration
+NODE_TYPE=validator
+CHAIN_ID=mezo-mainnet
+MONIKER=my-validator
+
+# Network configuration
+P2P_PORT=26656
+RPC_PORT=26657
+API_PORT=1317
+GRPC_PORT=9090
+EVM_RPC_PORT=8545
+
+# Security
+PRIV_VALIDATOR_KEY_FILE=/config/priv_validator_key.json
+NODE_KEY_FILE=/config/node_key.json
+```
+
+## वैलिडेटर सेटअप
+
+### पूर्व-आवश्यकताएं
+
+1. **Proof of Authority (PoA)**: वैलिडेटर स्टेटस के लिए आवेदन करें
+2. **स्टेक आवश्यकताएं**: न्यूनतम स्टेक राशि
+3. **तकनीकी आवश्यकताएं**: हार्डवेयर स्पेसिफ़िकेशन पूरे करें
+
+### वैलिडेटर कॉन्फ़िगरेशन
+
+```bash
+# Initialize validator
+./mezod init validator --chain-id mezo-mainnet
+
+# Create validator key
+./mezod keys add validator --keyring-backend file
+
+# Create validator transaction
+./mezod tx staking create-validator \
+  --amount=1000000umezo \
+  --pubkey=$(./mezod tendermint show-validator) \
+  --moniker="My Validator" \
+  --chain-id=mezo-mainnet \
+  --from=validator
+```
+
+## RPC नोड सेटअप
+
+### उद्देश्य
+
+RPC नोड ये सुविधाएं देते हैं:
+- **API एंडपॉइंट**: REST और gRPC API
+- **EVM RPC**: Ethereum-संगत JSON-RPC
+- **WebSocket**: रियल-टाइम डेटा स्ट्रीम
+- **लोड बैलेंसिंग**: नोड्स के बीच ट्रैफ़िक बांटना
+
+### कॉन्फ़िगरेशन
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  rpc-node:
+    image: mezod:latest
+    ports:
+      - "26657:26657"  # Tendermint RPC
+      - "1317:1317"    # Cosmos API
+      - "9090:9090"    # gRPC
+      - "8545:8545"    # EVM RPC
+    environment:
+      - NODE_TYPE=rpc
+      - CHAIN_ID=mezo-mainnet
+    volumes:
+      - ./data:/root/.mezod
+```
+
+## मॉनिटरिंग और ऑब्ज़र्वेबिलिटी
+
+### Prometheus कॉन्फ़िगरेशन
+
+```yaml
+# prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'mezod'
+    static_configs:
+      - targets: ['localhost:26660']
+    metrics_path: /metrics
+```
+
+### Grafana डैशबोर्ड
+
+मॉनिटर करने के लिए मुख्य मेट्रिक्स:
+- **ब्लॉक हाइट**: ब्लॉकचेन की मौजूदा हाइट
+- **वैलिडेटर स्टेटस**: एक्टिव/इनएक्टिव स्टेटस
+- **नेटवर्क कनेक्टिविटी**: पीयर कनेक्शन
+- **रिसोर्स उपयोग**: CPU, मेमोरी, डिस्क
+- **ट्रांज़ैक्शन थ्रूपुट**: TPS मेट्रिक्स
+
+### अलर्टिंग नियम
+
+```yaml
+# alerts.yml
+groups:
+  - name: mezod
+    rules:
+      - alert: NodeDown
+        expr: up{job="mezod"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Mezod node is down"
+```
+
+## सिक्योरिटी बेस्ट प्रैक्टिसेज़
+
+### नेटवर्क सिक्योरिटी
+
+1. **फ़ायरवॉल कॉन्फ़िगरेशन**:
+```bash
+# Allow only necessary ports
+ufw allow 26656/tcp  # P2P
+ufw allow 26657/tcp  # RPC
+ufw allow 1317/tcp   # API
+ufw allow 8545/tcp   # EVM RPC
+```
+
+2. **एक्सेस कंट्रोल**:
+```bash
+# Restrict RPC access
+iptables -A INPUT -p tcp --dport 26657 -s TRUSTED_IP -j ACCEPT
+iptables -A INPUT -p tcp --dport 26657 -j DROP
+```
+
+### की मैनेजमेंट
+
+1. **सुरक्षित स्टोरेज**: हार्डवेयर सिक्योरिटी मॉड्यूल (HSM) का इस्तेमाल करें
+2. **बैकअप रणनीति**: कीज़ का नियमित बैकअप
+3. **एक्सेस कंट्रोल**: कीज़ तक पहुंच की अनुमतियां सीमित रखें
+
+**महत्वपूर्ण**: वैलिडेटर कीज़ को कभी भी वर्ज़न कंट्रोल में कमिट न करें!
+
+## मेंटेनेंस
+
+### नियमित काम
+
+1. **सॉफ़्टवेयर अपडेट**:
+```bash
+# Update mezod
+git pull origin main
+make build
+systemctl restart mezod
+```
+
+2. **डेटाबेस मेंटेनेंस**:
+```bash
+# Prune old data (use with caution)
+./mezod tendermint unsafe-reset-all
+```
+
+3. **लॉग रोटेशन**:
+```bash
+# Configure logrotate
+cat > /etc/logrotate.d/mezod << EOF
+/var/log/mezod/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+EOF
+```
+
+### बैकअप रणनीति
+
+1. **कॉन्फ़िगरेशन बैकअप**:
+```bash
+tar -czf config-backup.tar.gz ~/.mezod/config/
+```
+
+2. **की बैकअप** (सुरक्षित रूप से स्टोर करें):
+```bash
+# Backup validator keys to secure location
+cp ~/.mezod/config/priv_validator_key.json /secure/backup/
+```
+
+## ट्रबलशूटिंग
+
+### आम समस्याएं
+
+1. **सिंक से जुड़ी समस्याएं**:
+```bash
+# Check sync status
+./mezod status
+
+# Reset and resync
+./mezod tendermint unsafe-reset-all
+```
+
+2. **कनेक्शन की समस्याएं**:
+```bash
+# Check peer connections
+./mezod tendermint show-node-id
+
+# Update persistent peers in config.toml
+```
+
+3. **परफ़ॉर्मेंस से जुड़ी समस्याएं**:
+```bash
+# Monitor resource usage
+htop
+iotop
+netstat -tulpn
+```
+
+### डीबग कमांड
+
+```bash
+# View logs
+journalctl -u mezod -f
+
+# Check node status
+./mezod status
+
+# View configuration
+./mezod config
+
+# Test RPC endpoints
+curl http://localhost:26657/status
+```
+
+## डेवलपमेंट इंटीग्रेशन
+
+### लोकल डेवलपमेंट
+
+1. **लोकल नोड शुरू करें**:
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
+
+2. **dApp कनेक्ट करें**:
+```javascript
+const provider = new ethers.JsonRpcProvider('http://localhost:8545');
+```
+
+### टेस्टिंग एनवायरनमेंट
+
+1. **टेस्टनेट नोड**:
+```bash
+./mezod init testnode --chain-id mezo-testnet
+```
+
+2. **इंटीग्रेशन टेस्ट**:
+```bash
+npm test
+```
+
+## अतिरिक्त संसाधन
+
+- **[Validator Kit रिपॉज़िटरी](https://github.com/mezo-org/validator-kit.git)** - मुख्य रिपॉज़िटरी
+- **[Mezod रिपॉज़िटरी](https://github.com/mezo-org/mezod.git)** - चेन क्लाइंट
+- **[Mezo नोड्स दस्तावेज़ीकरण](/docs/in/docs/developers/mezo-nodes/)** - नोड ऑपरेशन
+- **[Docker दस्तावेज़ीकरण](https://docs.docker.com/)** - Docker रेफ़रेंस
+- **[Kubernetes दस्तावेज़ीकरण](https://kubernetes.io/docs/)** - K8s रेफ़रेंस
+
+:::note
+वैलिडेटर की विस्तृत आवश्यकताओं, आवेदन प्रक्रियाओं और एडवांस्ड कॉन्फ़िगरेशन के लिए, [Validator Kit रिपॉज़िटरी](https://github.com/mezo-org/validator-kit.git) का दस्तावेज़ीकरण देखें।
+:::
+
+## सहायता
+
+वैलिडेटर सहायता के लिए:
+- [Mezo Discord](https://discord.com/invite/mezo) से जुड़ें
+- [GitHub Issues](https://github.com/mezo-org/validator-kit/issues) देखें
+- [FAQ](/docs/in/docs/developers/getting-started/FAQs) पढ़ें
