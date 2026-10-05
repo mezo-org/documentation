@@ -1,0 +1,355 @@
+---
+title: Mezod 链客户端开发指南
+description: 使用 Mezod（Mezo 链的参考客户端实现）进行开发的完整指南。
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezod 是 Mezo 链的参考客户端实现。Mezo 是一条以比特币为先的区块链，其设计特点包括用户所有权、基于 tBTC 的可靠桥接、以 BTC 支付 Gas、双重质押模型以及 EVM 兼容性。
+
+## 概览
+
+Mezo 是一条基于 Cosmos SDK、兼容 EVM 的链，运行在 Comet BFT 共识引擎之上。Mezod 客户端代码库分叉自 Evmos 的 LGPL 版本，并针对 Mezo 的特定需求进行了大量修改。
+
+### 主要特性
+
+- **以比特币为先的设计**：原生 BTC 集成和 Gas 支付
+- **EVM 兼容性**：完整的以太坊虚拟机支持
+- **tBTC 桥接**：可靠的跨链比特币转移
+- **双重质押模型**：奖励和验证机制
+- **用户所有权**：去中心化的治理和控制
+
+## 代码仓库结构
+
+[Mezod 代码仓库](https://github.com/mezo-org/mezod.git)包含：
+
+- **[Go 模块](https://github.com/mezo-org/mezod/tree/main)**：核心区块链客户端实现
+- **[x/ 模块](https://github.com/mezo-org/mezod/tree/main/x)**：自定义 Cosmos SDK 模块
+- **[EVM 集成](https://github.com/mezo-org/mezod/tree/main/x/evm)**：以太坊兼容层
+- **[配置](https://github.com/mezo-org/mezod/tree/main/config)**：链配置和参数
+
+## 开发环境设置
+
+### 前提条件
+
+- Go 1.21+（具体版本请查看 [`go.mod`](https://github.com/mezo-org/mezod/blob/main/go.mod)）
+- Git
+- Make
+- Docker（可选，用于容器化开发）
+
+### 安装
+
+<Steps>
+1. 克隆代码仓库：
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   ```
+
+2. 安装 Go 依赖项：
+   ```bash
+   go mod download
+   ```
+
+3. 构建客户端：
+   ```bash
+   make build
+   ```
+</Steps>
+
+### 开发环境
+
+<Steps>
+1. **本地开发**：
+   ```bash
+   # Start local development node
+   make dev
+
+   # Run tests
+   make test
+
+   # Lint code
+   make lint
+   ```
+
+2. **Docker 开发**：
+   ```bash
+   # Build Docker image
+   docker build -t mezod .
+
+   # Run containerized node
+   docker run -p 26657:26657 -p 8545:8545 mezod
+   ```
+</Steps>
+
+## 链配置
+
+### 网络参数
+
+Mezod 支持多种网络配置：
+
+- **主网**：Mezo 生产网络
+- **测试网**：公共测试网络
+- **本地**：开发网络
+
+### 配置文件
+
+主要配置文件：
+- `config.toml`：节点配置
+- `app.toml`：应用相关设置
+- `client.toml`：客户端配置
+
+配置示例：
+
+```toml
+# config.toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+```
+
+## EVM 集成
+
+### 以太坊兼容性
+
+Mezod 提供完整的 EVM 兼容性，您可以：
+
+- 部署以太坊智能合约
+- 使用以太坊工具（Hardhat、Truffle 等）
+- 使用 Web3 库与合约交互
+
+### 通过 Web3 连接
+
+```javascript
+import { ethers } from 'ethers';
+
+// Connect to Mezo network
+const provider = new ethers.JsonRpcProvider('https://rpc.mezo.org');
+
+// Get network info
+const network = await provider.getNetwork();
+console.log('Network:', network);
+
+// Deploy contract
+const factory = new ethers.ContractFactory(abi, bytecode, signer);
+const contract = await factory.deploy();
+await contract.waitForDeployment();
+```
+
+### Gas 与费用
+
+- **以 BTC 作为 Gas**：使用比特币支付交易费用
+- **动态定价**：Gas 价格根据网络状况进行调整
+- **EVM Gas 模型**：与以太坊的 Gas 计算方式兼容
+
+## 节点类型
+
+### 全节点
+
+存储整条区块链的完整节点：
+
+```bash
+# Start full node
+mezod start
+```
+
+### 轻客户端
+
+适用于移动端和资源受限环境的轻量级客户端：
+
+```bash
+# Start light client
+mezod start --mode light
+```
+
+### 归档节点
+
+存储所有历史数据的节点：
+
+```bash
+# Start archive node
+mezod start --mode archive
+```
+
+## RPC 端点
+
+### Cosmos SDK RPC
+
+- **端口**：26657
+- **端点**：标准 Cosmos SDK RPC 方法
+- **WebSocket**：实时更新
+
+```bash
+# Query node status
+curl http://localhost:26657/status
+```
+
+### EVM RPC
+
+- **端口**：8545
+- **端点**：兼容以太坊的 JSON-RPC
+- **方法**：eth_getBalance、eth_sendTransaction 等
+
+```bash
+# Query EVM balance
+curl -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x...", "latest"],"id":1}' \
+  http://localhost:8545
+```
+
+## 开发工作流
+
+### 构建合约
+
+<Steps>
+1. **编写 Solidity 合约**：使用标准以太坊工具
+
+2. **编译**：使用 Hardhat、Truffle 或直接使用 solc
+
+3. **部署**：部署到 Mezo 测试网/主网
+
+4. **交互**：使用 Web3 库或直接调用 RPC
+</Steps>
+
+### 测试
+
+```bash
+# Run unit tests
+make test
+
+# Run integration tests
+make test-integration
+
+# Run specific test package
+go test ./x/evm/...
+```
+
+## 集成示例
+
+### Cosmos SDK 集成
+
+```go
+package main
+
+import (
+    "context"
+    "github.com/cosmos/cosmos-sdk/client"
+    "github.com/cosmos/cosmos-sdk/client/tx"
+)
+
+func main() {
+    // Create client context
+    clientCtx := client.Context{}
+
+    // Create transaction builder
+    txBuilder := clientCtx.TxConfig.NewTxBuilder()
+
+    // Build and send transaction
+    // ... transaction logic
+}
+```
+
+## 监控与调试
+
+### 日志
+
+```bash
+# Enable debug logging
+mezod start --log-level debug
+
+# Log to file
+mezod start --log-file /path/to/logfile
+```
+
+### 指标
+
+- **Prometheus**：在端口 26660 上内置指标采集
+- **Grafana**：用于监控的仪表板
+- **健康检查**：用于健康监控的 HTTP 端点
+
+```bash
+# Check metrics
+curl http://localhost:26660/metrics
+```
+
+## 部署
+
+### 生产部署
+
+**硬件要求**：
+- 最低配置：8GB 内存，100GB SSD
+- 推荐配置：16GB 内存，500GB NVMe SSD
+
+**步骤**：
+
+<Steps>
+1. 配置防火墙和网络端口
+
+2. 设置适当的访问控制
+
+3. 部署监控栈
+
+4. 使用生产配置启动节点
+</Steps>
+
+### Docker 部署
+
+```bash
+# Production Docker deployment
+docker run -d \
+  --name mezod \
+  -p 26657:26657 \
+  -p 8545:8545 \
+  -v /data:/root/.mezod \
+  mezod:latest start
+```
+
+## 故障排查
+
+### 常见问题
+
+1. **连接问题**：检查 RPC 端点和网络连接
+2. **同步问题**：确认区块链同步状态
+3. **Gas 问题**：监控 Gas 价格并相应调整
+
+### 调试命令
+
+```bash
+# Check node status
+mezod status
+
+# View logs
+mezod logs
+
+# Reset node (caution: deletes data)
+mezod unsafe-reset-all
+```
+
+## 更多资源
+
+- **[Mezod 代码仓库](https://github.com/mezo-org/mezod.git)** - 主代码仓库
+- **[Mezo 文档](/docs/zh/docs/developers/getting-started/configure-environment)** - 完整文档
+- **[Cosmos SDK 文档](https://docs.cosmos.network/)** - Cosmos SDK 参考
+- **[EVM 文档](https://ethereum.org/en/developers/docs/evm/)** - EVM 规范
+- **[测试网指南](/docs/zh/docs/developers/testnet)** - 测试网访问与使用
+
+:::note
+有关详细的链架构、模块规范和协议机制，请参阅 Mezod 代码仓库文档。
+:::
+
+## 支持
+
+获取开发支持：
+- 加入 [Mezo Discord](https://discord.com/invite/mezo)
+- 查看 [GitHub Issues](https://github.com/mezo-org/mezod/issues)
+- 查阅[常见问题](/docs/zh/docs/developers/getting-started/FAQs)

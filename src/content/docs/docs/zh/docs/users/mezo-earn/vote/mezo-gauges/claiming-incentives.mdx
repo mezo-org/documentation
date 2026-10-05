@@ -1,0 +1,67 @@
+---
+title: 领取激励
+description: LP 和投票者如何领取由 MEZO Gauges 引导的 MEZO
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+谁领取什么、在哪里领取，取决于您处在 Gauge 的哪一端。
+
+| 您的身份 | 您可领取 | 领取位置 |
+|---|---|---|
+| Curve USDT/USDC/MUSD 或 Uniswap USDC/MUSD 中的 LP | 锁定 3 个月的 veMEZO | [Merkl](https://app.merkl.xyz) |
+| 为 Aerodrome USDC/MUSD 或 MEZO/MUSD 投票的 veAERO 持有者 | MEZO（作为投票激励） | [Aerodrome](https://aerodrome.finance) |
+| Aerodrome USDC/MUSD 或 MEZO/MUSD 中的 LP | AERO 排放 | [Aerodrome](https://aerodrome.finance) |
+| 为某个 MEZO Gauge 投票的 veMEZO 持有者 | 该 Gauge 上发布的激励 | [mezo.org](https://mezo.org) 上的 Vote 选项卡 |
+
+---
+
+## Curve 和 Uniswap 的 LP：在 Merkl 上领取
+
+奖励**不会**自动发送到您的钱包。Merkl 会为您的地址累积可领取额度，您需要自行领取。
+
+<Steps>
+1. 前往 [app.merkl.xyz](https://app.merkl.xyz)。
+2. 连接持有 LP 仓位的钱包。
+3. 打开 **Dashboard**。连接钱包后，这里会列出该钱包有资格领取的所有奖励，因此您无需搜索具体活动。
+4. 点击 **Claim** 并签署交易。
+</Steps>
+
+**您将收到：** 锁定 3 个月的 veMEZO，而不是可自由流通的 MEZO。领取后，它与任何其他 [veMEZO 仓位](/docs/zh/docs/users/mezo-earn/lock/vemezo)的作用相同：可以为 veBTC 仓位提供加成，也可以为 MEZO Gauges 投票。
+
+如果您在该流动性池中提供流动性，可以形成循环：将领取到的 veMEZO 重新投给该流动性池的 MEZO Gauge，从而为您已持有的仓位带来更多排放。这是可选的。只要在活动期间提供流动性，就足以领取奖励。完整路径请参阅[您的投票去向](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#获取您所引导的价值)。
+
+:::caution[未领取的奖励将作废]
+Merkl 活动不会无限期累积。如果您一直不领取，就会失去这些奖励。如果您在这些流动性池中提供流动性，请定期查看 Merkl。
+:::
+
+作为 LP 领取奖励时，您无需持有 veMEZO，也无需投过票。唯一的要求是在活动期间为该流动性池提供流动性。
+
+---
+
+## Aerodrome：在 Base 上领取
+
+被引导至 Aerodrome Gauge 的 MEZO 会作为**投票激励**存入，因此由 veAERO 投票者领取，而不是由 LP 领取。
+
+**如果您持有 veAERO 并为 USDC/MUSD 或 MEZO/MUSD 投了票：** 前往 [aerodrome.finance](https://aerodrome.finance)，打开您的 veAERO 锁仓，领取该周期的奖励。您获得的 MEZO 份额与您在该 Gauge 投票中所占的份额成正比。
+
+**如果您在 Aerodrome USDC/MUSD 或 MEZO/MUSD 中提供流动性：** 将您的仓位质押到该流动性池的 Gauge 中，并在那里领取 **AERO** 排放。请注意，从 Mezo 投票到其产生 AERO 之间存在[两个周期的滞后](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#两个周期的滞后)。
+
+---
+
+## MEZO Gauge 投票者：在 Mezo 上领取
+
+如果您将 veMEZO 引导至某个 MEZO Gauge，您将获得**该 Gauge 上发布的激励**中的一部分，与您在其投票中所占的份额成正比。
+
+领取方式与其他投票奖励相同——在周期结束后，前往 [mezo.org](https://mezo.org) 上的 **Vote** 选项卡领取。请参阅[领取费用与排放](/docs/zh/docs/users/mezo-earn/vote/claiming-fees-emissions)。
+
+这些激励与您所引导的排放是分开的。排放流向目标流动性池；而激励则发布在 Mezo 上，其初衷正是吸引您为该 Gauge 投票。
+
+---
+
+## 后续步骤
+
+- [您的投票去向](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes)——从投票到激励的完整路径
+- [MEZO Gauges 概览](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)——符合条件的流动性池及资金来源
+- [领取费用与排放](/docs/zh/docs/users/mezo-earn/vote/claiming-fees-emissions)——Mezo Earn 的所有其他奖励

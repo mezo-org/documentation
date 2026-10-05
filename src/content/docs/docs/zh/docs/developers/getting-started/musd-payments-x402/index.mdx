@@ -1,0 +1,123 @@
+---
+title: 概览
+description: >-
+  使用 x402 为 HTTP 资源接收 Mezo USD 支付：该协议在 Mezo
+  上如何运作、为何它非常适合由比特币支持的支付、您可以构建什么，以及如何上手实践。
+topic: developers
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import x402MezoFlow from '../../../../../../../../assets/diagrams/x402-mezo-flow.svg';
+import { Image } from 'astro:assets';
+
+**[x402](https://x402.org)** 是一项面向互联网原生支付的开放标准。
+服务器返回 `HTTP 402 Payment Required` 响应，并附带机器可读的费用说明；客户端附上已签名的支付消息后重试请求；促成方（facilitator）在链上结算该笔支付，随后服务器将收据连同所购买的内容一起返回给客户端。
+
+在 Mezo 上，默认的结算资产是 **MUSD**。卖方设定一个价格（例如 $0.01），x402 SDK 会在运行时将其解析为相应的 MUSD 数额（18 位小数，`permit2` + EIP-2612），买方的钱包则签署一条消息，授权在限定时间窗口内完成转账。
+
+## 支付流程一览
+
+<Image
+  src={x402MezoFlow}
+  alt="Mezo 上 x402 支付流程的时序图：客户端/买方（Client/Buyer）、商户/服务器（Merchant/Server）、促成方（Facilitator，facilitator.vativ.io）以及 Mezo 区块链（eip155:31611）。"
+/>
+
+1. `Client` 向 `server` 发起 HTTP 请求。
+
+2. `Server` 以 `402 Payment Required` 状态码进行响应，并通过 `PAYMENT-REQUIRED` HTTP 标头返回一个 b64 编码的 `PaymentRequired` 对象。
+
+3. `Client` 从服务器响应返回的 `PaymentRequirements` 中选择一项，并根据所选 `PaymentRequirements` 的 `scheme` 和 `network` 创建 `PaymentPayload`。
+
+4. `Client` 重试该 HTTP 请求，此次向服务器附带包含 `PaymentPayload` 的 `PAYMENT-SIGNATURE` HTTP 标头。
+
+5. `Server` 通过本地验证，或通过将 `PaymentPayload` 和 `PaymentRequirements` POST 到 `facilitator` 的 `/verify` 端点，来验证 `PaymentPayload` 是否有效。
+
+6. `Facilitator` 根据 `PaymentPayload` 的 `scheme` 和 `network` 对该对象执行验证，并返回 `Verification Response`。
+
+7. 如果 `Verification Response` 有效，服务器将执行处理以完成请求。如果 `Verification Response` 无效，资源服务器将返回 `402 Payment Required` 状态码，并在响应体中返回 `Payment Required Response` JSON 对象。
+
+8. `Server` 通过直接与区块链交互，或通过将 `Payment Payload` 和 `Payment PaymentRequirements` POST 到 `facilitator` 的 `/settle` 端点，来结算该笔支付。
+
+9. `Facilitator` 根据 `Payment Payload` 的 `scheme` 和 `network` 将支付提交到区块链。
+
+10. `Facilitator` 等待该笔支付在区块链上得到确认。
+
+11. `Facilitator` 向服务器返回 `Payment Execution Response`。
+
+12. `Server` 向 `Client` 返回 `200 OK` 响应，HTTP 响应体中为其请求的资源；如果支付执行成功，还会附带 `PAYMENT-RESPONSE` 标头，其中包含以 Base64 编码的 JSON 形式表示的 `Settlement Response`。
+
+## MUSD 如何融入 x402
+
+- **网络标识符：** 使用 CAIP-2 字符串标识 Mezo 网络——Mezo 测试网为 `eip155:31611`，Mezo 主网为 `eip155:31612`（x402 不接受 `"mezo-testnet"` 之类的简称）。
+- **资产解析：** x402 的价格是美元字符串（`price: "$0.01"`）。`@x402/evm` 的 `DEFAULT_STABLECOINS` 注册表会在运行时将其解析为所选网络对应的正确 MUSD 代币——您无需在路由配置中硬编码资产地址。
+- **签名：** MUSD 是支持 `permit2` + EIP-2612 的代币，因此支付授权只需一个 EIP-712 签名，无需链上授权交易，买方也无需支付 Gas。
+- **促成方：** 两个网络均由同一个促成方 `https://facilitator.vativ.io` 结算，该促成方通过同一个端点同时服务测试网和主网。
+
+### Mezo x402 参考信息
+
+当前的 SDK 会在运行时为您解析资产和结算代理；以下数值仅供参考和链上核验——您无需将其硬编码。测试网和主网之间只有 **网络 ID** 和 **MUSD 资产** 不同：
+
+| 网络 | CAIP-2 | MUSD 资产（18 位小数） |
+|---|---|---|
+| Mezo 测试网 | `eip155:31611` | `0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503` |
+| Mezo 主网 | `eip155:31612` | `0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186` |
+
+其余各项在两个网络上完全相同：
+
+| 项目 | 值 |
+|---|---|
+| 促成方 | `https://facilitator.vativ.io`（同时服务两个网络） |
+| 结算代理 | `0x402085c248EeA27D92E8b30b2C58ed07f9E20001`——标准 CREATE2 部署，由 SDK 自动解析 |
+| EIP-712 域 | name 为 `Mezo USD`，version 为 `1`——与 `MUSD` 代币符号不同 |
+| 转账方式 | `permit2` + EIP-2612 |
+
+### SDK 支持
+**Mezo 主网**（`eip155:31612`）已在以下官方 x402 SDK 中发布
+
+| SDK | 首个支持 Mezo 主网的版本 |
+|---|---|
+| TypeScript `@x402/evm` | `v2.15.0` |
+| Go `github.com/x402-foundation/x402/go/v2` | `v2.15.0` |
+| Python `x402`（PyPI） | `v2.13.0` |
+
+**Mezo 测试网**（`eip155:31611`）已在以下官方 x402 SDK 中发布
+
+| SDK | 首个支持 Mezo 测试网的版本 |
+|---|---|
+| TypeScript `@x402/evm` | `v2.10.0` |
+| Go `github.com/x402-foundation/x402/go/v2` | `v2.9.0` |
+| Python `x402`（PyPI） | `v2.7.0` |
+
+目前尚无 Java SDK；请使用上述 TypeScript、Go 或 Python SDK。
+
+## 为何在 Mezo 上使用 x402
+
+大多数支持 x402 的链以 USDC 结算。Mezo 的定位则有所不同：
+
+- **比特币原生的结算资产。** MUSD 在 Mezo 经济中以 BTC 抵押品铸造。以 MUSD 计价的收入始终留在比特币生态中，无需经由 ETH 或中心化稳定币发行方绕一圈。
+- **18 位小数精度，支持真正的微支付。** 一笔 $0.001 的收费是被原生支持的正常操作，而不是舍入误差。计量计费的 API、按推理次数计价的 AI 服务以及按请求计费的内容访问，都可以按实际成本定价，而无需批量处理。
+- **买方零 Gas（由促成方以 BTC 支付）。** 位于 `facilitator.vativ.io` 的 Mezo 促成方会以原生 BTC 为每一笔链上结算交易代付 Gas。买方（包括 AI 智能体）只需持有用于支出的 MUSD 和用于签署 EIP-712 permit2 授权的私钥；无需充值 BTC 作为 Gas，无需桥接 Gas 代币，在首次支付前也无需预先注资。
+- **可预测的链上经济模型。** Mezo 围绕由比特币支持的金融原语专门构建，因此 MUSD 的供应量和借款成本遵循锚定于 BTC 抵押品基础的规则，而非稳定币发行方的政策。
+
+## 您可以构建什么
+
+在 Mezo 上，x402 + MUSD 适用于卖方希望以 HTTP 原生方式定价、而无需管理订阅、API 密钥或支付处理商账户的任何场景：
+
+- **付费墙内容。** 文章、流媒体、报告、研究资料合集。每个受保护的 URL 对应一个 `402`，按资源单独定价。
+- **计量计费的 API。** 针对天气数据、加密货币数据源、分析端点或自定义业务逻辑按请求收费。无需应对速率限制，也无需管理 API 密钥生命周期。
+- **按推理次数付费的 AI 服务。** 将 LLM、图像生成器、STT、嵌入模型或微调模型封装在 x402 端点中。调用方按每次调用付费，借助 18 位小数的 MUSD 实现按实际成本定价。
+- **机器对机器（M2M）支付。** 配备 `@x402/fetch` 客户端和私钥的 AI 智能体可以自主进行交易：发现付费工具、读取 `402` 要求、结算、使用。无需账户，无需交换凭证，每笔支付也无需人工介入。由于 Gas 由促成方代付，智能体只需持有 MUSD 和签名密钥；无需充值 BTC 即可开始交易。
+- **付费 MCP 服务器。** 通过模型上下文协议（Model Context Protocol）公开智能体工具，并通过 x402 按调用次数定价。天然适合由自主智能体作为使用方。
+- **以按用量计费替代 SaaS 订阅。** 对于用量具有突发性或不确定性的工具、仪表板或内部服务，以按次计费取代订阅计费。
+
+## 快速开始
+
+如需分步演练（安装 SDK 软件包，运行一个基于 `@x402/express` 和内置 `@x402/paywall` UI 构建的付费墙卖方服务，然后使用浏览器钱包向其付款），请参阅 **[x402 快速入门](./x402-quickstart/)** 指南。
+
+## 另请参阅
+
+- [x402 快速入门](./x402-quickstart/)。分步实践指南。
+- [设置开发环境](/docs/zh/docs/developers/getting-started/configure-environment)。Mezo RPC 端点和网络参数。
+- [网络与 RPC](/docs/zh/docs/developers/chains/)。链配置详情。
+- <a href="/docs/zh/docs/users/borrow/mint-musd/" target="_blank" rel="noopener noreferrer">借款并铸造 MUSD ↗</a>。用户获取 MUSD 的流程（在新标签页中打开）。
+- [x402.org](https://x402.org)。x402 协议的官方文档。

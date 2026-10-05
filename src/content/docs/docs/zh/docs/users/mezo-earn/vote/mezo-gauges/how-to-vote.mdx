@@ -1,0 +1,85 @@
+---
+title: 如何为 MEZO Gauges 投票
+description: 将 veMEZO 投票权引导至 MEZO Gauges 的分步指南
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+MEZO Gauges 使用 **veMEZO** 投票，并在其专属页面上进行，与 veBTC Gauge 投票和加成配对相互独立。
+
+## 前提条件
+
+- 一个[已连接到 Mezo 的钱包](/docs/zh/docs/users/getting-started/connect)
+- 一个活跃的 veMEZO 仓位
+- 少量用于支付 Gas 费的 BTC
+
+投票**无需**持有 veBTC、LP 仓位或目标流动性池中的仓位。如果您还没有 veMEZO，请参阅[如何锁定 MEZO](/docs/zh/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo)。
+
+---
+
+## 投出您的票
+
+<Steps>
+1. 前往 [mezo.org](https://mezo.org) 上的 **Vote** 选项卡，切换到 **veMEZO** 投票，然后打开 **MEZO Gauges** 页面，网址为 [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo)。
+
+2. 查看可用的 Gauge。每一行都列出了目标协议和链、Gauge（目标流动性池）、该 Gauge 上发布的任何激励以及分发日期。
+
+3. 输入您要分配给每个 Gauge 的 veMEZO 投票权百分比。您可以分散投给多个 Gauge，例如将 60% 分配给 Aerodrome USDC/MUSD，40% 分配给 Curve USDT/USDC/MUSD。
+
+4. 点击 **Submit Votes** 并签署交易。
+</Steps>
+
+交易确认后，您的分配即在当前周期登记。
+
+:::note[Protocol、Gauge、Incentives、Distribution date]
+这是 MEZO Gauges 表格中的四列。**Protocol** 链接到目标平台。**Gauge** 显示目标流动性池。**Incentives** 是本周期在该 Gauge 上发布的代币。**Distribution date** 是本周期的激励到达目标流动性池或 Gauge 的时间（UTC）。
+
+此处不显示 vAPR、费用或 TVL，因为这些是在 Curve、Uniswap 或 Aerodrome 上累积的，而不是在 Mezo 上。当您进行分配时，表格会新增一列 **Vote distribution**，用于显示百分比。
+:::
+
+---
+
+## 投票窗口
+
+MEZO Gauges 遵循与 Mezo Earn 其他部分相同的每周循环。
+
+- 每个周期为 **7 天，于周四 00:00 UTC 切换**
+- 投票在周期开始一小时后开放（周四 01:00 UTC），并在下一次周期切换前一小时关闭（周三 23:00 UTC）
+- 投票在周期切换时统计，每个 Gauge 的 MEZO 分配额由其在投给 MEZO Gauges 的 veMEZO 总投票中所占的份额决定
+
+**未被投票的排放。** MEZO 严格按照所投票数的比例在各个 MEZO Gauge 之间分配。没有获得投票的 Gauge 不会获得 MEZO，其份额会分摊给获得了投票的 Gauge。您未分配的投票权不会影响分配结果，也不会为您赚取任何激励。
+
+---
+
+## 更改或重置投票
+
+您的分配会**跨周期保留**，直到您更改为止。如果您对当前的分配比例满意，就无需每周重新提交——它会在每个周期持续为您赚取该 Gauge 激励中的相应份额。
+
+**每个锁仓在每个周期只能投票一次。** 投票一经确认，该锁仓的 MEZO Gauge 分配就会在本周期剩余时间内锁定，页面会将其显示为只读状态，直到下一次周期切换。
+
+**要更改分配：** 返回 MEZO Gauges 页面，输入新的分配并提交——新的分配比例将完全替换旧的分配。如果该锁仓本周期已经投过票，则在下一次周期切换之前无法再次投票。
+
+**要重置分配：** 使用 **Reset** 将您的投票权从 MEZO Gauges 中全部撤回。您无法在已经投票的同一周期内重置，因为每个锁仓在每个周期只能执行一次投票操作。
+
+:::caution
+由于每个锁仓在每个周期只能投票一次，已经投票的锁仓在下一次周期切换之前无法对新的 Gauge 或激励做出响应。
+:::
+
+---
+
+## 这会影响我的加成或 veBTC 投票吗？
+
+不会。为 MEZO Gauges 投票是独立的：
+
+- 它不会消耗您正在用于为 veBTC 仓位提供[加成](/docs/zh/docs/users/mezo-earn/lock/vemezo/boost-mechanism)的 veMEZO，也不会减少您已经提供的加成
+- 它无需执行 [Poke](/docs/zh/docs/users/mezo-earn/vote/how-to-vote#重要变更后执行-poke)——Poke 用于刷新 veBTC 的加成后权重，而 MEZO Gauge 投票不会影响该权重
+- 它不会影响您的 veBTC 投票将质押 Gauge 排放引导至何处
+
+---
+
+## 后续步骤
+
+- [您的投票去向](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes)——周期结束后会发生什么
+- [领取激励](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives)——LP 如何领取您所引导的 MEZO
+- [MEZO Gauges 概览](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)——机制及符合条件的流动性池

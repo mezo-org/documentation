@@ -1,0 +1,135 @@
+---
+title: 如何投票
+description: 使用 veBTC 为 Gauge 投票的分步指南
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+投票让您可以引导排放的流向，作为回报，您将按比例获得所分配 Gauge 的交易手续费和激励。本指南将带您完成整个流程。
+
+<YouTube id="6rthu_iub7E" title="如何投票" start={89} />
+
+## 前提条件
+
+开始之前，请确保您已具备：
+
+- 已连接到 Mezo 的兼容钱包（MetaMask、Rabby 或支持 WalletConnect 的钱包）
+- 一个活跃的 veBTC 仓位（用于为质押 Gauge 投票）
+- 或者一个活跃的 veMEZO 仓位（用于为 veBTC Boost Gauge 投票）
+- 足够支付 Gas 费的 BTC
+
+如果您还没有 veBTC 锁仓，请参阅[如何锁定 BTC](/docs/zh/docs/users/mezo-earn/lock/vebtc/how-to-lock-btc)。
+
+如果您想创建 veMEZO 仓位，请参阅[如何锁定 MEZO](/docs/zh/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo)。
+
+---
+
+## 使用 veBTC 投票
+
+veBTC 持有者为质押 Gauge 投票，以引导排放并赚取费用。
+
+### 投出您的票
+
+要赚取奖励，请将您的投票权分配给特定的 Gauge。您的分配会跨周期（每个周期 7 天）保留，直到您更改为止。
+
+<Steps>
+1. 访问 **Vote** 选项卡，查看您的活跃 veBTC 仓位。在您要用来投票的 veBTC 仓位旁点击 **Allocate**。
+
+2. 对于您想支持的 Gauge，输入您要分配给每个 Gauge 的投票权百分比。例如，您可以将 50% 分配给 BTC/MUSD 池，30% 分配给 MUSD/mUSDC 池，20% 分配给 mcbBTC/BTC 池。
+
+3. 检查您的分配，准备就绪后，点击右侧边栏中的 **Submit Votes**。签署交易，完成后您的投票即在当前周期登记。
+</Steps>
+
+:::note[请记住]
+每个锁仓在每个周期只能投票一次——投票一经确认，该分配就会锁定，直到下一次周期切换。您的分配会跨周期保留，并持续赚取费用和激励，直到您更改或重置为止。
+:::
+
+---
+
+## 使用 veMEZO 投票
+
+veMEZO 持有者可以为 veBTC Boost Gauge 投票，为 BTC 仓位提供加成以换取激励；也可以为 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 投票，将 MEZO 排放引导至 Mezo 之外的 MUSD 流动性池。两者相互独立——相关流程请参阅[如何为 MEZO Gauges 投票](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote)。
+
+### 为 Boost Gauge 投票
+
+<Steps>
+1. 进入 **Boost Gauges** 部分，查看所有正在寻求加成的 veBTC 仓位。
+
+2. 查看每个 Gauge 的以下信息：
+   - 当前已发布的激励
+   - 已引导至该 Gauge 的 veMEZO 数量
+   - 根据您的 veMEZO 分配估算的收益
+
+3. 输入您要引导至每个 Boost Gauge 的 veMEZO 投票权百分比。
+
+4. 点击 **Submit Votes** 并签署交易。
+</Steps>
+
+### 您的收益
+
+当您将 veMEZO 投票引导至某个 Boost Gauge 时：
+
+- 您将按照自己在 veMEZO 投票中所占的份额，获得该 Gauge 上已发布的任何激励中的一部分
+- veBTC 持有者获得加成，其有效投票权随之提高
+
+注意：veMEZO 投票者**不会**从其提供加成的 veBTC 仓位中获得交易手续费、MUSD 收入或跨链桥费用。这些奖励归 veBTC 持有者所有。veMEZO 投票者只能赚取在 Boost Gauge 上明确发布的激励。
+
+---
+
+## 最大化您的加成（适用于 veBTC 持有者）
+
+如果您同时持有 veBTC 和 veMEZO，就可以最大化您的投票权：
+
+### 方案 1：自我加成
+
+将您的 veMEZO 投票引导至您自己的 veBTC 仓位的 Boost Gauge。
+
+<Steps>
+1. 前往您的 veBTC 仓位的 Boost Gauge
+2. 将您的 veMEZO 投票权分配给它
+3. 点击 **Submit Votes**
+4. 对您的 veBTC 仓位执行 **Poke**（刷新），以激活新的加成
+</Steps>
+
+### 方案 2：吸引外部加成
+
+在您的 veBTC Boost Gauge 上发布激励，以吸引其他用户的 veMEZO 投票。
+
+<Steps>
+1. 进入您的 veBTC 仓位的 Boost Gauge
+2. 点击 **Add Incentives**
+3. 存入代币（任何 ERC-20 代币）作为激励
+4. veMEZO 持有者会看到您的激励，并可能将投票引导给您
+5. 收到新的 veMEZO 投票后，对您的仓位执行 **Poke**
+</Steps>
+
+---
+
+## 重要：变更后执行 Poke
+
+当您的 veMEZO 情况发生变化时，加成不会自动更新。您需要对您的 veBTC 仓位执行 **Poke**，以刷新其加成后权重。
+
+**在以下情况下执行 Poke：**
+- 您的 Boost Gauge 收到新的 veMEZO 投票
+- 您将自己的 veMEZO 引导至您的仓位
+- 您领取了 veMEZO Rebase 分配
+- 您延长了 veMEZO 锁仓
+
+**如何执行 Poke：**
+1. 前往您的 veBTC 仓位
+2. 点击 **Poke**
+3. 签署交易
+
+您新的加成后权重将立即生效。
+
+---
+
+## 后续步骤
+
+- [管理锁仓并领取奖励](/docs/zh/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards)——领取您的收益并延长锁仓
+- [投票概览](/docs/zh/docs/users/mezo-earn/vote)——进一步了解投票的运作方式以及您的收益
+- [加成机制](/docs/zh/docs/users/mezo-earn/lock/vemezo/boost-mechanism)——了解 veMEZO 加成的计算方式
+- [配对市场](/docs/zh/docs/users/mezo-earn/lock/vemezo/matching-market)——了解加成市场的运作方式
+- [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)——使用 veMEZO 投票，将 MEZO 排放引导至 Curve、Uniswap 和 Aerodrome 上的 MUSD 流动性池

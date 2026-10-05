@@ -1,0 +1,61 @@
+---
+title: 如何借款并铸造 MUSD
+description: 以 BTC 为抵押借款并铸造 MUSD 的分步指南。
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+[MUSD](https://mezo.org/feature/musd) 已在 Mezo 主网上线，也可在 Mezo 测试网上进行测试。本指南以 Mezo 测试网为例介绍完整的借款流程，您也可以按此流程借款并铸造 MUSD 用于开发。之后，您可以前往 [Mezo App](https://mezo.org/) 并在主网上登录，借款并铸造真实的 MUSD。
+
+<YouTube id="wot3-SR-25E" title="如何在 Mezo 上开立以比特币为抵押的贷款" />
+
+:::note
+贷款的最低借款债务为 **1,800 MUSD**。加上 200 MUSD 的 Gas 押金，开仓时您的总债务至少为 2,000 MUSD。这是最低*借款*金额，而不是抵押品下限——您需要的抵押品数量取决于您期望的抵押率。
+:::
+
+## 开始之前
+
+在获取测试网 MUSD 之前，您必须完成以下步骤：
+
+- 前往 [testnet.mezo.org](https://testnet.mezo.org/)，点击 **Sign in** 连接您的 Mezo 账户。
+- 将以太坊钱包连接到 Mezo 测试网。有关说明，请参阅[连接 Mezo 测试网](/docs/zh/docs/users/getting-started/connect/)指南。
+- 在测试网上获取测试网 BTC。您可以在 [Discord](https://discord.com/invite/mezo) 中申请测试网 BTC。
+- 将 MUSD 代币添加到钱包。您可以通过 Mezo 区块浏览器的界面添加该代币。点击 MUSD 代币地址旁边的 **Add token to MetaMask** 按钮：
+    - 主网：[0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+    - 测试网：[0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
+
+## 借款并铸造
+
+:::tip[测试网与主网]
+本指南介绍的是**测试网**流程，因此下方所有链接均指向 `testnet.mezo.org`。当您准备借款并铸造真实的 MUSD 时，请改为在**主网**上前往 [mezo.org/feature/borrow](https://mezo.org/feature/borrow)。
+:::
+
+使用持有测试网 BTC 的账户登录 [testnet.mezo.org](https://testnet.mezo.org/) 后，即可借入 MUSD。
+
+<Steps>
+1. 在浏览器中打开 [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow)。
+2. 点击 **Let's Go** 按钮，开始借款流程。
+3. 输入您要借入的 MUSD 数量，以及要用作抵押品的 BTC 数量。
+4. 点击 **Review**，在确认前打开摘要。
+5. 检查摘要中的各项信息，确认与您的预期一致。
+6. 确保您的浏览器钱包当前已切换到 Mezo 测试网。
+7. 准备好继续[借款并铸造](/docs/zh/docs/users/borrow/mint-musd)流程时，点击 **Confirm**。浏览器钱包会提示您确认交易，并使用测试网上的 BTC 支付 Gas 费。
+</Steps>
+
+流程完成后，您可以在 [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow)（如果您使用的是主网，则为 [mezo.org/feature/borrow](https://mezo.org/feature/borrow)）查看贷款状态。
+
+## 了解借款条款
+
+Mezo 为 MUSD 贷款提供固定的低利率，初始利率为 1-5%。Mezo 没有强制还款日期，只要您的抵押品保持充足，就可以一直保持仓位开放。
+
+虽然没有固定的还款计划，但如果抵押品（BTC）的价值下跌，您仍需留意清算风险。
+
+利息按借款金额（即铸造的 MUSD）累计，因此请注意您的债务会随时间增长。当您准备关闭仓位时，需要有足够的 MUSD 来偿还本金以及所有累计的利息或费用。
+
+## 管理您的贷款
+
+当您有一笔活跃贷款后，可以通过 Mezo App 进行管理。观看以下视频，了解如何调整抵押品、偿还贷款或关闭仓位。
+
+<YouTube id="RBKC1XfAEHw" title="如何管理您的贷款" />

@@ -1,6 +1,6 @@
 ---
 title: 用户指南与文档
-description: Mezo 官方文档：钱包设置、资产桥接、MUSD 借贷指南及开发者资源。这是您"自主掌控金融"的完整指南。
+description: Mezo 官方文档：钱包设置、资产桥接、MUSD 借款指南及开发者资源。这是您“做自己的银行”的完整指南。
 topic: users
 ---
 
@@ -8,7 +8,7 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 ## 快速开始
 
-了解在 Mezo 应用中存入和[借贷资产](https://mezo.org/feature/borrow)的基础知识，或连接到 Mezo 主网。
+了解在 Mezo App 中存入和[借入资产](https://mezo.org/feature/borrow)的基础知识，或连接到 Mezo 主网。
 
 <CardGrid>
   <LinkCard
@@ -19,18 +19,23 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
   <LinkCard
     title="连接钱包"
     href="/docs/zh/docs/users/getting-started/connect"
-    description="将您现有的钱包连接到 Mezo 网络。"
+    description="将您现有的钱包连接到 Mezo。"
   />
   <LinkCard
     title="存入资产"
     href="/docs/zh/docs/users/getting-started/deposit-assets"
-    description="将您的资产桥接到 Mezo，开始赚取收益和借贷。"
+    description="将您的资产桥接到 Mezo，开始赚取收益和借款。"
+  />
+  <LinkCard
+    title="发送资产"
+    href="/docs/zh/docs/users/passport/send-assets"
+    description="使用钱包地址、比特币地址或 Mezo ID，向 Mezo 上的其他用户发送资产。"
   />
 </CardGrid>
 
 ## 了解更多
 
-了解 Mezo 网络、MUSD，以及它们如何提供比特币权益的访问途径。
+了解 Mezo 网络、MUSD，以及它们如何帮助您利用比特币的资产价值。
 
 <CardGrid>
   <LinkCard
@@ -39,7 +44,7 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
     description="探索 Mezo 网络背后的根本原因。"
   />
   <LinkCard
-    title="自助银行服务"
+    title="自助式银行"
     href="/docs/zh/docs/users/introduction/mezo-self-service-banking"
     description="深入了解 Mezo 为比特币持有者打造的自由银行经济。"
   />
@@ -50,13 +55,13 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
   />
 </CardGrid>
 
-## 借贷与铸造
+## 比特币贷款
 
 使用您的资产释放比特币的消费能力。
 
 <CardGrid>
   <LinkCard
-    title="借贷与铸造 MUSD"
+    title="借款并铸造 MUSD"
     href="/docs/zh/docs/users/borrow/mint-musd"
     description="使用您的资产释放比特币的消费能力。"
   />
@@ -68,20 +73,30 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 <CardGrid>
   <LinkCard
-    title="Lolli 集成"
+    title="Lolli"
     href="/docs/zh/docs/users/integrations/lolli"
     description="连接合作伙伴平台，增强您的比特币体验。"
+  />
+  <LinkCard
+    title="Safe"
+    href="/docs/zh/docs/users/integrations/safe"
+    description="在 Mezo 上使用 Safe 多签钱包，以多重签名安全机制管理共享资金。"
+  />
+  <LinkCard
+    title="社区项目"
+    href="/docs/zh/docs/users/integrations/community-projects"
+    description="探索社区构建的集成，包括 Mezo Tools、Matchbox 和 Vezo。"
   />
 </CardGrid>
 
 ## 开发者
 
-想要在 Mezo 上进行开发？请从开发者文档开始。
+想在 Mezo 上开发？请从开发者文档开始。
 
 <CardGrid>
   <LinkCard
     title="开发者文档"
     href="/docs/zh/docs/developers"
-    description="想要在 Mezo 上进行开发？请从开发者文档开始。"
+    description="想在 Mezo 上开发？请从开发者文档开始。"
   />
 </CardGrid>

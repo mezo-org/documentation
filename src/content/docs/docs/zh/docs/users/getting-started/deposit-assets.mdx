@@ -1,0 +1,41 @@
+---
+title: 如何将资产存入 Mezo
+description: 将资产存入 Mezo、开启自助式比特币银行服务的指南
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+您可以将原生比特币或受支持的 ERC-20 代币（比特币包装资产）存入 Mezo 主网。
+
+<YouTube id="DinlFeUZB3U" title="如何存入资产到 Mezo" />
+
+## 开始之前
+
+- 确认哪些资产受支持。您可以在[合约参考](/docs/zh/docs/users/resources/contracts-reference#代币合约)页面核实这些资产的代币地址。
+- Mezo 主网上的所有交易均使用存入的原生 BTC 或 tBTC 支付。在使用网络之前，建议您先向账户充入 BTC 或 tBTC，以确保有足够的 Gas 支付交易费用。
+
+## 存入资产
+
+<Steps>
+1. 前往 [Mezo App](https://mezo.org/overview)，使用受支持的钱包登录。
+
+2. 登录并签署交易后，点击 **Deposit Bitcoin**。
+
+3. 选择要桥接的资产并指定数量。
+
+    ![](/docs/images/mainnet/deposit-modal-preview.png)
+
+4. 点击 **Review** 查看转账详情并生成存款地址。
+
+5. 检查转账详情，确保准确无误。
+
+6. 准备好存入资产时，复制钱包地址。确保该地址在您的钱包中显示正确。
+
+    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
+
+7. 如果交易无误，请确认交易。
+</Steps>
+
+交易完成后，桥接流程随即开始。整个过程可能需要几分钟才能完成，之后您将在主网上收到资产。

@@ -1,0 +1,70 @@
+---
+title: MUSD Bridge
+description: 了解如何使用 Wormhole 的原生代币转移协议，在以太坊、Base 和 Mezo 之间桥接 MUSD 代币。
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+[MUSD](https://mezo.org/feature/musd) 跨链桥借助 Wormhole 的原生代币转移（NTT）协议，支持在 Mezo、以太坊和 Base 网络之间转移代币。该跨链桥在提供安全跨链功能的同时，保持代币的可互换性。
+
+## 工作原理
+
+MUSD 跨链桥使用 Wormhole 的原生代币转移协议实现跨链转移：
+
+- **从 Mezo 到以太坊/Base**：MUSD 代币在 Mezo 上被锁定，并在目标链上铸造等量代币
+- **从以太坊/Base 到 Mezo**：MUSD 代币在源链上被销毁，并在 Mezo 上解锁等量代币
+
+这一机制确保所有链上的总供应量保持不变，同时让用户可以在不同网络之间自由转移代币。
+
+## 跨链桥选项
+
+您可以通过两种用户界面桥接 MUSD 代币：
+
+### Mezo dApp
+
+[Mezo dApp](https://mezo.org) 提供原生的桥接体验，可在 Mezo 与以太坊网络之间转移 MUSD 代币。
+
+<Steps>
+1. 将您的钱包**连接**到 Mezo dApp
+
+2. **点击 “Withdraw”** 从 Mezo 桥出，或**点击 “Deposit”** 桥入 Mezo
+
+3. **选择 MUSD 代币**并输入数量
+
+4. 在钱包中**确认交易**
+
+5. **等待**两条链上的**确认**
+</Steps>
+
+### Portal Bridge UI
+
+如需将 MUSD 代币桥接到 Base 或以太坊，您也可以使用 [Portal UI](https://portalbridge.com/)：
+
+<Steps>
+1. 将您的钱包**连接**到 Portal 界面
+
+2. **选择源链和目标链**（Mezo ↔ 以太坊 ↔ Base）
+
+3. **选择 MUSD** 作为要桥接的代币
+
+4. **输入**您要桥接的**数量**
+
+5. **检查交易详情**，包括费用和预计时间
+
+6. 在钱包中**确认交易**
+
+7. **等待**两条链上的**确认**
+</Steps>
+
+两种界面都提供友好的用户体验，会替您处理与底层 NTT 合约之间的所有复杂交互。
+
+## 智能合约
+
+如需查看所有 MUSD 跨链桥和代币合约地址，请参阅[合约与代币地址](../../resources/contracts-reference)参考页面。
+
+## 其他资源
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Wormhole NTT 文档</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">合约参考</LinkButton>
