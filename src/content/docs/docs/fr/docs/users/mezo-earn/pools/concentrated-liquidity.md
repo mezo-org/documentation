@@ -58,7 +58,7 @@ Le pool BTC/MUSD-200 utilise un tick spacing de 200 avec des frais de swap de 0,
 
 - **Fourchette plus large** : génère des frais de manière plus régulière, mais avec une efficacité du capital moindre. Préférable pour une approche passive.
 - **Fourchette plus étroite** : génère davantage de frais tant que le prix reste dans la fourchette, mais nécessite une surveillance et un rééquilibrage actifs. Le risque de sortir de la fourchette est plus élevé.
-- **Le prix actuel doit se situer dans votre fourchette** : si le prix actuel est en dehors de votre fourchette, votre position sera entièrement constituée d'un seul jeton et ne générera pas de frais tant que le prix ne sera pas revenu dans la fourchette.
+- **Le prix actuel devrait se situer dans votre fourchette** : si le prix actuel est en dehors de votre fourchette, votre position sera entièrement constituée d'un seul jeton et ne générera pas de frais tant que le prix ne sera pas revenu dans la fourchette.
 
 ## Staker pour obtenir des émissions (bientôt disponible)
 
