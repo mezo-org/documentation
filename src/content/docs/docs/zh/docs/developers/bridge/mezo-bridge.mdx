@@ -1,106 +1,111 @@
 ---
-title: Mezo 跨链桥概览
+title: Mezo Bridge 概览
 topic: developers
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Mezo 跨链桥实现了比特币、以太坊和 Mezo 之间的原生资产转移。以下是主要流程及设计 RFC 的参考。
+Mezo Bridge 支持资产在比特币、以太坊和 Mezo 之间进行原生转移。以下是主要流程，并附有相关设计 RFC 的参考。
 
 ### 桥入 Mezo
 
-从 Bitcoin 到 Mezo
+从比特币到 Mezo
 
 <Steps>
-1. 将 BTC 锁定到桥控制的地址，并附带标识 Mezo 接收者的元数据。
+1. 将 BTC 锁定到由跨链桥控制的地址，并附带标识 Mezo 接收方的元数据。
 
 2. 向 Mezo Bridge 合约提交证明和认证。
 
 3. 合约验证证明。
 
-4. 在 Mezo 上为接收者铸造相应资产。
+4. 在 Mezo 上向接收方铸造相应资产。
 </Steps>
 
-从 Ethereum 到 Mezo
+从以太坊到 Mezo
 
 <Steps>
-1. 通过 Mezo Bridge 合约在以太坊上锁定 ERC-20，触发包含 Mezo 接收者的 `AssetLocked` 事件。
+1. 通过 Mezo Bridge 合约在以太坊上锁定 ERC-20 代币，并触发包含 Mezo 接收方信息的 `AssetLocked` 事件。
 
-2. 桥验证者监听此类事件。
+2. 跨链桥验证者监听此类事件。
 
-3. 桥验证者验证事件包含和验证者法定人数。
+3. 跨链桥验证者验证事件是否已被包含，并校验验证者法定人数。
 
-4. 在 Mezo 上为接收者铸造相应资产。
+4. 在 Mezo 上向接收方铸造相应资产。
 </Steps>
 
 ### 桥出 Mezo
 
-从 Mezo 到 Bitcoin
+从 Mezo 到比特币
 
 <Steps>
-1. 在 Mezo 上销毁资产，指定比特币接收者地址。
+1. 在 Mezo 上销毁资产，并指定比特币接收方地址。
 
 2. 向 Mezo Bridge 合约提交证明和认证。
 
 3. 合约验证证明。
 
-4. 验证通过后，BTC 被释放到接收者地址。
+4. 验证通过后，BTC 将释放到接收方地址。
 </Steps>
 
-从 Mezo 到 Ethereum
+从 Mezo 到以太坊
 
 <Steps>
-1. 在 Mezo 上销毁资产，指定以太坊接收者。
+1. 在 Mezo 上销毁资产，并指定以太坊接收方。
 
-2. 桥验证者监听 `AssetsUnlocked` 事件。
+2. 跨链桥验证者监听 `AssetsUnlocked` 事件。
 
-3. 桥验证者验证事件包含和验证者法定人数。
+3. 跨链桥验证者验证事件是否已被包含，并校验验证者法定人数。
 
-4. 验证通过后，ERC-20 被释放给接收者。
+4. 验证通过后，ERC-20 代币将释放给接收方。
 </Steps>
 
 ### 架构
 
-- **在源链上锁定/销毁**：资产在比特币/以太坊上锁定（或在 Mezo 上销毁），附带标识预期接收者和目标链的数据。
-- **认证与中继**：链下客户端对源链事件生成认证，并将证明中继到目标链。
-- **在目标链上铸造/释放**：在有效认证和证明验证后，目标链合约铸造包装资产或释放锁定资金。
+- **在源链上锁定/销毁**：资产在比特币/以太坊上被锁定（或在 Mezo 上被销毁），并附带标识预期接收方和目标链的数据。
+- **认证与中继**：链下客户端针对源链事件生成认证，并将证明中继到目标链。
+- **在目标链上铸造/释放**：认证有效且证明验证通过后，目标链合约铸造包装资产或释放已锁定的资金。
 
 ### 核心流程
 
 <Steps>
-1. 用户发起桥转账，指定目标地址和金额。
+1. 用户发起跨链转账，指定目标地址和金额。
 
-2. 锁定/销毁后触发源链合约/事件；事件包含唯一序列 ID 和参数。
+2. 锁定/销毁完成后，源链合约触发事件；事件包含唯一的序列 ID 和参数。
 
-3. 链下客户端根据 RFC 阈值收集确认/最终性，并向目标链合约提交证明+认证。
+3. 链下客户端按照 RFC 规定的阈值收集确认数/最终性，并向目标链合约提交证明和认证。
 
 4. 目标链验证：
-   - 事件真实性
+   - 事件的真实性
    - 验证者法定人数/签名
 
-5. 成功后，目标链执行铸造/释放并记录完成。
+5. 验证成功后，目标链执行铸造/释放，并记录完成状态。
 </Steps>
+
+### Enclave 存款
+
+Mezo Enclaves 是一项面向机构的功能，使有监管托管要求的机构无需存入显式跨链桥，也能在 Mezo 上使用其 BTC。Enclave 被赋予与法律协议相关联的特殊能力，这些协议规定了桥接额度和使用限制。存入 Enclave 的所有资产仍由比特币链上的 UTXO 支持，这些 UTXO 记录在三方跨链桥存款交易中，并保存在链状态中。每个 Enclave 都需由 Mezo 治理多签单独加入白名单。有关底层三方跨链桥实现的更多信息，请参阅 [`mezod` RFC-6](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md)。
 
 ### 合约
 
 主网：
 
-- Mezo Bridge: [0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c](https://etherscan.io/address/0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c)
+- Mezo Bridge：[0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c](https://etherscan.io/address/0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c)
 - 桥接代币[列表](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
 
 Sepolia：
 
-- Mezo Bridge: [0x3a3BaE133739f92a885070DbF3300d61B232497C](https://sepolia.etherscan.io/address/0x3a3BaE133739f92a885070DbF3300d61B232497C)
+- Mezo Bridge：[0x3a3BaE133739f92a885070DbF3300d61B232497C](https://sepolia.etherscan.io/address/0x3a3BaE133739f92a885070DbF3300d61B232497C)
 - 桥接代币[列表](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
 
 ### 审计
 
-请查看[审计](https://github.com/mezo-org/audits)页面了解最新审计。
+请查看[审计](https://github.com/mezo-org/audits)页面，了解最新的审计报告。
 
 ## 其他资源
 
-有关完整技术细节、消息格式和安全原理，请参阅以下 RFC：
+有关完整的技术细节、消息格式和安全设计原理，请参阅以下 RFC：
 
-- [RFC-2: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
-- [RFC-4: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
-- [RFC-5: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-2：将比特币桥接到 Mezo](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
+- [RFC-4：原生非比特币资产跨链桥](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
+- [RFC-5：将资产桥出 Mezo](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-6：三方 BTC 桥接](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md)

@@ -1,0 +1,39 @@
+---
+title: 治理
+description: MEZO 治理参数、约束条件与未来发展
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Mezo 网络治理允许 veBTC 持有者塑造协议参数和排放流向。治理以 BTC 为锚——veMEZO 用于放大 veBTC 的投票权，其本身不具备治理权重。
+
+## 协议参数
+
+以下参数决定了 MEZO 排放的分配方式：
+
+| 参数 | 说明 | 状态 |
+|---|---|---|
+| Chain Splitter 比例 | 分配给验证者（20%）与生态系统（80%）的排放份额 | 固定，已通过治理锁定 |
+| Ecosystem Splitter 比例 | 分配给质押 Gauge（90%）与生态 Gauge（10%）的排放份额 | 固定，已通过治理锁定 |
+| 最大加成倍数 | veMEZO 对 veBTC 的最大加成 | 目前为 5x |
+
+Splitter 比例目前固定，无法通过投票更改。未来，这些比例可能会通过新的治理机制变为可调整。
+
+![Mezo 排放计划](/docs/images/mezo-token/mezo-emissions.png)
+
+<LinkButton href="/docs/zh/docs/users/mezo/emissions">进一步了解 MEZO 代币排放</LinkButton>
+
+## 治理约束
+
+- **以 BTC 为锚的投票**——只有 veBTC 持有者可以对治理提案进行投票。veMEZO 可为 veBTC 投票权提供加成，但其本身不授予任何治理权。veMEZO 确实可以在 [veBTC Boost Gauge](/docs/zh/docs/users/mezo-earn/lock/vemezo/matching-market) 和 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 上独立投票，但这些投票用于引导排放，而不是设定协议参数。
+
+## 未来发展
+
+治理结构未来可能扩展为包括：
+
+- 正式的提案与投票机制（例如 Governor Bravo）
+- 更多可治理的参数
+- 在权益证明机制下通过 Gauge 投票选择验证者
+
+治理功能最终确定后，将公布具体细节。

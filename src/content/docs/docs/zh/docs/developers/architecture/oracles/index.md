@@ -33,7 +33,7 @@ Stork 是一个预言机协议，能够在数据提供者与链上和链下应�
 
 ## Supra
 
-Supra 是一个跨链预言机网络，旨在通过快速、安全、去中心化和可扩展的数据解决方案为各区块链生态系统的 dApp 提供支持。Supra 的[分布式预言机协议 (DORA)](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora) 已在 Mezo 测试网上可用。请参阅 Supra 的[可用网络](https://docs.supra.com/oracles/data-feeds/pull-oracle/networks)页面，获取正确的拉取合约和存储合约地址。
+Supra 是一个跨链预言机网络，旨在通过快速、安全、去中心化和可扩展的数据解决方案为各区块链生态系统的 dApp 提供支持。Supra 的[分布式预言机协议（DORA）](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora) 已在 Mezo 测试网上可用。请参阅 Supra 的[可用网络](https://docs.supra.com/oracles/data-feeds/pull-oracle/networks)页面，获取正确的拉取合约和存储合约地址。
 
 - **[Supra 文档](https://docs.supra.com/)**
 

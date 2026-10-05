@@ -1,0 +1,371 @@
+---
+title: x402 快速入门
+description: >-
+  端到端演练：为钱包准备测试网 MUSD，向在线演示端点付款，然后使用 @x402/* SDK 和内置的 @x402/paywall UI
+  在本地运行同一个带付费墙的 Express 服务器。
+topic: developers
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import paywallLocalInitial from '../../../../../../../../assets/screenshots/x402/paywall-local-initial.png';
+
+本快速入门按从头到尾的顺序进行。完成后，您将使用 `@x402/*` SDK，在 Mezo 测试网上以 MUSD 向您自己的本地 Express 卖方服务器支付 $0.001——所有客户端工作都由开箱即用的 `@x402/paywall` 浏览器 UI 完成，因此您 **无需编写任何客户端代码**。
+
+如需了解 x402 的概念背景，请先阅读 [x402 概览](../)。
+
+## 您将构建什么
+
+一个单文件 Express 服务器，其 **根路由 `/`** 受 MUSD 支付保护：
+
+- **浏览器** 在未付款的情况下访问 `/` 时，会收到 `HTTP 402 Payment Required`，并显示内置的 `@x402/paywall` UI——连接钱包、付款和重试均会自动为您处理。
+- **程序化客户端**（`curl`、`fetch`、AI 智能体）会收到同样的 `402`，附带一个精简的 JSON 响应体，以及位于 `PAYMENT-REQUIRED` 响应标头中的机器可读支付要求。
+- 在一笔 $0.001 的 MUSD 支付完成结算后，该路由即解锁并返回其 JSON 响应。
+
+您构建的服务器与运行托管演示 [`https://demo.vativ.io/`](https://demo.vativ.io/) 的代码 **完全相同**——您将先向托管实例付款，以验证钱包设置（第 3 步），然后搭建您自己的实例并向其付款（第 4–6 步）。
+
+## 前提条件
+
+- 本机已安装 **Node.js 20+** 和 **pnpm 9+**。
+- 一个支持 EVM 网络的浏览器钱包扩展（MetaMask、Rabby、Coinbase Wallet，或任何提供 EIP-1193 provider 的钱包）。
+- **当前版本的 `@x402` SDK。** 默认注册表中已包含 Mezo 支持——主网自 `@x402/evm` v2.15.0 / Go v2.15.0 / Python v2.13.0（2026-06-12）起支持，测试网自更早的版本起支持。本快速入门固定使用 `2.16.0`，即托管演示所运行的版本。完整的版本矩阵请参阅 [Mezo x402 参考信息](../#mezo-x402-参考信息)。
+- **约 20–30 分钟。** 获取测试网 MUSD 需要领取一次水龙头资金并完成一笔借款交易；请尽早执行这些操作（第 1–2 步），这样等您需要时它们就已准备就绪。
+
+<Aside type="tip" title="您将使用两个账户：买方和商户">
+本快速入门在同一个钱包中使用 **两个不同的账户**：
+
+- **账户 A——买方（Buyer）。** 持有 MUSD，为 API 请求付款。
+- **账户 B——商户（Merchant）。** 接收付款。
+
+使用两个账户后，每笔支付都会在区块浏览器中显示为从 A 到 B 的转账，这是端到端确认设置是否正确的最简单方法。进行 x402 MUSD 支付时，两个账户都无需持有 BTC 余额，因为促成方（facilitator）会代双方支付 Gas（不过，执行下文可选的 MUSD 借款流程需要 BTC）。
+</Aside>
+
+## 第 1 步：设置钱包
+
+### 1a. 创建两个账户
+
+打开钱包的账户切换器。您的第一个账户即为 **账户 A（买方）**。再添加第二个账户作为 **账户 B（商户）**，可使用任何便于区分的名称。确保已选中/激活账户 A（买方）。
+
+{/* SCREENSHOT-TODO: MetaMask account switcher showing Account A (Buyer) and Account B (Merchant). */}
+
+### 1b. 将 Mezo 测试网添加为网络
+
+在选中任一账户的情况下，打开钱包的网络设置，并使用以下参数添加自定义网络：
+
+| 字段 | 值 |
+|---|---|
+| 网络名称 | Mezo Testnet |
+| 链 ID | `31611` |
+| RPC URL | `https://rpc.test.mezo.org` |
+| 区块浏览器 | `https://explorer.test.mezo.org` |
+| 货币符号 | BTC |
+
+有关主网参数和其他 RPC 提供商，请参阅[设置开发者环境](/docs/zh/docs/developers/getting-started/configure-environment)。
+
+{/* SCREENSHOT-TODO: MetaMask "Add a network manually" form filled with the Mezo Testnet values above. */}
+
+## 第 2 步：获取用于付款的测试网 MUSD
+
+测试网上的 MUSD 是 **铸造出来的，而非由水龙头发放**，您需要以测试网 BTC 为抵押借入 MUSD。
+
+<Aside type="caution" title="一次性最低借款额">
+开立借款需要至少 **2,000 MUSD** 的最低债务（1,800 本金 + 200 MUSD Gas 押金）。这是协议设定的下限，而不是每次测试的成本——您只需借款一次，即可在多次付费请求中重复使用该余额。按每次调用 `$0.001` 计算，一次借款大约可覆盖两百万次测试支付。
+</Aside>
+
+开始之前，请先在钱包中选择 **账户 A（买方）**，以便第 2 步中的所有资金都进入账户 A。账户 B（商户）在整个过程中都保持为空。
+
+<Steps>
+
+1. 从 [Mezo 水龙头](https://faucet.test.mezo.org)或 [Mezo Discord](https://discord.com/invite/mezo) 的 `#testnet` 频道 **向账户 A** 申请测试网 BTC。等待资金到达 A 的钱包。
+
+2. 在 Mezo 测试网上连接账户 A，然后在 [mezo.org/feature/borrow](https://mezo.org/feature/borrow) 借入 MUSD。附截图的完整演练：[借款并铸造 MUSD](/docs/zh/docs/users/borrow/mint-musd/)。
+
+3. 确认账户 A 的 MUSD 余额。测试网 MUSD 代币合约为 [`0x1189…Ac503`](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)。您可以通过两种方式查看：
+
+   - **区块浏览器：** 打开 `https://explorer.test.mezo.org/address/<account-A-address>`（将账户 A 的 `0x…` 粘贴到 URL 中）。您应能看到列出的 MUSD，余额 ≥ 1,800。
+   - **钱包：** 将 `0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503` 添加为自定义代币。之后账户 A 中将显示一行 MUSD。
+
+4. 确认账户 B 显示的 MUSD 为 **零**——它不应持有任何 MUSD，在第 6 步之前也不会有。可在 `https://explorer.test.mezo.org/address/<account-B-address>` 查看。
+
+</Steps>
+
+如果您想核对标准合约地址、小数位数（18）或浏览最近的转账，区块浏览器中的 MUSD 代币页面也很有用。
+
+## 第 3 步：对钱包配置进行冒烟测试
+
+在安装任何软件包或编写任何代码之前，请先向本快速入门服务器的在线托管实例付款，以确认您的钱包、网络和 MUSD 余额均已准备就绪。这样可以将“我的钱包是否设置正确？”与“我自己的服务器是否连接正确？”这两个问题区分开。在这一步遇到的任何问题都属于钱包或 MUSD 问题，而非代码问题。
+
+<Steps>
+
+1. 在装有 Mezo 测试网钱包的同一浏览器中打开 [`https://demo.vativ.io/`](https://demo.vativ.io/)。连接之前，请 **切换到账户 A（买方）**——MUSD 在 A 中。
+
+2. 付费墙加载完成后，您应能看到：
+
+   - **Payment Required** 标题
+   - `Mezo x402 Quickstart — pay $0.001 in MUSD to unlock. To access
+     this content, please pay $0.001 Mezo USD.`
+   - 一条测试网提示（`Need Mezo USD on Mezo Testnet? Request some here.`）
+   - 一个钱包选择下拉菜单和 **Connect wallet** 按钮
+
+3. 选择您的钱包，并使用账户 A 进行连接。当钱包提示时，确认您处于 **Mezo 测试网（链 ID `31611`）**。
+
+4. 点击 **Pay now**，然后在钱包提示时签署支付授权。
+
+   {/* SCREENSHOT-TODO: MetaMask signature-request popup for the x402 payment authorization (sign typed data). */}
+
+5. 付费墙会附带您的付款重试该请求。促成方在链上完成结算后，将显示解锁后的响应：
+
+   ```json
+   { "ok": true, "message": "Paid! You unlocked the Mezo x402 Quickstart." }
+   ```
+
+6. 在链上核验该笔支付。打开 `https://explorer.test.mezo.org/address/<account-A-address>`——您应能看到一笔新的 MUSD 转账，从账户 A 向演示的收款地址（`0xC337…e738`——您稍后还会在服务器代码中再次见到这个地址，它是默认的 `PAY_TO`；您的账户 B 的余额不会变化）转出 `0.001 MUSD`。
+
+</Steps>
+
+{/* SCREENSHOT-TODO: explorer.test.mezo.org token transfers tab for Account A showing the 0.001 MUSD outbound transfer after the smoke test payment. */}
+
+如果显示了解锁后的 JSON，且区块浏览器中显示了该笔转账，则说明您的钱包设置已得到验证。请继续执行第 4 步。
+
+如果未能走到这一步，请就此停下，先修复钱包端的问题，再编写任何服务器代码——常见的钱包/MUSD 症状请参阅[故障排查](#故障排查)。在这一步出问题的钱包，到第 6 步时表现会与出问题的服务器完全相同；请现在就解决它。
+
+## 第 4 步：安装 x402 软件包
+
+为您自己的卖方服务创建一个新项目：
+
+```bash
+mkdir mezo-x402-quickstart && cd mezo-x402-quickstart
+pnpm init
+pnpm add @x402/core@2.16.0 @x402/evm@2.16.0 @x402/express@2.16.0 @x402/paywall@2.16.0 express@^4.19.2
+pnpm add -D typescript tsx @types/express@^4.17.21 @types/node
+```
+
+`@x402/*` 的版本固定为 `2.16.0`——即托管演示所运行的版本——因此您构建的内容与第 3 步中付款的对象一致。较新的版本通常也可以使用；各网络的最低版本请参阅 [SDK 支持矩阵](../#sdk-支持)。
+
+<Aside type="note" title="关于 pnpm init 的默认设置">
+`pnpm init` 会生成一个包含 `"main": "index.js"` 且没有 `"type": "module"` 的 `package.json`。这两点在这里都无关紧要——您将通过 `tsx` 运行 `server.ts`，它无需配置即可处理 ESM 和 CommonJS。
+</Aside>
+
+<Aside type="note" title="出现对等依赖警告属于正常现象">
+安装过程中，`pnpm` 可能会打印黄色的对等依赖（peer dependency）警告（例如 `Issues with peer dependencies found`，或有关 `@x402/*` 对等版本范围的提示）。这些仅供参考，在本快速入门中可以放心忽略——只要两条 `pnpm add` 命令以 `0` 退出，安装即已成功。如果真正的错误导致安装中止，`pnpm` 会以红色打印信息并以非零状态退出。
+</Aside>
+
+## 第 5 步：单文件实现的卖方服务
+
+卖方服务将三个部分组合在一起：与促成方通信的 `HTTPFacilitatorClient`、已为 Mezo 测试网注册 `"exact"` EVM 支付方案的 `x402ResourceServer`，以及作为付费墙提供方的内置 `@x402/paywall` UI。随后，`paymentMiddleware` 调用以 $0.001 的价格保护 `GET /`。
+
+在 `mezo-x402-quickstart/` 中创建 `server.ts`，内容须与下文完全一致——它就是演示服务器的源文件，一字未改：
+
+```typescript
+/**
+ * Mezo x402 Quickstart — the out-of-box @x402/paywall smoke test.
+ *
+ * Run this server and open http://localhost:4021/ in a browser: the
+ * @x402/paywall UI renders. That is the smoke test. The root route `/` is
+ * protected by the x402 payment middleware, so an unpaid browser GET returns
+ * HTTP 402 with the paywall; paying $0.001 in MUSD unlocks a success response.
+ *
+ *   Network:     Mezo testnet — eip155:31611 (CAIP-2)
+ *   Asset:       MUSD  0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503  (18 decimals)
+ *   Price:       $0.001 (PRICE env overrides)
+ *   Facilitator: https://facilitator.vativ.io  (verifies + settles payments)
+ *
+ *   pnpm install
+ *   pnpm exec tsx server.ts    (monorepo: pnpm --filter mezo-x402-quickstart start)
+ */
+import express from "express";
+import { paymentMiddleware, x402ResourceServer } from "@x402/express";
+import { ExactEvmScheme } from "@x402/evm/exact/server";
+import { HTTPFacilitatorClient } from "@x402/core/server";
+import { createPaywall } from "@x402/paywall";
+import { evmPaywall } from "@x402/paywall/evm";
+
+// --- Config (override any of these via environment variables) --------------
+const PORT = Number(process.env.PORT ?? 4021);
+const NETWORK = "eip155:31611"; // Mezo testnet
+const PAY_TO = process.env.PAY_TO ?? "0xC3376296a18ef364eA19287203EEd7a87f18e738";
+const FACILITATOR_URL = process.env.FACILITATOR_URL ?? "https://facilitator.vativ.io";
+const PRICE = process.env.PRICE ?? "$0.001";
+
+const app = express();
+
+// The facilitator verifies and settles x402 payments. The resource server
+// registers the "exact" EVM payment scheme for our network. @x402/evm already
+// knows Mezo testnet, so a plain "$0.001" price resolves to MUSD automatically.
+const facilitator = new HTTPFacilitatorClient({ url: FACILITATOR_URL });
+const resourceServer = new x402ResourceServer(facilitator).register(
+  NETWORK,
+  new ExactEvmScheme(),
+);
+
+// The out-of-box @x402/paywall browser UI, scoped to EVM networks.
+const paywall = createPaywall().withNetwork(evmPaywall).build();
+
+// Protect the ROOT route. A browser GET / with no payment renders the paywall.
+app.use(
+  paymentMiddleware(
+    {
+      "GET /": {
+        accepts: {
+          scheme: "exact",
+          price: PRICE,
+          network: NETWORK,
+          payTo: PAY_TO,
+        },
+        // No trailing period: the paywall appends ". To access this content, ...".
+        description: `Mezo x402 Quickstart — pay ${PRICE} in MUSD to unlock`,
+      },
+    },
+    resourceServer,
+    { appName: "Mezo x402 Quickstart", testnet: true },
+    paywall,
+  ),
+);
+
+// Unlocked content — served only after a payment settles.
+app.get("/", (_req, res) => {
+  res.json({ ok: true, message: "Paid! You unlocked the Mezo x402 Quickstart." });
+});
+
+app.listen(PORT, () => {
+  console.log(`Mezo x402 Quickstart listening on http://localhost:${PORT}/`);
+  console.log("Open it in a browser to see the @x402/paywall UI.");
+});
+```
+
+从上到下解读：
+
+- **配置块。** 所有与环境相关的内容都是可通过环境变量覆盖的常量。`PAY_TO` 默认为托管演示的收款地址——即您在第 3 步区块浏览器检查中看到的同一个 `0xC337…e738`——您将在第 6 步中用 **您的账户 B** 覆盖它。价格同样是常量：`PRICE`（默认 `$0.001`）会同时用于支付要求和付费墙文案，因此覆盖它（例如 `PRICE='$0.005'`）即可端到端地重新为该路由定价。
+- **`HTTPFacilitatorClient` + `x402ResourceServer`。** 位于 `facilitator.vativ.io` 的促成方负责验证和结算支付；资源服务器为 `eip155:31611` 注册 `"exact"` EVM 方案。简单的美元字符串 `price: "$0.001"` 会在运行时解析为正确的 MUSD 数额——您的代码中无需出现代币地址。
+- **`createPaywall().withNetwork(evmPaywall).build()`。** 内置的浏览器 UI，限定用于 EVM 网络。如果没有这个提供方，中间件会回退到一个占位实现：它将金额按 6 位小数的 USDC 格式化，并显示 “Install @x402/paywall” 占位内容。
+- **`paymentMiddleware(...)`。** 保护 `GET /`。第三个参数是付费墙配置——`appName` 会成为页面标题，而 `testnet: true` 会显示您在第 3 步看到的 `Need Mezo USD on Mezo Testnet?` 水龙头提示。
+- **解锁后的路由。** 普通的 `app.get("/")` 处理程序只会在中间件验证并结算一笔支付之后才运行。
+
+（从技术上讲，您也可以将 `PAY_TO` 设置为账户 A 并向自己付款，但这样一来，成功的支付在链上就不可见了：MUSD 从 A 转出又转入 A，代币余额不会发生变化。使用两个账户可以在区块浏览器中获得清晰的前后对比信号。）
+
+## 第 6 步：运行您的卖方服务并亲自付款
+
+<Aside type="caution" title="请先检查端口 4021 上是否有残留的卖方服务">
+如果已有任何进程绑定到 `localhost:4021`（例如您忘记停止的先前的 `tsx server.ts`），下面的检查也会通过，因为应答的是 **另一个** 进程，而不是您的进程。此后在浏览器中进行的付款会被转到那个残留服务器所配置的 `PAY_TO`，而不是您刚刚设置的地址。这种故障模式看起来与成功完全相同；唯一的异常信号是您的终端没有显示任何请求日志，而另一个终端却有。
+
+继续之前，请终止所有残留的监听进程：
+
+```bash
+lsof -i :4021          # No output = port is free, skip the kill
+kill $(lsof -ti :4021) # If the command above printed anything, run this
+```
+
+或者，改用其他端口运行：服务器会从环境变量中读取端口，例如 `PORT=5001 PAY_TO=0x… pnpm exec tsx server.ts`。
+</Aside>
+
+将钱包切换到 **账户 B（商户）**，复制其 `0x…` 地址，并以该地址作为收款地址启动服务器：
+
+```bash
+PAY_TO=0xYOUR_ACCOUNT_B_ADDRESS_HERE \
+  pnpm exec tsx server.ts
+```
+
+<Aside type="caution" title="不要省略 PAY_TO">
+即使未设置 `PAY_TO`，服务器也能正常启动——它会回退到托管演示的收款地址。此后您进行的每笔付款都会转给演示商户，而不是您的账户 B；整个运行过程看似“正常”，但您在下文第 6 小步中的区块浏览器检查结果却始终为空。此外也没有格式校验：输错的地址会被原样静默使用。请直接从钱包中复制地址。
+</Aside>
+
+您应能看到 `Mezo x402 Quickstart listening on http://localhost:4021/`。现在，中间件会拦截对 `/` 的未付款请求。客户端收到的内容取决于其自我标识方式：**浏览器**（带有 `Accept: text/html` 标头以及浏览器 `User-Agent`）会收到完整的 HTML 付费墙页面；**其他所有客户端**（`curl`、`fetch`、`httpie`、AI 智能体）会收到一个精简的 JSON 响应体，支付要求则以 Base64 编码的形式放在 `PAYMENT-REQUIRED` 响应标头中。无论哪种情况，都无需任何客户端代码。
+
+<Steps>
+
+1. 快速检查服务器是否响应 `402`：
+
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}\n" http://localhost:4021/
+   # Expect: 402
+   ```
+
+   （付费墙 **UI** 只会在浏览器中显示——这是下一步的内容。对同一 URL 执行 `curl -i` 会显示 `402` 状态以及携带机器可读支付要求的 `PAYMENT-REQUIRED` 标头——使用 `base64 -d` 解码后，即可看到与您的路由配置中声明一致的 scheme/network/amount/payTo。）
+
+2. 在第 3 步进行在线演示冒烟测试时所用的同一浏览器中打开 `http://localhost:4021/`。连接之前，请 **切换到账户 A（买方）**——这是持有 MUSD 的账户。
+
+3. 付费墙加载完成——与第 3 步相同的 UI，但现在由您自己的代码提供：
+
+   <Image
+     src={paywallLocalInitial}
+     alt="由本地快速入门服务器提供的 @x402/paywall UI：Payment Required 标题、该路由的描述文本、测试网水龙头提示、钱包选择器以及 Connect wallet 按钮。"
+   />
+
+4. 连接账户 A，确认处于 **Mezo 测试网（链 ID `31611`）**，点击 **Pay now**，然后在钱包中签署授权。
+
+5. 付费墙会重试该请求。促成方在链上完成结算后，将显示解锁后的 JSON 响应：
+
+   ```json
+   { "ok": true, "message": "Paid! You unlocked the Mezo x402 Quickstart." }
+   ```
+
+6. 在链上核验从 A 到 B 的转账。打开以下两个区块浏览器标签页：
+
+   - 账户 A（借记）：
+     `https://explorer.test.mezo.org/address/<account-A-address>`
+   - 账户 B（贷记）：
+     `https://explorer.test.mezo.org/address/<account-B-address>`
+
+   您应能看到一笔 `0.001 MUSD` 的 MUSD 转账，在您付款的时间点从 A 转出并到达 B。点击任意一侧的交易哈希即可查看结算详情，包括支付 Gas 的促成方地址。
+
+</Steps>
+
+{/* SCREENSHOT-TODO: explorer.test.mezo.org for Account B after payment, showing the 0.001 MUSD inbound transfer from Account A. (One side of the A→B transfer is enough; the prose above already points at both tabs.) */}
+
+<Aside type="note" title="查看代币转账">
+Mezo Explorer 中的默认视图为 **Transactions**，因此您必须点击 **Token transfers** 标签页，然后点击每个账户最近一笔代币转账的 Txn 哈希，才能找到您的 x402 支付详情。
+</Aside>
+
+完整的流程就是这样：您刚刚在 Mezo 测试网上提供了一个带付费墙的 HTTP 资源，从账户 A 为其付款，并看到 MUSD 在链上到达了账户 B。
+
+## 升级到主网
+
+以上所有内容都运行在 Mezo 测试网上。将同一个卖方服务迁移到 Mezo 主网（`eip155:31612`）只需 **修改一行代码**——当前版本的 SDK 会为您解析主网 MUSD 代币和标准结算代理，且促成方使用的是同一个端点。
+
+在 `server.ts` 中切换网络常量：
+
+```diff
+-const NETWORK = "eip155:31611"; // Mezo testnet
++const NETWORK = "eip155:31612"; // Mezo mainnet
+```
+
+| 项目 | 测试网 → 主网 | 是否需要修改 |
+|---|---|---|
+| `NETWORK`（CAIP-2） | `eip155:31611` → `eip155:31612` | **是——即上面那一行** |
+| `PAY_TO` | 您的测试网地址 → 您的主网地址 | **是——在主网上务必显式设置** |
+| MUSD 资产 | 在两个网络上均由 SDK 解析 | 否——由 `DEFAULT_STABLECOINS` 映射 |
+| 促成方 URL | 两个网络均为 `facilitator.vativ.io` | 否——同一个促成方同时服务两个网络 |
+| 结算代理 | 两个网络上均为标准部署 | 否——由 SDK 自动解析 |
+
+<Aside type="caution" title="主网转移的是真实资金">
+主网支付结算的是 **真实的 MUSD**，促成方支付 Gas 使用的也是 **真实的 BTC**——没有水龙头。请将 `PAY_TO` 设置为您在主网上控制的地址（内置默认值是演示的地址——在主网上，未设置 `PAY_TO` 就意味着用真金白银向别人付款）。请先用较小的 `price` 进行测试，并且只为收款方注入您打算交易的金额。
+</Aside>
+
+
+
+## 故障排查
+
+| 症状 | 原因 | 解决方法 |
+|---------|-------|-----|
+| 运行时出现 `does not provide an export named 'DEFAULT_STABLECOINS'` | 某个传递依赖将 `@x402/paywall`/`@x402/evm` 固定到了低于目标网络所需版本的发行版（主网需要 `≥ 2.15.0`，测试网需要 `≥ 2.10.0`） | <details><summary>通过包管理器的 overrides 将两者强制升级到当前版本</summary><br/>**pnpm**——添加到 `package.json`（顶层，与 `dependencies` 并列），然后执行 `pnpm install`：<br/>```<br/>"pnpm": { "overrides": { "@x402/paywall": "^2.16.0", "@x402/evm": "^2.16.0" } }<br/>```<br/>**npm**——顶层 `"overrides": { ... }`，然后执行 `npm install`。<br/>**yarn**——`"resolutions": { ... }`，然后执行 `yarn install`。<br/>请同时覆盖这两个软件包——`@x402/paywall` 会从 `@x402/evm` 导入 `DEFAULT_STABLECOINS`。</details> |
+| 付费墙显示 `$10000000000.00` 而不是 `$0.001` | 与上一行相同——旧版 `@x402` 会将 MUSD 按 6 位小数的 USDC 格式化 | <details><summary>解决方法相同——通过 overrides 强制使用 `^2.16.0`</summary><br/>完整代码片段（`pnpm` / `npm` / `yarn` 版本）请参阅上一行。</details> |
+| `install` 在解析 `@solana/kit@6.10.0` → `@solana/keys@6.10.0` 时失败（找不到匹配的版本） | `@x402/paywall` 会引入一个传递依赖的 Solana SDK，其 `6.10.0` 版本引用了尚未发布的子包（上游的暂时性缺口）。仅支持 EVM 的卖方服务从不使用 Solana 付费墙，但安装时仍会解析该依赖 | 通过 override 固定到最后一个可用版本，然后重新安装：**npm** 顶层 `"overrides": { "@solana/kit": "6.9.0" }`；**pnpm** `"pnpm": { "overrides": { "@solana/kit": "6.9.0" } }`；**yarn** `"resolutions": { "@solana/kit": "6.9.0" }` |
+| `EADDRINUSE: address already in use :::4021` | 另一个进程已绑定到端口 4021 | 运行 `lsof -i :4021` 找出占用者，或在空闲端口上运行：`PORT=5001 PAY_TO=0x… pnpm exec tsx server.ts` |
+| `tsx: command not found` | `tsx` 开发依赖未安装，或命令是在项目目录之外运行的 | 在项目内重新运行 `pnpm add -D tsx`；以 `pnpm exec tsx server.ts` 方式调用 |
+| `import` 处出现 `SyntaxError` / Node 报告 TS 语法错误 | 使用的 Node.js 版本 &lt; 20 | 升级到 Node.js 20+（使用 `node --version` 检查） |
+| 钱包提示切换网络 / 支付始终无法确认 | 钱包连接的 Mezo 网络不正确 | 确认钱包所在链的链 ID 与卖方服务期望的一致（测试网为 `31611`，主网为 `31612`） |
+| 返回了 `402 Payment Required`，但付费墙 UI 始终不显示 | `network` 字符串不是 CAIP-2 标识符 | 准确使用 `'eip155:31611'` 或 `'eip155:31612'`；`'mezo-testnet'` 和单独的 `31611` 都会被拒绝 |
+| 钱包拒绝添加 “Mezo Testnet”——或虽已添加，但余额/交易看起来不对 | 钱包字段要求十进制时输入了十六进制链 ID（例如 `0x7A5B`），或在需要测试网时使用了主网链 ID（`31612`） | 测试网的链 ID 请输入十进制 **`31611`**（主网为 `31612`）。RPC URL 也必须指向测试网（`https://rpc.test.mezo.org`）——测试网链 ID 搭配主网 RPC 会静默生成一个看似正常、实则空无一物的网络 |
+| 一切看似“正常”，但账户 B 始终收不到 MUSD | 未设置 `PAY_TO`（服务器会静默回退到托管演示的收款地址），或地址输错——没有格式校验 | 停止服务器，并使用直接从钱包账户 B 复制的 `PAY_TO=0x…` 重新启动；下次付款后再次检查区块浏览器 |
+| 促成方返回 `unsupported network` | `FACILITATOR_URL` 被覆盖为不支持 Mezo 的促成方（例如 `x402.org/facilitator`） | 取消设置 `FACILITATOR_URL`——内置默认值 `https://facilitator.vativ.io` 同时服务两个 Mezo 网络 |
+| 付费墙已加载，但 **Pay now** 始终无法完成结算，且没有报错 | 钱包中没有 MUSD，或 MUSD 位于错误的网络上 | 重新执行第 2 步；确认测试网 MUSD 代币合约显示有余额 |
+| 第 3 步的演示（demo.vativ.io）始终无法完成结算 | 同样是钱包/MUSD/网络问题——请在进入第 4 步之前在此排查清楚 | 不要跳过第 3 步的冒烟测试；在编写服务器代码之前先修复钱包端的问题 |
+| 支付已在钱包中签名，但促成方拒绝了它 / 验证失败 | 手动构造的资产 EIP-712 域 **name** 不正确 | MUSD 的 EIP-712 域名称为 **`Mezo USD`**（version 为 `1`），**而不是** `MUSD` 代币符号——不匹配会导致签名验证失败。请让 SDK 通过 `getDefaultAsset` 提供该值；如果您自行构建资产元数据，请准确设置 `name: "Mezo USD", version: "1"` |
+| 运行您自己的促成方/结算程序时：在 Mezo 上间歇性出现 Gas 估算失败 | Mezo 的 Gas 估算需要适当的余量 | 在签名端提高 Gas 上限 / 估算倍数。使用托管的 `facilitator.vativ.io` 时不会遇到此问题，因为它已考虑到这一点 |
+
+## 另请参阅
+
+- [使用 x402 进行 MUSD 支付](../)。概念概览。
+- [vativ/mezo-hack/apps/humor](https://github.com/vativ/mezo-hack/tree/main/apps/humor)。Mezo 专用的黑客松参考实现：服务器 + `@x402/fetch` 客户端，连接到 mezo.6 预览版 tarball；付费墙保护的 `GET /joke` 定价为 `0.001 MUSD`，指向 `facilitator.vativ.io`；README 会端到端地介绍如何为钱包注资以及运行该演示。克隆后即可按需修改。
+- <a href="/docs/zh/docs/users/borrow/mint-musd/" target="_blank" rel="noopener noreferrer">借款并铸造 MUSD ↗</a>。用户获取 MUSD 的流程（在新标签页中打开）。
+- [Mezo 水龙头](https://faucet.test.mezo.org)。测试网 BTC。

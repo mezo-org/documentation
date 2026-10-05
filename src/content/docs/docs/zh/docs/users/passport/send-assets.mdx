@@ -1,0 +1,43 @@
+---
+title: 如何在 Mezo 上发送资产
+description: 使用钱包地址、比特币地址或 Mezo ID 向 Mezo 上的其他用户发送资产的指南。
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+您可以直接通过 Mezo Passport 向 Mezo 上的其他用户发送资产。接收方可以通过其钱包地址、比特币地址或 Mezo ID 来识别。
+
+:::note
+通过 Passport 发送资产是在 Mezo 上转移代币，而不是在比特币网络上发送资产。如果您想将资产桥出 Mezo，请参阅[跨链桥](/docs/zh/docs/users/mainnet/bridges)。
+:::
+
+## 接收方类型
+
+Mezo Passport 中的发送表单支持三种类型的接收方：
+
+- **钱包地址**——输入 Mezo 上标准的 `0x…` 地址。
+- **比特币地址**——输入比特币地址。Mezo 会自动将其解析为 Mezo 网络上对应的钱包。
+- **Mezo ID**——输入 Mezo ID。解析出的钱包地址会显示在输入框下方，以便您在发送前确认目标地址。
+
+当您输入比特币地址或 Mezo ID 时，解析出的 `0x…` 钱包地址会作为确认步骤显示在输入框下方。在继续操作之前，请务必核实该地址。
+
+## 发送资产
+
+<Steps>
+1. 打开 [Mezo App](https://mezo.org/overview) 并登录。
+
+2. 从页面顶部打开 **Passport** 下拉菜单。
+
+3. 点击 **Send** 打开发送表单。
+
+4. 输入接收方的钱包地址、比特币地址或 Mezo ID。
+
+5. 如果您输入的是比特币地址或 Mezo ID，请核实输入框下方显示的解析后的钱包地址。
+
+6. 选择资产并输入要发送的数量。数量旁边会显示实时的等值美元金额。
+
+7. 检查交易详情，然后点击 **Send** 进行确认。
+</Steps>
+
+交易完成后，您将看到一个确认页面，其中显示 “Transaction sent” 消息，以及在 [Mezo Explorer](https://explorer.mezo.org) 上查看该交易的链接。点击 **Done** 返回 App。
