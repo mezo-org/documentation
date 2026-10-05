@@ -1,0 +1,146 @@
+---
+title: Descripción general de la votación
+description: Cómo funciona la votación en Mezo y qué ganas como titular de veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+El modelo de gobernanza de Mezo es sencillo: bloquea tu compromiso y gana el derecho a dirigir el futuro del protocolo. Mediante la votación, los titulares de veBTC capturan el valor económico de las comisiones y determinan cómo se asigna el valor de la cadena.
+
+---
+
+## Cómo funciona la votación
+
+Cuando bloqueas BTC, recibes poder de voto tokenizado como un NFT. Cada semana (época), puedes asignar ese poder entre distintos gauges: pools como BTC/MUSD, la MUSD Savings Rate u otras funciones del protocolo. Tus votos determinan hacia dónde se dirigen las emisiones semanales de MEZO: los gauges que reciben más votos obtienen una mayor parte de las emisiones. A cambio, los votantes ganan las comisiones de quienes hacen staking en esos gauges, que renuncian a sus ingresos por comisiones a cambio de emisiones de MEZO.
+
+Más emisiones atraen a más proveedores de liquidez. Más liquidez puede aumentar el volumen de trading, lo que a su vez puede aumentar las comisiones. Esas comisiones vuelven a ti, el votante, lo que crea un ciclo de retroalimentación positiva en el que tu influencia crece al mismo ritmo que el éxito del protocolo.
+
+---
+
+## Qué ganas
+
+**Comisiones de trading:** el 100% de las comisiones generadas por los pools por los que votas, distribuidas de forma proporcional. Si asignaste el 1% de los votos de un gauge y ese pool generó 50,000 MUSD en comisiones, ganas 500 MUSD.
+
+**Incentivos:** los protocolos externos depositan incentivos para atraer votos hacia los gauges que prefieren. Se reparten entre todos los votantes de ese gauge, lo que crea una fuente de ingresos secundaria.
+
+**Comisiones pasivas de puente:** todos los titulares de veBTC reciben comisiones de puente y de la cadena de forma proporcional a su peso con boost, sin necesidad de votar.
+
+Esto crea un mercado de votos. Los protocolos compiten por atraer tu poder de voto, y tú capturas el valor de esa competencia.
+
+---
+
+## Poder de voto y boost
+
+Tu poder de voto efectivo depende de dos factores: el peso base de tu veBTC y cualquier boost procedente de veMEZO.
+
+### Peso base (solo veBTC)
+
+Sin veMEZO, tu poder de voto es igual al peso de tu veBTC, que decae de forma lineal a medida que tu bloqueo se acerca al vencimiento. Si bloqueas 1 BTC durante 28 días, tu poder inicial es 1.0 y decae de forma continua hasta llegar a cero en el vencimiento.
+
+### Peso con boost (veBTC + veMEZO)
+
+Cuando se dirigen votos de veMEZO a tu posición de veBTC, tu poder de voto se multiplica por un factor de boost de entre 1x y 5x. El boost depende de:
+
+- Tu participación en el total de veBTC del sistema
+- La parte del total de veMEZO dirigida a tu posición
+
+**Puntos clave:**
+- Las posiciones de BTC más grandes requieren proporcionalmente más veMEZO para alcanzar el boost máximo
+- Puedes recibir boost teniendo tú mismo veMEZO o atrayendo votos de veMEZO mediante incentivos
+- Hay que hacer "poke" al boost para que surta efecto después de los cambios
+
+Para mantener tu poder de voto, extiende tu bloqueo periódicamente. Consulta [Gestionar bloqueos](/docs/es/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) para obtener más detalles.
+
+---
+
+## La época semanal
+
+Mezo funciona en épocas de 7 días que empiezan el jueves a las 00:00 UTC. Cada época es un ciclo nuevo para el poder de voto, las comisiones y los incentivos.
+
+**El ciclo:**
+
+<Steps>
+1. Empieza la época
+2. Emites tus votos a lo largo de la semana
+3. Termina la época y se cuentan los votos
+4. Las emisiones de MEZO se distribuyen a los gauges según los votos
+5. Las comisiones y los incentivos pasan a poder reclamarse
+6. Se repite el ciclo
+</Steps>
+
+> **Nota:** tus asignaciones de votos siguen registradas de una época a otra hasta que las restablezcas o las cambies. Mientras tus votos sigan vigentes, seguirás ganando en cada época tu parte de las comisiones de trading y de los incentivos según tus asignaciones actuales. El poke se usa para actualizar tu poder de voto: por ejemplo, para aumentarlo después de emparejarte con veMEZO, o para que otros lo reduzcan a medida que decae.
+
+### Alineación con las épocas
+
+La duración de los bloqueos se alinea con los límites de época y se redondea hacia abajo a la semana completa más cercana. Esto significa que:
+
+- Un bloqueo máximo de 28 días creado a mitad de una época tendrá una duración efectiva de aproximadamente 21–28 días, según el momento en que bloquees
+- Los bloqueos siempre vencen en los cambios de época (jueves 00:00 UTC)
+
+Esto garantiza que los cálculos del peso de voto sean coherentes en todo el sistema.
+
+---
+
+## Dos formas de participar con veMEZO
+
+### Como titular de veBTC que busca boost
+
+Si tienes veBTC y quieres maximizar tu poder de voto:
+
+<Steps>
+1. **Autoboost:** bloquea MEZO para obtener veMEZO y dirígelo a tu propia posición de veBTC
+2. **Atraer boost:** publica incentivos en el gauge de boost de tu veBTC para atraer votos de veMEZO de otros usuarios
+</Steps>
+
+Cualquiera de los dos enfoques puede aumentar tu poder de voto efectivo hasta 5x.
+
+### Como titular de veMEZO que busca rendimiento
+
+Si tienes veMEZO y quieres obtener rendimiento:
+
+<Steps>
+1. Explora los gauges de boost de veBTC para encontrar los que tienen incentivos atractivos
+2. Vota en esos gauges para ganar los incentivos publicados
+3. Reclama los incentivos al final de la época
+</Steps>
+
+Nota: los titulares de veMEZO no reciben una parte de las comisiones de trading, los ingresos de MUSD ni las comisiones de puente que ganan las posiciones de veBTC. Reciben los incentivos publicados en los gauges por los que votan.
+
+### Como titular de veMEZO que dirige emisiones
+
+veMEZO también vota en **[MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges)**, gauges sin staking que dirigen las emisiones de MEZO a pools de liquidez de MUSD en Curve y Uniswap (Ethereum) y en Aerodrome (Base). No requiere veBTC ni una posición de LP, y es independiente del emparejamiento de boost.
+
+<Steps>
+1. Abre la pestaña **Vote** en mezo.org y cambia a la votación con veMEZO, en [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo)
+2. Asigna tu poder de voto de veMEZO entre los gauges disponibles
+3. Gana una parte de los incentivos publicados en los gauges por los que votaste
+</Steps>
+
+---
+
+## Cómo elegir dónde votar
+
+Cada gauge ofrece oportunidades distintas. Algunos factores que puedes tener en cuenta al asignar tus votos:
+
+- El volumen de trading y la generación de comisiones
+- Los incentivos publicados por los protocolos
+- El total de votos ya asignados a un gauge
+- Tus propias prioridades para el ecosistema Mezo
+
+Para los titulares de veMEZO que votan en gauges de boost:
+- Las cantidades de incentivos publicadas por los titulares de veBTC
+- La duración y la fiabilidad de las publicaciones de incentivos
+- La alineación con tus propias posiciones de veBTC (si tienes alguna)
+
+Supervisa en cada época los pesos de los gauges, la generación de comisiones y los mercados de incentivos para tomar decisiones informadas.
+
+---
+
+## Próximos pasos
+
+¿Listo para empezar a votar? Consulta [Cómo votar](/docs/es/docs/users/mezo-earn/vote/how-to-vote) para ver la guía completa.
+
+¿Quieres dar boost a tu posición? Consulta [Mecanismo de boost](/docs/es/docs/users/mezo-earn/lock/vemezo/boost-mechanism) y [Mercado de emparejamiento](/docs/es/docs/users/mezo-earn/lock/vemezo/matching-market) para obtener más detalles.
+
+¿Tienes veMEZO y quieres dirigir emisiones? Consulta [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges).
