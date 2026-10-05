@@ -1,0 +1,72 @@
+---
+title: MUSD Bridge
+description: >-
+  So bridgen Sie MUSD-Token mit dem Native-Token-Transfer-Protokoll von Wormhole
+  zwischen Ethereum, Base und Mezo.
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+Die [MUSD](https://mezo.org/feature/musd) Bridge ermöglicht Übertragungen zwischen den Netzwerken Mezo, Ethereum und Base über das Native-Token-Transfer-Protokoll (NTT) von Wormhole. Diese Bridge erhält die Fungibilität des Tokens und bietet zugleich sichere chainübergreifende Funktionen.
+
+## So funktioniert es
+
+Die MUSD Bridge nutzt das Native-Token-Transfer-Protokoll von Wormhole, um chainübergreifende Übertragungen zu ermöglichen:
+
+- **Von Mezo zu Ethereum/Base**: MUSD-Token werden auf Mezo gesperrt, und die entsprechende Menge an Token wird auf der Ziel-Chain gemintet
+- **Von Ethereum/Base zu Mezo**: MUSD-Token werden auf der Quell-Chain verbrannt, und die entsprechende Menge an Token wird auf Mezo entsperrt
+
+Dieser Mechanismus stellt sicher, dass das Gesamtangebot über alle Chains hinweg konstant bleibt, während Nutzer ihre Token frei zwischen den Netzwerken bewegen können.
+
+## Bridging-Optionen
+
+Für das Bridgen von MUSD-Token stehen zwei Benutzeroberflächen zur Verfügung:
+
+### Mezo dApp
+
+Die [Mezo dApp](https://mezo.org) bietet ein natives Bridging-Erlebnis für die Übertragung von MUSD-Token zwischen Mezo und Ethereum.
+
+<Steps>
+1. **Verbinden Sie Ihre Wallet** mit der Mezo dApp
+
+2. **Klicken Sie auf „Withdraw“**, um von Mezo zu bridgen, oder auf **„Deposit“**, um zu Mezo zu bridgen
+
+3. **Wählen Sie den MUSD-Token aus** und geben Sie den Betrag ein
+
+4. **Bestätigen Sie die Transaktion** in Ihrer Wallet
+
+5. **Warten Sie auf die Bestätigung** auf beiden Chains
+</Steps>
+
+### Portal-Bridge-Oberfläche
+
+Um MUSD-Token zu Base oder Ethereum zu bridgen, können Sie auch die [Portal-Oberfläche](https://portalbridge.com/) verwenden:
+
+<Steps>
+1. **Verbinden Sie Ihre Wallet** mit der Portal-Oberfläche
+
+2. **Wählen Sie Quell- und Ziel-Chain aus** (Mezo ↔ Ethereum ↔ Base)
+
+3. **Wählen Sie MUSD** als zu bridgenden Token
+
+4. **Geben Sie den Betrag ein**, den Sie bridgen möchten
+
+5. **Prüfen Sie die Transaktionsdetails**, einschließlich Gebühren und geschätzter Dauer
+
+6. **Bestätigen Sie die Transaktion** in Ihrer Wallet
+
+7. **Warten Sie auf die Bestätigung** auf beiden Chains
+</Steps>
+
+Beide Oberflächen sind benutzerfreundlich und übernehmen alle komplexen Interaktionen mit den zugrunde liegenden NTT-Contracts.
+
+## Smart Contracts
+
+Alle Contract-Adressen der MUSD Bridge und des Tokens finden Sie auf der Referenzseite [Contract- und Token-Adressen](../../resources/contracts-reference).
+
+## Weitere Ressourcen
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Dokumentation zu Wormhole NTT</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">Contract-Referenz</LinkButton>

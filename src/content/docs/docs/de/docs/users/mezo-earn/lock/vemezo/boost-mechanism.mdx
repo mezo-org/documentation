@@ -1,0 +1,92 @@
+---
+title: Boost-Mechanismus
+description: Wie veMEZO die veBTC-Stimmkraft über den Matching-Markt um bis zu 5x boostet
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+veMEZO boostet Ihre veBTC-Stimmkraft um bis zu 5x. Auf dieser Seite erfahren Sie, wie die Boost-Formel funktioniert und wie der Matching-Markt veBTC- und veMEZO-Inhaber zusammenbringt.
+
+## So funktioniert der Boost
+
+Ihr geboostetes Stimmgewicht kombiniert Ihr veBTC mit dem veMEZO, das Ihrer Position zugeteilt ist:
+
+$$
+\text{Boosted Weight} = |\text{veBTC}| \times \min(5, \; 1 + \text{Boost})
+$$
+
+Dabei gilt für den Boost-Term:
+
+$$
+\text{Boost} = 4 \times \frac{|\text{veBTC}|_{\text{total}}}{|\text{veBTC}|} \times \frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}}
+$$
+
+### Wichtige Eigenschaften
+
+- **Minimaler Multiplikator: 1x** – Eine veBTC-Position ohne veMEZO-Stimmen arbeitet mit dem Basis-Stimmgewicht
+- **Maximaler Multiplikator: 5x** – Keine Kombination von Beständen kann 5x überschreiten
+- **Relativ, nicht absolut** – Ihr Boost hängt von Ihrem Anteil am gesamten veBTC und am gesamten veMEZO ab, nicht von den absoluten Mengen
+
+---
+
+## Die Formel verstehen
+
+Die Boost-Formel hat wichtige Auswirkungen:
+
+**Größere veBTC-Positionen benötigen mehr veMEZO.** Die Formel enthält |veBTC|_total / |veBTC| im Zähler. Wenn Ihr veBTC-Anteil wächst, wird dieses Verhältnis kleiner, sodass Sie anteilig mehr veMEZO benötigen, um dasselbe Boost-Niveau zu halten.
+
+**Den maximalen Boost erreichen Sie, wenn Ihre Anteile übereinstimmen.** Ein Teilnehmer erreicht die Obergrenze von 5x, wenn sein Anteil an veMEZO seinem Anteil an veBTC entspricht oder ihn übersteigt:
+
+$$
+\frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}} \geq \frac{|\text{veBTC}|}{|\text{veBTC}|_{\text{total}}}
+$$
+
+:::note[Beispiel]
+Wenn Sie 1 % des gesamten veBTC halten, benötigen Sie mindestens 1 % des gesamten veMEZO, um den maximalen Multiplikator von 5x zu erreichen.
+:::
+
+---
+
+## Der Matching-Markt
+
+Jedes veBTC-NFT hat seinen eigenen veBTC-Boost-Gauge. veMEZO-Inhaber stimmen über diese Gauges ab, um Boost zuzuteilen.
+
+### So funktioniert es
+
+1. **Der veBTC-Inhaber erstellt eine Position** – Ein veBTC-NFT wird mit einem zugehörigen Boost-Gauge gemintet
+2. **veMEZO-Inhaber stimmen ab** – Sie teilen veBTC-Gauges veMEZO-Stimmgewicht zu
+3. **Der Boost wird berechnet und angewendet** – Der Boost der veBTC-Position hängt von der Gesamtzahl der veMEZO-Stimmen ab, die sie erhält. Der Schritt-Assistent „Pair & Boost“ in der dApp aktualisiert die Stimmkraft des veBTC und frischt bestehende Stimmen automatisch auf.
+
+### Warum so ein Markt entsteht
+
+**BTC-lastige Nutzer** können Boost anziehen, indem sie Anreize auf ihrem veBTC-Gauge ausschreiben. Wenn die Anreizrendite pro veMEZO-Einheit attraktiv ist, stimmen veMEZO-Inhaber für diesen Gauge.
+
+**MEZO-lastige Nutzer** verdienen, indem sie für veBTC-Gauges mit guten Anreizen stimmen, auch wenn sie selbst nur wenig BTC halten.
+
+Der Matching-Markt bepreist Boost als erlaubnisfreie (permissionless), handelbare Dienstleistung.
+
+---
+
+## Boost ohne eigene MEZO
+
+Sie müssen nicht selbst MEZO halten, um von einem Boost zu profitieren. Wenn Sie attraktive Anreize auf Ihrem veBTC-Gauge ausschreiben, stimmen möglicherweise andere veMEZO-Inhaber dafür – und verschaffen Ihrer Position einen Multiplikator, ohne dass Sie MEZO sperren.
+
+Umgekehrt gilt für eine veBTC-Position ohne veMEZO-Stimmen weiterhin:
+
+- Sie behält das volle Basis-Stimmgewicht (Multiplikator 1x)
+- Sie verdient passive Bridging-Gebühren
+- Sie kann über Gauges abstimmen, um Gebühren und Emissionen zu verdienen
+
+Ein Boost steigert die Erträge, ist für die Teilnahme aber nicht erforderlich.
+
+---
+
+## Zusammenfassung
+
+| Szenario | Multiplikator | Hinweise |
+|---|---|---|
+| Nur veBTC, keine veMEZO-Stimmen | 1x | Basis-Stimmgewicht, verdient weiterhin Gebühren |
+| veBTC + einige veMEZO-Stimmen | 1x–5x | Multiplikator skaliert mit dem veMEZO-Anteil |
+| veBTC + proportionaler veMEZO-Anteil | 5x | Maximaler Boost erreicht |
+| Nur veMEZO, kein veBTC | — | Keine Abstimmung über Staking-Gauges; kann über Boost-Gauges und [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges) abstimmen und verdient Rebases |

@@ -1,0 +1,59 @@
+---
+title: So fordern Sie Ihre Sicherheiten nach einer vollständigen Einlösung zurück
+description: >-
+  Schritt-für-Schritt-Anleitung, um verbleibende Sicherheiten zurückzufordern,
+  nachdem Ihr MUSD-Kredit (Trove) vollständig eingelöst wurde.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Wenn ein anderer Nutzer MUSD gegen Ihren Kredit (Trove) einlöst und dieser dadurch vollständig getilgt wird, sind Ihre Schulden beglichen – verbleibende Sicherheiten bleiben jedoch in den MUSD-Smart-Contracts, bis Sie sie zurückfordern. Ihre Sicherheiten sind sicher und können jederzeit zurückgefordert werden.
+
+Normalerweise sehen Sie auf der Seite „Borrow“ einen Hinweis „Loan redeemed“, über den Sie Ihre Sicherheiten direkt in der Oberfläche zurückfordern können. Klicken Sie dazu auf die Schaltfläche rechts neben dem Hinweis, wie im Screenshot unten zu sehen.
+
+![Hinweis „Loan redeemed“ auf der Seite „Borrow“](/docs/images/musd/loan-redeemed.webp)
+
+Wenn Sie diesen Hinweis nicht sehen, können Sie Ihre Sicherheiten manuell zurückfordern, indem Sie über den Mezo Explorer die Funktion `claimCollateral` des BorrowerOperations-Contracts aufrufen. Gehen Sie dazu wie folgt vor.
+
+<Steps>
+
+1. **Den BorrowerOperations-Contract aufrufen**
+
+   Öffnen Sie den [BorrowerOperations-Contract im Mezo Explorer](https://explorer.mezo.org/address/0x44b1bac67dDA612a41a58AAf779143B181dEe031).
+
+2. **Auf die Registerkarte „Contract“ klicken**
+
+   Klicken Sie in der Tab-Leiste neben Transactions, Token transfers und Tokens auf **Contract**.
+
+   Daraufhin werden vier Unterregisterkarten angezeigt: **Code**, **Read proxy**, **Write contract** und **Write proxy**.
+
+3. **Auf „Write proxy“ klicken**
+
+   Klicken Sie auf die Registerkarte **Write proxy**. Diese Registerkarte stellt alle Schreibfunktionen des zugrunde liegenden BorrowerOperations-Implementierungs-Contracts bereit.
+
+   :::caution
+   Achten Sie darauf, **Write proxy** auszuwählen (nicht „Write contract“) – die Proxy-Registerkarte bildet die tatsächliche Logik von BorrowerOperations ab.
+   :::
+
+4. **Ihre Wallet verbinden**
+
+   Oben im Bereich der Contract-Funktionen sehen Sie ein gelb-oranges Banner mit der Aufschrift „Disconnected“ und der Schaltfläche **Connect wallet**.
+
+   Klicken Sie auf **Connect wallet** und bestätigen Sie die Verbindung in Ihrer Wallet (z. B. MetaMask). Verbinden Sie sich unbedingt mit derselben Wallet-Adresse, zu der der eingelöste Trove gehörte, denn nur diese Adresse kann die zugehörigen Sicherheiten zurückfordern.
+
+5. **Die Funktion claimCollateral finden**
+
+   Scrollen Sie in der Liste der Contract-Funktionen nach unten, bis Sie zu folgender Funktion gelangen:
+
+   **7. claimCollateral**
+
+   Klicken Sie darauf, um die Funktion aufzuklappen. Sie benötigt keine Eingabeparameter – sie fordert einfach alle Sicherheiten zurück, die nach der vollständigen Einlösung für Ihre Adresse zurückgelegt wurden.
+
+6. **Auf „Write“ klicken**
+
+   Klicken Sie bei verbundener Wallet unterhalb der Funktion `claimCollateral` auf die Schaltfläche **Write**.
+
+   Ihre Wallet fordert Sie auf, die Transaktion zu bestätigen. Prüfen Sie die Gasgebühr und bestätigen Sie. Sobald die Transaktion abgeschlossen ist, werden Ihre Sicherheiten (BTC) direkt an Ihre Wallet gesendet.
+
+</Steps>

@@ -1,0 +1,67 @@
+---
+title: Anreize beanspruchen
+description: So beanspruchen LPs und Abstimmende die von MEZO Gauges gelenkten MEZO
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Wer was wo beansprucht, hängt davon ab, auf welcher Seite des Gauges Sie stehen.
+
+| Sie sind | Sie beanspruchen | Wo |
+|---|---|---|
+| LP in Curve USDT/USDC/MUSD oder Uniswap USDC/MUSD | veMEZO mit 3 Monaten Sperrdauer | [Merkl](https://app.merkl.xyz) |
+| veAERO-Inhaber, der für Aerodrome USDC/MUSD oder MEZO/MUSD abstimmt | MEZO als Abstimmungsanreiz | [Aerodrome](https://aerodrome.finance) |
+| LP in Aerodrome USDC/MUSD oder MEZO/MUSD | AERO-Emissionen | [Aerodrome](https://aerodrome.finance) |
+| veMEZO-Inhaber, der auf einem MEZO Gauge abgestimmt hat | Auf diesem Gauge hinterlegte Anreize (Incentives) | Der Tab „Vote“ auf [mezo.org](https://mezo.org) |
+
+---
+
+## Curve- und Uniswap-LPs: auf Merkl beanspruchen
+
+Belohnungen werden **nicht** automatisch an Ihre Wallet gesendet. Merkl verbucht einen Anspruch für Ihre Adresse, und Sie müssen ihn selbst einsammeln.
+
+<Steps>
+1. Rufen Sie [app.merkl.xyz](https://app.merkl.xyz) auf.
+2. Verbinden Sie die Wallet, in der sich die LP-Position befindet.
+3. Öffnen Sie **Dashboard**. Nach dem Verbinden werden dort alle Belohnungen aufgeführt, die diese Wallet beanspruchen kann – Sie müssen also nicht nach der Kampagne suchen.
+4. Klicken Sie auf **Claim** und signieren Sie die Transaktion.
+</Steps>
+
+**Was Sie erhalten:** veMEZO mit 3 Monaten Sperrdauer, keine frei verfügbaren MEZO. Nach dem Beanspruchen verhält es sich wie jede andere [veMEZO-Position](/docs/de/docs/users/mezo-earn/lock/vemezo). Es kann eine veBTC-Position boosten und auf MEZO Gauges abstimmen.
+
+Wenn Sie Liquidität im Pool bereitstellen, können Sie daraus einen Kreislauf machen, indem Sie mit den beanspruchten veMEZO wieder für den MEZO Gauge dieses Pools abstimmen. So fließen mehr Emissionen zu der Position, die Sie bereits halten. Das ist optional. Um zu beanspruchen, genügt es, während der Kampagne Liquidität bereitzustellen. Den vollständigen Weg finden Sie unter [Wohin Ihre Stimme fließt](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#den-von-ihnen-gelenkten-wert-abschöpfen).
+
+:::caution[Nicht beanspruchte Belohnungen verfallen]
+Merkl-Kampagnen laufen nicht unbegrenzt auf. Wenn Sie nie beanspruchen, verlieren Sie die Belohnungen. Wenn Sie in diesen Pools Liquidität bereitstellen, prüfen Sie Merkl regelmäßig.
+:::
+
+Um als LP zu beanspruchen, müssen Sie weder veMEZO halten noch abgestimmt haben. Die einzige Voraussetzung ist, dass Sie während der Kampagne Liquidität im Pool bereitgestellt haben.
+
+---
+
+## Aerodrome: auf Base beanspruchen
+
+MEZO, die an einen Aerodrome-Gauge gelenkt werden, werden als **Abstimmungsanreiz** hinterlegt. Daher beanspruchen sie die veAERO-Abstimmenden, nicht die LPs.
+
+**Wenn Sie veAERO halten und für USDC/MUSD oder MEZO/MUSD abgestimmt haben:** Rufen Sie [aerodrome.finance](https://aerodrome.finance) auf, öffnen Sie Ihre veAERO-Sperrposition und beanspruchen Sie Ihre Belohnungen für die Epoche. Ihr MEZO-Anteil entspricht Ihrem Anteil an den Stimmen auf diesem Gauge.
+
+**Wenn Sie Liquidität in Aerodrome USDC/MUSD oder MEZO/MUSD bereitstellen:** Staken Sie Ihre Position im Gauge des Pools und beanspruchen Sie dort die **AERO**-Emissionen. Beachten Sie die [Verzögerung um zwei Epochen](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#die-verzögerung-um-zwei-epochen) zwischen einer Abstimmung auf Mezo und den daraus entstehenden AERO.
+
+---
+
+## Abstimmende auf MEZO Gauges: auf Mezo beanspruchen
+
+Wenn Sie veMEZO an einen MEZO Gauge gelenkt haben, verdienen Sie einen Anteil an allen **auf diesem Gauge hinterlegten Anreizen**, proportional zu Ihrem Anteil an dessen Stimmen.
+
+Beanspruchen Sie diese genauso wie jede andere Abstimmungsbelohnung – im Tab **Vote** auf [mezo.org](https://mezo.org), sobald die Epoche abgeschlossen ist. Siehe [Gebühren und Emissionen beanspruchen](/docs/de/docs/users/mezo-earn/vote/claiming-fees-emissions).
+
+Diese Anreize sind von den Emissionen getrennt, die Sie gelenkt haben. Die Emissionen gehen an den Ziel-Pool; die Anreize werden auf Mezo hinterlegt, um Ihre Stimme überhaupt erst dorthin zu lenken.
+
+---
+
+## Nächste Schritte
+
+- [Wohin Ihre Stimme fließt](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) – der vollständige Weg von der Stimme zum Anreiz
+- [MEZO Gauges – Übersicht](/docs/de/docs/users/mezo-earn/vote/mezo-gauges) – berechtigte Pools und Finanzierung
+- [Gebühren und Emissionen beanspruchen](/docs/de/docs/users/mezo-earn/vote/claiming-fees-emissions) – alle anderen Belohnungen in Mezo Earn

@@ -1,0 +1,39 @@
+---
+title: Governance
+description: 'Governance-Parameter von MEZO, Einschränkungen und künftige Entwicklung'
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Über die Governance des Mezo-Netzwerks können veBTC-Inhaber Protokollparameter und Emissionsflüsse mitgestalten. Die Governance ist in BTC verankert – veMEZO verstärkt die Stimmkraft von veBTC, hat aber kein eigenes Governance-Gewicht.
+
+## Protokollparameter
+
+Die folgenden Parameter legen fest, wie MEZO-Emissionen verteilt werden:
+
+| Parameter | Beschreibung | Status |
+|---|---|---|
+| Verhältnis des Chain Splitter | Anteil der Emissionen für Validatoren (20 %) vs. Ökosystem (80 %) | Fest, per Governance gesperrt |
+| Verhältnis des Ecosystem Splitter | Anteil der Emissionen für Staking-Gauges (90 %) vs. Ökosystem-Gauges (10 %) | Fest, per Governance gesperrt |
+| Maximaler Boost-Multiplikator | Maximaler veMEZO-Boost auf veBTC | Derzeit 5x |
+
+Die Splitter-Verhältnisse sind derzeit fest und können nicht durch Abstimmungen geändert werden. Künftig könnten sie über weitere Governance-Mechanismen anpassbar werden.
+
+![Emissionsplan von Mezo](/docs/images/mezo-token/mezo-emissions.png)
+
+<LinkButton href="/docs/de/docs/users/mezo/emissions">Mehr über die Emissionen des MEZO-Tokens erfahren</LinkButton>
+
+## Einschränkungen der Governance
+
+- **In BTC verankerte Abstimmung** – Nur veBTC-Inhaber können über Governance-Vorschläge abstimmen. veMEZO boostet die Stimmkraft von veBTC, gewährt aber keine eigenen Governance-Rechte. Eigenständig abstimmen kann veMEZO jedoch über [veBTC-Boost-Gauges](/docs/de/docs/users/mezo-earn/lock/vemezo/matching-market) und [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges), die Emissionen lenken, statt Protokollparameter festzulegen.
+
+## Künftige Entwicklung
+
+Die Governance-Strukturen könnten künftig um Folgendes erweitert werden:
+
+- Formale Vorschlags- und Abstimmungsmechanismen (z. B. Governor Bravo)
+- Weitere per Governance steuerbare Parameter
+- Auswahl von Validatoren über Gauge-Abstimmungen im Rahmen von Proof of Stake
+
+Details werden bekannt gegeben, sobald die Governance-Funktionen finalisiert sind.

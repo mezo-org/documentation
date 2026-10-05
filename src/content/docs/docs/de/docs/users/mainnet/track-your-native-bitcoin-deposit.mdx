@@ -1,0 +1,50 @@
+---
+title: Ihre native Bitcoin-Einzahlung verfolgen
+description: >-
+  Erfahren Sie, wie Sie den Status Ihrer nativen Bitcoin-Einzahlung zu Mezo mit
+  tBTCScan prüfen.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Nachdem Sie native Bitcoin zu Mezo eingezahlt haben, erscheint Ihr Guthaben in der Regel innerhalb von etwa 1,5 Stunden. Ihre Einzahlung durchläuft mehrere Schritte, bevor sie Ihrem Konto gutgeschrieben wird:
+
+1. **Onchain-Bestätigung** – Ihre Bitcoin-Transaktion muss im Bitcoin-Netzwerk bestätigt werden (je nach Einzahlungsbetrag sind 1–6 Bestätigungen erforderlich).
+2. **Offenlegung gegenüber der Bridge** – Nach der Bestätigung erkennt der tBTC-Bot Ihre Einzahlung und meldet sie der tBTC-Bridge (Reveal). Das geht in der Regel schnell, kann in seltenen Fällen aber bis zu 5 Stunden dauern.
+3. **Minten auf Ethereum** – Die tBTC-Bridge verarbeitet Ihre Einzahlung und mintet tBTC auf Ethereum. Das dauert normalerweise etwa 1–1,5 Stunden.
+4. **Bridging zu Mezo** – Sobald tBTC gemintet ist, wird es zu Mezo gebridgt, und die BTC werden Ihrem Konto gutgeschrieben. Das dauert etwa 15–20 Minuten.
+
+In seltenen Sonderfällen kann der Vorgang länger dauern.
+
+## So prüfen Sie den Status Ihrer Einzahlung
+
+Wenn Ihre Einzahlung nach 1 Stunde und 30 Minuten noch nicht auf Mezo angezeigt wird, können Sie ihren Status mit [tbtcscan](https://tbtcscan.com/) überprüfen, einem Block-Explorer eines Drittanbieters für die tBTC-Bridge.
+
+![Suchoberfläche für Einzahlungen in tBTCScan](/docs/images/tbtc/tbtc1.webp)
+
+<Steps>
+1. **Ihre Transaktions-ID ermitteln** – Suchen Sie den Hash der Bitcoin-Transaktion in Ihrer Wallet oder im Wallet-Verlauf.
+
+2. **Die Registerkarte „Deposits“ von tBTCScan aufrufen** – Dieses Drittanbieter-Tool zeigt Einzahlungsdaten der Bridge in Echtzeit an.
+
+3. **Nach Ihrer Transaktion suchen** – Geben Sie Ihren Transaktions-Hash in die Suchleiste ein.
+
+4. **Den Status prüfen:**
+   - **Keine Ergebnisse** → Die Einzahlung wurde der Bridge noch nicht gemeldet. Das geschieht normalerweise innerhalb von 20 Minuten nach der Onchain-Bestätigung, kann in seltenen Fällen aber bis zu 5 Stunden dauern.
+   - **MINTING IN PROGRESS** → Ihre Einzahlung wurde gemeldet, und tBTC wird auf Ethereum gemintet. Das dauert in der Regel etwa 1–1,5 Stunden.
+   - **MINTING FINALIZED** → tBTC wurde auf Ethereum gemintet. Ihre Einzahlung sollte innerhalb von 15–20 Minuten in Ihrem Mezo-Konto erscheinen.
+</Steps>
+
+:::tip
+Bei der Suche in tBTCScan müssen Sie die Seite zwischen aufeinanderfolgenden Suchen neu laden, damit neue Ergebnisse angezeigt werden.
+:::
+
+![Statusergebnisse einer Einzahlung in tBTCScan](/docs/images/tbtc/tbtc2.webp)
+
+## Was tun, wenn meine Einzahlung nicht erscheint?
+
+Wenn Ihre Einzahlung auf tbtcscan als MINTING FINALIZED angezeigt wird, aber nach 15 Minuten immer noch nicht in Ihrem Mezo-Konto erscheint, oder wenn Sie nach 5 Stunden auf tbtcscan keine Ergebnisse sehen, wenden Sie sich bitte an den Support, indem Sie im [Mezo Discord](https://discord.gg/mezo) ein Ticket eröffnen. Geben Sie dabei Folgendes an:
+
+- Ihren Transaktions-Hash
+- die Adresse des Kontos, mit dem Sie sich bei Mezo anmelden (oder Ihre Mezo-Konto-ID)
