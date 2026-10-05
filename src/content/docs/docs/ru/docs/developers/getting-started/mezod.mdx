@@ -1,0 +1,358 @@
+---
+title: Руководство по разработке с клиентом сети Mezod
+description: >-
+  Полное руководство по разработке с Mezod — эталонной реализацией клиента сети
+  Mezo.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezod — эталонная реализация клиента для сети Mezo, блокчейна, ориентированного прежде всего на биткоин и созданного для того, чтобы обеспечить владение активами самим пользователям, надёжный перевод через мост с помощью tBTC, оплату газа в BTC, модель двойного стейкинга и совместимость с EVM.
+
+## Обзор
+
+Mezo — EVM-совместимая сеть на базе Cosmos SDK, работающая поверх механизма консенсуса Comet BFT. Кодовая база клиента Mezod была ответвлена (форк) от LGPL-версии Evmos и существенно переработана под специфические требования Mezo.
+
+### Ключевые возможности
+
+- **Архитектура с приоритетом биткоина**: нативная интеграция BTC и оплата газа в BTC
+- **Совместимость с EVM**: полная поддержка Ethereum Virtual Machine
+- **Мост через tBTC**: надёжные кросс-чейн переводы биткоина
+- **Модель двойного стейкинга**: механизмы вознаграждений и валидации
+- **Владение у пользователей**: децентрализованное управление и контроль
+
+## Структура репозитория
+
+[Репозиторий Mezod](https://github.com/mezo-org/mezod.git) содержит:
+
+- **[Модули Go](https://github.com/mezo-org/mezod/tree/main)**: основная реализация клиента блокчейна
+- **[Модули x/](https://github.com/mezo-org/mezod/tree/main/x)**: собственные модули Cosmos SDK
+- **[Интеграция EVM](https://github.com/mezo-org/mezod/tree/main/x/evm)**: слой совместимости с Ethereum
+- **[Конфигурация](https://github.com/mezo-org/mezod/tree/main/config)**: конфигурация и параметры сети
+
+## Настройка среды разработки
+
+### Предварительные требования
+
+- Go 1.21+ (точную версию см. в [`go.mod`](https://github.com/mezo-org/mezod/blob/main/go.mod))
+- Git
+- Make
+- Docker (необязательно, для разработки в контейнерах)
+
+### Установка
+
+<Steps>
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   ```
+
+2. Установите зависимости Go:
+   ```bash
+   go mod download
+   ```
+
+3. Соберите клиент:
+   ```bash
+   make build
+   ```
+</Steps>
+
+### Среда разработки
+
+<Steps>
+1. **Локальная разработка**:
+   ```bash
+   # Start local development node
+   make dev
+
+   # Run tests
+   make test
+
+   # Lint code
+   make lint
+   ```
+
+2. **Разработка в Docker**:
+   ```bash
+   # Build Docker image
+   docker build -t mezod .
+
+   # Run containerized node
+   docker run -p 26657:26657 -p 8545:8545 mezod
+   ```
+</Steps>
+
+## Конфигурация сети
+
+### Параметры сети
+
+Mezod поддерживает несколько сетевых конфигураций:
+
+- **Основная сеть**: рабочая сеть Mezo
+- **Тестовая сеть**: публичная сеть для тестирования
+- **Локальная сеть**: сеть для разработки
+
+### Файлы конфигурации
+
+Основные файлы конфигурации:
+- `config.toml`: конфигурация узла
+- `app.toml`: настройки приложения
+- `client.toml`: конфигурация клиента
+
+Пример конфигурации:
+
+```toml
+# config.toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+```
+
+## Интеграция EVM
+
+### Совместимость с Ethereum
+
+Mezod обеспечивает полную совместимость с EVM, что позволяет:
+
+- развёртывать смарт-контракты Ethereum;
+- использовать инструменты Ethereum (Hardhat, Truffle и т. д.);
+- взаимодействовать с контрактами с помощью библиотек Web3.
+
+### Подключение через Web3
+
+```javascript
+import { ethers } from 'ethers';
+
+// Connect to Mezo network
+const provider = new ethers.JsonRpcProvider('https://rpc.mezo.org');
+
+// Get network info
+const network = await provider.getNetwork();
+console.log('Network:', network);
+
+// Deploy contract
+const factory = new ethers.ContractFactory(abi, bytecode, signer);
+const contract = await factory.deploy();
+await contract.waitForDeployment();
+```
+
+### Газ и комиссии
+
+- **BTC в качестве газа**: комиссии за транзакции оплачиваются в биткоинах
+- **Динамическое ценообразование**: цена газа меняется в зависимости от состояния сети
+- **Модель газа EVM**: совместима с расчётом газа в Ethereum
+
+## Типы узлов
+
+### Полный узел
+
+Полноценный узел, который хранит весь блокчейн:
+
+```bash
+# Start full node
+mezod start
+```
+
+### Лёгкий клиент
+
+Облегчённый клиент для мобильных устройств и сред с ограниченными ресурсами:
+
+```bash
+# Start light client
+mezod start --mode light
+```
+
+### Архивный узел
+
+Узел, который хранит все исторические данные:
+
+```bash
+# Start archive node
+mezod start --mode archive
+```
+
+## RPC-эндпоинты
+
+### RPC Cosmos SDK
+
+- **Порт**: 26657
+- **Эндпоинты**: стандартные RPC-методы Cosmos SDK
+- **WebSocket**: обновления в реальном времени
+
+```bash
+# Query node status
+curl http://localhost:26657/status
+```
+
+### EVM RPC
+
+- **Порт**: 8545
+- **Эндпоинты**: JSON-RPC, совместимый с Ethereum
+- **Методы**: eth_getBalance, eth_sendTransaction и т. д.
+
+```bash
+# Query EVM balance
+curl -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x...", "latest"],"id":1}' \
+  http://localhost:8545
+```
+
+## Процесс разработки
+
+### Создание контрактов
+
+<Steps>
+1. **Напишите контракты на Solidity**: используйте стандартные инструменты Ethereum
+
+2. **Скомпилируйте**: используйте Hardhat, Truffle или напрямую solc
+
+3. **Разверните**: разверните контракты в тестовой или основной сети Mezo
+
+4. **Взаимодействуйте**: используйте библиотеки Web3 или прямые RPC-вызовы
+</Steps>
+
+### Тестирование
+
+```bash
+# Run unit tests
+make test
+
+# Run integration tests
+make test-integration
+
+# Run specific test package
+go test ./x/evm/...
+```
+
+## Примеры интеграции
+
+### Интеграция с Cosmos SDK
+
+```go
+package main
+
+import (
+    "context"
+    "github.com/cosmos/cosmos-sdk/client"
+    "github.com/cosmos/cosmos-sdk/client/tx"
+)
+
+func main() {
+    // Create client context
+    clientCtx := client.Context{}
+
+    // Create transaction builder
+    txBuilder := clientCtx.TxConfig.NewTxBuilder()
+
+    // Build and send transaction
+    // ... transaction logic
+}
+```
+
+## Мониторинг и отладка
+
+### Логирование
+
+```bash
+# Enable debug logging
+mezod start --log-level debug
+
+# Log to file
+mezod start --log-file /path/to/logfile
+```
+
+### Метрики
+
+- **Prometheus**: встроенный сбор метрик на порту 26660
+- **Grafana**: панель мониторинга
+- **Проверки работоспособности**: HTTP-эндпоинты для мониторинга состояния
+
+```bash
+# Check metrics
+curl http://localhost:26660/metrics
+```
+
+## Развёртывание
+
+### Развёртывание в продакшене
+
+**Требования к оборудованию**:
+- Минимум: 8 ГБ ОЗУ, SSD 100 ГБ
+- Рекомендуется: 16 ГБ ОЗУ, NVMe SSD 500 ГБ
+
+**Шаги**:
+
+<Steps>
+1. Настройте брандмауэр и сетевые порты
+
+2. Настройте надлежащий контроль доступа
+
+3. Разверните стек мониторинга
+
+4. Запустите узел с рабочей конфигурацией
+</Steps>
+
+### Развёртывание в Docker
+
+```bash
+# Production Docker deployment
+docker run -d \
+  --name mezod \
+  -p 26657:26657 \
+  -p 8545:8545 \
+  -v /data:/root/.mezod \
+  mezod:latest start
+```
+
+## Устранение неполадок
+
+### Распространённые проблемы
+
+1. **Проблемы с подключением**: проверьте RPC-эндпоинты и сетевое подключение
+2. **Проблемы с синхронизацией**: проверьте синхронизацию блокчейна
+3. **Проблемы с газом**: отслеживайте цену газа и корректируйте её при необходимости
+
+### Команды для отладки
+
+```bash
+# Check node status
+mezod status
+
+# View logs
+mezod logs
+
+# Reset node (caution: deletes data)
+mezod unsafe-reset-all
+```
+
+## Дополнительные ресурсы
+
+- **[Репозиторий Mezod](https://github.com/mezo-org/mezod.git)** — основной репозиторий
+- **[Документация Mezo](/docs/ru/docs/developers/getting-started/configure-environment)** — полная документация
+- **[Документация Cosmos SDK](https://docs.cosmos.network/)** — справочник по Cosmos SDK
+- **[Документация EVM](https://ethereum.org/en/developers/docs/evm/)** — спецификация EVM
+- **[Руководство по тестовой сети](/docs/ru/docs/developers/testnet)** — доступ к тестовой сети и работа с ней
+
+:::note
+Подробное описание архитектуры сети, спецификаций модулей и механики протокола см. в документации репозитория Mezod.
+:::
+
+## Поддержка
+
+Поддержка по вопросам разработки:
+- присоединяйтесь к [Mezo Discord](https://discord.com/invite/mezo);
+- проверьте [GitHub Issues](https://github.com/mezo-org/mezod/issues);
+- ознакомьтесь с разделом [FAQ](/docs/ru/docs/developers/getting-started/FAQs).
+
