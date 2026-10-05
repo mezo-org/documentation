@@ -22,9 +22,9 @@ topic: users
 | Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
 | Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
 
-ज़्यादा रेट लिमिट के लिए, Boar [boar.network/mezo](https://boar.network/mezo) पर मुफ़्त API key देता है। Enterprise प्लान भी उपलब्ध है - शुरू करने के लिए [https://dashboard.boar.network/](https://dashboard.boar.network/) पर जाएं।
+ज़्यादा रेट लिमिट के लिए, Boar [boar.network/mezo](https://boar.network/mezo) पर मुफ़्त API key देता है। एंटरप्राइज़ प्लान भी उपलब्ध है - शुरू करने के लिए [https://dashboard.boar.network/](https://dashboard.boar.network/) पर जाएं।
 
-ज़्यादा रेट लिमिट के लिए [validationcloud.io/mezo](https://www.validationcloud.io/mezo) पर अपनी मुफ़्त Validation Cloud API key पाएं, या Enterprise प्लान के लिए [validationcloud.io/contact](https://validationcloud.io/contact) पर उनसे संपर्क करें।
+ज़्यादा रेट लिमिट के लिए [validationcloud.io/mezo](https://www.validationcloud.io/mezo) पर अपनी मुफ़्त Validation Cloud API key पाएं, या एंटरप्राइज़ प्लान के लिए [validationcloud.io/contact](https://validationcloud.io/contact) पर उनसे संपर्क करें।
 
 ### नेटवर्क विवरण
 
@@ -59,19 +59,19 @@ Hardhat और Foundry कॉन्फ़िगरेशन के लिए [�
 
 अगर आपको नेटवर्क अपने वॉलेट में मैन्युअल रूप से जोड़ना है, तो अपने वॉलेट के अनुसार कस्टम नेटवर्क जोड़ने के लिए नीचे दिए गए निर्देशों का पालन करें:
 
-* MetaMask: [How to add a custom network RPC](https://support.metamask.io/networks-and-sidechains/managing-networks/how-to-add-a-custom-network-rpc/)
-* Brave Wallet: [Adding a Custom Network](https://support.brave.com/hc/en-us/articles/15614704959757-Adding-a-New-Chain)
-* TrustWallet: [Add a Custom Network (Mobile)](https://trustwallet.com/blog/guides/how-to-add-a-custom-network-on-the-trust-wallet-app)
+* MetaMask: [कस्टम नेटवर्क RPC कैसे जोड़ें](https://support.metamask.io/networks-and-sidechains/managing-networks/how-to-add-a-custom-network-rpc/)
+* Brave Wallet: [कस्टम नेटवर्क जोड़ना](https://support.brave.com/hc/en-us/articles/15614704959757-Adding-a-New-Chain)
+* TrustWallet: [कस्टम नेटवर्क जोड़ें (मोबाइल)](https://trustwallet.com/blog/guides/how-to-add-a-custom-network-on-the-trust-wallet-app)
 
 ## BTC वॉलेट
 
-BTC वॉलेट Mezo App में सपोर्ट किए जाते हैं और आपके BTC वॉलेट से जुड़ा एक Mezo नेटवर्क एड्रेस प्राप्त कर सकते हैं। फ़िलहाल BTC वॉलेट से Mezo पर ये काम किए जा सकते हैं:
+Mezo App में BTC वॉलेट इस्तेमाल किए जा सकते हैं, और इन्हें आपके BTC वॉलेट से जुड़ा एक Mezo नेटवर्क एड्रेस मिल सकता है। फ़िलहाल BTC वॉलेट से Mezo पर ये काम किए जा सकते हैं:
 
 - BTC एसेट ब्रिज करना
 - EVM एसेट ब्रिज करना
-- लोन के लिए उधार लेना, लोन चुकाना या कोलैटरल मैनेज करना
+- उधार लेना, लोन चुकाना या लोन का कोलैटरल मैनेज करना
 - MUSD Market पर चीज़ें खरीदना
-- Mezo नेटवर्क पर एसेट प्राप्त करना और भेजना
+- Mezo नेटवर्क पर एसेट पाना और भेजना
 - Mezo Earn में हिस्सा लेना (लॉक, वोट, वॉल्ट और पूल में जमा करना/उनसे निकालना, रिवॉर्ड क्लेम करना)
 
 ## डेवलपर

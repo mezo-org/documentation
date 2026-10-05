@@ -37,9 +37,9 @@ x402 SDK रनटाइम पर उसे MUSD की राशि में 
 
 4. `Client` HTTP रिक्वेस्ट दोबारा भेजता है, इस बार सर्वर को `PaymentPayload` वाला `PAYMENT-SIGNATURE` HTTP हेडर भी भेजा जाता है।
 
-5. `Server` जांचता है कि `PaymentPayload` वैध है या नहीं, या तो लोकल वेरिफ़िकेशन से या `PaymentPayload` और `PaymentRequirements` को किसी `facilitator` के `/verify` एंडपॉइंट पर POST करके।
+5. `Server` जांचता है कि `PaymentPayload` वैध है या नहीं, या तो खुद (लोकल) जांच करके या `PaymentPayload` और `PaymentRequirements` को किसी `facilitator` के `/verify` एंडपॉइंट पर POST करके।
 
-6. `Facilitator`, `PaymentPayload` के `scheme` और `network` के आधार पर ऑब्जेक्ट का वेरिफ़िकेशन करता है और एक `Verification Response` लौटाता है।
+6. `Facilitator`, `PaymentPayload` के `scheme` और `network` के आधार पर ऑब्जेक्ट की जांच करता है और एक `Verification Response` लौटाता है।
 
 7. अगर `Verification Response` वैध है, तो सर्वर रिक्वेस्ट पूरी करने का काम करता है। अगर `Verification Response` अवैध है, तो रिसोर्स सर्वर एक `402 Payment Required` स्टेटस और रिस्पॉन्स बॉडी में एक `Payment Required Response` JSON ऑब्जेक्ट लौटाता है।
 
@@ -72,7 +72,7 @@ x402 SDK रनटाइम पर उसे MUSD की राशि में 
 ### Mezo x402 रेफ़रेंस
 
 मौजूदा SDK रनटाइम पर आपके लिए एसेट और सेटलमेंट प्रॉक्सी खुद रिज़ॉल्व कर देता है; नीचे दी गई
-वैल्यू रेफ़रेंस और ऑन-चेन वेरिफ़िकेशन के लिए हैं — आप इन्हें हार्डकोड नहीं करते।
+वैल्यू रेफ़रेंस और ऑन-चेन पुष्टि के लिए हैं — आप इन्हें हार्डकोड नहीं करते।
 टेस्टनेट और मेननेट के बीच सिर्फ़ **network id** और **MUSD एसेट** अलग होते
 हैं:
 
@@ -91,17 +91,17 @@ x402 SDK रनटाइम पर उसे MUSD की राशि में 
 | ट्रांसफ़र मेथड | `permit2` + EIP-2612 |
 
 ### SDK सपोर्ट
-**Mezo Mainnet** (`eip155:31612`) नीचे दिए गए कैनॉनिकल x402 SDK में शामिल हुआ
+**Mezo Mainnet** (`eip155:31612`) का सपोर्ट नीचे दिए गए कैनॉनिकल x402 SDK में आया
 
-| SDK | Mezo Mainnet वाली पहली रिलीज़ |
+| SDK | Mezo मेननेट सपोर्ट वाली पहली रिलीज़ |
 |---|---|
 | TypeScript `@x402/evm` | `v2.15.0` |
 | Go `github.com/x402-foundation/x402/go/v2` | `v2.15.0` |
 | Python `x402` (PyPI) | `v2.13.0` |
 
-**Mezo Testnet** (`eip155:31611`) नीचे दिए गए कैनॉनिकल x402 SDK में शामिल हुआ
+**Mezo Testnet** (`eip155:31611`) का सपोर्ट नीचे दिए गए कैनॉनिकल x402 SDK में आया
 
-| SDK | Mezo Testnet वाली पहली रिलीज़ |
+| SDK | Mezo टेस्टनेट सपोर्ट वाली पहली रिलीज़ |
 |---|---|
 | TypeScript `@x402/evm` | `v2.10.0` |
 | Go `github.com/x402-foundation/x402/go/v2` | `v2.9.0` |

@@ -14,14 +14,14 @@ Goldsky, web3 बिल्डर्स के लिए एक इंडेक�
 
 ## Stork
 
-Stork एक ऑरेकल प्रोटोकॉल है जो डेटा प्रोवाइडर और ऑन-चेन व ऑफ-चेन, दोनों तरह के एप्लिकेशन के बीच बेहद कम लेटेंसी वाले कनेक्शन संभव बनाता है। Stork का सबसे आम इस्तेमाल DeFi के लिए रियल-टाइम प्राइस फ़ीड के रूप में मार्केट डेटा को पुल करना और इस्तेमाल करना है। Stork [Mezo टेस्टनेट पर उपलब्ध है](https://docs.stork.network/resources/contract-addresses/evm#mezo)।
+Stork एक ऑरेकल प्रोटोकॉल है जो डेटा प्रोवाइडर और ऑन-चेन व ऑफ-चेन, दोनों तरह के एप्लिकेशन के बीच बेहद कम लेटेंसी वाले कनेक्शन संभव बनाता है। Stork का सबसे आम इस्तेमाल DeFi के लिए रियल-टाइम प्राइस फ़ीड के रूप में मार्केट डेटा को पुल करना और उसका इस्तेमाल करना है। Stork [Mezo टेस्टनेट पर उपलब्ध है](https://docs.stork.network/resources/contract-addresses/evm#mezo)।
 
 - **[Stork दस्तावेज़ीकरण](https://docs.stork.network/)**
 - **[Mezo टेस्टनेट पर डिप्लॉय किए गए कॉन्ट्रैक्ट](https://docs.stork.network/resources/contract-addresses/evm#mezo)**
 
 ## Supra 
 
-Supra एक क्रॉस-चेन ऑरेकल नेटवर्क है, जिसे तेज़, सुरक्षित, डिसेंट्रलाइज़्ड और स्केलेबल डेटा सॉल्यूशन के ज़रिए अलग-अलग ब्लॉकचेन इकोसिस्टम के dApps को पावर देने के लिए बनाया गया है। Supra का [Distributed Oracle Agreement (DORA)](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora) Mezo टेस्टनेट पर उपलब्ध है। सही pull कॉन्ट्रैक्ट और storage कॉन्ट्रैक्ट एड्रेस जानने के लिए Supra का [Available Networks](https://docs.supra.com/oracles/data-feeds/pull-oracle/networks) पेज देखें।
+Supra एक क्रॉस-चेन ऑरेकल नेटवर्क है, जिसे तेज़, सुरक्षित, डिसेंट्रलाइज़्ड और स्केलेबल डेटा सॉल्यूशन के ज़रिए अलग-अलग ब्लॉकचेन इकोसिस्टम के dApps को पावर देने के लिए बनाया गया है। Supra का [Distributed Oracle Agreement (DORA)](https://docs.supra.com/oracles/data-feeds#distributed-oracle-agreement-dora) Mezo टेस्टनेट पर उपलब्ध है। सही पुल कॉन्ट्रैक्ट और स्टोरेज कॉन्ट्रैक्ट एड्रेस जानने के लिए Supra का [Available Networks](https://docs.supra.com/oracles/data-feeds/pull-oracle/networks) पेज देखें।
 
 - **[Supra दस्तावेज़ीकरण](https://docs.supra.com/)**
 

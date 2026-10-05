@@ -75,7 +75,7 @@ Mezo के दूसरे Earn प्रोडक्ट की तरह, आ�
 
 ### स्मार्ट कॉन्ट्रैक्ट जोखिम
 
-फ़ंड Lending Vault adapter, Morpho Vault V2 और Morpho Blue मार्केट से होकर गुज़रते हैं। इनमें से किसी में भी बग या एक्सप्लॉइट होने पर फ़ंड का नुकसान हो सकता है।
+फ़ंड Lending Vault एडैप्टर, Morpho Vault V2 और Morpho Blue मार्केट से होकर गुज़रते हैं। इनमें से किसी में भी बग या एक्सप्लॉइट होने पर फ़ंड का नुकसान हो सकता है।
 
 ### लिक्विडिटी की कमी का जोखिम
 
@@ -96,7 +96,7 @@ Mezo के दूसरे Earn प्रोडक्ट की तरह, आ�
 | कॉन्ट्रैक्ट | एड्रेस |
 | -------- | ------- |
 | Morpho Vault V2 (`morphoBTC-mUSDC`) | [0x06291b67e3d7660240ab44Afc9a708d82b976a8B](https://explorer.mezo.org/address/0x06291b67e3d7660240ab44Afc9a708d82b976a8B) |
-| Lending Vault adapter | [0xd3f6F147662Bf2943ca09ee16beDaEa28AE28788](https://explorer.mezo.org/address/0xd3f6F147662Bf2943ca09ee16beDaEa28AE28788) |
+| Lending Vault एडैप्टर | [0xd3f6F147662Bf2943ca09ee16beDaEa28AE28788](https://explorer.mezo.org/address/0xd3f6F147662Bf2943ca09ee16beDaEa28AE28788) |
 | वॉल्ट गेज | [0x11E98DEc5B1965E4eB872552E64Ef8580bBBbae7](https://explorer.mezo.org/address/0x11E98DEc5B1965E4eB872552E64Ef8580bBBbae7) |
 | mUSDC | [0x04671C72Aab5AC02A03c1098314b1BB6B560c197](https://explorer.mezo.org/token/0x04671C72Aab5AC02A03c1098314b1BB6B560c197) |
 

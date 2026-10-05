@@ -20,12 +20,12 @@ topic: developers
 ### इंस्टॉल करें
 
 
-आधिकारिक इंस्टॉलेशन निर्देशों के लिए [Getting Started गाइड](https://mezo.org/docs/developers/getting-started) देखें।
+आधिकारिक इंस्टॉलेशन निर्देशों के लिए [शुरुआती गाइड](https://mezo.org/docs/developers/getting-started) देखें।
 
 ### अपना एप्लिकेशन कॉन्फ़िगर करें
 
 
-आधिकारिक कॉन्फ़िगरेशन उदाहरणों के लिए [Getting Started गाइड](https://mezo.org/docs/developers/getting-started) देखें।
+आधिकारिक कॉन्फ़िगरेशन उदाहरणों के लिए [शुरुआती गाइड](https://mezo.org/docs/developers/getting-started) देखें।
 
 ### वॉलेट कनेक्ट करना
 
@@ -74,7 +74,7 @@ export const YourApp = () => {
 };
 ```
 
-### अगले कदम
+### आगे के कदम
 
 
 

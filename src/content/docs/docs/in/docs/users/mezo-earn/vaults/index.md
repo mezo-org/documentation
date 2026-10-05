@@ -40,7 +40,7 @@ Mezo द्वारा बनाए और मैनेज किए जान�
 
 ### बाहरी वॉल्ट
 
-[Ditto MUSD Savings Vault](/docs/in/docs/users/mezo-earn/vaults/ditto-musd-savings-vault) Mezo पर MUSD लेता है और dMUSD जारी करता है। स्वैप, ब्रिजिंग और Ethereum पर Spark Savings में शुरुआती एलोकेशन का काम Ditto Network संभालता है। रिडेम्पशन में Mezo पर MUSD वापस मिलता है, और इन्हें एसिंक्रोनस तरीके से प्रोसेस किया जाता है।
+[Ditto MUSD Savings Vault](/docs/in/docs/users/mezo-earn/vaults/ditto-musd-savings-vault) Mezo पर MUSD लेता है और dMUSD जारी करता है। स्वैप, ब्रिजिंग और Ethereum पर Spark Savings में शुरुआती आवंटन का काम Ditto Network संभालता है। रिडेम्पशन में Mezo पर MUSD वापस मिलता है, और इन्हें एसिंक्रोनस तरीके से प्रोसेस किया जाता है।
 
 पार्टनर प्रोटोकॉल (जैसे, August, UWI, Upshift) के बनाए वॉल्ट, जो एसेट को अपनी खुद की रणनीतियों में लगाते हैं। ये वॉल्ट पेज पर फ़ीचर्ड बैनर के रूप में भी दिख सकते हैं, जो डिपॉज़िट के लिए पार्टनर के प्लैटफ़ॉर्म पर ले जाते हैं।
 

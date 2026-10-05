@@ -1,8 +1,8 @@
 ---
-title: musd
+title: MUSD
 topic: developers
 ---
 
 # MUSD
 
-MUSD (Mezo USD) के घटकों और इंटीग्रेशन के लिए डेवलपर संसाधन।
+MUSD (Mezo USD) के कंपोनेंट और इंटीग्रेशन के लिए डेवलपर संसाधन।

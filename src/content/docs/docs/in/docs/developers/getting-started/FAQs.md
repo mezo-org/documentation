@@ -52,7 +52,7 @@ Mezo फ़ॉसेट से टेस्टनेट फ़ंड प्र�
 
 #### Mezo Passport के साथ इंटीग्रेट कैसे करें? <a href="#how-do-i-integrate-with-mezo-passport" id="how-do-i-integrate-with-mezo-passport"></a>
 
-​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) आधिकारिक वॉलेट कनेक्शन लाइब्रेरी है, जिसे खास तौर पर Mezo नेटवर्क पर आसान और एकरूप यूज़र एक्सपीरियंस देने के लिए बनाया गया है। यह आपके dApp से बिटकॉइन-नेटिव वॉलेट (जैसे Xverse और Unisat) और स्टैंडर्ड EVM वॉलेट (जैसे MetaMask), दोनों को कनेक्ट करने की जटिलताओं को संभालता है। इंस्टॉलेशन निर्देश, कॉन्फ़िगरेशन, उपलब्ध hooks और कोड उदाहरणों समेत सबसे नई और विस्तृत इंटीग्रेशन गाइड के लिए, डेवलपर को [**आधिकारिक Mezo Passport दस्तावेज़ीकरण**](https://www.npmjs.com/package/@mezo-org/passport) देखना चाहिए**।**
+​[Mezo Passport](https://www.npmjs.com/package/@mezo-org/passport) आधिकारिक वॉलेट कनेक्शन लाइब्रेरी है, जिसे खास तौर पर Mezo नेटवर्क पर आसान और एकरूप यूज़र एक्सपीरियंस देने के लिए बनाया गया है। यह आपके dApp से बिटकॉइन-नेटिव वॉलेट (जैसे Xverse और Unisat) और स्टैंडर्ड EVM वॉलेट (जैसे MetaMask), दोनों को कनेक्ट करने की जटिलताओं को संभालता है। इंस्टॉलेशन निर्देश, कॉन्फ़िगरेशन, उपलब्ध हुक और कोड उदाहरणों समेत सबसे नई और विस्तृत इंटीग्रेशन गाइड के लिए, डेवलपर को [**आधिकारिक Mezo Passport दस्तावेज़ीकरण**](https://www.npmjs.com/package/@mezo-org/passport) देखना चाहिए**।**
 
 #### मुझे अपने प्रोजेक्ट के लिए फ़ंडिंग और सपोर्ट कैसे मिल सकता है? <a href="#how-can-i-get-funding-and-support-for-my-project" id="how-can-i-get-funding-and-support-for-my-project"></a>
 

@@ -1,18 +1,16 @@
 ---
-title: ऑरेकल के साथ बाजार डेटा पढ़ना
-description: >-
-  Mezo के ऑरेकल इन्फ्रास्ट्रक्चर का उपयोग करके बाजार डेटा तक पहुंचने और व्याख्या
-  करने का तरीका।
+title: ऑरेकल से बाज़ार डेटा पढ़ना
+description: Mezo के ऑरेकल इंफ्रास्ट्रक्चर से बाज़ार डेटा को एक्सेस करने और समझने का तरीका।
 topic: developers
 ---
 
-Mezo दो ऑरेकल सिस्टम के माध्यम से बाजार डेटा प्रदान करता है: BTC/USD के लिए [Skip Connect](https://docs.skip.build/connect/introduction) और अतिरिक्त प्राइस फ़ीड के लिए [Pyth Network](https://docs.pyth.network/home)।
+Mezo दो ऑरेकल सिस्टम के ज़रिए बाज़ार डेटा देता है: BTC/USD के लिए [Skip Connect](https://docs.skip.build/connect/introduction) और अतिरिक्त प्राइस फ़ीड के लिए [Pyth Network](https://docs.pyth.network/home)।
 
 ## अवलोकन
 
 ### Skip ऑरेकल
 
-Skip ऑरेकल Chainlink-संगत एग्रीगेटर इंटरफेस के माध्यम से Mezo पर नेटिव BTC/USD प्राइस फ़ीड प्रदान करता है।
+Skip ऑरेकल Chainlink-संगत एग्रीगेटर इंटरफ़ेस के ज़रिए Mezo पर नेटिव BTC/USD प्राइस फ़ीड देता है।
 
 - **समर्थित पेयर:** केवल BTC/USD
 - **अपडेट फ़्रीक्वेंसी:** हर ब्लॉक
@@ -20,16 +18,16 @@ Skip ऑरेकल Chainlink-संगत एग्रीगेटर इं�
 
 ### Pyth ऑरेकल
 
-Pyth ऑरेकल BTC/USD के अलावा कई प्राइस फ़ीड प्रदान करता है।
+Pyth ऑरेकल BTC/USD के अलावा कई और प्राइस फ़ीड देता है।
 
 **अपडेट फ़्रीक्वेंसी:** टोकन पेयर पर निर्भर करती है।
 
 - Mezo पर विवरण के लिए [कॉन्फ़िगरेशन फ़ाइल](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler/configmap.yaml) देखें।
 - Ethereum पर विवरण के लिए [कॉन्फ़िगरेशन फ़ाइल](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler-ethereum/configmap.yaml) देखें।
 
-जब `price_deviation` एक तय थ्रेशोल्ड (प्रतिशत अंकों में) से ज़्यादा विचलित होता है, या हर `time_difference` सेकंड पर, जो भी पहले हो, कीमत अपडेट की जाती है।
+कीमत तब अपडेट होती है जब `price_deviation` तय थ्रेशोल्ड (प्रतिशत अंकों में) से ज़्यादा हो जाए, या हर `time_difference` सेकंड पर, इनमें से जो भी पहले हो।
 
-## बेस्ट प्रैक्टिसेज़
+## सबसे अच्छे तरीके
 
 ऑरेकल डेटा इस्तेमाल करने वाले dApps बनाते समय, इन दिशानिर्देशों का पालन करें:
 
@@ -42,20 +40,20 @@ Pyth ऑरेकल BTC/USD के अलावा कई प्राइस �
 
 ### Skip ऑरेकल का उपयोग (BTC/USD)
 
-Skip ऑरेकल Chainlink-संगत इंटरफेस को इम्प्लीमेंट करता है। नवीनतम कीमत प्राप्त करने के लिए `latestRoundData()` कॉल करें:
+Skip ऑरेकल Chainlink-संगत इंटरफ़ेस इम्प्लीमेंट करता है। सबसे नई कीमत पाने के लिए `latestRoundData()` कॉल करें:
 
 **कॉन्ट्रैक्ट:** [0x7b7c000000000000000000000000000000000015](https://explorer.mezo.org/address/0x7b7c000000000000000000000000000000000015)
 
 **रिटर्न वैल्यू:**
 
 - `roundId`: वह राउंड ID जिसमें कीमत अपडेट हुई थी
-- `answer`: BTC/USD कीमत (डेसिमल प्रिसिज़न जानने के लिए `decimals()` का उपयोग करें)
+- `answer`: BTC/USD कीमत (डेसिमल प्रिसिज़न जानने के लिए `decimals()` का इस्तेमाल करें)
 - `startedAt`: राउंड शुरू होने का Unix टाइमस्टैम्प
 - `updatedAt`: राउंड के अंतिम अपडेट का Unix टाइमस्टैम्प
 
 ### Pyth ऑरेकल का उपयोग (एकाधिक फ़ीड)
 
-Pyth अपने EVM कॉन्ट्रैक्ट के माध्यम से कई प्राइस फ़ीड प्रदान करता है। बिल्ट-इन staleness जांच के साथ कीमतें प्राप्त करने के लिए `getPriceNoOlderThan(pair_id, maxAgeSeconds)` का उपयोग करें।
+Pyth अपने EVM कॉन्ट्रैक्ट के ज़रिए कई प्राइस फ़ीड देता है। बिल्ट-इन staleness जांच के साथ कीमतें पाने के लिए `getPriceNoOlderThan(pair_id, maxAgeSeconds)` का इस्तेमाल करें।
 
 **कॉन्ट्रैक्ट Mezo मेननेट:** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
@@ -65,7 +63,7 @@ Pyth अपने EVM कॉन्ट्रैक्ट के माध्य�
 
 **कॉन्ट्रैक्ट Ethereum Sepolia:** [0xDd24F84d36BF92C65F92307595335bdFab5Bbd21](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21)
 
-**किसी दिए गए price ID के लिए कीमत प्राप्त करने का उदाहरण:**
+**किसी प्राइस ID के लिए कीमत पाने का उदाहरण:**
 
 ```solidity
 import "@pythnetwork/pyth-sdk-solidity/IPyth.sol";
@@ -109,7 +107,7 @@ contract ReadPythPrice {
 
 ### Skip ऑरेकल फ़ीड
 
-Mezo मेननेट और टेस्टनेट दोनों पर इन पर उपलब्ध:
+Mezo मेननेट और टेस्टनेट, दोनों पर उपलब्ध:
 
 | पेयर | कॉन्ट्रैक्ट एड्रेस | नेटवर्क |
 |------|-----------------|---------|
@@ -153,4 +151,4 @@ Mezo मेननेट और टेस्टनेट दोनों पर �
 | MUSD/USD | `0x0617a9b725011a126a2b9fd53563f4236501f32cf76d877644b943394606c6de` |
 | USDT/USD | `0x2b89b9dc8fdf9f34709a5b106b472f0f39bb6ca9ce04b0fd7f2e971688e2e53b` |
 
-**अतिरिक्त प्राइस फ़ीड का अनुरोध:** अतिरिक्त Pyth प्राइस फ़ीड सक्षम करने के लिए, उपलब्ध [प्राइस फ़ीड ID](https://docs.pyth.network/price-feeds/price-feeds#feed-ids) की पूरी सूची ब्राउज़ करें और ऑनचेन सक्रियण का अनुरोध करने के लिए Mezo टीम से संपर्क करें।
+**अतिरिक्त प्राइस फ़ीड का अनुरोध:** और Pyth प्राइस फ़ीड चालू करवाने के लिए, उपलब्ध [प्राइस फ़ीड ID](https://docs.pyth.network/price-feeds/price-feeds#feed-ids) की पूरी सूची देखें और ऑनचेन एक्टिवेशन के अनुरोध के लिए Mezo टीम से संपर्क करें।
