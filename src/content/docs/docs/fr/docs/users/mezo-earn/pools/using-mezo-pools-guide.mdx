@@ -1,0 +1,92 @@
+---
+title: Utiliser Mezo Pools
+description: 'Comment déposer, gérer vos positions, réclamer vos récompenses, et plus encore'
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Fournir de la liquidité sur Mezo Pools vous permet de gagner des frais de trading tout en approfondissant le marché des actifs adossés à Bitcoin. Ce guide vous accompagne tout au long du processus.
+
+<YouTube id="6rthu_iub7E" title="Utiliser Mezo Pools" start={128} />
+
+## Prérequis
+
+Avant de commencer, assurez-vous de disposer :
+
+- d'un portefeuille compatible connecté à Mezo ;
+- d'une valeur en **dollars** égale pour les deux jetons de la paire du pool souhaité ;
+- de suffisamment de BTC pour payer les frais de gaz.
+
+---
+
+## Dépôt
+
+Pour fournir de la liquidité, vous avez besoin d'une valeur égale des deux actifs d'une paire. Pour un pool BTC/MUSD, vous pourriez par exemple déposer l'équivalent de 50 MUSD en BTC et 50 MUSD.
+
+Rendez-vous sur [mezo.org/earn/pools](https://mezo.org/earn/pools) et sélectionnez le pool souhaité. Saisissez le montant de l'un des jetons que vous souhaitez déposer : l'interface calcule automatiquement le montant requis du second jeton. Vérifiez l'estimation de vos jetons LP, confirmez la transaction et, s'il s'agit de votre première fois, approuvez la dépense des jetons. Une fois l'opération terminée, des jetons LP représentant votre part proportionnelle sont frappés dans votre portefeuille.
+
+### Comprendre les jetons LP
+
+Lorsque vous déposez dans un pool, le nombre de jetons LP que vous recevez est calculé comme `sqrt(x × y)` pour le premier dépôt dans un nouveau pool, où x et y sont les quantités des deux jetons. Pour les dépôts suivants, vos jetons LP sont proportionnels à votre part de la valeur totale du pool.
+
+Ces jetons représentent la propriété de vos actifs dans le pool et vous donnent droit à :
+
+- une part proportionnelle de tous les frais de trading générés par le pool ;
+- la possibilité de racheter vos actifs sous-jacents en brûlant les jetons LP.
+
+---
+
+
+## Gauges
+
+Les gauges déterminent la répartition des émissions entre les pools. Chaque pool est associé à un gauge, et les émissions sont recalculées à chaque époque (7 jours) en fonction des votes des détenteurs de veBTC. Les votes sont conservés d'une époque à l'autre, sauf si les votants les modifient, et les pools qui reçoivent le plus de votes obtiennent une plus grande part des émissions. Si un votant augmente son pouvoir de vote, il doit [effectuer un poke de ses votes](/docs/fr/docs/users/mezo-earn/vote/how-to-vote/#important-effectuez-un-poke-après-toute-modification) pour que le poids mis à jour soit appliqué.
+
+Les pools qui reçoivent davantage de votes de gauge obtiennent plus d'émissions, ce qui attire davantage de liquidité, réduit le slippage et augmente le volume de trading. Un volume plus élevé génère plus de frais pour les LP, créant une boucle vertueuse dans tout l'écosystème et alignant les intérêts des LP, des votants et des traders.
+
+---
+
+## Gestion
+
+En tant que LP, vous percevez des revenus de deux sources :
+
+### Frais de trading
+
+- Pools volatils : 0,30 % par swap
+- Pools stables : 0,02 % par swap
+- Perçus dans les deux jetons de la paire
+- Stockés séparément dans des contrats PoolFees
+- Réclamables à tout moment, sans retirer vos jetons du staking
+
+### Émissions de MEZO (lorsque vos jetons sont stakés)
+
+- Gagnées en fonction des votes des détenteurs de veBTC pour les gauges
+- Montants distribués déterminés par la gouvernance communautaire
+
+---
+
+## Réclamer
+
+**Réclamer les frais :** accédez à votre position, cliquez sur **Claim Fees**, et les deux jetons sont envoyés dans votre portefeuille. Vous pouvez réclamer les frais sans retirer vos jetons LP du staking.
+
+**Réclamer les récompenses :** cliquez sur **Claim Rewards** depuis votre position stakée pour recevoir les incentives (incitations) que vous avez gagnés.
+
+---
+
+## Retrait
+
+ Vos jetons LP sont restitués dans votre portefeuille et cessent de générer des émissions, mais les frais de trading continuent de s'accumuler.
+ 
+ **Retrait du staking :** sélectionnez **Unstake**, saisissez le montant et confirmez. 
+
+**Retirer de la liquidité :** si nécessaire, retirez d'abord vos jetons LP du staking, puis cliquez sur **Remove Liquidity** et confirmez. Vos jetons LP sont brûlés et les deux jetons sous-jacents sont restitués proportionnellement dans votre portefeuille.
+
+---
+
+## Risques
+
+### Perte impermanente
+Fournir de la liquidité vous expose à la perte impermanente : lorsque le rapport de prix entre vos jetons évolue, vous pouvez vous retrouver avec une valeur inférieure à celle que vous auriez obtenue en conservant simplement les deux jetons. Les pools volatils comme BTC/MUSD présentent un risque de perte impermanente plus élevé que les pools stables comme MUSD/USDC.
+
+### Risque lié aux contrats intelligents
+Les Mezo Pools sont audités, mais les contrats intelligents comportent toujours un risque inhérent. Consultez les audits sur [mezo.org/audits](https://mezo.org/audits) et ne déposez que des montants avec lesquels vous êtes à l'aise.

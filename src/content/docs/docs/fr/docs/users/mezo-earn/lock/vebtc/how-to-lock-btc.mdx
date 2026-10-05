@@ -1,0 +1,81 @@
+---
+title: Comment verrouiller des BTC
+description: Guide étape par étape pour verrouiller des BTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../../components/YouTube.astro';
+
+Verrouiller des BTC vous permet d'obtenir un NFT veBTC, qui vous confère un pouvoir de vote, des frais du protocole et des droits de gouvernance. Consultez l'[aperçu de veBTC](/docs/fr/docs/users/mezo-earn/lock/vebtc) pour savoir en détail ce que vous gagnez.
+
+<YouTube id="6rthu_iub7E" title="Comment verrouiller des BTC" start={51} />
+
+## Prérequis
+
+Avant de verrouiller des BTC, assurez-vous de disposer :
+
+- de BTC déposés sur Mezo ;
+- d'un portefeuille connecté ;
+- de suffisamment de BTC pour payer les frais de gaz.
+
+Consultez la section [Premiers pas](/docs/fr/docs/users/getting-started/deposit-assets) pour obtenir de l'aide.
+
+---
+
+## Accéder à la page Lock
+
+<Steps>
+1. Ouvrez l'application Mezo
+
+2. Cliquez sur **Lock** dans la barre latérale gauche (sous « Earn »)
+
+3. Vos actifs éligibles s'affichent
+</Steps>
+
+---
+
+## Lancer le verrouillage
+
+Repérez la carte de l'actif BTC qui affiche votre solde disponible, puis cliquez sur **Lock**. Une fenêtre de configuration du verrouillage s'ouvre, dans laquelle vous allez configurer votre position.
+
+**Montant :** saisissez le montant de BTC que vous souhaitez verrouiller. Vous pouvez verrouiller n'importe quel montant, dans la limite de votre solde disponible.
+
+**Durée :** sélectionnez une durée de verrouillage comprise entre 1 et 28 jours. Les verrouillages plus longs conservent un pouvoir de vote plus élevé pendant plus longtemps. L'interface affiche votre pouvoir de vote veBTC initial estimé, qui correspond à votre poids au début du verrouillage.
+
+:::note[Remarque]
+Les durées de verrouillage sont alignées sur les limites des époques et arrondies à la semaine complète inférieure. Un verrouillage maximum créé en milieu d'époque aura une durée effective de 21 à 28 jours. Consultez la section [Époques](/docs/fr/docs/users/mezo-earn/lock/vebtc#époques) pour en savoir plus.
+:::
+
+
+---
+
+## Confirmer la transaction
+
+Vérifiez les détails de votre verrouillage :
+
+- le montant de BTC ;
+- la durée de verrouillage ;
+- le poids veBTC initial ;
+- la date d'expiration du verrouillage.
+
+Cliquez sur **Confirm Lock**, approuvez la transaction dans votre portefeuille et attendez la confirmation sur la blockchain.
+
+---
+
+## Consulter votre position
+
+Après la confirmation, consultez les détails de votre verrouillage sur la page Lock, notamment :
+
+- le pouvoir de vote actuel (qui décroît au fil du temps) ;
+- la date d'expiration du verrouillage ;
+- les options permettant de prolonger votre verrouillage.
+
+---
+
+## Prochaines étapes
+
+Une fois que vous disposez de veBTC, vous pouvez :
+
+- [voter pour des gauges](/docs/fr/docs/users/mezo-earn/vote) afin de gagner des frais et d'orienter les émissions ;
+- [prolonger votre verrouillage](/docs/fr/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) afin de conserver votre pouvoir de vote.

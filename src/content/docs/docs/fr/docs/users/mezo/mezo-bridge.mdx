@@ -1,0 +1,88 @@
+---
+title: MEZO Bridge
+description: >-
+  Transférez des jetons MEZO entre Mezo et d'autres réseaux via un pont, grâce à
+  Wormhole NTT
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+Le pont MEZO permet d'effectuer des transferts entre Mezo et plusieurs réseaux, dont Ethereum, Base, BSC et Solana, grâce au protocole Native Token Transfer (NTT) de Wormhole. Ce pont préserve la fongibilité du jeton tout en offrant des fonctionnalités inter-chaînes sécurisées.
+
+## Fonctionnement
+
+Le pont MEZO utilise le protocole Native Token Transfer de Wormhole pour faciliter les transferts inter-chaînes :
+
+- **De Mezo vers d'autres chaînes** : les jetons MEZO sont verrouillés sur Mezo et l'équivalent en jetons est frappé sur la chaîne de destination (Ethereum, Base, BSC ou Solana)
+- **D'autres chaînes vers Mezo** : les jetons MEZO sont brûlés sur la chaîne source et l'équivalent en jetons est déverrouillé sur Mezo
+
+Ce mécanisme garantit que l'offre totale reste constante sur l'ensemble des chaînes, tout en permettant aux utilisateurs de déplacer librement leurs jetons d'un réseau à l'autre.
+
+## Options de pont
+
+Deux interfaces utilisateur sont disponibles pour transférer des jetons MEZO via un pont :
+
+### dApp Mezo
+
+La [dApp Mezo](https://mezo.org) offre une expérience de pont native pour transférer des jetons MEZO uniquement entre les réseaux Mezo et Ethereum.
+
+**Pour transférer des jetons de Mezo vers Ethereum (Withdraw) :**
+
+<Steps>
+1. **Connectez votre portefeuille** à la dApp Mezo
+
+2. **Cliquez sur « Withdraw »** pour transférer des jetons depuis Mezo
+
+3. **Sélectionnez le jeton MEZO** et saisissez le montant à retirer
+
+4. **Confirmez la transaction** dans votre portefeuille
+
+5. **Attendez la confirmation** sur les deux chaînes
+</Steps>
+
+**Pour transférer des jetons d'Ethereum vers Mezo (Deposit) :**
+
+<Steps>
+1. **Connectez votre portefeuille** à la dApp Mezo
+
+2. **Cliquez sur « Deposit »** pour transférer des jetons vers Mezo
+
+3. **Sélectionnez le jeton MEZO** et saisissez le montant à déposer
+
+4. **Confirmez la transaction** dans votre portefeuille
+
+5. **Attendez la confirmation** sur les deux chaînes
+</Steps>
+
+### Interface Wormhole Portal Bridge
+
+Pour transférer des jetons MEZO vers Base, BSC, Solana ou Ethereum, utilisez l'[interface Portal](https://portalbridge.com/) :
+
+<Steps>
+1. **Connectez votre portefeuille** à l'interface Portal
+
+2. **Sélectionnez les chaînes source et de destination** (Mezo ↔ Ethereum, Base, BSC ou Solana)
+
+3. **Choisissez MEZO** comme jeton à transférer
+
+4. **Saisissez le montant** que vous souhaitez transférer
+
+5. **Vérifiez les détails de la transaction**, notamment les frais et la durée estimée
+
+6. **Confirmez la transaction** dans votre portefeuille
+
+7. **Attendez la confirmation** sur les deux chaînes
+</Steps>
+
+Ces deux interfaces offrent une expérience conviviale et prennent en charge toutes les interactions complexes avec les contrats NTT sous-jacents.
+
+## Contrats intelligents
+
+Pour connaître toutes les adresses des contrats du pont et du jeton MEZO, consultez la page de référence [Adresses des contrats et des jetons](../../resources/contracts-reference).
+
+## Ressources supplémentaires
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Documentation de Wormhole NTT</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">Référence des contrats</LinkButton>

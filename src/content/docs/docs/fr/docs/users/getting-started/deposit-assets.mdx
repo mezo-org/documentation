@@ -1,0 +1,43 @@
+---
+title: Comment déposer des actifs sur Mezo
+description: >-
+  Guide pour déposer vos actifs sur Mezo et accéder à des services bancaires
+  Bitcoin en libre-service
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+Vous pouvez déposer du Bitcoin natif ou des jetons ERC-20 pris en charge (wrappers de Bitcoin) sur Mezo Mainnet.
+
+<YouTube id="DinlFeUZB3U" title="Comment effectuer un dépôt sur Mezo" />
+
+## Avant de commencer
+
+- Vérifiez quels actifs sont pris en charge. Vous pouvez confirmer les adresses de ces jetons sur la page [Référence des contrats](/docs/fr/docs/users/resources/contracts-reference#contrats-de-jetons).
+- Toutes les transactions sur Mezo Mainnet sont payées à l'aide de dépôts de BTC natif ou de tBTC. Avant d'utiliser le réseau, il est recommandé d'approvisionner votre compte en BTC ou en tBTC afin de disposer du gaz nécessaire pour payer les transactions.
+
+## Déposer vos actifs
+
+<Steps>
+1. Rendez-vous sur l'[application Mezo](https://mezo.org/overview) et connectez-vous avec un portefeuille pris en charge.
+
+2. Une fois que vous êtes connecté et que vous avez signé la transaction, cliquez sur **Deposit Bitcoin**.
+
+3. Sélectionnez l'actif que vous souhaitez transférer via le pont et indiquez le montant.
+
+    ![](/docs/images/mainnet/deposit-modal-preview.png)
+
+4. Cliquez sur **Review** pour vérifier le transfert et générer une adresse de dépôt.
+
+5. Vérifiez les détails du transfert et assurez-vous qu'ils sont corrects.
+
+6. Lorsque vous êtes prêt à déposer les actifs, copiez l'adresse du portefeuille. Assurez-vous que l'adresse s'affiche correctement dans votre portefeuille.
+
+    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
+
+7. Si la transaction vous convient, confirmez-la.
+</Steps>
+
+Une fois la transaction terminée, le processus de transfert via le pont commence. Il peut falloir plusieurs minutes avant que vous ne receviez vos actifs sur Mainnet.
