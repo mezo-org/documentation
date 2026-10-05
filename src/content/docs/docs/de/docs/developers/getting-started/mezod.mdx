@@ -1,0 +1,357 @@
+---
+title: Mezod – Entwicklungsleitfaden für den Chain-Client
+description: >-
+  Vollständiger Leitfaden für die Entwicklung mit Mezod, der
+  Referenzimplementierung des Clients für die Mezo-Chain.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezod ist die Referenzimplementierung des Clients für die Mezo-Chain – eine Bitcoin-first-Blockchain, die auf Nutzereigentum, zuverlässiges Bridging mit tBTC, BTC als Gas, ein duales Staking-Modell und EVM-Kompatibilität ausgelegt ist.
+
+## Übersicht
+
+Mezo ist eine auf dem Cosmos SDK basierende Chain mit EVM-Kompatibilität, die auf der Konsens-Engine Comet BFT läuft. Die Codebasis des Mezod-Clients ist ein Fork der LGPL-Version von Evmos und wurde für die spezifischen Anforderungen von Mezo stark angepasst.
+
+### Wichtige Funktionen
+
+- **Bitcoin-first-Design**: native BTC-Integration und Gaszahlungen in BTC
+- **EVM-Kompatibilität**: volle Unterstützung der Ethereum Virtual Machine
+- **tBTC-Bridging**: zuverlässige chainübergreifende Bitcoin-Übertragungen
+- **Duales Staking-Modell**: Belohnungs- und Validierungsmechanismen
+- **Nutzereigentum**: dezentrale Governance und Kontrolle
+
+## Repository-Struktur
+
+Das [Mezod-Repository](https://github.com/mezo-org/mezod.git) enthält:
+
+- **[Go-Module](https://github.com/mezo-org/mezod/tree/main)**: Kernimplementierung des Blockchain-Clients
+- **[x/-Module](https://github.com/mezo-org/mezod/tree/main/x)**: eigene Cosmos-SDK-Module
+- **[EVM-Integration](https://github.com/mezo-org/mezod/tree/main/x/evm)**: Ethereum-Kompatibilitätsschicht
+- **[Konfiguration](https://github.com/mezo-org/mezod/tree/main/config)**: Chain-Konfiguration und -Parameter
+
+## Einrichtung der Entwicklungsumgebung
+
+### Voraussetzungen
+
+- Go 1.21+ (die genaue Version finden Sie in [`go.mod`](https://github.com/mezo-org/mezod/blob/main/go.mod))
+- Git
+- Make
+- Docker (optional, für containerisierte Entwicklung)
+
+### Installation
+
+<Steps>
+1. Klonen Sie das Repository:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   ```
+
+2. Installieren Sie die Go-Abhängigkeiten:
+   ```bash
+   go mod download
+   ```
+
+3. Bauen Sie den Client:
+   ```bash
+   make build
+   ```
+</Steps>
+
+### Entwicklungsumgebung
+
+<Steps>
+1. **Lokale Entwicklung**:
+   ```bash
+   # Start local development node
+   make dev
+
+   # Run tests
+   make test
+
+   # Lint code
+   make lint
+   ```
+
+2. **Entwicklung mit Docker**:
+   ```bash
+   # Build Docker image
+   docker build -t mezod .
+
+   # Run containerized node
+   docker run -p 26657:26657 -p 8545:8545 mezod
+   ```
+</Steps>
+
+## Chain-Konfiguration
+
+### Netzwerkparameter
+
+Mezod unterstützt mehrere Netzwerkkonfigurationen:
+
+- **Mainnet**: produktives Mezo-Netzwerk
+- **Testnet**: öffentliches Testnetzwerk
+- **Lokal**: Entwicklungsnetzwerk
+
+### Konfigurationsdateien
+
+Wichtige Konfigurationsdateien:
+- `config.toml`: Node-Konfiguration
+- `app.toml`: anwendungsspezifische Einstellungen
+- `client.toml`: Client-Konfiguration
+
+Beispielkonfiguration:
+
+```toml
+# config.toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+```
+
+## EVM-Integration
+
+### Ethereum-Kompatibilität
+
+Mezod bietet volle EVM-Kompatibilität. Damit können Sie:
+
+- Ethereum-Smart-Contracts deployen
+- Ethereum-Tools verwenden (Hardhat, Truffle usw.)
+- mit Web3-Bibliotheken mit Contracts interagieren
+
+### Verbindung über Web3
+
+```javascript
+import { ethers } from 'ethers';
+
+// Connect to Mezo network
+const provider = new ethers.JsonRpcProvider('https://rpc.mezo.org');
+
+// Get network info
+const network = await provider.getNetwork();
+console.log('Network:', network);
+
+// Deploy contract
+const factory = new ethers.ContractFactory(abi, bytecode, signer);
+const contract = await factory.deploy();
+await contract.waitForDeployment();
+```
+
+### Gas und Gebühren
+
+- **BTC als Gas**: Transaktionsgebühren in Bitcoin bezahlen
+- **Dynamische Preisgestaltung**: Gaspreise passen sich an die Netzwerkbedingungen an
+- **EVM-Gasmodell**: kompatibel mit den Gasberechnungen von Ethereum
+
+## Node-Typen
+
+### Full Node
+
+Ein vollständiger Node, der die gesamte Blockchain speichert:
+
+```bash
+# Start full node
+mezod start
+```
+
+### Light Client
+
+Ein schlanker Client für mobile Geräte und Umgebungen mit begrenzten Ressourcen:
+
+```bash
+# Start light client
+mezod start --mode light
+```
+
+### Archive Node
+
+Ein Node, der alle historischen Daten speichert:
+
+```bash
+# Start archive node
+mezod start --mode archive
+```
+
+## RPC-Endpoints
+
+### Cosmos-SDK-RPC
+
+- **Port**: 26657
+- **Endpoints**: Standard-RPC-Methoden des Cosmos SDK
+- **WebSocket**: Echtzeit-Updates
+
+```bash
+# Query node status
+curl http://localhost:26657/status
+```
+
+### EVM-RPC
+
+- **Port**: 8545
+- **Endpoints**: Ethereum-kompatibles JSON-RPC
+- **Methoden**: eth_getBalance, eth_sendTransaction usw.
+
+```bash
+# Query EVM balance
+curl -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x...", "latest"],"id":1}' \
+  http://localhost:8545
+```
+
+## Entwicklungsablauf
+
+### Contracts entwickeln
+
+<Steps>
+1. **Solidity-Contracts schreiben**: Verwenden Sie die Standard-Tools von Ethereum
+
+2. **Kompilieren**: Verwenden Sie Hardhat, Truffle oder direkt solc
+
+3. **Deployen**: Deployen Sie ins Mezo Testnet/Mainnet
+
+4. **Interagieren**: Verwenden Sie Web3-Bibliotheken oder direkte RPC-Aufrufe
+</Steps>
+
+### Tests
+
+```bash
+# Run unit tests
+make test
+
+# Run integration tests
+make test-integration
+
+# Run specific test package
+go test ./x/evm/...
+```
+
+## Integrationsbeispiele
+
+### Integration mit dem Cosmos SDK
+
+```go
+package main
+
+import (
+    "context"
+    "github.com/cosmos/cosmos-sdk/client"
+    "github.com/cosmos/cosmos-sdk/client/tx"
+)
+
+func main() {
+    // Create client context
+    clientCtx := client.Context{}
+
+    // Create transaction builder
+    txBuilder := clientCtx.TxConfig.NewTxBuilder()
+
+    // Build and send transaction
+    // ... transaction logic
+}
+```
+
+## Monitoring und Debugging
+
+### Logging
+
+```bash
+# Enable debug logging
+mezod start --log-level debug
+
+# Log to file
+mezod start --log-file /path/to/logfile
+```
+
+### Metriken
+
+- **Prometheus**: integrierte Erfassung von Metriken auf Port 26660
+- **Grafana**: Dashboard für das Monitoring
+- **Health Checks**: HTTP-Endpoints zur Zustandsüberwachung
+
+```bash
+# Check metrics
+curl http://localhost:26660/metrics
+```
+
+## Deployment
+
+### Deployment in der Produktion
+
+**Hardwareanforderungen**:
+- Minimum: 8 GB RAM, 100 GB SSD
+- Empfohlen: 16 GB RAM, 500 GB NVMe-SSD
+
+**Schritte**:
+
+<Steps>
+1. Konfigurieren Sie Firewall und Netzwerkports
+
+2. Richten Sie geeignete Zugriffskontrollen ein
+
+3. Deployen Sie den Monitoring-Stack
+
+4. Starten Sie den Node mit der Produktionskonfiguration
+</Steps>
+
+### Deployment mit Docker
+
+```bash
+# Production Docker deployment
+docker run -d \
+  --name mezod \
+  -p 26657:26657 \
+  -p 8545:8545 \
+  -v /data:/root/.mezod \
+  mezod:latest start
+```
+
+## Fehlerbehebung
+
+### Häufige Probleme
+
+1. **Verbindungsprobleme**: Prüfen Sie die RPC-Endpoints und die Netzwerkverbindung
+2. **Synchronisierungsprobleme**: Überprüfen Sie die Synchronisierung der Blockchain
+3. **Gasprobleme**: Beobachten Sie die Gaspreise und passen Sie sie entsprechend an
+
+### Debug-Befehle
+
+```bash
+# Check node status
+mezod status
+
+# View logs
+mezod logs
+
+# Reset node (caution: deletes data)
+mezod unsafe-reset-all
+```
+
+## Weitere Ressourcen
+
+- **[Mezod-Repository](https://github.com/mezo-org/mezod.git)** – Haupt-Repository
+- **[Mezo-Dokumentation](/docs/de/docs/developers/getting-started/configure-environment)** – vollständige Dokumentation
+- **[Cosmos-SDK-Dokumentation](https://docs.cosmos.network/)** – Referenz zum Cosmos SDK
+- **[EVM-Dokumentation](https://ethereum.org/en/developers/docs/evm/)** – EVM-Spezifikation
+- **[Testnet-Leitfaden](/docs/de/docs/developers/testnet)** – Zugang zum und Nutzung des Testnet
+
+:::note
+Ausführliche Informationen zur Chain-Architektur, zu Modulspezifikationen und zu Protokollmechanismen finden Sie in der Dokumentation des Mezod-Repositorys.
+:::
+
+## Support
+
+Unterstützung bei der Entwicklung:
+- Treten Sie dem [Mezo Discord](https://discord.com/invite/mezo) bei
+- Sehen Sie sich die [GitHub Issues](https://github.com/mezo-org/mezod/issues) an
+- Lesen Sie die [FAQ](/docs/de/docs/developers/getting-started/FAQs)

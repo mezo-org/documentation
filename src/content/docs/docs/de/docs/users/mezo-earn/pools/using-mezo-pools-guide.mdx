@@ -1,0 +1,94 @@
+---
+title: Mezo Pools verwenden
+description: >-
+  So zahlen Sie ein, verwalten Ihre Positionen, beanspruchen Belohnungen und
+  mehr
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Wenn Sie Liquidität in Mezo Pools bereitstellen, verdienen Sie Handelsgebühren und vertiefen zugleich den Markt für Bitcoin-gedeckte Vermögenswerte. Diese Anleitung führt Sie durch den gesamten Prozess.
+
+<YouTube id="6rthu_iub7E" title="Mezo Pools verwenden" start={128} />
+
+## Voraussetzungen
+
+Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
+
+- Eine kompatible Wallet, die mit Mezo verbunden ist
+- Beide Token Ihres gewünschten Pool-Paares im gleichen **Dollar**-Wert
+- Genügend BTC für Gasgebühren
+
+---
+
+## Einzahlen
+
+Um Liquidität bereitzustellen, benötigen Sie beide Vermögenswerte eines Handelspaares im gleichen Wert. Bei einem BTC/MUSD-Pool könnten Sie beispielsweise BTC im Wert von 50 MUSD und 50 MUSD einzahlen.
+
+Rufen Sie [mezo.org/earn/pools](https://mezo.org/earn/pools) auf und wählen Sie den gewünschten Pool aus. Geben Sie den Betrag eines Tokens ein, den Sie einzahlen möchten – die Oberfläche berechnet automatisch den benötigten Betrag des zweiten Tokens. Prüfen Sie die geschätzten LP-Token, bestätigen Sie die Transaktion und geben Sie beim ersten Mal die Token-Ausgabe frei. Danach werden LP-Token, die Ihren proportionalen Anteil darstellen, in Ihre Wallet gemintet.
+
+### LP-Token verstehen
+
+Wenn Sie in einen Pool einzahlen, wird die Anzahl der LP-Token, die Sie erhalten, bei der ersten Einzahlung in einen neuen Pool als `sqrt(x × y)` berechnet, wobei x und y die Mengen der beiden Token sind. Bei späteren Einzahlungen sind Ihre LP-Token proportional zu Ihrem Anteil am Gesamtwert des Pools.
+
+Diese Token repräsentieren Ihren Besitz an Ihren Vermögenswerten im Pool und berechtigen Sie zu:
+
+- einem proportionalen Anteil an allen vom Pool erzeugten Handelsgebühren
+- der Möglichkeit, Ihre zugrunde liegenden Vermögenswerte einzulösen, indem Sie die LP-Token verbrennen
+
+---
+
+
+## Gauges
+
+Gauges bestimmen, wie Emissionen auf die Pools verteilt werden. Jeder Pool hat einen zugehörigen Gauge, und die Emissionen werden in jeder Epoche (7 Tage) auf Grundlage der Stimmen der veBTC-Inhaber neu berechnet. Stimmen bleiben über Epochen hinweg bestehen, sofern die Wähler sie nicht ändern, und Pools mit mehr Stimmen erhalten einen größeren Anteil der Emissionen. Erhöht ein Wähler seine Stimmkraft, muss er [für seine Stimmen einen Poke ausführen](/docs/de/docs/users/mezo-earn/vote/how-to-vote/#wichtig-poke-nach-änderungen), damit das aktualisierte Gewicht angewendet wird.
+
+Pools mit mehr Gauge-Stimmen erhalten mehr Emissionen und ziehen mehr Liquidität an, was den Slippage verringert und das Handelsvolumen erhöht. Ein höheres Volumen erzeugt mehr Gebühren für LPs – so entsteht ein positiver Kreislauf im gesamten Ökosystem, der die Interessen von LPs, Wählern und Tradern in Einklang bringt.
+
+---
+
+## Verwalten
+
+Als LP verdienen Sie aus zwei Quellen:
+
+### Handelsgebühren
+
+- Volatile Pools: 0,30 % pro Swap
+- Stabile Pools: 0,02 % pro Swap
+- Werden in beiden Token des Paares eingezogen
+- Werden separat in PoolFees-Contracts gespeichert
+- Können jederzeit ohne Unstaking beansprucht werden
+
+### MEZO-Emissionen (bei Staking)
+
+- Werden auf Grundlage der Stimmen der veBTC-Inhaber für Gauges verdient
+- Die Verteilungsmengen werden durch die Community-Governance bestimmt
+
+---
+
+## Beanspruchen
+
+**Gebühren beanspruchen:** Navigieren Sie zu Ihrer Position und klicken Sie auf „Claim Fees“ – beide Token werden an Ihre Wallet gesendet. Sie können Gebühren beanspruchen, ohne Ihre LP-Token zu unstaken.
+
+**Belohnungen beanspruchen:** Klicken Sie in Ihrer gestakten Position auf „Claim Rewards“, um Ihre verdienten Anreize zu erhalten.
+
+---
+
+## Abheben
+
+ Ihre LP-Token werden an Ihre Wallet zurückgegeben und verdienen keine Emissionen mehr, Handelsgebühren fallen jedoch weiterhin an.
+ 
+ **Unstaking:** Wählen Sie „Unstake“, geben Sie den Betrag ein und bestätigen Sie.
+
+**Liquidität entfernen:** Unstaken Sie Ihre LP-Token bei Bedarf zuerst, klicken Sie dann auf „Remove Liquidity“ und bestätigen Sie. Ihre LP-Token werden verbrannt, und beide zugrunde liegenden Token werden anteilig an Ihre Wallet zurückgegeben.
+
+---
+
+## Risiken
+
+### Impermanent Loss
+Wenn Sie Liquidität bereitstellen, sind Sie dem Impermanent Loss ausgesetzt – ändert sich das Preisverhältnis zwischen Ihren Token, kann Ihr Wert geringer sein, als wenn Sie beide Token einfach gehalten hätten. Volatile Pools wie BTC/MUSD bergen ein höheres Risiko für Impermanent Loss als stabile Pools wie MUSD/USDC.
+
+### Smart-Contract-Risiko
+Mezo Pools sind auditiert, doch Smart Contracts bergen immer ein inhärentes Risiko. Prüfen Sie die Audits unter [mezo.org/audits](https://mezo.org/audits) und zahlen Sie nur Beträge ein, bei denen Sie sich wohlfühlen.

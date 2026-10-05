@@ -1,0 +1,162 @@
+---
+title: Erträge erzielen und Ihre Position verwalten
+description: 'Stimmkraft, Erträge und Positionsverwaltung auf Mezo verstehen'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Stimmkraft verstehen
+
+Wenn Sie BTC sperren, wird Ihre Stimmkraft als NFT tokenisiert. Dieses NFT repräsentiert Ihr Governance-Gewicht und berechtigt Sie zu:
+
+- einem proportionalen Anteil an den Handelsgebühren, die von den Gauges erzeugt werden, für die Sie abstimmen
+- einem proportionalen Anteil an den Anreizen (Incentives), die für diese Gauges hinterlegt werden
+- passiven Bridging- und Chain-Gebühren (proportional zu Ihrem geboosteten Stimmgewicht)
+- der Möglichkeit, darüber abzustimmen, wohin Emissionen gelenkt werden
+
+### Basisgewicht vs. geboostetes Stimmgewicht
+
+**Basisgewicht:** Ihr veBTC-Gewicht ohne veMEZO-Boost. Es gilt ein Multiplikator von 1x.
+
+**Geboostetes Stimmgewicht:** Wenn veMEZO-Stimmen auf Ihre veBTC-Position gelenkt werden, wird Ihr effektives Gewicht mit bis zu 5x multipliziert.
+
+Der Boost hängt von Ihrem Anteil am gesamten veBTC und vom Anteil des gesamten veMEZO ab, der auf Ihre Position gelenkt wird. Größere BTC-Positionen benötigen proportional mehr veMEZO, um den maximalen Boost zu erreichen.
+
+### So funktioniert der Verfall
+
+Ihre Stimmkraft verfällt im Lauf der Zeit linear. Wenn Sie 1 BTC für 28 Tage sperren, beginnt Ihr Gewicht bei 1,0, nimmt aber kontinuierlich ab, bis es bei Ablauf null erreicht. Sie können Ihre Sperrung jederzeit verlängern, um Ihren maximalen Einfluss zu erhalten.
+
+---
+
+## Erträge als veBTC-Abstimmender
+
+Wenn Sie veBTC halten und abstimmen, verdienen Sie aus mehreren Quellen:
+
+### Handelsgebühren
+
+- **Quelle:** 100 % der Handelsgebühren, die der konkrete Pool erzeugt, für den Sie abgestimmt haben
+- **Verteilung:** Sie erhalten einen proportionalen Anteil auf Grundlage Ihres Stimmgewichts. Wenn ein Pool 10.000 USD an Gebühren erzeugt und Sie 5 % der Stimmen für diesen Gauge abgegeben haben, verdienen Sie 500 USD.
+- **Beanspruchbar:** Auszahlung in den Token des Pools (z. B. BTC und MUSD)
+
+### Anreize
+
+- **Quelle:** Externe Anreize, die Protokolle hinterlegen, um Stimmen für ihre Gauges zu gewinnen
+- **Verteilung:** Wie Gebühren werden Anreize proportional auf alle Abstimmenden für diesen Gauge aufgeteilt
+- **Beanspruchbar:** Auszahlung in dem Token, den das Protokoll hinterlegt hat
+
+### Passive Bridging-Gebühren
+
+- **Quelle:** Gebühren aus dem Bridgen von Vermögenswerten zu Mezo und aus allgemeiner Chain-Aktivität
+- **Verteilung:** Alle veBTC-Inhaber erhalten einen Anteil proportional zu ihrem geboosteten Stimmgewicht
+- **Beanspruchbar:** Keine Abstimmung erforderlich – Sie verdienen diese Gebühren allein dadurch, dass Sie veBTC halten
+
+
+---
+
+## Erträge als veMEZO-Inhaber
+
+veMEZO-Inhaber verdienen auf andere Weise als veBTC-Inhaber:
+
+### Anreize auf Boost-Gauges
+
+- **Quelle:** Anreize, die veBTC-Inhaber auf ihren Boost-Gauges hinterlegen
+- **So geht's:** Lenken Sie Ihre veMEZO-Stimmen auf Boost-Gauges mit attraktiven Anreizen
+- **Beanspruchbar:** Am Ende der Epoche, proportional zu Ihrem Anteil an den veMEZO-Stimmen für diesen Gauge
+
+### Rebase-Ausschüttungen
+
+- **Quelle:** Ein Teil der wöchentlichen MEZO-Emissionen
+- **So geht's:** Fließt veMEZO-Inhabern automatisch auf Grundlage der Sperrquote zu
+- **Zweck:** Schützt vor Verwässerung – wenn weniger Personen sperren, fallen die Rebases höher aus
+
+**Wichtig:** veMEZO-Inhaber erhalten **keine** Handelsgebühren, MUSD-Einnahmen oder Bridging-Gebühren. Diese gehen an veBTC-Inhaber. veMEZO verdient über Boost-Anreize und Rebases.
+
+---
+
+## Ihre Position verwalten
+
+### Die wöchentliche Epoche
+
+Mezo arbeitet in 7-tägigen Epochen, die donnerstags um 00:00 UTC beginnen. Ihre Stimmverteilung bleibt über Epochen hinweg bestehen, bis Sie sie ändern oder zurücksetzen – Sie müssen Ihre Stimme nicht jede Woche neu abgeben. Jede Sperrposition kann einmal pro Epoche abstimmen; eine bestätigte Stimmverteilung lässt sich daher erst nach dem nächsten Epochenwechsel ändern.
+
+### Belohnungen beanspruchen
+
+Gebühren und Anreize fließen Ihrer Position im Lauf der Epoche zu. Beanspruchen können Sie sie jedoch erst, wenn die Epoche endet.
+
+<Steps>
+1. Rufen Sie Ihr Dashboard auf
+2. Klicken Sie auf **Claim All**
+3. Ihre verdienten Gebühren und Anreize werden an Ihre Wallet gesendet
+</Steps>
+
+Für veMEZO-Inhaber werden Rebase-Ausschüttungen separat beansprucht und Ihrer veMEZO-Position hinzugefügt (wodurch Ihr veMEZO-Gewicht steigt).
+
+### Sperrungen verlängern
+
+Behalten Sie Ihre Sperrdauer im Blick, um Ihren Einfluss auf die Verteilung der Belohnungen zu erhalten. Während Ihre Sperrung verfällt, nimmt Ihre Stimmkraft ab.
+
+**Für veBTC:** Wählen Sie bei Ihrem NFT **Extend Lock**, um das volle Gewicht wiederherzustellen.
+
+**Für veMEZO:** Verlängern Sie Ihre Sperrung, um Ihre Boost-Kraft und Ihre Rebase-Erträge zu erhalten.
+
+Weitere Informationen finden Sie unter [Sperrungen verwalten und Belohnungen einsammeln](/docs/de/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards).
+
+### Poke für Stimmen
+
+**Poke** aktualisiert die Stimmkraft Ihrer Sperrposition, sodass sie deren aktuellen Zustand widerspiegelt. Wenn Sie in der aktuellen Epoche bereits abgestimmt haben, werden Ihre Stimmen nicht automatisch aktualisiert, wenn sich Ihre Stimmkraft ändert. Ein Poke stellt sicher, dass Ihre Stimmen mit Ihrer aktuellen Stimmkraft gezählt werden.
+
+**Wann ändert sich die Stimmkraft?**
+
+- Wenn Sie Ihrer Sperrung weitere BTC hinzufügen
+- Wenn Sie Ihre Sperrdauer verlängern
+- Wenn Sie veMEZO-Rebase-Ausschüttungen beanspruchen (aktualisiert Ihren veBTC-Boost)
+- Wenn mehr veMEZO-Stimmen auf Ihre veBTC-Position gelenkt werden
+- Wenn Sie Ihr eigenes veMEZO auf Ihre veBTC-Position lenken
+- Durch den natürlichen Verfall, während sich Ihre Sperrung dem Ablauf nähert
+
+**Wann sollten Sie einen Poke ausführen?**
+
+Für veBTC-Inhaber:
+- Nachdem Sie Ihren gesperrten BTC-Betrag erhöht haben
+- Nachdem Sie Ihre Sperrdauer verlängert haben
+- Wenn sich Ihre veMEZO-Situation ändert (neue Stimmen erhalten, Rebase beansprucht usw.)
+
+Für veMEZO-Inhaber:
+- Nachdem Sie Rebase-Ausschüttungen beansprucht haben
+- Nachdem Sie Ihre Sperrdauer verlängert haben
+
+Dauerhaft gesperrte Positionen behalten eine stabile Stimmkraft und benötigen keinen Poke, sofern keine veMEZO-bezogenen Änderungen auftreten.
+
+**Hinweis:** Poke ist erlaubnisfrei (permissionless) – jeder kann für jede Sperrposition einen Poke ausführen. Andere können einen Poke für Ihre Position ausführen, wenn Ihre Stimmkraft deutlich verfallen ist.
+
+---
+
+## Strategien zur Maximierung der Erträge
+
+### Für Nutzer mit viel BTC
+
+<Steps>
+1. Sperren Sie BTC für die maximale Dauer (28 Tage) und verlängern Sie die Sperrung laufend
+2. Stimmen Sie in jeder Epoche konsequent für Gauges mit hohen Gebühren ab
+3. Erwägen Sie, MEZO zu erwerben, um sich selbst zu boosten, oder hinterlegen Sie Anreize, um veMEZO-Stimmen zu gewinnen
+4. Führen Sie nach jeder Änderung des Boosts einen Poke aus
+</Steps>
+
+### Für Nutzer mit viel MEZO
+
+<Steps>
+1. Sperren Sie MEZO für längere Zeiträume (bis zu 4 Jahre), um Ihr veMEZO-Gewicht zu maximieren
+2. Vergleichen Sie die Boost-Gauges, um die besten Anreizrenditen zu finden
+3. Verteilen Sie Ihre Stimmen auf mehrere Boost-Gauges, um das Risiko zu streuen
+4. Erwägen Sie die Kombination mit einer veBTC-Position, um direkt Zugang zu Handelsgebühren zu erhalten
+</Steps>
+
+### Für Nutzer, die beides halten
+
+<Steps>
+1. Boosten Sie Ihr veBTC mit Ihrem veMEZO selbst, um maximale Stimmkraft zu erhalten
+2. Stimmen Sie für Gauges mit hohen Gebühren ab, um Ihre Gebührenerträge zu maximieren
+3. Führen Sie nach jeder Änderung einen Poke aus, um einen optimalen Boost zu erhalten
+4. Beanspruchen Sie Rebases regelmäßig, um Ihre veMEZO-Position wachsen zu lassen
+</Steps>

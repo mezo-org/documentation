@@ -1,0 +1,288 @@
+---
+title: Übersicht der Mainnet-Bridges
+description: >-
+  Erfahren Sie, wie Sie Bridges im Mezo Mainnet nutzen und aufrufen, um
+  Vermögenswerte reibungslos zu bewegen.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mit der Mezo Native Bridge können Sie Vermögenswerte bei Mezo einzahlen und von Mezo abheben.
+# Einzahlungen
+
+## Einzahlungen über die Mezo Native Bridge
+
+Die Mezo App enthält eine native Bridge, über die Sie verschiedene Vermögenswerte in das Mezo Mainnet einzahlen können. In der Anleitung [Vermögenswerte einzahlen](/docs/de/docs/users/getting-started/deposit-assets) erfahren Sie, wie der Vorgang funktioniert. Alternativ rufen Sie direkt [mezo.org/overview](https://mezo.org/overview) auf, melden sich an und klicken auf **Deposit Bitcoin**, um zu beginnen.
+
+:::note[Hinweis]
+Alle Transaktionen im Mezo Mainnet werden mit eingezahltem nativem BTC oder tBTC bezahlt. Bevor Sie das Netzwerk nutzen, empfiehlt es sich, Ihr Konto mit BTC oder tBTC aufzuladen, damit Sie Gas für Transaktionen bezahlen können.
+:::
+
+
+## Einzahlungen von nativem BTC
+
+Sie können BTC direkt aus einer Bitcoin-Wallet in die Mezo App einzahlen. Die Vermögenswerte werden automatisch zu tBTC und in das Mezo Mainnet gebridgt.
+
+Natives BTC wird zu tBTC gebridgt, bevor es in den [Mezo-App-Contract](/docs/de/docs/users/resources/contracts-reference) gebridgt wird.
+
+Für BTC-Wallets können Sie sich mit UniSat, OKX und Xverse anmelden. Verwenden Sie die folgenden Adressen:
+
+| Name           | Skripttyp   | Adresspräfix   |
+| -------------- | ----------- | -------------- |
+| Legacy         | P2PKH       | 1              |
+| Native SegWit  | P2WPKH      | bc1q           |
+| Nested SegWit  | P2SH-P2WPKH | 3              |
+
+# Abhebungen
+
+## Vermögenswerte von Mezo in andere Netzwerke übertragen
+
+*Zuletzt aktualisiert: September 2026*
+
+Diese Anleitung erklärt, wie Sie Ihre Vermögenswerte aus Mezo zurück in das Ethereum- oder Bitcoin-Netzwerk bridgen. Wir behandeln, was Sie bridgen können, wie das geht, welche Bridges verwendet werden, welche Gebühren anfallen und was Sie während des Vorgangs erwartet. Derzeit beträgt der Mindestbetrag für das Bridging 0,01 BTC für Abhebungen in natives Bitcoin, 0,0002 BTC für Abhebungen von BTC zu Ethereum, 20 Token bei USD-Token, die über die Native Bridge gebridgt werden (USDC, USDT, USDe, DAI), 0,01 Token bei Token, die über die Wormhole Bridge gebridgt werden (MEZO, MUSD, sUSDat), und 1.500 T beim T-Token. Weitere Details finden Sie [hier.](#bridging-zu-ethereum)
+
+### Von Mezo in andere Netzwerke
+
+| Ihr Vermögenswert auf Mezo | Zielnetzwerk | Was Sie erhalten | Hinweise |
+|-------------------|-------------------|-------------------|--------|
+| **BTC** | Ethereum | tBTC (ERC-20-Token) | Sie erhalten auf Ethereum immer tBTC, nicht WBTC oder andere Wrapped-Varianten |
+| **BTC** | Bitcoin | Natives BTC | Echte Bitcoin, die an Ihre Bitcoin-Wallet gesendet werden |
+| **mERC-20-Token** | Ethereum | Ursprünglicher ERC-20-Token | Sie erhalten dieselben Token zurück, die Sie ursprünglich hineingebridgt haben (z. B. USDC, USDT usw.) |
+| **MUSD** | Ethereum, Base | MUSD | Bridgen Sie bereits ab 0,01 MUSD zwischen Mezo, Base und Ethereum. Bridge basiert auf Wormhole. |
+| **MEZO** | Ethereum, Base, BSC, Solana | MEZO | Bridge basiert auf Wormhole NTT. Details finden Sie in der [Anleitung zur MEZO Bridge](/docs/de/docs/users/mezo/mezo-bridge). |
+| **mERC-20-Token** | Bitcoin | Nicht verfügbar | ERC-20-Token können nicht an Bitcoin gesendet werden |
+
+:::note[Wichtige Punkte]
+- Sie können Ihre Vermögenswerte zwischen Mezo und dem Bitcoin Mainnet, Ethereum sowie dem Base-Netzwerk bridgen.
+- BTC kann zu Ethereum (als tBTC) oder zu Bitcoin (als natives BTC) gehen.
+- Token wie USDC oder T (auf Mezo als m-Token dargestellt) können nur zurück zu Ethereum gehen.
+- MEZO und MUSD können über [Wormhole NTT](/docs/de/docs/users/mezo/mezo-bridge) zum und vom Base-Netzwerk gebridgt werden.
+- MEZO-Token können über [Wormhole NTT](/docs/de/docs/users/mezo/mezo-bridge) außerdem zu BSC und Solana gebridgt werden.
+- Bitcoin-Taproot-Adressen (beginnend mit `bc1p`) werden noch nicht unterstützt.
+:::
+
+## So bridgen Sie Vermögenswerte aus Mezo
+
+### Bridging zu Ethereum (für tBTC oder ERC-20-Token)
+
+<Steps>
+1. **Klicken Sie auf die Schaltfläche „Withdraw“** oben rechts in der Mezo App.
+
+2. **Wählen Sie Ihren Vermögenswert:**
+   - Wählen Sie BTC, um tBTC auf Ethereum zu erhalten.
+   - Wählen Sie einen beliebigen mERC-20-Token, um den ursprünglichen Token auf Ethereum zu erhalten.
+
+3. **Geben Sie den Betrag ein**, den Sie bridgen möchten.
+
+4. **Prüfen Sie die Gebühren**, die auf dem Bildschirm angezeigt werden.
+
+5. **Bestätigen und übermitteln** Sie die Transaktion.
+
+6. **Wenn Sie mERC-20-Token bridgen**, müssen Sie die Transaktion möglicherweise zuerst freigeben.
+</Steps>
+
+### Bridging zu Bitcoin (nur für natives BTC)
+
+<Steps>
+1. **Klicken Sie auf die Schaltfläche „Withdraw“** oben rechts in der Mezo App.
+
+2. **Wählen Sie BTC** als Vermögenswert.
+
+3. **Wählen Sie Bitcoin** als Zielnetzwerk.
+
+4. **Geben Sie den Betrag ein**, den Sie bridgen möchten.
+
+5. **Fügen Sie Ihre Bitcoin-Adresse ein** – unterstützte Formate:
+   - Legacy-Adressen (beginnend mit `1`)
+   - SegWit-Adressen (beginnend mit `3` oder `bc1q`)
+   - **Nicht unterstützt:** Taproot-Adressen (beginnend mit `bc1p`)
+
+6. **Prüfen Sie die Gebühren** und bestätigen Sie.
+
+7. **Übermitteln** Sie die Transaktion.
+</Steps>
+
+## Bridge-Routen verstehen
+
+Wenn Sie Vermögenswerte von Mezo abheben, bestimmt das System automatisch, welche Bridge verwendet wird. Diese Information erscheint in der Zeile „Bridge“ in Ihrem Abhebungsdialog.
+
+-   **Mezo Native Bridge:** Wird für alle Standardabhebungen von Vermögenswerten wie BTC und mERC-20-Token verwendet.
+-   **Wormhole Bridge:** Eine Bridge eines Drittanbieters, die für MUSD-Abhebungen zu Ethereum sowie für [MEZO-Token-Übertragungen](/docs/de/docs/users/mezo/mezo-bridge) zu Ethereum, Base, BSC und Solana verwendet wird.
+-   **Super Bridge (demnächst verfügbar):** Eine native Mezo-Bridge, die Einzahlungen und Abhebungen kleinerer Beträge unterstützen wird.
+
+Die Gebühren werden in der App je nach der für Ihre konkrete Transaktion verwendeten Bridge-Route genau angezeigt.
+
+## Gebühren verstehen
+
+Beim Bridging aus Mezo zahlen Sie Gebühren für den Bridging-Dienst und den Netzwerkbetrieb. Alle Gebühren werden deutlich angezeigt, bevor Sie eine Transaktion bestätigen.
+
+### Gebührenstruktur der Native Bridge (v2)
+
+Für Abhebungen von Mezo fällt eine einfache Gebühr an:
+
+- Pauschalgebühr – ein fester Betrag im Wert von etwa 3 USD im jeweiligen Token.
+
+#### Bridging zu Ethereum
+
+Mindestbeträge für Abhebungen
+
+- BTC-basierte Token (BTC, mcbBTC, mFBTC, mSolvBTC, mswBTC, mxSolvBTC): 0,0002
+- USD-basierte Token, die über die Native Bridge gebridgt werden (mUSDC, mUSDT, mDAI, mUSDe): 20
+- mT-Token: 1.500
+
+Gebühren
+
+- Servicegebühr der Mezo Bridge: ≈ 3 USD (im Ziel-Token berechnet)
+- Netzwerkgebühr (Gas): wird in BTC bezahlt, abhängig von den Netzwerkbedingungen
+
+Beispiel:
+
+Abhebung von 1.000 USDC → 3 $ Servicegebühr + variable Gasgebühr → Sie erhalten ~997 USDC.
+
+#### Bridging zu Bitcoin
+
+Mindestbetrag für Abhebungen: 0,01 BTC
+
+Gebühren
+
+- Netzwerkgebühr (Gas): wird in BTC bezahlt, variabel
+- Servicegebühr der Mezo Bridge: ≈ 0,000027 BTC
+- Servicegebühr der tBTC Bridge: 0,2 % (nach Abzug der Servicegebühr der Mezo Bridge)
+- Maximale Netzwerkgebühr der tBTC Bridge: bis zu 0,001 BTC (in der Regel jedoch < 1 $)
+
+##### Beispiel:
+
+Abhebungsbetrag: 1 BTC
+
+Gebühren:
+  - 0,000027 BTC (Servicegebühr der Mezo Bridge)
+  - 0,001999946 BTC (Servicegebühr der tBTC Bridge)
+  - variable Netzwerkgebühr der tBTC Bridge und Gasgebühr
+
+Erhaltener Betrag: ~0,997973 BTC.
+
+## Was nach dem Übermitteln passiert
+
+Sobald Sie eine Bridging-Transaktion aus Mezo heraus gestartet haben, läuft folgender Prozess ab:
+
+<Steps>
+1. **Validierung:** Das System prüft, ob Ihre Anfrage alle Anforderungen erfüllt.
+
+2. **Token-Verbrennung:** Ihre Token auf Mezo werden verbrannt (dauerhaft aus dem Umlauf entfernt).
+
+3. **Attestierung:** Mezo-Validatoren bestätigen Ihre Abhebungsanfrage.
+
+4. **Zustellung:** Ihre Vermögenswerte werden an Ihre Zieladresse gesendet.
+</Steps>
+
+### Zeitablauf und Statusmeldungen
+
+Ihre Bridge-Transaktion zeigt folgende Statusmeldungen an:
+
+-   **Created:** Ihre Anfrage wurde erfasst.
+-   **Attesting:** Validatoren bestätigen Ihre Abhebung.
+-   **Ready to Withdraw:** Bestätigungen abgeschlossen, die Vermögenswerte werden gesendet.
+-   **Withdrawn/Redeemed:** Die Vermögenswerte wurden erfolgreich an Ihre Zieladresse zugestellt.
+
+Sie können Ihre Transaktion anhand des in der Oberfläche angezeigten Transaktions-Hashs verfolgen.
+
+## Wichtige Anforderungen an Adressen
+
+### Für Ziele auf Ethereum
+-   Es muss eine gültige Ethereum-Adresse sein (`0x` gefolgt von 40 Zeichen).
+-   Es kann eine normale Wallet oder ein Smart Contract sein, der Standard-Token-Übertragungen akzeptiert.
+-   Einzahlungsadressen von Börsen funktionieren, wenn sie direkte Token-Übertragungen akzeptieren.
+
+### Für Ziele auf Bitcoin
+Unterstützte Adresstypen:
+-   Legacy-Adressen (beginnend mit `1`)
+-   SegWit-Wrapped-Adressen (beginnend mit `3`)
+-   Native-SegWit-Adressen (beginnend mit `bc1q`)
+
+**Nicht unterstützt:** Taproot-Adressen (beginnend mit `bc1p`)
+
+## Sicherheitshinweise
+
+Bevor Sie eine Bridge-Transaktion bestätigen:
+
+-   ✅ **Prüfen Sie die Zieladresse doppelt** – Transaktionen können nicht rückgängig gemacht werden.
+-   ✅ **Überprüfen Sie, ob Sie das richtige Netzwerk ausgewählt haben** (Ethereum oder Bitcoin).
+-   ✅ **Bestätigen Sie die Gebührenhöhe**, die in der App angezeigt wird.
+-   ✅ **Denken Sie daran, dass Bridging-Vorgänge aus Mezo nach dem Übermitteln nicht storniert werden können.**
+-   ✅ **Stellen Sie sicher, dass das Format Ihrer Zieladresse unterstützt wird.**
+
+:::danger[Warnung]
+Wenn Sie Mittel an eine falsche, aber gültig formatierte Adresse senden, gehen Ihre Mittel dauerhaft verloren. Kopieren Sie Adressen immer per Copy-and-paste und überprüfen Sie sie sorgfältig.
+:::
+
+
+### Häufige Probleme beheben
+
+#### Meldung „Approval Required“
+**Für mERC-20-Token:** Sie müssen dem Bridge-Contract zuerst erlauben, Ihre Token auszugeben. Klicken Sie bei der Aufforderung auf „Approve“, bestätigen Sie die Transaktion, und anschließend können Sie mit dem Bridging fortfahren.
+
+#### „Unsupported Asset for Destination“
+Beachten Sie:
+-   mERC-20-Token und MUSD können nur zu Ethereum gehen.
+-   BTC kann entweder zu Ethereum (als tBTC) oder zu Bitcoin gehen.
+
+#### „Invalid Recipient Address“
+Prüfen Sie Folgendes:
+-   Ethereum-Adressen beginnen mit `0x` und haben insgesamt 42 Zeichen.
+-   Bitcoin-Adressen verwenden unterstützte Formate (keine Taproot-Adressen mit `bc1p`).
+-   Sie verwenden keine Testnet-Adresse für eine Mainnet-Transaktion.
+
+#### Die Transaktion scheint festzuhängen
+Prüfen Sie den Status in Ihrem Transaktionsverlauf:
+-   Wird „Created“ oder „Attesting“ angezeigt, sind die Validatoren noch mit der Verarbeitung beschäftigt.
+-   Wird „Ready to Withdraw“ angezeigt, läuft die Übertragung im Zielnetzwerk.
+-   Wenden Sie sich mit Ihrer Transaktions-ID an den Support, wenn die Transaktion ungewöhnlich lange aussteht.
+
+### Häufig gestellte Fragen
+
+**F: Was ist der Unterschied zwischen BTC auf Mezo und tBTC auf Ethereum?**
+A: Wenn Sie BTC von Mezo zu Ethereum bridgen, wird daraus tBTC, ein ERC-20-Token, der Bitcoin im Ethereum-Netzwerk repräsentiert. tBTC ist 1:1 durch natives Bitcoin gedeckt und kann dagegen eingelöst werden.
+
+**F: Kann ich meine mERC-20-Token zu Bitcoin bridgen?**
+A: Nein, ERC-20-Token sind in Ethereum-kompatiblen Netzwerken nativ. Sie können sie nur zurück zu Ethereum bridgen.
+
+**F: Warum kann ich meine Taproot-Bitcoin-Adresse nicht verwenden?**
+A: Die Bridge unterstützt derzeit die Standardformate für Bitcoin-Adressen. Die Unterstützung für Taproot (`bc1p`) ist für ein künftiges Update geplant.
+
+**F: Kann ich eine Bridge-Transaktion stornieren?**
+A: Nein, Bridge-Transaktionen können nach dem Übermitteln nicht storniert werden. Ihre Mezo-Token werden im Rahmen des Vorgangs sofort verbrannt.
+
+**F: Wie lange dauert das Bridging?**
+A: Die meisten Transaktionen, die Mittel über die Native Bridge zu Ethereum bridgen, sind innerhalb von 30–60 Minuten abgeschlossen – abhängig von den Netzwerkbedingungen und der Geschwindigkeit der Validator-Attestierung. Abhebungen über die Wormhole Bridge dauern in der Regel etwa 5 Minuten. Transaktionen, die Mittel zu Bitcoin abheben, benötigen bis zur Finalisierung meist einige Stunden.
+
+**F: In welche Netzwerke kann ich bridgen?**
+A: Vermögenswerte können zwischen Ethereum, Mezo, Base und Bitcoin gebridgt werden. Weitere Netzwerke werden künftig unterstützt.
+
+**F: Meine Einzahlung von nativem Bitcoin ist noch nicht erschienen. Wie prüfe ich ihren Status?**
+A: Unter [Einzahlung von nativem Bitcoin verfolgen](/docs/de/docs/users/mainnet/track-your-native-bitcoin-deposit) finden Sie eine Schritt-für-Schritt-Anleitung, wie Sie mit tBTCScan den Status Ihrer Einzahlung überprüfen.
+
+**F: Wer bezahlt das Gas im Zielnetzwerk?**
+A: Bei Ethereum übernimmt das Bridge-System die Gaskosten für die endgültige Zustellung. Bei Bitcoin deckt die Netzwerkgebühr der tBTC Bridge die Kosten der Onchain-Transaktion.
+
+## Sicherheitsmodell
+
+Ihre Bridge-Transaktion erfordert die Genehmigung von mindestens zwei Dritteln der Bridge-Validatoren von Mezo, bevor Ihre Vermögenswerte freigegeben werden. Dieser Multisignatur-Ansatz stellt sicher, dass keine einzelne Partei Abhebungen autorisieren kann, und hält Ihre Mittel während des gesamten Bridging-Vorgangs sicher.
+
+## Brauchen Sie Hilfe?
+
+Wenn Probleme auftreten, die in dieser Anleitung nicht behandelt werden:
+
+<Steps>
+1. Notieren Sie Ihre Transaktions-ID oder die Unlock-Sequenznummer.
+
+2. Erstellen Sie einen Screenshot aller Fehlermeldungen.
+
+3. Wenden Sie sich mit diesen Angaben an den Mezo-Support.
+</Steps>
+
+Denken Sie daran: Überprüfen Sie Adressen immer sorgfältig und machen Sie sich mit den Gebühren vertraut, bevor Sie eine Bridge-Transaktion bestätigen.
+
+## Einzahlungsportal
+
+Einzahlungen, die sich im Rahmen des Early-Deposit-Programms noch im Portal befinden, können zurück an die BTC-Wallet des Nutzers abgehoben werden. Die Abhebungsgebühren aus dem Portal für BTC hängen von den in der tBTC Bridge festgelegten Parametern ab. Derzeit erhebt tBTC eine Servicegebühr der tBTC Bridge von 0,2 % und eine Netzwerkgebühr der tBTC Bridge von bis zu 0,001 BTC (in der Regel deutlich weniger); diese Parameter werden per Governance gesteuert und können in der [Dokumentation zu den tBTC-Gebühren](https://docs.threshold.network/tbtc-v2#fees) eingesehen werden.

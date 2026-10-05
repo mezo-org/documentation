@@ -1,6 +1,6 @@
 ---
-title: Brücke
+title: Bridge
 topic: developers
 ---
 
-Entwicklerressourcen für Mezo-Brückenkomponenten.
+Entwicklerressourcen für die Bridging-Komponenten von Mezo.

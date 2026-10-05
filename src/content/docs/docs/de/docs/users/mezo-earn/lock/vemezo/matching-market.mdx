@@ -1,0 +1,103 @@
+---
+title: Übersicht über den Matching-Markt
+description: >-
+  Wie der Matching-Markt veBTC- und veMEZO-Inhaber zum gegenseitigen Nutzen
+  zusammenbringt
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Über den Matching-Markt werden veBTC und veMEZO miteinander gepaart. Er ermöglicht BTC-Inhabern Zugang zu Boost, ohne MEZO zu halten, und MEZO-Inhabern, Rendite zu erzielen, ohne nennenswerte Mengen an BTC zu halten.
+
+## Welches Problem er löst
+
+Das Zwei-Token-System von Mezo erfordert sowohl veBTC als auch veMEZO, um die Stimmkraft zu maximieren. Aber nicht jeder hält beides:
+
+- **BTC-lastige Nutzer** möchten den 5x-Boost, haben aber möglicherweise kein MEZO
+- **MEZO-lastige Nutzer** haben veMEZO, aber nur wenig BTC, mit dem sie abstimmen können
+
+Der Matching-Markt verbindet diese beiden Seiten.
+
+---
+
+## So funktioniert es
+
+Jede veBTC-Position hat einen eigenen Boost-Gauge. Dieser Gauge verteilt keine Emissionen – er bestimmt, wie viel veMEZO-Boost diese veBTC-Position erhält.
+
+### Der Ablauf
+
+1. **Der veBTC-Inhaber sperrt BTC** → Er erhält ein veBTC-NFT mit einem zugehörigen Boost-Gauge
+2. **Der veBTC-Inhaber lobt Anreize (Incentives) aus** → Er zahlt Token (beliebige ERC-20) in seinen Boost-Gauge ein, um veMEZO-Stimmen anzuziehen
+3. **veMEZO-Inhaber stimmen ab** → Sie teilen attraktiven Boost-Gauges veMEZO-Gewicht zu
+4. **Der Boost wird angewendet** → Der Multiplikator der veBTC-Position steigt entsprechend den erhaltenen veMEZO-Stimmen
+5. **Anreize werden beansprucht** → veMEZO-Wähler beanspruchen am Ende der Epoche ihren Anteil an den Anreizen
+
+---
+
+## Zwei Seiten des Marktes
+
+### Wenn Sie BTC-lastig sind
+
+Sie möchten Boost, haben aber nicht genug MEZO. Ihre Möglichkeiten:
+
+- Anreize auf Ihrem veBTC-Gauge ausloben, um veMEZO-Stimmen anzuziehen
+- Für Boost bezahlen, statt selbst MEZO zu sperren
+- Der Markt bestimmt den aktuellen Preis für Boost
+
+### Wenn Sie MEZO-lastig sind
+
+Sie haben veMEZO, aber nur wenig BTC. Ihre Möglichkeiten:
+
+- Für gut incentivierte veBTC-Gauges abstimmen, um Rendite zu erzielen
+- Boost als Dienstleistung für BTC-Inhaber anbieten, die dafür zahlen möchten
+- Erträge auf Ihre MEZO erzielen, ohne ein nennenswertes BTC-Engagement zu benötigen
+
+---
+
+## Warum das wichtig ist
+
+Der Matching-Markt macht Boost zu einer bepreisten, handelbaren Dienstleistung:
+
+- **Boost hat einen Marktpreis**, der durch Angebot und Nachfrage bestimmt wird
+- **Nutzer müssen nicht beide Token halten**, um vom System zu profitieren
+- **Die Kapitaleffizienz steigt** – BTC-Inhaber konzentrieren sich auf BTC, MEZO-Inhaber auf MEZO
+
+Ohne den Matching-Markt müssten Nutzer beide Token in proportionalen Mengen halten, um effektiv teilnehmen zu können. Der Markt beseitigt diese Hürde.
+
+---
+
+## Wichtige Begriffe
+
+| Begriff | Definition |
+|---|---|
+| Boost-Gauge | Ein Gauge, der an jedes veBTC-NFT gekoppelt ist und veMEZO-Stimmen erhält |
+| Anreize | Token, die veBTC-Inhaber ausloben, um veMEZO-Stimmen anzuziehen |
+| Boost-Anbieter | Ein veMEZO-Inhaber, der gegen Anreize für die Boost-Gauges anderer abstimmt |
+| Boost-Suchender | Ein veBTC-Inhaber, der Anreize auslobt, um veMEZO-Stimmen anzuziehen |
+
+---
+
+## Matchbox
+
+:::caution[Haftungsausschluss für Community-Tools]
+Die aktuelle Implementierung des Matching-Markts (Matchbox) ist ein von der Community entwickeltes Tool. Es wird nicht offiziell von Mezo entwickelt, gepflegt oder unterstützt. Nutzer sollten eigene Recherchen anstellen und beim Umgang mit Anwendungen von Drittanbietern Vorsicht walten lassen.
+:::
+
+<LinkButton href="https://matchbox.markets/">veBTC- + veMEZO-Matching-Protokoll – verdienen Sie Bribes mit Ihrem veMEZO oder bezahlen Sie für einen Boost</LinkButton>
+
+Ausführliche Tutorials dazu, wie Sie mit Matchbox Ihre Erträge auf Mezo boosten, finden Sie in der [Matchbox-Dokumentation](https://matchbox.markets/docs).
+
+---
+
+## Risiken
+
+Als von der Community entwickeltes Tool birgt der Matching-Markt zusätzliche Risiken:
+
+- **Smart-Contract-Risiko** – Die Contracts wurden möglicherweise nicht nach demselben Standard auditiert wie das Kernprotokoll von Mezo
+- **Kein offizieller Support** – Mezo kann bei Problemen mit dem Matching-Markt keinen Support und keine Hilfe leisten
+- **Betriebsrisiko** – Das Tool kann ohne Vorankündigung geändert oder eingestellt werden oder ausfallen
+
+:::note[Hinweis]
+Bei Fragen oder Supportanliegen zum Matching-Markt wenden Sie sich bitte direkt an die Entwickler aus der Community. Der Mezo-Support kann bei Tools von Drittanbietern nicht helfen.
+:::
