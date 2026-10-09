@@ -1,5 +1,6 @@
 ---
 title: MUSD Redemptions
+description: How to redeem MUSD on Mezo, including the redemption flow and what to expect.
 topic: developers
 ---
 

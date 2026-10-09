@@ -1,5 +1,6 @@
 ---
 title: Connect your wallet to Mezo
+description: How to connect a browser wallet to Mezo Mainnet or Testnet using Chainlist network details.
 topic: users
 ---
 

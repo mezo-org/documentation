@@ -1,5 +1,6 @@
 ---
 title: dApp Requirements
+description: Requirements for dApps to be featured in the Mezo Market, including MUSD integration and promotional criteria.
 topic: developers
 ---
 
