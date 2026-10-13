@@ -13,20 +13,20 @@ You can deposit and withdraw assets to and from Mezo using the Mezo Native Bridg
 
 ## Mezo Native Bridge Deposits
 
-The Mezo app includes a native bridge where you can deposit several assets to Mezo Mainnet. See the [Deposit Assets](/docs/users/getting-started/deposit-assets) guide to learn how the process works, or go directly to [mezo.org/overview](https://mezo.org/overview), sign in, and click **Deposit Bitcoin** to get started.
+The Mezo app includes a native bridge where you can deposit several assets from Ethereum to Mezo Mainnet. See the [Deposit Assets](/docs/users/getting-started/deposit-assets) guide to learn how the process works, or go directly to [mezo.org/overview](https://mezo.org/overview), sign in with an EVM wallet, and click **Deposit** to get started.
 
 :::note[Note]
-All transactions on Mezo Mainnet are paid using native BTC or tBTC deposits. Before using the network, it's recommended to fund your account with BTC or tBTC to ensure you have gas to pay for transactions.
+All transactions on Mezo Mainnet are paid in BTC. tBTC deposited from Ethereum arrives as BTC on Mezo, so it's recommended to fund your account with tBTC to ensure you have gas to pay for transactions.
 :::
 
 
-## Native BTC Deposits
+## Native BTC Bridge-in (ended)
 
-You can deposit BTC directly from a Bitcoin wallet to the Mezo App. Assets are automatically bridged to tBTC and to Mezo Mainnet.
+As of October 13, 2026, the Native BTC Bridge-in is closed and the Mezo app no longer accepts deposits from Bitcoin wallets. Bridge-outs directly to BTC remain available (see [Bridging to Bitcoin](#bridging-to-bitcoin-for-native-btc-only)). To bring BTC to Mezo, deposit tBTC from Ethereum instead. It settles in minutes and has no minimum. See [Deposit Assets](/docs/users/getting-started/deposit-assets).
 
-Native BTC is bridged to tBTC before being bridged into the [Mezo App contract](/docs/users/resources/contracts-reference).
+If you hold BTC in a Bitcoin wallet, create a Mezo account with an EVM wallet and manage deposits from there. If you started a native deposit before October 13, see [Track Your Native Bitcoin Deposit](/docs/users/mainnet/track-your-native-bitcoin-deposit).
 
-For BTC wallets, you can sign in with UniSat, OKX, and Xverse. Use the following addresses:
+Accounts that sign in with a Bitcoin wallet (UniSat, OKX, Xverse) can move their assets to an EVM wallet on Mezo under **Transact > Send** in the Mezo app (see [Send Assets](/docs/users/passport/send-assets)), then deposit and manage everything from that wallet. They can also still [withdraw BTC to Bitcoin](#bridging-to-bitcoin-for-native-btc-only). Bitcoin wallets use the following address types:
 
 | Name           | Script Type | Address Prefix |
 | -------------- | ----------- | -------------- |
@@ -259,7 +259,10 @@ A: Most transactions bridging funds to Ethereum via Native Bridge complete withi
 **Q: What networks can I bridge to?**
 A: Assets can be bridged between Ethereum, Mezo, Base, and Bitcoin. Additional network support will be added in the future.
 
-**Q: My native Bitcoin deposit hasn't appeared yet. How do I check its status?**
+**Q: Can I still deposit BTC from a Bitcoin wallet?**
+A: No. The Native BTC Bridge-in closed on October 13, 2026. Deposit tBTC from Ethereum with an EVM wallet instead. See [Deposit Assets](/docs/users/getting-started/deposit-assets). Bridge-outs directly to BTC remain available.
+
+**Q: A native Bitcoin deposit I started before October 13 hasn't appeared yet. How do I check its status?**
 A: See [Track Your Native Bitcoin Deposit](/docs/users/mainnet/track-your-native-bitcoin-deposit) for a step-by-step guide on using tBTCScan to verify your deposit status.
 
 **Q: Who pays for the gas on the destination network?**
