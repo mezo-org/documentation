@@ -1,5 +1,6 @@
 ---
 title: Connect your wallet to Mezo
+description: Add Mezo Mainnet or Testnet to a browser wallet through Chainlist or manually, with chain IDs, public RPC endpoints, and network details.
 topic: users
 ---
 
