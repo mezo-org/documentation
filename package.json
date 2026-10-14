@@ -3,12 +3,13 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "npm run process-gitbook && astro dev",
-    "start": "npm run process-gitbook && astro dev",
-    "build": "node -e \"const fs=require('node:fs'); fs.rmSync('.astro', { recursive: true, force: true }); fs.rmSync('node_modules/.astro', { recursive: true, force: true }); fs.rmSync('node_modules/.vite', { recursive: true, force: true });\" && npm run process-gitbook && astro build && npx lunaria build && node scripts/postbuild-copy-sitemaps.js",
+    "dev": "npm run process-gitbook && npm run generate:page-md && astro dev",
+    "start": "npm run process-gitbook && npm run generate:page-md && astro dev",
+    "build": "node -e \"const fs=require('node:fs'); fs.rmSync('.astro', { recursive: true, force: true }); fs.rmSync('node_modules/.astro', { recursive: true, force: true }); fs.rmSync('node_modules/.vite', { recursive: true, force: true });\" && npm run process-gitbook && npm run generate:page-md -- --strict && astro build && npx lunaria build && node scripts/postbuild-copy-sitemaps.js",
     "preview": "astro preview",
     "astro": "astro",
     "process-gitbook": "node scripts/process-gitbook.js",
+    "generate:page-md": "node scripts/generate-page-md.js",
     "lint-fix": "npx prettier . --write",
     "linkcheck-local": "node scripts/linkcheck.js http://localhost:4321/docs"
   },
