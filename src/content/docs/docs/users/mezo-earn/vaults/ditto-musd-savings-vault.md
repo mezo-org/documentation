@@ -1,6 +1,8 @@
 ---
 title: Ditto MUSD Savings Vault
-description: Deposit MUSD on Mezo and receive dMUSD for an automated cross-chain vault with an initial allocation to Spark Savings
+description: >-
+  Deposit MUSD on Mezo and receive dMUSD for an automated cross-chain vault with
+  an initial allocation to Spark Savings
 topic: users
 ---
 

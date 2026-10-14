@@ -1,6 +1,8 @@
 ---
 title: USDC Lending Vault
-description: Supply mUSDC to the BTC-backed Morpho lending market on Mezo and earn borrower interest or MEZO emissions
+description: >-
+  Supply mUSDC to the BTC-backed Morpho lending market on Mezo and earn borrower
+  interest or MEZO emissions
 topic: users
 ---
 
