@@ -1,6 +1,6 @@
 ---
 title: MUSD Redemptions
-description: How to redeem MUSD on Mezo, including the redemption flow and what to expect.
+description: Step-by-step guide to redeeming MUSD for BTC by calling redeemCollateral on the TroveManager contract, with gas-saving hints, fees, and contract addresses.
 topic: developers
 ---
 
