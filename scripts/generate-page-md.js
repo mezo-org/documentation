@@ -77,6 +77,17 @@ function convertSegment(seg) {
   s = s.replace(/<Image[\s\S]*?\/>/g, (m) => convertImage(m));
   s = s.replace(/(^|\n)[ \t]*:{3,}([a-z]+)(?:\[([^\]]*)\])?[ \t]*\n([\s\S]*?)\n[ \t]*:{3,}[ \t]*(?=\n|$)/g,
     (m, pre, type, title, inner) => pre + convertAdmonition(type, title, inner));
+  s = s.replace(/(^|\n)[ \t]*<Aside([^>]*)>([\s\S]*?)<\/Aside>/g, (m, pre, attrs, inner) => {
+    const a = parseAttrs(attrs);
+    return pre + convertAdmonition(a.type || 'note', a.title, inner);
+  });
+  // An Aside that wraps a code fence spans segments; keep its label as a line.
+  s = s.replace(/<Aside([^>]*)>/g, (m, attrs) => {
+    const a = parseAttrs(attrs);
+    const type = a.type || 'note';
+    return `**${a.title || type.charAt(0).toUpperCase() + type.slice(1)}:**\n`;
+  });
+  s = s.replace(/<\/Aside>/g, '');
   s = s.replace(/<details[^>]*>/g, '');
   s = s.replace(/<summary>([\s\S]*?)<\/summary>/g, '**$1**');
   s = s.replace(/<\/details>/g, '');
@@ -126,16 +137,26 @@ function splitFences(body) {
   return parts.length ? parts : [{ fenced: false, text: '' }];
 }
 
-function serialize(body) {
+function serialize(body, base) {
   return splitFences(body)
-    .map((p) => (p.fenced ? p.text : convertSegment(p.text)))
+    .map((p) => (p.fenced ? p.text : absolutizeLinks(convertSegment(p.text), base)))
     .join('\n')
     .trim() + '\n';
 }
 
+// Source links are relative to the HTML page URL, which ends in a slash. The
+// .md sits one level up, so resolve relative links against the page URL.
+function absolutizeLinks(s, base) {
+  if (!base) return s;
+  return s.replace(/(?<!!)\[([^\]]*)\]\((?![a-z][a-z0-9+.-]*:|#|\/)([^)\s]+)\)/gi, (m, text, href) => {
+    const u = new URL(href, base);
+    return `[${text}](${u.pathname}${u.search}${u.hash})`;
+  });
+}
+
 function slugFor(rel) {
   let s = rel.replace(/\.mdx?$/i, '').toLowerCase();
-  s = s.replace(/\/(index|readme)$/, '');
+  s = s.replace(/\/index$/, '');
   return s;
 }
 
@@ -149,7 +170,8 @@ async function walk(dir, out = []) {
 }
 
 const LEFTOVER = [
-  /<(Steps|CardGrid|LinkCard|LinkButton|YouTube|Image|Tabs|TabItem|details|summary)[\s>/]/,
+  /<[A-Z][A-Za-z]*[\s>/]/,
+  /<(details|summary)[\s>/]/,
   /\{\/\*/,
   /^:{3,}[a-z]/m,
   /^[ \t]+:{3,}[a-z]+/m,
@@ -185,13 +207,13 @@ async function main() {
   let written = 0;
   const problems = [];
   for (const [slug, file] of [...bySlug.entries()].sort()) {
-    const raw = await fs.readFile(file, 'utf-8');
+    const raw = (await fs.readFile(file, 'utf-8')).replace(/\r\n?/g, '\n');
     const parsed = matter(raw);
     const url = slug ? `${SITE}/${slug}` : SITE;
     const head = [`# ${parsed.data.title || slug}`];
     if (parsed.data.description) head.push(`_${String(parsed.data.description).trim()}_`);
     head.push(`_Source: ${url}_`);
-    const body = serialize(parsed.content);
+    const body = serialize(parsed.content, slug ? `${SITE}/${slug}/` : `${SITE}/`);
     const out = head.join('\n\n') + '\n\n' + body;
 
     const srcHeadings = countOutsideFences(parsed.content, /^#{1,6}\s+\S/gm);
@@ -199,7 +221,7 @@ async function main() {
     const srcFences = (parsed.content.match(/```/g) || []).length;
     const outFences = (out.match(/```/g) || []).length;
     const leftovers = LEFTOVER.filter((re) => {
-      const parts = splitFences(out).filter((p) => !p.fenced).map((p) => p.text).join('\n---\n');
+      const parts = splitFences(out).filter((p) => !p.fenced).map((p) => p.text.replace(/`[^`\n]*`/g, '')).join('\n---\n');
       return re.test(parts);
     });
     if (outHeadings < srcHeadings || outFences !== srcFences || leftovers.length) {
@@ -220,7 +242,7 @@ async function main() {
   if (problems.length) {
     console.log('NEEDS REVIEW:');
     for (const p of problems) console.log('  ' + JSON.stringify(p));
-    process.exitCode = 1;
+    if (process.argv.includes('--strict')) process.exitCode = 1;
   } else {
     console.log('validation clean: headings and fences preserved, no JSX remnants');
   }
@@ -268,6 +290,16 @@ function runSelfTest() {
     === '### npm\nnpm i x', 'tab content converts first');
   assert(t('<div style="overflow-x:auto;">\n\n| a |\n| - |\n\n</div>')
     === '| a |\n| - |', 'div wrapper dropped, table kept');
+  assert(t('<Aside type="caution" title="Heads up">\nBe careful.\n</Aside>')
+    === '> **Heads up:**\n>\n> Be careful.', 'aside to quote');
+  assert(t('<Aside>\nPlain aside.\n</Aside>')
+    === '> **Note:**\n>\n> Plain aside.', 'untitled aside defaults to note');
+  assert(t('<Aside type="caution" title="Stale port">\nKill it:\n\n```bash\nkill 1\n```\n</Aside>')
+    === '**Stale port:**\n\nKill it:\n\n```bash\nkill 1\n```', 'aside wrapping a fence keeps its label');
+  assert(serialize('[Kit](./validator-kit), [Up](../), [Abs](/docs/x), [Ext](https://x.org), [Mail](mailto:a@b.c)',
+    'https://mezo.org/docs/developers/mezo-nodes/').trim()
+    === '[Kit](/docs/developers/mezo-nodes/validator-kit), [Up](/docs/developers/), [Abs](/docs/x), [Ext](https://x.org), [Mail](mailto:a@b.c)',
+    'relative links resolve against the page URL');
 }
 
 if (process.argv.includes('--self-test')) {

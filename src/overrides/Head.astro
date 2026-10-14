@@ -107,7 +107,7 @@ if (howToConfig) {
 const mdPath = Astro.url.pathname.replace(/\/$/, '') + '.md';
 let hasMdRepresentative = false;
 try {
-  hasMdRepresentative = fs.existsSync(new URL('../../public' + mdPath, import.meta.url));
+  hasMdRepresentative = fs.existsSync('public' + mdPath);
 } catch {
   // noop
 }
