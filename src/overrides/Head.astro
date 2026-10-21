@@ -101,6 +101,16 @@ if (howToConfig) {
     }
   }
 }
+
+// Markdown representative for AI consumers (per-page .md, see scripts/generate-page-md.js).
+// Only emitted when the matching .md file was generated for this path.
+const mdPath = Astro.url.pathname.replace(/\/$/, '') + '.md';
+let hasMdRepresentative = false;
+try {
+  hasMdRepresentative = fs.existsSync('public' + mdPath);
+} catch {
+  // noop
+}
 ---
 
 {/*
@@ -125,4 +135,9 @@ if (howToConfig) {
 {/* HowTo — HowTo pages only */}
 {howToSchema && (
   <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+)}
+
+{/* Markdown representative for AI consumers */}
+{hasMdRepresentative && (
+  <link rel="alternate" type="text/markdown" href={mdPath} />
 )}
