@@ -182,7 +182,7 @@ The comprehensive earning and governance system on Mezo, encompassing locking ([
 
 ## MEZO Gauge
 
-A [non-staking gauge](#non-staking-gauge) that veMEZO holders vote on to direct MEZO emissions to MUSD liquidity pools outside Mezo — Curve and Uniswap on Ethereum, and Aerodrome on Base. Funded from the non-staking branch of emissions (currently 8% of weekly emission rewards). See [MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges).
+A [non-staking gauge](#non-staking-gauge) that veMEZO holders vote on to direct MEZO emissions to MUSD liquidity pools outside Mezo — Curve and Uniswap on Ethereum, and Aero on Base. Funded from the non-staking branch of emissions (currently 8% of weekly emission rewards). See [MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Mezo Market
 
