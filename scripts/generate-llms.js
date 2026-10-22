@@ -55,7 +55,10 @@ async function main() {
   const pages = [];
   for (const f of files.sort()) {
     const rel = path.relative(MD_DIR, f).split(path.sep).join('/').replace(/\.md$/, '');
-    const group = rel.startsWith('developers/') ? 'Developers' : rel.startsWith('users/') ? 'Users' : 'Other';
+    // `users` and `developers` are the topic landing pages; keep them in their
+    // own section rather than the catch-all.
+    const group = /^developers(\/|$)/.test(rel) ? 'Developers' : /^users(\/|$)/.test(rel) ? 'Users' : 'Other';
+    const landing = rel === 'developers' || rel === 'users';
     const { title, description, source, body } = parsePageMd(await fs.readFile(f, 'utf-8'));
     if (!title) {
       console.error(`generate-llms: missing title in ${f}`);
@@ -63,11 +66,16 @@ async function main() {
       return;
     }
     const url = `${SITE}/${rel}.md`;
-    pages.push({ rel, group, title, description, source: source || url, body, url });
+    pages.push({ rel, group, landing, title, description, source: source || url, body, url });
   }
 
   const order = { Users: 0, Developers: 1, Other: 2 };
-  pages.sort((a, b) => order[a.group] - order[b.group] || a.title.localeCompare(b.title));
+  pages.sort(
+    (a, b) =>
+      order[a.group] - order[b.group] ||
+      Number(b.landing) - Number(a.landing) ||
+      a.title.localeCompare(b.title),
+  );
 
   const index = [
     '# Mezo Documentation',
