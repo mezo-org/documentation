@@ -1,7 +1,7 @@
 ---
 title: Where Your Vote Goes
 description: >-
-  How veMEZO voting weight becomes incentives on Curve, Uniswap, and Aerodrome
+  How veMEZO voting weight becomes incentives on Curve, Uniswap, and Aero
   pools
 topic: users
 ---
@@ -30,41 +30,41 @@ See [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incent
 
 ---
 
-## MEZO as voting incentives on Aerodrome
+## MEZO as incentives on Aero
 
-Aerodrome gauges work differently, because Aerodrome is itself a ve(3,3) system with its own weekly vote. Take USDC/MUSD as an example. MEZO does not go to Aerodrome LPs directly. It is deposited as a **voting incentive** on the Aerodrome gauge for that pool, paid to the veAERO holders who vote for it.
+Aero pools work differently, because Aero runs its own reward system. sAERO holders allocate to pools, and those allocations direct **AERO Rewards** to each pool's LPs. sAERO replaced veAERO when Aerodrome became Aero.
 
-Those veAERO votes are what direct **AERO emissions** to the pool. The MEZO buys AERO emissions for the pool, and it is the AERO that reaches LPs. The same path applies to MEZO/MUSD on Aerodrome.
+Take USDC/MUSD as an example. MEZO does not go to Aero LPs directly. It is deposited on the Aero gauge for that pool as an **incentive**, which Aero calls a Liquidity Payment, and it pays the sAERO holders who allocate to the pool.
 
-Mechanically, the MEZO is claimed on Mezo, bridged to Base, and deposited on the Aerodrome gauge by an allocator contract. This runs automatically each epoch.
+Those allocations are what direct AERO Rewards to the pool. The MEZO buys AERO Rewards for the pool, and it is the AERO that reaches LPs. The same path applies to MEZO/MUSD on Aero.
 
-### The two-epoch lag
+Mechanically, the MEZO is claimed on Mezo, bridged to Base, and deposited on the Aero gauge by an allocator contract. This runs automatically each epoch.
 
-Aerodrome's vote is a week ahead of the incentive it responds to, which puts a gap between your vote and the liquidity it buys:
+:::caution[Reconnecting after the Aero upgrade]
+Aerodrome's old gauges shut down when Aero launched on October 22, 2026. Mezo is connecting the allocator to the new Aero gauges. Until that's done, MEZO directed to the Base gauges stays on Mezo and is not bridged.
+:::
 
-| Epoch | What happens |
-|---|---|
-| **N** | You vote on Mezo. Epoch closes and the allocation is fixed. |
-| **N+1** | MEZO is deposited as a voting incentive on the Aerodrome gauge. veAERO holders vote on it during this epoch. |
-| **N+2** | AERO emissions flow to the pool, and LPs earn them. |
+### Timing on Aero
 
-**Votes cast in epoch N produce AERO emissions in epoch N+2.** This is a property of how Aerodrome sequences its own epochs as opposed to a delay Mezo adds.
+Aero has no weekly vote. sAERO holders allocate continuously, and incentives and AERO Rewards stream to them and to LPs instead of paying out at an epoch flip.
+
+The weekly step is on the Mezo side. After the epoch closes, the MEZO is bridged and deposited on the Aero gauge, and the **Distribution date** on the Vote page shows when. From there it streams to the sAERO holders allocated to the pool.
 
 ---
 
 ## Capturing the value you direct
 
-Directing emissions is influence, not yield. The MEZO you send to a destination pool goes to the people on that pool — Merkl claimants on Curve and Uniswap, veAERO voters on Aerodrome. It does not come back to you as a MEZO Gauge voter.
+Directing emissions is influence, not yield. The MEZO you send to a destination pool goes to the people on that pool — Merkl claimants on Curve and Uniswap, sAERO holders on Aero. It does not come back to you as a MEZO Gauge voter.
 
 What you earn directly as a voter is your share of **incentives posted on the MEZO Gauge itself**, in proportion to your share of that gauge's votes.
 
-To capture the emissions themselves, you have to be on both sides of the loop. On Aerodrome, using USDC/MUSD as an example:
+To capture the emissions themselves, you have to be on both sides of the loop. On Aero, using USDC/MUSD as an example:
 
 <Steps>
-1. **LP** into the pool on Aerodrome and stake in its gauge.
+1. **LP** into the pool on Aero.
 2. **Vote** for that pool's MEZO Gauge on Mezo, with veMEZO.
-3. **Vote** for the corresponding Aerodrome gauge on Base, with veAERO.
-4. **Collect** AERO for the LP position, and the MEZO voting incentive for the veAERO vote.
+3. **Allocate** sAERO to the same pool on Aero.
+4. **Collect** AERO Rewards for the LP position, and the MEZO incentive for the sAERO allocation.
 </Steps>
 
 On Curve and Uniswap the loop is shorter: LP into the pool, vote for its MEZO Gauge, and claim the campaign on Merkl as an LP.
@@ -77,6 +77,6 @@ Running the full loop is optional. Plenty of veMEZO holders will vote purely to 
 
 ## Next steps
 
-- [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — claim on Merkl or Aerodrome
+- [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — claim on Merkl or Aero
 - [How to Vote on MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — the walkthrough
 - [MEZO Gauges Overview](/docs/users/mezo-earn/vote/mezo-gauges) — eligible pools and funding

@@ -94,6 +94,6 @@ Weekly emissions flow through a splitter system:
 
 4. **Validators** operate Mezo chain nodes. They receive a fixed share of MEZO emissions (20%) via the Chain Splitter.
 
-5. **Ecosystem Splitter** directs the remaining 80% between staking gauges and non-staking gauges, currently 90/10. The non-staking branch, about 8% of emission rewards, funds [MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges), where veMEZO holders vote to send MEZO to MUSD pools on Curve, Uniswap, and Aerodrome.
+5. **Ecosystem Splitter** directs the remaining 80% between staking gauges and non-staking gauges, currently 90/10. The non-staking branch, about 8% of emission rewards, funds [MEZO Gauges](/docs/users/mezo-earn/vote/mezo-gauges), where veMEZO holders vote to send MEZO to MUSD pools on Curve, Uniswap, and Aero.
 
 6. **Staking Gauges** receive the largest share of emissions. LPs who stake their LP tokens and MUSD savers who stake their receipt tokens earn MEZO here. In exchange, they give up direct trading fees—those flow to veBTC voters instead.
