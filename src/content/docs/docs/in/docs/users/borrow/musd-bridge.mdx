@@ -1,0 +1,72 @@
+---
+title: MUSD Bridge
+description: >-
+  Wormhole के Native Token Transfer प्रोटोकॉल का इस्तेमाल करके Ethereum, Base और
+  Mezo के बीच MUSD टोकन ब्रिज करना सीखें।
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+[MUSD](https://mezo.org/feature/musd) ब्रिज, Wormhole के Native Token Transfer (NTT) प्रोटोकॉल का इस्तेमाल करके Mezo, Ethereum और Base नेटवर्क के बीच ट्रांसफ़र संभव बनाता है। यह ब्रिज सुरक्षित क्रॉस-चेन सुविधा देते हुए टोकन की फंजिबिलिटी बनाए रखता है।
+
+## यह कैसे काम करता है
+
+MUSD ब्रिज क्रॉस-चेन ट्रांसफ़र के लिए Wormhole के Native Token Transfer प्रोटोकॉल का इस्तेमाल करता है:
+
+- **Mezo से Ethereum/Base पर**: MUSD टोकन Mezo पर लॉक किए जाते हैं और डेस्टिनेशन चेन पर उतने ही टोकन मिंट किए जाते हैं
+- **Ethereum/Base से Mezo पर**: MUSD टोकन सोर्स चेन पर बर्न किए जाते हैं और Mezo पर उतने ही टोकन अनलॉक किए जाते हैं
+
+यह व्यवस्था सुनिश्चित करती है कि सभी चेन पर कुल सप्लाई स्थिर रहे, और यूज़र्स अपने टोकन एक नेटवर्क से दूसरे नेटवर्क पर आसानी से ले जा सकें।
+
+## ब्रिज के विकल्प
+
+MUSD टोकन ब्रिज करने के लिए दो यूज़र इंटरफ़ेस उपलब्ध हैं:
+
+### Mezo dApp
+
+[Mezo dApp](https://mezo.org) में Mezo और Ethereum नेटवर्क के बीच MUSD टोकन ट्रांसफ़र करने के लिए नेटिव ब्रिजिंग की सुविधा मिलती है।
+
+<Steps>
+1. Mezo dApp से **अपना वॉलेट कनेक्ट करें**
+
+2. Mezo से ब्रिज करने के लिए **"Withdraw" पर क्लिक करें**, या Mezo पर ब्रिज करने के लिए **"Deposit"** पर
+
+3. **MUSD टोकन चुनें** और राशि दर्ज करें
+
+4. अपने वॉलेट में **ट्रांज़ैक्शन कन्फ़र्म करें**
+
+5. दोनों चेन पर **कन्फ़र्मेशन का इंतज़ार करें**
+</Steps>
+
+### Portal Bridge UI
+
+MUSD टोकन को Base या Ethereum पर ब्रिज करने के लिए आप [Portal UI](https://portalbridge.com/) का इस्तेमाल भी कर सकते हैं:
+
+<Steps>
+1. Portal इंटरफ़ेस से **अपना वॉलेट कनेक्ट करें**
+
+2. **सोर्स और डेस्टिनेशन चेन चुनें** (Mezo ↔ Ethereum ↔ Base)
+
+3. ब्रिज करने वाले टोकन के रूप में **MUSD चुनें**
+
+4. आप जितना ब्रिज करना चाहते हैं, **वह राशि दर्ज करें**
+
+5. फीस और अनुमानित समय सहित **ट्रांज़ैक्शन का विवरण जांचें**
+
+6. अपने वॉलेट में **ट्रांज़ैक्शन कन्फ़र्म करें**
+
+7. दोनों चेन पर **कन्फ़र्मेशन का इंतज़ार करें**
+</Steps>
+
+दोनों इंटरफ़ेस इस्तेमाल में आसान हैं और पीछे काम करने वाले NTT कॉन्ट्रैक्ट के साथ होने वाले सभी जटिल इंटरैक्शन खुद संभाल लेते हैं।
+
+## स्मार्ट कॉन्ट्रैक्ट
+
+MUSD ब्रिज और टोकन के सभी कॉन्ट्रैक्ट एड्रेस के लिए [कॉन्ट्रैक्ट और टोकन एड्रेस](../../resources/contracts-reference) संदर्भ पेज देखें।
+
+## अतिरिक्त संसाधन
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Wormhole NTT दस्तावेज़ीकरण</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">कॉन्ट्रैक्ट संदर्भ</LinkButton>

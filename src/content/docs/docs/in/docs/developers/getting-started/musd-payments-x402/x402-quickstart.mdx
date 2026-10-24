@@ -1,0 +1,522 @@
+---
+title: x402 के लिए क्विकस्टार्ट
+description: >-
+  शुरू से आखिर तक का वॉकथ्रू। टेस्टनेट MUSD के साथ एक वॉलेट तैयार करें, एक लाइव
+  डेमो एंडपॉइंट का भुगतान करें, फिर @x402/* SDK और साथ में आने वाले
+  @x402/paywall UI का इस्तेमाल करके वही पेवॉल वाला Express सर्वर लोकल रूप से
+  चलाएं।
+topic: developers
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import paywallLocalInitial from '../../../../../../../../assets/screenshots/x402/paywall-local-initial.png';
+
+यह क्विकस्टार्ट ऊपर से नीचे तक क्रम से चलता है। आखिर तक, आप `@x402/*` SDK का इस्तेमाल करके
+Mezo टेस्टनेट पर अपने खुद के लोकल Express सेलर सर्वर को MUSD में $0.001 का भुगतान कर चुके होंगे
+— जिसमें क्लाइंट-साइड का सारा काम `@x402/paywall` का तैयार ब्राउज़र UI करता है,
+इसलिए आपको **क्लाइंट का एक भी कोड** नहीं लिखना पड़ता।
+
+x402 क्या है, इसकी अवधारणा समझने के लिए [x402 अवलोकन](../) से शुरुआत करें।
+
+## आप क्या बनाएंगे
+
+एक सिंगल-फ़ाइल Express सर्वर, जिसका **मुख्य रूट `/`** एक
+MUSD पेमेंट के पीछे सुरक्षित है:
+
+- बिना पेमेंट के `/` पर पहुंचने वाले **ब्राउज़र** को `HTTP 402 Payment Required`
+  मिलता है, साथ में `@x402/paywall` का UI — वॉलेट कनेक्ट करना, भुगतान करना और दोबारा कोशिश करना,
+  सब आपके लिए अपने-आप होता है।
+- किसी **प्रोग्रामैटिक क्लाइंट** (`curl`, `fetch`, कोई AI एजेंट) को वही
+  `402` मिलता है, एक छोटी JSON बॉडी के साथ, और मशीन के पढ़ने लायक पेमेंट
+  आवश्यकताएं `PAYMENT-REQUIRED` रिस्पॉन्स हेडर में मिलती हैं।
+- $0.001 MUSD का पेमेंट सेटल होने के बाद, रूट अनलॉक हो जाता है और अपना
+  JSON रिस्पॉन्स लौटाता है।
+
+आप जो सर्वर बनाएंगे, वह **बिल्कुल वही कोड** है जो
+[`https://demo.vativ.io/`](https://demo.vativ.io/) पर होस्ट किया गया डेमो चलाता है — अपना वॉलेट सेटअप सही साबित करने के लिए आप पहले होस्ट किए गए
+इंस्टेंस का भुगतान करेंगे (स्टेप 3), फिर अपना खुद का इंस्टेंस खड़ा करके उसका भुगतान करेंगे
+(स्टेप 4–6)।
+
+## पूर्व-आवश्यकताएं
+
+- आपकी मशीन पर **Node.js 20+** और **pnpm 9+**।
+- EVM नेटवर्क सपोर्ट करने वाला कोई ब्राउज़र वॉलेट एक्सटेंशन (MetaMask, Rabby,
+  Coinbase Wallet, या कोई भी वॉलेट जो EIP-1193 प्रोवाइडर उपलब्ध कराता हो)।
+- **मौजूदा `@x402` SDK।** Mezo सपोर्ट डिफ़ॉल्ट रजिस्ट्री में शामिल है —
+  मेननेट `@x402/evm` v2.15.0 / Go v2.15.0 / Python v2.13.0 (2026-06-12) से,
+  और टेस्टनेट इससे पहले की रिलीज़ से। यह क्विकस्टार्ट `2.16.0` पर पिन है, यानी वह वर्ज़न
+  जिस पर होस्ट किया गया डेमो चलता है। पूरी मैट्रिक्स के लिए
+  [Mezo x402 रेफ़रेंस](../#mezo-x402-रेफ़रेंस) देखें।
+- **~20–30 मिनट।** टेस्टनेट MUSD पाने में एक फ़ॉसेट ड्रिप + उधार लेने का एक
+  ट्रांज़ैक्शन लगता है; इन्हें जल्दी कर लें (स्टेप 1–2), ताकि ज़रूरत पड़ने तक
+  ये तैयार रहें।
+
+<Aside type="tip" title="आप दो अकाउंट इस्तेमाल करेंगे: Buyer और Merchant">
+क्विकस्टार्ट एक ही वॉलेट में **दो अलग-अलग अकाउंट** इस्तेमाल करता है:
+
+- **Account A — Buyer (खरीदार)।** MUSD रखता है, API रिक्वेस्ट का भुगतान करता है।
+- **Account B — Merchant (मर्चेंट)।** पेमेंट प्राप्त करता है।
+
+दो अकाउंट इस्तेमाल करने से हर पेमेंट एक्सप्लोरर में A से B को हुए
+ट्रांसफ़र के रूप में दिखता है, और शुरू से आखिर तक अपना सेटअप जांचने का यही सबसे आसान
+तरीका है। x402 MUSD पेमेंट के लिए किसी भी अकाउंट में BTC बैलेंस की ज़रूरत नहीं है,
+क्योंकि facilitator दोनों पक्षों की ओर से गैस चुकाता है (हालांकि
+नीचे दिए गए वैकल्पिक MUSD उधार लेने वाले फ़्लो के लिए आपको BTC की ज़रूरत होगी)।
+</Aside>
+
+## स्टेप 1: अपना वॉलेट सेट अप करें
+
+### 1a. दो अकाउंट बनाएं
+
+अपने वॉलेट का अकाउंट स्विचर खोलें। आपका पहला अकाउंट **Account
+A (Buyer)** है। दूसरा अकाउंट **Account B (Merchant)** के रूप में जोड़ें, और
+कोई भी ऐसा नाम दें जिससे आप दोनों में फ़र्क कर सकें। पक्का करें कि Account A (Buyer)
+चुना हुआ/एक्टिव हो।
+
+{/* SCREENSHOT-TODO: MetaMask account switcher showing Account A (Buyer) and Account B (Merchant). */}
+
+### 1b. Mezo टेस्टनेट को नेटवर्क के रूप में जोड़ें
+
+कोई भी अकाउंट चुना हो, अपने वॉलेट की नेटवर्क सेटिंग खोलें
+और इन पैरामीटर के साथ एक कस्टम नेटवर्क जोड़ें:
+
+| फ़ील्ड | मान |
+|---|---|
+| नेटवर्क का नाम | Mezo Testnet |
+| Chain ID | `31611` |
+| RPC URL | `https://rpc.test.mezo.org` |
+| ब्लॉक एक्सप्लोरर | `https://explorer.test.mezo.org` |
+| करेंसी सिंबल | BTC |
+
+मेननेट पैरामीटर और वैकल्पिक RPC प्रोवाइडर के लिए,
+[डेवलपर एनवायरनमेंट सेट अप करें](/docs/in/docs/developers/getting-started/configure-environment) देखें।
+
+{/* SCREENSHOT-TODO: MetaMask "Add a network manually" form filled with the Mezo Testnet values above. */}
+
+## स्टेप 2: भुगतान के लिए टेस्टनेट MUSD प्राप्त करें
+
+टेस्टनेट पर MUSD **मिंट किया जाता है, फ़ॉसेट से नहीं मिलता**; आप इसे
+टेस्टनेट BTC के बदले उधार लेते हैं।
+
+<Aside type="caution" title="एक बार का न्यूनतम उधार">
+उधार की पोज़िशन खोलने के लिए न्यूनतम **2,000 MUSD** का कर्ज़ ज़रूरी है (1,800 मूलधन +
+200 MUSD गैस डिपॉज़िट)। यह प्रोटोकॉल की न्यूनतम सीमा है, हर टेस्ट की लागत नहीं —
+आप एक बार उधार लेते हैं और उसी बैलेंस को कई पेड रिक्वेस्ट में दोबारा इस्तेमाल करते हैं।
+`$0.001` प्रति कॉल के हिसाब से, एक बार लिया गया उधार लगभग बीस लाख टेस्ट
+पेमेंट के लिए काफ़ी है।
+</Aside>
+
+शुरू करने से पहले अपने वॉलेट में **Account A (Buyer)** चुनें, ताकि स्टेप 2 के सारे
+फ़ंड Account A में जाएं। Account B (Merchant) पूरे समय खाली रहता है।
+
+<Steps>
+
+1. [Mezo Faucet](https://faucet.test.mezo.org) से या [Mezo Discord](https://discord.com/invite/mezo) के `#testnet`
+   चैनल से **Account A में** टेस्टनेट BTC मंगवाएं। A के वॉलेट में
+   ड्रिप पहुंचने का इंतज़ार करें।
+
+2. Mezo टेस्टनेट पर Account A कनेक्ट करके [mezo.org/feature/borrow](https://mezo.org/feature/borrow)
+   पर MUSD उधार लें। स्क्रीनशॉट के साथ
+   पूरा वॉकथ्रू: [MUSD उधार लें और मिंट करें](/docs/in/docs/users/borrow/mint-musd/)।
+
+3. Account A का MUSD बैलेंस जांचें। टेस्टनेट MUSD टोकन कॉन्ट्रैक्ट
+   [`0x1189…Ac503`](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503) है।
+   जांचने के आपके पास दो तरीके हैं:
+
+   - **एक्सप्लोरर:**
+     `https://explorer.test.mezo.org/address/<account-A-address>` खोलें
+     (URL में Account A का `0x…` पेस्ट करें)। आपको ≥ 1,800 बैलेंस के साथ MUSD
+     दिखना चाहिए।
+   - **वॉलेट:** `0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503` को
+     कस्टम टोकन के रूप में जोड़ें। इसके बाद Account A में MUSD की एक लाइन दिखेगी।
+
+4. पक्का करें कि Account B में **शून्य** MUSD दिख रहा है — इसमें कोई MUSD नहीं होना चाहिए, और
+   स्टेप 6 तक होगा भी नहीं।
+   `https://explorer.test.mezo.org/address/<account-B-address>` पर जांचें।
+
+</Steps>
+
+अगर आप कैनॉनिकल कॉन्ट्रैक्ट एड्रेस, डेसिमल (18) की पुष्टि करना या हाल के
+ट्रांसफ़र देखना चाहते हैं, तो एक्सप्लोरर में MUSD टोकन पेज भी काम का है।
+
+## स्टेप 3: अपने वॉलेट कॉन्फ़िगरेशन का स्मोक टेस्ट करें
+
+कोई भी पैकेज इंस्टॉल करने या कोड लिखने से पहले, इस क्विकस्टार्ट के सर्वर के लाइव,
+होस्ट किए गए इंस्टेंस का भुगतान करके पक्का करें कि आपका
+वॉलेट, नेटवर्क और MUSD बैलेंस, सब तैयार हैं। इससे "क्या मैंने अपना वॉलेट सही सेट
+अप किया?" वाला सवाल, "क्या मैंने अपना सर्वर सही वायर किया?" से अलग हो जाता है।
+यहां आने वाली कोई भी दिक्कत वॉलेट या MUSD की समस्या है, कोड की नहीं।
+
+<Steps>
+
+1. [`https://demo.vativ.io/`](https://demo.vativ.io/) को उसी
+   ब्राउज़र में खोलें जिसमें आपका Mezo टेस्टनेट वॉलेट है। कनेक्ट करने से पहले **Account A (Buyer) पर
+   स्विच करें** — MUSD, A के पास है।
+
+2. पेवॉल लोड होता है। आपको ये दिखने चाहिए:
+
+   - **Payment Required** हेडिंग
+   - `Mezo x402 Quickstart — pay $0.001 in MUSD to unlock. To access
+     this content, please pay $0.001 Mezo USD.`
+   - एक टेस्टनेट संकेत (`Need Mezo USD on Mezo Testnet? Request some here.`)
+   - वॉलेट चुनने का ड्रॉपडाउन और **Connect wallet** बटन
+
+3. अपना वॉलेट चुनें और उसे Account A से कनेक्ट करें। जब वॉलेट पूछे, तो पक्का करें कि आप
+   **Mezo Testnet (chain ID `31611`)** पर हैं।
+
+4. **Pay now** पर क्लिक करें, फिर पूछे जाने पर अपने वॉलेट में पेमेंट
+   ऑथराइज़ेशन साइन करें।
+
+   {/* SCREENSHOT-TODO: MetaMask signature-request popup for the x402 payment authorization (sign typed data). */}
+
+5. पेवॉल आपके पेमेंट के साथ रिक्वेस्ट दोबारा भेजता है। जैसे ही
+   facilitator ऑन-चेन सेटल करता है, अनलॉक किया गया रिस्पॉन्स दिखता है:
+
+   ```json
+   { "ok": true, "message": "Paid! You unlocked the Mezo x402 Quickstart." }
+   ```
+
+6. ऑन-चेन पेमेंट की पुष्टि करें।
+   `https://explorer.test.mezo.org/address/<account-A-address>` खोलें
+   — आपको Account A से डेमो के रिसीविंग एड्रेस पर
+   `0.001 MUSD` का एक नया MUSD ट्रांसफ़र दिखना चाहिए
+   (`0xC337…e738` — यह एड्रेस आपको सर्वर कोड में डिफ़ॉल्ट
+   `PAY_TO` के रूप में फिर से मिलेगा; आपके Account B का बैलेंस नहीं बदलेगा)।
+
+</Steps>
+
+{/* SCREENSHOT-TODO: explorer.test.mezo.org token transfers tab for Account A showing the 0.001 MUSD outbound transfer after the smoke test payment. */}
+
+अगर अनलॉक किया गया JSON दिखता है और एक्सप्लोरर में ट्रांसफ़र दिखता है, तो आपका
+वॉलेट सेटअप सही साबित हो गया। स्टेप 4 पर आगे बढ़ें।
+
+अगर आप यहां तक नहीं पहुंचते, तो यहीं रुकें और सर्वर कोड लिखने से पहले वॉलेट की तरफ़ की
+समस्या ठीक करें — वॉलेट/MUSD से जुड़े आम लक्षणों के लिए [ट्रबलशूटिंग](#ट्रबलशूटिंग) देखें।
+इस स्टेप पर खराब वॉलेट, स्टेप 6 पर खराब सर्वर जैसा ही
+दिखेगा; इसे अभी ठीक कर लें।
+
+## स्टेप 4: x402 पैकेज इंस्टॉल करें
+
+अपने सेलर के लिए एक नया प्रोजेक्ट बनाएं:
+
+```bash
+mkdir mezo-x402-quickstart && cd mezo-x402-quickstart
+pnpm init
+pnpm add @x402/core@2.16.0 @x402/evm@2.16.0 @x402/express@2.16.0 @x402/paywall@2.16.0 express@^4.19.2
+pnpm add -D typescript tsx @types/express@^4.17.21 @types/node
+```
+
+`@x402/*` वर्ज़न `2.16.0` पर पिन किए गए हैं — वही रिलीज़ जिस पर होस्ट किया गया
+डेमो चलता है — ताकि आप जो बनाएं, वह उसी से मेल खाए जिसका आपने स्टेप 3 में भुगतान किया था।
+नई रिलीज़ भी आम तौर पर काम करती हैं; हर नेटवर्क के लिए न्यूनतम वर्ज़न जानने के लिए
+[SDK सपोर्ट मैट्रिक्स](../#sdk-सपोर्ट) देखें।
+
+<Aside type="note" title="pnpm init के डिफ़ॉल्ट के बारे में">
+`pnpm init` एक `package.json` बनाता है, जिसमें `"main": "index.js"` होता है और
+`"type": "module"` नहीं होता। यहां इन दोनों से कोई फ़र्क नहीं पड़ता — आप `server.ts` को
+`tsx` के ज़रिए चलाएंगे, जो बिना किसी कॉन्फ़िगरेशन के ESM और CommonJS, दोनों को संभालता है।
+</Aside>
+
+<Aside type="note" title="पीयर-डिपेंडेंसी चेतावनियां आना सामान्य है">
+इंस्टॉल के दौरान `pnpm` पीले रंग में पीयर-डिपेंडेंसी चेतावनियां दिखा सकता है (उदाहरण के लिए
+`Issues with peer dependencies found`, या
+`@x402/*` पीयर वर्ज़न रेंज के बारे में नोट)। ये सिर्फ़ जानकारी के लिए हैं और इस क्विकस्टार्ट के लिए इन्हें
+अनदेखा करना सुरक्षित है — जब तक दोनों `pnpm add` कमांड `0` के साथ एग्ज़िट होती हैं,
+इंस्टॉल सफल है। अगर कोई असली एरर इंस्टॉल रोक देती है, तो
+`pnpm` लाल रंग में प्रिंट करता है और नॉन-ज़ीरो कोड के साथ एग्ज़िट होता है।
+</Aside>
+
+## स्टेप 5: सेलर, एक फ़ाइल में
+
+सेलर तीन हिस्सों को आपस में जोड़ता है: एक `HTTPFacilitatorClient`,
+जो facilitator से बात करता है; एक `x402ResourceServer`, जिसमें Mezo टेस्टनेट के लिए
+`"exact"` EVM पेमेंट स्कीम रजिस्टर है; और पेवॉल प्रोवाइडर के रूप में
+साथ में आने वाला `@x402/paywall` UI। इसके बाद
+`paymentMiddleware` कॉल, `GET /` को $0.001 की कीमत के साथ सुरक्षित करती है।
+
+`mezo-x402-quickstart/` के अंदर `server.ts` बनाएं, जिसमें बिल्कुल यही
+कंटेंट हो — यह डेमो सर्वर की सोर्स फ़ाइल है, हूबहू:
+
+```typescript
+/**
+ * Mezo x402 Quickstart — the out-of-box @x402/paywall smoke test.
+ *
+ * Run this server and open http://localhost:4021/ in a browser: the
+ * @x402/paywall UI renders. That is the smoke test. The root route `/` is
+ * protected by the x402 payment middleware, so an unpaid browser GET returns
+ * HTTP 402 with the paywall; paying $0.001 in MUSD unlocks a success response.
+ *
+ *   Network:     Mezo testnet — eip155:31611 (CAIP-2)
+ *   Asset:       MUSD  0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503  (18 decimals)
+ *   Price:       $0.001 (PRICE env overrides)
+ *   Facilitator: https://facilitator.vativ.io  (verifies + settles payments)
+ *
+ *   pnpm install
+ *   pnpm exec tsx server.ts    (monorepo: pnpm --filter mezo-x402-quickstart start)
+ */
+import express from "express";
+import { paymentMiddleware, x402ResourceServer } from "@x402/express";
+import { ExactEvmScheme } from "@x402/evm/exact/server";
+import { HTTPFacilitatorClient } from "@x402/core/server";
+import { createPaywall } from "@x402/paywall";
+import { evmPaywall } from "@x402/paywall/evm";
+
+// --- Config (override any of these via environment variables) --------------
+const PORT = Number(process.env.PORT ?? 4021);
+const NETWORK = "eip155:31611"; // Mezo testnet
+const PAY_TO = process.env.PAY_TO ?? "0xC3376296a18ef364eA19287203EEd7a87f18e738";
+const FACILITATOR_URL = process.env.FACILITATOR_URL ?? "https://facilitator.vativ.io";
+const PRICE = process.env.PRICE ?? "$0.001";
+
+const app = express();
+
+// The facilitator verifies and settles x402 payments. The resource server
+// registers the "exact" EVM payment scheme for our network. @x402/evm already
+// knows Mezo testnet, so a plain "$0.001" price resolves to MUSD automatically.
+const facilitator = new HTTPFacilitatorClient({ url: FACILITATOR_URL });
+const resourceServer = new x402ResourceServer(facilitator).register(
+  NETWORK,
+  new ExactEvmScheme(),
+);
+
+// The out-of-box @x402/paywall browser UI, scoped to EVM networks.
+const paywall = createPaywall().withNetwork(evmPaywall).build();
+
+// Protect the ROOT route. A browser GET / with no payment renders the paywall.
+app.use(
+  paymentMiddleware(
+    {
+      "GET /": {
+        accepts: {
+          scheme: "exact",
+          price: PRICE,
+          network: NETWORK,
+          payTo: PAY_TO,
+        },
+        // No trailing period: the paywall appends ". To access this content, ...".
+        description: `Mezo x402 Quickstart — pay ${PRICE} in MUSD to unlock`,
+      },
+    },
+    resourceServer,
+    { appName: "Mezo x402 Quickstart", testnet: true },
+    paywall,
+  ),
+);
+
+// Unlocked content — served only after a payment settles.
+app.get("/", (_req, res) => {
+  res.json({ ok: true, message: "Paid! You unlocked the Mezo x402 Quickstart." });
+});
+
+app.listen(PORT, () => {
+  console.log(`Mezo x402 Quickstart listening on http://localhost:${PORT}/`);
+  console.log("Open it in a browser to see the @x402/paywall UI.");
+});
+```
+
+इसे ऊपर से नीचे तक पढ़ें:
+
+- **कॉन्फ़िग ब्लॉक।** एनवायरनमेंट पर निर्भर हर चीज़ एक ऐसा कॉन्स्टेंट है जिसे env से
+  बदला जा सकता है। `PAY_TO` का डिफ़ॉल्ट, होस्ट किए गए डेमो का रिसीविंग एड्रेस है —
+  वही `0xC337…e738` जो आपने स्टेप 3 की एक्सप्लोरर जांच में देखा था — और
+  स्टेप 6 में आप इसे **अपने Account B** से बदलेंगे। कीमत भी एक
+  कॉन्स्टेंट है: `PRICE` (डिफ़ॉल्ट `$0.001`) पेमेंट
+  आवश्यकताओं और पेवॉल के टेक्स्ट, दोनों में जाता है, इसलिए इसे बदलने पर (जैसे
+  `PRICE='$0.005'`) रूट की कीमत शुरू से आखिर तक बदल जाती है।
+- **`HTTPFacilitatorClient` + `x402ResourceServer`।**
+  `facilitator.vativ.io` पर मौजूद facilitator पेमेंट की जांच करता है और उन्हें सेटल करता है; रिसोर्स
+  सर्वर `eip155:31611` के लिए `"exact"` EVM स्कीम रजिस्टर करता है। एक सादी
+  डॉलर-स्ट्रिंग `price: "$0.001"` रनटाइम पर सही MUSD राशि में बदल जाती है
+  — आपके कोड में कोई टोकन एड्रेस नहीं होता।
+- **`createPaywall().withNetwork(evmPaywall).build()`।** साथ में आने वाला
+  ब्राउज़र UI, EVM नेटवर्क तक सीमित। इस प्रोवाइडर के बिना
+  मिडलवेयर एक स्टब पर लौट जाता है, जो राशियों को 6-डेसिमल
+  USDC के रूप में फ़ॉर्मैट करता है और एक "Install @x402/paywall" प्लेसहोल्डर दिखाता है।
+- **`paymentMiddleware(...)`।** `GET /` को सुरक्षित करता है। तीसरा आर्ग्युमेंट
+  पेवॉल कॉन्फ़िग है — `appName` पेज का टाइटल बन जाता है, और
+  `testnet: true` वह `Need Mezo USD on Mezo Testnet?` फ़ॉसेट
+  संकेत दिखाता है जो आपने स्टेप 3 में देखा था।
+- **अनलॉक किया गया रूट।** सादा `app.get("/")` हैंडलर सिर्फ़ तभी चलता है
+  जब मिडलवेयर किसी पेमेंट की जांच करके उसे सेटल कर चुका हो।
+
+(तकनीकी रूप से आप `PAY_TO` को Account A पर सेट करके खुद को भुगतान कर सकते हैं, लेकिन
+तब सफल पेमेंट ऑन-चेन दिखाई नहीं देता: MUSD, A से निकलकर
+A में ही पहुंचता है, इसलिए टोकन बैलेंस नहीं बदलता। दो अकाउंट से आपको एक्सप्लोरर में
+पहले/बाद का साफ़ संकेत मिलता है।)
+
+## स्टेप 6: अपना सेलर चलाएं और खुद उसका भुगतान करें
+
+<Aside type="caution" title="पहले पोर्ट 4021 पर कोई पुराना सेलर तो नहीं चल रहा, यह जांचें">
+अगर कोई प्रोसेस पहले से `localhost:4021` पर बाउंड है — जैसे कोई पिछला
+`tsx server.ts` जिसे आप बंद करना भूल गए — तो नीचे की जांचें पास हो जाएंगी, क्योंकि
+जवाब **दूसरे** प्रोसेस ने दिया, आपके प्रोसेस ने नहीं। तब ब्राउज़र में किए गए पेमेंट
+उस `PAY_TO` पर जाते हैं जिसके साथ वह पुराना सर्वर कॉन्फ़िगर था,
+न कि उस पर जो आपने अभी सेट किया। यह गड़बड़ी बिल्कुल सफलता जैसी दिखती है; कुछ गलत होने का
+एकमात्र संकेत यह है कि आपके टर्मिनल में कोई रिक्वेस्ट
+लॉग नहीं दिखता, जबकि किसी और के टर्मिनल में दिखता है।
+
+आगे बढ़ने से पहले कोई भी पुराना लिसनर बंद करें:
+
+```bash
+lsof -i :4021          # No output = port is free, skip the kill
+kill $(lsof -ti :4021) # If the command above printed anything, run this
+```
+
+या फिर किसी दूसरे पोर्ट पर चलाएं: सर्वर इसे
+एनवायरनमेंट से पढ़ता है, जैसे `PORT=5001 PAY_TO=0x… pnpm exec tsx server.ts`।
+</Aside>
+
+अपने वॉलेट को **Account B (Merchant)** पर स्विच करें, उसका `0x…` एड्रेस कॉपी करें,
+और उसी एड्रेस को रिसीविंग एड्रेस बनाकर सर्वर शुरू करें:
+
+```bash
+PAY_TO=0xYOUR_ACCOUNT_B_ADDRESS_HERE \
+  pnpm exec tsx server.ts
+```
+
+<Aside type="caution" title="PAY_TO को न छोड़ें">
+सर्वर `PAY_TO` के बिना भी आराम से शुरू हो जाता है — तब वह होस्ट किए गए
+डेमो के रिसीविंग एड्रेस पर लौट जाता है। इसके बाद आपका हर पेमेंट आपके Account B के बजाय डेमो
+मर्चेंट के पास जाता है, और रन "काम" करता दिखता है, जबकि नीचे स्टेप 6 में आपकी
+एक्सप्लोरर जांच खाली रहती है। कोई फ़ॉर्मैट जांच भी नहीं है:
+गलत टाइप किया गया एड्रेस भी बिना किसी चेतावनी के वैसे ही इस्तेमाल हो जाता है। एड्रेस
+सीधे अपने वॉलेट से कॉपी करें।
+</Aside>
+
+आपको `Mezo x402 Quickstart listening on http://localhost:4021/` दिखना चाहिए।
+अब मिडलवेयर `/` पर आने वाली बिना भुगतान वाली रिक्वेस्ट को इंटरसेप्ट करता है। क्लाइंट को
+क्या वापस मिलेगा, यह इस पर निर्भर करता है कि वह अपनी पहचान कैसे बताता है: **ब्राउज़र** (एक
+`Accept: text/html` हेडर और ब्राउज़र का `User-Agent`) को पूरा
+HTML पेवॉल पेज मिलता है; **बाकी सभी** (`curl`, `fetch`, `httpie`, कोई AI
+एजेंट) को एक छोटी JSON बॉडी मिलती है, और पेमेंट आवश्यकताएं
+`PAYMENT-REQUIRED` रिस्पॉन्स हेडर में Base64-एनकोडेड रूप में मिलती हैं। दोनों ही तरह, क्लाइंट-साइड
+कोड की ज़रूरत नहीं है।
+
+<Steps>
+
+1. सैनिटी चेक करें कि सर्वर `402` लौटाता है:
+
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}\n" http://localhost:4021/
+   # Expect: 402
+   ```
+
+   (पेवॉल **UI** सिर्फ़ ब्राउज़र में दिखता है — वह अगला
+   स्टेप है। उसी URL पर `curl -i` चलाने से `402` स्टेटस के साथ
+   `PAYMENT-REQUIRED` हेडर दिखता है, जिसमें मशीन के पढ़ने लायक पेमेंट
+   आवश्यकताएं होती हैं — इसे `base64 -d` से डिकोड करें, तो आपको वही
+   scheme/network/amount/payTo दिखेंगे जो आपके रूट कॉन्फ़िग में घोषित हैं।)
+
+2. `http://localhost:4021/` को उसी ब्राउज़र में खोलें जिसे आपने
+   स्टेप 3 में लाइव-डेमो स्मोक टेस्ट के लिए इस्तेमाल किया था। कनेक्ट करने से पहले
+   **Account A (Buyer) पर स्विच करें** — MUSD उसी अकाउंट में है।
+
+3. पेवॉल लोड होता है — स्टेप 3 जैसा ही UI, लेकिन अब आपके
+   अपने कोड से सर्व हो रहा है:
+
+   <Image
+     src={paywallLocalInitial}
+     alt="लोकल क्विकस्टार्ट सर्वर से सर्व किया गया @x402/paywall UI: Payment Required हेडिंग, रूट का विवरण टेक्स्ट, एक टेस्टनेट फ़ॉसेट संकेत, एक वॉलेट सिलेक्टर और एक Connect wallet बटन।"
+   />
+
+4. Account A कनेक्ट करें, **Mezo Testnet (chain ID `31611`)** की पुष्टि करें,
+   **Pay now** पर क्लिक करें, और अपने वॉलेट में ऑथराइज़ेशन साइन करें।
+
+5. पेवॉल रिक्वेस्ट दोबारा भेजता है। जैसे ही facilitator ऑन-चेन
+   सेटल करता है, अनलॉक किया गया JSON रिस्पॉन्स दिखता है:
+
+   ```json
+   { "ok": true, "message": "Paid! You unlocked the Mezo x402 Quickstart." }
+   ```
+
+6. ऑन-चेन A → B ट्रांसफ़र की पुष्टि करें। एक्सप्लोरर के दोनों टैब खोलें:
+
+   - Account A (डेबिट):
+     `https://explorer.test.mezo.org/address/<account-A-address>`
+   - Account B (क्रेडिट):
+     `https://explorer.test.mezo.org/address/<account-B-address>`
+
+   आपको आपके पेमेंट के टाइमस्टैम्प पर `0.001 MUSD` का एक ही MUSD ट्रांसफ़र दिखना चाहिए, जो A से
+   निकलकर B में पहुंचा हो। सेटलमेंट की जानकारी देखने के लिए किसी भी तरफ़ के
+   ट्रांज़ैक्शन हैश पर क्लिक करें,
+   जिसमें गैस चुकाने वाले facilitator का एड्रेस भी शामिल है।
+
+</Steps>
+
+{/* SCREENSHOT-TODO: explorer.test.mezo.org for Account B after payment, showing the 0.001 MUSD inbound transfer from Account A. (One side of the A→B transfer is enough; the prose above already points at both tabs.) */}
+
+<Aside type="note" title="टोकन ट्रांसफ़र देखना">
+Mezo Explorer का डिफ़ॉल्ट व्यू **Transactions** का होता है, इसलिए अपने x402 पेमेंट की जानकारी पाने के लिए आपको
+**Token transfers** टैब पर क्लिक करना होगा और फिर हर अकाउंट के सबसे हाल के टोकन ट्रांसफ़र के
+Txn hash पर क्लिक करना होगा।
+</Aside>
+
+यही पूरा लूप है: आपने अभी Mezo टेस्टनेट पर एक पेवॉल वाला HTTP रिसोर्स सर्व किया,
+Account A से उसका भुगतान किया, और ऑन-चेन MUSD को
+Account B में पहुंचते देखा।
+
+## मेननेट पर ले जाएं
+
+ऊपर का सब कुछ Mezo टेस्टनेट पर चलता है। उसी सेलर को Mezo
+मेननेट (`eip155:31612`) पर ले जाना **सिर्फ़ एक लाइन का बदलाव** है — मौजूदा SDK
+मेननेट MUSD टोकन और कैनॉनिकल सेटलमेंट प्रॉक्सी आपके लिए खुद रिज़ॉल्व कर देता है, और
+facilitator का एंडपॉइंट भी वही है।
+
+`server.ts` में, नेटवर्क कॉन्स्टेंट बदलें:
+
+```diff
+-const NETWORK = "eip155:31611"; // Mezo testnet
++const NETWORK = "eip155:31612"; // Mezo mainnet
+```
+
+| क्या | टेस्टनेट → मेननेट | बदलाव ज़रूरी है? |
+|---|---|---|
+| `NETWORK` (CAIP-2) | `eip155:31611` → `eip155:31612` | **हां — ऊपर वाली एक लाइन** |
+| `PAY_TO` | आपका टेस्टनेट एड्रेस → आपका मेननेट एड्रेस | **हां — मेननेट पर इसे हमेशा साफ़ तौर पर सेट करें** |
+| MUSD एसेट | दोनों नेटवर्क पर SDK रिज़ॉल्व करता है | नहीं — `DEFAULT_STABLECOINS` इसे मैप करता है |
+| Facilitator URL | दोनों नेटवर्क पर `facilitator.vativ.io` | नहीं — एक ही facilitator दोनों को सर्व करता है |
+| सेटलमेंट प्रॉक्सी | दोनों नेटवर्क पर कैनॉनिकल | नहीं — SDK इसे अपने-आप रिज़ॉल्व करता है |
+
+<Aside type="caution" title="मेननेट पर असली फ़ंड ट्रांसफ़र होते हैं">
+मेननेट पेमेंट **असली MUSD** में सेटल होते हैं, और facilitator गैस के लिए **असली BTC**
+चुकाता है — कोई फ़ॉसेट नहीं है। `PAY_TO` को ऐसे एड्रेस पर सेट करें जो
+मेननेट पर आपके कंट्रोल में हो (बिल्ट-इन डिफ़ॉल्ट, डेमो का एड्रेस है — मेननेट पर `PAY_TO` सेट न करने का
+मतलब है असली पैसे से किसी और को भुगतान करना)। पहले छोटे
+`price` के साथ टेस्ट करें, और रिसीविंग साइड में सिर्फ़ उतने ही फ़ंड रखें जितने का आप
+लेन-देन करना चाहते हैं।
+</Aside>
+
+
+
+## ट्रबलशूटिंग
+
+| लक्षण | कारण | समाधान |
+|---------|-------|-----|
+| रनटाइम पर `does not provide an export named 'DEFAULT_STABLECOINS'` | कोई ट्रांज़िटिव डिपेंडेंसी `@x402/paywall`/`@x402/evm` को ऐसी रिलीज़ पर पिन कर रही है, जो आपके टारगेट नेटवर्क की ज़रूरत से पुरानी है (मेननेट के लिए `≥ 2.15.0`, टेस्टनेट के लिए `≥ 2.10.0`) | <details><summary>अपने पैकेज मैनेजर के overrides के ज़रिए दोनों को किसी मौजूदा रिलीज़ पर फ़ोर्स करें</summary><br/>**pnpm** — `package.json` में (टॉप लेवल पर, `dependencies` के साथ) जोड़ें, फिर `pnpm install` चलाएं:<br/>```<br/>"pnpm": { "overrides": { "@x402/paywall": "^2.16.0", "@x402/evm": "^2.16.0" } }<br/>```<br/>**npm** — टॉप-लेवल `"overrides": { ... }`, फिर `npm install`।<br/>**yarn** — `"resolutions": { ... }`, फिर `yarn install`।<br/>दोनों पैकेज एक साथ override करें — `@x402/paywall`, `@x402/evm` से `DEFAULT_STABLECOINS` इम्पोर्ट करता है।</details> |
+| पेवॉल `$0.001` की जगह `$10000000000.00` दिखाता है | ऊपर वाला ही कारण — पुराना `@x402`, MUSD को 6-डेसिमल USDC के रूप में फ़ॉर्मैट करता है | <details><summary>वही समाधान — overrides के ज़रिए `^2.16.0` फ़ोर्स करें</summary><br/>पूरे स्निपेट (`pnpm` / `npm` / `yarn` वेरिएंट) के लिए ऊपर वाली रो देखें।</details> |
+| `install` में `@solana/kit@6.10.0` → `@solana/keys@6.10.0` रिज़ॉल्व करते समय फ़ेल होता है (कोई मेल खाता वर्ज़न नहीं) | `@x402/paywall` एक ट्रांज़िटिव Solana SDK लाता है, जिसकी `6.10.0` रिलीज़ ऐसे सब-पैकेज का रेफ़रेंस देती है जो अभी पब्लिश नहीं हुए (अपस्ट्रीम में एक अस्थायी कमी)। सिर्फ़ EVM वाले सेलर कभी Solana पेवॉल इस्तेमाल नहीं करते, फिर भी इंस्टॉल के समय यह डिपेंडेंसी रिज़ॉल्व होती है | override के ज़रिए आखिरी सही वर्ज़न पिन करें, फिर दोबारा इंस्टॉल करें: **npm** टॉप-लेवल `"overrides": { "@solana/kit": "6.9.0" }`; **pnpm** `"pnpm": { "overrides": { "@solana/kit": "6.9.0" } }`; **yarn** `"resolutions": { "@solana/kit": "6.9.0" }` |
+| `EADDRINUSE: address already in use :::4021` | कोई दूसरा प्रोसेस पोर्ट 4021 पर बाउंड है | पोर्ट किसके पास है, यह जानने के लिए `lsof -i :4021` चलाएं, या किसी खाली पोर्ट पर चलाएं: `PORT=5001 PAY_TO=0x… pnpm exec tsx server.ts` |
+| `tsx: command not found` | `tsx` dev डिपेंडेंसी इंस्टॉल नहीं हुई, या कमांड प्रोजेक्ट डायरेक्टरी के बाहर चलाई जा रही है | प्रोजेक्ट के अंदर `pnpm add -D tsx` दोबारा चलाएं; इसे `pnpm exec tsx server.ts` के रूप में चलाएं |
+| Node से `import` पर `SyntaxError` / TS सिंटैक्स एरर | Node.js &lt; 20 का इस्तेमाल | Node.js 20+ पर अपग्रेड करें (जांचने के लिए `node --version`) |
+| वॉलेट नेटवर्क बदलने को कहता है / पेमेंट कभी कन्फ़र्म नहीं होता | वॉलेट गलत Mezo नेटवर्क पर है | पक्का करें कि वॉलेट उसी chain ID पर है जिसकी सेलर उम्मीद करता है (टेस्टनेट के लिए `31611`, मेननेट के लिए `31612`) |
+| `402 Payment Required` लौटता है, लेकिन पेवॉल UI कभी नहीं दिखता | `network` स्ट्रिंग CAIP-2 आइडेंटिफ़ायर नहीं है | बिल्कुल `'eip155:31611'` या `'eip155:31612'` इस्तेमाल करें; `'mezo-testnet'` और सिर्फ़ `31611`, दोनों अस्वीकार किए जाते हैं |
+| वॉलेट "Mezo Testnet" जोड़ने से मना करता है — या जोड़ लेता है, लेकिन बैलेंस / ट्रांज़ैक्शन गलत दिखते हैं | Chain ID hex में डाली गई (जैसे `0x7A5B`), जबकि वॉलेट फ़ील्ड डेसिमल की उम्मीद करता है, या टेस्टनेट चाहिए था लेकिन मेननेट chain ID (`31612`) इस्तेमाल हुई | टेस्टनेट के लिए chain ID डेसिमल में **`31611`** डालें (मेननेट के लिए `31612`)। RPC URL भी टेस्टनेट (`https://rpc.test.mezo.org`) का होना चाहिए — मेननेट RPC के साथ टेस्टनेट chain ID बिना किसी चेतावनी के ऐसा नेटवर्क बना देती है जो असली दिखता है लेकिन उसमें कुछ नहीं होता |
+| सब कुछ "काम" करता है, लेकिन Account B को कभी MUSD नहीं मिलता | `PAY_TO` सेट नहीं किया गया (सर्वर बिना बताए होस्ट किए गए डेमो के रिसीविंग एड्रेस पर लौट जाता है), या एड्रेस गलत टाइप हुआ — कोई फ़ॉर्मैट जांच नहीं है | सर्वर बंद करें और अपने वॉलेट के Account B से सीधे कॉपी किए गए `PAY_TO=0x…` के साथ दोबारा शुरू करें; अगले पेमेंट के बाद एक्सप्लोरर दोबारा जांचें |
+| Facilitator `unsupported network` लौटाता है | `FACILITATOR_URL` को ऐसे facilitator पर override किया गया है जिसमें Mezo सपोर्ट नहीं है (जैसे `x402.org/facilitator`) | `FACILITATOR_URL` अनसेट करें — बिल्ट-इन डिफ़ॉल्ट `https://facilitator.vativ.io` दोनों Mezo नेटवर्क को सर्व करता है |
+| पेवॉल लोड होता है, लेकिन **Pay now** कभी सेटल नहीं होता, कोई एरर नहीं | वॉलेट में MUSD नहीं है, या MUSD गलत नेटवर्क पर है | स्टेप 2 फिर से देखें; पक्का करें कि टेस्टनेट MUSD टोकन कॉन्ट्रैक्ट में बैलेंस दिख रहा है |
+| स्टेप 3 का डेमो (demo.vativ.io) कभी सेटल नहीं होता | वही वॉलेट/MUSD/नेटवर्क वाली समस्या — स्टेप 4 पर जाने से पहले इसे यहीं अलग करके पहचानें | स्टेप 3 का स्मोक टेस्ट न छोड़ें; सर्वर कोड लिखने से पहले वॉलेट की तरफ़ की समस्या ठीक करें |
+| वॉलेट में पेमेंट साइन हो जाता है, लेकिन facilitator उसे अस्वीकार करता है / वेरिफ़िकेशन फ़ेल होता है | एसेट का EIP-712 डोमेन **name** हाथ से गलत बनाया गया | MUSD का EIP-712 डोमेन name **`Mezo USD`** (version `1`) है, `MUSD` सिंबल **नहीं** — मेल न खाने पर सिग्नेचर वेरिफ़िकेशन फ़ेल होता है। SDK को इसे `getDefaultAsset` के ज़रिए देने दें, या अगर आप एसेट मेटाडेटा खुद बनाते हैं, तो बिल्कुल `name: "Mezo USD", version: "1"` सेट करें |
+| अपना खुद का facilitator/settler चलाते समय: Mezo पर रुक-रुककर गैस-एस्टिमेशन फ़ेल होना | Mezo पर गैस एस्टिमेशन के लिए थोड़ी अतिरिक्त गुंजाइश चाहिए | साइनर पर गैस लिमिट / एस्टिमेशन मल्टीप्लायर बढ़ाएं। होस्ट किए गए `facilitator.vativ.io` के साथ आपको यह समस्या नहीं आएगी, क्योंकि वह पहले से इसका ध्यान रखता है |
+
+## यह भी देखें
+
+- [x402 के साथ MUSD पेमेंट](../)। अवधारणा का अवलोकन।
+- [vativ/mezo-hack/apps/humor](https://github.com/vativ/mezo-hack/tree/main/apps/humor)।
+  Mezo के लिए खास हैकाथॉन रेफ़रेंस: सर्वर + `@x402/fetch`
+  क्लाइंट, जो mezo.6 प्रीव्यू टारबॉल से जुड़ा है, `0.001 MUSD` पर पेवॉल वाला `GET /joke`,
+  `facilitator.vativ.io` की ओर पॉइंट करता है, और README वॉलेट में फ़ंड डालने + डेमो को शुरू से आखिर तक
+  चलाने का तरीका बताता है। क्लोन करें और
+  अपनी ज़रूरत के हिसाब से बदलें।
+- <a href="/docs/in/docs/users/borrow/mint-musd/" target="_blank" rel="noopener noreferrer">MUSD उधार लें और मिंट करें ↗</a>। MUSD पाने के लिए यूज़र-साइड फ़्लो (नए टैब में खुलता है)।
+- [Mezo Faucet](https://faucet.test.mezo.org)। टेस्टनेट BTC।
