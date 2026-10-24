@@ -1,0 +1,82 @@
+---
+title: Wohin Ihre Stimme fließt
+description: >-
+  Wie aus veMEZO-Stimmgewicht Anreize für Pools auf Curve, Uniswap und Aerodrome
+  werden
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Jeder MEZO Gauge erhält einen Anteil an den Emissionen der Non-Staking-Gauges, der seinem Anteil an den veMEZO-Stimmen entspricht, die in der jeweiligen Epoche auf MEZO Gauges abgegeben wurden.
+
+Wenn insgesamt 1.000.000 veMEZO auf alle MEZO Gauges abstimmen und 300.000 davon auf einen Gauge entfallen, erhält dieser Gauge 30 % der lenkbaren MEZO der Epoche. Der Rest dieser Seite verwendet USDC/MUSD als Beispiel. Dieselbe Aufteilung gilt für jeden MEZO Gauge.
+
+---
+
+## Curve und Uniswap über Merkl
+
+Curve USDT/USDC/MUSD und Uniswap USDC/MUSD werden über [Merkl](https://merkl.xyz) mit Anreizen (Incentives) versehen – denselben Mechanismus, den Mezo für diese Pools bereits nutzt, jetzt jeweils mit einem eigenen MEZO Gauge.
+
+<Steps>
+1. **Epoche N endet.** Die Stimmen werden ausgezählt und die MEZO-Zuteilung jedes Gauges steht fest.
+2. **Die Zuteilung wird auf Merkl veröffentlicht** – als Kampagne für den Ziel-Pool.
+3. **LPs erwerben einen Anspruch** proportional zu ihrem Anteil am Pool während des Kampagnenzeitraums. Beansprucht wird auf Merkl.
+</Steps>
+
+**Belohnungen werden als veMEZO mit einer Sperrdauer von 3 Monaten ausgezahlt**, nicht als frei verfügbare MEZO. Das entspricht der heutigen Art, wie diese Pools Anreize erhalten – nur entscheiden jetzt die Abstimmenden, wie viele Emissionen jeder Pool bekommt.
+
+Eine Anleitung aus LP-Sicht finden Sie unter [Anreize beanspruchen](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives).
+
+---
+
+## MEZO als Abstimmungsanreize auf Aerodrome
+
+Aerodrome-Gauges funktionieren anders, weil Aerodrome selbst ein ve(3,3)-System mit einer eigenen wöchentlichen Abstimmung ist. Nehmen wir USDC/MUSD als Beispiel. MEZO geht nicht direkt an Aerodrome-LPs. Stattdessen wird es als **Abstimmungsanreiz** auf dem Aerodrome-Gauge dieses Pools hinterlegt und an die veAERO-Inhaber ausgezahlt, die für ihn abstimmen.
+
+Diese veAERO-Stimmen lenken die **AERO-Emissionen** zum Pool. Mit den MEZO werden also AERO-Emissionen für den Pool eingekauft, und es sind die AERO, die bei den LPs ankommen. Derselbe Weg gilt für MEZO/MUSD auf Aerodrome.
+
+Technisch werden die MEZO auf Mezo beansprucht, zu Base gebridgt und von einem Allocator-Contract auf dem Aerodrome-Gauge hinterlegt. Dies läuft in jeder Epoche automatisch ab.
+
+### Die Verzögerung um zwei Epochen
+
+Die Abstimmung auf Aerodrome liegt eine Woche vor dem Anreiz, auf den sie reagiert. Dadurch entsteht ein Abstand zwischen Ihrer Stimme und der Liquidität, die sie einkauft:
+
+| Epoche | Was passiert |
+|---|---|
+| **N** | Sie stimmen auf Mezo ab. Die Epoche endet und die Zuteilung steht fest. |
+| **N+1** | MEZO wird als Abstimmungsanreiz auf dem Aerodrome-Gauge hinterlegt. veAERO-Inhaber stimmen in dieser Epoche darüber ab. |
+| **N+2** | AERO-Emissionen fließen in den Pool, und LPs verdienen sie. |
+
+**Stimmen, die in Epoche N abgegeben werden, erzeugen AERO-Emissionen in Epoche N+2.** Das ergibt sich aus der Art, wie Aerodrome seine eigenen Epochen taktet, und ist keine Verzögerung, die Mezo hinzufügt.
+
+---
+
+## Den von Ihnen gelenkten Wert abschöpfen
+
+Emissionen zu lenken bedeutet Einfluss, nicht Rendite. Die MEZO, die Sie an einen Ziel-Pool senden, gehen an die Beteiligten dieses Pools – an die Anspruchsberechtigten auf Merkl bei Curve und Uniswap und an die veAERO-Abstimmenden auf Aerodrome. Sie fließen nicht an Sie zurück, nur weil Sie auf einem MEZO Gauge abgestimmt haben.
+
+Was Sie durch Ihre Stimme direkt verdienen, ist Ihr Anteil an den **Anreizen, die auf dem MEZO Gauge selbst hinterlegt werden**, im Verhältnis zu Ihrem Anteil an den Stimmen dieses Gauges.
+
+Um die Emissionen selbst abzuschöpfen, müssen Sie auf beiden Seiten des Kreislaufs stehen. Auf Aerodrome, am Beispiel USDC/MUSD:
+
+<Steps>
+1. **Liquidität bereitstellen:** Stellen Sie im Pool auf Aerodrome Liquidität bereit und staken Sie sie in dessen Gauge.
+2. **Abstimmen:** Stimmen Sie auf Mezo mit veMEZO für den MEZO Gauge dieses Pools ab.
+3. **Abstimmen:** Stimmen Sie auf Base mit veAERO für den entsprechenden Aerodrome-Gauge ab.
+4. **Einsammeln:** Erhalten Sie AERO für die LP-Position und den MEZO-Abstimmungsanreiz für die veAERO-Stimme.
+</Steps>
+
+Bei Curve und Uniswap ist der Kreislauf kürzer: Stellen Sie Liquidität im Pool bereit, stimmen Sie für dessen MEZO Gauge ab und beanspruchen Sie die Kampagne als LP auf Merkl.
+
+:::note
+Den vollständigen Kreislauf zu durchlaufen ist optional. Viele veMEZO-Inhaber werden einfach abstimmen, um die MUSD-Liquidität zu stärken und die auf dem Gauge hinterlegten Anreize zu verdienen.
+:::
+
+---
+
+## Nächste Schritte
+
+- [Anreize beanspruchen](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) – auf Merkl oder Aerodrome beanspruchen
+- [So stimmen Sie über MEZO Gauges ab](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) – die Schritt-für-Schritt-Anleitung
+- [MEZO Gauges – Übersicht](/docs/de/docs/users/mezo-earn/vote/mezo-gauges) – berechtigte Pools und Finanzierung

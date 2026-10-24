@@ -1,0 +1,85 @@
+---
+title: So leihen Sie mUSDC
+description: 'Schritt-für-Schritt-Anleitung, um auf Mezo USDC gegen Ihre BTC zu leihen.'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Sie können sich auf Mezo jetzt USDC gegen Ihre Bitcoin leihen. Diese Anleitung zeigt Ihnen, wie Sie den Kreditprozess in der [Mezo App](https://mezo.org/feature/borrow) durchlaufen.
+
+:::note
+USDC auf Mezo wird in der App als **mUSDC** dargestellt. 1 USDC = 1 mUSDC.
+:::
+
+## Bevor Sie beginnen
+
+Bevor Sie mUSDC leihen können, müssen Sie die folgenden Schritte ausführen:
+
+- Rufen Sie [mezo.org](https://mezo.org/) auf und klicken Sie auf **Sign in**, um sich mit Ihrem Mezo-Konto zu verbinden.
+- Verbinden Sie eine Wallet mit Mezo. Eine Anleitung finden Sie unter [Mit Mezo verbinden](/docs/de/docs/users/getting-started/connect/).
+- Halten Sie BTC auf Mezo für Sicherheiten und Gas bereit. Unter [Vermögenswerte einzahlen](/docs/de/docs/users/getting-started/deposit-assets) erfahren Sie, wie Sie bei Bedarf noch bridgen oder einzahlen.
+- Optional können Sie den mUSDC-Token zu Ihrer Wallet hinzufügen. Dazu können Sie die Oberfläche des Mezo Explorer verwenden. Klicken Sie neben der Adresse des mUSDC-Tokens auf die Schaltfläche **Add token to MetaMask**:
+    - Mainnet: [0x04671C72Aab5AC02A03c1098314b1BB6B560c197](https://explorer.mezo.org/token/0x04671C72Aab5AC02A03c1098314b1BB6B560c197)
+
+## mUSDC leihen
+
+Nachdem Sie sich auf [mezo.org](https://mezo.org/) mit einem Konto angemeldet haben, das über BTC verfügt, können Sie mUSDC leihen.
+
+<Steps>
+1. Öffnen Sie in Ihrem Browser [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+
+2. Wählen Sie **mUSDC** als Währung aus, die Sie leihen möchten.
+
+3. Geben Sie an, wie viele USDC Sie leihen und wie viele BTC Sie als Sicherheit verwenden möchten.
+
+4. Klicken Sie auf **Review**, um vor der Bestätigung die Zusammenfassung zu öffnen.
+
+5. Prüfen Sie die Details der Zusammenfassung – geliehener Betrag, Höhe der Sicherheiten, prognostizierte LTV, Liquidationspreis und Zustand der Position –, um sicherzustellen, dass die Angaben Ihren Erwartungen entsprechen.
+
+6. Wenn Sie bereit sind fortzufahren, klicken Sie auf **Confirm**. Ihre Browser-Wallet fordert Sie auf, die Transaktion zu bestätigen und die Gasgebühren mit BTC zu bezahlen.
+</Steps>
+
+Sobald der Vorgang abgeschlossen ist, können Sie den Status Ihres Kredits auf [mezo.org/feature/borrow](https://mezo.org/feature/borrow) prüfen.
+
+## Die Kreditbedingungen verstehen
+
+mUSDC verwendet einen variablen APR, der sich mit der Nachfrage im mUSDC-Markt ändert. Auf Mezo gibt es keinen verpflichtenden Rückzahlungstermin. Sie können Ihre Position also so lange offen halten, wie Sie möchten, sofern Ihre LTV unter der Liquidations-LTV (Liquidation LTV) des Markts bleibt.
+
+Ihre Sicherheiten bestimmen, wie viel Sie leihen können. Je mehr BTC Sie hinzufügen, desto mehr Spielraum hat Ihre Position, wenn der BTC-Kurs fällt. Die prognostizierte Beleihungsquote (Loan-to-Value, LTV) Ihrer Position wird aktualisiert, während Sie Ihre Sicherheiten und den Kreditbetrag anpassen. Die LTV ist der Wert Ihrer Schulden im Verhältnis zu Ihren Sicherheiten. Eine höhere LTV bedeutet ein höheres Liquidationsrisiko.
+
+Kreditnehmer sollten vor allem auf die Liquidations-LTV des Markts achten. Ihre Position kann liquidiert werden, wenn Ihre prognostizierte LTV die Liquidations-LTV des Markts überschreitet. Der Abstand zwischen Ihrer LTV und der Liquidations-LTV ist Ihr Puffer – er gibt an, wie weit Ihre LTV vor einer Liquidation steigen kann. Ihre LTV steigt, wenn BTC fällt; der Puffer zeigt also, wie starke Kursrückgänge Ihre Position verkraften kann. Beträgt die Liquidations-LTV des mUSDC-Markts beispielsweise 86 % und Ihre prognostizierte LTV 31 %, kann BTC um etwa 64 % fallen, bevor die Position gefährdet ist.
+
+Zinsen fallen auf den geliehenen Betrag an. Achten Sie daher darauf, wie Ihre Schulden im Laufe der Zeit wachsen. Wenn Sie Ihre Position schließen möchten, benötigen Sie genügend mUSDC, um Ihren Kreditbetrag zuzüglich aller aufgelaufenen Zinsen zu decken.
+
+### LTV vs. Besicherungsquote
+
+Wenn Sie vor diesem Update MUSD geliehen haben, haben Sie Ihre Position über die Besicherungsquote (Collateralization Ratio, CR) verwaltet. LTV und CR messen dasselbe Risiko aus entgegengesetzten Richtungen. Bei der LTV werden Ihre Schulden durch den Wert Ihrer Sicherheiten geteilt, bei der CR der Wert Ihrer Sicherheiten durch Ihre Schulden. Die eine ist der Kehrwert der anderen: Eine LTV von 50 % entspricht einer CR von 200 %, und eine LTV von 31 % entspricht einer CR von etwa 323 %.
+
+Die Schwellenwerte lassen sich auf dieselbe Weise umrechnen. Die Liquidations-LTV von 86 % im mUSDC-Markt entspricht einer CR von etwa 116 %. Die Liquidations-LTV von 90 % bei MUSD entspricht einer CR von etwa 111 %. Die Mezo App zeigt jetzt bei allen Kreditprodukten die LTV an, sodass eine Kennzahl überall gleich zu lesen ist.
+
+Außerdem verfügt MUSD über einen Einlösungsmechanismus, der hilft, die Bindung an \$1 zu halten. Gegen eine MUSD-Position kann daher auch dann eingelöst werden, wenn sie gesund ist. mUSDC hat keinen Einlösungsmechanismus und verwendet ausschließlich die LTV.
+
+## Ihren Kredit verwalten
+
+Sobald Sie einen aktiven Kredit haben, können Sie ihn über die Mezo App verwalten. Im Borrow-Dashboard sehen Sie, wie viele mUSDC Sie schulden, wie viele BTC als Sicherheit gesperrt sind, Ihre aktuelle LTV, Ihren Liquidationspreis, Ihren aktuellen APR und Ihre letzten Aktivitäten. Sie können Ihre mUSDC auch zurückzahlen, um den Kredit zu schließen – nach der Rückzahlung stehen Ihre Sicherheiten wieder zur Verfügung, und Ihre geschlossene Position erscheint in Ihrem Kreditverlauf.
+
+Wie Sie mUSDC bereitstellen und mit den Zinsen der Kreditnehmer Rendite erzielen, erfahren Sie unter [USDC Lending Vault](/docs/de/docs/users/mezo-earn/vaults/usdc-lending-vault).
+
+## FAQ
+
+### Was passiert, wenn Ihre Position liquidiert wird?
+
+Eine Liquidation kann erfolgen, wenn Ihre LTV die Liquidations-LTV des Markts überschreitet – sei es, weil BTC gefallen ist, oder weil aufgelaufene Zinsen Ihre Schulden erhöht haben.
+
+Bei mUSDC bedeutet eine Liquidation, dass eine andere Partei die Schulden zurückzahlen und dafür Sicherheiten aus der Position erhalten kann; zusätzlich wird eine Liquidationsstrafe von 4 % von Ihren Sicherheiten abgezogen. Das schützt den Kreditmarkt, kostet Sie aber echte BTC.
+
+Die beste Möglichkeit, das Liquidationsrisiko zu verringern, besteht darin, zurückhaltend zu leihen und Ihre Position zu überwachen.
+
+### LTV vs. Besicherungsquote
+
+Wenn Sie vor diesem Update MUSD geliehen haben, haben Sie Ihre Position über die Besicherungsquote (Collateralization Ratio, CR) verwaltet. LTV und CR messen dasselbe Risiko aus entgegengesetzten Richtungen. Bei der LTV werden Ihre Schulden durch den Wert Ihrer Sicherheiten geteilt, bei der CR der Wert Ihrer Sicherheiten durch Ihre Schulden. Die eine ist der Kehrwert der anderen: Eine LTV von 50 % entspricht einer CR von 200 %, und eine LTV von 31 % entspricht einer CR von etwa 323 %.
+
+Die Schwellenwerte lassen sich auf dieselbe Weise umrechnen. Die Liquidations-LTV von 86 % im mUSDC-Markt entspricht einer CR von etwa 116 %. Die Liquidations-LTV von 90 % bei MUSD entspricht einer CR von etwa 111 %. Die Mezo App zeigt jetzt bei allen Kreditprodukten die LTV an, sodass eine Kennzahl überall gleich zu lesen ist.
+
+Außerdem verfügt MUSD über einen Einlösungsmechanismus, der hilft, die Bindung an \$1 zu halten. Gegen eine MUSD-Position kann daher auch dann eingelöst werden, wenn sie gesund ist. mUSDC hat keinen Einlösungsmechanismus und verwendet ausschließlich die LTV.

@@ -1,0 +1,85 @@
+---
+title: So stimmen Sie über MEZO Gauges ab
+description: 'Schritt-für-Schritt-Anleitung, um veMEZO-Stimmkraft auf MEZO Gauges zu lenken'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Über MEZO Gauges wird mit **veMEZO** abgestimmt – auf einer eigenen Seite und unabhängig von der Gauge-Abstimmung mit veBTC und dem Boost-Matching.
+
+## Voraussetzungen
+
+- Eine [mit Mezo verbundene Wallet](/docs/de/docs/users/getting-started/connect)
+- Eine aktive veMEZO-Position
+- Eine kleine Menge BTC für Gas
+
+Sie benötigen **weder** veBTC noch eine LP-Position oder eine Position im Ziel-Pool, um abzustimmen. Unter [So sperren Sie MEZO](/docs/de/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) erfahren Sie, wie Sie veMEZO erhalten, falls Sie noch keine haben.
+
+---
+
+## Ihre Stimme abgeben
+
+<Steps>
+1. Öffnen Sie auf [mezo.org](https://mezo.org) die Registerkarte **Vote**, wechseln Sie zur Abstimmung mit **veMEZO** und öffnen Sie die Seite **MEZO Gauges** unter [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo).
+
+2. Sehen Sie sich die verfügbaren Gauges an. Jede Zeile zeigt das Zielprotokoll und die Ziel-Chain, den Gauge (Ziel-Pool), alle auf dem Gauge hinterlegten Anreize (Incentives) sowie das Ausschüttungsdatum.
+
+3. Geben Sie für jeden Gauge den Prozentsatz Ihrer veMEZO-Stimmkraft ein, den Sie ihm zuteilen möchten. Sie können Ihre Stimmkraft auf mehrere Gauges aufteilen, zum Beispiel 60 % auf Aerodrome USDC/MUSD und 40 % auf Curve USDT/USDC/MUSD.
+
+4. Klicken Sie auf **Submit Votes** und signieren Sie die Transaktion.
+</Steps>
+
+Ihre Stimmverteilung wird für die aktuelle Epoche registriert, sobald die Transaktion bestätigt ist.
+
+:::note[Protocol, Gauge, Incentives, Distribution date]
+Das sind die vier Spalten der MEZO-Gauges-Tabelle. **Protocol** verlinkt auf den Zielort. **Gauge** zeigt den Ziel-Pool. **Incentives** sind die Token, die in dieser Epoche auf dem Gauge hinterlegt sind. **Distribution date** gibt an, wann die Anreize dieser Epoche im Ziel-Pool oder Ziel-Gauge eintreffen (in UTC).
+
+vAPR, Gebühren oder TVL werden hier nicht angezeigt, da diese auf Curve, Uniswap oder Aerodrome anfallen und nicht auf Mezo. Wenn Sie Stimmkraft zuteilen, wird für die Prozentsätze die Spalte **Vote distribution** hinzugefügt.
+:::
+
+---
+
+## Das Abstimmungsfenster
+
+MEZO Gauges folgen demselben wöchentlichen Zyklus wie der Rest von Mezo Earn.
+
+- Epochen dauern **7 Tage und wechseln donnerstags um 00:00 UTC**
+- Die Abstimmung öffnet eine Stunde nach Beginn der Epoche (donnerstags 01:00 UTC) und schließt eine Stunde vor dem nächsten Wechsel (mittwochs 23:00 UTC)
+- Die Stimmen werden beim Epochenwechsel ausgezählt; die MEZO-Zuteilung jedes Gauges ergibt sich aus seinem Anteil an allen veMEZO-Stimmen, die für MEZO Gauges abgegeben wurden
+
+**Emissionen ohne Stimmen.** MEZO wird streng proportional zu den abgegebenen Stimmen auf die MEZO Gauges verteilt. Ein Gauge, der keine Stimmen erhält, bekommt kein MEZO, und sein Anteil wird auf die Gauges verteilt, die Stimmen erhalten haben. Stimmkraft, die Sie nicht zuteilen, hat schlicht keinen Einfluss auf die Verteilung und bringt Ihnen keine Anreize ein.
+
+---
+
+## Ihre Stimme ändern oder zurücksetzen
+
+Ihre Stimmverteilung **bleibt über Epochen hinweg bestehen**, bis Sie sie ändern. Wenn Sie mit Ihrer Aufteilung zufrieden sind, müssen Sie sie nicht jede Woche erneut einreichen – sie bringt Ihnen in jeder Epoche weiterhin einen Anteil an den Anreizen des jeweiligen Gauges ein.
+
+**Sie können pro Sperrposition nur einmal pro Epoche abstimmen.** Sobald Ihre Stimme bestätigt ist, ist die MEZO-Gauge-Zuteilung dieser Sperrposition für den Rest der Epoche festgelegt, und die Seite zeigt sie bis zum nächsten Wechsel schreibgeschützt an.
+
+**So ändern Sie sie:** Kehren Sie zur Seite „MEZO Gauges“ zurück, geben Sie eine neue Verteilung ein und reichen Sie sie ein – die neue Aufteilung ersetzt die alte vollständig. Hat die Sperrposition in dieser Epoche bereits abgestimmt, kann sie erst nach dem nächsten Wechsel erneut abstimmen.
+
+**So setzen Sie sie zurück:** Mit **Reset** ziehen Sie Ihre Stimmkraft vollständig von den MEZO Gauges ab. In derselben Epoche, in der Sie bereits abgestimmt haben, ist kein Zurücksetzen möglich, da jede Sperrposition nur eine Abstimmungsaktion pro Epoche hat.
+
+:::caution
+Da jede Sperrposition nur einmal pro Epoche abstimmt, kann eine Sperrposition, die bereits abgestimmt hat, bis zum nächsten Wechsel nicht auf neue Gauges oder Anreize reagieren.
+:::
+
+---
+
+## Wirkt sich das auf meinen Boost oder meine veBTC-Stimmen aus?
+
+Nein. Die Abstimmung über MEZO Gauges ist unabhängig:
+
+- Sie verbraucht kein veMEZO, das Sie zum [Boosten](/docs/de/docs/users/mezo-earn/lock/vemezo/boost-mechanism) einer veBTC-Position verwenden, und verringert keinen Boost, den Sie bereits bereitgestellt haben
+- Sie erfordert keinen [Poke](/docs/de/docs/users/mezo-earn/vote/how-to-vote#wichtig-poke-nach-änderungen) – ein Poke aktualisiert das geboostete Stimmgewicht von veBTC, das von der Abstimmung über MEZO Gauges nicht berührt wird
+- Sie hat keinen Einfluss darauf, wohin Ihre veBTC-Stimmen die Emissionen der Staking-Gauges lenken
+
+---
+
+## Nächste Schritte
+
+- [Wohin Ihre Stimme fließt](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) – was nach dem Ende der Epoche passiert
+- [Anreize beanspruchen](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) – wie LPs das MEZO erhalten, das Sie gelenkt haben
+- [MEZO Gauges – Übersicht](/docs/de/docs/users/mezo-earn/vote/mezo-gauges) – der Mechanismus und die berechtigten Pools

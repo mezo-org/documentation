@@ -1,0 +1,43 @@
+---
+title: So zahlen Sie Vermögenswerte bei Mezo ein
+description: >-
+  Anleitung zum Einzahlen Ihrer Vermögenswerte bei Mezo für selbstbestimmtes
+  Bitcoin-Banking
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+Sie können native Bitcoin oder unterstützte ERC-20-Token (Bitcoin-Wrapper) in das Mezo Mainnet einzahlen.
+
+<YouTube id="DinlFeUZB3U" title="So zahlen Sie bei Mezo ein" />
+
+## Bevor Sie beginnen
+
+- Prüfen Sie, welche Vermögenswerte unterstützt werden. Die Token-Adressen dafür können Sie auf der Seite [Contract-Referenz](/docs/de/docs/users/resources/contracts-reference#token-contracts) überprüfen.
+- Alle Transaktionen im Mezo Mainnet werden mit eingezahlten nativen BTC oder tBTC bezahlt. Bevor Sie das Netzwerk nutzen, empfiehlt es sich, Ihr Konto mit BTC oder tBTC aufzuladen, damit Sie über Gas zum Bezahlen von Transaktionen verfügen.
+
+## Vermögenswerte einzahlen
+
+<Steps>
+1. Rufen Sie die [Mezo App](https://mezo.org/overview) auf und melden Sie sich mit einer unterstützten Wallet an.
+
+2. Nachdem Sie sich angemeldet und die Transaktion signiert haben, klicken Sie auf **Deposit Bitcoin**.
+
+3. Wählen Sie den Vermögenswert aus, den Sie bridgen möchten, und geben Sie den Betrag an.
+
+    ![](/docs/images/mainnet/deposit-modal-preview.png)
+
+4. Klicken Sie auf **Review**, um die Übertragung zu prüfen und eine Einzahlungsadresse zu generieren.
+
+5. Prüfen Sie die Details der Übertragung und stellen Sie sicher, dass sie korrekt sind.
+
+6. Wenn Sie bereit sind, die Vermögenswerte einzuzahlen, kopieren Sie die Wallet-Adresse. Vergewissern Sie sich, dass die Adresse in Ihrer Wallet korrekt angezeigt wird.
+
+    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
+
+7. Wenn die Transaktion in Ordnung ist, bestätigen Sie sie.
+</Steps>
+
+Nach Abschluss der Transaktion beginnt der Bridging-Prozess. Es kann einige Minuten dauern, bis der Vorgang abgeschlossen ist und Sie Ihre Vermögenswerte im Mainnet erhalten.

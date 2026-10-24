@@ -1,0 +1,148 @@
+---
+title: Abstimmung – Übersicht
+description: >-
+  So funktioniert die Abstimmung auf Mezo und was Sie als veBTC-Inhaber
+  verdienen
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Das Governance-Modell von Mezo ist einfach: Wer sich durch eine Sperrung bindet, erwirbt das Recht, die Zukunft des Protokolls mitzubestimmen. Durch Abstimmungen schöpfen veBTC-Inhaber den wirtschaftlichen Wert der Gebühren ab und bestimmen, wohin der Wert der Chain fließt.
+
+---
+
+## So funktioniert die Abstimmung
+
+Wenn Sie BTC sperren, erhalten Sie Stimmkraft, die als NFT tokenisiert ist. Jede Woche (Epoche) können Sie diese Stimmkraft auf verschiedene Gauges verteilen – Pools wie BTC/MUSD, die MUSD Savings Rate oder andere Protokollfunktionen. Ihre Stimmen bestimmen, wohin die wöchentlichen MEZO-Emissionen fließen – Gauges mit mehr Stimmen erhalten einen größeren Anteil der Emissionen. Im Gegenzug verdienen die Wähler die Gebühren der Staker in diesen Gauges, die im Austausch gegen MEZO-Emissionen auf ihre Gebühreneinnahmen verzichten.
+
+Mehr Emissionen ziehen mehr Liquiditätsanbieter an. Mehr Liquidität kann das Handelsvolumen steigern, was wiederum die Gebühren erhöhen kann. Diese Gebühren fließen an Sie – den Wähler – zurück. So entsteht ein positiver Kreislauf, in dem Ihr Einfluss im Gleichschritt mit dem Erfolg des Protokolls wächst.
+
+---
+
+## Was Sie verdienen
+
+**Handelsgebühren:** 100 % der Gebühren, die von den Pools erzeugt werden, für die Sie stimmen, anteilig verteilt. Wenn Sie 1 % der Stimmen eines Gauges vergeben haben und dieser Pool 50.000 MUSD an Gebühren erzeugt hat, verdienen Sie 500 MUSD.
+
+**Anreize:** Externe Protokolle hinterlegen Anreize (Incentives), um Stimmen für ihre bevorzugten Gauges zu gewinnen. Diese werden auf alle Wähler des jeweiligen Gauges aufgeteilt und bilden eine zusätzliche Einnahmequelle.
+
+**Passive Bridging-Gebühren:** Alle veBTC-Inhaber erhalten Bridging- und Chain-Gebühren im Verhältnis zu ihrem geboosteten Stimmgewicht – ganz ohne Abstimmung.
+
+So entsteht ein Markt für Stimmen. Protokolle konkurrieren um Ihre Stimmkraft, und Sie schöpfen den Wert dieses Wettbewerbs ab.
+
+---
+
+## Stimmkraft und Boost
+
+Ihre effektive Stimmkraft hängt von zwei Faktoren ab: Ihrem Basis-Stimmgewicht aus veBTC und einem etwaigen Boost durch veMEZO.
+
+### Basis-Stimmgewicht (nur veBTC)
+
+Ohne veMEZO entspricht Ihre Stimmkraft Ihrem veBTC-Stimmgewicht, das linear verfällt, während sich Ihre Sperrung ihrem Ablauf nähert. Sperren Sie 1 BTC für 28 Tage, beträgt Ihre anfängliche Stimmkraft 1,0; sie verfällt kontinuierlich, bis sie bei Ablauf null erreicht.
+
+### Geboostetes Stimmgewicht (veBTC + veMEZO)
+
+Wenn veMEZO-Stimmen auf Ihre veBTC-Position gelenkt werden, wird Ihre Stimmkraft mit einem Boost-Faktor zwischen 1x und 5x multipliziert. Der Boost hängt ab von:
+
+- Ihrem Anteil am gesamten veBTC im System
+- dem Anteil am gesamten veMEZO, der auf Ihre Position gelenkt wird
+
+**Wichtige Punkte:**
+- Größere BTC-Positionen benötigen anteilig mehr veMEZO, um den maximalen Boost zu erreichen
+- Sie können einen Boost erhalten, indem Sie selbst veMEZO halten oder über Anreize veMEZO-Stimmen anziehen
+- Nach Änderungen muss der Boost per „Poke“ aktualisiert werden, damit er wirksam wird
+
+Um Ihre Stimmkraft zu erhalten, verlängern Sie Ihre Sperrung regelmäßig. Details finden Sie unter [Sperrungen verwalten](/docs/de/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards).
+
+---
+
+## Die wöchentliche Epoche
+
+Mezo arbeitet in 7-tägigen Epochen, die donnerstags um 00:00 UTC beginnen. Jede Epoche ist ein neuer Zyklus für Stimmkraft, Gebühren und Anreize.
+
+**Der Zyklus:**
+
+<Steps>
+1. Die Epoche beginnt
+2. Sie geben im Laufe der Woche Ihre Stimmen ab
+3. Die Epoche endet und die Stimmen werden ausgezählt
+4. MEZO-Emissionen werden entsprechend den Stimmen an die Gauges verteilt
+5. Gebühren und Anreize können beansprucht werden
+6. Wiederholung
+</Steps>
+
+> **Hinweis:** Ihre Stimmverteilung bleibt über Epochen hinweg gespeichert, bis Sie sie zurücksetzen oder ändern. Solange Ihre Stimmen bestehen bleiben, verdienen Sie in jeder Epoche weiterhin Ihren Anteil an Handelsgebühren und Anreizen auf Basis Ihrer aktuellen Verteilung. Mit Poke wird Ihre Stimmkraft aktualisiert – zum Beispiel, um sie nach der Kopplung mit veMEZO zu erhöhen, oder indem andere sie senken, während sie verfällt.
+
+### Ausrichtung an Epochen
+
+Sperrdauern werden an Epochengrenzen ausgerichtet und auf die nächste volle Woche abgerundet. Das bedeutet:
+
+- Eine maximale Sperrung von 28 Tagen, die mitten in einer Epoche erstellt wird, hat je nach Zeitpunkt der Sperrung eine effektive Dauer von etwa 21–28 Tagen
+- Sperrungen laufen immer an Epochenübergängen ab (donnerstags 00:00 UTC)
+
+So bleiben die Berechnungen des Stimmgewichts im gesamten System konsistent.
+
+---
+
+## Zwei Wege zur Teilnahme mit veMEZO
+
+### Als veBTC-Inhaber, der einen Boost sucht
+
+Wenn Sie veBTC halten und Ihre Stimmkraft maximieren möchten:
+
+<Steps>
+1. **Selbst boosten:** Sperren Sie MEZO als veMEZO und lenken Sie es auf Ihre eigene veBTC-Position
+2. **Boost anziehen:** Schreiben Sie Anreize auf dem Boost-Gauge Ihres veBTC aus, um veMEZO-Stimmen von anderen anzuziehen
+</Steps>
+
+Mit beiden Ansätzen können Sie Ihre effektive Stimmkraft um bis zu 5x steigern.
+
+### Als veMEZO-Inhaber, der Rendite sucht
+
+Wenn Sie veMEZO halten und Rendite erzielen möchten:
+
+<Steps>
+1. Durchsuchen Sie die veBTC-Boost-Gauges nach solchen mit attraktiven Anreizen
+2. Stimmen Sie für diese Gauges ab, um die ausgeschriebenen Anreize zu verdienen
+3. Beanspruchen Sie die Anreize am Ende der Epoche
+</Steps>
+
+Hinweis: veMEZO-Inhaber erhalten keinen Anteil an den Handelsgebühren, MUSD-Einnahmen oder Bridging-Gebühren, die veBTC-Positionen verdienen. Sie erhalten die Anreize, die auf den Gauges ausgeschrieben sind, für die sie stimmen.
+
+### Als veMEZO-Inhaber, der Emissionen lenkt
+
+veMEZO stimmt außerdem über **[MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges)** ab – Non-Staking-Gauges, die MEZO-Emissionen in MUSD-Liquiditätspools auf Curve und Uniswap (Ethereum) sowie Aerodrome (Base) lenken. Dafür benötigen Sie weder veBTC noch eine LP-Position, und es ist unabhängig vom Boost-Matching.
+
+<Steps>
+1. Öffnen Sie auf mezo.org die Registerkarte **Vote** und wechseln Sie zur veMEZO-Abstimmung unter [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo)
+2. Verteilen Sie Ihre veMEZO-Stimmkraft auf die verfügbaren Gauges
+3. Verdienen Sie einen Anteil an allen Anreizen, die auf den Gauges ausgeschrieben sind, für die Sie gestimmt haben
+</Steps>
+
+---
+
+## Wählen, wofür Sie abstimmen
+
+Verschiedene Gauges bieten unterschiedliche Möglichkeiten. Einige Faktoren, die Sie bei der Verteilung Ihrer Stimmen berücksichtigen können:
+
+- Handelsvolumen und Gebührenaufkommen
+- Von Protokollen ausgeschriebene Anreize
+- Gesamtzahl der Stimmen, die einem Gauge bereits zugeteilt sind
+- Ihre eigenen Prioritäten für das Mezo-Ökosystem
+
+Für veMEZO-Inhaber, die über Boost-Gauges abstimmen:
+- Höhe der von veBTC-Inhabern ausgeschriebenen Anreize
+- Dauer und Verlässlichkeit der Anreiz-Ausschreibungen
+- Übereinstimmung mit Ihren eigenen veBTC-Positionen (falls vorhanden)
+
+Beobachten Sie in jeder Epoche Gauge-Gewichte, Gebührenaufkommen und Anreizmärkte, um fundierte Entscheidungen zu treffen.
+
+---
+
+## Nächste Schritte
+
+Bereit für Ihre erste Abstimmung? Unter [So stimmen Sie ab](/docs/de/docs/users/mezo-earn/vote/how-to-vote) finden Sie eine vollständige Schritt-für-Schritt-Anleitung.
+
+Möchten Sie Ihre Position boosten? Details finden Sie unter [Boost-Mechanismus](/docs/de/docs/users/mezo-earn/lock/vemezo/boost-mechanism) und [Matching-Markt](/docs/de/docs/users/mezo-earn/lock/vemezo/matching-market).
+
+Sie halten veMEZO und möchten Emissionen lenken? Siehe [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges).

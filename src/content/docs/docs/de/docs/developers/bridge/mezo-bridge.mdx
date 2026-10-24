@@ -1,106 +1,119 @@
 ---
-title: Mezo Bridge Übersicht
+title: Übersicht über die Mezo Bridge
 topic: developers
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Mezo Bridge ermöglicht die native Übertragung von Vermögenswerten zwischen Bitcoin, Ethereum und Mezo. Nachfolgend finden Sie die primären Abläufe mit Verweisen auf die Design-RFCs.
+Die Mezo Bridge ermöglicht die native Übertragung von Assets zwischen Bitcoin, Ethereum und Mezo. Nachfolgend finden Sie die wichtigsten Abläufe mit Verweisen auf die Design-RFCs.
 
-### Einzahlung auf Mezo (Bridge In)
+### Bridging zu Mezo (Bridge In)
 
 Von Bitcoin → Mezo
 
 <Steps>
-1. BTC an die von der Bridge kontrollierte Adresse sperren, mit Metadaten, die den Mezo-Empfänger identifizieren.
+1. BTC an die von der Bridge kontrollierte Adresse sperren, mit Metadaten, die den Empfänger auf Mezo identifizieren.
 
-2. Nachweis und Attestierung an den Mezo Bridge-Vertrag übermitteln.
+2. Nachweis und Attestierung an den Mezo-Bridge-Contract übermitteln.
 
-3. Vertrag verifiziert den Nachweis.
+3. Der Contract verifiziert den Nachweis.
 
-4. Entsprechendes Asset auf Mezo für den Empfänger prägen.
+4. Das entsprechende Asset auf Mezo für den Empfänger minten.
 </Steps>
 
 Von Ethereum → Mezo
 
 <Steps>
-1. ERC-20 auf Ethereum über den Mezo Bridge-Vertrag sperren, wobei ein `AssetLocked`-Event mit dem Mezo-Empfänger ausgegeben wird.
+1. Den ERC-20-Token auf Ethereum über den Mezo-Bridge-Contract sperren; dabei wird ein `AssetLocked`-Event mit dem Empfänger auf Mezo ausgelöst.
 
 2. Bridge-Validatoren überwachen solche Events.
 
-3. Bridge-Validatoren validieren die Event-Einbindung und das Validator-Quorum.
+3. Bridge-Validatoren validieren die Aufnahme der Events und das Validator-Quorum.
 
-4. Entsprechendes Asset auf Mezo für den Empfänger prägen.
+4. Das entsprechende Asset auf Mezo für den Empfänger minten.
 </Steps>
 
-### Auszahlung von Mezo (Bridge Out)
+### Bridging aus Mezo (Bridge Out)
 
 Von Mezo → Bitcoin
 
 <Steps>
-1. Das Asset auf Mezo verbrennen und die Bitcoin-Empfängeradresse angeben.
+1. Das Asset auf Mezo verbrennen und dabei die Bitcoin-Empfängeradresse angeben.
 
-2. Nachweis und Attestierung an den Mezo Bridge-Vertrag übermitteln.
+2. Nachweis und Attestierung an den Mezo-Bridge-Contract übermitteln.
 
-3. Vertrag verifiziert den Nachweis.
+3. Der Contract verifiziert den Nachweis.
 
-4. Nach Verifizierung wird BTC an die Empfängeradresse freigegeben.
+4. Nach erfolgreicher Verifizierung werden die BTC an die Empfängeradresse freigegeben.
 </Steps>
 
 Von Mezo → Ethereum
 
 <Steps>
-1. Das Asset auf Mezo verbrennen und den Ethereum-Empfänger angeben.
+1. Das Asset auf Mezo verbrennen und dabei den Empfänger auf Ethereum angeben.
 
 2. Bridge-Validatoren überwachen `AssetsUnlocked`-Events.
 
-3. Bridge-Validatoren validieren die Event-Einbindung und das Validator-Quorum.
+3. Bridge-Validatoren validieren die Aufnahme der Events und das Validator-Quorum.
 
-4. Nach Verifizierung wird der ERC-20 an den Empfänger freigegeben.
+4. Nach erfolgreicher Verifizierung wird der ERC-20-Token an den Empfänger freigegeben.
 </Steps>
 
 ### Architektur
 
-- **Sperren/Verbrennen auf der Quelle**: Vermögenswerte werden auf Bitcoin/Ethereum gesperrt (oder auf Mezo verbrannt) mit Daten, die den beabsichtigten Empfänger und die Zielchain identifizieren.
-- **Attestierung & Relay**: Offchain-Clients erstellen Attestierungen über Quellchain-Events und leiten Nachweise an die Zielchain weiter.
-- **Prägen/Freigabe am Ziel**: Bei gültiger Attestierung und Nachweisverifizierung prägen Zielverträge verpackte Vermögenswerte oder geben gesperrte Gelder frei.
+- **Sperren/Verbrennen auf der Quell-Chain**: Assets werden auf Bitcoin/Ethereum gesperrt (oder auf Mezo verbrannt), zusammen mit Daten, die den vorgesehenen Empfänger und die Ziel-Chain identifizieren.
+- **Attestierung und Weiterleitung**: Offchain-Clients erstellen Attestierungen über Events der Quell-Chain und leiten Nachweise an die Ziel-Chain weiter.
+- **Minten/Freigabe auf der Ziel-Chain**: Nach gültiger Attestierung und erfolgreicher Verifizierung des Nachweises minten die Contracts auf der Ziel-Chain Wrapped Assets oder geben gesperrte Mittel frei.
 
 ### Kernablauf
 
 <Steps>
-1. Benutzer initiiert eine Bridge-Übertragung mit Angabe der Zieladresse und des Betrags.
+1. Der Nutzer startet eine Bridge-Übertragung und gibt Zieladresse und Betrag an.
 
-2. Quellchain-Vertrag/Event wird nach Sperre/Verbrennung ausgegeben; Event enthält eine eindeutige Sequenz-ID und Parameter.
+2. Nach dem Sperren/Verbrennen wird auf der Quell-Chain ein Contract-Event ausgelöst; das Event enthält eine eindeutige Sequenz-ID und die Parameter.
 
-3. Offchain-Client sammelt Bestätigungen/Finalität gemäß RFC-Schwellenwerten und übermittelt Nachweis+Attestierung an den Zielvertrag.
+3. Ein Offchain-Client sammelt Bestätigungen bzw. wartet die Finalität gemäß den RFC-Schwellenwerten ab und übermittelt Nachweis und Attestierung an den Ziel-Contract.
 
-4. Ziel verifiziert:
-   - Event-Authentizität
-   - Validator-Quorum/Signaturen
+4. Die Ziel-Chain verifiziert:
+   - die Echtheit des Events
+   - das Validator-Quorum bzw. die Signaturen
 
-5. Bei Erfolg führt das Ziel Prägung/Freigabe aus und protokolliert den Abschluss.
+5. Bei Erfolg führt die Ziel-Chain das Minten bzw. die Freigabe aus und protokolliert den Abschluss.
 </Steps>
 
-### Verträge
+### Einzahlungen über Enclaves
+
+Mezo Enclaves sind eine Funktion für Institutionen, mit der Institutionen, die regulatorischen
+Verwahrungsanforderungen unterliegen, ihre BTC dennoch auf Mezo nutzen können, ohne sie in
+explizite Bridges einzuzahlen. Enclaves erhalten besondere Befugnisse, die an rechtliche
+Vereinbarungen geknüpft sind, in denen Bridge-Beträge und Nutzungsbeschränkungen festgelegt sind.
+Alle Einzahlungen in Enclaves sind weiterhin durch UTXOs auf der Bitcoin-Chain gedeckt, die in
+der dreiseitigen (Triparty-)Bridge-Einzahlungstransaktion erfasst und im Chain-State geführt werden.
+Enclaves werden einzeln über die Governance-Multisig von Mezo auf die Allowlist gesetzt. Weitere
+Informationen zur zugrunde liegenden Triparty-Bridge-Implementierung finden Sie in
+[`mezod` RFC-6](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md).
+
+### Contracts
 
 Mainnet:
 
 - Mezo Bridge: [0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c](https://etherscan.io/address/0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c)
-- Verbrückte Token [Liste](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
+- [Liste](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens) der gebridgten Token
 
 Sepolia:
 
 - Mezo Bridge: [0x3a3BaE133739f92a885070DbF3300d61B232497C](https://sepolia.etherscan.io/address/0x3a3BaE133739f92a885070DbF3300d61B232497C)
-- Verbrückte Token [Liste](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
+- [Liste](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens) der gebridgten Token
 
 ### Audits
 
-Bitte besuchen Sie die [Audits](https://github.com/mezo-org/audits)-Seite für die neuesten Audits.
+Die neuesten Audits finden Sie auf der Seite [Audits](https://github.com/mezo-org/audits).
 
-## Zusätzliche Ressourcen
+## Weitere Ressourcen
 
-Für vollständige technische Details, Nachrichtenformate und Sicherheitsbegründungen siehe die folgenden RFCs:
+Vollständige technische Details, Nachrichtenformate und die sicherheitstechnischen Hintergründe finden Sie in den folgenden RFCs:
 
-- [RFC-2: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
-- [RFC-4: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
-- [RFC-5: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-2: Bitcoin zu Mezo bridgen](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
+- [RFC-4: Native Bridge für Nicht-Bitcoin-Assets](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
+- [RFC-5: Assets aus Mezo heraus bridgen](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-6: Triparty-BTC-Bridging](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md)

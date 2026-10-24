@@ -1,0 +1,135 @@
+---
+title: So stimmen Sie ab
+description: Schritt-für-Schritt-Anleitung zur Abstimmung über Gauges mit Ihrem veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Mit Ihrer Stimme lenken Sie den Fluss der Emissionen und verdienen im Gegenzug einen anteiligen Teil der Handelsgebühren und Anreize der Gauges, denen Sie Stimmen zuteilen. Diese Anleitung führt Sie durch den gesamten Prozess.
+
+<YouTube id="6rthu_iub7E" title="So stimmen Sie ab" start={89} />
+
+## Voraussetzungen
+
+Stellen Sie vor Beginn sicher, dass Sie über Folgendes verfügen:
+
+- Eine kompatible, mit Mezo verbundene Wallet (MetaMask, Rabby oder Wallets mit WalletConnect-Unterstützung)
+- Eine aktive veBTC-Position (um über Staking-Gauges abzustimmen)
+- ODER eine aktive veMEZO-Position (um über veBTC-Boost-Gauges abzustimmen)
+- Ausreichend BTC für Gasgebühren
+
+Unter [So sperren Sie BTC](/docs/de/docs/users/mezo-earn/lock/vebtc/how-to-lock-btc) erfahren Sie, wie Sie eine veBTC-Sperrung anlegen, falls Sie noch keine haben.
+
+Unter [So sperren Sie MEZO](/docs/de/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) erfahren Sie, wie Sie eine veMEZO-Position erstellen.
+
+---
+
+## Abstimmen mit veBTC
+
+veBTC-Inhaber stimmen über Staking-Gauges ab, um Emissionen zu lenken und Gebühren zu verdienen.
+
+### Stimme abgeben
+
+Um Belohnungen zu verdienen, teilen Sie Ihre Stimmkraft bestimmten Gauges zu. Ihre Verteilung bleibt über Epochen (je 7 Tage) hinweg bestehen, bis Sie sie ändern.
+
+<Steps>
+1. Öffnen Sie die Registerkarte **Vote**, um Ihre aktiven veBTC-Positionen anzuzeigen. Klicken Sie neben der veBTC-Position, mit der Sie abstimmen möchten, auf **Allocate**.
+
+2. Geben Sie für die Gauges, die Sie unterstützen möchten, jeweils den Prozentsatz Ihrer Stimmkraft ein, den Sie zuteilen möchten. Sie könnten zum Beispiel 50 % dem BTC/MUSD-Pool, 30 % dem MUSD/mUSDC-Pool und 20 % dem mcbBTC/BTC-Pool zuteilen.
+
+3. Prüfen Sie Ihre Verteilung und klicken Sie, sobald Sie bereit sind, in der rechten Seitenleiste auf **Submit Votes**. Signieren Sie die Transaktion; nach Abschluss ist Ihre Stimme für die aktuelle Epoche registriert.
+</Steps>
+
+:::note[Zur Erinnerung]
+Jede Sperrposition kann einmal pro Epoche abstimmen – sobald Ihre Stimme bestätigt ist, ist die Verteilung bis zum nächsten Epochenwechsel festgeschrieben. Ihre Verteilung bleibt über Epochen hinweg bestehen und verdient weiterhin Gebühren und Anreize, bis Sie sie ändern oder zurücksetzen.
+:::
+
+---
+
+## Abstimmen mit veMEZO
+
+veMEZO-Inhaber stimmen über veBTC-Boost-Gauges ab, um BTC-Positionen im Austausch gegen Anreize einen Boost zu verschaffen, und über [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges), um MEZO-Emissionen in MUSD-Pools außerhalb von Mezo zu lenken. Beides ist unabhängig voneinander – den zugehörigen Ablauf finden Sie unter [So stimmen Sie über MEZO Gauges ab](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote).
+
+### Über Boost-Gauges abstimmen
+
+<Steps>
+1. Rufen Sie den Bereich **Boost Gauges** auf, um alle verfügbaren veBTC-Positionen zu sehen, die einen Boost suchen.
+
+2. Prüfen Sie bei jedem Gauge:
+   - die aktuell ausgeschriebenen Anreize
+   - die Menge an veMEZO, die bereits auf diesen Gauge gelenkt wird
+   - die geschätzte Rendite auf Basis Ihrer veMEZO-Zuteilung
+
+3. Geben Sie den Prozentsatz Ihrer veMEZO-Stimmkraft ein, den Sie auf den jeweiligen Boost-Gauge lenken möchten.
+
+4. Klicken Sie auf **Submit Votes** und signieren Sie die Transaktion.
+</Steps>
+
+### Was Sie verdienen
+
+Wenn Sie veMEZO-Stimmen auf einen Boost-Gauge lenken:
+
+- Verdienen Sie einen Anteil an allen auf diesem Gauge ausgeschriebenen Anreizen, im Verhältnis zu Ihrem Anteil an den veMEZO-Stimmen
+- Erhält der veBTC-Inhaber einen Boost, der seine effektive Stimmkraft erhöht
+
+Hinweis: veMEZO-Wähler erhalten **keine** Handelsgebühren, MUSD-Einnahmen oder Bridging-Gebühren aus den veBTC-Positionen, die sie boosten. Diese Belohnungen gehen an den veBTC-Inhaber. veMEZO-Wähler verdienen ausschließlich die Anreize, die ausdrücklich auf Boost-Gauges ausgeschrieben sind.
+
+---
+
+## Ihren Boost maximieren (für veBTC-Inhaber)
+
+Wenn Sie sowohl veBTC als auch veMEZO halten, können Sie Ihre Stimmkraft maximieren:
+
+### Option 1: Selbst boosten
+
+Lenken Sie Ihre veMEZO-Stimmen auf den Boost-Gauge Ihrer eigenen veBTC-Position.
+
+<Steps>
+1. Rufen Sie den Boost-Gauge Ihrer veBTC-Position auf
+2. Teilen Sie ihm Ihre veMEZO-Stimmkraft zu
+3. Klicken Sie auf **Submit Votes**
+4. Führen Sie für Ihre veBTC-Position einen **Poke** aus, um den neuen Boost zu aktivieren
+</Steps>
+
+### Option 2: Externen Boost anziehen
+
+Schreiben Sie Anreize auf Ihrem veBTC-Boost-Gauge aus, um veMEZO-Stimmen anderer Nutzer anzuziehen.
+
+<Steps>
+1. Rufen Sie den Boost-Gauge Ihrer veBTC-Position auf
+2. Klicken Sie auf **Add Incentives**
+3. Hinterlegen Sie Token (beliebige ERC-20-Token) als Anreize
+4. veMEZO-Inhaber sehen Ihre Anreize und lenken möglicherweise Stimmen zu Ihnen
+5. Führen Sie für Ihre Position einen **Poke** aus, nachdem Sie neue veMEZO-Stimmen erhalten haben
+</Steps>
+
+---
+
+## Wichtig: Poke nach Änderungen
+
+Wenn sich Ihre veMEZO-Situation ändert, wird der Boost nicht automatisch aktualisiert. Sie müssen für Ihre veBTC-Position einen **Poke** ausführen, um ihr geboostetes Stimmgewicht zu aktualisieren.
+
+**Führen Sie einen Poke aus, wenn:**
+- Sie neue veMEZO-Stimmen auf Ihrem Boost-Gauge erhalten
+- Sie Ihr eigenes veMEZO auf Ihre Position lenken
+- Sie veMEZO-Rebase-Ausschüttungen beanspruchen
+- Sie Ihre veMEZO-Sperrung verlängern
+
+**So führen Sie einen Poke aus:**
+1. Rufen Sie Ihre veBTC-Position auf
+2. Klicken Sie auf **Poke**
+3. Signieren Sie die Transaktion
+
+Ihr neues geboostetes Stimmgewicht gilt sofort.
+
+---
+
+## Nächste Schritte
+
+- [Sperrungen verwalten und Belohnungen einsammeln](/docs/de/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) – Beanspruchen Sie Ihre Erträge und verlängern Sie Ihre Sperrung
+- [Abstimmung – Übersicht](/docs/de/docs/users/mezo-earn/vote) – Erfahren Sie mehr darüber, wie die Abstimmung funktioniert und was Sie verdienen
+- [Boost-Mechanismus](/docs/de/docs/users/mezo-earn/lock/vemezo/boost-mechanism) – Verstehen Sie, wie der veMEZO-Boost berechnet wird
+- [Matching-Markt](/docs/de/docs/users/mezo-earn/lock/vemezo/matching-market) – Erfahren Sie, wie der Boost-Marktplatz funktioniert
+- [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges) – Stimmen Sie mit veMEZO ab, um MEZO-Emissionen in MUSD-Pools auf Curve, Uniswap und Aerodrome zu lenken
