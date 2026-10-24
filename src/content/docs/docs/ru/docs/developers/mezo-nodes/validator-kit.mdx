@@ -1,0 +1,443 @@
+---
+title: Руководство разработчика по Validator Kit
+description: >-
+  Полное руководство по настройке и запуску узлов-валидаторов Mezo с помощью
+  Validator Kit.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezo Validator Kit — комплексное решение для запуска узлов Mezo, включая валидаторы, RPC-узлы и seed-узлы. В этом руководстве описаны настройка, конфигурирование и обслуживание инфраструктуры Mezo.
+
+## Обзор
+
+[Validator Kit](https://github.com/mezo-org/validator-kit.git) упрощает развёртывание узлов Mezo и поддерживает несколько вариантов развёртывания:
+
+- **Docker**: развёртывание в контейнерах
+- **Нативный демон**: установка непосредственно в систему
+- **Kubernetes**: Helm-чарты для оркестрации
+- **Облачное развёртывание**: поддержка AWS, GCP и Azure
+
+### Типы узлов
+
+1. **Узлы-валидаторы**: участвуют в консенсусе и производстве блоков
+2. **RPC-узлы**: предоставляют API-эндпоинты для dApp
+3. **Seed-узлы**: помогают выполнить начальную загрузку сети
+
+## Структура репозитория
+
+[Репозиторий Validator Kit](https://github.com/mezo-org/validator-kit.git) содержит:
+
+- **[Конфигурация Docker](https://github.com/mezo-org/validator-kit/tree/main/docker)**: настройка и оркестрация контейнеров
+- **[Манифесты Kubernetes](https://github.com/mezo-org/validator-kit/tree/main/kubernetes)**: Helm-чарты и ресурсы K8s
+- **[Шаблоны конфигурации](https://github.com/mezo-org/validator-kit/tree/main/configs)**: файлы конфигурации узла
+- **[Мониторинг](https://github.com/mezo-org/validator-kit/tree/main/monitoring)**: Prometheus, Grafana и оповещения
+- **[Скрипты](https://github.com/mezo-org/validator-kit/tree/main/scripts)**: инструменты автоматизации и обслуживания
+
+## Требования к оборудованию
+
+### Минимальные требования
+
+**Узел-валидатор**:
+- CPU: 4 ядра
+- RAM: 8 ГБ
+- Хранилище: SSD на 100 ГБ
+- Сеть: 100 Мбит/с
+
+**RPC-узел**:
+- CPU: 2 ядра
+- RAM: 4 ГБ
+- Хранилище: SSD на 50 ГБ
+- Сеть: 50 Мбит/с
+
+**Seed-узел**:
+- CPU: 1 ядро
+- RAM: 2 ГБ
+- Хранилище: SSD на 20 ГБ
+- Сеть: 10 Мбит/с
+
+### Рекомендуемые требования
+
+**Узел-валидатор**:
+- CPU: 8 ядер
+- RAM: 16 ГБ
+- Хранилище: NVMe SSD на 500 ГБ
+- Сеть: 1 Гбит/с
+
+## Способы установки
+
+### Развёртывание в Docker
+
+<Steps>
+1. **Клонируйте репозиторий**:
+   ```bash
+   git clone https://github.com/mezo-org/validator-kit.git
+   cd validator-kit
+   ```
+
+2. **Настройте окружение**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+3. **Запустите узел**:
+   ```bash
+   docker-compose up -d
+   ```
+</Steps>
+
+### Нативная установка
+
+<Steps>
+1. **Установите зависимости**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install -y curl git make build-essential
+
+   # Install Go
+   curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
+   ```
+
+2. **Соберите Mezod**:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   make build
+   ```
+
+3. **Настройте узел**:
+   ```bash
+   ./mezod init mynode --chain-id mezo-testnet
+   ```
+</Steps>
+
+### Развёртывание в Kubernetes
+
+<Steps>
+1. **Установите Helm**:
+   ```bash
+   curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   ```
+
+2. **Выполните развёртывание с помощью Helm**:
+   ```bash
+   helm install mezo-node ./helm/mezo-node \
+     --set node.type=validator \
+     --set node.name=my-validator
+   ```
+</Steps>
+
+## Конфигурация
+
+### Конфигурация узла
+
+**config.toml**:
+```toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+```
+
+**app.toml**:
+```toml
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[evm]
+rpc_address = "0.0.0.0:8545"
+ws_address = "0.0.0.0:8546"
+```
+
+### Переменные окружения
+
+```bash
+# Node configuration
+NODE_TYPE=validator
+CHAIN_ID=mezo-mainnet
+MONIKER=my-validator
+
+# Network configuration
+P2P_PORT=26656
+RPC_PORT=26657
+API_PORT=1317
+GRPC_PORT=9090
+EVM_RPC_PORT=8545
+
+# Security
+PRIV_VALIDATOR_KEY_FILE=/config/priv_validator_key.json
+NODE_KEY_FILE=/config/node_key.json
+```
+
+## Настройка валидатора
+
+### Предварительные требования
+
+1. **Proof of Authority (PoA)**: подайте заявку на получение статуса валидатора
+2. **Требования к стейку**: минимальный размер стейка
+3. **Технические требования**: соответствие требованиям к оборудованию
+
+### Конфигурация валидатора
+
+```bash
+# Initialize validator
+./mezod init validator --chain-id mezo-mainnet
+
+# Create validator key
+./mezod keys add validator --keyring-backend file
+
+# Create validator transaction
+./mezod tx staking create-validator \
+  --amount=1000000umezo \
+  --pubkey=$(./mezod tendermint show-validator) \
+  --moniker="My Validator" \
+  --chain-id=mezo-mainnet \
+  --from=validator
+```
+
+## Настройка RPC-узла
+
+### Назначение
+
+RPC-узлы предоставляют:
+- **API-эндпоинты**: REST и gRPC API
+- **EVM RPC**: JSON-RPC, совместимый с Ethereum
+- **WebSocket**: потоки данных в реальном времени
+- **Балансировку нагрузки**: распределение трафика между узлами
+
+### Конфигурация
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  rpc-node:
+    image: mezod:latest
+    ports:
+      - "26657:26657"  # Tendermint RPC
+      - "1317:1317"    # Cosmos API
+      - "9090:9090"    # gRPC
+      - "8545:8545"    # EVM RPC
+    environment:
+      - NODE_TYPE=rpc
+      - CHAIN_ID=mezo-mainnet
+    volumes:
+      - ./data:/root/.mezod
+```
+
+## Мониторинг и наблюдаемость
+
+### Конфигурация Prometheus
+
+```yaml
+# prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'mezod'
+    static_configs:
+      - targets: ['localhost:26660']
+    metrics_path: /metrics
+```
+
+### Дашборды Grafana
+
+Ключевые метрики для мониторинга:
+- **Высота блока**: текущая высота блокчейна
+- **Статус валидатора**: активен / неактивен
+- **Сетевое подключение**: соединения с пирами
+- **Использование ресурсов**: CPU, память, диск
+- **Пропускная способность транзакций**: метрики TPS
+
+### Правила оповещений
+
+```yaml
+# alerts.yml
+groups:
+  - name: mezod
+    rules:
+      - alert: NodeDown
+        expr: up{job="mezod"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Mezod node is down"
+```
+
+## Рекомендации по безопасности
+
+### Сетевая безопасность
+
+1. **Настройка файрвола**:
+```bash
+# Allow only necessary ports
+ufw allow 26656/tcp  # P2P
+ufw allow 26657/tcp  # RPC
+ufw allow 1317/tcp   # API
+ufw allow 8545/tcp   # EVM RPC
+```
+
+2. **Контроль доступа**:
+```bash
+# Restrict RPC access
+iptables -A INPUT -p tcp --dport 26657 -s TRUSTED_IP -j ACCEPT
+iptables -A INPUT -p tcp --dport 26657 -j DROP
+```
+
+### Управление ключами
+
+1. **Безопасное хранение**: используйте аппаратные модули безопасности (HSM)
+2. **Стратегия резервного копирования**: регулярно создавайте резервные копии ключей
+3. **Контроль доступа**: ограничьте права доступа к ключам
+
+**Важно**: никогда не добавляйте ключи валидатора в систему контроля версий!
+
+## Обслуживание
+
+### Регулярные задачи
+
+1. **Обновление ПО**:
+```bash
+# Update mezod
+git pull origin main
+make build
+systemctl restart mezod
+```
+
+2. **Обслуживание базы данных**:
+```bash
+# Prune old data (use with caution)
+./mezod tendermint unsafe-reset-all
+```
+
+3. **Ротация логов**:
+```bash
+# Configure logrotate
+cat > /etc/logrotate.d/mezod << EOF
+/var/log/mezod/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+EOF
+```
+
+### Стратегия резервного копирования
+
+1. **Резервное копирование конфигурации**:
+```bash
+tar -czf config-backup.tar.gz ~/.mezod/config/
+```
+
+2. **Резервное копирование ключей** (храните в безопасном месте):
+```bash
+# Backup validator keys to secure location
+cp ~/.mezod/config/priv_validator_key.json /secure/backup/
+```
+
+## Устранение неполадок
+
+### Распространённые проблемы
+
+1. **Проблемы с синхронизацией**:
+```bash
+# Check sync status
+./mezod status
+
+# Reset and resync
+./mezod tendermint unsafe-reset-all
+```
+
+2. **Проблемы с подключением**:
+```bash
+# Check peer connections
+./mezod tendermint show-node-id
+
+# Update persistent peers in config.toml
+```
+
+3. **Проблемы с производительностью**:
+```bash
+# Monitor resource usage
+htop
+iotop
+netstat -tulpn
+```
+
+### Команды для отладки
+
+```bash
+# View logs
+journalctl -u mezod -f
+
+# Check node status
+./mezod status
+
+# View configuration
+./mezod config
+
+# Test RPC endpoints
+curl http://localhost:26657/status
+```
+
+## Интеграция в разработку
+
+### Локальная разработка
+
+1. **Запустите локальный узел**:
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
+
+2. **Подключите dApp**:
+```javascript
+const provider = new ethers.JsonRpcProvider('http://localhost:8545');
+```
+
+### Тестовое окружение
+
+1. **Узел в тестовой сети**:
+```bash
+./mezod init testnode --chain-id mezo-testnet
+```
+
+2. **Интеграционные тесты**:
+```bash
+npm test
+```
+
+## Дополнительные ресурсы
+
+- **[Репозиторий Validator Kit](https://github.com/mezo-org/validator-kit.git)** — основной репозиторий
+- **[Репозиторий Mezod](https://github.com/mezo-org/mezod.git)** — клиент сети
+- **[Документация по узлам Mezo](/docs/ru/docs/developers/mezo-nodes/)** — эксплуатация узлов
+- **[Документация Docker](https://docs.docker.com/)** — справочник по Docker
+- **[Документация Kubernetes](https://kubernetes.io/docs/)** — справочник по K8s
+
+:::note
+Подробные требования к валидаторам, порядок подачи заявки и расширенные варианты конфигурации описаны в документации [репозитория Validator Kit](https://github.com/mezo-org/validator-kit.git).
+:::
+
+## Поддержка
+
+Чтобы получить поддержку для валидаторов:
+- Присоединяйтесь к [Discord Mezo](https://discord.com/invite/mezo)
+- Просмотрите [GitHub Issues](https://github.com/mezo-org/validator-kit/issues)
+- Ознакомьтесь с разделом [FAQ](/docs/ru/docs/developers/getting-started/FAQs)
