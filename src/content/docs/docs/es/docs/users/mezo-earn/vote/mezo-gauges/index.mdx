@@ -1,0 +1,89 @@
+---
+title: Descripción general de MEZO Gauges
+description: >-
+  Los titulares de veMEZO dirigen las emisiones de MEZO a pools de liquidez de
+  MUSD en Curve, Uniswap y Aerodrome
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+**MEZO Gauges permiten a los titulares de veMEZO votar para dirigir las emisiones de MEZO a pools de liquidez fuera de Mezo**, en Curve y Uniswap (Ethereum) y en Aerodrome (Base).
+
+Hasta ahora, veMEZO tenía una sola función: [dar boost](/docs/es/docs/users/mezo-earn/lock/vemezo/boost-mechanism) a una posición de veBTC. Ahora, veMEZO tiene poder de voto propio sobre una parte real de las emisiones semanales.
+
+---
+
+## ¿Por qué pagar a LP de otras cadenas?
+
+MUSD solo es útil si tiene liquidez allí donde ya están las personas. Si los pools fuera de Mezo tienen poca liquidez, no se puede entrar en MUSD ni salir de él con volúmenes grandes, y eso limita cuánto puede crecer de forma segura el libro de deuda de MUSD.
+
+---
+
+## En qué se diferencian MEZO Gauges de otros gauges
+
+Mezo opera tres tipos de gauges:
+| | Gauge de staking | Gauge de boost de veBTC | **MEZO Gauge** |
+|---|---|---|---|
+| Votas con | veBTC | veMEZO | **veMEZO** |
+| Destino de las emisiones | En la cadena Mezo, para quienes hacen staking | N/A | **Fuera de la cadena Mezo, como incentivos de pools** |
+| El votante gana | Comisiones de trading + incentivos | Incentivos publicados | **Incentivos publicados en el gauge** |
+
+:::note
+Los MEZO Gauges son **gauges sin staking**: no hay ningún token LP que poner en staking en Mezo, porque la liquidez que se incentiva está en otra cadena. Votar en ellos es totalmente independiente de tu votación con veBTC y del emparejamiento de boost. Dirigir veMEZO a un MEZO Gauge no consume ni reduce el boost que estés aportando. En el futuro, el mecanismo podrá admitir gauges sin staking que permanezcan en Mezo.
+:::
+
+---
+
+## Qué pools son elegibles
+
+En el lanzamiento hay cuatro gauges activos:
+
+| Gauge | Pool | Plataforma | Cadena | Distribución |
+|---|---|---|---|---|
+| Uniswap USDC/MUSD | USDC/MUSD | Uniswap | Ethereum | Merkl |
+| Curve USDT/USDC/MUSD | USDT/USDC/MUSD | Curve | Ethereum | Merkl |
+| Aerodrome USDC/MUSD | USDC/MUSD | Aerodrome | Base | Incentivos de votación de Aerodrome |
+| Aerodrome MEZO/MUSD | MEZO/MUSD | Aerodrome | Base | Incentivos de votación de Aerodrome |
+
+### Cómo cambia la lista
+
+El conjunto de pools elegibles es una lista de permitidos onchain que mantiene el registro de gauges remotos y que controla la gobernanza. Los pools se añaden o se eliminan mediante una acción de gobernanza, no porque cualquiera cree un gauge sin permisos. Cuando la lista cambia, cambia aquí y en la página Vote.
+
+---
+
+## Cuánto MEZO se puede dirigir
+
+Los MEZO Gauges se financian con la **rama de gauges sin staking** de las emisiones, que actualmente es el **8% de las recompensas de emisión semanales**. Los titulares de veBTC fijan esa parte mediante el [splitter](/docs/es/docs/users/mezo-earn/overview/glossary#splitter). Consulta [Calendario de emisiones](/docs/es/docs/users/mezo/emissions) para obtener más información.
+
+---
+
+## El ciclo, de principio a fin
+
+<Steps>
+1. **Votas.** Diriges tu poder de voto de veMEZO entre los MEZO Gauges disponibles durante la época.
+2. **La época se cierra** el jueves a las 00:00 UTC y se cuentan los votos. La parte de MEZO de cada gauge la determina su parte de los votos de veMEZO.
+3. **El MEZO sale de Mezo.** La asignación de cada gauge se reclama y se envía a su destino.
+4. **Llega como incentivo** al pool de destino, para que lo reclamen los LP en Merkl o los votantes en Aerodrome.
+</Steps>
+
+El momento exacto y la forma varían según la plataforma. Consulta [Adónde va tu voto](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes).
+
+---
+
+## Qué gana un votante
+
+Ganas una parte de los incentivos publicados en el gauge por el que votas, en función de tu participación en los votos de veMEZO de ese gauge. Los incentivos de los [gauges de boost](/docs/es/docs/users/mezo-earn/lock/vemezo/matching-market) funcionan igual. Cualquiera puede publicar incentivos en un MEZO Gauge, y los votantes pueden reclamarlos.
+
+El MEZO en sí sigue su camino. Llega al pool de destino y remunera a los LP o a los votantes de ese pool, según el protocolo. Tu voto decide dónde se paga por la liquidez de MUSD. Lo que te paga a ti son los incentivos publicados en el gauge.
+
+Para obtener también el MEZO dirigido, participa en ambos lados: aporta liquidez al pool de destino y, en Aerodrome, vota por el gauge correspondiente en Base. [Adónde va tu voto](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#cómo-capturar-el-valor-que-diriges) explica ese ciclo paso a paso.
+
+---
+
+## Próximos pasos
+
+- [Cómo votar en MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote): la guía paso a paso
+- [Adónde va tu voto](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes): cómo el peso se convierte en incentivos, y cuándo
+- [Cómo reclamar incentivos](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives): para los LP de los pools de destino
+- [Cómo bloquear MEZO](/docs/es/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo): si todavía no tienes veMEZO

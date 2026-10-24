@@ -1,0 +1,103 @@
+---
+title: Descripción general del mercado de emparejamiento
+description: >-
+  Cómo el mercado de emparejamiento conecta a los titulares de veBTC y veMEZO en
+  beneficio mutuo
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+El mercado de emparejamiento es la forma en que veBTC y veMEZO se emparejan. Permite a los titulares de BTC acceder al boost sin tener MEZO, y a los titulares de MEZO obtener rendimiento sin tener una cantidad significativa de BTC.
+
+## El problema que resuelve
+
+El sistema de dos tokens de Mezo requiere tanto veBTC como veMEZO para maximizar el poder de voto. Pero no todo el mundo tiene ambos:
+
+- **Los usuarios con mucho BTC** quieren el boost de 5x, pero puede que no tengan MEZO
+- **Los usuarios con mucho MEZO** tienen veMEZO, pero poco BTC con el que votar
+
+El mercado de emparejamiento conecta estos dos lados.
+
+---
+
+## Cómo funciona
+
+Cada posición de veBTC tiene su propio gauge de boost. Este gauge no distribuye emisiones: determina cuánto boost de veMEZO recibe esa posición de veBTC.
+
+### El flujo
+
+1. **El titular de veBTC bloquea BTC** → recibe un NFT veBTC con un gauge de boost asociado
+2. **El titular de veBTC publica incentivos** → deposita tokens (cualquier ERC-20) en su gauge de boost para atraer votos de veMEZO
+3. **Los titulares de veMEZO votan** → asignan peso de veMEZO a los gauges de boost atractivos
+4. **Se aplica el boost** → el multiplicador de la posición de veBTC aumenta según los votos de veMEZO recibidos
+5. **Se reclaman los incentivos** → quienes votan con veMEZO reclaman su parte de los incentivos al final de la época
+
+---
+
+## Los dos lados del mercado
+
+### Si tienes mucho BTC
+
+Quieres boost, pero no tienes suficiente MEZO. Tus opciones:
+
+- Publicar incentivos en tu gauge de veBTC para atraer votos de veMEZO
+- Pagar por el boost en lugar de bloquear MEZO tú mismo
+- El mercado determina el precio vigente del boost
+
+### Si tienes mucho MEZO
+
+Tienes veMEZO, pero poco BTC. Tus opciones:
+
+- Votar en gauges de veBTC bien incentivados para obtener rendimiento
+- Ofrecer boost como servicio a los titulares de BTC dispuestos a pagar
+- Obtener rendimientos con tu MEZO sin necesitar una exposición significativa a BTC
+
+---
+
+## Por qué es importante
+
+El mercado de emparejamiento convierte el boost en un servicio con precio y negociable:
+
+- **El boost tiene un precio de mercado** determinado por la oferta y la demanda
+- **Los usuarios no necesitan tener ambos tokens** para beneficiarse del sistema
+- **Mejora la eficiencia del capital**: los titulares de BTC se centran en BTC y los titulares de MEZO, en MEZO
+
+Sin el mercado de emparejamiento, los usuarios tendrían que tener cantidades proporcionales de ambos tokens para participar de forma eficaz. El mercado elimina esa fricción.
+
+---
+
+## Conceptos clave
+
+| Término | Definición |
+|---|---|
+| Gauge de boost | Un gauge vinculado a cada NFT veBTC que recibe votos de veMEZO |
+| Incentivos | Tokens que publican los titulares de veBTC para atraer votos de veMEZO |
+| Proveedor de boost | Un titular de veMEZO que vota en los gauges de boost de otros a cambio de incentivos |
+| Buscador de boost | Un titular de veBTC que publica incentivos para atraer votos de veMEZO |
+
+---
+
+## Matchbox
+
+:::caution[Aviso sobre herramienta de la comunidad]
+La implementación actual del mercado de emparejamiento (Matchbox) es una herramienta creada por la comunidad. Mezo no la ha creado, no la mantiene ni la respalda oficialmente. Los usuarios deberían investigar por su cuenta y actuar con precaución al interactuar con aplicaciones de terceros.
+:::
+
+<LinkButton href="https://matchbox.markets/">Protocolo de emparejamiento veBTC + veMEZO: gana bribes con tu veMEZO o paga para obtener boost</LinkButton>
+
+Para ver tutoriales detallados sobre cómo usar Matchbox para potenciar tus ganancias en Mezo, consulta la [documentación de Matchbox](https://matchbox.markets/docs).
+
+---
+
+## Riesgos
+
+Al ser una herramienta creada por la comunidad, el mercado de emparejamiento conlleva riesgos adicionales:
+
+- **Riesgo de contratos inteligentes**: es posible que los contratos no se hayan auditado con el mismo estándar que el protocolo principal de Mezo
+- **Sin soporte oficial**: Mezo no puede ofrecer soporte ni asistencia para problemas con el mercado de emparejamiento
+- **Riesgo operativo**: la herramienta puede modificarse, dejar de ofrecerse o sufrir interrupciones sin previo aviso
+
+:::note[Nota]
+Para preguntas o soporte relacionados con el mercado de emparejamiento, ponte en contacto directamente con los desarrolladores de la comunidad. El soporte de Mezo no puede ayudar con herramientas de terceros.
+:::

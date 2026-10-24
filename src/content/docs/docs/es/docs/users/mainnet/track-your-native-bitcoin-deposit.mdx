@@ -1,0 +1,50 @@
+---
+title: Seguimiento de tu depósito de Bitcoin nativo
+description: >-
+  Aprende a comprobar el estado de tu depósito de Bitcoin nativo en Mezo con
+  tBTCScan.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Después de depositar Bitcoin nativo en Mezo, tus fondos suelen aparecer en aproximadamente 1.5 horas. Tu depósito pasa por varios pasos antes de llegar a tu cuenta:
+
+1. **Confirmación onchain**: tu transacción de Bitcoin debe confirmarse en la red de Bitcoin (se necesitan entre 1 y 6 confirmaciones, según la cantidad del depósito).
+2. **Revelación al puente**: una vez confirmada, el bot de tBTC detecta tu depósito y lo revela al puente de tBTC. Esto suele ocurrir rápido, pero en casos poco frecuentes puede tardar hasta 5 horas.
+3. **Acuñación en Ethereum**: el puente de tBTC procesa tu depósito y acuña tBTC en Ethereum. Esto suele tardar entre 1 y 1.5 horas.
+4. **Transferencia a Mezo mediante el puente**: una vez acuñado el tBTC, se transfiere a Mezo mediante el puente y el BTC llega a tu cuenta. Esto tarda aproximadamente entre 15 y 20 minutos.
+
+En casos excepcionales, el proceso puede tardar más.
+
+## Cómo comprobar el estado de tu depósito
+
+Si tu depósito no ha aparecido en Mezo después de 1 hora y 30 minutos, puedes verificar su estado con [tbtcscan](https://tbtcscan.com/), un explorador de bloques de terceros para el puente de tBTC.
+
+![Interfaz de búsqueda de depósitos de tBTCScan](/docs/images/tbtc/tbtc1.webp)
+
+<Steps>
+1. **Localiza el ID de tu transacción**: busca el hash de la transacción de Bitcoin en tu billetera o en su historial.
+
+2. **Visita la pestaña Deposits de tBTCScan**: esta herramienta de terceros muestra datos de los depósitos del puente en tiempo real.
+
+3. **Busca tu transacción**: introduce el hash de tu transacción en la barra de búsqueda.
+
+4. **Comprueba el estado:**
+   - **Sin resultados** → el depósito aún no se ha revelado al puente. Esto suele ocurrir en los 20 minutos siguientes a la confirmación onchain, pero en casos poco frecuentes puede tardar hasta 5 horas.
+   - **MINTING IN PROGRESS** → tu depósito se ha revelado y se está acuñando tBTC en Ethereum. Esto suele tardar entre 1 y 1.5 horas.
+   - **MINTING FINALIZED** → se ha acuñado tBTC en Ethereum. Tu depósito debería aparecer en tu cuenta de Mezo en un plazo de 15 a 20 minutos.
+</Steps>
+
+:::tip
+La búsqueda de tBTCScan requiere recargar la página entre búsquedas consecutivas para mostrar resultados nuevos.
+:::
+
+![Resultados del estado del depósito en tBTCScan](/docs/images/tbtc/tbtc2.webp)
+
+## ¿Qué pasa si mi depósito no aparece?
+
+Si tu depósito muestra MINTING FINALIZED en tbtcscan pero todavía no ha aparecido en tu cuenta de Mezo después de 15 minutos, o si no ves ningún resultado en tbtcscan después de 5 horas, contacta con soporte abriendo un ticket en el [Discord de Mezo](https://discord.gg/mezo) con:
+
+- El hash de tu transacción
+- La dirección de la cuenta con la que inicias sesión en Mezo (o el ID de tu cuenta de Mezo)

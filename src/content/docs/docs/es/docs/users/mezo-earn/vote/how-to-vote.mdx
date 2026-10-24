@@ -1,0 +1,135 @@
+---
+title: Cómo votar
+description: Guía paso a paso para votar en los gauges con tu veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Votar te permite dirigir el flujo de las emisiones y, a cambio, ganar una parte proporcional de las comisiones de trading y de los incentivos de los gauges a los que asignas tu voto. Esta guía te acompaña por todo el proceso.
+
+<YouTube id="6rthu_iub7E" title="Cómo votar" start={89} />
+
+## Requisitos previos
+
+Antes de empezar, asegúrate de tener:
+
+- Una billetera compatible conectada a Mezo (MetaMask, Rabby o billeteras compatibles con WalletConnect)
+- Una posición de veBTC activa (para votar en los gauges de staking)
+- O una posición de veMEZO activa (para votar en los gauges de boost de veBTC)
+- BTC suficiente para las comisiones de gas
+
+Consulta [Cómo bloquear BTC](/docs/es/docs/users/mezo-earn/lock/vebtc/how-to-lock-btc) si todavía no tienes un bloqueo de veBTC.
+
+Consulta [Cómo bloquear MEZO](/docs/es/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) si quieres crear una posición de veMEZO.
+
+---
+
+## Votar con veBTC
+
+Los titulares de veBTC votan en los gauges de staking para dirigir las emisiones y ganar comisiones.
+
+### Emite tu voto
+
+Para ganar recompensas, asigna tu poder de voto a gauges específicos. Tu asignación se mantiene de una época a otra (de 7 días cada una) hasta que la cambies.
+
+<Steps>
+1. Visita la pestaña **Vote** para ver tus posiciones de veBTC activas. Haz clic en **Allocate** junto a la posición de veBTC con la que quieres votar.
+
+2. En los gauges que quieras apoyar, introduce el porcentaje de tu poder de voto que quieres asignar a cada uno. Por ejemplo, podrías asignar el 50% al pool BTC/MUSD, el 30% al pool MUSD/mUSDC y el 20% al pool mcbBTC/BTC.
+
+3. Revisa tu asignación y, cuando estés listo, haz clic en **Submit Votes** en la barra lateral derecha. Firma la transacción y, una vez completada, tu voto quedará registrado para la época actual.
+</Steps>
+
+:::note[Recuerda]
+Cada bloqueo puede votar una vez por época: una vez confirmado tu voto, la asignación queda fijada hasta el siguiente cambio de época. Tu asignación se mantiene de una época a otra y sigue ganando comisiones e incentivos hasta que la cambies o la restablezcas.
+:::
+
+---
+
+## Votar con veMEZO
+
+Los titulares de veMEZO votan en los gauges de boost de veBTC para dar boost a posiciones de BTC a cambio de incentivos, y en [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges) para dirigir las emisiones de MEZO a pools de MUSD fuera de Mezo. Ambos son independientes: consulta [Cómo votar en MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) para ese flujo.
+
+### Vota en los gauges de boost
+
+<Steps>
+1. Ve a la sección **Boost Gauges** para ver todas las posiciones de veBTC disponibles que buscan boost.
+
+2. Revisa cada gauge para ver:
+   - Los incentivos publicados actualmente
+   - La cantidad de veMEZO ya dirigida a ese gauge
+   - El rendimiento estimado según tu asignación de veMEZO
+
+3. Introduce el porcentaje de tu poder de voto de veMEZO que quieres dirigir a cada gauge de boost.
+
+4. Haz clic en **Submit Votes** y firma la transacción.
+</Steps>
+
+### Qué ganas
+
+Cuando diriges votos de veMEZO a un gauge de boost:
+
+- Ganas una parte de los incentivos publicados en ese gauge, proporcional a tu participación en los votos de veMEZO
+- El titular del veBTC recibe boost, lo que aumenta su poder de voto efectivo
+
+Nota: los votantes de veMEZO **no** reciben comisiones de trading, ingresos de MUSD ni comisiones de puente de las posiciones de veBTC a las que dan boost. Esas recompensas van al titular del veBTC. Los votantes de veMEZO solo ganan los incentivos publicados explícitamente en los gauges de boost.
+
+---
+
+## Cómo maximizar tu boost (para titulares de veBTC)
+
+Si tienes tanto veBTC como veMEZO, puedes maximizar tu poder de voto:
+
+### Opción 1: autoboost
+
+Dirige tus votos de veMEZO al gauge de boost de tu propia posición de veBTC.
+
+<Steps>
+1. Ve al gauge de boost de tu posición de veBTC
+2. Asígnale tu poder de voto de veMEZO
+3. Haz clic en **Submit Votes**
+4. Haz **poke** a tu posición de veBTC para activar el nuevo boost
+</Steps>
+
+### Opción 2: atraer boost externo
+
+Publica incentivos en el gauge de boost de tu veBTC para atraer votos de veMEZO de otros usuarios.
+
+<Steps>
+1. Ve al gauge de boost de tu posición de veBTC
+2. Haz clic en **Add Incentives**
+3. Deposita tokens (cualquier ERC-20) como incentivos
+4. Los titulares de veMEZO verán tus incentivos y podrán dirigir sus votos hacia ti
+5. Haz **poke** a tu posición después de recibir nuevos votos de veMEZO
+</Steps>
+
+---
+
+## Importante: haz poke después de los cambios
+
+Cuando cambia tu situación de veMEZO, el boost no se actualiza automáticamente. Tienes que hacer **poke** a tu posición de veBTC para actualizar su peso con boost.
+
+**Haz poke cuando:**
+- Recibas nuevos votos de veMEZO en tu gauge de boost
+- Dirijas tu propio veMEZO a tu posición
+- Reclames distribuciones de rebase de veMEZO
+- Extiendas tu bloqueo de veMEZO
+
+**Cómo hacer poke:**
+1. Ve a tu posición de veBTC
+2. Haz clic en **Poke**
+3. Firma la transacción
+
+Tu nuevo peso con boost se aplicará de inmediato.
+
+---
+
+## Próximos pasos
+
+- [Gestionar bloqueos y reclamar recompensas](/docs/es/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards): reclama tus ganancias y extiende tu bloqueo
+- [Descripción general de la votación](/docs/es/docs/users/mezo-earn/vote): descubre más sobre cómo funciona la votación y qué ganas
+- [Mecanismo de boost](/docs/es/docs/users/mezo-earn/lock/vemezo/boost-mechanism): entiende cómo se calcula el boost de veMEZO
+- [Mercado de emparejamiento](/docs/es/docs/users/mezo-earn/lock/vemezo/matching-market): descubre cómo funciona el mercado de boost
+- [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges): vota con veMEZO para dirigir las emisiones de MEZO a pools de MUSD en Curve, Uniswap y Aerodrome

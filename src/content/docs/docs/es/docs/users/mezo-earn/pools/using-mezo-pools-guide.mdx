@@ -1,0 +1,92 @@
+---
+title: Cómo usar Mezo Pools
+description: 'Cómo depositar, gestionar tus posiciones, reclamar recompensas y más'
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Aportar liquidez en Mezo Pools te permite ganar comisiones de trading mientras profundizas el mercado de activos respaldados por Bitcoin. Esta guía te acompaña por todo el proceso.
+
+<YouTube id="6rthu_iub7E" title="Cómo usar Mezo Pools" start={128} />
+
+## Requisitos previos
+
+Antes de empezar, asegúrate de tener:
+
+- Una billetera compatible conectada a Mezo
+- El mismo valor en **dólares** de ambos tokens del par del pool que elijas
+- BTC suficiente para las comisiones de gas
+
+---
+
+## Depositar
+
+Para aportar liquidez, necesitas el mismo valor de ambos activos de un par de trading. En un pool BTC/MUSD, podrías depositar el equivalente a 50 MUSD en BTC y 50 MUSD.
+
+Visita [mezo.org/earn/pools](https://mezo.org/earn/pools) y selecciona el pool que quieras. Introduce la cantidad de uno de los tokens que deseas depositar: la interfaz calcula automáticamente la cantidad necesaria del segundo token. Revisa la estimación de tokens LP, confirma la transacción y aprueba el gasto de tokens si es la primera vez. Una vez completado, se acuñan en tu billetera tokens LP que representan tu participación proporcional.
+
+### Qué son los tokens LP
+
+Cuando depositas en un pool, la cantidad de tokens LP que recibes se calcula como `sqrt(x × y)` para el primer depósito en un pool nuevo, donde x e y son las cantidades de ambos tokens. En los depósitos posteriores, tus tokens LP son proporcionales a tu participación en el valor total del pool.
+
+Estos tokens representan la propiedad de tus activos en el pool y te dan derecho a:
+
+- Una parte proporcional de todas las comisiones de trading generadas por el pool
+- La posibilidad de redimir tus activos subyacentes quemando los tokens LP
+
+---
+
+
+## Gauges
+
+Los gauges determinan cómo se distribuyen las emisiones entre los pools. Cada pool tiene un gauge asociado, y las emisiones se recalculan en cada época (7 días) según los votos de los titulares de veBTC. Los votos se mantienen de una época a otra a menos que los votantes los cambien, y los pools con más votos reciben una mayor parte de las emisiones. Si un votante aumenta su poder de voto, debe [hacer poke a sus votos](/docs/es/docs/users/mezo-earn/vote/how-to-vote/#importante-haz-poke-después-de-los-cambios) para que se aplique el peso actualizado.
+
+Los pools con más votos en su gauge reciben más emisiones, lo que atrae más liquidez, reduce el deslizamiento y aumenta el volumen de trading. Un mayor volumen genera más comisiones para los LP, lo que crea un ciclo de retroalimentación positiva en todo el ecosistema y alinea los intereses de los LP, los votantes y los traders.
+
+---
+
+## Gestionar
+
+Como LP, obtienes ganancias de dos fuentes:
+
+### Comisiones de trading
+
+- Pools volátiles: 0.30% por swap
+- Pools estables: 0.02% por swap
+- Se cobran en ambos tokens del par
+- Se almacenan por separado en contratos PoolFees
+- Se pueden reclamar en cualquier momento sin retirar el staking
+
+### Emisiones de MEZO (con staking)
+
+- Se obtienen según los votos de los titulares de veBTC en los gauges
+- Las cantidades distribuidas las determina la gobernanza de la comunidad
+
+---
+
+## Reclamar
+
+**Reclamar comisiones:** ve a tu posición, haz clic en "Claim Fees" y ambos tokens se enviarán a tu billetera. Puedes reclamar comisiones sin retirar del staking tus tokens LP.
+
+**Reclamar recompensas:** haz clic en "Claim Rewards" desde tu posición en staking para recibir los incentivos que has ganado.
+
+---
+
+## Retirar
+
+ Tus tokens LP se devuelven a tu billetera y dejan de ganar emisiones, pero las comisiones de trading siguen acumulándose.
+ 
+ **Retirar del staking:** selecciona "Unstake", introduce la cantidad y confirma.
+
+**Retirar liquidez:** primero retira tus tokens LP del staking si es necesario; luego haz clic en "Remove Liquidity" y confirma. Tus tokens LP se queman y los dos tokens subyacentes se devuelven de forma proporcional a tu billetera.
+
+---
+
+## Riesgos
+
+### Pérdida impermanente
+Aportar liquidez te expone a la pérdida impermanente: cuando cambia la relación de precios entre tus tokens, puede que tengas menos valor que si simplemente hubieras conservado ambos tokens. Los pools volátiles como BTC/MUSD conllevan un mayor riesgo de pérdida impermanente que los pools estables como MUSD/USDC.
+
+### Riesgo de contratos inteligentes
+Mezo Pools están auditados, pero los contratos inteligentes siempre conllevan un riesgo inherente. Revisa las auditorías en [mezo.org/audits](https://mezo.org/audits) y deposita solo cantidades con las que te sientas cómodo.
