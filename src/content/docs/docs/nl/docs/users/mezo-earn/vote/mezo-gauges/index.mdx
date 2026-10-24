@@ -1,0 +1,89 @@
+---
+title: Overzicht van MEZO Gauges
+description: >-
+  veMEZO-houders sturen MEZO-emissies naar MUSD-liquiditeitspools op Curve,
+  Uniswap en Aerodrome
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+**Met MEZO Gauges kunnen veMEZO-houders stemmen om MEZO-emissies naar liquiditeitspools buiten Mezo te sturen**, op Curve en Uniswap (Ethereum) en Aerodrome (Base).
+
+Tot nu toe had veMEZO één taak: een veBTC-positie [boosten](/docs/nl/docs/users/mezo-earn/lock/vemezo/boost-mechanism). Nu heeft veMEZO eigen stemkracht, over een echt deel van de wekelijkse emissies.
+
+---
+
+## Waarom LP's op andere chains betalen?
+
+MUSD is alleen nuttig als het liquide is op de plekken waar mensen al zijn. Met dunne pools buiten Mezo kun je niet met grote bedragen in of uit MUSD stappen, en dat begrenst hoe groot het MUSD-schuldenboek veilig kan groeien.
+
+---
+
+## Hoe MEZO Gauges verschillen van andere gauges
+
+Mezo kent drie soorten gauges:
+| | Staking-gauge | veBTC-boostgauge | **MEZO Gauge** |
+|---|---|---|---|
+| Je stemt met | veBTC | veMEZO | **veMEZO** |
+| Emissies komen terecht | Op de Mezo-chain, bij stakers | N.v.t. | **Buiten de Mezo-chain, als poolincentives** |
+| De stemmer verdient | Handelsvergoedingen + incentives | Geplaatste incentives | **Incentives die op de gauge zijn geplaatst** |
+
+:::note
+MEZO Gauges zijn **niet-staking-gauges**: er is op Mezo geen LP-token om te staken, omdat de liquiditeit die wordt beloond zich op een andere chain bevindt. Stemmen op deze gauges staat volledig los van je veBTC-stemmen en van boostmatching. Als je veMEZO naar een MEZO Gauge stuurt, wordt een boost die je verleent daardoor niet verbruikt of verminderd. Het mechanisme kan in de toekomst ook niet-staking-gauges ondersteunen die op Mezo blijven.
+:::
+
+---
+
+## Welke pools in aanmerking komen
+
+Bij de lancering zijn er vier gauges actief:
+
+| Gauge | Pool | Platform | Chain | Distributie |
+|---|---|---|---|---|
+| Uniswap USDC/MUSD | USDC/MUSD | Uniswap | Ethereum | Merkl |
+| Curve USDT/USDC/MUSD | USDT/USDC/MUSD | Curve | Ethereum | Merkl |
+| Aerodrome USDC/MUSD | USDC/MUSD | Aerodrome | Base | Stemincentives van Aerodrome |
+| Aerodrome MEZO/MUSD | MEZO/MUSD | Aerodrome | Base | Stemincentives van Aerodrome |
+
+### Hoe de lijst verandert
+
+De verzameling pools die in aanmerking komen, is een onchain allowlist die wordt bijgehouden door het register voor externe gauges en wordt beheerd door governance. Pools worden toegevoegd of verwijderd via een governancebesluit, niet doordat iemand permissionless een gauge aanmaakt. Als de lijst verandert, verandert die hier en op de pagina Vote.
+
+---
+
+## Hoeveel MEZO je kunt sturen
+
+MEZO Gauges worden gefinancierd uit de **niet-staking-gaugetak** van de emissies, momenteel **8% van de wekelijkse emissiebeloningen**. veBTC-houders bepalen dat aandeel via de [splitter](/docs/nl/docs/users/mezo-earn/overview/glossary#splitter). Zie [Emissieschema](/docs/nl/docs/users/mezo/emissions) voor meer informatie.
+
+---
+
+## De kringloop van begin tot eind
+
+<Steps>
+1. **Je stemt.** Verdeel tijdens de epoch je veMEZO-stemkracht over de beschikbare MEZO Gauges.
+2. **De epoch sluit** op donderdag om 00:00 UTC en de stemmen worden geteld. Het aandeel MEZO van elke gauge wordt bepaald door zijn aandeel in de veMEZO-stemmen.
+3. **MEZO verlaat Mezo.** De toewijzing van elke gauge wordt geclaimd en naar de bestemming gestuurd.
+4. **Het komt terecht als incentive** op de doelpool, waar LP's het op Merkl kunnen claimen of stemmers op Aerodrome.
+</Steps>
+
+Het precieze tijdstip en de vorm verschillen per platform. Zie [Waar je stem naartoe gaat](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes).
+
+---
+
+## Wat een stemmer verdient
+
+Je verdient een deel van de incentives die zijn geplaatst op de gauge waarop je stemt, naar verhouding van jouw aandeel in de veMEZO-stemmen op die gauge. Incentives op [boostgauges](/docs/nl/docs/users/mezo-earn/lock/vemezo/matching-market) werken op dezelfde manier. Iedereen kan incentives op een MEZO Gauge plaatsen, en stemmers kunnen ze claimen.
+
+De MEZO zelf reist verder. Die komt terecht op de doelpool en betaalt volgens het protocol de LP's of stemmers van die pool. Jouw stem bepaalt waar voor MUSD-liquiditeit wordt betaald. De incentives op de gauge zijn wat jou betaalt.
+
+Wil je ook de gestuurde MEZO binnenhalen, werk dan aan beide kanten: verschaf liquiditeit aan de doelpool en stem op Aerodrome op de bijbehorende gauge op Base. [Waar je stem naartoe gaat](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#de-waarde-benutten-die-je-stuurt) loopt die kringloop met je door.
+
+---
+
+## Volgende stappen
+
+- [Stemmen op MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote): de stapsgewijze uitleg
+- [Waar je stem naartoe gaat](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes): hoe gewicht incentives wordt, en wanneer
+- [Incentives claimen](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives): voor LP's in de doelpools
+- [MEZO vergrendelen](/docs/nl/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo): als je nog geen veMEZO hebt

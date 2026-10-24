@@ -1,0 +1,50 @@
+---
+title: Je native Bitcoin-storting volgen
+description: >-
+  Ontdek hoe je met tBTCScan de status van je native Bitcoin-storting naar Mezo
+  controleert.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Nadat je native Bitcoin naar Mezo hebt gestort, verschijnen je tegoeden meestal binnen ongeveer 1,5 uur. Je storting doorloopt verschillende stappen voordat die in je account aankomt:
+
+1. **Onchain bevestiging**: je Bitcoin-transactie moet op het Bitcoin-netwerk worden bevestigd (1–6 bevestigingen vereist, afhankelijk van het gestorte bedrag).
+2. **Onthulling aan de bridge**: na de bevestiging detecteert de tBTC-bot je storting en onthult die aan de tBTC-bridge. Dat gaat meestal snel, maar kan in zeldzame gevallen tot 5 uur duren.
+3. **Minten op Ethereum**: de tBTC-bridge verwerkt je storting en mint tBTC op Ethereum. Dit duurt doorgaans ongeveer 1–1,5 uur.
+4. **Bridgen naar Mezo**: zodra de tBTC is gemint, wordt die naar Mezo gebridged en komt BTC in je account terecht. Dit duurt ongeveer 15–20 minuten.
+
+In zeldzame uitzonderingsgevallen kan het proces langer duren.
+
+## De status van je storting controleren
+
+Is je storting na 1 uur en 30 minuten nog niet op Mezo verschenen? Dan kun je de status controleren met [tbtcscan](https://tbtcscan.com/), een block explorer van een derde partij voor de tBTC-bridge.
+
+![Zoekinterface voor stortingen in tBTCScan](/docs/images/tbtc/tbtc1.webp)
+
+<Steps>
+1. **Zoek je transactie-ID op**: vind de hash van de Bitcoin-transactie in je wallet of in de geschiedenis van je wallet.
+
+2. **Open het tabblad Deposits van tBTCScan**: deze tool van een derde partij toont realtime gegevens over stortingen via de bridge.
+
+3. **Zoek naar je transactie**: vul je transactiehash in de zoekbalk in.
+
+4. **Controleer de status:**
+   - **Geen resultaten** → de storting is nog niet aan de bridge onthuld. Dat gebeurt meestal binnen 20 minuten na de onchain bevestiging, maar kan in zeldzame gevallen tot 5 uur duren.
+   - **MINTING IN PROGRESS** → je storting is onthuld en er wordt tBTC gemint op Ethereum. Dit duurt doorgaans ongeveer 1–1,5 uur.
+   - **MINTING FINALIZED** → er is tBTC gemint op Ethereum. Je storting zou binnen 15–20 minuten in je Mezo-account moeten verschijnen.
+</Steps>
+
+:::tip
+Bij de zoekfunctie van tBTCScan moet je de pagina tussen opeenvolgende zoekopdrachten vernieuwen om nieuwe resultaten te zien.
+:::
+
+![Statusresultaten van een storting in tBTCScan](/docs/images/tbtc/tbtc2.webp)
+
+## Wat als mijn storting niet verschijnt?
+
+Toont tbtcscan voor je storting MINTING FINALIZED, maar staat die na 15 minuten nog steeds niet in je Mezo-account? Of zie je na 5 uur nog geen resultaten op tbtcscan? Neem dan contact op met support door een ticket te openen in de [Mezo Discord](https://discord.gg/mezo) en vermeld daarin:
+
+- Je transactiehash
+- Het adres van het account waarmee je inlogt bij Mezo (of je Mezo-account-ID)

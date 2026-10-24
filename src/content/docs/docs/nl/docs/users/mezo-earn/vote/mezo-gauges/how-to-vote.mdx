@@ -1,0 +1,85 @@
+---
+title: Stemmen op MEZO Gauges
+description: Stapsgewijze handleiding om veMEZO-stemkracht naar MEZO Gauges te sturen
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Op MEZO Gauges stem je met **veMEZO**, op een eigen pagina, los van het stemmen op veBTC-gauges en het matchen van boosts.
+
+## Vereisten
+
+- Een [met Mezo verbonden wallet](/docs/nl/docs/users/getting-started/connect)
+- Een actieve veMEZO-positie
+- Een kleine hoeveelheid BTC voor gas
+
+Je hebt **geen** veBTC, LP-positie of positie in de doelpool nodig om te stemmen. Zie [MEZO vergrendelen](/docs/nl/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) als je nog geen veMEZO hebt.
+
+---
+
+## Je stem uitbrengen
+
+<Steps>
+1. Ga naar het tabblad **Vote** op [mezo.org](https://mezo.org), schakel over naar stemmen met **veMEZO** en open de pagina **MEZO Gauges** op [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo).
+
+2. Bekijk de beschikbare gauges. Elke rij toont het doelprotocol en de chain, de gauge (doelpool), eventuele incentives die op de gauge zijn geplaatst en de uitkeringsdatum.
+
+3. Vul in welk percentage van je veMEZO-stemkracht je aan elke gauge wilt toewijzen. Je kunt over meerdere gauges verdelen, bijvoorbeeld 60% naar Aerodrome USDC/MUSD en 40% naar Curve USDT/USDC/MUSD.
+
+4. Klik op **Submit Votes** en onderteken de transactie.
+</Steps>
+
+Je verdeling is voor de huidige epoch geregistreerd zodra de transactie is bevestigd.
+
+:::note[De kolommen Protocol, Gauge, Incentives en Distribution date]
+Dit zijn de vier kolommen in de tabel van MEZO Gauges. **Protocol** linkt naar het doelplatform. **Gauge** toont de doelpool. **Incentives** zijn de tokens die deze epoch op de gauge zijn geplaatst. **Distribution date** is het moment (in UTC) waarop de incentives van deze epoch bij de doelpool of -gauge aankomen.
+
+vAPR, vergoedingen of TVL worden hier niet getoond, omdat die op Curve, Uniswap of Aerodrome worden opgebouwd en niet op Mezo. Wanneer je stemmen toewijst, verschijnt er een kolom **Vote distribution** voor de percentages.
+:::
+
+---
+
+## De stemperiode
+
+MEZO Gauges volgen dezelfde wekelijkse cyclus als de rest van Mezo Earn.
+
+- Epochs duren **7 dagen en wisselen op donderdag om 00:00 UTC**
+- Het stemmen begint een uur na de start van de epoch (donderdag 01:00 UTC) en sluit een uur voor de volgende wisseling (woensdag 23:00 UTC)
+- De stemmen worden bij de wisseling geteld, en de MEZO-toewijzing van elke gauge wordt bepaald door haar aandeel in alle veMEZO-stemmen die op MEZO Gauges zijn uitgebracht
+
+**Emissies zonder stemmen.** MEZO wordt strikt naar verhouding van de uitgebrachte stemmen over de MEZO Gauges verdeeld. Een gauge zonder stemmen krijgt geen MEZO, en haar deel wordt verdeeld over de gauges die wel stemmen hebben gekregen. Stemkracht die je niet toewijst, heeft gewoon geen invloed op de verdeling en levert je geen incentives op.
+
+---
+
+## Je stem wijzigen of resetten
+
+Je verdeling **blijft over epochs heen behouden** totdat je haar wijzigt. Ben je tevreden met je verdeling, dan hoef je die niet elke week opnieuw in te dienen: ze blijft je elke epoch een deel van de incentives van die gauge opleveren.
+
+**Je kunt per vergrendeling maar één keer per epoch stemmen.** Zodra je stem is bevestigd, ligt de MEZO Gauge-verdeling van die vergrendeling voor de rest van de epoch vast en toont de pagina haar tot de volgende wisseling als alleen-lezen.
+
+**Wijzigen:** ga terug naar de pagina MEZO Gauges, vul een nieuwe verdeling in en dien die in. De nieuwe verdeling vervangt de oude volledig. Heeft de vergrendeling deze epoch al gestemd, dan kan ze pas na de volgende wisseling opnieuw stemmen.
+
+**Resetten:** gebruik **Reset** om je stemkracht volledig uit MEZO Gauges terug te trekken. Je kunt niet resetten in dezelfde epoch waarin je al hebt gestemd, omdat elke vergrendeling één stemactie per epoch krijgt.
+
+:::caution
+Omdat elke vergrendeling één keer per epoch stemt, kan een vergrendeling die al heeft gestemd pas na de volgende wisseling reageren op nieuwe gauges of incentives.
+:::
+
+---
+
+## Heeft dit invloed op mijn boost of mijn veBTC-stemmen?
+
+Nee. Stemmen op MEZO Gauges staat daar los van:
+
+- Het verbruikt geen veMEZO die je gebruikt om een veBTC-positie te [boosten](/docs/nl/docs/users/mezo-earn/lock/vemezo/boost-mechanism), en het verlaagt geen boost die je al hebt gegeven
+- Er is geen [poke](/docs/nl/docs/users/mezo-earn/vote/how-to-vote#belangrijk-poke-na-wijzigingen) voor nodig: een poke vernieuwt het geboost gewicht van veBTC, en daar komt stemmen op MEZO Gauges niet aan
+- Het heeft geen invloed op waar je veBTC-stemmen de emissies van staking-gauges naartoe sturen
+
+---
+
+## Volgende stappen
+
+- [Waar je stem naartoe gaat](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes): wat er gebeurt nadat de epoch is afgesloten
+- [Incentives claimen](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives): hoe LP's de MEZO innen die jij hebt gestuurd
+- [Overzicht van MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges): het mechanisme en de geschikte pools

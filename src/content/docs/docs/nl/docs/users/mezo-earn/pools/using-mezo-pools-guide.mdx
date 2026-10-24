@@ -1,0 +1,92 @@
+---
+title: Mezo Pools gebruiken
+description: 'Zo stort je, beheer je je posities, claim je beloningen en meer'
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Door liquiditeit te verschaffen in Mezo Pools verdien je handelsvergoedingen en maak je de markt voor door Bitcoin gedekte activa dieper. Deze handleiding leidt je door het volledige proces.
+
+<YouTube id="6rthu_iub7E" title="Mezo Pools gebruiken" start={128} />
+
+## Vereisten
+
+Zorg dat je het volgende hebt voordat je begint:
+
+- Een compatibele wallet die met Mezo is verbonden 
+- Een gelijke **dollar**waarde van beide tokens in het poolpaar dat je wilt gebruiken
+- Voldoende BTC voor gaskosten
+
+---
+
+## Storten
+
+Om liquiditeit te verschaffen, heb je een gelijke waarde van beide activa in een handelspaar nodig. Voor een BTC/MUSD-pool kun je bijvoorbeeld BTC ter waarde van 50 MUSD en 50 MUSD storten.
+
+Ga naar [mezo.org/earn/pools](https://mezo.org/earn/pools) en selecteer de gewenste pool. Voer het bedrag in van één token dat je wilt storten; de interface berekent automatisch hoeveel je van het tweede token nodig hebt. Bekijk het geschatte aantal LP-tokens, bevestig de transactie en keur de besteding van tokens goed als je dit voor het eerst doet. Daarna worden LP-tokens die jouw evenredige aandeel vertegenwoordigen naar je wallet gemint.
+
+### LP-tokens begrijpen
+
+Wanneer je in een pool stort, wordt het aantal LP-tokens dat je ontvangt bij de eerste storting in een nieuwe pool berekend als `sqrt(x × y)`, waarbij x en y de hoeveelheden van beide tokens zijn. Bij latere stortingen zijn je LP-tokens evenredig aan jouw aandeel in de totale waarde van de pool.
+
+Deze tokens vertegenwoordigen jouw eigendom van je activa in de pool en geven je recht op:
+
+- Een evenredig deel van alle handelsvergoedingen die de pool genereert
+- De mogelijkheid om je onderliggende activa op te vragen door de LP-tokens te verbranden
+
+---
+
+
+## Gauges
+
+Gauges bepalen hoe emissies over pools worden verdeeld. Elke pool heeft een bijbehorende gauge, en de emissies worden elke epoch (7 dagen) opnieuw berekend op basis van de stemmen van veBTC-houders. Stemmen blijven van epoch tot epoch staan, tenzij stemmers ze wijzigen, en pools met meer stemmen ontvangen een groter deel van de emissies. Verhoogt een stemmer zijn stemkracht, dan moet hij [zijn stemmen poken](/docs/nl/docs/users/mezo-earn/vote/how-to-vote/#belangrijk-poke-na-wijzigingen) zodat het bijgewerkte gewicht wordt toegepast.
+
+Pools met meer gaugestemmen ontvangen meer emissies en trekken zo meer liquiditeit aan, wat de slippage verlaagt en het handelsvolume verhoogt. Een hoger volume levert meer vergoedingen op voor LP's. Zo ontstaat een positieve feedbacklus in het hele ecosysteem, waarin de belangen van LP's, stemmers en handelaren op één lijn liggen.
+
+---
+
+## Beheren
+
+Als LP verdien je uit twee bronnen:
+
+### Handelsvergoedingen
+
+- Volatiele pools: 0,30% per swap
+- Stabiele pools: 0,02% per swap
+- Geïnd in beide tokens van het paar
+- Apart bewaard in PoolFees-contracten
+- Op elk moment te claimen zonder te unstaken
+
+### MEZO-emissies (bij staking)
+
+- Verdiend op basis van de stemmen van veBTC-houders op gauges
+- De verdeelde hoeveelheden worden bepaald door community-governance
+
+---
+
+## Claimen
+
+**Vergoedingen claimen:** ga naar je positie en klik op "Claim Fees"; beide tokens worden naar je wallet gestuurd. Je kunt vergoedingen claimen zonder je LP-tokens te unstaken.
+
+**Beloningen claimen:** klik bij je gestakete positie op "Claim Rewards" om je verdiende incentives te ontvangen.
+
+---
+
+## Opnemen
+
+ Je LP-tokens worden teruggestuurd naar je wallet en verdienen geen emissies meer, maar handelsvergoedingen blijven wel binnenkomen.
+ 
+ **Unstaken:** selecteer "Unstake", voer het bedrag in en bevestig. 
+
+**Liquiditeit verwijderen:** unstake indien nodig eerst je LP-tokens, klik daarna op "Remove Liquidity" en bevestig. Je LP-tokens worden verbrand en beide onderliggende tokens worden naar verhouding teruggestuurd naar je wallet.
+
+---
+
+## Risico's
+
+### Impermanent loss
+Als je liquiditeit verschaft, loop je het risico op impermanent loss: wanneer de prijsverhouding tussen je tokens verandert, heb je mogelijk minder waarde dan wanneer je beide tokens gewoon had aangehouden. Volatiele pools zoals BTC/MUSD brengen een hoger risico op impermanent loss met zich mee dan stabiele pools zoals MUSD/USDC.
+
+### Smart-contractrisico
+Mezo Pools zijn geaudit, maar smart contracts brengen altijd een inherent risico met zich mee. Bekijk de audits op [mezo.org/audits](https://mezo.org/audits) en stort alleen bedragen waarbij je je comfortabel voelt.

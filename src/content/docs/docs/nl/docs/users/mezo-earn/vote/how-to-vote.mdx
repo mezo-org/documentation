@@ -1,0 +1,135 @@
+---
+title: Zo stem je
+description: Stapsgewijze handleiding voor stemmen op gauges met je veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Met stemmen bepaal je waar emissies naartoe stromen. In ruil daarvoor verdien je een evenredig deel van de handelsvergoedingen en incentives van de gauges waaraan je je stemmen toewijst. Deze handleiding leidt je door het volledige proces.
+
+<YouTube id="6rthu_iub7E" title="Zo stem je" start={89} />
+
+## Vereisten
+
+Zorg dat je het volgende hebt voordat je begint:
+
+- Een compatibele wallet die met Mezo is verbonden (MetaMask, Rabby of wallets die WalletConnect ondersteunen)
+- Een actieve veBTC-positie (om op staking-gauges te stemmen)
+- OF een actieve veMEZO-positie (om op veBTC-boostgauges te stemmen)
+- Voldoende BTC voor gaskosten
+
+Zie [BTC vergrendelen](/docs/nl/docs/users/mezo-earn/lock/vebtc/how-to-lock-btc) als je nog geen veBTC-vergrendeling hebt.
+
+Zie [MEZO vergrendelen](/docs/nl/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) als je een veMEZO-positie wilt aanmaken.
+
+---
+
+## Stemmen met veBTC
+
+veBTC-houders stemmen op staking-gauges om emissies te sturen en vergoedingen te verdienen.
+
+### Je stem uitbrengen
+
+Om beloningen te verdienen, wijs je je stemkracht toe aan specifieke gauges. Je verdeling blijft over epochs heen (elk 7 dagen) behouden totdat je haar wijzigt.
+
+<Steps>
+1. Ga naar het tabblad **Vote** om je actieve veBTC-posities te bekijken. Klik op **Allocate** naast de veBTC-positie waarmee je wilt stemmen.
+
+2. Vul bij de gauges die je wilt steunen in welk percentage van je stemkracht je aan elk ervan wilt toewijzen. Je kunt bijvoorbeeld 50% toewijzen aan de BTC/MUSD-pool, 30% aan de MUSD/mUSDC-pool en 20% aan de mcbBTC/BTC-pool.
+
+3. Controleer je verdeling en klik, als je klaar bent, op **Submit Votes** in de rechterzijbalk. Onderteken de transactie. Zodra die is voltooid, is je stem geregistreerd voor de huidige epoch.
+</Steps>
+
+:::note[Onthoud]
+Elke vergrendeling kan één keer per epoch stemmen: zodra je stem is bevestigd, ligt de verdeling vast tot de volgende wisseling. Je verdeling blijft over epochs heen behouden en blijft vergoedingen en incentives opleveren totdat je haar wijzigt of reset.
+:::
+
+---
+
+## Stemmen met veMEZO
+
+veMEZO-houders stemmen op veBTC-boostgauges om BTC-posities een boost te geven in ruil voor incentives, en op [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges) om MEZO-emissies naar MUSD-pools buiten Mezo te sturen. Die twee staan los van elkaar. Zie [Stemmen op MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) voor die flow.
+
+### Stemmen op boostgauges
+
+<Steps>
+1. Ga naar het onderdeel **Boost Gauges** om alle beschikbare veBTC-posities te zien die een boost zoeken.
+
+2. Bekijk per gauge:
+   - De huidige geplaatste incentives
+   - Hoeveel veMEZO al naar die gauge is gestuurd
+   - Het geschatte rendement op basis van jouw veMEZO-verdeling
+
+3. Vul in welk percentage van je veMEZO-stemkracht je naar elke boostgauge wilt sturen.
+
+4. Klik op **Submit Votes** en onderteken de transactie.
+</Steps>
+
+### Wat je verdient
+
+Als je veMEZO-stemmen naar een boostgauge stuurt:
+
+- Verdien je een deel van alle incentives die op die gauge zijn geplaatst, naar verhouding van jouw aandeel in de veMEZO-stemmen
+- Krijgt de veBTC-houder een boost, waardoor diens effectieve stemkracht toeneemt
+
+Let op: veMEZO-stemmers ontvangen **geen** handelsvergoedingen, MUSD-opbrengsten of bridgevergoedingen van de veBTC-posities die ze boosten. Die beloningen gaan naar de veBTC-houder. veMEZO-stemmers verdienen alleen de incentives die uitdrukkelijk op boostgauges zijn geplaatst.
+
+---
+
+## Je boost maximaliseren (voor veBTC-houders)
+
+Heb je zowel veBTC als veMEZO, dan kun je je stemkracht maximaliseren:
+
+### Optie 1: jezelf boosten
+
+Stuur je veMEZO-stemmen naar de boostgauge van je eigen veBTC-positie.
+
+<Steps>
+1. Ga naar de boostgauge van je veBTC-positie
+2. Wijs je veMEZO-stemkracht eraan toe
+3. Klik op **Submit Votes**
+4. Voer een **poke** uit op je veBTC-positie om de nieuwe boost te activeren
+</Steps>
+
+### Optie 2: externe boost aantrekken
+
+Plaats incentives op je veBTC-boostgauge om veMEZO-stemmen van andere gebruikers aan te trekken.
+
+<Steps>
+1. Ga naar de boostgauge van je veBTC-positie
+2. Klik op **Add Incentives**
+3. Stort tokens (elk ERC-20-token) als incentives
+4. veMEZO-houders zien je incentives en kunnen hun stemmen naar jou sturen
+5. Voer een **poke** uit op je positie nadat je nieuwe veMEZO-stemmen hebt ontvangen
+</Steps>
+
+---
+
+## Belangrijk: poke na wijzigingen
+
+Als je veMEZO-situatie verandert, wordt de boost niet automatisch bijgewerkt. Je moet een **poke** uitvoeren op je veBTC-positie om het geboost gewicht te vernieuwen.
+
+**Voer een poke uit als:**
+- Je nieuwe veMEZO-stemmen ontvangt op je boostgauge
+- Je je eigen veMEZO naar je positie stuurt
+- Je veMEZO-rebase-uitkeringen claimt
+- Je je veMEZO-vergrendeling verlengt
+
+**Zo voer je een poke uit:**
+1. Ga naar je veBTC-positie
+2. Klik op **Poke**
+3. Onderteken de transactie
+
+Je nieuwe geboost gewicht geldt meteen.
+
+---
+
+## Volgende stappen
+
+- [Vergrendelingen beheren en beloningen innen](/docs/nl/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards): claim je opbrengsten en verleng je vergrendeling
+- [Overzicht van stemmen](/docs/nl/docs/users/mezo-earn/vote): lees meer over hoe stemmen werkt en wat je verdient
+- [Boostmechanisme](/docs/nl/docs/users/mezo-earn/lock/vemezo/boost-mechanism): begrijp hoe de veMEZO-boost wordt berekend
+- [Matchingmarkt](/docs/nl/docs/users/mezo-earn/lock/vemezo/matching-market): lees hoe de boostmarktplaats werkt
+- [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges): stem met veMEZO om MEZO-emissies naar MUSD-pools op Curve, Uniswap en Aerodrome te sturen

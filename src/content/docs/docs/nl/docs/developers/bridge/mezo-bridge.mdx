@@ -1,106 +1,119 @@
 ---
-title: Mezo Bridge Overzicht
+title: Overzicht van Mezo Bridge
 topic: developers
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Mezo Bridge maakt native overdracht van activa mogelijk tussen Bitcoin, Ethereum en Mezo. Hieronder vindt u de primaire stromen met verwijzingen naar de design-RFC's.
+Mezo Bridge maakt het mogelijk om native activa te verplaatsen tussen Bitcoin, Ethereum en Mezo. Hieronder staan de belangrijkste flows, met verwijzingen naar de ontwerp-RFC's.
 
-### Storten op Mezo (Bridge In)
+### Naar Mezo bridgen
 
 Van Bitcoin → Mezo
 
 <Steps>
-1. BTC vergrendelen naar het door de bridge beheerde adres met metadata die de Mezo-ontvanger identificeert.
+1. Vergrendel BTC op het door de bridge beheerde adres, met metadata die de ontvanger op Mezo identificeert.
 
-2. Bewijs en attestatie indienen bij het Mezo Bridge-contract.
+2. Dien bewijs en attestatie in bij het Mezo Bridge-contract.
 
-3. Contract verifieert het bewijs.
+3. Het contract verifieert het bewijs.
 
-4. Overeenkomstig activum minten op Mezo voor de ontvanger.
+4. Het overeenkomstige activum wordt op Mezo gemint voor de ontvanger.
 </Steps>
 
 Van Ethereum → Mezo
 
 <Steps>
-1. ERC-20 vergrendelen op Ethereum via het Mezo Bridge-contract, waarbij een `AssetLocked`-event wordt uitgezonden met de Mezo-ontvanger.
+1. Vergrendel het ERC-20-token op Ethereum via het Mezo Bridge-contract. Daarbij wordt een `AssetLocked`-event uitgezonden met de ontvanger op Mezo.
 
-2. Bridge-validators luisteren naar dergelijke events.
+2. Bridgevalidators luisteren naar zulke events.
 
-3. Bridge-validators valideren event-inclusie en validator-quorum.
+3. Bridgevalidators valideren of de events zijn opgenomen en of het validatorquorum is bereikt.
 
-4. Overeenkomstig activum minten op Mezo voor de ontvanger.
+4. Het overeenkomstige activum wordt op Mezo gemint voor de ontvanger.
 </Steps>
 
-### Opnemen van Mezo (Bridge Out)
+### Van Mezo bridgen
 
 Van Mezo → Bitcoin
 
 <Steps>
-1. Het activum op Mezo verbranden met opgave van het Bitcoin-ontvangstadres.
+1. Verbrand het activum op Mezo en geef daarbij het Bitcoin-adres van de ontvanger op.
 
-2. Bewijs en attestatie indienen bij het Mezo Bridge-contract.
+2. Dien bewijs en attestatie in bij het Mezo Bridge-contract.
 
-3. Contract verifieert het bewijs.
+3. Het contract verifieert het bewijs.
 
-4. Na verificatie wordt BTC vrijgegeven naar het ontvangstadres.
+4. Na verificatie wordt de BTC vrijgegeven naar het adres van de ontvanger.
 </Steps>
 
 Van Mezo → Ethereum
 
 <Steps>
-1. Het activum op Mezo verbranden met opgave van de Ethereum-ontvanger.
+1. Verbrand het activum op Mezo en geef daarbij de ontvanger op Ethereum op.
 
-2. Bridge-validators luisteren naar `AssetsUnlocked`-events.
+2. Bridgevalidators luisteren naar `AssetsUnlocked`-events.
 
-3. Bridge-validators valideren event-inclusie en validator-quorum.
+3. Bridgevalidators valideren of de events zijn opgenomen en of het validatorquorum is bereikt.
 
-4. Na verificatie wordt de ERC-20 vrijgegeven aan de ontvanger.
+4. Na verificatie wordt het ERC-20-token vrijgegeven aan de ontvanger.
 </Steps>
 
 ### Architectuur
 
-- **Vergrendelen/Verbranden op bron**: Activa worden vergrendeld op Bitcoin/Ethereum (of verbrand op Mezo) met gegevens die de beoogde ontvanger en doelchain identificeren.
-- **Attestatie & Relay**: Offchain-clients produceren attestaties over bronchain-events en relayën bewijzen naar de doelchain.
-- **Minten/Vrijgave op bestemming**: Bij geldige attestatie en bewijsverificatie minten bestemmingscontracten verpakte activa of geven vergrendelde fondsen vrij.
+- **Vergrendelen/verbranden op de bronchain**: activa worden vergrendeld op Bitcoin/Ethereum (of verbrand op Mezo), samen met gegevens die de beoogde ontvanger en doelchain identificeren.
+- **Attestatie en doorgifte**: offchain-clients maken attestaties van events op de bronchain en geven bewijzen door aan de doelchain.
+- **Minten/vrijgeven op de doelchain**: na een geldige attestatie en verificatie van het bewijs minten de contracten op de doelchain wrapped activa of geven ze vergrendelde fondsen vrij.
 
-### Kernstroom
+### Kernflow
 
 <Steps>
-1. Gebruiker initieert een bridge-overdracht met opgave van bestemmingsadres en bedrag.
+1. De gebruiker start een bridgeoverdracht en geeft het bestemmingsadres en het bedrag op.
 
-2. Bronchain-contract/event wordt uitgezonden na vergrendeling/verbranding; event bevat een unieke sequentie-ID en parameters.
+2. Na het vergrendelen/verbranden wordt het event van het contract op de bronchain uitgezonden; het event bevat een unieke sequentie-ID en parameters.
 
-3. Offchain-client verzamelt bevestigingen/finaliteit volgens RFC-drempels en dient bewijs+attestatie in bij het bestemmingscontract.
+3. Een offchain-client verzamelt bevestigingen/finaliteit volgens de drempels uit de RFC en dient bewijs en attestatie in bij het contract op de doelchain.
 
-4. Bestemming verifieert:
-   - Event-authenticiteit
-   - Validator-quorum/handtekeningen
+4. De doelchain verifieert:
+   - de echtheid van het event
+   - het validatorquorum/de handtekeningen
 
-5. Bij succes voert de bestemming mint/vrijgave uit en registreert de voltooiing.
+5. Bij succes voert de doelchain de mint/vrijgave uit en registreert de voltooiing.
 </Steps>
+
+### Enclave-stortingen
+
+Mezo Enclaves zijn een functie voor instellingen die vanwege regelgeving aan
+bewaarvereisten moeten voldoen. Hiermee kunnen ze hun BTC toch op Mezo gebruiken
+zonder in expliciete bridges te storten. Enclaves krijgen speciale bevoegdheden,
+gekoppeld aan juridische overeenkomsten die de bridgebedragen en gebruiksbeperkingen
+vastleggen. Alle stortingen in enclaves blijven gedekt door UTXO's op de
+Bitcoin-chain. Die worden vastgelegd in de tripartiete bridgestortingstransactie
+en bijgehouden in de chainstatus. De governance-multisig van Mezo zet enclaves
+afzonderlijk op de allowlist. Meer over de onderliggende implementatie van de
+tripartiete bridge lees je in [`mezod` RFC-6](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md).
 
 ### Contracten
 
 Mainnet:
 
 - Mezo Bridge: [0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c](https://etherscan.io/address/0xF6680EA3b480cA2b72D96ea13cCAF2cFd8e6908c)
-- Overbrugde tokens [lijst](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
+- [Lijst](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens) van gebridgede tokens
 
 Sepolia:
 
 - Mezo Bridge: [0x3a3BaE133739f92a885070DbF3300d61B232497C](https://sepolia.etherscan.io/address/0x3a3BaE133739f92a885070DbF3300d61B232497C)
-- Overbrugde tokens [lijst](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens)
+- [Lijst](https://mezo.org/docs/users/resources/contracts-reference#bridged-tokens) van gebridgede tokens
 
 ### Audits
 
-Bekijk de [Audits](https://github.com/mezo-org/audits)-pagina voor de nieuwste audits.
+Bekijk de pagina [Audits](https://github.com/mezo-org/audits) voor de meest recente audits.
 
 ## Aanvullende bronnen
 
-Voor volledige technische details, berichtformaten en beveiligingsonderbouwing, zie de volgende RFC's:
+Zie de volgende RFC's voor alle technische details, berichtformaten en de onderbouwing van de beveiliging:
 
-- [RFC-2: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
-- [RFC-4: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
-- [RFC-5: Mezo Bridge](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-2: Bitcoin naar Mezo bridgen](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-2.md)
+- [RFC-4: Native bridge voor niet-Bitcoin-activa](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-4.md)
+- [RFC-5: Activa van Mezo af bridgen](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-5.md)
+- [RFC-6: Tripartiete BTC-bridging](https://github.com/mezo-org/mezod/blob/main/docs/rfc/rfc-6.md)

@@ -1,0 +1,72 @@
+---
+title: MUSD Bridge
+description: >-
+  Ontdek hoe je MUSD-tokens tussen Ethereum, Base en Mezo bridget met het Native
+  Token Transfer-protocol van Wormhole.
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+Met de [MUSD](https://mezo.org/feature/musd)-bridge kun je tokens overzetten tussen de netwerken Mezo, Ethereum en Base via het Native Token Transfer-protocol (NTT) van Wormhole. Deze bridge behoudt de fungibiliteit van het token en biedt tegelijk veilige cross-chainfunctionaliteit.
+
+## Hoe het werkt
+
+De MUSD-bridge gebruikt het Native Token Transfer-protocol van Wormhole voor cross-chainoverdrachten:
+
+- **Van Mezo naar Ethereum/Base**: MUSD-tokens worden op Mezo vergrendeld en een gelijkwaardig aantal tokens wordt gemint op de doelchain
+- **Van Ethereum/Base naar Mezo**: MUSD-tokens worden op de bronchain verbrand en een gelijkwaardig aantal tokens wordt op Mezo ontgrendeld
+
+Dit mechanisme zorgt ervoor dat de totale voorraad over alle chains constant blijft, terwijl gebruikers hun tokens vrij tussen netwerken kunnen verplaatsen.
+
+## Bridgeopties
+
+Er zijn twee gebruikersinterfaces beschikbaar om MUSD-tokens te bridgen:
+
+### Mezo-dApp
+
+De [Mezo-dApp](https://mezo.org) biedt een native bridge-ervaring om MUSD-tokens over te zetten tussen Mezo en Ethereum.
+
+<Steps>
+1. **Verbind je wallet** met de Mezo-dApp
+
+2. **Klik op "Withdraw"** om vanaf Mezo te bridgen, of op **"Deposit"** om naar Mezo te bridgen
+
+3. **Kies het MUSD-token** en voer het bedrag in
+
+4. **Bevestig de transactie** in je wallet
+
+5. **Wacht op bevestiging** op beide chains
+</Steps>
+
+### Portal Bridge-interface
+
+Om MUSD-tokens naar Base of Ethereum te bridgen, kun je ook de [Portal-interface](https://portalbridge.com/) gebruiken:
+
+<Steps>
+1. **Verbind je wallet** met de Portal-interface
+
+2. **Kies de bron- en doelchain** (Mezo ↔ Ethereum ↔ Base)
+
+3. **Kies MUSD** als het token dat je wilt bridgen
+
+4. **Voer het bedrag in** dat je wilt bridgen
+
+5. **Controleer de transactiegegevens**, waaronder kosten en geschatte duur
+
+6. **Bevestig de transactie** in je wallet
+
+7. **Wacht op bevestiging** op beide chains
+</Steps>
+
+Beide interfaces zijn gebruiksvriendelijk en regelen alle complexe interacties met de onderliggende NTT-contracten.
+
+## Smart contracts
+
+Zie de referentiepagina [Contract- en tokenadressen](../../resources/contracts-reference) voor alle contractadressen van de MUSD-bridge en het MUSD-token.
+
+## Aanvullende bronnen
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Wormhole NTT-documentatie</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">Contractreferentie</LinkButton>

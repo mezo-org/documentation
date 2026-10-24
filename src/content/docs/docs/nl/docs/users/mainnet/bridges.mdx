@@ -1,0 +1,288 @@
+---
+title: Overzicht van bridges op Mainnet
+description: >-
+  Lees hoe je bridges op Mezo Mainnet gebruikt en opent om je activa moeiteloos
+  te verplaatsen.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Met de Mezo Native Bridge kun je activa naar en van Mezo storten en opnemen.
+# Stortingen
+
+## Stortingen via de Mezo Native Bridge
+
+De Mezo App bevat een native bridge waarmee je verschillende activa naar Mezo Mainnet kunt storten. Lees de handleiding [Activa storten](/docs/nl/docs/users/getting-started/deposit-assets) om te zien hoe het proces werkt, of ga direct naar [mezo.org/overview](https://mezo.org/overview), meld je aan en klik op **Deposit Bitcoin** om te beginnen.
+
+:::note[Opmerking]
+Alle transacties op Mezo Mainnet worden betaald met gestorte native BTC of tBTC. Het is raadzaam om je account met BTC of tBTC te vullen voordat je het netwerk gebruikt, zodat je gas hebt om transacties te betalen.
+:::
+
+
+## Native BTC storten
+
+Je kunt BTC rechtstreeks vanuit een Bitcoin-wallet in de Mezo App storten. Je activa worden automatisch naar tBTC en naar Mezo Mainnet gebridged.
+
+Native BTC wordt naar tBTC gebridged voordat het naar het [Mezo App-contract](/docs/nl/docs/users/resources/contracts-reference) wordt gebridged.
+
+Voor BTC-wallets kun je je aanmelden met UniSat, OKX en Xverse. Gebruik de volgende adressen:
+
+| Naam           | Scripttype  | Adresprefix    |
+| -------------- | ----------- | -------------- |
+| Legacy         | P2PKH       | 1              |
+| Native SegWit  | P2WPKH      | bc1q           |
+| Nested SegWit  | P2SH-P2WPKH | 3              |
+
+# Opnames
+
+## Je activa van Mezo naar andere netwerken verplaatsen
+
+*Laatst bijgewerkt: september 2026*
+
+Deze handleiding legt uit hoe je je activa van Mezo terug naar het Ethereum- of Bitcoin-netwerk bridget. We behandelen wat je kunt bridgen, hoe je dat doet, welke bridges worden gebruikt, welke kosten erbij komen kijken en wat je tijdens het proces kunt verwachten. Momenteel is het minimale bedrag om te bridgen 0,01 BTC voor opnames naar native Bitcoin, 0,0002 BTC voor het opnemen van BTC naar Ethereum, 20 van het token voor USD-tokens die via de Native Bridge zijn gebridged (USDC, USDT, USDe, DAI), 0,01 van het token voor tokens die via de Wormhole Bridge zijn gebridged (MEZO, MUSD, sUSDat), en 1.500 T voor het T-token. Meer details vind je [hier.](#naar-ethereum-bridgen)
+
+### Van Mezo naar andere netwerken
+
+| Je activum op Mezo | Bestemmingsnetwerk | Wat je ontvangt | Opmerkingen |
+|-------------------|-------------------|-------------------|--------|
+| **BTC** | Ethereum | tBTC (ERC-20-token) | Je ontvangt op Ethereum altijd tBTC, geen WBTC of andere wrapped versies |
+| **BTC** | Bitcoin | Native BTC | Echte Bitcoin, verstuurd naar je Bitcoin-wallet |
+| **mERC-20-tokens** | Ethereum | Oorspronkelijk ERC-20-token | Je krijgt dezelfde tokens terug die je oorspronkelijk naar Mezo hebt gebridged (zoals USDC, USDT, enz.) |
+| **MUSD** | Ethereum, Base | MUSD | Bridge al vanaf 0,01 MUSD tussen Mezo, Base en Ethereum. Bridge aangedreven door Wormhole. |
+| **MEZO** | Ethereum, Base, BSC, Solana | MEZO | Bridge aangedreven door Wormhole NTT. Zie de [handleiding voor de MEZO Bridge](/docs/nl/docs/users/mezo/mezo-bridge) voor meer informatie. |
+| **mERC-20-tokens** | Bitcoin | Niet beschikbaar | ERC-20-tokens kunnen niet naar Bitcoin worden verstuurd |
+
+:::note[Belangrijkste punten]
+- Je kunt je activa bridgen tussen Mezo en Bitcoin-mainnet, Ethereum en het Base-netwerk.
+- BTC kan naar Ethereum (als tBTC) of naar Bitcoin (als native BTC).
+- Tokens zoals USDC of T (op Mezo weergegeven als m-tokens) kunnen alleen terug naar Ethereum.
+- MEZO en MUSD kunnen via [Wormhole NTT](/docs/nl/docs/users/mezo/mezo-bridge) van en naar het Base-netwerk worden gebridged.
+- MEZO-tokens kunnen via [Wormhole NTT](/docs/nl/docs/users/mezo/mezo-bridge) ook naar BSC en Solana worden gebridged.
+- Bitcoin Taproot-adressen (die beginnen met `bc1p`) worden nog niet ondersteund.
+:::
+
+## Zo bridge je van Mezo af
+
+### Naar Ethereum bridgen (voor tBTC of ERC-20-tokens)
+
+<Steps>
+1. **Klik op de knop 'Withdraw'** rechtsboven in de Mezo App.
+
+2. **Kies je activum:**
+   - Selecteer BTC om tBTC op Ethereum te ontvangen.
+   - Selecteer een mERC-20-token om het oorspronkelijke token op Ethereum te ontvangen.
+
+3. **Voer het bedrag in** dat je wilt bridgen.
+
+4. **Controleer de kosten** die op het scherm worden weergegeven.
+
+5. **Bevestig en verstuur** de transactie.
+
+6. **Bridge je mERC-20-tokens**, dan moet je de transactie mogelijk eerst goedkeuren.
+</Steps>
+
+### Naar Bitcoin bridgen (alleen voor native BTC)
+
+<Steps>
+1. **Klik op de knop 'Withdraw'** rechtsboven in de Mezo App.
+
+2. **Kies BTC** als je activum.
+
+3. **Selecteer Bitcoin** als je bestemmingsnetwerk.
+
+4. **Voer het bedrag in** dat je wilt bridgen.
+
+5. **Plak je Bitcoin-adres**; ondersteunde formaten:
+   - Legacy-adressen (beginnend met `1`)
+   - SegWit-adressen (beginnend met `3` of `bc1q`)
+   - **Niet ondersteund:** Taproot-adressen (beginnend met `bc1p`)
+
+6. **Controleer de kosten** en bevestig.
+
+7. **Verstuur** de transactie.
+</Steps>
+
+## Bridgeroutes begrijpen
+
+Wanneer je activa van Mezo opneemt, bepaalt het systeem automatisch welke bridge wordt gebruikt. Deze informatie staat op de regel "Bridge" in je opnamevenster.
+
+-   **Mezo Native Bridge:** wordt gebruikt voor alle standaardopnames van activa zoals BTC en mERC-20-tokens.
+-   **Wormhole Bridge:** een bridge van derden die wordt gebruikt voor MUSD-opnames naar Ethereum en voor [overdrachten van het MEZO-token](/docs/nl/docs/users/mezo/mezo-bridge) naar Ethereum, Base, BSC en Solana.
+-   **Super Bridge (binnenkort beschikbaar):** een native bridge van Mezo die stortingen en opnames van kleinere bedragen aan activa zal ondersteunen.
+
+De kosten worden in de app nauwkeurig weergegeven, afhankelijk van de bridgeroute die voor jouw specifieke transactie wordt gebruikt.
+
+## Kosten begrijpen
+
+Wanneer je van Mezo af bridget, betaal je kosten voor de bridgedienst en voor netwerkbewerkingen. Alle kosten worden duidelijk weergegeven voordat je een transactie bevestigt.
+
+### Kostenstructuur van de Native Bridge (v2)
+
+Voor opnames van Mezo geldt een eenvoudige kostenstructuur:
+
+- Vaste kosten: een vast bedrag van ongeveer $3 USD, uitgedrukt in de waarde van het betreffende token.
+
+#### Naar Ethereum bridgen
+
+Minimale opnamebedragen
+
+- Op BTC gebaseerde tokens (BTC, mcbBTC, mFBTC, mSolvBTC, mswBTC, mxSolvBTC): 0,0002
+- Op USD gebaseerde tokens die via de Native Bridge zijn gebridged (mUSDC, mUSDT, mDAI, mUSDe): 20
+- mT-tokens: 1.500
+
+Kosten
+
+- Servicekosten Mezo Bridge: ≈ $3 USD (berekend in het doeltoken)
+- Netwerkkosten (gas): betaald in BTC, afhankelijk van de netwerkomstandigheden
+
+Voorbeeld:
+
+Je neemt 1.000 USDC op → $3 servicekosten + variabele gaskosten → je ontvangt ~997 USDC.
+
+#### Naar Bitcoin bridgen
+
+Minimaal opnamebedrag: 0,01 BTC
+
+Kosten
+
+- Netwerkkosten (gas): betaald in BTC, variabel
+- Servicekosten Mezo Bridge: ≈ 0,000027 BTC
+- Servicekosten tBTC Bridge: 0,2% (na de servicekosten van de Mezo Bridge)
+- Maximale netwerkkosten tBTC Bridge: tot 0,001 BTC (meestal echter < $1)
+
+##### Voorbeeld:
+
+Opnamebedrag: 1 BTC
+
+Kosten:
+  - 0,000027 BTC (servicekosten Mezo Bridge)
+  - 0,001999946 BTC (servicekosten tBTC Bridge)
+  - variabele netwerkkosten tBTC Bridge en gaskosten
+
+Ontvangen bedrag: ~0,997973 BTC.
+
+## Wat er gebeurt nadat je hebt verstuurd
+
+Zodra je een transactie start om van Mezo af te bridgen, verloopt het proces als volgt:
+
+<Steps>
+1. **Validatie:** het systeem controleert of je verzoek aan alle vereisten voldoet.
+
+2. **Verbranding van tokens:** je tokens op Mezo worden verbrand (permanent uit de omloop gehaald).
+
+3. **Attestatie:** validators van Mezo bevestigen je opnameverzoek.
+
+4. **Levering:** je activa worden naar je bestemmingsadres gestuurd.
+</Steps>
+
+### Tijdlijn en statusupdates
+
+Je bridgetransactie toont de volgende statusupdates:
+
+-   **Created:** je verzoek is vastgelegd.
+-   **Attesting:** validators bevestigen je opname.
+-   **Ready to Withdraw:** de bevestigingen zijn voltooid en de activa worden verstuurd.
+-   **Withdrawn/Redeemed:** de activa zijn met succes op je bestemmingsadres afgeleverd.
+
+Je kunt je transactie volgen met de transactiehash die in de interface wordt weergegeven.
+
+## Belangrijke vereisten voor adressen
+
+### Voor bestemmingen op Ethereum
+-   Moet een geldig Ethereum-adres zijn (`0x` gevolgd door 40 tekens).
+-   Kan een gewone wallet zijn of een smart contract dat standaard tokenoverdrachten accepteert.
+-   Stortingsadressen van exchanges werken als ze directe tokenoverdrachten accepteren.
+
+### Voor bestemmingen op Bitcoin
+Ondersteunde adrestypen:
+-   Legacy-adressen (beginnend met `1`)
+-   SegWit wrapped-adressen (beginnend met `3`)
+-   Native SegWit-adressen (beginnend met `bc1q`)
+
+**Niet ondersteund:** Taproot-adressen (beginnend met `bc1p`)
+
+## Veiligheidsherinneringen
+
+Voordat je een bridgetransactie bevestigt:
+
+-   ✅ **Controleer het bestemmingsadres nogmaals**: transacties kunnen niet worden teruggedraaid.
+-   ✅ **Controleer of je het juiste netwerk hebt geselecteerd** (Ethereum of Bitcoin).
+-   ✅ **Controleer het kostenbedrag** dat in de app wordt weergegeven.
+-   ✅ **Onthoud dat bridgeopnames niet kunnen worden geannuleerd** zodra ze zijn verstuurd.
+-   ✅ **Zorg ervoor dat het formaat van je bestemmingsadres wordt ondersteund.**
+
+:::danger[Waarschuwing]
+Als je geld naar een onjuist maar geldig opgemaakt adres stuurt, ben je dat geld permanent kwijt. Kopieer en plak adressen altijd en controleer ze zorgvuldig.
+:::
+
+
+### Veelvoorkomende problemen oplossen
+
+#### Melding "Approval Required"
+**Voor mERC-20-tokens:** je moet het bridgecontract eerst goedkeuring geven om je tokens uit te geven. Klik op "Approve" wanneer daarom wordt gevraagd, bevestig de transactie en ga daarna verder met de bridge.
+
+#### "Unsupported Asset for Destination"
+Onthoud:
+-   mERC-20-tokens en MUSD kunnen alleen naar Ethereum.
+-   BTC kan naar Ethereum (als tBTC) of naar Bitcoin.
+
+#### "Invalid Recipient Address"
+Controleer of:
+-   Ethereum-adressen beginnen met `0x` en in totaal 42 tekens hebben.
+-   Bitcoin-adressen een ondersteund formaat gebruiken (geen Taproot-adressen met `bc1p`).
+-   Je geen testnet-adres gebruikt voor een mainnet-transactie.
+
+#### Transactie lijkt vast te zitten
+Controleer de status in je transactiegeschiedenis:
+-   Staat er "Created" of "Attesting", dan zijn validators de transactie nog aan het verwerken.
+-   Staat er "Ready to Withdraw", dan is de overdracht op het bestemmingsnetwerk bezig.
+-   Neem contact op met support en vermeld je transactie-ID als de transactie ongewoon lang in behandeling is.
+
+### Veelgestelde vragen
+
+**V: Wat is het verschil tussen BTC op Mezo en tBTC op Ethereum?**
+A: Wanneer je BTC van Mezo naar Ethereum bridget, wordt het tBTC: een ERC-20-token dat Bitcoin op het Ethereum-netwerk vertegenwoordigt. tBTC is 1:1 gedekt door native Bitcoin en kan daarvoor worden ingewisseld.
+
+**V: Kan ik mijn mERC-20-tokens naar Bitcoin bridgen?**
+A: Nee, ERC-20-tokens zijn native op Ethereum-compatibele netwerken. Je kunt ze alleen terug naar Ethereum bridgen.
+
+**V: Waarom kan ik mijn Taproot Bitcoin-adres niet gebruiken?**
+A: De bridge ondersteunt momenteel de standaard Bitcoin-adresformaten. Ondersteuning voor Taproot (`bc1p`) staat gepland voor een toekomstige update.
+
+**V: Kan ik een bridgetransactie annuleren?**
+A: Nee, eenmaal verstuurde bridgetransacties kunnen niet worden geannuleerd. Je Mezo-tokens worden als onderdeel van het proces direct verbrand.
+
+**V: Hoe lang duurt bridgen?**
+A: De meeste transacties waarmee je geld via de Native Bridge naar Ethereum bridget, zijn binnen 30-60 minuten voltooid, afhankelijk van de netwerkomstandigheden en de snelheid van de attestatie door validators. Opnames via de Wormhole Bridge worden doorgaans in ongeveer 5 minuten verwerkt. Transacties waarmee je geld naar Bitcoin opneemt, zijn meestal na een paar uur definitief.
+
+**V: Naar welke netwerken kan ik bridgen?**
+A: Activa kunnen worden gebridged tussen Ethereum, Mezo, Base en Bitcoin. In de toekomst wordt ondersteuning voor meer netwerken toegevoegd.
+
+**V: Mijn native Bitcoin-storting is nog niet verschenen. Hoe controleer ik de status?**
+A: Zie [Je native Bitcoin-storting volgen](/docs/nl/docs/users/mainnet/track-your-native-bitcoin-deposit) voor een stapsgewijze handleiding om met tBTCScan de status van je storting te controleren.
+
+**V: Wie betaalt het gas op het bestemmingsnetwerk?**
+A: Voor Ethereum neemt het bridgesysteem de gaskosten van de uiteindelijke levering voor zijn rekening. Voor Bitcoin dekken de netwerkkosten van de tBTC Bridge de kosten van de onchain transactie.
+
+## Beveiligingsmodel
+
+Je bridgetransactie moet worden goedgekeurd door minstens twee derde van de bridgevalidators van Mezo voordat je activa worden vrijgegeven. Dankzij deze multisignature-aanpak kan geen enkele partij in haar eentje opnames autoriseren, zodat je geld tijdens het hele bridgeproces veilig blijft.
+
+## Hulp nodig?
+
+Heb je problemen die niet in deze handleiding worden behandeld:
+
+<Steps>
+1. Noteer je transactie-ID of het volgnummer van de ontgrendeling.
+
+2. Maak een screenshot van eventuele foutmeldingen.
+
+3. Neem met deze gegevens contact op met de support van Mezo.
+</Steps>
+
+Onthoud: controleer adressen altijd zorgvuldig en zorg dat je de kosten begrijpt voordat je een bridgetransactie bevestigt.
+
+## Stortingsportaal
+
+Stortingen die als onderdeel van het programma voor vroege stortingen nog in het portaal staan, kunnen worden opgenomen naar de BTC-wallet van de gebruiker. De opnamekosten uit het portaal voor BTC hangen af van de parameters die in de tBTC-bridge zijn ingesteld. Momenteel rekent tBTC 0,2% servicekosten voor de tBTC Bridge en tot 0,001 BTC (doorgaans aanzienlijk minder) aan netwerkkosten voor de tBTC Bridge. Deze parameters worden door governance beheerd en zijn te bekijken in de [documentatie over tBTC-kosten](https://docs.threshold.network/tbtc-v2#fees).
