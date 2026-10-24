@@ -1,0 +1,63 @@
+---
+title: Comment emprunter et frapper des MUSD
+description: >-
+  Guide étape par étape pour emprunter avec vos BTC en garantie et frapper des
+  MUSD.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+[MUSD](https://mezo.org/feature/musd) est disponible sur Mezo Mainnet et peut être testé sur Mezo Testnet. Ce guide vous montre comment effectuer le processus d'emprunt sur Mezo Testnet, que ce soit à titre d'exemple ou pour emprunter et frapper des MUSD à des fins de développement. Rendez-vous ensuite sur l'[application Mezo](https://mezo.org/) et connectez-vous sur Mainnet pour emprunter et frapper de vrais MUSD.
+
+<YouTube id="wot3-SR-25E" title="Comment ouvrir un prêt garanti par du Bitcoin sur Mezo" />
+
+:::note
+Le montant minimum d'un prêt est de **1 800 MUSD** de dette empruntée. Avec le dépôt de gaz de 200 MUSD, votre dette totale à l'ouverture est d'au moins 2 000 MUSD. Il s'agit d'un montant minimum *d'emprunt*, et non d'un plancher de garantie : la garantie nécessaire dépend du ratio de collatéralisation que vous visez.
+:::
+
+## Avant de commencer
+
+Avant de pouvoir obtenir des MUSD de testnet, vous devez effectuer les étapes suivantes :
+
+- Rendez-vous sur [testnet.mezo.org](https://testnet.mezo.org/) et cliquez sur **Sign in** pour vous connecter à votre compte Mezo.
+- Connectez un portefeuille Ethereum à Mezo Testnet. Consultez le guide [Se connecter à Mezo Testnet](/docs/fr/docs/users/getting-started/connect/) pour obtenir les instructions.
+- Obtenez des BTC de testnet sur Testnet. Vous pouvez en demander sur [Discord](https://discord.com/invite/mezo).
+- Ajoutez le jeton MUSD à votre portefeuille. Vous pouvez ajouter le jeton depuis l'interface de l'explorateur Mezo. Cliquez sur le bouton **Add token to MetaMask** à côté de l'adresse du jeton MUSD :
+    - Mainnet : [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+    - Testnet : [0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
+
+## Emprunter et frapper
+
+:::tip[Testnet ou Mainnet]
+Ce guide décrit le parcours sur **Testnet** : tous les liens ci-dessous pointent donc vers `testnet.mezo.org`. Lorsque vous êtes prêt à emprunter et à frapper de vrais MUSD, rendez-vous plutôt sur [mezo.org/feature/borrow](https://mezo.org/feature/borrow) sur **Mainnet**.
+:::
+
+Une fois connecté à [testnet.mezo.org](https://testnet.mezo.org/) avec un compte disposant de BTC de testnet, vous pouvez emprunter des MUSD.
+
+<Steps>
+1. Dans votre navigateur, ouvrez [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow).
+2. Cliquez sur le bouton **Let's Go** pour lancer le processus d'emprunt.
+3. Indiquez le montant de MUSD que vous souhaitez emprunter et le montant de BTC que vous souhaitez utiliser comme garantie.
+4. Cliquez sur **Review** pour afficher le récapitulatif avant de confirmer.
+5. Vérifiez les détails du récapitulatif pour vous assurer que les informations correspondent à vos attentes.
+6. Assurez-vous que votre portefeuille de navigateur est bien configuré sur Mezo Testnet.
+7. Lorsque vous êtes prêt à poursuivre le processus [Emprunter et frapper](/docs/fr/docs/users/borrow/mint-musd), cliquez sur **Confirm**. Votre portefeuille de navigateur vous invite à confirmer la transaction et à payer les frais de gaz en BTC sur Testnet.
+</Steps>
+
+Une fois le processus terminé, vous pouvez vérifier l'état de votre prêt sur [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow) (ou sur [mezo.org/feature/borrow](https://mezo.org/feature/borrow) si vous êtes sur Mainnet).
+
+## Comprendre les conditions d'emprunt
+
+Mezo propose un taux d'intérêt fixe et bas pour les prêts en MUSD. Les taux initiaux vont de 1 à 5 %. Il n'y a pas de date de remboursement imposée sur Mezo : vous pouvez donc garder votre position ouverte aussi longtemps que vous le souhaitez, à condition que votre garantie reste suffisante.
+
+Même sans échéancier de remboursement fixe, vous devez tout de même surveiller les risques de liquidation si la valeur de votre garantie (BTC) baisse.
+
+Les intérêts courent sur le montant emprunté (les MUSD frappés) : soyez donc attentif à l'évolution de votre dette au fil du temps. Lorsque vous serez prêt à clôturer votre position, vous aurez besoin de suffisamment de MUSD pour couvrir le capital ainsi que les intérêts ou frais accumulés.
+
+## Gérer votre prêt
+
+Une fois votre prêt actif, vous pouvez le gérer depuis l'application Mezo. Regardez cette vidéo pour apprendre à ajuster votre garantie, rembourser votre prêt ou clôturer votre position.
+
+<YouTube id="RBKC1XfAEHw" title="Comment gérer votre prêt" />

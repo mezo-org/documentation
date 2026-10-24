@@ -1,0 +1,174 @@
+---
+title: Aperçu
+description: "Acceptez des paiements en Mezo USD pour des ressources HTTP avec x402\_: fonctionnement du protocole sur Mezo, pourquoi il est adapté aux paiements adossés à Bitcoin, ce que vous pouvez construire et comment passer à la pratique."
+topic: developers
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import x402MezoFlow from '../../../../../../../../assets/diagrams/x402-mezo-flow.svg';
+import { Image } from 'astro:assets';
+
+**[x402](https://x402.org)** est un standard ouvert pour les paiements natifs d'Internet. 
+Un serveur renvoie une réponse `HTTP 402 Payment Required` accompagnée d'une
+description lisible par machine de ce que cela coûte ; un client joint un message de
+paiement signé et réessaie ; un facilitateur règle le paiement onchain et 
+le serveur renvoie au client un reçu accompagné du contenu acheté. 
+
+Sur Mezo, l'actif de règlement par défaut est **MUSD**. Un vendeur fixe un prix, par exemple 0,01 $, 
+le SDK x402 le convertit en montant de MUSD à l'exécution
+(18 décimales, `permit2` + EIP-2612), et le portefeuille de l'acheteur signe un 
+message qui autorise le transfert dans une fenêtre de temps limitée. 
+
+## Le flux de paiement en un coup d'œil
+
+<Image
+  src={x402MezoFlow}
+  alt="Diagramme de séquence d'un flux de paiement x402 sur Mezo : client/acheteur, marchand/serveur, facilitateur (facilitator.vativ.io) et blockchain Mezo (eip155:31611)."
+/>
+
+1. Le `Client` envoie une requête HTTP à un `server`.
+
+2. Le `Server` répond avec un statut `402 Payment Required` et un objet `PaymentRequired` encodé en b64, renvoyé dans un en-tête HTTP `PAYMENT-REQUIRED`.
+
+3. Le `Client` sélectionne l'une des `PaymentRequirements` renvoyées dans la réponse du serveur et crée un `PaymentPayload` en fonction du `scheme` et du `network` des `PaymentRequirements` sélectionnées.
+
+4. Le `Client` renvoie la requête HTTP au serveur, en incluant cette fois l'en-tête HTTP `PAYMENT-SIGNATURE` contenant le `PaymentPayload`.
+
+5. Le `Server` vérifie que le `PaymentPayload` est valide, soit par une vérification locale, soit en envoyant (POST) le `PaymentPayload` et les `PaymentRequirements` à l'endpoint `/verify` d'un `facilitator`.
+
+6. Le `Facilitator` vérifie l'objet en fonction du `scheme` et du `network` du `PaymentPayload` et renvoie une `Verification Response`.
+
+7. Si la `Verification Response` est valide, le serveur effectue le travail nécessaire pour satisfaire la requête. Si la `Verification Response` est invalide, le serveur de ressources renvoie un statut `402 Payment Required` et un objet JSON `Payment Required Response` dans le corps de la réponse.
+
+8. Le `Server` règle le paiement soit en interagissant directement avec une blockchain, soit en envoyant (POST) le `Payment Payload` et les `Payment PaymentRequirements` à l'endpoint `/settle` d'un `facilitator`.
+
+9. Le `Facilitator` soumet le paiement à la blockchain en fonction du `scheme` et du `network` du `Payment Payload`.
+
+10. Le `Facilitator` attend que le paiement soit confirmé sur la blockchain.
+
+11. Le `Facilitator` renvoie une `Payment Execution Response` au serveur.
+
+12. Le `Server` renvoie une réponse `200 OK` au `Client`, avec la ressource demandée dans le corps de la réponse HTTP, ainsi qu'un en-tête `PAYMENT-RESPONSE` contenant la `Settlement Response` sous forme de JSON encodé en Base64 si le paiement a été exécuté avec succès.
+
+## Place de MUSD dans x402
+
+- **Identifiant de réseau :** des chaînes CAIP-2 identifient le réseau Mezo : Mezo
+  Testnet correspond à `eip155:31611`, Mezo Mainnet à `eip155:31612` (x402
+  n'accepte pas les noms courts comme `"mezo-testnet"`).
+- **Résolution de l'actif :** les prix x402 sont des chaînes en dollars (`price: "$0.01"`).
+  Le registre `DEFAULT_STABLECOINS` de `@x402/evm` les convertit à l'exécution vers le
+  bon jeton MUSD pour le réseau choisi : vous n'avez pas à coder en dur une adresse
+  d'actif dans la configuration des routes.
+- **Signature :** MUSD est un jeton `permit2` + EIP-2612, de sorte que l'autorisation de paiement
+  se résume à une seule signature EIP-712, sans transaction d'approbation onchain ni
+  gaz à payer côté acheteur.
+- **Facilitateur :** les deux réseaux sont réglés par le même facilitateur,
+  `https://facilitator.vativ.io`, qui dessert le Testnet et le Mainnet depuis un seul
+  endpoint.
+
+### Référence x402 pour Mezo
+
+Un SDK à jour résout pour vous l'actif et le proxy de règlement à l'exécution ; les
+valeurs ci-dessous sont fournies à titre de référence et pour la vérification onchain : vous ne les codez
+pas en dur. Seuls l'**identifiant de réseau** et l'**actif MUSD** diffèrent entre le Testnet et
+le Mainnet :
+
+| Réseau | CAIP-2 | Actif MUSD (18 décimales) |
+|---|---|---|
+| Mezo Testnet | `eip155:31611` | `0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503` |
+| Mezo Mainnet | `eip155:31612` | `0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186` |
+
+Tout le reste est identique sur les deux réseaux :
+
+| Élément | Valeur |
+|---|---|
+| Facilitateur | `https://facilitator.vativ.io` (dessert les deux réseaux) |
+| Proxy de règlement | `0x402085c248EeA27D92E8b30b2C58ed07f9E20001` : déploiement CREATE2 canonique, résolu automatiquement par le SDK |
+| Domaine EIP-712 | name `Mezo USD`, version `1` (distinct du symbole `MUSD`) |
+| Méthode de transfert | `permit2` + EIP-2612 |
+
+### Prise en charge des SDK
+**Mezo Mainnet** (`eip155:31612`) est disponible dans les SDK x402 canoniques suivants
+
+| SDK | Première version avec Mezo Mainnet |
+|---|---|
+| TypeScript `@x402/evm` | `v2.15.0` |
+| Go `github.com/x402-foundation/x402/go/v2` | `v2.15.0` |
+| Python `x402` (PyPI) | `v2.13.0` |
+
+**Mezo Testnet** (`eip155:31611`) est disponible dans les SDK x402 canoniques suivants
+
+| SDK | Première version avec Mezo Testnet |
+|---|---|
+| TypeScript `@x402/evm` | `v2.10.0` |
+| Go `github.com/x402-foundation/x402/go/v2` | `v2.9.0` |
+| Python `x402` (PyPI) | `v2.7.0` |
+
+Aucun SDK Java n'est encore disponible ; utilisez le SDK TypeScript, Go ou Python ci-dessus.
+
+## Pourquoi Mezo pour x402
+
+La plupart des chaînes qui prennent en charge x402 règlent en USDC. Mezo se positionne différemment :
+
+- **Un actif de règlement natif Bitcoin.** MUSD est frappé contre une garantie en BTC
+  dans l'économie Mezo. Les revenus libellés en MUSD restent dans
+  l'écosystème Bitcoin, sans aller-retour par ETH ni par des émetteurs de
+  stablecoins centralisés.
+- **Une précision de 18 décimales pour de vrais micropaiements.** Une facturation de 0,001 $ est une
+  opération à part entière, et non un artefact d'arrondi. Les API facturées à l'usage,
+  la tarification de l'IA à l'inférence et l'accès au contenu à la requête peuvent être
+  tarifés de façon réaliste, sans regroupement.
+- **Zéro gaz pour les acheteurs (le facilitateur paie en BTC).** Le
+  facilitateur Mezo, sur `facilitator.vativ.io`, prend en charge chaque transaction
+  de règlement onchain en BTC natif. Les acheteurs (y compris les agents IA) n'ont besoin
+  que de MUSD à dépenser et d'une clé privée pour signer une autorisation permit2
+  EIP-712 : pas de recharge de BTC pour le gaz, pas de jeton de gaz ponté, pas
+  d'étape de préfinancement avant le premier paiement.
+- **Une économie de chaîne prévisible.** Mezo est conçu spécifiquement autour de
+  primitives financières adossées à Bitcoin, de sorte que l'offre de MUSD et les coûts
+  d'emprunt obéissent à des règles ancrées dans la base de garanties en BTC plutôt
+  qu'à la politique d'un émetteur de stablecoin.
+
+## Ce que vous pouvez construire
+
+x402 + MUSD sur Mezo convient partout où un vendeur souhaite une tarification native HTTP
+sans gérer d'abonnements, de clés d'API ni de comptes auprès d'un processeur de paiement :
+
+- **Contenu derrière un paywall.** Articles, flux, rapports, archives de recherche.
+  Un `402` par URL protégée, tarifé par ressource.
+- **API facturées à l'usage.** Facturez à la requête des données météo, des flux
+  crypto, des endpoints d'analyse ou une logique métier personnalisée. Pas de jonglage
+  avec les limites de débit, pas de cycle de vie de clés d'API à gérer.
+- **Services d'IA payés à l'inférence.** Encapsulez un LLM, un générateur d'images, un STT,
+  un modèle d'embedding ou un modèle affiné dans un endpoint x402. Les appelants paient à chaque
+  invocation, au coût réel, grâce aux 18 décimales de MUSD.
+- **Paiements de machine à machine (M2M).** Des agents IA équipés d'un
+  client `@x402/fetch` et d'une clé privée effectuent des transactions en autonomie :
+  ils découvrent un outil payant, lisent les exigences du `402`, règlent, consomment.
+  Pas de compte, pas d'échange d'identifiants, pas d'intervention humaine à chaque
+  paiement. Comme le gaz est pris en charge par le facilitateur, l'agent n'a besoin que de MUSD
+  et d'une clé de signature ; aucune recharge de BTC n'est nécessaire pour commencer à effectuer des transactions.
+- **Serveurs MCP payants.** Exposez des outils pour agents via le Model Context
+  Protocol et tarifez-les à l'appel avec x402. S'associe naturellement à
+  des consommateurs de type agents autonomes.
+- **SaaS à l'usage plutôt qu'à l'abonnement.** Remplacez la facturation par abonnement par une
+  tarification à l'usage pour des outils, des tableaux de bord ou des services internes dont
+  l'utilisation est irrégulière ou incertaine.
+
+## Premiers pas
+
+Pour un tutoriel pas à pas (installer les packages du SDK, exécuter un
+vendeur avec paywall construit sur `@x402/express` et l'interface intégrée
+`@x402/paywall`, puis le payer avec un portefeuille de navigateur), consultez le guide
+**[Démarrage rapide x402](./x402-quickstart/)**.
+
+## Voir aussi
+
+- [Démarrage rapide x402](./x402-quickstart/). Le guide pratique
+  pas à pas.
+- [Configurer l'environnement de développement](/docs/fr/docs/developers/getting-started/configure-environment).
+  Endpoints RPC et paramètres réseau de Mezo.
+- [Réseau et RPC](/docs/fr/docs/developers/chains/). Détails de configuration
+  de la chaîne.
+- <a href="/docs/fr/docs/users/borrow/mint-musd/" target="_blank" rel="noopener noreferrer">Emprunter et frapper des MUSD ↗</a>. Parcours côté utilisateur pour obtenir des MUSD (s'ouvre dans un nouvel onglet).
+- [x402.org](https://x402.org). Documentation canonique du protocole x402.

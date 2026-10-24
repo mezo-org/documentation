@@ -1,0 +1,67 @@
+---
+title: Réclamer les incentives
+description: Comment les LP et les votants réclament les MEZO dirigés par les MEZO Gauges
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Ce que vous réclamez, et où, dépend du côté du gauge où vous vous situez.
+
+| Vous êtes | Vous réclamez | Où |
+|---|---|---|
+| LP dans Curve USDT/USDC/MUSD ou Uniswap USDC/MUSD | Des veMEZO verrouillés pendant 3 mois | [Merkl](https://app.merkl.xyz) |
+| Détenteur de veAERO votant pour Aerodrome USDC/MUSD ou MEZO/MUSD | Des MEZO, sous forme d'incentive de vote | [Aerodrome](https://aerodrome.finance) |
+| LP dans Aerodrome USDC/MUSD ou MEZO/MUSD | Des émissions d'AERO | [Aerodrome](https://aerodrome.finance) |
+| Détenteur de veMEZO ayant voté pour un MEZO Gauge | Les incentives (incitations) publiés sur ce gauge | L'onglet Vote sur [mezo.org](https://mezo.org) |
+
+---
+
+## LP sur Curve et Uniswap : réclamer sur Merkl
+
+Les récompenses ne sont **pas** envoyées automatiquement dans votre portefeuille. Merkl accumule un droit à réclamer associé à votre adresse, et c'est à vous de le récupérer.
+
+<Steps>
+1. Rendez-vous sur [app.merkl.xyz](https://app.merkl.xyz).
+2. Connectez le portefeuille qui détient la position LP.
+3. Ouvrez **Dashboard**. Une fois votre portefeuille connecté, ce tableau de bord liste toutes les récompenses que ce portefeuille peut réclamer : vous n'avez donc pas besoin de rechercher la campagne.
+4. Cliquez sur **Claim** et signez la transaction.
+</Steps>
+
+**Ce que vous recevez :** des veMEZO verrouillés pendant 3 mois, et non des MEZO liquides. Une fois réclamés, ils se comportent comme n'importe quelle autre [position veMEZO](/docs/fr/docs/users/mezo-earn/lock/vemezo). Ils peuvent booster une position veBTC et voter sur les MEZO Gauges.
+
+Si vous êtes LP dans le pool, vous pouvez boucler le circuit en votant avec les veMEZO réclamés pour le MEZO Gauge de ce pool, ce qui envoie davantage d'émissions vers la position que vous détenez déjà. C'est facultatif. Fournir de la liquidité pendant la campagne suffit pour réclamer. Consultez [Où va votre vote](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#capter-la-valeur-que-vous-orientez) pour le circuit complet.
+
+:::caution[Les récompenses non réclamées sont perdues]
+Les campagnes Merkl ne s'accumulent pas indéfiniment. Si vous ne réclamez jamais, vous perdez les récompenses. Si vous êtes LP dans ces pools, consultez Merkl régulièrement.
+:::
+
+Vous n'avez pas besoin de détenir des veMEZO, ni d'avoir voté, pour réclamer en tant que LP. Fournir de la liquidité au pool pendant la campagne est la seule condition.
+
+---
+
+## Aerodrome : réclamer sur Base
+
+Les MEZO dirigés vers un gauge Aerodrome sont déposés en tant qu'**incentive de vote** : ils sont donc réclamés par les votants veAERO, et non par les LP.
+
+**Si vous détenez des veAERO et avez voté pour USDC/MUSD ou MEZO/MUSD :** rendez-vous sur [aerodrome.finance](https://aerodrome.finance), ouvrez votre verrouillage veAERO et réclamez vos récompenses pour l'époque. Votre part de MEZO est proportionnelle à votre part des votes sur ce gauge.
+
+**Si vous êtes LP dans Aerodrome USDC/MUSD ou MEZO/MUSD :** stakez votre position dans le gauge du pool et réclamez-y les émissions d'**AERO**. Tenez compte du [décalage de deux époques](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#le-décalage-de-deux-époques) entre un vote sur Mezo et les AERO qu'il produit.
+
+---
+
+## Votants des MEZO Gauges : réclamer sur Mezo
+
+Si vous avez dirigé des veMEZO vers un MEZO Gauge, vous percevez une part des éventuels **incentives publiés sur ce gauge**, proportionnelle à votre part de ses votes.
+
+Réclamez-les de la même manière que toute autre récompense de vote : dans l'onglet **Vote** sur [mezo.org](https://mezo.org), une fois l'époque terminée. Consultez [Réclamer les frais et les émissions](/docs/fr/docs/users/mezo-earn/vote/claiming-fees-emissions).
+
+Ces incentives sont distincts des émissions que vous avez dirigées. Les émissions vont au pool de destination ; les incentives sont publiés sur Mezo pour attirer votre vote vers ce gauge en premier lieu.
+
+---
+
+## Prochaines étapes
+
+- [Où va votre vote](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) : le circuit complet, du vote à l'incentive
+- [Aperçu des MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges) : pools éligibles et financement
+- [Réclamer les frais et les émissions](/docs/fr/docs/users/mezo-earn/vote/claiming-fees-emissions) : toutes les autres récompenses de Mezo Earn

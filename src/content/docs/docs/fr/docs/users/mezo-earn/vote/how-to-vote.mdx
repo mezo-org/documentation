@@ -1,0 +1,135 @@
+---
+title: Comment voter
+description: Guide étape par étape pour voter pour des gauges avec vos veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Le vote vous permet d'orienter le flux des émissions et, en retour, de percevoir une part proportionnelle des frais de trading et des incentives (incitations) des gauges auxquels vous allouez votre vote. Ce guide vous accompagne tout au long du processus.
+
+<YouTube id="6rthu_iub7E" title="Comment voter" start={89} />
+
+## Prérequis
+
+Avant de commencer, assurez-vous de disposer :
+
+- d'un portefeuille compatible connecté à Mezo (MetaMask, Rabby ou un portefeuille compatible WalletConnect) ;
+- d'une position veBTC active (pour voter sur les gauges de staking) ;
+- OU d'une position veMEZO active (pour voter sur les gauges de boost veBTC) ;
+- de suffisamment de BTC pour payer les frais de gaz.
+
+Consultez [Comment verrouiller des BTC](/docs/fr/docs/users/mezo-earn/lock/vebtc/how-to-lock-btc) si vous n'avez pas encore de verrouillage veBTC.
+
+Consultez [Comment verrouiller des MEZO](/docs/fr/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) si vous souhaitez créer une position veMEZO.
+
+---
+
+## Voter avec veBTC
+
+Les détenteurs de veBTC votent sur les gauges de staking pour orienter les émissions et percevoir des frais.
+
+### Exprimer votre vote
+
+Pour gagner des récompenses, allouez votre pouvoir de vote à des gauges spécifiques. Votre allocation est conservée d'une époque à l'autre (7 jours chacune) jusqu'à ce que vous la modifiiez.
+
+<Steps>
+1. Accédez à l'onglet **Vote** pour afficher vos positions veBTC actives. Cliquez sur **Allocate** à côté de la position veBTC avec laquelle vous souhaitez voter.
+
+2. Pour chaque gauge que vous souhaitez soutenir, saisissez le pourcentage de votre pouvoir de vote que vous voulez lui allouer. Vous pourriez par exemple allouer 50 % au pool BTC/MUSD, 30 % au pool MUSD/mUSDC et 20 % au pool mcbBTC/BTC.
+
+3. Vérifiez votre allocation puis, lorsque vous êtes prêt, cliquez sur **Submit Votes** dans la barre latérale de droite. Signez la transaction : une fois celle-ci confirmée, votre vote est enregistré pour l'époque en cours.
+</Steps>
+
+:::note[À retenir]
+Chaque verrouillage ne peut voter qu'une fois par époque : une fois votre vote confirmé, l'allocation est figée jusqu'au prochain changement d'époque. Votre allocation est conservée d'une époque à l'autre et continue de générer des frais et des incentives jusqu'à ce que vous la modifiiez ou la réinitialisiez.
+:::
+
+---
+
+## Voter avec veMEZO
+
+Les détenteurs de veMEZO votent sur les gauges de boost veBTC pour apporter du boost aux positions en BTC en échange d'incentives, ainsi que sur les [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges) pour diriger les émissions de MEZO vers des pools MUSD en dehors de Mezo. Ces deux types de vote sont indépendants : consultez [Comment voter sur les MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) pour ce second parcours.
+
+### Voter sur les gauges de boost
+
+<Steps>
+1. Accédez à la section **Boost Gauges** pour voir toutes les positions veBTC disponibles qui recherchent du boost.
+
+2. Examinez chaque gauge pour voir :
+   - les incentives actuellement publiés ;
+   - le montant de veMEZO déjà dirigé vers ce gauge ;
+   - le rendement estimé en fonction de votre allocation de veMEZO.
+
+3. Saisissez le pourcentage de votre pouvoir de vote veMEZO que vous souhaitez diriger vers chaque gauge de boost.
+
+4. Cliquez sur **Submit Votes** et signez la transaction.
+</Steps>
+
+### Ce que vous gagnez
+
+Lorsque vous dirigez des votes veMEZO vers un gauge de boost :
+
+- vous percevez une part des incentives publiés sur ce gauge, proportionnelle à votre part des votes veMEZO ;
+- le détenteur de veBTC reçoit un boost, ce qui augmente son pouvoir de vote effectif.
+
+Remarque : les votants veMEZO ne perçoivent **pas** les frais de trading, les revenus MUSD ni les frais de pont des positions veBTC qu'ils boostent. Ces récompenses reviennent au détenteur de veBTC. Les votants veMEZO ne gagnent que les incentives explicitement publiés sur les gauges de boost.
+
+---
+
+## Maximiser votre boost (pour les détenteurs de veBTC)
+
+Si vous détenez à la fois des veBTC et des veMEZO, vous pouvez maximiser votre pouvoir de vote :
+
+### Option 1 : auto-boost
+
+Dirigez vos votes veMEZO vers le gauge de boost de votre propre position veBTC.
+
+<Steps>
+1. Accédez au gauge de boost de votre position veBTC
+2. Allouez-lui votre pouvoir de vote veMEZO
+3. Cliquez sur **Submit Votes**
+4. Effectuez un **poke** de votre position veBTC pour activer le nouveau boost
+</Steps>
+
+### Option 2 : attirer un boost externe
+
+Publiez des incentives sur le gauge de boost de votre veBTC pour attirer les votes veMEZO d'autres utilisateurs.
+
+<Steps>
+1. Accédez au gauge de boost de votre position veBTC
+2. Cliquez sur **Add Incentives**
+3. Déposez des jetons (n'importe quel ERC-20) en tant qu'incentives
+4. Les détenteurs de veMEZO verront vos incentives et pourront diriger leurs votes vers vous
+5. Effectuez un **poke** de votre position après avoir reçu de nouveaux votes veMEZO
+</Steps>
+
+---
+
+## Important : effectuez un poke après toute modification
+
+Lorsque votre situation veMEZO évolue, le boost n'est pas mis à jour automatiquement. Vous devez effectuer un **poke** de votre position veBTC pour actualiser son poids boosté.
+
+**Effectuez un poke lorsque :**
+- vous recevez de nouveaux votes veMEZO sur votre gauge de boost ;
+- vous dirigez vos propres veMEZO vers votre position ;
+- vous réclamez des distributions de rebase veMEZO ;
+- vous prolongez votre verrouillage veMEZO.
+
+**Comment effectuer un poke :**
+1. Accédez à votre position veBTC
+2. Cliquez sur **Poke**
+3. Signez la transaction
+
+Votre nouveau poids boosté s'applique immédiatement.
+
+---
+
+## Prochaines étapes
+
+- [Gérer les verrouillages et collecter les récompenses](/docs/fr/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) : réclamez vos gains et prolongez votre verrouillage
+- [Aperçu du vote](/docs/fr/docs/users/mezo-earn/vote) : découvrez plus en détail le fonctionnement du vote et ce que vous gagnez
+- [Mécanisme de boost](/docs/fr/docs/users/mezo-earn/lock/vemezo/boost-mechanism) : comprenez comment le boost veMEZO est calculé
+- [Marché d'appariement](/docs/fr/docs/users/mezo-earn/lock/vemezo/matching-market) : découvrez le fonctionnement de la place de marché du boost
+- [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges) : votez avec veMEZO pour diriger les émissions de MEZO vers des pools MUSD sur Curve, Uniswap et Aerodrome
