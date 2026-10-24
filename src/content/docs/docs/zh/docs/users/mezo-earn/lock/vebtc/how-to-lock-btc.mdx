@@ -1,0 +1,81 @@
+---
+title: 如何锁定 BTC
+description: 锁定 BTC 的分步指南
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../../components/YouTube.astro';
+
+锁定 BTC 后，您会获得一个 veBTC NFT，它为您提供投票权、协议费用和治理权。有关收益的详细信息，请参阅 [veBTC 概览](/docs/zh/docs/users/mezo-earn/lock/vebtc)。
+
+<YouTube id="6rthu_iub7E" title="如何锁定 BTC" start={51} />
+
+## 前提条件
+
+锁定 BTC 之前，请确保您已：
+
+- 将 BTC 存入 Mezo
+- 连接钱包
+- 持有足够支付 Gas 费的 BTC
+
+相关指导请参阅[入门指南](/docs/zh/docs/users/getting-started/deposit-assets)部分。
+
+---
+
+## 前往锁仓页面
+
+<Steps>
+1. 打开 Mezo App
+
+2. 点击左侧边栏中的 **Lock**（位于“Earn”下）
+
+3. 您将看到符合条件的资产
+</Steps>
+
+---
+
+## 发起锁仓
+
+找到显示您可用余额的 BTC 资产卡片，然后点击 **Lock**。随后会弹出锁仓配置窗口，您可以在其中配置您的仓位。
+
+**数量：** 输入您要锁定的 BTC 数量。您可以锁定不超过可用余额的任意数量。
+
+**期限：** 选择 1 至 28 天的锁定期限。锁定期限越长，较高投票权维持的时间就越长。界面会显示您预估的初始 veBTC 投票权，即您在锁仓开始时的权重。
+
+:::note[注意]
+锁定期限按周期边界对齐，并向下取整到最近的完整周。在周期中途创建的最长期限锁仓，其有效期限为 21–28 天。详情请参阅[周期](/docs/zh/docs/users/mezo-earn/lock/vebtc#周期)。
+:::
+
+
+---
+
+## 确认交易
+
+检查您的锁仓详情：
+
+- BTC 数量
+- 锁定期限
+- 初始 veBTC 权重
+- 锁仓到期日期
+
+点击 **Confirm Lock**，在钱包中确认交易，然后等待区块链确认。
+
+---
+
+## 查看您的仓位
+
+确认完成后，您可以在 Lock 页面查看锁仓详情，包括：
+
+- 当前投票权（随时间衰减）
+- 锁仓到期日期
+- 延长锁仓的选项
+
+---
+
+## 后续步骤
+
+获得 veBTC 后，您可以：
+
+- [为 Gauge 投票](/docs/zh/docs/users/mezo-earn/vote)，赚取费用并引导排放
+- [延长锁仓](/docs/zh/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards)，保持投票权

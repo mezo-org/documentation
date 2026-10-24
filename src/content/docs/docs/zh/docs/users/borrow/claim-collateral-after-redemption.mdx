@@ -1,0 +1,57 @@
+---
+title: 如何在全额赎回后领取抵押品
+description: 在您的 MUSD 贷款（Trove）被全额赎回后，领取剩余抵押品的分步指南。
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+当其他用户针对您的贷款（Trove）赎回 MUSD 并将其全部还清时，您的债务即被清偿——但任何剩余的抵押品都会保留在 MUSD 智能合约中，直到您领取为止。您的抵押品是安全的，可以随时取回。
+
+通常情况下，您会在 Borrow 页面上看到 “Loan redeemed” 提醒，可直接通过界面领取抵押品。如下方截图所示，点击提醒右侧的按钮即可完成领取。
+
+![Borrow 页面上的 Loan redeemed 提醒](/docs/images/musd/loan-redeemed.webp)
+
+如果您没有看到此提醒，可以通过 Mezo Explorer 调用 BorrowerOperations 合约上的 `claimCollateral` 函数手动领取抵押品。请按以下步骤操作。
+
+<Steps>
+
+1. **前往 BorrowerOperations 合约**
+
+   前往 [Mezo Explorer 上的 BorrowerOperations 合约](https://explorer.mezo.org/address/0x44b1bac67dDA612a41a58AAf779143B181dEe031)。
+
+2. **点击 “Contract” 标签页**
+
+   在 Transactions、Token transfers 和 Tokens 所在的标签栏中，点击 **Contract**。
+
+   随后会显示四个子标签页：**Code**、**Read proxy**、**Write contract** 和 **Write proxy**。
+
+3. **点击 “Write proxy”**
+
+   点击 **Write proxy** 标签页。该标签页会显示底层 BorrowerOperations 实现合约的所有写入函数。
+
+   :::caution
+   请务必选择 **Write proxy**（而不是 “Write contract”）——代理标签页反映的才是实际的 BorrowerOperations 逻辑。
+   :::
+
+4. **连接钱包**
+
+   您会在合约函数区域顶部看到一个黄色/橙色横幅，上面显示 “Disconnected” 以及 **Connect wallet** 按钮。
+
+   点击 **Connect wallet**，并在钱包（例如 MetaMask）中确认连接。请确保使用持有被赎回 Trove 的同一钱包地址进行连接，因为只有该地址才能领取其抵押品。
+
+5. **找到 claimCollateral 函数**
+
+   向下滚动合约函数列表，直到找到：
+
+   **7. claimCollateral**
+
+   点击该函数将其展开。该函数无需任何输入参数——它会直接领取全额赎回后为您的地址预留的全部抵押品。
+
+6. **点击 “Write”**
+
+   在钱包已连接的状态下，点击 `claimCollateral` 函数下方的 **Write** 按钮。
+
+   钱包会提示您确认交易。检查 Gas 费后确认即可。交易完成后，您的抵押品（BTC）将直接发送到您的钱包。
+
+</Steps>
