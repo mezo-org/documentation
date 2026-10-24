@@ -1,0 +1,288 @@
+---
+title: Tổng quan về cầu nối trên Mainnet
+description: >-
+  Tìm hiểu cách sử dụng và truy cập các cầu nối trên Mezo Mainnet để di chuyển
+  tài sản một cách liền mạch.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Bạn có thể nạp và rút tài sản vào và ra khỏi Mezo bằng Mezo Native Bridge.
+# Khoản nạp
+
+## Nạp qua Mezo Native Bridge
+
+Mezo App có tích hợp một cầu nối gốc, cho phép bạn nạp nhiều loại tài sản vào Mezo Mainnet. Xem hướng dẫn [Nạp tài sản](/docs/vn/docs/users/getting-started/deposit-assets) để tìm hiểu quy trình, hoặc truy cập thẳng [mezo.org/overview](https://mezo.org/overview), đăng nhập và nhấp vào **Deposit Bitcoin** để bắt đầu.
+
+:::note[Lưu ý]
+Mọi giao dịch trên Mezo Mainnet đều được thanh toán bằng khoản nạp BTC gốc hoặc tBTC. Trước khi sử dụng mạng, bạn nên nạp BTC hoặc tBTC vào tài khoản để đảm bảo có đủ gas trả cho các giao dịch.
+:::
+
+
+## Nạp BTC gốc
+
+Bạn có thể nạp BTC trực tiếp từ ví Bitcoin vào Mezo App. Tài sản sẽ tự động được chuyển qua cầu nối thành tBTC và vào Mezo Mainnet.
+
+BTC gốc được chuyển qua cầu nối thành tBTC trước khi được chuyển vào [hợp đồng Mezo App](/docs/vn/docs/users/resources/contracts-reference).
+
+Với ví BTC, bạn có thể đăng nhập bằng UniSat, OKX và Xverse. Hãy dùng các loại địa chỉ sau:
+
+| Tên            | Loại script | Tiền tố địa chỉ |
+| -------------- | ----------- | -------------- |
+| Legacy         | P2PKH       | 1              |
+| Native SegWit  | P2WPKH      | bc1q           |
+| Nested SegWit  | P2SH-P2WPKH | 3              |
+
+# Khoản rút
+
+## Chuyển tài sản từ Mezo sang các mạng khác
+
+*Cập nhật lần cuối: tháng 9 năm 2026*
+
+Hướng dẫn này giải thích cách chuyển tài sản của bạn qua cầu nối ra khỏi Mezo để quay về mạng Ethereum hoặc Bitcoin. Chúng tôi sẽ đề cập đến những gì bạn có thể chuyển, cách thực hiện, các cầu nối được sử dụng, các khoản phí liên quan và những gì bạn có thể gặp trong quá trình này. Hiện tại, lượng tối thiểu bắt buộc để chuyển qua cầu nối là 0,01 BTC khi rút về Bitcoin gốc, 0,0002 BTC khi rút BTC sang Ethereum, 20 token đối với các token USD được chuyển qua Native Bridge (USDC, USDT, USDe, DAI), 0,01 token đối với các token được chuyển qua Wormhole Bridge (MEZO, MUSD, sUSDat), và 1.500 T đối với token T. Xem thêm chi tiết [tại đây.](#chuyển-qua-cầu-nối-sang-ethereum)
+
+### Từ Mezo sang các mạng khác
+
+| Tài sản của bạn trên Mezo | Mạng đích | Bạn sẽ nhận được | Ghi chú |
+|-------------------|-------------------|-------------------|--------|
+| **BTC** | Ethereum | tBTC (token ERC-20) | Bạn luôn nhận tBTC trên Ethereum, không phải WBTC hay các phiên bản wrapped khác |
+| **BTC** | Bitcoin | BTC gốc | Bitcoin thật được gửi đến ví Bitcoin của bạn |
+| **Token mERC-20** | Ethereum | Token ERC-20 gốc ban đầu | Nhận lại đúng những token bạn đã chuyển vào ban đầu (như USDC, USDT, v.v.) |
+| **MUSD** | Ethereum, Base | MUSD | Chuyển qua cầu nối chỉ từ 0,01 MUSD giữa Mezo, Base và Ethereum. Cầu nối do Wormhole vận hành. |
+| **MEZO** | Ethereum, Base, BSC, Solana | MEZO | Cầu nối do Wormhole NTT vận hành. Xem [hướng dẫn MEZO Bridge](/docs/vn/docs/users/mezo/mezo-bridge) để biết chi tiết. |
+| **Token mERC-20** | Bitcoin | Không khả dụng | Không thể gửi token ERC-20 sang Bitcoin |
+
+:::note[Điểm chính]
+- Bạn có thể chuyển tài sản qua cầu nối giữa Mezo và Bitcoin mainnet, Ethereum và mạng Base.
+- BTC có thể chuyển sang Ethereum (dưới dạng tBTC) hoặc sang Bitcoin (dưới dạng BTC gốc).
+- Các token như USDC hoặc T (được biểu diễn dưới dạng m-token trên Mezo) chỉ có thể quay về Ethereum.
+- MEZO và MUSD có thể được chuyển qua cầu nối đến và từ mạng Base thông qua [Wormhole NTT](/docs/vn/docs/users/mezo/mezo-bridge).
+- Token MEZO cũng có thể được chuyển qua cầu nối sang BSC và Solana thông qua [Wormhole NTT](/docs/vn/docs/users/mezo/mezo-bridge).
+- Địa chỉ Bitcoin Taproot (bắt đầu bằng `bc1p`) hiện chưa được hỗ trợ.
+:::
+
+## Cách chuyển tài sản ra khỏi Mezo
+
+### Chuyển qua cầu nối sang Ethereum (cho tBTC hoặc token ERC-20)
+
+<Steps>
+1. **Nhấp vào nút 'Withdraw'** ở góc trên bên phải của Mezo App.
+
+2. **Chọn tài sản:**
+   - Chọn BTC để nhận tBTC trên Ethereum.
+   - Chọn bất kỳ token mERC-20 nào để nhận token gốc ban đầu trên Ethereum.
+
+3. **Nhập số lượng** bạn muốn chuyển qua cầu nối.
+
+4. **Xem lại các khoản phí** hiển thị trên màn hình.
+
+5. **Xác nhận và gửi** giao dịch.
+
+6. **Nếu chuyển token mERC-20**, có thể bạn cần phê duyệt giao dịch trước.
+</Steps>
+
+### Chuyển qua cầu nối sang Bitcoin (chỉ cho BTC gốc)
+
+<Steps>
+1. **Nhấp vào nút 'Withdraw'** ở góc trên bên phải của Mezo App.
+
+2. **Chọn BTC** làm tài sản.
+
+3. **Chọn Bitcoin** làm mạng đích.
+
+4. **Nhập số lượng** cần chuyển qua cầu nối.
+
+5. **Dán địa chỉ Bitcoin của bạn** - các định dạng được hỗ trợ:
+   - Địa chỉ Legacy (bắt đầu bằng `1`)
+   - Địa chỉ SegWit (bắt đầu bằng `3` hoặc `bc1q`)
+   - **Không được hỗ trợ:** Địa chỉ Taproot (bắt đầu bằng `bc1p`)
+
+6. **Xem lại các khoản phí** và xác nhận.
+
+7. **Gửi** giao dịch.
+</Steps>
+
+## Tìm hiểu các tuyến cầu nối
+
+Khi bạn rút tài sản khỏi Mezo, hệ thống sẽ tự động xác định cầu nối cần sử dụng. Thông tin này xuất hiện ở dòng "Bridge" trong cửa sổ rút tiền.
+
+-   **Mezo Native Bridge:** Dùng cho mọi khoản rút tiêu chuẩn đối với các tài sản như BTC và token mERC-20.
+-   **Wormhole Bridge:** Cầu nối của bên thứ ba, dùng cho các khoản rút MUSD sang Ethereum và [chuyển token MEZO](/docs/vn/docs/users/mezo/mezo-bridge) sang Ethereum, Base, BSC và Solana.
+-   **Super Bridge (sắp ra mắt):** Một cầu nối gốc của Mezo sẽ hỗ trợ nạp và rút tài sản với mệnh giá nhỏ hơn.
+
+Các khoản phí sẽ được hiển thị chính xác trong ứng dụng tùy theo tuyến cầu nối được dùng cho giao dịch cụ thể của bạn.
+
+## Tìm hiểu về phí
+
+Khi chuyển tài sản ra khỏi Mezo, bạn trả phí cho dịch vụ cầu nối và hoạt động của mạng. Mọi khoản phí đều được hiển thị rõ ràng trước khi bạn xác nhận bất kỳ giao dịch nào.
+
+### Cấu trúc phí của Native Bridge (v2)
+
+Các khoản rút khỏi Mezo có một mức phí đơn giản:
+
+- Phí cố định — một khoản cố định tương đương khoảng $3 USD tính theo giá trị của token đó.
+
+#### Chuyển qua cầu nối sang Ethereum
+
+Lượng rút tối thiểu
+
+- Token dựa trên BTC (BTC, mcbBTC, mFBTC, mSolvBTC, mswBTC, mxSolvBTC): 0,0002
+- Token dựa trên USD được chuyển qua Native Bridge (mUSDC, mUSDT, mDAI, mUSDe): 20
+- Token mT: 1.500
+
+Phí
+
+- Phí dịch vụ Mezo Bridge: ≈ $3 USD (tính bằng token đích)
+- Phí mạng (gas): Trả bằng BTC, thay đổi tùy theo tình trạng mạng
+
+Ví dụ:
+
+Rút 1.000 USDC → $3 phí dịch vụ + phí gas thay đổi → nhận ~997 USDC.
+
+#### Chuyển qua cầu nối sang Bitcoin
+
+Lượng rút tối thiểu: 0,01 BTC
+
+Phí
+
+- Phí mạng (gas): Trả bằng BTC, có thay đổi
+- Phí dịch vụ Mezo Bridge: ≈ 0,000027 BTC
+- Phí dịch vụ tBTC Bridge: 0,2% (sau phí dịch vụ Mezo Bridge)
+- Phí mạng tối đa của tBTC Bridge: tối đa 0,001 BTC (dù thường < $1)
+
+##### Ví dụ:
+
+Lượng rút: 1 BTC
+
+Phí:
+  - 0,000027 BTC (phí dịch vụ Mezo Bridge)
+  - 0,001999946 BTC (phí dịch vụ tBTC Bridge)
+  - phí mạng tBTC Bridge và phí gas thay đổi
+
+Lượng nhận được: ~0,997973 BTC.
+
+## Điều gì xảy ra sau khi bạn gửi
+
+Sau khi bạn khởi tạo một giao dịch chuyển tài sản ra khỏi Mezo, quy trình diễn ra như sau:
+
+<Steps>
+1. **Xác thực:** Hệ thống kiểm tra yêu cầu của bạn có đáp ứng mọi điều kiện hay không.
+
+2. **Đốt token:** Token của bạn trên Mezo bị đốt (bị loại bỏ vĩnh viễn khỏi lưu thông).
+
+3. **Chứng thực:** Các validator của Mezo xác nhận yêu cầu rút của bạn.
+
+4. **Chuyển giao:** Tài sản của bạn được gửi đến địa chỉ đích.
+</Steps>
+
+### Thời gian và cập nhật trạng thái
+
+Giao dịch chuyển qua cầu nối của bạn sẽ hiển thị các cập nhật trạng thái sau:
+
+-   **Created:** Yêu cầu của bạn đã được ghi nhận.
+-   **Attesting:** Các validator đang xác nhận khoản rút của bạn.
+-   **Ready to Withdraw:** Đã hoàn tất xác nhận, tài sản đang được gửi đi.
+-   **Withdrawn/Redeemed:** Tài sản đã được chuyển thành công đến địa chỉ đích của bạn.
+
+Bạn có thể theo dõi giao dịch bằng hash giao dịch được cung cấp trong giao diện.
+
+## Yêu cầu quan trọng về địa chỉ
+
+### Với đích đến trên Ethereum
+-   Phải là địa chỉ Ethereum hợp lệ (`0x` theo sau là 40 ký tự).
+-   Có thể là ví thông thường hoặc hợp đồng thông minh chấp nhận chuyển token tiêu chuẩn.
+-   Địa chỉ nạp của sàn giao dịch dùng được nếu sàn chấp nhận chuyển token trực tiếp.
+
+### Với đích đến trên Bitcoin
+Các loại địa chỉ được hỗ trợ:
+-   Địa chỉ Legacy (bắt đầu bằng `1`)
+-   Địa chỉ SegWit dạng wrapped (bắt đầu bằng `3`)
+-   Địa chỉ Native SegWit (bắt đầu bằng `bc1q`)
+
+**Không được hỗ trợ:** Địa chỉ Taproot (bắt đầu bằng `bc1p`)
+
+## Lưu ý về an toàn
+
+Trước khi xác nhận bất kỳ giao dịch chuyển qua cầu nối nào:
+
+-   ✅ **Kiểm tra kỹ địa chỉ đích** - giao dịch không thể đảo ngược.
+-   ✅ **Xác minh bạn đã chọn đúng mạng** (Ethereum hay Bitcoin).
+-   ✅ **Xác nhận số tiền phí** hiển thị trong ứng dụng.
+-   ✅ **Ghi nhớ rằng giao dịch chuyển ra khỏi Mezo không thể hủy** sau khi đã gửi.
+-   ✅ **Đảm bảo định dạng địa chỉ đích của bạn được hỗ trợ.**
+
+:::danger[Cảnh báo]
+Nếu bạn gửi tiền đến một địa chỉ sai nhưng đúng định dạng, số tiền đó sẽ bị mất vĩnh viễn. Luôn sao chép và dán địa chỉ, đồng thời kiểm tra cẩn thận.
+:::
+
+
+### Khắc phục sự cố thường gặp
+
+#### Thông báo "Approval Required"
+**Với token mERC-20:** Trước tiên, bạn cần phê duyệt cho hợp đồng cầu nối được chi tiêu token của bạn. Nhấp vào "Approve" khi được nhắc, xác nhận giao dịch, sau đó bạn có thể tiếp tục chuyển qua cầu nối.
+
+#### "Unsupported Asset for Destination"
+Lưu ý:
+-   Token mERC-20 và MUSD chỉ có thể chuyển sang Ethereum.
+-   BTC có thể chuyển sang Ethereum (dưới dạng tBTC) hoặc Bitcoin.
+
+#### "Invalid Recipient Address"
+Hãy kiểm tra:
+-   Địa chỉ Ethereum bắt đầu bằng `0x` và có tổng cộng 42 ký tự.
+-   Địa chỉ Bitcoin dùng định dạng được hỗ trợ (không dùng địa chỉ Taproot `bc1p`).
+-   Bạn không dùng địa chỉ testnet cho giao dịch mainnet.
+
+#### Giao dịch có vẻ bị kẹt
+Kiểm tra trạng thái trong lịch sử giao dịch của bạn:
+-   Nếu hiển thị "Created" hoặc "Attesting" - các validator vẫn đang xử lý.
+-   Nếu hiển thị "Ready to Withdraw" - việc chuyển tiền đang diễn ra trên mạng đích.
+-   Liên hệ bộ phận hỗ trợ kèm ID giao dịch nếu giao dịch đã chờ xử lý lâu bất thường.
+
+### Câu hỏi thường gặp
+
+**H: BTC trên Mezo và tBTC trên Ethereum khác nhau thế nào?**
+Đ: Khi bạn chuyển BTC từ Mezo sang Ethereum qua cầu nối, BTC sẽ trở thành tBTC, một token ERC-20 đại diện cho Bitcoin trên mạng Ethereum. tBTC được bảo chứng 1:1 bằng Bitcoin gốc và có thể được quy đổi lấy Bitcoin gốc.
+
+**H: Tôi có thể chuyển token mERC-20 của mình sang Bitcoin qua cầu nối không?**
+Đ: Không. Token ERC-20 là token gốc của các mạng tương thích Ethereum. Bạn chỉ có thể chuyển chúng về lại Ethereum.
+
+**H: Tại sao tôi không dùng được địa chỉ Bitcoin Taproot của mình?**
+Đ: Hiện tại cầu nối hỗ trợ các định dạng địa chỉ Bitcoin tiêu chuẩn. Việc hỗ trợ Taproot (`bc1p`) được lên kế hoạch cho một bản cập nhật trong tương lai.
+
+**H: Tôi có thể hủy giao dịch chuyển qua cầu nối không?**
+Đ: Không. Sau khi được gửi, giao dịch chuyển qua cầu nối không thể bị hủy. Token Mezo của bạn bị đốt ngay lập tức trong quá trình này.
+
+**H: Việc chuyển qua cầu nối mất bao lâu?**
+Đ: Phần lớn giao dịch chuyển tiền sang Ethereum qua Native Bridge hoàn tất trong vòng 30-60 phút, tùy thuộc vào tình trạng mạng và tốc độ chứng thực của validator. Các khoản rút đi qua Wormhole Bridge thường mất khoảng 5 phút để xử lý. Các giao dịch rút tiền về Bitcoin thường mất vài giờ để hoàn tất.
+
+**H: Tôi có thể chuyển qua cầu nối sang những mạng nào?**
+Đ: Tài sản có thể được chuyển qua cầu nối giữa Ethereum, Mezo, Base và Bitcoin. Hỗ trợ cho các mạng khác sẽ được bổ sung trong tương lai.
+
+**H: Khoản nạp Bitcoin gốc của tôi vẫn chưa xuất hiện. Làm sao để kiểm tra trạng thái?**
+Đ: Xem [Theo dõi khoản nạp Bitcoin gốc của bạn](/docs/vn/docs/users/mainnet/track-your-native-bitcoin-deposit) để có hướng dẫn từng bước về cách dùng tBTCScan để kiểm tra trạng thái khoản nạp.
+
+**H: Ai trả phí gas trên mạng đích?**
+Đ: Với Ethereum, hệ thống cầu nối chi trả chi phí gas cho bước chuyển giao cuối cùng. Với Bitcoin, phí mạng tBTC Bridge bao gồm chi phí của giao dịch onchain.
+
+## Mô hình bảo mật
+
+Giao dịch chuyển qua cầu nối của bạn cần được ít nhất hai phần ba số validator cầu nối của Mezo phê duyệt trước khi tài sản được giải phóng. Cách tiếp cận đa chữ ký này đảm bảo không một bên đơn lẻ nào có thể ủy quyền cho khoản rút, giữ an toàn cho tiền của bạn trong suốt quá trình chuyển qua cầu nối.
+
+## Cần hỗ trợ?
+
+Nếu bạn gặp sự cố không được đề cập trong hướng dẫn này:
+
+<Steps>
+1. Ghi lại ID giao dịch hoặc số thứ tự mở khóa (unlock sequence number) của bạn.
+
+2. Chụp ảnh màn hình mọi thông báo lỗi.
+
+3. Liên hệ bộ phận hỗ trợ của Mezo kèm các thông tin này.
+</Steps>
+
+Hãy nhớ: Luôn kiểm tra kỹ địa chỉ và nắm rõ các khoản phí trước khi xác nhận bất kỳ giao dịch chuyển qua cầu nối nào.
+
+## Portal nạp tiền
+
+Các khoản nạp vẫn còn nằm trong portal thuộc chương trình nạp sớm có thể được rút về ví BTC của người dùng. Phí rút BTC từ portal sẽ phụ thuộc vào các tham số được đặt trong tBTC bridge. Hiện tại, tBTC thu phí dịch vụ tBTC Bridge 0,2% và phí mạng tBTC Bridge tối đa 0,001 BTC (thường thấp hơn đáng kể); các tham số này do quản trị kiểm soát và có thể xem trong [tài liệu về phí của tBTC](https://docs.threshold.network/tbtc-v2#fees).

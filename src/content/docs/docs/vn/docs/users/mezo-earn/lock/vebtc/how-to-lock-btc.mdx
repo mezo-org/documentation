@@ -1,0 +1,81 @@
+---
+title: Cách khóa BTC
+description: Hướng dẫn từng bước để khóa BTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../../components/YouTube.astro';
+
+Khóa BTC mang lại cho bạn một NFT veBTC, cấp cho bạn quyền biểu quyết, phí giao thức và quyền quản trị. Xem [Tổng quan về veBTC](/docs/vn/docs/users/mezo-earn/lock/vebtc) để biết chi tiết về những gì bạn kiếm được.
+
+<YouTube id="6rthu_iub7E" title="Cách khóa BTC" start={51} />
+
+## Điều kiện tiên quyết
+
+Trước khi khóa BTC, hãy đảm bảo bạn có:
+
+- BTC đã nạp vào Mezo
+- Một ví đã kết nối
+- Đủ BTC để trả phí gas
+
+Xem phần [Bắt đầu](/docs/vn/docs/users/getting-started/deposit-assets) để được hướng dẫn.
+
+---
+
+## Mở trang Lock
+
+<Steps>
+1. Mở Mezo app
+
+2. Nhấp vào **Lock** ở thanh bên trái (trong mục "Earn")
+
+3. Bạn sẽ thấy các tài sản đủ điều kiện của mình
+</Steps>
+
+---
+
+## Bắt đầu khóa
+
+Tìm thẻ tài sản BTC hiển thị số dư khả dụng của bạn và nhấp vào **Lock**. Một hộp thoại cấu hình khoản khóa sẽ xuất hiện để bạn thiết lập vị thế.
+
+**Số lượng:** Nhập lượng BTC bạn muốn khóa. Bạn có thể khóa bất kỳ lượng nào, tối đa bằng số dư khả dụng.
+
+**Thời hạn:** Chọn thời hạn khóa từ 1 đến 28 ngày. Khoản khóa càng dài thì quyền biểu quyết càng được duy trì ở mức cao trong thời gian càng lâu. Giao diện hiển thị quyền biểu quyết veBTC ban đầu ước tính của bạn, tức trọng số của bạn tại thời điểm bắt đầu khóa.
+
+:::note[Lưu ý]
+Thời hạn khóa được căn theo ranh giới epoch và làm tròn xuống tuần trọn vẹn gần nhất. Một khoản khóa tối đa được tạo giữa epoch sẽ có thời hạn hiệu dụng từ 21–28 ngày. Xem [Epoch](/docs/vn/docs/users/mezo-earn/lock/vebtc#epoch) để biết chi tiết.
+:::
+
+
+---
+
+## Xác nhận giao dịch
+
+Kiểm tra lại chi tiết khoản khóa:
+
+- Lượng BTC
+- Thời hạn khóa
+- Trọng số veBTC ban đầu
+- Ngày hết hạn khóa
+
+Nhấp vào **Confirm Lock**, phê duyệt giao dịch trong ví của bạn và chờ blockchain xác nhận.
+
+---
+
+## Xem vị thế của bạn
+
+Sau khi giao dịch được xác nhận, bạn có thể xem chi tiết khoản khóa trên trang Lock, bao gồm:
+
+- Quyền biểu quyết hiện tại (suy giảm theo thời gian)
+- Ngày hết hạn khóa
+- Các tùy chọn gia hạn khoản khóa
+
+---
+
+## Bước tiếp theo
+
+Khi đã có veBTC, bạn có thể:
+
+- [Bỏ phiếu cho gauge](/docs/vn/docs/users/mezo-earn/vote) để kiếm phí và điều hướng lượng phát thải
+- [Gia hạn khoản khóa](/docs/vn/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) để duy trì quyền biểu quyết

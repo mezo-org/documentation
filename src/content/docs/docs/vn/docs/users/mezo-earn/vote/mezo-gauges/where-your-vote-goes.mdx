@@ -1,0 +1,82 @@
+---
+title: Phiếu bầu của bạn đi về đâu
+description: >-
+  Cách trọng số phiếu bầu veMEZO trở thành khoản khuyến khích trên các pool
+  Curve, Uniswap và Aerodrome
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mỗi MEZO Gauge nhận một phần lượng phát thải của gauge không staking, bằng đúng tỷ phần của gauge đó trong tổng số phiếu bầu veMEZO được bỏ cho MEZO Gauges trong epoch đó.
+
+Nếu có 1.000.000 phiếu bầu veMEZO trên tất cả MEZO Gauges và 300.000 phiếu trong số đó dành cho một gauge, gauge đó sẽ nhận 30% lượng MEZO có thể điều hướng của epoch. Phần còn lại của trang này lấy USDC/MUSD làm ví dụ. Cách phân chia tương tự áp dụng cho mọi MEZO Gauge.
+
+---
+
+## Curve và Uniswap qua Merkl
+
+Curve USDT/USDC/MUSD và Uniswap USDC/MUSD nhận khoản khuyến khích (incentive) qua [Merkl](https://merkl.xyz) — cùng cơ chế mà Mezo vốn đã dùng cho các pool này, nay mỗi pool có thêm một MEZO Gauge.
+
+<Steps>
+1. **Epoch N kết thúc.** Phiếu bầu được kiểm đếm và phần MEZO phân bổ cho mỗi gauge được cố định.
+2. **Phần phân bổ được đăng lên Merkl** dưới dạng một chiến dịch trên pool đích.
+3. **LP tích lũy quyền nhận** tương ứng với tỷ phần của họ trong pool suốt thời gian diễn ra chiến dịch. Việc nhận diễn ra trên Merkl.
+</Steps>
+
+**Phần thưởng được trả dưới dạng veMEZO khóa trong 3 tháng**, không phải MEZO tự do. Điều này giống cách các pool này đang nhận khoản khuyến khích hiện nay, nhưng giờ đây người bỏ phiếu quyết định mỗi pool nhận được bao nhiêu lượng phát thải.
+
+Xem [Nhận khoản khuyến khích](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) để biết hướng dẫn chi tiết dành cho LP.
+
+---
+
+## MEZO làm khoản khuyến khích bỏ phiếu trên Aerodrome
+
+Gauge của Aerodrome hoạt động khác, vì bản thân Aerodrome là một hệ thống ve(3,3) với đợt bỏ phiếu hằng tuần riêng. Lấy USDC/MUSD làm ví dụ. MEZO không được chuyển trực tiếp cho LP trên Aerodrome. Thay vào đó, MEZO được gửi làm **khoản khuyến khích bỏ phiếu** vào gauge Aerodrome của pool đó, trả cho những người nắm giữ veAERO bỏ phiếu cho gauge này.
+
+Chính những phiếu bầu veAERO đó điều hướng **lượng phát thải AERO** đến pool. MEZO "mua" lượng phát thải AERO cho pool, và AERO mới là thứ đến tay LP. Quy trình tương tự áp dụng cho MEZO/MUSD trên Aerodrome.
+
+Về mặt kỹ thuật, MEZO được nhận trên Mezo, chuyển qua cầu nối sang Base và được một hợp đồng phân bổ (allocator) gửi vào gauge Aerodrome. Quy trình này tự động chạy mỗi epoch.
+
+### Độ trễ hai epoch
+
+Đợt bỏ phiếu của Aerodrome đi trước một tuần so với khoản khuyến khích mà nó phản hồi, nên có một khoảng cách giữa phiếu bầu của bạn và lượng thanh khoản mà phiếu bầu đó mang lại:
+
+| Epoch | Điều gì xảy ra |
+|---|---|
+| **N** | Bạn bỏ phiếu trên Mezo. Epoch kết thúc và phần phân bổ được cố định. |
+| **N+1** | MEZO được gửi làm khoản khuyến khích bỏ phiếu vào gauge Aerodrome. Người nắm giữ veAERO bỏ phiếu cho gauge đó trong epoch này. |
+| **N+2** | Lượng phát thải AERO chảy vào pool và LP nhận được phần phát thải đó. |
+
+**Phiếu bầu trong epoch N tạo ra lượng phát thải AERO trong epoch N+2.** Đây là hệ quả của cách Aerodrome sắp xếp các epoch của chính mình, chứ không phải độ trễ do Mezo thêm vào.
+
+---
+
+## Thu về giá trị mà bạn điều hướng
+
+Điều hướng lượng phát thải là tạo ảnh hưởng, không phải tạo lợi suất. Lượng MEZO bạn gửi đến một pool đích sẽ thuộc về những người tham gia pool đó — người nhận trên Merkl ở Curve và Uniswap, người bỏ phiếu veAERO ở Aerodrome. Lượng MEZO này không quay lại với bạn với tư cách là người bỏ phiếu MEZO Gauge.
+
+Thứ bạn kiếm được trực tiếp với tư cách người bỏ phiếu là phần của bạn trong **các khoản khuyến khích được đăng trên chính MEZO Gauge**, tương ứng với tỷ phần phiếu bầu của bạn trên gauge đó.
+
+Để thu về chính lượng phát thải đó, bạn phải đứng ở cả hai đầu của vòng lặp. Trên Aerodrome, lấy USDC/MUSD làm ví dụ:
+
+<Steps>
+1. **Cung cấp thanh khoản** vào pool trên Aerodrome và stake vào gauge của pool đó.
+2. **Bỏ phiếu** cho MEZO Gauge của pool đó trên Mezo bằng veMEZO.
+3. **Bỏ phiếu** cho gauge Aerodrome tương ứng trên Base bằng veAERO.
+4. **Nhận** AERO cho vị thế thanh khoản và khoản khuyến khích bỏ phiếu bằng MEZO cho phiếu bầu veAERO.
+</Steps>
+
+Trên Curve và Uniswap, vòng lặp ngắn hơn: cung cấp thanh khoản vào pool, bỏ phiếu cho MEZO Gauge của pool đó, rồi nhận phần thưởng chiến dịch trên Merkl với tư cách LP.
+
+:::note
+Việc chạy toàn bộ vòng lặp là không bắt buộc. Nhiều người nắm giữ veMEZO sẽ bỏ phiếu chỉ để củng cố thanh khoản MUSD và kiếm các khoản khuyến khích được đăng trên gauge.
+:::
+
+---
+
+## Bước tiếp theo
+
+- [Nhận khoản khuyến khích](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — nhận trên Merkl hoặc Aerodrome
+- [Cách bỏ phiếu trên MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — hướng dẫn chi tiết
+- [Tổng quan về MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges) — các pool đủ điều kiện và nguồn vốn

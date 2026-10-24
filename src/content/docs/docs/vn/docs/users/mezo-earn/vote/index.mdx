@@ -1,0 +1,146 @@
+---
+title: Tổng quan về bỏ phiếu
+description: Cách bỏ phiếu hoạt động trên Mezo và những gì bạn kiếm được khi nắm giữ veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mô hình quản trị của Mezo rất đơn giản: khóa tài sản để thể hiện cam kết, đổi lại bạn có quyền định hướng tương lai của giao thức. Thông qua việc bỏ phiếu, người nắm giữ veBTC thu về giá trị kinh tế từ phí và quyết định nơi phân bổ giá trị của chuỗi.
+
+---
+
+## Cách bỏ phiếu hoạt động
+
+Khi khóa BTC, bạn nhận được quyền biểu quyết được token hóa dưới dạng một NFT. Mỗi tuần (epoch), bạn có thể phân bổ quyền đó cho các gauge khác nhau — các pool như BTC/MUSD, MUSD Savings Rate hoặc các chức năng khác của giao thức. Phiếu bầu của bạn quyết định lượng phát thải MEZO hằng tuần được hướng đến đâu — gauge nhận được nhiều phiếu bầu hơn sẽ nhận phần lớn hơn trong lượng phát thải. Đổi lại, người bỏ phiếu kiếm phí từ những người stake trong các gauge đó — những người từ bỏ doanh thu phí của mình để đổi lấy lượng phát thải MEZO.
+
+Nhiều lượng phát thải hơn sẽ thu hút nhiều nhà cung cấp thanh khoản hơn. Thanh khoản nhiều hơn có thể làm tăng khối lượng giao dịch, từ đó có thể làm tăng phí. Các khoản phí đó quay trở lại với bạn — người bỏ phiếu — tạo nên một vòng phản hồi tích cực, trong đó mức ảnh hưởng của bạn tăng lên song song với thành công của giao thức.
+
+---
+
+## Bạn kiếm được gì
+
+**Phí giao dịch:** 100% phí do các pool mà bạn bỏ phiếu tạo ra, được phân phối theo tỷ lệ. Nếu bạn chiếm 1% số phiếu bầu của một gauge và pool đó tạo ra 50.000 MUSD phí, bạn kiếm được 500 MUSD.
+
+**Khoản khuyến khích:** Các giao thức bên ngoài gửi khoản khuyến khích (incentive) để thu hút phiếu bầu về những gauge mà họ mong muốn. Các khoản này được chia cho tất cả người bỏ phiếu trên gauge đó, tạo thành một nguồn doanh thu thứ cấp.
+
+**Phí cầu nối thụ động:** Mọi người nắm giữ veBTC đều nhận phí cầu nối và phí chuỗi tương ứng với trọng số được boost của họ — không cần bỏ phiếu.
+
+Điều này tạo ra một thị trường cho phiếu bầu. Các giao thức cạnh tranh để thu hút quyền biểu quyết của bạn, và bạn thu về giá trị từ sự cạnh tranh đó.
+
+---
+
+## Quyền biểu quyết và boost
+
+Quyền biểu quyết thực tế của bạn phụ thuộc vào hai yếu tố: trọng số veBTC cơ bản và mức boost (nếu có) từ veMEZO.
+
+### Trọng số cơ bản (chỉ veBTC)
+
+Nếu không có veMEZO, quyền biểu quyết của bạn bằng trọng số veBTC, vốn suy giảm tuyến tính khi khoản khóa tiến gần đến thời điểm hết hạn. Khóa 1 BTC trong 28 ngày, quyền biểu quyết ban đầu của bạn là 1,0 và giảm liên tục cho đến khi về 0 lúc hết hạn.
+
+### Trọng số được boost (veBTC + veMEZO)
+
+Khi phiếu bầu veMEZO được hướng vào vị thế veBTC của bạn, quyền biểu quyết của bạn được nhân với hệ số boost từ 1x đến 5x. Mức boost phụ thuộc vào:
+
+- Tỷ phần của bạn trong tổng lượng veBTC của hệ thống
+- Tỷ phần trong tổng lượng veMEZO được hướng vào vị thế của bạn
+
+**Điểm chính:**
+- Vị thế BTC càng lớn thì càng cần nhiều veMEZO tương ứng để đạt boost tối đa
+- Bạn có thể nhận boost bằng cách tự nắm giữ veMEZO, hoặc thu hút phiếu bầu veMEZO thông qua khoản khuyến khích
+- Sau khi có thay đổi, cần "poke" để boost có hiệu lực
+
+Để duy trì quyền biểu quyết, hãy gia hạn khoản khóa định kỳ. Xem [Quản lý khoản khóa](/docs/vn/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) để biết chi tiết.
+
+---
+
+## Epoch hằng tuần
+
+Mezo vận hành theo các epoch 7 ngày, bắt đầu vào Thứ Năm lúc 00:00 UTC. Mỗi epoch là một chu kỳ mới cho quyền biểu quyết, phí và khoản khuyến khích.
+
+**Chu kỳ:**
+
+<Steps>
+1. Epoch bắt đầu
+2. Bạn bỏ phiếu trong suốt tuần
+3. Epoch kết thúc và phiếu bầu được kiểm đếm
+4. Lượng phát thải MEZO được phân phối cho các gauge dựa trên phiếu bầu
+5. Phí và khoản khuyến khích có thể được nhận
+6. Lặp lại
+</Steps>
+
+> **Lưu ý:** Phân bổ phiếu bầu của bạn vẫn được ghi nhận qua các epoch cho đến khi bạn đặt lại hoặc thay đổi. Chừng nào phiếu bầu vẫn còn đó, bạn sẽ tiếp tục kiếm phần phí giao dịch và khoản khuyến khích của mình mỗi epoch dựa trên phân bổ hiện tại. Poke được dùng để làm mới quyền biểu quyết của bạn — ví dụ: đẩy quyền biểu quyết lên sau khi ghép cặp với veMEZO, hoặc để người khác đẩy nó xuống khi nó suy giảm.
+
+### Căn theo epoch
+
+Thời hạn khóa được căn theo ranh giới epoch và làm tròn xuống tuần đầy đủ gần nhất. Điều này có nghĩa là:
+
+- Khoản khóa tối đa 28 ngày được tạo giữa epoch sẽ có thời hạn hiệu lực khoảng 21–28 ngày, tùy vào thời điểm bạn khóa
+- Khoản khóa luôn hết hạn vào thời điểm chuyển epoch (Thứ Năm lúc 00:00 UTC)
+
+Điều này đảm bảo việc tính trọng số phiếu bầu luôn nhất quán trên toàn hệ thống.
+
+---
+
+## Hai cách tham gia với veMEZO
+
+### Với tư cách người nắm giữ veBTC muốn có boost
+
+Nếu bạn nắm giữ veBTC và muốn tối đa hóa quyền biểu quyết:
+
+<Steps>
+1. **Tự boost:** Khóa MEZO thành veMEZO và hướng nó vào chính vị thế veBTC của bạn
+2. **Thu hút boost:** Đăng khoản khuyến khích trên gauge boost của veBTC để thu hút phiếu bầu veMEZO từ người khác
+</Steps>
+
+Cách nào cũng có thể nâng quyền biểu quyết thực tế của bạn lên tới 5x.
+
+### Với tư cách người nắm giữ veMEZO muốn kiếm lợi suất
+
+Nếu bạn nắm giữ veMEZO và muốn kiếm lợi suất:
+
+<Steps>
+1. Duyệt các gauge boost veBTC để tìm những gauge có khoản khuyến khích hấp dẫn
+2. Bỏ phiếu cho các gauge đó để kiếm khoản khuyến khích đã được đăng
+3. Nhận khoản khuyến khích khi epoch kết thúc
+</Steps>
+
+Lưu ý: người nắm giữ veMEZO không nhận phần phí giao dịch, doanh thu MUSD hay phí cầu nối mà các vị thế veBTC kiếm được. Họ nhận khoản khuyến khích được đăng trên những gauge mà họ bỏ phiếu.
+
+### Với tư cách người nắm giữ veMEZO điều hướng lượng phát thải
+
+veMEZO cũng bỏ phiếu cho **[MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges)** — các gauge không staking điều hướng lượng phát thải MEZO đến các pool thanh khoản MUSD trên Curve và Uniswap (Ethereum) và Aerodrome (Base). Việc này không cần veBTC hay vị thế thanh khoản, và độc lập với cơ chế ghép cặp boost.
+
+<Steps>
+1. Mở tab **Vote** trên mezo.org và chuyển sang chế độ bỏ phiếu bằng veMEZO, tại [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo)
+2. Phân bổ quyền biểu quyết veMEZO cho các gauge hiện có
+3. Kiếm một phần khoản khuyến khích được đăng trên những gauge mà bạn đã bỏ phiếu
+</Steps>
+
+---
+
+## Chọn nơi bỏ phiếu
+
+Mỗi gauge mang lại những cơ hội khác nhau. Một số yếu tố bạn có thể cân nhắc khi phân bổ phiếu bầu:
+
+- Khối lượng giao dịch và mức phí phát sinh
+- Khoản khuyến khích do các giao thức đăng
+- Tổng số phiếu bầu đã được phân bổ cho một gauge
+- Ưu tiên riêng của bạn đối với hệ sinh thái Mezo
+
+Đối với người nắm giữ veMEZO bỏ phiếu cho gauge boost:
+- Giá trị khoản khuyến khích do người nắm giữ veBTC đăng
+- Thời gian duy trì và độ ổn định của các khoản khuyến khích được đăng
+- Mức độ phù hợp với các vị thế veBTC của chính bạn (nếu có)
+
+Hãy theo dõi trọng số gauge, mức phí phát sinh và thị trường khoản khuyến khích mỗi epoch để đưa ra quyết định.
+
+---
+
+## Bước tiếp theo
+
+Sẵn sàng bỏ phiếu? Xem [Cách bỏ phiếu](/docs/vn/docs/users/mezo-earn/vote/how-to-vote) để có hướng dẫn đầy đủ.
+
+Muốn boost vị thế của bạn? Xem [Cơ chế boost](/docs/vn/docs/users/mezo-earn/lock/vemezo/boost-mechanism) và [Thị trường ghép cặp](/docs/vn/docs/users/mezo-earn/lock/vemezo/matching-market) để biết chi tiết.
+
+Đang nắm giữ veMEZO và muốn điều hướng lượng phát thải? Xem [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges).

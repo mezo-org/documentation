@@ -1,0 +1,72 @@
+---
+title: MUSD Bridge
+description: >-
+  Tìm hiểu cách chuyển token MUSD qua cầu nối giữa Ethereum, Base và Mezo bằng
+  giao thức Native Token Transfer của Wormhole.
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+Cầu nối [MUSD](https://mezo.org/feature/musd) cho phép chuyển token giữa các mạng Mezo, Ethereum và Base bằng giao thức Native Token Transfer (NTT) của Wormhole. Cầu nối này duy trì tính có thể thay thế của token, đồng thời cung cấp chức năng cross-chain an toàn.
+
+## Cách hoạt động
+
+Cầu nối MUSD dùng giao thức Native Token Transfer của Wormhole để thực hiện việc chuyển token cross-chain:
+
+- **Từ Mezo sang Ethereum/Base**: Token MUSD được khóa trên Mezo và lượng token tương đương được đúc trên chuỗi đích
+- **Từ Ethereum/Base về Mezo**: Token MUSD bị đốt trên chuỗi nguồn và lượng token tương đương được mở khóa trên Mezo
+
+Cơ chế này bảo đảm tổng cung trên tất cả các chuỗi luôn không đổi, đồng thời cho phép người dùng tự do di chuyển token giữa các mạng.
+
+## Các lựa chọn cầu nối
+
+Có hai giao diện người dùng để chuyển token MUSD qua cầu nối:
+
+### Mezo dApp
+
+[Mezo dApp](https://mezo.org) cung cấp trải nghiệm chuyển qua cầu nối gốc để chuyển token MUSD giữa Mezo và mạng Ethereum.
+
+<Steps>
+1. **Kết nối ví của bạn** với Mezo dApp
+
+2. **Nhấp vào "Withdraw"** để chuyển ra khỏi Mezo, hoặc **"Deposit"** để chuyển vào Mezo
+
+3. **Chọn token MUSD** và nhập số lượng
+
+4. **Xác nhận giao dịch** trong ví của bạn
+
+5. **Chờ xác nhận** trên cả hai chuỗi
+</Steps>
+
+### Giao diện Portal Bridge
+
+Để chuyển token MUSD sang Base hoặc Ethereum, bạn cũng có thể dùng [giao diện Portal](https://portalbridge.com/):
+
+<Steps>
+1. **Kết nối ví của bạn** với giao diện Portal
+
+2. **Chọn chuỗi nguồn và chuỗi đích** (Mezo ↔ Ethereum ↔ Base)
+
+3. **Chọn MUSD** làm token cần chuyển
+
+4. **Nhập số lượng** bạn muốn chuyển qua cầu nối
+
+5. **Xem lại chi tiết giao dịch**, bao gồm phí và thời gian ước tính
+
+6. **Xác nhận giao dịch** trong ví của bạn
+
+7. **Chờ xác nhận** trên cả hai chuỗi
+</Steps>
+
+Cả hai giao diện đều mang lại trải nghiệm thân thiện, tự xử lý mọi tương tác phức tạp với các hợp đồng NTT bên dưới.
+
+## Hợp đồng thông minh
+
+Để xem tất cả địa chỉ hợp đồng cầu nối và hợp đồng token MUSD, hãy xem trang tham chiếu [Địa chỉ hợp đồng và token](../../resources/contracts-reference).
+
+## Tài nguyên bổ sung
+
+<LinkButton href="https://wormhole.com/docs/products/native-token-transfers/overview/">Tài liệu Wormhole NTT</LinkButton>
+<LinkButton href="https://portalbridge.com/">Portal Bridge</LinkButton>
+<LinkButton href="../../resources/contracts-reference">Tham chiếu hợp đồng</LinkButton>

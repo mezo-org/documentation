@@ -1,0 +1,130 @@
+---
+title: Sử dụng Mezo
+description: >-
+  Tìm hiểu cách dùng Bitcoin của bạn trên Mezo để kiếm thu nhập, chi tiêu và
+  tiết kiệm
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+# Cách kiếm thu nhập, chi tiêu và tiết kiệm trên Mezo
+
+## Lựa chọn 1: Chỉ cần HODL (lựa chọn đơn giản nhất)
+
+Sats của bạn nằm trong ví, dưới sự kiểm soát hoàn toàn của bạn.
+
+## Lựa chọn 2: Vay bằng Bitcoin của bạn
+
+Tiếp cận đô la mà không cần bán BTC. Giữ nguyên mức tiếp xúc với Bitcoin trong khi vẫn có thanh khoản.
+
+:::note[Thông tin chính]
+- Lãi suất cố định, bắt đầu từ 1% APR
+- Không có thời hạn trả nợ — đóng khoản vay khi bạn muốn
+- Không kiểm tra tín dụng, mọi thứ đều onchain
+- Số tiền vay tối thiểu $2.000 MUSD
+- Bạn phải duy trì tỷ lệ thế chấp ít nhất 110% (để vay $1.000 MUSD, bạn cần lượng BTC trị giá $1.100)
+:::
+
+### Cách vay:
+
+<Steps>
+1. Truy cập mezo.org/borrow và kết nối ví của bạn
+
+2. Nhập số tiền vay mong muốn bằng MUSD
+
+3. Kiểm tra các điều khoản khoản vay:
+   * Lãi suất (hiện cố định ở mức 1%)
+   * Tỷ lệ thế chấp
+   * Giá thanh lý
+   * Phí: phí phát hành 0,5% + khoản gửi gas 200 MUSD (được hoàn lại khi đóng khoản vay)
+
+4. Nhấp vào "Borrow" và xác nhận giao dịch
+
+5. MUSD xuất hiện trong ví của bạn — BTC của bạn được khóa làm tài sản thế chấp
+</Steps>
+
+**Bạn có thể làm gì với MUSD:**
+
+* Chi tiêu qua Bitrefill trong Mezo Market
+* Swap sang các tài sản khác
+* Dùng trong các giao thức DeFi
+
+### Quản lý khoản vay:
+
+Theo dõi tỷ lệ thế chấp của bạn tại mezo.org/borrow. Nếu giá BTC giảm, tỷ lệ của bạn cũng giảm — hãy giữ tỷ lệ trên 110% để tránh bị thanh lý. Để đóng khoản vay, quay lại mezo.org/borrow, nhấp vào "Repay", trả toàn bộ số MUSD cùng tiền lãi tích lũy và xác nhận. Tài sản thế chấp BTC và khoản gửi gas 200 MUSD sẽ được hoàn lại cho bạn.
+
+---
+
+## Lựa chọn 3: Chi tiêu sats của bạn
+
+Dùng Bitcoin để mua thẻ quà tặng tại hàng trăm nhà bán lẻ, bao gồm Amazon, Airbnb, Uber, DoorDash và thẻ trả trước Visa. Giá trị mua tối thiểu là $25 MUSD.
+
+### Bước 1: Swap BTC sang MUSD
+
+<Steps>
+1. Truy cập mezo.org/swap
+
+2. Chọn BTC → MUSD và nhập số lượng
+
+3. Giữ lại lượng BTC trị giá khoảng $2 để trả phí gas
+
+4. Kiểm tra tỷ giá và nhấp vào "Swap"
+
+5. Xác nhận trong ví của bạn
+</Steps>
+
+### Bước 2: Mua thẻ quà tặng
+
+<Steps>
+1. Truy cập mezo.org/market
+
+2. Nhấp vào "Bitrefill Gift Cards"
+
+3. Chọn mệnh giá (tối thiểu $25)
+
+4. Nhấp vào "Purchase" và xác nhận bằng MUSD
+
+5. Nhận mã voucher của bạn
+</Steps>
+
+### Bước 3: Đổi thẻ quà tặng
+
+<Steps>
+1. Sao chép mã voucher của bạn
+
+2. Truy cập Bitrefill.com và tìm thẻ quà tặng bạn muốn
+
+3. Khi thanh toán, chọn "Pay with voucher code"
+
+4. Dán mã của bạn và hoàn tất giao dịch mua
+</Steps>
+
+---
+
+## Lựa chọn 4: Kiếm thu nhập với vault MUSD
+
+Gửi MUSD để kiếm lợi suất. Đây là cách dễ nhất để stablecoin của bạn sinh lời trong khi tiền vẫn luôn sẵn sàng để sử dụng.
+
+### Cách thực hiện:
+
+<Steps>
+1. Truy cập mezo.org/vaults và duyệt các vault MUSD hiện có
+
+2. Xem xét từng vault về:
+   * Thời gian khóa (nếu có)
+   * Tỷ lệ phần thưởng
+   * Sức chứa
+
+3. Nhấp vào vault bạn muốn
+
+4. Nhấp vào "Deposit" và nhập số MUSD
+
+5. Xác nhận giao dịch
+
+6. Bạn đã bắt đầu tự động kiếm thu nhập
+</Steps>
+
+:::note[Quan trọng]
+Kiểm tra xem vault bạn chọn có thời gian khóa hay không. Hãy chắc chắn rằng bạn sẽ không cần dùng số tiền đó trong khoảng thời gian này.
+:::

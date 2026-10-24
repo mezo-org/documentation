@@ -1,0 +1,357 @@
+---
+title: Hướng dẫn phát triển với client chuỗi Mezod
+description: >-
+  Hướng dẫn đầy đủ để phát triển với Mezod, bản triển khai client tham chiếu của
+  chuỗi Mezo.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezod là bản triển khai client tham chiếu của chuỗi Mezo — một blockchain lấy Bitcoin làm trọng tâm, được thiết kế hướng đến quyền sở hữu của người dùng, chuyển qua cầu nối đáng tin cậy với tBTC, dùng BTC làm gas, mô hình staking kép và khả năng tương thích EVM.
+
+## Tổng quan
+
+Mezo là một chuỗi dựa trên Cosmos SDK, tương thích EVM, chạy trên engine đồng thuận Comet BFT. Mã nguồn client Mezod được fork từ phiên bản LGPL của Evmos và đã được sửa đổi nhiều để đáp ứng các yêu cầu riêng của Mezo.
+
+### Tính năng chính
+
+- **Thiết kế lấy Bitcoin làm trọng tâm**: Tích hợp BTC gốc và thanh toán gas bằng BTC
+- **Tương thích EVM**: Hỗ trợ đầy đủ Máy ảo Ethereum (EVM)
+- **Chuyển qua cầu nối tBTC**: Chuyển Bitcoin xuyên chuỗi một cách đáng tin cậy
+- **Mô hình staking kép**: Cơ chế phần thưởng và xác thực
+- **Quyền sở hữu của người dùng**: Quản trị và kiểm soát phi tập trung
+
+## Cấu trúc kho mã
+
+[Kho mã Mezod](https://github.com/mezo-org/mezod.git) bao gồm:
+
+- **[Module Go](https://github.com/mezo-org/mezod/tree/main)**: Phần triển khai cốt lõi của client blockchain
+- **[Module x/](https://github.com/mezo-org/mezod/tree/main/x)**: Các module Cosmos SDK tùy chỉnh
+- **[Tích hợp EVM](https://github.com/mezo-org/mezod/tree/main/x/evm)**: Lớp tương thích Ethereum
+- **[Cấu hình](https://github.com/mezo-org/mezod/tree/main/config)**: Cấu hình và tham số của chuỗi
+
+## Thiết lập môi trường phát triển
+
+### Điều kiện tiên quyết
+
+- Go 1.21+ (xem [`go.mod`](https://github.com/mezo-org/mezod/blob/main/go.mod) để biết phiên bản chính xác)
+- Git
+- Make
+- Docker (không bắt buộc, dùng cho phát triển trong container)
+
+### Cài đặt
+
+<Steps>
+1. Clone kho mã:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   ```
+
+2. Cài đặt các gói phụ thuộc Go:
+   ```bash
+   go mod download
+   ```
+
+3. Build client:
+   ```bash
+   make build
+   ```
+</Steps>
+
+### Môi trường phát triển
+
+<Steps>
+1. **Phát triển cục bộ**:
+   ```bash
+   # Start local development node
+   make dev
+
+   # Run tests
+   make test
+
+   # Lint code
+   make lint
+   ```
+
+2. **Phát triển với Docker**:
+   ```bash
+   # Build Docker image
+   docker build -t mezod .
+
+   # Run containerized node
+   docker run -p 26657:26657 -p 8545:8545 mezod
+   ```
+</Steps>
+
+## Cấu hình chuỗi
+
+### Tham số mạng
+
+Mezod hỗ trợ nhiều cấu hình mạng:
+
+- **Mainnet**: Mạng Mezo production
+- **Testnet**: Mạng thử nghiệm công khai
+- **Local**: Mạng dùng cho phát triển
+
+### Tệp cấu hình
+
+Các tệp cấu hình chính:
+- `config.toml`: Cấu hình node
+- `app.toml`: Thiết lập riêng của ứng dụng
+- `client.toml`: Cấu hình client
+
+Ví dụ cấu hình:
+
+```toml
+# config.toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+```
+
+## Tích hợp EVM
+
+### Tương thích Ethereum
+
+Mezod tương thích EVM hoàn toàn, cho phép bạn:
+
+- Triển khai hợp đồng thông minh Ethereum
+- Dùng các công cụ của Ethereum (Hardhat, Truffle, v.v.)
+- Tương tác với hợp đồng bằng các thư viện Web3
+
+### Kết nối qua Web3
+
+```javascript
+import { ethers } from 'ethers';
+
+// Connect to Mezo network
+const provider = new ethers.JsonRpcProvider('https://rpc.mezo.org');
+
+// Get network info
+const network = await provider.getNetwork();
+console.log('Network:', network);
+
+// Deploy contract
+const factory = new ethers.ContractFactory(abi, bytecode, signer);
+const contract = await factory.deploy();
+await contract.waitForDeployment();
+```
+
+### Gas và phí
+
+- **BTC làm gas**: Trả phí giao dịch bằng Bitcoin
+- **Định giá động**: Giá gas điều chỉnh theo tình trạng mạng
+- **Mô hình gas EVM**: Tương thích với cách tính gas của Ethereum
+
+## Các loại node
+
+### Full node
+
+Node đầy đủ, lưu trữ toàn bộ blockchain:
+
+```bash
+# Start full node
+mezod start
+```
+
+### Light client
+
+Client gọn nhẹ dành cho thiết bị di động và môi trường hạn chế tài nguyên:
+
+```bash
+# Start light client
+mezod start --mode light
+```
+
+### Archive node
+
+Node lưu trữ toàn bộ dữ liệu lịch sử:
+
+```bash
+# Start archive node
+mezod start --mode archive
+```
+
+## Endpoint RPC
+
+### RPC Cosmos SDK
+
+- **Cổng**: 26657
+- **Endpoint**: Các phương thức RPC tiêu chuẩn của Cosmos SDK
+- **WebSocket**: Cập nhật theo thời gian thực
+
+```bash
+# Query node status
+curl http://localhost:26657/status
+```
+
+### EVM RPC
+
+- **Cổng**: 8545
+- **Endpoint**: JSON-RPC tương thích Ethereum
+- **Phương thức**: eth_getBalance, eth_sendTransaction, v.v.
+
+```bash
+# Query EVM balance
+curl -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x...", "latest"],"id":1}' \
+  http://localhost:8545
+```
+
+## Quy trình phát triển
+
+### Xây dựng hợp đồng
+
+<Steps>
+1. **Viết hợp đồng Solidity**: Dùng các công cụ Ethereum tiêu chuẩn
+
+2. **Biên dịch**: Dùng Hardhat, Truffle hoặc dùng trực tiếp solc
+
+3. **Triển khai**: Triển khai lên testnet/mainnet của Mezo
+
+4. **Tương tác**: Dùng thư viện Web3 hoặc gọi RPC trực tiếp
+</Steps>
+
+### Kiểm thử
+
+```bash
+# Run unit tests
+make test
+
+# Run integration tests
+make test-integration
+
+# Run specific test package
+go test ./x/evm/...
+```
+
+## Ví dụ tích hợp
+
+### Tích hợp Cosmos SDK
+
+```go
+package main
+
+import (
+    "context"
+    "github.com/cosmos/cosmos-sdk/client"
+    "github.com/cosmos/cosmos-sdk/client/tx"
+)
+
+func main() {
+    // Create client context
+    clientCtx := client.Context{}
+
+    // Create transaction builder
+    txBuilder := clientCtx.TxConfig.NewTxBuilder()
+
+    // Build and send transaction
+    // ... transaction logic
+}
+```
+
+## Giám sát và gỡ lỗi
+
+### Ghi log
+
+```bash
+# Enable debug logging
+mezod start --log-level debug
+
+# Log to file
+mezod start --log-file /path/to/logfile
+```
+
+### Chỉ số
+
+- **Prometheus**: Thu thập chỉ số tích hợp sẵn trên cổng 26660
+- **Grafana**: Bảng điều khiển để giám sát
+- **Kiểm tra tình trạng**: Endpoint HTTP để giám sát tình trạng hoạt động
+
+```bash
+# Check metrics
+curl http://localhost:26660/metrics
+```
+
+## Triển khai
+
+### Triển khai production
+
+**Yêu cầu phần cứng**:
+- Tối thiểu: 8GB RAM, 100GB SSD
+- Khuyến nghị: 16GB RAM, 500GB NVMe SSD
+
+**Các bước**:
+
+<Steps>
+1. Cấu hình tường lửa và các cổng mạng
+
+2. Thiết lập kiểm soát truy cập phù hợp
+
+3. Triển khai ngăn xếp giám sát
+
+4. Khởi động node với cấu hình production
+</Steps>
+
+### Triển khai bằng Docker
+
+```bash
+# Production Docker deployment
+docker run -d \
+  --name mezod \
+  -p 26657:26657 \
+  -p 8545:8545 \
+  -v /data:/root/.mezod \
+  mezod:latest start
+```
+
+## Khắc phục sự cố
+
+### Các sự cố thường gặp
+
+1. **Sự cố kết nối**: Kiểm tra endpoint RPC và kết nối mạng
+2. **Sự cố đồng bộ**: Xác minh quá trình đồng bộ blockchain
+3. **Sự cố về gas**: Theo dõi giá gas và điều chỉnh cho phù hợp
+
+### Lệnh gỡ lỗi
+
+```bash
+# Check node status
+mezod status
+
+# View logs
+mezod logs
+
+# Reset node (caution: deletes data)
+mezod unsafe-reset-all
+```
+
+## Tài nguyên bổ sung
+
+- **[Kho mã Mezod](https://github.com/mezo-org/mezod.git)** - Kho mã chính
+- **[Tài liệu Mezo](/docs/vn/docs/developers/getting-started/configure-environment)** - Tài liệu đầy đủ
+- **[Tài liệu Cosmos SDK](https://docs.cosmos.network/)** - Tài liệu tham khảo Cosmos SDK
+- **[Tài liệu EVM](https://ethereum.org/en/developers/docs/evm/)** - Đặc tả EVM
+- **[Hướng dẫn Testnet](/docs/vn/docs/developers/testnet)** - Truy cập và sử dụng Testnet
+
+:::note
+Để biết chi tiết về kiến trúc chuỗi, đặc tả module và cơ chế giao thức, hãy tham khảo tài liệu trong kho mã Mezod.
+:::
+
+## Hỗ trợ
+
+Để được hỗ trợ phát triển:
+- Tham gia [Discord của Mezo](https://discord.com/invite/mezo)
+- Xem [GitHub Issues](https://github.com/mezo-org/mezod/issues)
+- Xem [câu hỏi thường gặp](/docs/vn/docs/developers/getting-started/FAQs)

@@ -1,0 +1,135 @@
+---
+title: Cách bỏ phiếu
+description: Hướng dẫn từng bước để bỏ phiếu cho gauge bằng veBTC của bạn
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Bỏ phiếu cho phép bạn điều hướng dòng phát thải, đổi lại bạn kiếm được một phần tương ứng của phí giao dịch và khoản khuyến khích từ những gauge mà bạn phân bổ phiếu. Hướng dẫn này đưa bạn đi qua toàn bộ quy trình.
+
+<YouTube id="6rthu_iub7E" title="Cách bỏ phiếu" start={89} />
+
+## Điều kiện tiên quyết
+
+Trước khi bắt đầu, hãy đảm bảo bạn có:
+
+- Một ví tương thích đã kết nối với Mezo (MetaMask, Rabby hoặc các ví hỗ trợ WalletConnect)
+- Một vị thế veBTC đang hoạt động (để bỏ phiếu cho gauge staking)
+- HOẶC một vị thế veMEZO đang hoạt động (để bỏ phiếu cho gauge boost veBTC)
+- Đủ BTC để trả phí gas
+
+Xem [Cách khóa BTC](/docs/vn/docs/users/mezo-earn/lock/vebtc/how-to-lock-btc) nếu bạn chưa có khoản khóa veBTC.
+
+Xem [Cách khóa MEZO](/docs/vn/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo) nếu bạn muốn tạo vị thế veMEZO.
+
+---
+
+## Bỏ phiếu bằng veBTC
+
+Người nắm giữ veBTC bỏ phiếu cho gauge staking để điều hướng lượng phát thải và kiếm phí.
+
+### Bỏ phiếu
+
+Để kiếm phần thưởng, hãy phân bổ quyền biểu quyết của bạn cho những gauge cụ thể. Phân bổ của bạn được giữ nguyên qua các epoch (mỗi epoch 7 ngày) cho đến khi bạn thay đổi.
+
+<Steps>
+1. Truy cập tab **Vote** để xem các vị thế veBTC đang hoạt động của bạn. Nhấp vào **Allocate** bên cạnh vị thế veBTC mà bạn muốn dùng để bỏ phiếu.
+
+2. Với những gauge bạn muốn ủng hộ, nhập tỷ lệ phần trăm quyền biểu quyết mà bạn muốn phân bổ cho từng gauge. Ví dụ: bạn có thể phân bổ 50% cho pool BTC/MUSD, 30% cho pool MUSD/mUSDC và 20% cho pool mcbBTC/BTC.
+
+3. Xem lại phân bổ của bạn và khi đã sẵn sàng, nhấp vào **Submit Votes** ở thanh bên phải. Ký giao dịch; sau khi hoàn tất, phiếu bầu của bạn được ghi nhận cho epoch hiện tại.
+</Steps>
+
+:::note[Ghi nhớ]
+Mỗi khoản khóa chỉ có thể bỏ phiếu một lần mỗi epoch — khi phiếu bầu đã được xác nhận, phân bổ sẽ được cố định cho đến thời điểm chuyển epoch tiếp theo. Phân bổ của bạn được giữ nguyên qua các epoch và tiếp tục kiếm phí và khoản khuyến khích cho đến khi bạn thay đổi hoặc đặt lại.
+:::
+
+---
+
+## Bỏ phiếu bằng veMEZO
+
+Người nắm giữ veMEZO bỏ phiếu cho gauge boost veBTC để cung cấp boost cho các vị thế BTC, đổi lại nhận khoản khuyến khích, và bỏ phiếu cho [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges) để điều hướng lượng phát thải MEZO đến các pool MUSD bên ngoài Mezo. Hai việc này độc lập với nhau — xem [Cách bỏ phiếu trên MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) để biết quy trình đó.
+
+### Bỏ phiếu cho gauge boost
+
+<Steps>
+1. Đi đến mục **Boost Gauges** để xem tất cả các vị thế veBTC hiện có đang tìm kiếm boost.
+
+2. Xem xét từng gauge để biết:
+   - Các khoản khuyến khích hiện đang được đăng
+   - Lượng veMEZO đã được hướng vào gauge đó
+   - Lợi suất ước tính dựa trên phân bổ veMEZO của bạn
+
+3. Nhập tỷ lệ phần trăm quyền biểu quyết veMEZO mà bạn muốn hướng vào từng gauge boost.
+
+4. Nhấp vào **Submit Votes** và ký giao dịch.
+</Steps>
+
+### Bạn kiếm được gì
+
+Khi bạn hướng phiếu bầu veMEZO vào một gauge boost:
+
+- Bạn kiếm được một phần khoản khuyến khích được đăng trên gauge đó, tương ứng với tỷ phần phiếu bầu veMEZO của bạn
+- Người nắm giữ veBTC nhận được boost, giúp tăng quyền biểu quyết thực tế của họ
+
+Lưu ý: người bỏ phiếu bằng veMEZO **không** nhận phí giao dịch, doanh thu MUSD hay phí cầu nối từ các vị thế veBTC mà họ boost. Những phần thưởng đó thuộc về người nắm giữ veBTC. Người bỏ phiếu bằng veMEZO chỉ kiếm được khoản khuyến khích được đăng rõ ràng trên gauge boost.
+
+---
+
+## Tối đa hóa boost (dành cho người nắm giữ veBTC)
+
+Nếu bạn nắm giữ cả veBTC lẫn veMEZO, bạn có thể tối đa hóa quyền biểu quyết của mình:
+
+### Cách 1: Tự boost
+
+Hướng phiếu bầu veMEZO của bạn vào gauge boost của chính vị thế veBTC của bạn.
+
+<Steps>
+1. Đi đến gauge boost của vị thế veBTC của bạn
+2. Phân bổ quyền biểu quyết veMEZO của bạn cho gauge đó
+3. Nhấp vào **Submit Votes**
+4. **Poke** vị thế veBTC của bạn để kích hoạt boost mới
+</Steps>
+
+### Cách 2: Thu hút boost từ bên ngoài
+
+Đăng khoản khuyến khích trên gauge boost veBTC của bạn để thu hút phiếu bầu veMEZO từ những người dùng khác.
+
+<Steps>
+1. Đi đến gauge boost của vị thế veBTC của bạn
+2. Nhấp vào **Add Incentives**
+3. Gửi token (bất kỳ token ERC-20 nào) làm khoản khuyến khích
+4. Người nắm giữ veMEZO sẽ thấy khoản khuyến khích của bạn và có thể hướng phiếu bầu về phía bạn
+5. **Poke** vị thế của bạn sau khi nhận được phiếu bầu veMEZO mới
+</Steps>
+
+---
+
+## Quan trọng: poke sau khi thay đổi
+
+Khi tình trạng veMEZO của bạn thay đổi, boost không tự động cập nhật. Bạn cần **poke** vị thế veBTC để làm mới trọng số được boost của nó.
+
+**Poke khi:**
+- Bạn nhận được phiếu bầu veMEZO mới trên gauge boost của mình
+- Bạn hướng veMEZO của chính mình vào vị thế của bạn
+- Bạn nhận các khoản phân phối rebase veMEZO
+- Bạn gia hạn khoản khóa veMEZO
+
+**Cách poke:**
+1. Đi đến vị thế veBTC của bạn
+2. Nhấp vào **Poke**
+3. Ký giao dịch
+
+Trọng số được boost mới của bạn sẽ được áp dụng ngay lập tức.
+
+---
+
+## Bước tiếp theo
+
+- [Quản lý khoản khóa và nhận phần thưởng](/docs/vn/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) — Nhận thu nhập và gia hạn khoản khóa của bạn
+- [Tổng quan về bỏ phiếu](/docs/vn/docs/users/mezo-earn/vote) — Tìm hiểu thêm về cách bỏ phiếu hoạt động và những gì bạn kiếm được
+- [Cơ chế boost](/docs/vn/docs/users/mezo-earn/lock/vemezo/boost-mechanism) — Hiểu cách tính boost của veMEZO
+- [Thị trường ghép cặp](/docs/vn/docs/users/mezo-earn/lock/vemezo/matching-market) — Tìm hiểu cách thị trường boost vận hành
+- [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges) — Bỏ phiếu bằng veMEZO để điều hướng lượng phát thải MEZO đến các pool MUSD trên Curve, Uniswap và Aerodrome
