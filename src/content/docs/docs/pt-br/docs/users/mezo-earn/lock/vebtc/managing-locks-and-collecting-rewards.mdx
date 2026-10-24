@@ -1,0 +1,92 @@
+---
+title: Gerenciar bloqueios e coletar recompensas
+description: Entenda a duração do bloqueio e o decaimento do peso do veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Depois de bloquear BTC e receber seu NFT veBTC, você pode gerenciar sua posição, estender seu bloqueio e reivindicar recompensas.
+
+---
+
+## Ver os detalhes da posição
+
+Acesse a página Lock para ver:
+
+- **BTC bloqueado**: a quantidade na sua posição
+- **veBTC atual**: seu poder de voto neste momento
+- **Expiração do bloqueio**: quando você poderá sacar
+- **Ganhos**: as recompensas acumuladas
+
+---
+
+## Estender seu bloqueio
+
+Mantenha seu poder de voto estendendo a duração do bloqueio antes da expiração.
+
+<Steps>
+1. Acesse a página Lock
+
+2. Selecione sua posição de veBTC
+
+3. Clique em **Extend Lock**
+
+4. Selecione a nova duração (1–28 dias)
+
+5. Confirme a extensão
+</Steps>
+
+A extensão redefine seu peso de voto com base na nova duração do bloqueio.
+
+---
+
+## Reivindicar recompensas
+
+As recompensas de votação se acumulam ao longo de cada época e podem ser reivindicadas quando a época termina.
+
+<Steps>
+1. Acesse sua posição de veBTC
+
+2. Clique em **Claim Rewards**
+
+3. Receba as taxas e os incentivos que você ganhou
+</Steps>
+
+As recompensas são pagas nos tokens gerados pelos pools em que você votou.
+
+:::note[Observação]
+As recompensas não são reinvestidas automaticamente. Você precisa reivindicá-las e reaplicá-las manualmente.
+:::
+
+
+### Janela de reivindicação
+
+Você pode reivindicar as taxas da rede acumuladas ao longo da época quando a época seguinte começar. Os ganhos não reivindicados continuam se acumulando, mas só ficam disponíveis para reivindicação por **50 épocas**. As taxas não reivindicadas após esse período são perdidas.
+
+---
+
+## Após a expiração do bloqueio
+
+Quando seu bloqueio expira, seu poder de voto chega a zero e você pode sacar seu BTC. Você tem três opções:
+
+- **Criar um novo bloqueio**: bloqueie novamente para recuperar o poder de voto
+- **Aguardar**: seu BTC continua seguro; você pode decidir depois
+- **Sacar**: devolva seu BTC para a sua carteira
+
+Para sacar:
+
+<Steps>
+1. Acesse sua posição expirada
+
+2. Clique em **Withdraw**
+
+3. Seu BTC original é devolvido à sua carteira e o NFT veBTC é queimado
+</Steps>
+
+---
+
+## Próximos passos
+
+- [Como votar em gauges](/docs/pt-br/docs/users/mezo-earn/vote): comece a ganhar taxas e emissões
+- [Perguntas frequentes e recursos](/docs/pt-br/docs/users/mezo-earn/lock/vebtc/faqs-and-resources): dúvidas comuns sobre o veBTC

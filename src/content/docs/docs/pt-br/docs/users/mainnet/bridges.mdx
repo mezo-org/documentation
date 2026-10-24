@@ -1,0 +1,288 @@
+---
+title: Visão geral das pontes da Mainnet
+description: >-
+  Saiba como acessar e usar as pontes na Mezo Mainnet para movimentar ativos sem
+  complicações.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Você pode depositar e sacar ativos no Mezo e do Mezo usando a Mezo Native Bridge.
+# Depósitos
+
+## Depósitos pela Mezo Native Bridge
+
+O app do Mezo inclui uma ponte nativa na qual você pode depositar vários ativos na Mezo Mainnet. Consulte o guia [Depositar ativos](/docs/pt-br/docs/users/getting-started/deposit-assets) para entender como o processo funciona, ou acesse diretamente [mezo.org/overview](https://mezo.org/overview), faça login e clique em **Deposit Bitcoin** para começar.
+
+:::note[Observação]
+Todas as transações na Mezo Mainnet são pagas com depósitos de BTC nativo ou de tBTC. Antes de usar a rede, recomendamos abastecer sua conta com BTC ou tBTC para garantir que você tenha gás para pagar as transações.
+:::
+
+
+## Depósitos de BTC nativo
+
+Você pode depositar BTC diretamente de uma carteira Bitcoin no Mezo App. Os ativos são transferidos automaticamente pela ponte para tBTC e para a Mezo Mainnet.
+
+O BTC nativo é convertido em tBTC pela ponte antes de ser transferido para o [contrato do Mezo App](/docs/pt-br/docs/users/resources/contracts-reference).
+
+Para carteiras BTC, você pode entrar com UniSat, OKX e Xverse. Use os seguintes endereços:
+
+| Nome           | Tipo de script | Prefixo do endereço |
+| -------------- | ----------- | -------------- |
+| Legacy         | P2PKH       | 1              |
+| Native SegWit  | P2WPKH      | bc1q           |
+| Nested SegWit  | P2SH-P2WPKH | 3              |
+
+# Saques 
+
+## Como mover seus ativos do Mezo para outras redes
+
+*Última atualização: setembro de 2026*
+
+Este guia explica como transferir seus ativos para fora do Mezo pela ponte, de volta às redes Ethereum ou Bitcoin. Vamos abordar o que você pode transferir, como fazer isso, as pontes usadas, as taxas envolvidas e o que esperar durante o processo. Atualmente, o valor mínimo exigido para transferir pela ponte é de 0,01 BTC para saques em Bitcoin nativo, 0,0002 BTC para saques de BTC para o Ethereum, 20 unidades do token para tokens em USD transferidos pela Native Bridge (USDC, USDT, USDe, DAI), 0,01 unidade do token para tokens transferidos pela Wormhole Bridge (MEZO, MUSD, sUSDat) e 1.500 T para o token T. Veja mais detalhes [aqui.](#transferência-para-o-ethereum)
+
+### Do Mezo para outras redes
+
+| Seu ativo no Mezo | Rede de destino | O que você vai receber | Observações |
+|-------------------|-------------------|-------------------|--------|
+| **BTC** | Ethereum | tBTC (token ERC-20) | Você sempre recebe tBTC no Ethereum, não WBTC nem outras versões encapsuladas (wrapped) |
+| **BTC** | Bitcoin | BTC nativo | Bitcoin de verdade enviado para sua carteira Bitcoin |
+| **Tokens mERC-20** | Ethereum | Token ERC-20 original | Receba de volta os mesmos tokens que você transferiu originalmente pela ponte (como USDC, USDT etc.) |
+| **MUSD** | Ethereum, Base | MUSD | Transfira a partir de 0,01 MUSD entre Mezo, Base e Ethereum. Ponte com tecnologia Wormhole. |
+| **MEZO** | Ethereum, Base, BSC, Solana | MEZO | Ponte com tecnologia Wormhole NTT. Consulte o [guia da MEZO Bridge](/docs/pt-br/docs/users/mezo/mezo-bridge) para mais detalhes. |
+| **Tokens mERC-20** | Bitcoin | Indisponível | Tokens ERC-20 não podem ser enviados para o Bitcoin |
+
+:::note[Pontos principais]
+- Você pode transferir seus ativos pela ponte entre o Mezo e a mainnet do Bitcoin, o Ethereum e a rede Base.
+- O BTC pode ir para o Ethereum (como tBTC) ou para o Bitcoin (como BTC nativo).
+- Tokens como USDC ou T (representados como m-tokens no Mezo) só podem voltar para o Ethereum.
+- MEZO e MUSD podem ser transferidos de e para a rede Base via [Wormhole NTT](/docs/pt-br/docs/users/mezo/mezo-bridge).
+- Os tokens MEZO também podem ser transferidos para BSC e Solana via [Wormhole NTT](/docs/pt-br/docs/users/mezo/mezo-bridge).
+- Endereços Bitcoin Taproot (que começam com `bc1p`) ainda não são compatíveis.
+:::
+
+## Como transferir para fora do Mezo
+
+### Transferir para o Ethereum (tBTC ou tokens ERC-20)
+
+<Steps>
+1. **Clique no botão 'Withdraw'** no canto superior direito do Mezo App.
+
+2. **Escolha seu ativo:**
+   - Selecione BTC para receber tBTC no Ethereum.
+   - Selecione qualquer token mERC-20 para receber o token original no Ethereum.
+
+3. **Insira o valor** que você quer transferir.
+
+4. **Revise as taxas** exibidas na tela.
+
+5. **Confirme e envie** a transação.
+
+6. **Se estiver transferindo tokens mERC-20**, talvez seja necessário aprovar a transação antes.
+</Steps>
+
+### Transferir para o Bitcoin (somente BTC nativo)
+
+<Steps>
+1. **Clique no botão 'Withdraw'** no canto superior direito do Mezo App.
+
+2. **Escolha BTC** como seu ativo.
+
+3. **Selecione Bitcoin** como rede de destino.
+
+4. **Insira o valor** a ser transferido.
+
+5. **Cole seu endereço Bitcoin**; formatos compatíveis:
+   - Endereços Legacy (que começam com `1`)
+   - Endereços SegWit (que começam com `3` ou `bc1q`)
+   - **Não compatíveis:** endereços Taproot (que começam com `bc1p`)
+
+6. **Revise as taxas** e confirme.
+
+7. **Envie** a transação.
+</Steps>
+
+## Entenda as rotas de ponte
+
+Ao sacar ativos do Mezo, o sistema determina automaticamente qual ponte usar. Essa informação aparece na linha "Bridge" da janela de saque.
+
+-   **Mezo Native Bridge:** usada em todos os saques padrão de ativos como BTC e tokens mERC-20.
+-   **Wormhole Bridge:** uma ponte de terceiros usada para saques de MUSD para o Ethereum e para [transferências do token MEZO](/docs/pt-br/docs/users/mezo/mezo-bridge) para Ethereum, Base, BSC e Solana.
+-   **Super Bridge (em breve):** uma ponte nativa do Mezo que vai permitir depósitos e saques de ativos em valores menores.
+
+As taxas são exibidas com precisão no app, de acordo com a rota de ponte usada na sua transação.
+
+## Entenda as taxas
+
+Ao transferir para fora do Mezo, você paga taxas pelo serviço de ponte e pelas operações da rede. Todas as taxas são exibidas com clareza antes de você confirmar qualquer transação.
+
+### Estrutura de taxas da Native Bridge (v2)
+
+Os saques do Mezo incluem uma taxa simples:
+
+- Taxa fixa: um valor fixo equivalente a cerca de US$ 3 no valor do token em questão.
+
+#### Transferência para o Ethereum
+
+Valores mínimos de saque
+
+- Tokens baseados em BTC (BTC, mcbBTC, mFBTC, mSolvBTC, mswBTC, mxSolvBTC): 0,0002
+- Tokens baseados em USD transferidos pela Native Bridge (mUSDC, mUSDT, mDAI, mUSDe): 20
+- Tokens mT: 1.500
+
+Taxas
+
+- Taxa de serviço da Mezo Bridge: ≈ US$ 3 (calculada no token de destino)
+- Taxa de rede (gás): paga em BTC, varia conforme as condições da rede
+
+Exemplo:
+
+Saque de 1.000 USDC → taxa de serviço de US$ 3 + taxa de gás variável → você recebe ~997 USDC.
+
+#### Transferência para o Bitcoin
+
+Valor mínimo de saque: 0,01 BTC
+
+Taxas
+
+- Taxa de rede (gás): paga em BTC, variável
+- Taxa de serviço da Mezo Bridge: ≈ 0,000027 BTC
+- Taxa de serviço da ponte do tBTC: 0,2% (após a taxa de serviço da Mezo Bridge)
+- Taxa de rede máxima da ponte do tBTC: até 0,001 BTC (embora geralmente seja < US$ 1)
+
+##### Exemplo:
+
+Valor do saque: 1 BTC
+
+Taxas:
+  - 0,000027 BTC (taxa de serviço da Mezo Bridge)
+  - 0,001999946 BTC (taxa de serviço da ponte do tBTC)
+  - taxa de rede da ponte do tBTC e taxa de gás variáveis
+
+Valor recebido: ~0,997973 BTC.
+
+## O que acontece depois do envio
+
+Depois que você inicia uma transação de saída pela ponte, o processo é o seguinte:
+
+<Steps>
+1. **Validação:** o sistema verifica se sua solicitação atende a todos os requisitos.
+
+2. **Queima de tokens:** seus tokens no Mezo são queimados (removidos permanentemente de circulação).
+
+3. **Atestação:** os validadores do Mezo confirmam sua solicitação de saque.
+
+4. **Entrega:** seus ativos são enviados para o endereço de destino.
+</Steps>
+
+### Prazos e atualizações de status
+
+Sua transação na ponte vai exibir estas atualizações de status:
+
+-   **Created:** sua solicitação foi registrada.
+-   **Attesting:** os validadores estão confirmando seu saque.
+-   **Ready to Withdraw:** confirmações concluídas; os ativos estão sendo enviados.
+-   **Withdrawn/Redeemed:** ativos entregues com sucesso no endereço de destino.
+
+Você pode acompanhar sua transação usando o hash da transação fornecido na interface.
+
+## Requisitos importantes de endereço
+
+### Para destinos no Ethereum
+-   Deve ser um endereço Ethereum válido (`0x` seguido de 40 caracteres).
+-   Pode ser uma carteira comum ou um contrato inteligente que aceite transferências de tokens padrão.
+-   Endereços de depósito de corretoras funcionam se aceitarem transferências diretas de tokens.
+
+### Para destinos no Bitcoin
+Tipos de endereço compatíveis:
+-   Endereços Legacy (que começam com `1`)
+-   Endereços SegWit encapsulados (que começam com `3`)
+-   Endereços Native SegWit (que começam com `bc1q`)
+
+**Não compatíveis:** endereços Taproot (que começam com `bc1p`)
+
+## Lembretes de segurança
+
+Antes de confirmar qualquer transação na ponte:
+
+-   ✅ **Confira duas vezes o endereço de destino**: as transações não podem ser revertidas.
+-   ✅ **Verifique se você selecionou a rede correta** (Ethereum ou Bitcoin).
+-   ✅ **Confirme o valor da taxa** exibido no app.
+-   ✅ **Lembre-se de que saídas pela ponte não podem ser canceladas** depois de enviadas.
+-   ✅ **Certifique-se de que o formato do endereço de destino é compatível.**
+
+:::danger[Aviso]
+Se você enviar fundos para um endereço incorreto, mas com formato válido, seus fundos serão perdidos permanentemente. Sempre copie e cole os endereços e confira-os com atenção.
+:::
+
+
+### Solução de problemas comuns
+
+#### Mensagem "Approval Required"
+**Para tokens mERC-20:** primeiro você precisa aprovar o contrato da ponte para gastar seus tokens. Clique em "Approve" quando solicitado, confirme a transação e depois prossiga com a transferência pela ponte.
+
+#### "Unsupported Asset for Destination"
+Lembre-se:
+-   Tokens mERC-20 e MUSD só podem ir para o Ethereum.
+-   O BTC pode ir para o Ethereum (como tBTC) ou para o Bitcoin.
+
+#### "Invalid Recipient Address"
+Verifique se:
+-   Os endereços Ethereum começam com `0x` e têm 42 caracteres no total.
+-   Os endereços Bitcoin usam formatos compatíveis (sem endereços Taproot `bc1p`).
+-   Você não está usando um endereço de testnet em uma transação na mainnet.
+
+#### A transação parece travada
+Verifique o status no seu histórico de transações:
+-   Se aparecer "Created" ou "Attesting", os validadores ainda estão processando.
+-   Se aparecer "Ready to Withdraw", a transferência está em andamento na rede de destino.
+-   Entre em contato com o suporte informando o ID da transação se ela estiver pendente por um tempo anormalmente longo.
+
+### Perguntas frequentes
+
+**P: Qual é a diferença entre BTC no Mezo e tBTC no Ethereum?**
+R: Quando você transfere BTC do Mezo para o Ethereum pela ponte, ele se torna tBTC, um token ERC-20 que representa o Bitcoin na rede Ethereum. O tBTC é lastreado 1:1 em Bitcoin nativo e pode ser resgatado por ele.
+
+**P: Posso transferir meus tokens mERC-20 para o Bitcoin?**
+R: Não. Tokens ERC-20 são nativos de redes compatíveis com Ethereum. Você só pode transferi-los de volta para o Ethereum.
+
+**P: Por que não posso usar meu endereço Bitcoin Taproot?**
+R: No momento, a ponte é compatível com os formatos padrão de endereço Bitcoin. O suporte a Taproot (`bc1p`) está previsto para uma atualização futura.
+
+**P: Posso cancelar uma transação na ponte?**
+R: Não. Depois de enviadas, as transações na ponte não podem ser canceladas. Seus tokens no Mezo são queimados imediatamente como parte do processo.
+
+**P: Quanto tempo leva a transferência pela ponte?**
+R: A maioria das transações que transferem fundos para o Ethereum pela Native Bridge é concluída em 30-60 minutos, dependendo das condições da rede e da velocidade de atestação dos validadores. Saques roteados pela Wormhole Bridge normalmente levam cerca de 5 minutos para serem processados. Transações que sacam fundos para o Bitcoin costumam levar algumas horas para serem finalizadas.
+
+**P: Para quais redes posso transferir?**
+R: Os ativos podem ser transferidos pela ponte entre Ethereum, Mezo, Base e Bitcoin. O suporte a outras redes será adicionado no futuro.
+
+**P: Meu depósito de Bitcoin nativo ainda não apareceu. Como verifico o status dele?**
+R: Consulte [Acompanhe seu depósito de Bitcoin nativo](/docs/pt-br/docs/users/mainnet/track-your-native-bitcoin-deposit) para ver um guia passo a passo sobre como usar o tBTCScan para verificar o status do seu depósito.
+
+**P: Quem paga o gás na rede de destino?**
+R: No Ethereum, o sistema da ponte arca com os custos de gás da entrega final. No Bitcoin, a taxa de rede da ponte do tBTC cobre o custo da transação onchain.
+
+## Modelo de segurança
+
+Sua transação na ponte precisa da aprovação de pelo menos dois terços dos validadores da ponte do Mezo antes que seus ativos sejam liberados. Essa abordagem de múltiplas assinaturas garante que nenhuma parte sozinha possa autorizar saques, mantendo seus fundos seguros durante todo o processo de transferência pela ponte.
+
+## Precisa de ajuda?
+
+Se você tiver problemas que não são abordados neste guia:
+
+<Steps>
+1. Anote o ID da transação ou o número de sequência de desbloqueio.
+
+2. Faça uma captura de tela de todas as mensagens de erro.
+
+3. Entre em contato com o suporte do Mezo informando esses detalhes.
+</Steps>
+
+Lembre-se: sempre confira os endereços com atenção e entenda as taxas antes de confirmar qualquer transação na ponte.
+
+## Portal de depósitos
+
+Os depósitos que ainda estão no portal como parte do programa de depósito antecipado podem ser sacados de volta para a carteira BTC do usuário. As taxas de saque do portal para BTC dependem dos parâmetros definidos na ponte do tBTC. Atualmente, o tBTC cobra uma taxa de serviço da ponte do tBTC de 0,2% e uma taxa de rede da ponte do tBTC de até 0,001 BTC (normalmente bem menor). Esses parâmetros são controlados pela governança e podem ser consultados na [documentação de taxas do tBTC](https://docs.threshold.network/tbtc-v2#fees).

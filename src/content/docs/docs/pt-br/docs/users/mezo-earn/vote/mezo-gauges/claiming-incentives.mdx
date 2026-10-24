@@ -1,0 +1,67 @@
+---
+title: Reivindicar incentivos
+description: Como LPs e votantes reivindicam o MEZO direcionado pelo MEZO Gauges
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Quem reivindica o quê, e onde, depende de qual lado do gauge você está.
+
+| Você é | Você reivindica | Onde |
+|---|---|---|
+| LP no pool USDT/USDC/MUSD da Curve ou USDC/MUSD da Uniswap | veMEZO bloqueado por 3 meses | [Merkl](https://app.merkl.xyz) |
+| Detentor de veAERO que vota em USDC/MUSD ou MEZO/MUSD na Aerodrome | MEZO, como incentivo de votação | [Aerodrome](https://aerodrome.finance) |
+| LP no pool USDC/MUSD ou MEZO/MUSD da Aerodrome | Emissões de AERO | [Aerodrome](https://aerodrome.finance) |
+| Detentor de veMEZO que votou em um MEZO Gauge | Incentivos publicados nesse gauge | A aba Vote em [mezo.org](https://mezo.org) |
+
+---
+
+## LPs da Curve e da Uniswap: reivindique na Merkl
+
+As recompensas **não** são enviadas automaticamente para a sua carteira. A Merkl acumula um direito de reivindicação para o seu endereço, e você precisa coletá-lo.
+
+<Steps>
+1. Acesse [app.merkl.xyz](https://app.merkl.xyz).
+2. Conecte a carteira que contém a posição de LP.
+3. Abra o **Dashboard**. Depois que você se conecta, ele lista todas as recompensas que essa carteira pode reivindicar, então você não precisa procurar a campanha.
+4. Clique em **Claim** e assine a transação.
+</Steps>
+
+**O que você recebe:** veMEZO bloqueado por 3 meses, e não MEZO líquido. Depois de reivindicado, ele funciona como qualquer outra [posição de veMEZO](/docs/pt-br/docs/users/mezo-earn/lock/vemezo). Ele pode dar boost a uma posição de veBTC e pode votar no MEZO Gauges.
+
+Se você fornece liquidez ao pool, pode fechar o ciclo votando com o veMEZO reivindicado no MEZO Gauge desse mesmo pool, o que envia mais emissões para a posição que você já tem. É opcional. Fornecer liquidez durante a campanha é suficiente para reivindicar. Consulte [Para onde vai o seu voto](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#como-capturar-o-valor-que-você-direciona) para ver o caminho completo.
+
+:::caution[Recompensas não reivindicadas são perdidas]
+As campanhas da Merkl não acumulam indefinidamente. Se você nunca reivindicar, perderá as recompensas. Se você fornece liquidez a esses pools, verifique a Merkl periodicamente.
+:::
+
+Para reivindicar como LP, você não precisa ter veMEZO nem ter votado. Fornecer liquidez ao pool durante a campanha é o único requisito.
+
+---
+
+## Aerodrome: reivindique na Base
+
+O MEZO direcionado a um gauge da Aerodrome é depositado como **incentivo de votação**, por isso é reivindicado pelos votantes de veAERO, e não pelos LPs.
+
+**Se você tem veAERO e votou em USDC/MUSD ou MEZO/MUSD:** acesse [aerodrome.finance](https://aerodrome.finance), abra seu bloqueio de veAERO e reivindique suas recompensas da época. Sua parte do MEZO é proporcional à sua participação nos votos desse gauge.
+
+**Se você fornece liquidez ao pool USDC/MUSD ou MEZO/MUSD da Aerodrome:** faça staking da sua posição no gauge do pool e reivindique ali as emissões de **AERO**. Observe o [atraso de duas épocas](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#o-atraso-de-duas-épocas) entre um voto no Mezo e o AERO que ele gera.
+
+---
+
+## Votantes do MEZO Gauge: reivindique no Mezo
+
+Se você direcionou veMEZO a um MEZO Gauge, ganha uma parte dos **incentivos publicados nesse gauge**, proporcional à sua participação nos votos dele.
+
+Reivindique-os da mesma forma que qualquer outra recompensa de votação: na aba **Vote** em [mezo.org](https://mezo.org), depois que a época terminar. Consulte [Reivindicar taxas e emissões](/docs/pt-br/docs/users/mezo-earn/vote/claiming-fees-emissions).
+
+Esses incentivos são separados das emissões que você direcionou. As emissões vão para o pool de destino; os incentivos são publicados no Mezo justamente para atrair o seu voto.
+
+---
+
+## Próximos passos
+
+- [Para onde vai o seu voto](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes): o caminho completo do voto até o incentivo
+- [Visão geral do MEZO Gauges](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges): pools elegíveis e financiamento
+- [Reivindicar taxas e emissões](/docs/pt-br/docs/users/mezo-earn/vote/claiming-fees-emissions): todas as outras recompensas do Mezo Earn
