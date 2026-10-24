@@ -1,0 +1,85 @@
+---
+title: MEZO Gauges에서 투표하는 방법
+description: veMEZO 투표력을 MEZO Gauges에 지정하는 단계별 가이드
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+MEZO Gauges는 **veMEZO**로 투표하며, veBTC 게이지 투표나 부스트 매칭과는 별개로 전용 페이지에서 진행됩니다.
+
+## 사전 요구 사항
+
+- [Mezo에 연결된 지갑](/docs/kr/docs/users/getting-started/connect)
+- 활성 veMEZO 포지션
+- 가스 수수료로 사용할 소량의 BTC
+
+투표하는 데 veBTC, LP 포지션 또는 대상 풀의 포지션은 필요하지 **않습니다**. 아직 veMEZO가 없다면 [MEZO 잠금 방법](/docs/kr/docs/users/mezo-earn/lock/vemezo/how-to-lock-mezo)을 참조하세요.
+
+---
+
+## 투표하기
+
+<Steps>
+1. [mezo.org](https://mezo.org)에서 **Vote** 탭으로 이동하여 **veMEZO** 투표로 전환한 다음 [mezo.org/earn/vote/mezo](https://mezo.org/earn/vote/mezo)에서 **MEZO Gauges** 페이지를 여세요.
+
+2. 이용 가능한 게이지를 검토하세요. 각 행에는 대상 프로토콜과 체인, 게이지(대상 풀), 게이지에 게시된 인센티브, 배분 날짜가 표시됩니다.
+
+3. 각 게이지에 배분할 veMEZO 투표력의 비율을 입력하세요. 예를 들어 Aerodrome USDC/MUSD에 60%, Curve USDT/USDC/MUSD에 40%처럼 여러 게이지에 나눠 배분할 수 있습니다.
+
+4. **Submit Votes**를 클릭하고 트랜잭션에 서명하세요.
+</Steps>
+
+트랜잭션이 컨펌되는 즉시 현재 에포크에 배분이 등록됩니다.
+
+:::note[Protocol, Gauge, Incentives, Distribution date]
+MEZO Gauges 테이블의 네 가지 열입니다. **Protocol**은 대상 플랫폼으로 연결됩니다. **Gauge**는 대상 풀을 보여 줍니다. **Incentives**는 이번 에포크에 게이지에 게시된 토큰입니다. **Distribution date**는 이번 에포크의 인센티브가 대상 풀 또는 게이지에 도착하는 시점(UTC)입니다.
+
+vAPR, 수수료, TVL은 Mezo가 아니라 Curve, Uniswap 또는 Aerodrome에서 발생하므로 여기에 표시되지 않습니다. 배분을 입력하면 비율을 표시하는 **Vote distribution** 열이 추가됩니다.
+:::
+
+---
+
+## 투표 기간
+
+MEZO Gauges는 Mezo Earn의 다른 부분과 같은 주간 주기를 따릅니다.
+
+- 에포크는 **7일 동안 진행되며 매주 목요일 00:00 UTC에 전환됩니다**
+- 투표는 에포크 시작 1시간 후(목요일 01:00 UTC)에 열리고 다음 전환 1시간 전(수요일 23:00 UTC)에 마감됩니다
+- 투표는 전환 시점에 집계되며, 각 게이지의 MEZO 배분은 MEZO Gauges에 행사된 전체 veMEZO 투표 중 해당 게이지가 받은 비율로 정해집니다
+
+**투표되지 않은 에미션.** MEZO는 행사된 투표에 엄격히 비례하여 MEZO Gauges에 배분됩니다. 투표를 받지 못한 게이지는 MEZO를 받지 못하며, 그 몫은 투표를 받은 게이지들에 나뉩니다. 배분하지 않은 투표력은 배분에 아무런 영향을 주지 않으며 인센티브도 얻지 못합니다.
+
+---
+
+## 투표 변경 또는 초기화
+
+배분은 변경하기 전까지 **에포크가 바뀌어도 유지됩니다**. 현재 배분에 만족한다면 매주 다시 제출할 필요가 없으며, 에포크마다 해당 게이지 인센티브의 몫을 계속 얻습니다.
+
+**잠금당 에포크마다 한 번만 투표할 수 있습니다.** 투표가 컨펌되면 해당 잠금의 MEZO Gauge 배분은 남은 에포크 동안 고정되며, 다음 전환까지 페이지에 읽기 전용으로 표시됩니다.
+
+**변경하려면:** MEZO Gauges 페이지로 돌아가 새 배분을 입력하고 제출하세요. 새 배분이 이전 배분을 완전히 대체합니다. 해당 잠금이 이번 에포크에 이미 투표했다면 다음 전환까지 다시 투표할 수 없습니다.
+
+**초기화하려면:** **Reset**을 사용해 MEZO Gauges에서 투표력을 완전히 회수하세요. 각 잠금은 에포크당 한 번만 투표 관련 작업을 할 수 있으므로, 이미 투표한 에포크에는 초기화할 수 없습니다.
+
+:::caution
+각 잠금은 에포크당 한 번만 투표하므로, 이미 투표한 잠금은 다음 전환까지 새 게이지나 인센티브에 대응할 수 없습니다.
+:::
+
+---
+
+## 내 부스트나 veBTC 투표에 영향을 주나요?
+
+아니요. MEZO Gauges 투표는 독립적입니다.
+
+- veBTC 포지션을 [부스트](/docs/kr/docs/users/mezo-earn/lock/vemezo/boost-mechanism)하는 데 사용 중인 veMEZO를 소비하지 않으며, 이미 제공한 부스트를 줄이지 않습니다
+- [Poke](/docs/kr/docs/users/mezo-earn/vote/how-to-vote#중요-변경-후-poke-실행)가 필요하지 않습니다. Poke는 veBTC의 부스트된 가중치를 갱신하는 작업이며, MEZO Gauge 투표는 이에 영향을 주지 않습니다
+- veBTC 투표가 스테이킹 게이지 에미션을 보내는 곳에는 아무런 영향이 없습니다
+
+---
+
+## 다음 단계
+
+- [투표가 반영되는 곳](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — 에포크 종료 후 일어나는 일
+- [인센티브 청구](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — 내가 지정한 MEZO를 LP가 수령하는 방법
+- [MEZO Gauges 개요](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges) — 메커니즘과 대상 풀

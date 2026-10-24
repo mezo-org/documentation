@@ -1,0 +1,201 @@
+---
+title: 개발자 시작 가이드
+description: 비트코인 중심 플랫폼인 Mezo에서 개발하는 개발자를 위한 단계별 온보딩 가이드입니다.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 1. Mezo 소개
+
+Mezo는 비트코인을 수동적인 가치 저장 수단에서 생산적이고 역동적인 금융 자산으로 바꾸도록 설계되었습니다. Mezo는 비트코인의 보안성과 현대적인 블록체인의 유연성을 결합하여, 거대하지만 충분한 서비스를 받지 못하고 있는 비트코인 커뮤니티를 위한 탈중앙화 애플리케이션(dApp)의 견고한 플랫폼을 제공합니다.
+
+### 1.1 핵심 아키텍처
+
+Mezo 체인은 개발자 접근성과 성능을 극대화하도록 설계된 하이브리드 아키텍처를 기반으로 합니다.
+
+- EVM 호환성: Mezo는 EVM과 완전히 호환되는 블록체인이므로, Solidity 개발자는 최소한의 코드 변경만으로 기존 스마트 컨트랙트를 배포하고 Hardhat, Foundry 같은 익숙한 도구를 사용할 수 있습니다.
+- Cosmos SDK 기반: 핵심 클라이언트인 `mezod`는 Evmos를 대폭 수정한 포크로, Cosmos SDK로 구축되었으며 CometBFT 합의 엔진에서 작동합니다. 이를 통해 체인 주권과 높은 처리량을 제공합니다.
+- 가스로 사용하는 BTC: Mezo의 모든 트랜잭션 수수료는 BTC로 지불되므로, 트랜잭션 자산으로서 비트코인의 효용이 강화됩니다.
+- 핵심 클라이언트: Mezo 체인의 레퍼런스 클라이언트 구현체는 `mezod`입니다.
+
+## 2. 빠른 시작: 첫 트랜잭션까지 걸리는 시간(TTFT)
+
+이 섹션에서는 컨트랙트를 배포하고 Mezo 테스트넷과 상호작용하는 가장 빠른 방법을 안내합니다.
+
+### 2.1 네트워크 세부 정보(테스트넷)
+
+지갑(예: MetaMask, RainbowKit)이나 개발 환경을 설정하려면 다음 테스트넷 매개변수를 사용하세요.
+
+| 매개변수 | 값 |
+| --- | --- |
+| 네트워크 이름 | Mezo Testnet |
+| RPC 엔드포인트(HTTPS) | `https://rpc.test.mezo.org` |
+| RPC 엔드포인트(WSS) | `wss://rpc-ws.test.mezo.org` |
+| 체인 ID | `31611` |
+| 네이티브 통화 | BTC |
+| 소수점 자릿수 | 18 |
+| 블록 탐색기 | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
+
+### 2.2 테스트넷 BTC 받기
+
+테스트넷에서 가스 수수료를 지불하려면 테스트넷 BTC가 필요합니다.
+
+<Steps>
+1. Mezo 파우셋: 공식 [Mezo 파우셋](https://faucet.test.mezo.org/)에서 테스트넷 BTC를 받으세요.
+   - 참고: 파우셋은 남용을 방지하기 위해 CAPTCHA로 보호됩니다.
+
+2. 지갑 설정: 이더리움(EVM)을 지원하는 브라우저 지갑이 설치되어 있는지 확인하세요.
+</Steps>
+
+### 2.3 환경 설정(Hardhat 예시)
+
+Solidity 개발자를 위해 Mezo는 Hardhat 및 Foundry와 완전히 호환됩니다.
+
+Mezo 테스트넷용으로 Hardhat을 설정하려면 `hardhat.config.js`(또는 `.ts`) 파일을 수정하세요.
+
+```javascript
+module.exports = {
+  defaultNetwork: "mezotestnet",
+  networks: {
+    mezotestnet: {
+      url: "https://rpc.test.mezo.org",
+      chainId: 31611,
+      accounts: ["YOUR_PRIVATE_WALLET_KEY"] // Use environment variables for security
+    }
+  },
+  solidity: {
+    version: "0.8.28",
+    settings: {
+      evmVersion: "london",
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+};
+```
+
+## 3. 핵심 개발 구성 요소
+
+### 3.1 MUSD 스테이블코인
+
+MUSD는 Mezo 생태계의 네이티브 비트코인 담보 스테이블코인입니다. 개발자는 결제, 유동성, 금융 상품에 MUSD를 통합할 수 있습니다.
+
+- 저장소: 스마트 컨트랙트와 dApp 구현은 MUSD GitHub 저장소 [mezo-org/musd](https://github.com/mezo-org/musd)에서 확인할 수 있습니다.
+- 개발 환경(pnpm):
+
+```bash
+pnpm install --frozen-lockfile
+cd solidity
+pnpm install --frozen-lockfile
+```
+
+- 컨트랙트 테스트:
+
+```bash
+cd solidity
+pnpm test
+```
+
+- 배포(예시): `solidity` 디렉터리에서 `pnpm run deploy` 명령으로 컨트랙트를 배포할 수 있습니다. 자세한 내용은 저장소를 참조하세요: [mezo-org/musd](https://github.com/mezo-org/musd).
+
+### 3.2 Mezo Passport 통합(선택 사항)
+
+Mezo Passport는 RainbowKit을 기반으로 구축된 공식 지갑 연결 라이브러리로, 네이티브 비트코인 지갑(예: Xverse, Unisat)과 표준 EVM 지갑(예: MetaMask)을 모두 원활하게 연결할 수 있게 해 줍니다. 통합은 선택 사항이며, Mezo에서 개발하는 데 필수는 아닙니다.
+
+설치:
+
+```bash
+npm install @mezo-org/passport @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
+```
+
+설정(React/TypeScript):
+
+`@mezo-org/passport`의 `getConfig` 메서드를 사용해 `WagmiProvider`를 설정하세요.
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+// Note: We use the consistent 'mezoTestnet' chain name for clarity.
+import { getConfig, mezoTestnet } from "@mezo-org/passport";
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <WagmiProvider config={getConfig({ appName: "Your Mezo dApp" })}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider initialChain={mezoTestnet}>
+          {/* Your App component */}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  </React.StrictMode>,
+);
+```
+
+## 4. 인프라 및 노드 운영
+
+Validator Kit는 Mezo 노드를 설정하고 운영하기 위한 주요 리소스입니다: [mezo-org/validator-kit](https://github.com/mezo-org/validator-kit).
+
+### 4.1 노드 하드웨어 요구 사항
+
+다음은 Mezo 노드 유형별 권장 최소 하드웨어 사양입니다.
+
+| 노드 유형 | vCPU | RAM | 디스크 |
+| --- | --- | --- | --- |
+| 검증자 | 4 | 16 GB | 256 GB |
+| RPC | 8 | 32 GB | 512 GB |
+| 시드 | 2 | 8 GB | 128 GB |
+
+### 4.2 배포 옵션
+
+Validator Kit는 운영 복잡도에 따라 선택할 수 있는 여러 배포 방법을 지원합니다.
+
+<Steps>
+1. Docker: Docker Compose를 사용하는 가장 쉬운 설정 방법으로 권장됩니다.
+
+2. 네이티브: `mezod` 바이너리를 직접 실행합니다.
+
+3. Helm: Kubernetes 클러스터에 배포할 때 사용합니다.
+
+4. 수동: 모든 과정을 직접 제어할 수 있는 단계별 가이드입니다.
+</Steps>
+
+### 4.3 검증자 온보딩(Proof of Authority)
+
+Mezo 검증자가 합의에 참여하려면 Proof of Authority(PoA)를 신청해야 합니다.
+
+- 신청 명령어: 노드 설정이 끝나면 `mezod` CLI로 신청서를 제출하세요.
+
+```bash
+mezod --home=<mezod_home_path> --rpc-url <rpc_url> poa submit-application <key_name>
+```
+
+## 5. 메인넷 네트워크 세부 정보
+
+프로덕션 배포에는 다음 메인넷 세부 정보를 사용하세요. 더 높은 요청 한도와 안정성을 위해 전용 RPC 제공자를 사용하는 것이 좋습니다.
+
+| 매개변수 | 값 |
+| --- | --- |
+| 네트워크 이름 | Mezo Mainnet |
+| 체인 ID | `31612` |
+| 네이티브 통화 | BTC |
+| 소수점 자릿수 | 18 |
+| 블록 탐색기 | [explorer.mezo.org](https://explorer.mezo.org/) |
+
+### 5.1 권장 RPC 제공자
+
+| 제공자 | HTTPS 엔드포인트 | WSS 엔드포인트 | 비고 |
+| --- | --- | --- | --- |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
+| Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
+| Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
+| dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
+
+Hardhat 및 Foundry의 전체 메인넷 설정은 [개발자 환경 설정](/docs/kr/docs/developers/getting-started/configure-environment)을 참조하세요.
