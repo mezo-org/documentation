@@ -45,6 +45,59 @@ async function walk(dir, out = []) {
   return out;
 }
 
+// GitBook leaves section README files whose whole body restates the title.
+// They carry no information, so they stay out of both generated files.
+function isEmptyStub(body) {
+  return body.replace(/^#[^\n]*\n?/, '').trim() === '';
+}
+
+function humanize(segment) {
+  return segment.split(/[-_]/).map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
+// GitBook section READMEs often repeat the folder name in lowercase as the
+// title. Prefer the page's own heading, then a readable folder name.
+function normalizeTitle(title, rel, body) {
+  const parent = rel.split('/').slice(-2, -1)[0] || '';
+  if (parent && title.toLowerCase() === parent.toLowerCase()) {
+    const h1 = body.match(/^#\s+(.+)$/m);
+    return (h1 ? h1[1] : humanize(parent)).trim();
+  }
+  return title;
+}
+
+// Pages without frontmatter description still deserve one in the index, so
+// fall back to the first paragraph that is not a heading.
+function firstParagraph(body) {
+  const block = body
+    .split(/\n{2,}/)
+    .map((s) => s.trim())
+    .find((s) => s && !s.startsWith('#') && !s.startsWith('|') && !s.startsWith('```'));
+  if (!block) return '';
+  const plain = block
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/[*_`]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return plain.length > 160 ? plain.slice(0, 157).replace(/\s+\S*$/, '') + '...' : plain;
+}
+
+// Two pages can share a title, for example the Lolli and Resources FAQs. When
+// that happens inside one section, qualify the label with the parent folder.
+function addLabels(pages) {
+  const counts = new Map();
+  for (const p of pages) {
+    const key = `${p.group}\u0000${p.title}`;
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  for (const p of pages) {
+    const dup = counts.get(`${p.group}\u0000${p.title}`) > 1;
+    const parent = p.rel.split('/').slice(-2, -1)[0] || p.group;
+    p.label = dup ? `${p.title} (${humanize(parent)})` : p.title;
+  }
+  return pages;
+}
+
 async function main() {
   const files = await walk(MD_DIR);
   if (!files.length) {
@@ -53,6 +106,7 @@ async function main() {
     return;
   }
   const pages = [];
+  let skipped = 0;
   for (const f of files.sort()) {
     const rel = path.relative(MD_DIR, f).split(path.sep).join('/').replace(/\.md$/, '');
     // `users` and `developers` are the topic landing pages; keep them in their
@@ -65,9 +119,23 @@ async function main() {
       process.exitCode = 1;
       return;
     }
+    if (isEmptyStub(body)) {
+      skipped++;
+      continue;
+    }
     const url = `${SITE}/${rel}.md`;
-    pages.push({ rel, group, landing, title, description, source: source || url, body, url });
+    pages.push({
+      rel,
+      group,
+      landing,
+      title: normalizeTitle(title, rel, body),
+      description: description || firstParagraph(body),
+      source: source || url,
+      body,
+      url,
+    });
   }
+  addLabels(pages);
 
   const order = { Users: 0, Developers: 1, Other: 2 };
   pages.sort(
@@ -88,7 +156,7 @@ async function main() {
       current = p.group;
       index.push(`## ${current}`, '');
     }
-    index.push(`- [${p.title}](${p.url})` + (p.description ? `: ${p.description}` : ''));
+    index.push(`- [${p.label}](${p.url})` + (p.description ? `: ${p.description}` : ''));
   }
   index.push('');
   await fs.writeFile(path.join(MD_DIR, 'llms.txt'), index.join('\n'), 'utf-8');
@@ -99,11 +167,15 @@ async function main() {
     '',
   ];
   for (const p of pages) {
-    full.push(`# ${p.title}`, '', `_Source: ${p.source}_`, '', p.body.trim(), '', '---', '');
+    full.push(`# ${p.label}`, '');
+    if (p.description) full.push(`_${p.description}_`, '');
+    full.push(`_Source: ${p.source}_`, '', p.body.trim(), '', '---', '');
   }
   await fs.writeFile(path.join(MD_DIR, 'llms-full.txt'), full.join('\n'), 'utf-8');
 
-  console.log(`llms.txt: ${pages.length} entries; llms-full.txt: ${pages.length} pages`);
+  console.log(
+    `llms.txt: ${pages.length} entries; llms-full.txt: ${pages.length} pages; ${skipped} empty stubs skipped`,
+  );
 }
 
 function runSelfTest() {
@@ -124,6 +196,24 @@ function runSelfTest() {
   assert(b.title === 'T2' && b.description === '' && b.source === 'https://x/z', 'missing description tolerated');
   const c = parsePageMd('# T3\n\n_No source line._\n\nBody.\n');
   assert(c.title === 'T3', 'missing source tolerated');
+  assert(isEmptyStub('# users\n') === true, 'title-only stub detected');
+  assert(isEmptyStub('# MUSD\n\nDeveloper resources.\n') === false, 'page with body kept');
+  assert(isEmptyStub('The bridge uses Wormhole.\n') === false, 'text without heading kept');
+  assert(isEmptyStub('\n\n') === true, 'blank body detected');
+  assert(humanize('getting-started') === 'Getting Started', 'folder name humanized');
+  const labels = addLabels([
+    { group: 'Users', title: 'FAQs', rel: 'users/integrations/lolli/faqs' },
+    { group: 'Users', title: 'FAQs', rel: 'users/resources/faqs' },
+    { group: 'Users', title: 'Overview', rel: 'users/mezo-earn/overview' },
+  ]);
+  assert(labels[0].label === 'FAQs (Lolli)', 'duplicate title qualified by parent');
+  assert(labels[1].label === 'FAQs (Resources)', 'second duplicate qualified');
+  assert(labels[2].label === 'Overview', 'unique title left alone');
+  assert(normalizeTitle('musd', 'developers/musd/readme', '# MUSD\n\nText.\n') === 'MUSD', 'lowercase stub title uses page heading');
+  assert(normalizeTitle('bridge', 'developers/bridge/readme', 'Text.\n') === 'Bridge', 'lowercase stub title falls back to folder');
+  assert(normalizeTitle('Fees', 'users/musd/fees', '# Fees\n') === 'Fees', 'normal titles untouched');
+  assert(firstParagraph('\n# Heading\n\nText with [link](/docs/x) here.\n') === 'Text with link here.', 'description falls back to first paragraph');
+  assert(firstParagraph('word '.repeat(50)).length <= 160, 'fallback description truncated');
 }
 
 if (process.argv.includes('--self-test')) {
