@@ -25,3 +25,7 @@ src/assets/gitbook/
 
 # Generated per-page markdown for AI consumers (built by generate:page-md)
 public/docs/**/*.md
+
+# Generated agent index files (built by generate:llms)
+public/docs/llms.txt
+public/docs/llms-full.txt
