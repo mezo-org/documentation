@@ -164,7 +164,7 @@ async function walk(dir, out = []) {
   for (const e of await fs.readdir(dir, { withFileTypes: true })) {
     const full = path.join(dir, e.name);
     if (e.isDirectory()) await walk(full, out);
-    else if (/\.mdx?$/i.test(e.name) && e.name !== 'SUMMARY.md') out.push(full);
+    else if (/\.mdx?$/i.test(e.name) && !e.name.startsWith('_')) out.push(full);
   }
   return out;
 }
