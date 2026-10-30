@@ -17,6 +17,17 @@ const shouldRenderSearch =
 ---
 
 <div class="header sl-flex">
+	<!--
+		Hidden pointer to the generated documentation index. Agents do not
+		reliably probe for /llms.txt on their own. sr-only keeps it off screen
+		and aria-hidden keeps it out of the accessibility tree, so screen reader
+		and keyboard users are unaffected.
+	-->
+	<blockquote class="sr-only" data-agent-docs-index="true" aria-hidden="true">
+		<h2>Documentation Index</h2>
+		<p>Fetch the complete documentation index at <a href="/docs/llms.txt" tabindex="-1">/docs/llms.txt</a></p>
+		<p>Use this file to discover all available pages before exploring further.</p>
+	</blockquote>
 	<div class="sl-hidden md:sl-flex print:hidden left-group">
 		<div class="title-wrapper sl-flex">
 			<SiteTitle {...Astro.props} />
