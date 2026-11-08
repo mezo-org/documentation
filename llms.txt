@@ -1,0 +1,12 @@
+# documentation
+
+> Official repository and documentation index for mezo-org/documentation.
+
+## Core Resources
+
+- [GitHub Repository](https://github.com/mezo-org/documentation): Source code, documentation, and issue tracker.
+
+## AI Agent & LLM Indexing
+
+- Structured following the standard /llms.txt specification for AI search engines and coding assistants.
+- Validated via [AccessGuard AI-Readiness Suite](https://ronanchnlps-bit.github.io/).
