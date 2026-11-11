@@ -20,7 +20,11 @@ const SITE = 'https://mezo.org/docs';
 // as the HTML pages, so an agent that only ever receives the .md file can still
 // find the full docs set. generate-llms.js strips this line when it builds
 // llms-full.txt and ignores it when it detects empty section stubs.
-const DOCS_INDEX_POINTER = `> For AI agents, the full documentation index is at ${SITE}/llms.txt.`;
+// The visible text matches the HTML note in MarkdownContent.astro exactly so
+// the parity check sees the same sentence in both representations. The link
+// target stays absolute so the pointer still works when the markdown is read
+// away from mezo.org.
+const DOCS_INDEX_POINTER = `> For AI agents, the full documentation index is at [/docs/llms.txt](${SITE}/llms.txt).`;
 
 function parseAttrs(tag) {
   const attrs = {};
