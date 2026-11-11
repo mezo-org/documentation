@@ -32,6 +32,12 @@ function parsePageMd(text) {
     source = lines[i].trim().replace(/^_Source:\s*/, '').replace(/_$/, '').trim();
     i++;
   }
+  while (i < lines.length && lines[i].trim() === '') i++;
+  // Skip the AI discovery pointer emitted by generate-page-md.js so it does not
+  // repeat once per page in llms-full.txt or make empty stubs look non-empty.
+  if (i < lines.length && lines[i].trim().startsWith('> For AI agents, the full documentation index is at')) {
+    i++;
+  }
   const body = lines.slice(i).join('\n').trim() + '\n';
   return { title, description, source, body };
 }
