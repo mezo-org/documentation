@@ -40,7 +40,7 @@ Passport makes it easy for developers to integrate Bitcoin wallet support into d
 
 ## How do I invest in Mezo?
 
-If you’re interested in becoming and investor, please reach out to [IR@thesis.co](IR@thesis.co).
+If you’re interested in becoming and investor, please reach out to [IR@thesis.co](mailto:IR@thesis.co).
 
 ## What wallets can I use with Mezo?
 

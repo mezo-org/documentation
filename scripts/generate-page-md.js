@@ -145,13 +145,15 @@ function serialize(body, base) {
 }
 
 // Source links are relative to the HTML page URL, which ends in a slash. The
-// .md sits one level up, so resolve relative links against the page URL.
+// .md sits one level up, so resolve relative links against the page URL. Every
+// link is written as a full URL so the markdown keeps working when it is read
+// away from the site. Fragments and other schemes are left alone.
 function absolutizeLinks(s, base) {
   if (!base) return s;
-  return s.replace(/(?<!!)\[([^\]]*)\]\((?![a-z][a-z0-9+.-]*:|#|\/)([^)\s]+)\)/gi, (m, text, href) => {
-    const u = new URL(href, base);
-    return `[${text}](${u.pathname}${u.search}${u.hash})`;
-  });
+  return s.replace(
+    /(?<!!)\[([^\]]*)\]\((?![a-z][a-z0-9+.-]*:|#)([^)\s]+)\)/gi,
+    (m, text, href) => `[${text}](${new URL(href, base).href})`,
+  );
 }
 
 function slugFor(rel) {
@@ -298,7 +300,7 @@ function runSelfTest() {
     === '**Stale port:**\n\nKill it:\n\n```bash\nkill 1\n```', 'aside wrapping a fence keeps its label');
   assert(serialize('[Kit](./validator-kit), [Up](../), [Abs](/docs/x), [Ext](https://x.org), [Mail](mailto:a@b.c)',
     'https://mezo.org/docs/developers/mezo-nodes/').trim()
-    === '[Kit](/docs/developers/mezo-nodes/validator-kit), [Up](/docs/developers/), [Abs](/docs/x), [Ext](https://x.org), [Mail](mailto:a@b.c)',
+    === '[Kit](https://mezo.org/docs/developers/mezo-nodes/validator-kit), [Up](https://mezo.org/docs/developers/), [Abs](https://mezo.org/docs/x), [Ext](https://x.org), [Mail](mailto:a@b.c)',
     'relative links resolve against the page URL');
 }
 
