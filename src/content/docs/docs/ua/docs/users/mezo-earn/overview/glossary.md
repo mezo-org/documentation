@@ -50,7 +50,7 @@ Gauge без токена для стейкінгу, за який голосу�
 
 ## MEZO Gauge
 
-Gauge без стейкінгу, що спрямовує емісію MEZO до пулів ліквідності MUSD за межами Mezo — на Curve і Uniswap в Ethereum та Aerodrome в Base. Див. [MEZO Gauges](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges).
+Gauge без стейкінгу, що спрямовує емісію MEZO до пулів ліквідності MUSD за межами Mezo — на Curve і Uniswap в Ethereum та Aero в Base. Див. [MEZO Gauges](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Вага голосу
 

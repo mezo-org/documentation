@@ -25,7 +25,7 @@ import { Steps } from '@astrojs/starlight/components';
 
 2. Перегляньте доступні gauges. У кожному рядку вказано цільовий протокол і мережу, gauge (цільовий пул), стимули, розміщені на цьому gauge, і дату розподілу.
 
-3. Вкажіть, який відсоток сили голосу veMEZO ви хочете виділити кожному gauge. Голоси можна розподілити між кількома gauges, наприклад 60% — на Aerodrome USDC/MUSD і 40% — на Curve USDT/USDC/MUSD.
+3. Вкажіть, який відсоток сили голосу veMEZO ви хочете виділити кожному gauge. Голоси можна розподілити між кількома gauges, наприклад 60% — на Aero USDC/MUSD і 40% — на Curve USDT/USDC/MUSD.
 
 4. Натисніть **Submit Votes** і підпишіть транзакцію.
 </Steps>
@@ -33,9 +33,9 @@ import { Steps } from '@astrojs/starlight/components';
 Ваш розподіл голосів зараховується до поточної епохи, щойно транзакцію буде підтверджено.
 
 :::note[Protocol, Gauge, Incentives, Distribution date]
-Це чотири стовпці таблиці MEZO Gauges. **Protocol** — посилання на цільовий майданчик. **Gauge** показує цільовий пул. **Incentives** — токени, розміщені на gauge в цій епосі. **Distribution date** — момент (за UTC), коли стимули цієї епохи надходять до цільового пулу або gauge.
+Це чотири стовпці таблиці MEZO Gauges. **Protocol** — посилання на цільовий майданчик. **Gauge** показує цільовий пул, тож два gauges у Base відображаються як USDC/MUSD і MEZO/MUSD, а їхнім протоколом зазначено Aerodrome. Aero — це нова назва Aerodrome, тож ці рядки і є gauges Aero. **Incentives** — токени, розміщені на gauge в цій епосі. **Distribution date** — момент (за UTC), коли стимули цієї епохи надходять до цільового пулу або gauge.
 
-Тут не показано vAPR, комісії чи TVL, оскільки вони нараховуються в Curve, Uniswap або Aerodrome, а не в Mezo. Коли ви розподіляєте голоси, для відсотків з'являється стовпець **Vote distribution**.
+Тут не показано vAPR, комісії чи TVL, оскільки вони нараховуються в Curve, Uniswap або Aero, а не в Mezo. Коли ви розподіляєте голоси, для відсотків з'являється стовпець **Vote distribution**.
 :::
 
 ---

@@ -1,5 +1,6 @@
 ---
 title: Викуп MUSD
+description: Покроковий посібник із викупу MUSD за BTC через виклик redeemCollateral у контракті TroveManager, з підказками (hints) для економії газу, комісіями та адресами контрактів.
 topic: developers
 ---
 

@@ -14,7 +14,7 @@ topic: users
 
 ### Чи можна голосувати за gauges, маючи лише veMEZO?
 
-Так, за деякі з них. veMEZO самостійно голосує за **gauges boost для veBTC** і за **[MEZO Gauges](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges)**, які спрямовують емісію MEZO до пулів MUSD у Curve, Uniswap та Aerodrome.
+Так, за деякі з них. veMEZO самостійно голосує за **gauges boost для veBTC** і за **[MEZO Gauges](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges)**, які спрямовують емісію MEZO до пулів MUSD у Curve, Uniswap та Aero.
 
 Чого veMEZO не може робити самостійно, то це голосувати за **gauges зі стейкінгом**: для цього потрібен veBTC, а роль veMEZO там — множити силу голосу veBTC.
 

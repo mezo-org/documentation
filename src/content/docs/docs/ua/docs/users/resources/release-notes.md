@@ -98,7 +98,7 @@ topic: users
 
 ## 2025-05-28 - Запуск Mezo Mainnet
 
-Mezo Mainnet уже доступна! Перегляньте документацію [Початок роботи](https:/mezo.org/docs/users/getting-started/connect), щоб дізнатися, як під'єднатися до Mainnet, або перейдіть на [mezo.org/overview](https://mezo.org/overview), щоб переказати свої активи через міст і почати користуватися платформою.
+Mezo Mainnet уже доступна! Перегляньте документацію [Початок роботи](https://mezo.org/docs/users/getting-started/connect), щоб дізнатися, як під'єднатися до Mainnet, або перейдіть на [mezo.org/overview](https://mezo.org/overview), щоб переказати свої активи через міст і почати користуватися платформою.
 
 ## 2025-04-12 - Оголошено запуск Mezo Mainnet
 

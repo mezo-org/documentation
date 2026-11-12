@@ -1,5 +1,6 @@
 ---
 title: Вимоги до dApps
+description: Вимоги до dApp для розміщення в Mezo Market, зокрема інтеграція MUSD, сторонній аудит безпеки та робоче розгортання в Mainnet.
 topic: developers
 ---
 

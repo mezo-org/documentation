@@ -92,4 +92,4 @@ Mezo Earn також містить окремий механізм стимул
 ## Додаткові ресурси
 
 - [Огляд Mezo Earn](/docs/ua/docs/users/mezo-earn/overview/)
-- [Блог Mezo](https://mezo.org/blog/tag/features/)
+- [Блог Mezo](https://mezo.org/blog)

@@ -11,8 +11,8 @@ import { Steps } from '@astrojs/starlight/components';
 | Хто ви | Що ви отримуєте | Де |
 |---|---|---|
 | LP у Curve USDT/USDC/MUSD або Uniswap USDC/MUSD | veMEZO, заблоковані на 3 місяці | [Merkl](https://app.merkl.xyz) |
-| Власник veAERO, який голосує за Aerodrome USDC/MUSD або MEZO/MUSD | MEZO як стимул для голосування | [Aerodrome](https://aerodrome.finance) |
-| LP в Aerodrome USDC/MUSD або MEZO/MUSD | Емісія AERO | [Aerodrome](https://aerodrome.finance) |
+| Власник sAERO, який виділяє sAERO на Aero USDC/MUSD або MEZO/MUSD | MEZO як стимул | [Aero](https://app.aero.xyz) |
+| LP в Aero USDC/MUSD або MEZO/MUSD з депозитом, що заробляє AERO | AERO Rewards | [Aero](https://app.aero.xyz) |
 | Власник veMEZO, який голосував за MEZO Gauge | Стимули, розміщені в цьому gauge | Вкладка Vote на [mezo.org](https://mezo.org) |
 
 ---
@@ -40,13 +40,20 @@ import { Steps } from '@astrojs/starlight/components';
 
 ---
 
-## Aerodrome: отримання в Base
+## Aero: отримання в Base
 
-MEZO, спрямовані до gauge Aerodrome, вносяться як **стимул для голосування**, тож їх отримують голосувальники veAERO, а не LP.
+MEZO, спрямовані до gauge Aero, розміщуються в пулі як **програма стимулів**, тож їх заробляють власники sAERO, які виділяють sAERO на цей пул, а не LP.
 
-**Якщо у вас є veAERO і ви голосували за USDC/MUSD або MEZO/MUSD:** перейдіть на [aerodrome.finance](https://aerodrome.finance), відкрийте своє блокування veAERO й отримайте винагороди за епоху. Ваша частка MEZO пропорційна вашій частці голосів за цей gauge.
+**Якщо у вас є sAERO і ви виділяєте їх на USDC/MUSD або MEZO/MUSD:** стимули надходять вам потоком, доки ваші sAERO виділено на пул. Отримати їх можна будь-коли на [app.aero.xyz](https://app.aero.xyz) в розділі **Portfolio > Stakes**, причому кожну щотижневу програму отримують окремо. Ваша частка MEZO пропорційна вашій частці sAERO, виділених на цей пул.
 
-**Якщо ви надаєте ліквідність в Aerodrome USDC/MUSD або MEZO/MUSD:** застейкайте свою позицію в gauge пулу й отримуйте там емісію **AERO**. Зверніть увагу на [затримку у дві епохи](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#затримка-у-дві-епохи) між голосом у Mezo та емісією AERO, яку він дає.
+**Якщо ви надаєте ліквідність в Aero USDC/MUSD або MEZO/MUSD:** ви заробляєте **AERO Rewards**, якщо під час внесення депозиту вибрали **AERO rewards**. Депозит заробляє або AERO Rewards, або торгові комісії, але ніколи не те й інше одразу. AERO Rewards надходять безперервно, і отримати їх можна будь-коли в розділі **Portfolio > Deposits**. Про те, як голос у Mezo доходить до пулу, див. у розділі [Строки в Aero](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#строки-в-aero).
+
+### Перехід з Aerodrome
+
+Емісія Aerodrome припинилася із запуском Aero 22 жовтня 2026 року о 00:00 UTC. Позиції не переносяться самі собою.
+
+- **LP у старому пулі USDC/MUSD або MEZO/MUSD у Base:** перенесіть свою позицію до нового пулу Aero через портал оновлення на [aerodrome.finance](https://aerodrome.finance). Позиції в автоматизованому менеджері ліквідності (ALM) не переносяться: виведіть їх в Aerodrome і самостійно внесіть в Aero. Дотримуйтеся [рекомендацій Aero для LP](https://aero.xyz/aero-upgrade/#liquidity-providers).
+- **Власники veAERO:** veAERO замінено на sAERO, і лише sAERO заробляє стимули в Aero. Оновлення скидає ваші старі голоси, і скасувати його неможливо. Після оновлення виділіть sAERO на пул Aero USDC/MUSD або MEZO/MUSD, щоб і далі заробляти стимули в MEZO. Див. [рекомендації Aero для власників](https://aero.xyz/aero-upgrade/#veaero-vevelo-holders).
 
 ---
 

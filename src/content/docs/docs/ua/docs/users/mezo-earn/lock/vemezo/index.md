@@ -13,7 +13,7 @@ veMEZO — це токенізоване (NFT) представлення MEZO, 
 - Множник boost для сили голосу вашого veBTC (до 5x)
 - Винагороди ребейзу із щотижневої емісії MEZO, що компенсують розмивання
 - Участь у Matching Market для отримання стимулів від власників veBTC
-- Голоси в [MEZO Gauges](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges), які спрямовують емісію MEZO в пули MUSD на Curve, Uniswap та Aerodrome
+- Голоси в [MEZO Gauges](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges), які спрямовують емісію MEZO в пули MUSD на Curve, Uniswap та Aero
 
 :::note[Важливо]
 veMEZO не голосує самостійно за **gauges зі стейкінгом** — там він лише множить силу голосу позицій veBTC. Натомість самостійно він голосує за gauges boost для veBTC і за [MEZO Gauges](/docs/ua/docs/users/mezo-earn/vote/mezo-gauges).
