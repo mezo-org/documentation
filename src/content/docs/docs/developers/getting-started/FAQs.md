@@ -1,5 +1,6 @@
 ---
 title: FAQ
+description: Frequently asked questions for builders on Mezo covering the network, gas, integrations, and support.
 topic: developers
 ---
 

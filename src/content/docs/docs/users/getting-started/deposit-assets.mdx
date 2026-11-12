@@ -7,36 +7,34 @@ topic: users
 import { Steps } from '@astrojs/starlight/components';
 import YouTube from '../../../../../components/YouTube.astro';
 
-You can deposit native Bitcoin or supported ERC-20 tokens (Bitcoin wrappers) to Mezo Mainnet.
+You can deposit tBTC and other supported ERC-20 tokens from Ethereum to Mezo Mainnet using an EVM wallet.
+
+:::caution[The Native BTC Bridge-in has ended]
+As of October 13, 2026, the Native BTC Bridge-in is closed and the Mezo app no longer accepts deposits from Bitcoin wallets (UniSat, OKX, Xverse). Bridge-outs directly to BTC remain available. To bring BTC to Mezo, deposit tBTC from Ethereum instead. It settles in minutes and has no minimum.
+
+If you hold BTC in a Bitcoin wallet, create a Mezo account with an EVM wallet and manage deposits from there. If your Mezo account already uses a Bitcoin wallet, you can keep your assets on Mezo by moving them to an EVM wallet: in the Mezo app, go to **Transact > Send** and enter your EVM wallet's `0x…` address (see [Send Assets](/docs/users/passport/send-assets)). You can also still bridge out directly to BTC. See [Withdrawals](/docs/users/mainnet/bridges#withdrawals).
+:::
 
 <YouTube id="DinlFeUZB3U" title="How to Deposit to Mezo" />
 
 ## Before you begin
 
+- Sign in with an EVM wallet such as MetaMask. Bitcoin wallets can't deposit to Mezo.
 - Check which assets are supported. You can confirm the token addresses for these addresses on the [Contracts Reference](/docs/users/resources/contracts-reference#mainnet-asset-token-contracts) page.
-- All transactions on Mezo Mainnet are paid using native BTC or tBTC deposits. Before using the network, it's recommended to fund your account with BTC or tBTC to ensure you have gas to pay for transactions.
+- All transactions on Mezo Mainnet are paid in BTC. tBTC deposited from Ethereum arrives as BTC on Mezo, so it's recommended to fund your account with tBTC to ensure you have gas to pay for transactions. If you only hold MUSD or MEZO on Mezo, use [Get Gas](/docs/users/getting-started/get-gas).
 
 ## Deposit your assets
 
 <Steps>
-1. Go to the [Mezo App](https://mezo.org/overview) and sign in with a supported wallet.
+1. Go to the [Mezo App](https://mezo.org/overview) and sign in with an EVM wallet.
 
-2. After you sign in and sign the transaction, click **Deposit Bitcoin**.
+2. Click **Deposit**. The deposit form opens with tBTC selected.
 
 3. Select the asset you want to bridge and specify the amount.
 
-    ![](/docs/images/mainnet/deposit-modal-preview.png)
+4. Click **Review** and check the details of the transfer.
 
-4. Click **Review** to review the transfer and generate a deposit address.
-
-5. Check the details of the transfer and make sure that they are correct.
-
-6. When you are ready to deposit the assets, copy the wallet address. Ensure that the address is displayed correctly in your wallet.
-
-    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
-
-7. If the transaction is acceptable, confirm the transaction.
+5. If the transaction is acceptable, confirm it in your wallet. If it's your first deposit of that token, your wallet asks you to approve it first.
 </Steps>
 
 After the transaction is complete, the bridging process begins. The process can take several minutes to complete before you receive your assets on Mainnet.
-

@@ -76,7 +76,7 @@ export function getLocaleNavigationLabels(locale: string | undefined): LocaleNav
   const pageLabels = new Map<string, string>();
   const groupLabels = new Map<string, string>();
   const topicLabels = new Map<string, string>();
-  const summaryPath = resolve(process.cwd(), `src/content/docs/docs/${locale}/docs/SUMMARY.md`);
+  const summaryPath = resolve(process.cwd(), `src/content/docs/docs/${locale}/docs/_SUMMARY.md`);
 
   try {
     const summary = readFileSync(summaryPath, 'utf8');
