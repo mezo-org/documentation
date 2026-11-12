@@ -62,7 +62,7 @@ Ce fonctionnement reproduit celui du staking des LP dans les pools de liquidité
 
 Le gauge MUSD Savings Rate est en concurrence pour les votes avec les gauges des pools LP. Ces gauges sont collectivement appelés « gauges de staking » : un vote alloué au gauge du taux d'épargne ne peut pas être alloué en même temps à un gauge LP.
 
-Maintenant que les émissions de MEZO sont actives, staker des sMUSD dans le gauge rapporte des MEZO en plus de votre position de base. Le gauge MUSD Savings est en concurrence pour les votes veBTC avec les gauges des pools LP : plus le gauge d'épargne reçoit de votes, plus les émissions de MEZO acheminées vers les stakers sont importantes. Les votants veBTC qui soutiennent le gauge perçoivent les frais MUSD redirigés par les stakers. L'APR actuel du gauge pour les stakers et les votants est affiché sur la page Vote, à l'adresse [mezo.org/earn/vaults/vote](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC/vote).
+Maintenant que les émissions de MEZO sont actives, staker des sMUSD dans le gauge rapporte des MEZO en plus de votre position de base. Le gauge MUSD Savings est en concurrence pour les votes veBTC avec les gauges des pools LP : plus le gauge d'épargne reçoit de votes, plus les émissions de MEZO acheminées vers les stakers sont importantes. Les votants veBTC qui soutiennent le gauge perçoivent les frais MUSD redirigés par les stakers. L'APR actuel du gauge pour les stakers et les votants est affiché sur la page Vote, à l'adresse [mezo.org/earn/vote](https://mezo.org/earn/vote).
 
 ---
 

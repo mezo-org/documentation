@@ -13,20 +13,20 @@ Vous pouvez déposer des actifs sur Mezo et les en retirer à l'aide du Mezo Nat
 
 ## Dépôts via le Mezo Native Bridge
 
-L'application Mezo comprend un pont natif qui vous permet de déposer plusieurs actifs sur Mezo Mainnet. Consultez le guide [Déposer des actifs](/docs/fr/docs/users/getting-started/deposit-assets) pour comprendre le fonctionnement du processus, ou rendez-vous directement sur [mezo.org/overview](https://mezo.org/overview), connectez-vous et cliquez sur **Deposit Bitcoin** pour commencer.
+L'application Mezo comprend un pont natif qui vous permet de déposer plusieurs actifs depuis Ethereum sur Mezo Mainnet. Consultez le guide [Déposer des actifs](/docs/fr/docs/users/getting-started/deposit-assets) pour comprendre le fonctionnement du processus, ou rendez-vous directement sur [mezo.org/overview](https://mezo.org/overview), connectez-vous avec un portefeuille EVM et cliquez sur **Deposit** pour commencer.
 
 :::note[Remarque]
-Toutes les transactions sur Mezo Mainnet sont payées à l'aide de dépôts de BTC natif ou de tBTC. Avant d'utiliser le réseau, il est recommandé d'approvisionner votre compte en BTC ou en tBTC afin de disposer du gaz nécessaire pour payer les transactions.
+Toutes les transactions sur Mezo Mainnet sont payées en BTC. Les tBTC déposés depuis Ethereum arrivent sous forme de BTC sur Mezo : il est donc recommandé d'approvisionner votre compte en tBTC afin de disposer du gaz nécessaire pour payer les transactions.
 :::
 
 
-## Dépôts de BTC natif
+## Native BTC Bridge-in (terminé)
 
-Vous pouvez déposer des BTC directement depuis un portefeuille Bitcoin vers l'application Mezo. Les actifs sont automatiquement transférés via le pont en tBTC, puis vers Mezo Mainnet.
+Depuis le 13 octobre 2026, le Native BTC Bridge-in est fermé et l'application Mezo n'accepte plus les dépôts depuis des portefeuilles Bitcoin. Les retraits directs vers BTC via le pont restent possibles (consultez [Transfert vers Bitcoin](#transfert-vers-bitcoin-btc-natif-uniquement)). Pour apporter des BTC sur Mezo, déposez plutôt des tBTC depuis Ethereum. Le dépôt est réglé en quelques minutes et aucun montant minimum n'est exigé. Consultez [Déposer des actifs](/docs/fr/docs/users/getting-started/deposit-assets).
 
-Les BTC natifs sont convertis en tBTC via le pont avant d'être transférés vers le [contrat de l'application Mezo](/docs/fr/docs/users/resources/contracts-reference).
+Si vous détenez des BTC dans un portefeuille Bitcoin, créez un compte Mezo avec un portefeuille EVM et gérez vos dépôts depuis celui-ci. Si vous avez lancé un dépôt natif avant le 13 octobre, consultez [Suivre votre dépôt de Bitcoin natif](/docs/fr/docs/users/mainnet/track-your-native-bitcoin-deposit).
 
-Pour les portefeuilles BTC, vous pouvez vous connecter avec UniSat, OKX et Xverse. Utilisez les adresses suivantes :
+Les comptes qui se connectent avec un portefeuille Bitcoin (UniSat, OKX, Xverse) peuvent déplacer leurs actifs vers un portefeuille EVM sur Mezo via **Transact > Send** dans l'application Mezo (consultez [Envoyer des actifs](/docs/fr/docs/users/passport/send-assets)), puis effectuer leurs dépôts et tout gérer depuis ce portefeuille. Ils peuvent aussi toujours [retirer des BTC vers Bitcoin](#transfert-vers-bitcoin-btc-natif-uniquement). Les portefeuilles Bitcoin utilisent les types d'adresses suivants :
 
 | Nom            | Type de script | Préfixe d'adresse |
 | -------------- | -------------- | ----------------- |
@@ -259,7 +259,10 @@ R : La plupart des transactions qui transfèrent des fonds vers Ethereum via le
 **Q : Vers quels réseaux puis-je transférer mes actifs ?**
 R : Les actifs peuvent être transférés entre Ethereum, Mezo, Base et Bitcoin. D'autres réseaux seront pris en charge à l'avenir.
 
-**Q : Mon dépôt de Bitcoin natif n'apparaît pas encore. Comment vérifier son statut ?**
+**Q : Puis-je encore déposer des BTC depuis un portefeuille Bitcoin ?**
+R : Non. Le Native BTC Bridge-in a fermé le 13 octobre 2026. Déposez plutôt des tBTC depuis Ethereum avec un portefeuille EVM. Consultez [Déposer des actifs](/docs/fr/docs/users/getting-started/deposit-assets). Les retraits directs vers BTC via le pont restent possibles.
+
+**Q : Un dépôt de Bitcoin natif que j'ai lancé avant le 13 octobre n'apparaît pas encore. Comment vérifier son statut ?**
 R : Consultez la page [Suivre votre dépôt de Bitcoin natif](/docs/fr/docs/users/mainnet/track-your-native-bitcoin-deposit) pour un guide étape par étape sur l'utilisation de tBTCScan afin de vérifier le statut de votre dépôt.
 
 **Q : Qui paie le gaz sur le réseau de destination ?**

@@ -92,4 +92,4 @@ Si le prix du marché sort de la fourchette choisie, votre position est entière
 
 ### Risque lié aux contrats intelligents
 
-Comme pour tous les contrats intelligents, un risque inhérent subsiste. Consultez les audits sur [mezo.org/audits](https://mezo.org/audits) et ne déposez que des montants avec lesquels vous êtes à l'aise.
+Comme pour tous les contrats intelligents, un risque inhérent subsiste. Consultez les audits sur [mezo.org/docs/fr/docs/users/resources/audits](/docs/fr/docs/users/resources/audits) et ne déposez que des montants avec lesquels vous êtes à l'aise.

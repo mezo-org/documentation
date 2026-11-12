@@ -1,5 +1,6 @@
 ---
 title: Connecter votre portefeuille à Mezo
+description: Ajoutez Mezo Mainnet ou Testnet à un portefeuille de navigateur via Chainlist ou manuellement, avec les chain ID, les endpoints RPC publics et les détails du réseau.
 topic: users
 ---
 
@@ -67,7 +68,7 @@ Si vous devez ajouter le réseau manuellement à votre portefeuille, suivez les 
 
 Les portefeuilles BTC sont pris en charge dans l'application Mezo et peuvent recevoir une adresse sur le réseau Mezo associée à votre portefeuille BTC. Les portefeuilles BTC permettent actuellement d'effectuer les opérations suivantes sur Mezo :
 
-- Transférer des actifs BTC via un pont
+- Déplacer des actifs vers un portefeuille EVM sur Mezo via **Transact > Send** ([Envoyer des actifs](/docs/fr/docs/users/passport/send-assets)), ou les retirer directement vers BTC via le pont (le Native BTC Bridge-in, qui permettait les dépôts depuis des portefeuilles BTC, a pris fin le 13 octobre 2026 ; consultez [Déposer des actifs](/docs/fr/docs/users/getting-started/deposit-assets))
 - Transférer des actifs EVM via un pont
 - Emprunter, rembourser ou gérer la garantie d'un prêt
 - Acheter des articles sur le MUSD Market

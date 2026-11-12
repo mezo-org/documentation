@@ -1,5 +1,6 @@
 ---
 title: Rachats de MUSD
+description: Guide pas à pas pour racheter des MUSD contre des BTC en appelant redeemCollateral sur le contrat TroveManager, avec les hints pour économiser du gaz, les frais et les adresses des contrats.
 topic: developers
 ---
 

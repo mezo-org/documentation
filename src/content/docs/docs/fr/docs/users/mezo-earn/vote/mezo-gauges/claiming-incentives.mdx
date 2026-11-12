@@ -11,8 +11,8 @@ Ce que vous réclamez, et où, dépend du côté du gauge où vous vous situez.
 | Vous êtes | Vous réclamez | Où |
 |---|---|---|
 | LP dans Curve USDT/USDC/MUSD ou Uniswap USDC/MUSD | Des veMEZO verrouillés pendant 3 mois | [Merkl](https://app.merkl.xyz) |
-| Détenteur de veAERO votant pour Aerodrome USDC/MUSD ou MEZO/MUSD | Des MEZO, sous forme d'incentive de vote | [Aerodrome](https://aerodrome.finance) |
-| LP dans Aerodrome USDC/MUSD ou MEZO/MUSD | Des émissions d'AERO | [Aerodrome](https://aerodrome.finance) |
+| Détenteur de sAERO allouant à Aero USDC/MUSD ou MEZO/MUSD | Des MEZO, sous forme d'incentive | [Aero](https://app.aero.xyz) |
+| LP dans Aero USDC/MUSD ou MEZO/MUSD, avec un dépôt qui rapporte des AERO | Des AERO Rewards | [Aero](https://app.aero.xyz) |
 | Détenteur de veMEZO ayant voté pour un MEZO Gauge | Les incentives (incitations) publiés sur ce gauge | L'onglet Vote sur [mezo.org](https://mezo.org) |
 
 ---
@@ -40,13 +40,20 @@ Vous n'avez pas besoin de détenir des veMEZO, ni d'avoir voté, pour réclamer 
 
 ---
 
-## Aerodrome : réclamer sur Base
+## Aero : réclamer sur Base
 
-Les MEZO dirigés vers un gauge Aerodrome sont déposés en tant qu'**incentive de vote** : ils sont donc réclamés par les votants veAERO, et non par les LP.
+Les MEZO dirigés vers un gauge Aero sont publiés sur le pool sous forme de **programme d'incentives** : ils sont donc perçus par les détenteurs de sAERO qui allouent au pool, et non par les LP.
 
-**Si vous détenez des veAERO et avez voté pour USDC/MUSD ou MEZO/MUSD :** rendez-vous sur [aerodrome.finance](https://aerodrome.finance), ouvrez votre verrouillage veAERO et réclamez vos récompenses pour l'époque. Votre part de MEZO est proportionnelle à votre part des votes sur ce gauge.
+**Si vous détenez des sAERO et allouez à USDC/MUSD ou MEZO/MUSD :** les incentives vous sont versés en continu tant que votre allocation est maintenue. Vous pouvez les réclamer à tout moment sur [app.aero.xyz](https://app.aero.xyz), sous **Portfolio > Stakes**, et chaque programme hebdomadaire se réclame séparément. Votre part de MEZO est proportionnelle à votre part de l'allocation sur ce pool.
 
-**Si vous êtes LP dans Aerodrome USDC/MUSD ou MEZO/MUSD :** stakez votre position dans le gauge du pool et réclamez-y les émissions d'**AERO**. Tenez compte du [décalage de deux époques](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#le-décalage-de-deux-époques) entre un vote sur Mezo et les AERO qu'il produit.
+**Si vous êtes LP dans Aero USDC/MUSD ou MEZO/MUSD :** vous percevez des **AERO Rewards** (récompenses en AERO) si vous avez choisi **AERO rewards** au moment du dépôt. Un dépôt rapporte soit des AERO Rewards, soit des frais de trading, jamais les deux. Les AERO Rewards sont versés en continu et vous pouvez les réclamer à tout moment sous **Portfolio > Deposits**. Consultez [Calendrier sur Aero](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#calendrier-sur-aero) pour savoir comment un vote sur Mezo parvient au pool.
+
+### Migrer depuis Aerodrome
+
+Les émissions d'Aerodrome ont cessé au lancement d'Aero, le 22 octobre 2026 à 00:00 UTC. Les positions ne sont pas transférées automatiquement.
+
+- **LP de l'ancien pool USDC/MUSD ou MEZO/MUSD sur Base :** migrez votre position vers le nouveau pool Aero via le portail de mise à niveau sur [aerodrome.finance](https://aerodrome.finance). Les positions placées dans un gestionnaire de liquidité automatisé (ALM) ne sont pas migrées : retirez-les sur Aerodrome et déposez-les vous-même sur Aero. Suivez les [consignes d'Aero pour les LP](https://aero.xyz/aero-upgrade/#liquidity-providers).
+- **Détenteurs de veAERO :** les veAERO ont été remplacés par les sAERO, et seuls les sAERO perçoivent des incentives sur Aero. La mise à niveau réinitialise vos anciens votes et est irréversible. Après la mise à niveau, allouez vos sAERO au pool Aero USDC/MUSD ou MEZO/MUSD pour continuer à percevoir des incentives en MEZO. Consultez les [consignes d'Aero pour les détenteurs](https://aero.xyz/aero-upgrade/#veaero-vevelo-holders).
 
 ---
 

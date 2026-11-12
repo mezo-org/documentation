@@ -93,4 +93,4 @@ Pour réclamer vos récompenses en MEZO, suivez ces étapes :
 ## Ressources supplémentaires
 
 - [Aperçu de Mezo Earn](/docs/fr/docs/users/mezo-earn/overview/)
-- [Blog Mezo](https://mezo.org/blog/tag/features/)
+- [Blog Mezo](https://mezo.org/blog)

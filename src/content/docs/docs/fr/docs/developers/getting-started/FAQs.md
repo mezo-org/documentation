@@ -1,5 +1,6 @@
 ---
 title: FAQ
+description: Questions fréquentes des développeurs sur Mezo, couvrant le réseau, le gaz, les intégrations et l'assistance.
 topic: developers
 ---
 

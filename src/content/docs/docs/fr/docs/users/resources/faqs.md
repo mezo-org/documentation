@@ -40,7 +40,7 @@ Passport permet aux développeurs d'intégrer facilement la prise en charge des 
 
 ## Comment investir dans Mezo ?
 
-Si vous souhaitez devenir investisseur, veuillez écrire à [IR@thesis.co](IR@thesis.co).
+Si vous souhaitez devenir investisseur, veuillez écrire à [IR@thesis.co](mailto:IR@thesis.co).
 
 ## Quels portefeuilles puis-je utiliser avec Mezo ?
 
@@ -59,9 +59,11 @@ Compatibles EVM :
 * Zerion
 * OKX
 
+Les portefeuilles Bitcoin ne peuvent plus effectuer de dépôt sur Mezo. Le Native BTC Bridge-in a fermé le 13 octobre 2026. Pour effectuer un dépôt, utilisez un portefeuille EVM. Si votre compte utilise un portefeuille Bitcoin, vous pouvez déplacer vos actifs vers un portefeuille EVM sur Mezo via **Transact > Send** dans l'application Mezo (consultez [Envoyer des actifs](/docs/fr/docs/users/passport/send-assets)), ou les retirer directement vers BTC via le pont, ce qui reste possible.
+
 ## Quel jeton est utilisé pour les frais de transaction ?
 
-Le BTC sert à payer les frais de transaction sur Mezo. Vous pouvez obtenir des BTC sur Mezo en déposant des BTC directement depuis votre portefeuille Bitcoin, ou des tBTC depuis votre portefeuille Ethereum. 
+Le BTC sert à payer les frais de transaction sur Mezo. Vous pouvez obtenir des BTC sur Mezo en déposant des tBTC depuis votre portefeuille Ethereum, ou en échangeant des MUSD ou des MEZO avec [Get Gas](/docs/fr/docs/users/getting-started/get-gas).
 
 ## Pourquoi certains jetons que je détiens n'apparaissent-ils pas dans le Mezo Explorer ?
 

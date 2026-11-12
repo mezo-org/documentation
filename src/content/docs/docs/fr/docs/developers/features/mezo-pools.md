@@ -1,5 +1,6 @@
 ---
 title: Mezo Pools
+description: Référence pour les développeurs sur Mezo Pools, couvrant les pools basiques et à liquidité concentrée, les flux de swap, la gestion des positions et les adresses des contrats sur Mainnet et Testnet.
 topic: developers
 ---
 Mezo Pools permet aux utilisateurs d'échanger des jetons et de fournir de la liquidité grâce à des mécanismes de pool optimisés. Mezo prend en charge deux architectures de pool : les **pools basiques** (AMM à produit constant et à courbe stable) et les **pools à liquidité concentrée (CL)** avec des plages de prix personnalisées.

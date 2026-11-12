@@ -1,5 +1,6 @@
 ---
 title: Exigences pour les dApps
+description: Exigences à remplir pour qu'une dApp soit mise en avant sur le Mezo Market, notamment l'intégration de MUSD, un audit de sécurité réalisé par un tiers et un déploiement actif sur le Mainnet.
 topic: developers
 ---
 

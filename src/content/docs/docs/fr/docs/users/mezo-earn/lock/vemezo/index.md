@@ -13,7 +13,7 @@ Lorsque vous verrouillez des MEZO sur Mezo, vous recevez un NFT veMEZO qui repr�
 - un multiplicateur de boost sur le pouvoir de vote de vos veBTC (jusqu'à 5x) ;
 - des récompenses de rebase issues des émissions hebdomadaires de MEZO pour compenser la dilution ;
 - la participation au marché d'appariement pour gagner des incentives (incitations) auprès des détenteurs de veBTC ;
-- des votes sur les [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges), qui orientent les émissions de MEZO vers les pools MUSD sur Curve, Uniswap et Aerodrome.
+- des votes sur les [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges), qui orientent les émissions de MEZO vers les pools MUSD sur Curve, Uniswap et Aero.
 
 :::note[Important]
 veMEZO ne vote pas seul sur les **gauges de staking** : il se contente d'y multiplier le pouvoir de vote des positions veBTC. Il vote en revanche de plein droit sur les gauges de boost veBTC et sur les [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges).

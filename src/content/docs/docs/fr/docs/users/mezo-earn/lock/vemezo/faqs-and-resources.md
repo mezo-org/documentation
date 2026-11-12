@@ -14,7 +14,7 @@ Non. Les verrouillages sont définitifs jusqu'à leur expiration. Choisissez vot
 
 ### Puis-je voter pour des gauges avec uniquement des veMEZO ?
 
-Oui, pour certains d'entre eux. veMEZO vote de plein droit sur les **gauges de boost veBTC** et sur les **[MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges)**, qui orientent les émissions de MEZO vers les pools MUSD sur Curve, Uniswap et Aerodrome.
+Oui, pour certains d'entre eux. veMEZO vote de plein droit sur les **gauges de boost veBTC** et sur les **[MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges)**, qui orientent les émissions de MEZO vers les pools MUSD sur Curve, Uniswap et Aero.
 
 En revanche, veMEZO ne peut pas voter seul sur les **gauges de staking** : cela nécessite des veBTC, et le rôle de veMEZO y consiste à multiplier le pouvoir de vote de veBTC.
 

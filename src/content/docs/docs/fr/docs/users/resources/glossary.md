@@ -30,7 +30,7 @@ Bitcoin. BTC est le jeton de gaz natif de Mezo (avec 18 décimales) et la princi
 
 ## Portefeuille BTC
 
-Portefeuille natif Bitcoin utilisé pour déposer des BTC directement sur Mezo. Les portefeuilles pris en charge incluent UniSat, OKX et Xverse. Les formats d'adresse pris en charge sont Legacy (P2PKH), Native SegWit (P2WPKH) et Nested SegWit (P2SH-P2WPKH). Consultez la page [Déposer des actifs](/docs/fr/docs/users/getting-started/deposit-assets).
+Portefeuille natif Bitcoin permettant de se connecter à Mezo. Les portefeuilles pris en charge incluent UniSat, OKX et Xverse. Les formats d'adresse pris en charge sont Legacy (P2PKH), Native SegWit (P2WPKH) et Nested SegWit (P2SH-P2WPKH). Les portefeuilles BTC pouvaient déposer des BTC directement sur Mezo via le Native BTC Bridge-in jusqu'à sa fermeture, le 13 octobre 2026. Les actifs détenus par un compte associé à un portefeuille BTC peuvent être déplacés vers un portefeuille EVM sur Mezo via **Transact > Send** ([Envoyer des actifs](/docs/fr/docs/users/passport/send-assets)) ou retirés directement vers BTC via le pont, ce qui reste possible. Consultez la page [Ponts](/docs/fr/docs/users/mainnet/bridges).
 
 ## Chain ID
 
@@ -54,7 +54,7 @@ Excédent de garantie qui subsiste après le rachat complet d'un [trove](#trove)
 
 ## Ratio de collatéralisation (ICR)
 
-Individual Collateralization Ratio (ratio de collatéralisation individuel). Rapport entre la valeur en dollars de la garantie d'un trove et sa dette totale. Par exemple, si votre garantie en BTC vaut 13 000 \$ et que votre dette s'élève à 10 000 \$, votre ICR est de 130 %. Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
+Individual Collateralization Ratio (ratio de collatéralisation individuel). Rapport entre la valeur en dollars de la garantie d'un trove et sa dette totale. Par exemple, si votre garantie en BTC vaut 13 000 \$ et que votre dette s'élève à 10 000 \$, votre ICR est de 130 %. Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/architecture-and-terminology).
 
 ## CometBFT
 
@@ -66,7 +66,7 @@ Framework modulaire utilisé pour construire la blockchain Mezo. Cosmos SDK four
 
 ## Ratio de collatéralisation critique (CCR)
 
-Seuil de garantie à l'échelle du système, fixé à 150 %. Lorsque le ratio de collatéralisation total (TCR) passe sous le CCR, le système entre en [mode de récupération](#mode-de-récupération-recovery-mode) (Recovery Mode). Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
+Seuil de garantie à l'échelle du système, fixé à 150 %. Lorsque le ratio de collatéralisation total (TCR) passe sous le CCR, le système entre en [mode de récupération](#mode-de-récupération-recovery-mode) (Recovery Mode). Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/architecture-and-terminology).
 
 ## dApp
 
@@ -118,7 +118,7 @@ Contrat intelligent qui reçoit et distribue des récompenses en fonction des vo
 
 ## Taux d'intérêt global
 
-Taux d'intérêt unique, fixé par la gouvernance, qui s'applique à tous les nouveaux prêts MUSD. Une fois un prêt ouvert, il conserve le taux en vigueur lors de sa création, même si le taux global change. Les utilisateurs peuvent [refinancer](#refinancement) leur prêt pour adopter le taux global actuel. Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
+Taux d'intérêt unique, fixé par la gouvernance, qui s'applique à tous les nouveaux prêts MUSD. Une fois un prêt ouvert, il conserve le taux en vigueur lors de sa création, même si le taux global change. Les utilisateurs peuvent [refinancer](#refinancement) leur prêt pour adopter le taux global actuel. Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/architecture-and-terminology).
 
 ## Gouvernance
 
@@ -182,7 +182,7 @@ Système complet de revenus et de gouvernance de Mezo, qui englobe le verrouilla
 
 ## MEZO Gauge
 
-[Gauge sans staking](#gauge-sans-staking) pour lequel votent les détenteurs de veMEZO afin d'orienter les émissions de MEZO vers des pools de liquidité MUSD situés en dehors de Mezo : Curve et Uniswap sur Ethereum, et Aerodrome sur Base. Il est financé par la branche sans staking des émissions (actuellement 8 % des récompenses d'émission hebdomadaires). Consultez la page [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges).
+[Gauge sans staking](#gauge-sans-staking) pour lequel votent les détenteurs de veMEZO afin d'orienter les émissions de MEZO vers des pools de liquidité MUSD situés en dehors de Mezo : Curve et Uniswap sur Ethereum, et Aero sur Base. Il est financé par la branche sans staking des émissions (actuellement 8 % des récompenses d'émission hebdomadaires). Consultez la page [MEZO Gauges](/docs/fr/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Mezo Market
 
@@ -198,7 +198,7 @@ Système de pools de liquidité de Mezo, qui fonctionne comme un ensemble de ré
 
 ## Ratio de collatéralisation minimum (MCR)
 
-Ratio de garantie minimal exigé pour un [trove](#trove), fixé à 110 %. Si l'[ICR](#ratio-de-collatéralisation-icr) d'un trove passe sous le MCR, celui-ci devient susceptible d'être [liquidé](#liquidation). Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
+Ratio de garantie minimal exigé pour un [trove](#trove), fixé à 110 %. Si l'[ICR](#ratio-de-collatéralisation-icr) d'un trove passe sous le MCR, celui-ci devient susceptible d'être [liquidé](#liquidation). Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/architecture-and-terminology).
 
 ## MUSD
 
@@ -230,7 +230,7 @@ Service qui fournit des données externes (comme le prix des actifs) aux contrat
 
 ## Frais d'origination
 
-Frais uniques facturés lors de l'emprunt de MUSD, calculés à hauteur de 0,1 % du montant emprunté. Ces frais sont ajoutés au capital du prêt et portent intérêt. Des frais d'origination de refinancement (une fraction des frais normaux) sont facturés lors d'un [refinancement](#refinancement). Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
+Frais uniques facturés lors de l'emprunt de MUSD, calculés à hauteur de 0,1 % du montant emprunté. Ces frais sont ajoutés au capital du prêt et portent intérêt. Des frais d'origination de refinancement (une fraction des frais normaux) sont facturés lors d'un [refinancement](#refinancement). Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/architecture-and-terminology).
 
 ## PCV
 
@@ -266,7 +266,7 @@ Action d'échanger des MUSD contre une valeur équivalente en dollars de BTC, di
 
 ## Refinancement
 
-Processus qui consiste à mettre à jour le taux d'intérêt d'un prêt en l'alignant sur le [taux d'intérêt global](#taux-dintérêt-global) actuel. Le refinancement entraîne des frais d'origination réduits, mais évite d'avoir à clôturer puis rouvrir un prêt. Vous pouvez également refinancer pour augmenter votre ligne de crédit si le BTC s'est apprécié. Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
+Processus qui consiste à mettre à jour le taux d'intérêt d'un prêt en l'alignant sur le [taux d'intérêt global](#taux-dintérêt-global) actuel. Le refinancement entraîne des frais d'origination réduits, mais évite d'avoir à clôturer puis rouvrir un prêt. Vous pouvez également refinancer pour augmenter votre ligne de crédit si le BTC s'est apprécié. Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/architecture-and-terminology).
 
 ## Contrat Router
 
@@ -290,7 +290,7 @@ Contrat qui répartit les émissions de MEZO entre deux destinations. Les ratios
 
 ## Stability Pool
 
-Réserve de MUSD qui constitue la première ligne de défense en cas de [liquidations](#liquidation). Les utilisateurs déposent des MUSD dans le Stability Pool et reçoivent en contrepartie une part de la garantie liquidée. Le contrat [PCV](#pcv) alimente le pool avec un dépôt initial de 100M MUSD. Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/concepts).
+Réserve de MUSD qui constitue la première ligne de défense en cas de [liquidations](#liquidation). Les utilisateurs déposent des MUSD dans le Stability Pool et reçoivent en contrepartie une part de la garantie liquidée. Le contrat [PCV](#pcv) alimente le pool avec un dépôt initial de 100M MUSD. Consultez la page [Concepts clés de MUSD](/docs/fr/docs/users/borrow/architecture-and-terminology).
 
 ## Pool stable
 
