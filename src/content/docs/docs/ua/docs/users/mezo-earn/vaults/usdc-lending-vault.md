@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: Кредитне сховище USDC (USDC Lending Vault)
 description: >-
   Надавайте mUSDC на кредитний ринок Morpho із забезпеченням у BTC у Mezo й
   заробляйте відсотки від позичальників або емісію MEZO

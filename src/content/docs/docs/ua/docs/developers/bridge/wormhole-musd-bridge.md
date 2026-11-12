@@ -1,5 +1,5 @@
 ---
-title: Wormhole MUSD Bridge
+title: Міст Wormhole MUSD (Wormhole MUSD Bridge)
 description: Як міст MUSD використовує Wormhole Native Token Transfer для безпечних крос-чейн переказів зі збереженням взаємозамінності.
 topic: developers
 ---

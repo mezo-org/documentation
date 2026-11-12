@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: Ощадне сховище Ditto MUSD (Ditto MUSD Savings Vault)
 description: >-
   Вносьте MUSD у Mezo й отримуйте dMUSD — автоматизоване міжмережеве сховище з
   початковим розміщенням у Spark Savings

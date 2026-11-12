@@ -1,5 +1,5 @@
 ---
-title: Mezo Pools
+title: Пули Mezo (Mezo Pools)
 description: Довідник для розробників із Mezo Pools, що охоплює базові пули й пули концентрованої ліквідності, процеси обміну, керування позиціями та адреси контрактів у Mainnet і Testnet.
 topic: developers
 ---
