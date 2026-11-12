@@ -151,4 +151,4 @@ Cada NFT de veBTC tem seu próprio gauge de boost. Os detentores de veMEZO votam
 
 **Onde posso ver os pesos atuais dos gauges e os incentivos?**
 
-Acesse a [página Vote](https://mezo.org/vote) para ver em tempo real os pesos dos gauges, os valores dos incentivos, os APYs projetados e o desempenho histórico.
+Acesse a [página Vote](https://mezo.org/earn/vote) para ver em tempo real os pesos dos gauges, os valores dos incentivos, os APYs projetados e o desempenho histórico.

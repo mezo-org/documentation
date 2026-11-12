@@ -92,4 +92,4 @@ Se o preço de mercado sair da faixa escolhida, sua posição é convertida inte
 
 ### Risco de contratos inteligentes
 
-Como em todos os contratos inteligentes, há um risco inerente. Consulte as auditorias em [mezo.org/audits](https://mezo.org/audits) e deposite apenas valores com os quais você se sinta confortável.
+Como em todos os contratos inteligentes, há um risco inerente. Consulte as auditorias em [mezo.org/docs/users/resources/audits](/docs/pt-br/docs/users/resources/audits) e deposite apenas valores com os quais você se sinta confortável.

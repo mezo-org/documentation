@@ -1,5 +1,6 @@
 ---
 title: Conecte sua carteira ao Mezo
+description: Adicione a Mezo Mainnet ou a Testnet a uma carteira de navegador pelo Chainlist ou manualmente, com IDs de cadeia, endpoints RPC públicos e dados da rede.
 topic: users
 ---
 
@@ -67,7 +68,7 @@ Se precisar adicionar a rede manualmente à sua carteira, siga as instruções a
 
 As carteiras BTC são compatíveis com o Mezo App e podem receber um endereço da rede Mezo associado à sua carteira BTC. No momento, as carteiras BTC podem realizar as seguintes tarefas no Mezo:
 
-- Transferir ativos BTC pela ponte
+- Mover ativos para uma carteira EVM no Mezo em **Transact > Send** ([Enviar ativos](/docs/pt-br/docs/users/passport/send-assets)) ou sair pela ponte diretamente para BTC (o Native BTC Bridge-in, usado para depósitos a partir de carteiras BTC, foi encerrado em 13 de outubro de 2026; consulte [Depositar ativos](/docs/pt-br/docs/users/getting-started/deposit-assets))
 - Transferir ativos EVM pela ponte
 - Tomar emprestado, pagar ou gerenciar o colateral de um empréstimo
 - Comprar itens no MUSD Market

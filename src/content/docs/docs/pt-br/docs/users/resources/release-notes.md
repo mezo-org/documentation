@@ -98,7 +98,7 @@ topic: users
 
 ## 2025-05-28 - Lançamento da Mezo Mainnet
 
-A Mezo Mainnet já está disponível! Consulte a documentação de [Primeiros passos](https:/mezo.org/docs/users/getting-started/connect) para saber como se conectar à Mainnet ou acesse [mezo.org/overview](https://mezo.org/overview) para transferir seus ativos pela ponte e começar a usar a plataforma.
+A Mezo Mainnet já está disponível! Consulte a documentação de [Primeiros passos](https://mezo.org/docs/users/getting-started/connect) para saber como se conectar à Mainnet ou acesse [mezo.org/overview](https://mezo.org/overview) para transferir seus ativos pela ponte e começar a usar a plataforma.
 
 ## 2025-04-12 - Anunciado o lançamento da Mezo Mainnet
 

@@ -1,5 +1,6 @@
 ---
 title: Requisitos para dApps
+description: Requisitos para um dApp ser destacado no Mezo Market, incluindo integração com o MUSD, auditoria de segurança feita por terceiros e implantação ativa na Mainnet.
 topic: developers
 ---
 

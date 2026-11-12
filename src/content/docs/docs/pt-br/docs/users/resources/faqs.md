@@ -40,7 +40,7 @@ O Passport facilita para os desenvolvedores a integração do suporte a carteira
 
 ## Como invisto no Mezo?
 
-Se você tem interesse em se tornar investidor, entre em contato pelo [IR@thesis.co](IR@thesis.co).
+Se você tem interesse em se tornar investidor, entre em contato pelo [IR@thesis.co](mailto:IR@thesis.co).
 
 ## Quais carteiras posso usar com o Mezo?
 
@@ -59,9 +59,11 @@ Compatíveis com EVM:
 * Zerion
 * OKX
 
+As carteiras Bitcoin não podem mais depositar no Mezo. O Native BTC Bridge-in foi fechado em 13 de outubro de 2026. Para depositar, use uma carteira EVM. Se a sua conta usa uma carteira Bitcoin, você pode mover seus ativos para uma carteira EVM no Mezo em **Transact > Send**, no app do Mezo (consulte [Enviar ativos](/docs/pt-br/docs/users/passport/send-assets)), ou sair pela ponte diretamente para BTC, o que continua disponível.
+
 ## Qual token é usado para as taxas de transação?
 
-O BTC é usado para pagar as taxas de transação no Mezo. Você pode obter BTC no Mezo depositando BTC diretamente da sua carteira Bitcoin ou tBTC da sua carteira Ethereum. 
+O BTC é usado para pagar as taxas de transação no Mezo. Você pode obter BTC no Mezo depositando tBTC da sua carteira Ethereum ou trocando MUSD ou MEZO pelo [Get Gas](/docs/pt-br/docs/users/getting-started/get-gas).
 
 ## Por que alguns tokens que tenho não aparecem no Mezo Explorer?
 

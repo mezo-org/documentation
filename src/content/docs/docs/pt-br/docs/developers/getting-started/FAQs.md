@@ -1,5 +1,6 @@
 ---
 title: Perguntas frequentes
+description: Perguntas frequentes de builders no Mezo sobre a rede, gás, integrações e suporte.
 topic: developers
 ---
 

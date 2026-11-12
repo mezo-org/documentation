@@ -30,7 +30,7 @@ Bitcoin. O BTC é o token de gás nativo do Mezo (com 18 casas decimais) e o pri
 
 ## Carteira BTC
 
-Uma carteira nativa de Bitcoin usada para depositar BTC diretamente no Mezo. As carteiras compatíveis incluem UniSat, OKX e Xverse. Os formatos de endereço compatíveis são Legacy (P2PKH), Native SegWit (P2WPKH) e Nested SegWit (P2SH-P2WPKH). Consulte [Depositar ativos](/docs/pt-br/docs/users/getting-started/deposit-assets).
+Uma carteira nativa de Bitcoin que pode entrar no Mezo. As carteiras compatíveis incluem UniSat, OKX e Xverse. Os formatos de endereço compatíveis são Legacy (P2PKH), Native SegWit (P2WPKH) e Nested SegWit (P2SH-P2WPKH). As carteiras BTC podiam depositar BTC diretamente no Mezo pelo Native BTC Bridge-in até o fechamento dele, em 13 de outubro de 2026. Os ativos de uma conta de carteira BTC podem ser movidos para uma carteira EVM no Mezo em **Transact > Send** ([Enviar ativos](/docs/pt-br/docs/users/passport/send-assets)) ou retirados pela ponte diretamente para BTC, o que continua disponível. Consulte [Pontes](/docs/pt-br/docs/users/mainnet/bridges).
 
 ## Chain ID
 
@@ -54,7 +54,7 @@ O colateral excedente que sobra depois que um [Trove](#trove) é totalmente resg
 
 ## Índice de colateralização (ICR)
 
-Individual Collateralization Ratio (índice de colateralização individual). A relação entre o valor em dólares do colateral de um Trove e sua dívida total. Por exemplo, se o seu colateral em BTC vale \$13.000 e sua dívida é de \$10.000, seu ICR é de 130%. Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/concepts).
+Individual Collateralization Ratio (índice de colateralização individual). A relação entre o valor em dólares do colateral de um Trove e sua dívida total. Por exemplo, se o seu colateral em BTC vale \$13.000 e sua dívida é de \$10.000, seu ICR é de 130%. Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/architecture-and-terminology).
 
 ## CometBFT
 
@@ -66,7 +66,7 @@ O framework modular usado para construir a blockchain do Mezo. O Cosmos SDK forn
 
 ## Índice de colateralização crítico (CCR)
 
-O limite de colateral de todo o sistema, definido em 150%. Quando o índice de colateralização total (TCR) cai abaixo do CCR, o sistema entra em [Recovery Mode](#recovery-mode). Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/concepts).
+O limite de colateral de todo o sistema, definido em 150%. Quando o índice de colateralização total (TCR) cai abaixo do CCR, o sistema entra em [Recovery Mode](#recovery-mode). Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/architecture-and-terminology).
 
 ## dApp
 
@@ -118,7 +118,7 @@ Um contrato inteligente que recebe e distribui recompensas com base nos votos. Q
 
 ## Taxa de juros global
 
-Uma taxa de juros única, definida pela governança, que se aplica a todos os novos empréstimos em MUSD. Depois que um empréstimo é aberto, ele mantém a taxa com que foi criado, mesmo que a taxa global mude. Os usuários podem fazer um [refinanciamento](#refinanciamento) para adotar a taxa global vigente. Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/concepts).
+Uma taxa de juros única, definida pela governança, que se aplica a todos os novos empréstimos em MUSD. Depois que um empréstimo é aberto, ele mantém a taxa com que foi criado, mesmo que a taxa global mude. Os usuários podem fazer um [refinanciamento](#refinanciamento) para adotar a taxa global vigente. Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/architecture-and-terminology).
 
 ## Governança
 
@@ -182,7 +182,7 @@ O sistema completo de ganhos e governança do Mezo, que abrange bloqueio ([veBTC
 
 ## MEZO Gauge
 
-Um [gauge sem staking](#gauge-sem-staking) em que os detentores de veMEZO votam para direcionar emissões de MEZO a pools de liquidez de MUSD fora do Mezo: Curve e Uniswap no Ethereum e Aerodrome na Base. É financiado pelo ramo sem staking das emissões (atualmente 8% das recompensas de emissão semanais). Consulte [MEZO Gauges](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges).
+Um [gauge sem staking](#gauge-sem-staking) em que os detentores de veMEZO votam para direcionar emissões de MEZO a pools de liquidez de MUSD fora do Mezo: Curve e Uniswap no Ethereum e Aero na Base. É financiado pelo ramo sem staking das emissões (atualmente 8% das recompensas de emissão semanais). Consulte [MEZO Gauges](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Mezo Market
 
@@ -198,7 +198,7 @@ O sistema de pools de liquidez do Mezo, que funciona como reservas de liquidez o
 
 ## Índice de colateralização mínimo (MCR)
 
-O índice de colateralização mínimo exigido para um [Trove](#trove), definido em 110%. Se o [ICR](#índice-de-colateralização-icr) de um Trove cair abaixo do MCR, ele se torna elegível para [liquidação](#liquidação). Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/concepts).
+O índice de colateralização mínimo exigido para um [Trove](#trove), definido em 110%. Se o [ICR](#índice-de-colateralização-icr) de um Trove cair abaixo do MCR, ele se torna elegível para [liquidação](#liquidação). Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/architecture-and-terminology).
 
 ## MUSD
 
@@ -230,7 +230,7 @@ Um serviço que fornece dados externos (como preços de ativos) a contratos inte
 
 ## Taxa de originação
 
-Uma taxa única cobrada ao tomar MUSD emprestado, calculada como 0,1% do valor emprestado. A taxa é adicionada ao principal do empréstimo e acumula juros. Uma taxa de originação de refinanciamento (uma fração da taxa normal) é cobrada ao fazer um [refinanciamento](#refinanciamento). Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/concepts).
+Uma taxa única cobrada ao tomar MUSD emprestado, calculada como 0,1% do valor emprestado. A taxa é adicionada ao principal do empréstimo e acumula juros. Uma taxa de originação de refinanciamento (uma fração da taxa normal) é cobrada ao fazer um [refinanciamento](#refinanciamento). Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/architecture-and-terminology).
 
 ## PCV
 
@@ -266,7 +266,7 @@ O ato de trocar MUSD por um valor equivalente em dólares de BTC diretamente com
 
 ## Refinanciamento
 
-O processo de atualizar a taxa de juros de um empréstimo para a [taxa de juros global](#taxa-de-juros-global) vigente. O refinanciamento tem uma taxa de originação reduzida, mas evita a necessidade de fechar e reabrir um empréstimo. Você também pode refinanciar para ampliar sua linha de crédito caso o BTC tenha se valorizado. Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/concepts).
+O processo de atualizar a taxa de juros de um empréstimo para a [taxa de juros global](#taxa-de-juros-global) vigente. O refinanciamento tem uma taxa de originação reduzida, mas evita a necessidade de fechar e reabrir um empréstimo. Você também pode refinanciar para ampliar sua linha de crédito caso o BTC tenha se valorizado. Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/architecture-and-terminology).
 
 ## Contrato roteador
 
@@ -290,7 +290,7 @@ Um contrato que divide as emissões de MEZO entre dois destinos. Atualmente, as 
 
 ## Stability Pool
 
-Uma reserva de MUSD que serve como primeira linha de defesa contra [liquidações](#liquidação). Os usuários depositam MUSD no Stability Pool e, em troca, recebem uma parte do colateral liquidado. O contrato [PCV](#pcv) abastece o pool com um depósito inicial de 100M MUSD. Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/concepts).
+Uma reserva de MUSD que serve como primeira linha de defesa contra [liquidações](#liquidação). Os usuários depositam MUSD no Stability Pool e, em troca, recebem uma parte do colateral liquidado. O contrato [PCV](#pcv) abastece o pool com um depósito inicial de 100M MUSD. Consulte [Conceitos-chave do MUSD](/docs/pt-br/docs/users/borrow/architecture-and-terminology).
 
 ## Pool estável
 

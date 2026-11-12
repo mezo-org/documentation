@@ -92,4 +92,4 @@ Para reivindicar suas recompensas em MEZO, siga estas etapas:
 ## Recursos adicionais
 
 - [Visão geral do Mezo Earn](/docs/pt-br/docs/users/mezo-earn/overview/)
-- [Blog do Mezo](https://mezo.org/blog/tag/features/)
+- [Blog do Mezo](https://mezo.org/blog)

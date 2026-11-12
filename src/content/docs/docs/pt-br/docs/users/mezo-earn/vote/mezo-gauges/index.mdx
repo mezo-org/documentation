@@ -2,15 +2,23 @@
 title: Visão geral do MEZO Gauges
 description: >-
   Os detentores de veMEZO direcionam emissões de MEZO a pools de liquidez de
-  MUSD na Curve, na Uniswap e na Aerodrome
+  MUSD na Curve, na Uniswap e na Aero
 topic: users
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-**O MEZO Gauges permite que os detentores de veMEZO votem para direcionar emissões de MEZO a pools de liquidez fora do Mezo**, na Curve e na Uniswap (Ethereum) e na Aerodrome (Base).
+**O MEZO Gauges permite que os detentores de veMEZO votem para direcionar emissões de MEZO a pools de liquidez fora do Mezo**, na Curve e na Uniswap (Ethereum) e na Aero (Base).
 
 Até agora, o veMEZO tinha uma única função: dar [boost](/docs/pt-br/docs/users/mezo-earn/lock/vemezo/boost-mechanism) a uma posição de veBTC. Agora, o veMEZO tem poder de voto próprio sobre uma fatia real das emissões semanais.
+
+:::caution[A Aerodrome agora é Aero]
+Em 22 de outubro de 2026, às 00:00 UTC, a Aerodrome e a Velodrome se fundiram na [Aero](https://aero.xyz/aero-upgrade/). Os dois gauges da Base agora apontam para novos pools na Aero, e a votação no Mezo continua como antes.
+
+O Mezo está conectando o MEZO Gauges aos novos gauges da Aero. Até que isso seja concluído, o MEZO direcionado aos gauges da Base permanece no Mezo e não é transferido pela ponte para a Base.
+
+Se você fornece liquidez ao antigo pool USDC/MUSD ou MEZO/MUSD da Aerodrome, mova sua posição para a Aero. Consulte [Como migrar da Aerodrome](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives#como-migrar-da-aerodrome).
+:::
 
 ---
 
@@ -37,14 +45,14 @@ Os MEZO Gauges são **gauges sem staking**: não há token LP para colocar em st
 
 ## Quais pools são elegíveis
 
-Quatro gauges estão ativos no lançamento:
+Quatro gauges são elegíveis:
 
 | Gauge | Pool | Plataforma | Rede | Distribuição |
 |---|---|---|---|---|
 | Uniswap USDC/MUSD | USDC/MUSD | Uniswap | Ethereum | Merkl |
 | Curve USDT/USDC/MUSD | USDT/USDC/MUSD | Curve | Ethereum | Merkl |
-| Aerodrome USDC/MUSD | USDC/MUSD | Aerodrome | Base | Incentivos de votação da Aerodrome |
-| Aerodrome MEZO/MUSD | MEZO/MUSD | Aerodrome | Base | Incentivos de votação da Aerodrome |
+| Aero USDC/MUSD | USDC/MUSD | Aero | Base | Incentivos da Aero |
+| Aero MEZO/MUSD | MEZO/MUSD | Aero | Base | Incentivos da Aero |
 
 ### Como a lista muda
 
@@ -64,7 +72,7 @@ O MEZO Gauges é financiado pelo **ramo de gauges sem staking** das emissões, a
 1. **Você vota.** Direcione o poder de voto do veMEZO entre os MEZO Gauges disponíveis durante a época.
 2. **A época termina** na quinta-feira às 00:00 UTC e os votos são apurados. A parcela de MEZO de cada gauge é definida pela participação dele nos votos de veMEZO.
 3. **O MEZO sai do Mezo.** A alocação de cada gauge é reivindicada e encaminhada ao seu destino.
-4. **Ele chega como incentivo** no pool de destino, para ser reivindicado pelos LPs na Merkl ou pelos votantes na Aerodrome.
+4. **Ele chega como incentivo** no pool de destino, para ser reivindicado pelos LPs na Merkl ou pelos detentores de sAERO na Aero.
 </Steps>
 
 O momento exato e a forma variam de acordo com a plataforma. Consulte [Para onde vai o seu voto](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes).
@@ -73,11 +81,11 @@ O momento exato e a forma variam de acordo com a plataforma. Consulte [Para onde
 
 ## O que o votante ganha
 
-Você ganha uma parcela dos incentivos publicados no gauge em que vota, proporcional à sua participação nos votos de veMEZO desse gauge. Os incentivos dos [gauges de boost](/docs/pt-br/docs/users/mezo-earn/lock/vemezo/matching-market) funcionam da mesma forma. Qualquer pessoa pode publicar incentivos em um MEZO Gauge, e os votantes podem reivindicá-los.
+Você ganha uma parcela dos incentivos publicados no gauge em que vota, proporcional à sua participação nos votos de veMEZO desse gauge. Os incentivos dos [gauges de boost](/docs/pt-br/docs/users/mezo-earn/lock/vemezo/matching-market) funcionam da mesma forma. Qualquer pessoa pode publicar incentivos em um MEZO Gauge pelo [Matchbox](https://app.matchbox.markets/pools), em **Remote MEZO Gauges**, e os votantes podem reivindicá-los.
 
 O MEZO em si segue adiante. Ele chega ao pool de destino e paga os LPs ou os votantes desse pool, conforme o protocolo. Seu voto decide onde a liquidez de MUSD será remunerada. São os incentivos depositados no gauge que pagam você.
 
-Para também receber o MEZO direcionado, atue nos dois lados: forneça liquidez ao pool de destino e, na Aerodrome, vote no gauge correspondente na Base. [Para onde vai o seu voto](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#como-capturar-o-valor-que-você-direciona) explica esse ciclo passo a passo.
+Para também receber o MEZO direcionado, atue nos dois lados: forneça liquidez ao pool de destino e, na Aero, aloque sAERO no mesmo pool. [Para onde vai o seu voto](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#como-capturar-o-valor-que-você-direciona) explica esse ciclo passo a passo.
 
 ---
 

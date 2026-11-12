@@ -50,7 +50,7 @@ Um gauge sem token de staking, no qual se vota com veMEZO. Suas emissões são e
 
 ## MEZO Gauge
 
-Um gauge sem staking que direciona emissões de MEZO para pools de liquidez de MUSD fora do Mezo: Curve e Uniswap no Ethereum e Aerodrome na Base. Consulte [MEZO Gauges](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges).
+Um gauge sem staking que direciona emissões de MEZO para pools de liquidez de MUSD fora do Mezo: Curve e Uniswap no Ethereum e Aero na Base. Consulte [MEZO Gauges](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Peso de voto
 

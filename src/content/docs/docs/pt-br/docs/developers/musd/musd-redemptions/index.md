@@ -1,5 +1,6 @@
 ---
 title: Resgates de MUSD
+description: Guia passo a passo para resgatar MUSD por BTC chamando redeemCollateral no contrato TroveManager, com hints para economizar gás, taxas e endereços de contratos.
 topic: developers
 ---
 
