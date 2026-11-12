@@ -92,4 +92,4 @@ If the market price moves outside your chosen range, your position converts enti
 
 ### Smart contract risk
 
-As with all smart contracts, inherent risk remains. Review audits at [mezo.org/audits](https://mezo.org/audits) and only deposit amounts you're comfortable with.
+As with all smart contracts, inherent risk remains. Review audits at [mezo.org/docs/users/resources/audits](/docs/users/resources/audits) and only deposit amounts you're comfortable with.
