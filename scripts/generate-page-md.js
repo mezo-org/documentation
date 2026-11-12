@@ -147,12 +147,16 @@ function serialize(body, base) {
 // Source links are relative to the HTML page URL, which ends in a slash. The
 // .md sits one level up, so resolve relative links against the page URL. Every
 // link is written as a full URL so the markdown keeps working when it is read
-// away from the site. Fragments and other schemes are left alone.
+// away from the site. Fragments and other schemes are left alone. Images get
+// the same treatment only for site paths (/docs/images/...): a relative image
+// path points at a source file, not at a URL under the page.
 function absolutizeLinks(s, base) {
   if (!base) return s;
   return s.replace(
-    /(?<!!)\[([^\]]*)\]\((?![a-z][a-z0-9+.-]*:|#)([^)\s]+)\)/gi,
-    (m, text, href) => `[${text}](${new URL(href, base).href})`,
+    /(!?)\[([^\]]*)\]\((?![a-z][a-z0-9+.-]*:|#)([^)\s]+)\)/gi,
+    (m, bang, text, href) => (bang && !href.startsWith('/')
+      ? m
+      : `${bang}[${text}](${new URL(href, base).href})`),
   );
 }
 
@@ -302,6 +306,10 @@ function runSelfTest() {
     'https://mezo.org/docs/developers/mezo-nodes/').trim()
     === '[Kit](https://mezo.org/docs/developers/mezo-nodes/validator-kit), [Up](https://mezo.org/docs/developers/), [Abs](https://mezo.org/docs/x), [Ext](https://x.org), [Mail](mailto:a@b.c)',
     'relative links resolve against the page URL');
+  assert(serialize('![Flow](/docs/images/a.png) ![Local](./b.png)',
+    'https://mezo.org/docs/users/').trim()
+    === '![Flow](https://mezo.org/docs/images/a.png) ![Local](./b.png)',
+    'site-path images become full URLs');
 }
 
 if (process.argv.includes('--self-test')) {
