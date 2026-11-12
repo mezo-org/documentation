@@ -2,7 +2,7 @@
 title: Waar je stem naartoe gaat
 description: >-
   Hoe veMEZO-stemgewicht wordt omgezet in incentives op pools van Curve, Uniswap
-  en Aerodrome
+  en Aero
 topic: users
 ---
 
@@ -30,41 +30,49 @@ Zie [Incentives claimen](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/claiming
 
 ---
 
-## MEZO als stemincentives op Aerodrome
+## MEZO als incentives op Aero
 
-Aerodrome-gauges werken anders, omdat Aerodrome zelf een ve(3,3)-systeem is met een eigen wekelijkse stemming. Neem USDC/MUSD als voorbeeld. MEZO gaat niet rechtstreeks naar LP's op Aerodrome. De MEZO wordt als **stemincentive** gestort op de Aerodrome-gauge van die pool en uitbetaald aan de veAERO-houders die erop stemmen.
+Aero-pools werken anders, omdat Aero een eigen beloningssysteem heeft. sAERO-houders wijzen toe aan pools, en die toewijzingen sturen **AERO Rewards** naar de stortingen in elke pool die AERO verdienen. sAERO heeft veAERO vervangen toen Aerodrome Aero werd.
 
-Die veAERO-stemmen sturen de **AERO-emissies** naar de pool. Met de MEZO koop je dus AERO-emissies voor de pool, en het is de AERO die bij de LP's terechtkomt. Hetzelfde pad geldt voor MEZO/MUSD op Aerodrome.
+Neem USDC/MUSD als voorbeeld. MEZO gaat niet rechtstreeks naar LP's op Aero. De MEZO wordt als **incentiveprogramma** op die pool geplaatst, en de uitbetalingen daarvan, die Aero Liquidity Payments noemt, gaan naar de sAERO-houders die aan de pool toewijzen.
 
-Technisch gezien wordt de MEZO op Mezo geclaimd, naar Base gebridged en door een allocatorcontract op de Aerodrome-gauge gestort. Dit gebeurt elke epoch automatisch.
+Die toewijzingen sturen de AERO Rewards naar de pool. Met de MEZO koop je dus AERO Rewards voor de pool, en het is de AERO die bij de LP's terechtkomt. Hetzelfde pad geldt voor MEZO/MUSD op Aero.
 
-### De vertraging van twee epochs
+Technisch gezien wordt de MEZO op Mezo geclaimd, naar Base gebridged en door een allocatorcontract op de pool geplaatst. Dit gebeurt elke epoch automatisch.
 
-De stemming op Aerodrome loopt een week voor op de incentive waarop ze reageert. Daardoor zit er tijd tussen jouw stem en de liquiditeit die ermee wordt gekocht:
+:::caution[Opnieuw koppelen na de Aero-upgrade]
+De oude gauges van Aerodrome zijn gesloten toen Aero op 22 oktober 2026 werd gelanceerd. Mezo koppelt de allocator aan de nieuwe Aero-gauges. Tot dat klaar is, blijft MEZO die naar de Base-gauges wordt gestuurd op Mezo staan en wordt die niet gebridged.
+:::
+
+### Timing op Aero
+
+Aero kent geen wekelijkse stemming. sAERO-houders wijzen doorlopend toe, en een wijziging gaat in zodra die is doorgevoerd. Elke sAERO-positie kan haar toewijzing eens per 47 uur wijzigen; dat is de instelling waarmee Aero is gelanceerd. Incentives stromen naar de sAERO-houders die aan de pool toewijzen, en AERO Rewards stromen naar de stortingen in de pool die AERO verdienen. Geen van beide wacht op een epochwissel.
+
+De wekelijkse stap zit aan de kant van Mezo:
 
 | Epoch | Wat er gebeurt |
 |---|---|
 | **N** | Je stemt op Mezo. De epoch sluit en de toewijzing ligt vast. |
-| **N+1** | MEZO wordt als stemincentive gestort op de Aerodrome-gauge. veAERO-houders stemmen er in deze epoch op. |
-| **N+2** | AERO-emissies stromen naar de pool en LP's verdienen ze. |
+| **N+1** | De MEZO wordt naar Base gebridged en als incentiveprogramma van één week op de pool geplaatst, uiterlijk op de **Distribution date** die op de pagina Vote staat. |
+| **De week daarna** | Het programma laat de MEZO naar de sAERO-houders stromen die aan de pool toewijzen. |
 
-**Stemmen die in epoch N worden uitgebracht, leveren AERO-emissies op in epoch N+2.** Dit komt door de manier waarop Aerodrome zijn eigen epochs indeelt; het is geen vertraging die Mezo toevoegt.
+MEZO die stroomt terwijl er geen sAERO aan de pool is toegewezen, wordt niet uitbetaald. De allocator kan die na afloop van het programma terughalen en in een later programma opnieuw plaatsen.
 
 ---
 
 ## De waarde benutten die je stuurt
 
-Emissies sturen is invloed, geen rendement. De MEZO die je naar een doelpool stuurt, gaat naar de mensen in die pool: claimers op Merkl bij Curve en Uniswap, veAERO-stemmers bij Aerodrome. Je krijgt die niet terug als stemmer op een MEZO Gauge.
+Emissies sturen is invloed, geen rendement. De MEZO die je naar een doelpool stuurt, gaat naar de mensen in die pool: claimers op Merkl bij Curve en Uniswap, sAERO-houders bij Aero. Je krijgt die niet terug als stemmer op een MEZO Gauge.
 
 Wat je als stemmer rechtstreeks verdient, is je deel van de **incentives die op de MEZO Gauge zelf zijn geplaatst**, naar verhouding van jouw aandeel in de stemmen op die gauge.
 
-Wil je de emissies zelf binnenhalen, dan moet je aan beide kanten van de kringloop staan. Op Aerodrome, met USDC/MUSD als voorbeeld:
+Wil je de emissies zelf binnenhalen, dan moet je aan beide kanten van de kringloop staan. Op Aero, met USDC/MUSD als voorbeeld:
 
 <Steps>
-1. **Verschaf liquiditeit** aan de pool op Aerodrome en stake in de gauge ervan.
+1. **Verschaf liquiditeit** aan de pool op Aero en kies **AERO rewards** voor de storting.
 2. **Stem** op Mezo met veMEZO op de MEZO Gauge van die pool.
-3. **Stem** op Base met veAERO op de bijbehorende Aerodrome-gauge.
-4. **Ontvang** AERO voor je LP-positie en de MEZO-stemincentive voor je veAERO-stem.
+3. **Wijs** op Aero sAERO toe aan dezelfde pool.
+4. **Ontvang** AERO Rewards voor je LP-positie en de MEZO-incentive voor je sAERO-toewijzing.
 </Steps>
 
 Op Curve en Uniswap is de kringloop korter: verschaf liquiditeit aan de pool, stem op de MEZO Gauge ervan en claim de campagne als LP op Merkl.
@@ -77,6 +85,6 @@ De volledige kringloop doorlopen is optioneel. Veel veMEZO-houders zullen alleen
 
 ## Volgende stappen
 
-- [Incentives claimen](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives): claimen op Merkl of Aerodrome
+- [Incentives claimen](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives): claimen op Merkl of Aero
 - [Stemmen op MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote): de stapsgewijze uitleg
 - [Overzicht van MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges): geschikte pools en financiering

@@ -151,4 +151,4 @@ Elke veBTC-NFT heeft zijn eigen boostgauge. veMEZO-houders stemmen op deze gauge
 
 **Waar zie ik de huidige gaugegewichten en incentives?**
 
-Ga naar de [stempagina](https://mezo.org/vote) voor realtime gaugegewichten, incentivebedragen, verwachte APY's en historische prestaties.
+Ga naar de [stempagina](https://mezo.org/earn/vote) voor realtime gaugegewichten, incentivebedragen, verwachte APY's en historische prestaties.

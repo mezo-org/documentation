@@ -92,4 +92,4 @@ Volg deze stappen om je MEZO-beloningen te claimen:
 ## Aanvullende bronnen
 
 - [Overzicht van Mezo Earn](/docs/nl/docs/users/mezo-earn/overview/)
-- [Mezo-blog](https://mezo.org/blog/tag/features/)
+- [Mezo-blog](https://mezo.org/blog)

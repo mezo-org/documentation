@@ -9,36 +9,34 @@ topic: users
 import { Steps } from '@astrojs/starlight/components';
 import YouTube from '../../../../../../../components/YouTube.astro';
 
-Je kunt native Bitcoin of ondersteunde ERC-20-tokens (Bitcoin-wrappers) op Mezo Mainnet storten.
+Je kunt tBTC en andere ondersteunde ERC-20-tokens met een EVM-wallet van Ethereum naar Mezo Mainnet storten.
+
+:::caution[De Native BTC Bridge-in is beëindigd]
+Sinds 13 oktober 2026 is de Native BTC Bridge-in gesloten en accepteert de Mezo App geen stortingen meer vanuit Bitcoin-wallets (UniSat, OKX, Xverse). Rechtstreeks naar BTC bridgen blijft mogelijk. Wil je BTC naar Mezo brengen, stort dan tBTC vanaf Ethereum. Dat is binnen enkele minuten afgehandeld en er geldt geen minimumbedrag.
+
+Heb je BTC in een Bitcoin-wallet, maak dan een Mezo-account aan met een EVM-wallet en beheer je stortingen van daaruit. Gebruikt je Mezo-account al een Bitcoin-wallet, dan kun je je activa op Mezo houden door ze naar een EVM-wallet te verplaatsen: ga in de Mezo App naar **Transact > Send** en voer het `0x…`-adres van je EVM-wallet in (zie [Activa versturen](/docs/nl/docs/users/passport/send-assets)). Je kunt ook nog steeds rechtstreeks naar BTC bridgen. Zie [Opnames](/docs/nl/docs/users/mainnet/bridges#opnames).
+:::
 
 <YouTube id="DinlFeUZB3U" title="Zo stort je op Mezo" />
 
 ## Voordat je begint
 
+- Meld je aan met een EVM-wallet zoals MetaMask. Met een Bitcoin-wallet kun je niet op Mezo storten.
 - Controleer welke activa worden ondersteund. Je kunt de tokenadressen van deze activa controleren op de pagina [Contractreferentie](/docs/nl/docs/users/resources/contracts-reference#tokencontracten).
-- Alle transacties op Mezo Mainnet worden betaald met native BTC- of tBTC-stortingen. Het is raadzaam om je account met BTC of tBTC te financieren voordat je het netwerk gebruikt, zodat je gas hebt om transacties te betalen.
+- Alle transacties op Mezo Mainnet worden in BTC betaald. tBTC die je vanaf Ethereum stort, komt als BTC op Mezo aan. Het is daarom raadzaam om je account met tBTC te financieren, zodat je gas hebt om transacties te betalen. Heb je op Mezo alleen MUSD of MEZO, gebruik dan [Get Gas](/docs/nl/docs/users/getting-started/get-gas).
 
 ## Je activa storten
 
 <Steps>
-1. Ga naar de [Mezo App](https://mezo.org/overview) en meld je aan met een ondersteunde wallet.
+1. Ga naar de [Mezo App](https://mezo.org/overview) en meld je aan met een EVM-wallet.
 
-2. Nadat je je hebt aangemeld en de transactie hebt ondertekend, klik je op **Deposit Bitcoin**.
+2. Klik op **Deposit**. Het stortingsformulier opent met tBTC geselecteerd.
 
 3. Selecteer het activum dat je wilt bridgen en geef het bedrag op.
 
-    ![](/docs/images/mainnet/deposit-modal-preview.png)
+4. Klik op **Review** en controleer de gegevens van de overdracht.
 
-4. Klik op **Review** om de overdracht te controleren en een stortingsadres te genereren.
-
-5. Controleer de gegevens van de overdracht en ga na of alles klopt.
-
-6. Ben je klaar om de activa te storten, kopieer dan het walletadres. Controleer of het adres correct in je wallet wordt weergegeven.
-
-    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
-
-7. Is de transactie in orde, bevestig de transactie dan.
+5. Is de transactie in orde, bevestig die dan in je wallet. Is het je eerste storting van dat token, dan vraagt je wallet je eerst om het goed te keuren.
 </Steps>
 
 Zodra de transactie is voltooid, begint het bridgeproces. Het kan enkele minuten duren voordat het proces is afgerond en je je activa op Mainnet ontvangt.
-

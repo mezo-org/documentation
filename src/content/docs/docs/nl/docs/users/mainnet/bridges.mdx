@@ -13,20 +13,20 @@ Met de Mezo Native Bridge kun je activa naar en van Mezo storten en opnemen.
 
 ## Stortingen via de Mezo Native Bridge
 
-De Mezo App bevat een native bridge waarmee je verschillende activa naar Mezo Mainnet kunt storten. Lees de handleiding [Activa storten](/docs/nl/docs/users/getting-started/deposit-assets) om te zien hoe het proces werkt, of ga direct naar [mezo.org/overview](https://mezo.org/overview), meld je aan en klik op **Deposit Bitcoin** om te beginnen.
+De Mezo App bevat een native bridge waarmee je verschillende activa van Ethereum naar Mezo Mainnet kunt storten. Lees de handleiding [Activa storten](/docs/nl/docs/users/getting-started/deposit-assets) om te zien hoe het proces werkt, of ga direct naar [mezo.org/overview](https://mezo.org/overview), meld je aan met een EVM-wallet en klik op **Deposit** om te beginnen.
 
 :::note[Opmerking]
-Alle transacties op Mezo Mainnet worden betaald met gestorte native BTC of tBTC. Het is raadzaam om je account met BTC of tBTC te vullen voordat je het netwerk gebruikt, zodat je gas hebt om transacties te betalen.
+Alle transacties op Mezo Mainnet worden in BTC betaald. tBTC die je vanaf Ethereum stort, komt als BTC op Mezo aan. Het is daarom raadzaam om je account met tBTC te vullen, zodat je gas hebt om transacties te betalen.
 :::
 
 
-## Native BTC storten
+## Native BTC Bridge-in (beëindigd)
 
-Je kunt BTC rechtstreeks vanuit een Bitcoin-wallet in de Mezo App storten. Je activa worden automatisch naar tBTC en naar Mezo Mainnet gebridged.
+Sinds 13 oktober 2026 is de Native BTC Bridge-in gesloten en accepteert de Mezo App geen stortingen meer vanuit Bitcoin-wallets. Rechtstreeks naar BTC bridgen blijft mogelijk (zie [Naar Bitcoin bridgen](#naar-bitcoin-bridgen-alleen-voor-native-btc)). Wil je BTC naar Mezo brengen, stort dan tBTC vanaf Ethereum. Dat is binnen enkele minuten afgehandeld en er geldt geen minimumbedrag. Zie [Activa storten](/docs/nl/docs/users/getting-started/deposit-assets).
 
-Native BTC wordt naar tBTC gebridged voordat het naar het [Mezo App-contract](/docs/nl/docs/users/resources/contracts-reference) wordt gebridged.
+Heb je BTC in een Bitcoin-wallet, maak dan een Mezo-account aan met een EVM-wallet en beheer je stortingen van daaruit. Ben je vóór 13 oktober een native storting gestart, zie dan [Je native Bitcoin-storting volgen](/docs/nl/docs/users/mainnet/track-your-native-bitcoin-deposit).
 
-Voor BTC-wallets kun je je aanmelden met UniSat, OKX en Xverse. Gebruik de volgende adressen:
+Accounts die zich aanmelden met een Bitcoin-wallet (UniSat, OKX, Xverse) kunnen hun activa via **Transact > Send** in de Mezo App naar een EVM-wallet op Mezo verplaatsen (zie [Activa versturen](/docs/nl/docs/users/passport/send-assets)) en daarna alles vanuit die wallet storten en beheren. Ze kunnen ook nog steeds [BTC naar Bitcoin opnemen](#naar-bitcoin-bridgen-alleen-voor-native-btc). Bitcoin-wallets gebruiken de volgende adrestypen:
 
 | Naam           | Scripttype  | Adresprefix    |
 | -------------- | ----------- | -------------- |
@@ -259,7 +259,10 @@ A: De meeste transacties waarmee je geld via de Native Bridge naar Ethereum brid
 **V: Naar welke netwerken kan ik bridgen?**
 A: Activa kunnen worden gebridged tussen Ethereum, Mezo, Base en Bitcoin. In de toekomst wordt ondersteuning voor meer netwerken toegevoegd.
 
-**V: Mijn native Bitcoin-storting is nog niet verschenen. Hoe controleer ik de status?**
+**V: Kan ik nog BTC storten vanuit een Bitcoin-wallet?**
+A: Nee. De Native BTC Bridge-in is op 13 oktober 2026 gesloten. Stort in plaats daarvan tBTC vanaf Ethereum met een EVM-wallet. Zie [Activa storten](/docs/nl/docs/users/getting-started/deposit-assets). Rechtstreeks naar BTC bridgen blijft mogelijk.
+
+**V: Een native Bitcoin-storting die ik vóór 13 oktober ben gestart, is nog niet verschenen. Hoe controleer ik de status?**
 A: Zie [Je native Bitcoin-storting volgen](/docs/nl/docs/users/mainnet/track-your-native-bitcoin-deposit) voor een stapsgewijze handleiding om met tBTCScan de status van je storting te controleren.
 
 **V: Wie betaalt het gas op het bestemmingsnetwerk?**

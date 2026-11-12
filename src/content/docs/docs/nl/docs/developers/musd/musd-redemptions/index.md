@@ -1,5 +1,6 @@
 ---
 title: MUSD-inwisselingen
+description: Stapsgewijze handleiding om MUSD in te wisselen voor BTC door redeemCollateral aan te roepen op het TroveManager-contract, met gasbesparende hints, kosten en contractadressen.
 topic: developers
 ---
 

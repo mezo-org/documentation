@@ -1,5 +1,6 @@
 ---
 title: Mezo Pools
+description: Naslag voor ontwikkelaars over Mezo Pools, met basispools en pools met geconcentreerde liquiditeit, swapflows, positiebeheer en contractadressen op Mainnet en Testnet.
 topic: developers
 ---
 Met Mezo Pools kunnen gebruikers tokens swappen en liquiditeit verschaffen via geoptimaliseerde poolmechanismen. Mezo ondersteunt twee poolarchitecturen: **basispools** (AMM's met constant product en stable curve) en **pools met geconcentreerde liquiditeit (CL)** met aangepaste prijsbereiken.

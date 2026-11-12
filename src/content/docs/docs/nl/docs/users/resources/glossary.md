@@ -32,7 +32,7 @@ Bitcoin. BTC is het native gastoken op Mezo (met 18 decimalen) en het belangrijk
 
 ## BTC-wallet
 
-Een Bitcoin-native wallet waarmee je BTC rechtstreeks naar Mezo stort. Ondersteunde wallets zijn onder meer UniSat, OKX en Xverse. Ondersteunde adresformaten zijn Legacy (P2PKH), Native SegWit (P2WPKH) en Nested SegWit (P2SH-P2WPKH). Zie [Activa storten](/docs/nl/docs/users/getting-started/deposit-assets).
+Een Bitcoin-native wallet waarmee je je bij Mezo kunt aanmelden. Ondersteunde wallets zijn onder meer UniSat, OKX en Xverse. Ondersteunde adresformaten zijn Legacy (P2PKH), Native SegWit (P2WPKH) en Nested SegWit (P2SH-P2WPKH). Met een BTC-wallet kon je via de Native BTC Bridge-in BTC rechtstreeks naar Mezo storten, totdat die op 13 oktober 2026 werd gesloten. Activa van een account met een BTC-wallet kun je via **Transact > Send** naar een EVM-wallet op Mezo verplaatsen ([Activa versturen](/docs/nl/docs/users/passport/send-assets)) of rechtstreeks naar BTC bridgen, wat mogelijk blijft. Zie [Bridges](/docs/nl/docs/users/mainnet/bridges).
 
 ## Chain-ID
 
@@ -56,7 +56,7 @@ Het overtollige onderpand dat overblijft nadat er volledig tegen een [Trove](#tr
 
 ## Collateralisatieratio (ICR)
 
-Individual Collateralization Ratio (individuele collateralisatieratio). De verhouding tussen de dollarwaarde van het onderpand van een Trove en de totale schuld ervan. Is je BTC-onderpand bijvoorbeeld \$13.000 waard en bedraagt je schuld \$10.000, dan is je ICR 130%. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
+Individual Collateralization Ratio (individuele collateralisatieratio). De verhouding tussen de dollarwaarde van het onderpand van een Trove en de totale schuld ervan. Is je BTC-onderpand bijvoorbeeld \$13.000 waard en bedraagt je schuld \$10.000, dan is je ICR 130%. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/architecture-and-terminology).
 
 ## CometBFT
 
@@ -68,7 +68,7 @@ Het modulaire framework waarmee de Mezo-blockchain is gebouwd. Cosmos SDK levert
 
 ## Kritieke collateralisatieratio (CCR)
 
-De systeembrede onderpanddrempel, vastgesteld op 150%. Wanneer de Total Collateralization Ratio (TCR) onder de CCR zakt, gaat het systeem over naar [Recovery Mode](#recovery-mode). Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
+De systeembrede onderpanddrempel, vastgesteld op 150%. Wanneer de Total Collateralization Ratio (TCR) onder de CCR zakt, gaat het systeem over naar [Recovery Mode](#recovery-mode). Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/architecture-and-terminology).
 
 ## dApp
 
@@ -120,7 +120,7 @@ Een smart contract dat beloningen ontvangt en verdeelt op basis van stemmen. Hoe
 
 ## Globaal rentetarief
 
-Eén rentetarief, vastgesteld door governance, dat geldt voor alle nieuw geopende MUSD-leningen. Zodra een lening is geopend, behoudt die het tarief waartegen ze is aangemaakt, ook als het globale tarief verandert. Gebruikers kunnen [herfinancieren](#herfinanciering) om het actuele globale tarief over te nemen. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
+Eén rentetarief, vastgesteld door governance, dat geldt voor alle nieuw geopende MUSD-leningen. Zodra een lening is geopend, behoudt die het tarief waartegen ze is aangemaakt, ook als het globale tarief verandert. Gebruikers kunnen [herfinancieren](#herfinanciering) om het actuele globale tarief over te nemen. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/architecture-and-terminology).
 
 ## Governance
 
@@ -184,7 +184,7 @@ Het complete systeem voor verdienen en governance op Mezo, met vergrendelen ([ve
 
 ## MEZO Gauge
 
-Een [niet-staking-gauge](#niet-staking-gauge) waarop veMEZO-houders stemmen om MEZO-emissies naar MUSD-liquiditeitspools buiten Mezo te sturen: Curve en Uniswap op Ethereum, en Aerodrome op Base. Wordt gefinancierd uit de niet-staking-tak van de emissies (momenteel 8% van de wekelijkse emissiebeloningen). Zie [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges).
+Een [niet-staking-gauge](#niet-staking-gauge) waarop veMEZO-houders stemmen om MEZO-emissies naar MUSD-liquiditeitspools buiten Mezo te sturen: Curve en Uniswap op Ethereum, en Aero op Base. Wordt gefinancierd uit de niet-staking-tak van de emissies (momenteel 8% van de wekelijkse emissiebeloningen). Zie [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Mezo Market
 
@@ -200,7 +200,7 @@ Het liquiditeitspoolsysteem op Mezo, dat fungeert als geautomatiseerde onchain l
 
 ## Minimale collateralisatieratio (MCR)
 
-De minimale onderpandratio die voor een [Trove](#trove) vereist is, vastgesteld op 110%. Zakt de [ICR](#collateralisatieratio-icr) van een Trove onder de MCR, dan komt die in aanmerking voor [liquidatie](#liquidatie). Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
+De minimale onderpandratio die voor een [Trove](#trove) vereist is, vastgesteld op 110%. Zakt de [ICR](#collateralisatieratio-icr) van een Trove onder de MCR, dan komt die in aanmerking voor [liquidatie](#liquidatie). Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/architecture-and-terminology).
 
 ## MUSD
 
@@ -232,7 +232,7 @@ Een dienst die externe gegevens (zoals prijzen van activa) onchain aan smart con
 
 ## Afsluitkosten
 
-Eenmalige kosten die in rekening worden gebracht wanneer je MUSD leent, berekend als 0,1% van het geleende bedrag. De kosten worden bij de hoofdsom van de lening opgeteld en er wordt rente over berekend. Bij [herfinanciering](#herfinanciering) worden afsluitkosten voor herfinanciering in rekening gebracht (een fractie van de gewone kosten). Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
+Eenmalige kosten die in rekening worden gebracht wanneer je MUSD leent, berekend als 0,1% van het geleende bedrag. De kosten worden bij de hoofdsom van de lening opgeteld en er wordt rente over berekend. Bij [herfinanciering](#herfinanciering) worden afsluitkosten voor herfinanciering in rekening gebracht (een fractie van de gewone kosten). Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/architecture-and-terminology).
 
 ## PCV
 
@@ -268,7 +268,7 @@ Het rechtstreeks bij het protocol omwisselen van MUSD voor BTC met een gelijkwaa
 
 ## Herfinanciering
 
-Het proces waarbij het rentetarief van een lening wordt bijgewerkt naar het actuele [globale rentetarief](#globaal-rentetarief). Voor herfinanciering betaal je verlaagde afsluitkosten, maar je hoeft je lening niet te sluiten en opnieuw te openen. Je kunt ook herfinancieren om je kredietlijn te verruimen als BTC in waarde is gestegen. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
+Het proces waarbij het rentetarief van een lening wordt bijgewerkt naar het actuele [globale rentetarief](#globaal-rentetarief). Voor herfinanciering betaal je verlaagde afsluitkosten, maar je hoeft je lening niet te sluiten en opnieuw te openen. Je kunt ook herfinancieren om je kredietlijn te verruimen als BTC in waarde is gestegen. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/architecture-and-terminology).
 
 ## Routercontract
 
@@ -292,7 +292,7 @@ Een contract dat MEZO-emissies over twee bestemmingen verdeelt. De verdeelverhou
 
 ## Stability Pool
 
-Een reserve van MUSD die de eerste verdedigingslinie tegen [liquidaties](#liquidatie) vormt. Gebruikers storten MUSD in de Stability Pool en ontvangen in ruil daarvoor een deel van het geliquideerde onderpand. Het [PCV](#pcv)-contract voorziet de pool van een eerste storting van 100 miljoen MUSD. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/concepts).
+Een reserve van MUSD die de eerste verdedigingslinie tegen [liquidaties](#liquidatie) vormt. Gebruikers storten MUSD in de Stability Pool en ontvangen in ruil daarvoor een deel van het geliquideerde onderpand. Het [PCV](#pcv)-contract voorziet de pool van een eerste storting van 100 miljoen MUSD. Zie [Belangrijkste concepten van MUSD](/docs/nl/docs/users/borrow/architecture-and-terminology).
 
 ## Stabiele pool
 

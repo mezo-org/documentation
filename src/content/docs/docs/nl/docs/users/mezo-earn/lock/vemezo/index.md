@@ -13,7 +13,7 @@ Als je MEZO vergrendelt op Mezo, ontvang je een veMEZO-NFT die je vergrendelde p
 - Een boostvermenigvuldiger op de stemkracht van je veBTC (tot 5x)
 - Rebasebeloningen uit de wekelijkse MEZO-emissies om verwatering te compenseren
 - Deelname aan de matchingmarkt om incentives van veBTC-houders te verdienen
-- Stemmen op [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges), waarmee je MEZO-emissies naar MUSD-pools op Curve, Uniswap en Aerodrome stuurt
+- Stemmen op [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges), waarmee je MEZO-emissies naar MUSD-pools op Curve, Uniswap en Aero stuurt
 
 :::note[Belangrijk]
 veMEZO stemt niet zelfstandig op **staking-gauges**: daar vermenigvuldigt het alleen de stemkracht van veBTC-posities. Op veBTC-boostgauges en op [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges) stemt het wel zelfstandig.

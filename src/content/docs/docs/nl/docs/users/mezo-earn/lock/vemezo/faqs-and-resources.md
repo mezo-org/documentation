@@ -12,7 +12,7 @@ Nee. Vergrendelingen staan vast tot de vervaldatum. Kies je duur dus zorgvuldig:
 
 ### Kan ik met alleen veMEZO op gauges stemmen?
 
-Ja, op sommige. veMEZO stemt zelfstandig op **veBTC-boostgauges** en op **[MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges)**, die MEZO-emissies naar MUSD-pools op Curve, Uniswap en Aerodrome sturen.
+Ja, op sommige. veMEZO stemt zelfstandig op **veBTC-boostgauges** en op **[MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges)**, die MEZO-emissies naar MUSD-pools op Curve, Uniswap en Aero sturen.
 
 Wat veMEZO niet alleen kan, is stemmen op **staking-gauges**: daarvoor is veBTC nodig, en de rol van veMEZO is daar het vermenigvuldigen van de stemkracht van veBTC.
 

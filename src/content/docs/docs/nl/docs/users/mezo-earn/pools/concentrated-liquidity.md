@@ -92,4 +92,4 @@ Beweegt de marktprijs buiten je gekozen bereik, dan wordt je positie volledig om
 
 ### Smart-contractrisico
 
-Zoals bij alle smart contracts blijft er een inherent risico bestaan. Bekijk de audits op [mezo.org/audits](https://mezo.org/audits) en stort alleen bedragen waarbij je je comfortabel voelt.
+Zoals bij alle smart contracts blijft er een inherent risico bestaan. Bekijk de audits op [mezo.org/docs/nl/docs/users/resources/audits](/docs/nl/docs/users/resources/audits) en stort alleen bedragen waarbij je je comfortabel voelt.

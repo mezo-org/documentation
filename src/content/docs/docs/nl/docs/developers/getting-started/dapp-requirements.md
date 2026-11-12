@@ -1,5 +1,6 @@
 ---
 title: Vereisten voor dApps
+description: Vereisten om met een dApp in de Mezo Market te worden uitgelicht, waaronder integratie van MUSD, een beveiligingsaudit door een derde partij en een live deployment op Mainnet.
 topic: developers
 ---
 

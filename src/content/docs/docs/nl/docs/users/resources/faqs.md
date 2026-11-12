@@ -40,7 +40,7 @@ Met Passport kunnen ontwikkelaars eenvoudig ondersteuning voor Bitcoin-wallets i
 
 ## Hoe investeer ik in Mezo?
 
-Wil je investeerder worden, neem dan contact op via [IR@thesis.co](IR@thesis.co).
+Wil je investeerder worden, neem dan contact op via [IR@thesis.co](mailto:IR@thesis.co).
 
 ## Welke wallets kan ik met Mezo gebruiken?
 
@@ -59,9 +59,11 @@ EVM-compatibel:
 * Zerion
 * OKX
 
+Met een Bitcoin-wallet kun je niet meer op Mezo storten. De Native BTC Bridge-in is op 13 oktober 2026 gesloten. Gebruik een EVM-wallet om te storten. Gebruikt je account een Bitcoin-wallet, dan kun je je activa via **Transact > Send** in de Mezo App naar een EVM-wallet op Mezo verplaatsen (zie [Activa versturen](/docs/nl/docs/users/passport/send-assets)), of rechtstreeks naar BTC bridgen, wat mogelijk blijft.
+
 ## Welk token wordt gebruikt voor transactiekosten?
 
-Transactiekosten op Mezo worden betaald in BTC. Je kunt BTC op Mezo verkrijgen door BTC rechtstreeks vanuit je Bitcoin-wallet te storten, of tBTC vanuit je Ethereum-wallet. 
+Transactiekosten op Mezo worden betaald in BTC. Je kunt BTC op Mezo verkrijgen door tBTC vanuit je Ethereum-wallet te storten, of door MUSD of MEZO te swappen met [Get Gas](/docs/nl/docs/users/getting-started/get-gas).
 
 ## Waarom worden sommige tokens die ik bezit niet weergegeven in de Mezo Explorer?
 

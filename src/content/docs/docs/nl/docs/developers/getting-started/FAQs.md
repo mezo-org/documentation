@@ -1,5 +1,6 @@
 ---
 title: FAQ
+description: Veelgestelde vragen voor bouwers op Mezo over het netwerk, gas, integraties en support.
 topic: developers
 ---
 

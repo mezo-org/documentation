@@ -50,7 +50,7 @@ Een gauge zonder stakingtoken waarop met veMEZO wordt gestemd. De emissies gaan 
 
 ## MEZO Gauge
 
-Een niet-staking-gauge die MEZO-emissies naar MUSD-liquiditeitspools buiten Mezo stuurt: Curve en Uniswap op Ethereum, en Aerodrome op Base. Zie [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges).
+Een niet-staking-gauge die MEZO-emissies naar MUSD-liquiditeitspools buiten Mezo stuurt: Curve en Uniswap op Ethereum, en Aero op Base. Zie [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Stemgewicht
 

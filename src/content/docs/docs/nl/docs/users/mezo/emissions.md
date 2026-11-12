@@ -96,6 +96,6 @@ De wekelijkse emissies stromen door een systeem van splitters:
 
 4. **Validators** beheren de nodes van de Mezo-chain. Ze ontvangen via de Chain Splitter een vast deel van de MEZO-emissies (20%).
 
-5. **Ecosystem Splitter** verdeelt de resterende 80% tussen staking-gauges en niet-staking-gauges, momenteel 90/10. De niet-staking-tak, ongeveer 8% van de emissiebeloningen, financiert [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges), waar veMEZO-houders stemmen om MEZO naar MUSD-pools op Curve, Uniswap en Aerodrome te sturen.
+5. **Ecosystem Splitter** verdeelt de resterende 80% tussen staking-gauges en niet-staking-gauges, momenteel 90/10. De niet-staking-tak, ongeveer 8% van de emissiebeloningen, financiert [MEZO Gauges](/docs/nl/docs/users/mezo-earn/vote/mezo-gauges), waar veMEZO-houders stemmen om MEZO naar MUSD-pools op Curve, Uniswap en Aero te sturen.
 
 6. **Staking-gauges** ontvangen het grootste deel van de emissies. LP's die hun LP-tokens staken en MUSD-spaarders die hun ontvangsttokens staken, verdienen hier MEZO. In ruil daarvoor geven ze de directe handelsvergoedingen op; die gaan in plaats daarvan naar veBTC-stemmers.

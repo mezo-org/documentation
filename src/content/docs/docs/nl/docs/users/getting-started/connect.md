@@ -1,5 +1,6 @@
 ---
 title: Je wallet verbinden met Mezo
+description: Voeg Mezo Mainnet of Testnet toe aan een browserwallet, via Chainlist of handmatig, met chain-ID's, openbare RPC-endpoints en netwerkgegevens.
 topic: users
 ---
 
@@ -67,7 +68,7 @@ Moet je het netwerk handmatig aan je wallet toevoegen? Volg dan de instructies v
 
 BTC-wallets worden ondersteund in de Mezo App en kunnen een Mezo-netwerkadres krijgen dat aan je BTC-wallet is gekoppeld. Met een BTC-wallet kun je op Mezo momenteel het volgende doen:
 
-- BTC-activa bridgen
+- Activa naar een EVM-wallet op Mezo verplaatsen via **Transact > Send** ([Activa versturen](/docs/nl/docs/users/passport/send-assets)), of rechtstreeks naar BTC bridgen (de Native BTC Bridge-in voor stortingen vanuit BTC-wallets is op 13 oktober 2026 beëindigd; zie [Activa storten](/docs/nl/docs/users/getting-started/deposit-assets))
 - EVM-activa bridgen
 - Lenen, aflossen of het onderpand van een lening beheren
 - Aankopen doen op de MUSD Market

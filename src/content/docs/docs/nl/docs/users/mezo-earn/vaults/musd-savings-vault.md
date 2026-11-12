@@ -62,7 +62,7 @@ Dit werkt net zoals LP-staking in de liquiditeitspools op de native DEX van Mezo
 
 De MUSD Savings Rate gauge concurreert om stemmen met de gauges van LP-pools. Samen heten deze "staking-gauges": een stem die aan de savings rate-gauge is toegewezen, kan niet ook aan een LP-gauge worden toegewezen.
 
-Nu de MEZO-emissies live zijn, verdien je met het staken van sMUSD in de gauge MEZO bovenop je basispositie. De MUSD Savings-gauge concurreert om veBTC-stemmen met de gauges van LP-pools: hoe meer stemmen naar de savings-gauge gaan, hoe meer MEZO-emissies naar stakers stromen. veBTC-stemmers die de gauge steunen, verdienen de MUSD-vergoedingen die stakers omleiden. De actuele gauge-APR voor stakers en stemmers zie je op de pagina Vote op [mezo.org/earn/vaults/vote](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC/vote).
+Nu de MEZO-emissies live zijn, verdien je met het staken van sMUSD in de gauge MEZO bovenop je basispositie. De MUSD Savings-gauge concurreert om veBTC-stemmen met de gauges van LP-pools: hoe meer stemmen naar de savings-gauge gaan, hoe meer MEZO-emissies naar stakers stromen. veBTC-stemmers die de gauge steunen, verdienen de MUSD-vergoedingen die stakers omleiden. De actuele gauge-APR voor stakers en stemmers zie je op de pagina Vote op [mezo.org/earn/vote](https://mezo.org/earn/vote).
 
 ---
 

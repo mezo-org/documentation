@@ -100,7 +100,7 @@ topic: users
 
 ## 2025-05-28 - Lancering van Mezo Mainnet
 
-Mezo Mainnet is nu beschikbaar! Lees de documentatie [Aan de slag](https:/mezo.org/docs/users/getting-started/connect) om te zien hoe je verbinding maakt met Mainnet, of ga naar [mezo.org/overview](https://mezo.org/overview) om je activa te bridgen en het platform te gaan gebruiken.
+Mezo Mainnet is nu beschikbaar! Lees de documentatie [Aan de slag](https://mezo.org/docs/users/getting-started/connect) om te zien hoe je verbinding maakt met Mainnet, of ga naar [mezo.org/overview](https://mezo.org/overview) om je activa te bridgen en het platform te gaan gebruiken.
 
 ## 2025-04-12 - Lancering van Mezo Mainnet aangekondigd
 
