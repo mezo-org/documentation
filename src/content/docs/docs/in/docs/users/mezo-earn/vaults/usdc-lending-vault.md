@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: यूएसडीसी लेंडिंग वॉल्ट (USDC Lending Vault)
 description: >-
   Mezo पर BTC-समर्थित Morpho लेंडिंग मार्केट में mUSDC दें और उधारकर्ताओं से
   ब्याज या MEZO एमिशन कमाएं

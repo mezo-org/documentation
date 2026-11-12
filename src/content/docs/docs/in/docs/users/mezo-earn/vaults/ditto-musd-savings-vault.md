@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: डिट्टो एमयूएसडी सेविंग्स वॉल्ट (Ditto MUSD Savings Vault)
 description: >-
   Mezo पर MUSD जमा करें और एक ऑटोमेटेड क्रॉस-चेन वॉल्ट के लिए dMUSD पाएं, जिसका
   शुरुआती आवंटन Spark Savings में होता है

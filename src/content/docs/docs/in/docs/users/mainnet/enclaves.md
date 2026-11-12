@@ -1,5 +1,5 @@
 ---
-title: Enclaves
+title: एन्क्लेव (Enclaves)
 description: Mezo पर एन्क्लेव के ज़रिए संस्थागत BTC डिपॉज़िट कैसे काम करते हैं
 topic: users
 ---
