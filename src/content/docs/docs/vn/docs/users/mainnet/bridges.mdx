@@ -13,20 +13,20 @@ Bạn có thể nạp và rút tài sản vào và ra khỏi Mezo bằng Mezo Na
 
 ## Nạp qua Mezo Native Bridge
 
-Mezo App có tích hợp một cầu nối gốc, cho phép bạn nạp nhiều loại tài sản vào Mezo Mainnet. Xem hướng dẫn [Nạp tài sản](/docs/vn/docs/users/getting-started/deposit-assets) để tìm hiểu quy trình, hoặc truy cập thẳng [mezo.org/overview](https://mezo.org/overview), đăng nhập và nhấp vào **Deposit Bitcoin** để bắt đầu.
+Mezo App có tích hợp một cầu nối gốc, cho phép bạn nạp nhiều loại tài sản từ Ethereum vào Mezo Mainnet. Xem hướng dẫn [Nạp tài sản](/docs/vn/docs/users/getting-started/deposit-assets) để tìm hiểu quy trình, hoặc truy cập thẳng [mezo.org/overview](https://mezo.org/overview), đăng nhập bằng ví EVM và nhấp vào **Deposit** để bắt đầu.
 
 :::note[Lưu ý]
-Mọi giao dịch trên Mezo Mainnet đều được thanh toán bằng khoản nạp BTC gốc hoặc tBTC. Trước khi sử dụng mạng, bạn nên nạp BTC hoặc tBTC vào tài khoản để đảm bảo có đủ gas trả cho các giao dịch.
+Mọi giao dịch trên Mezo Mainnet đều được thanh toán bằng BTC. tBTC nạp từ Ethereum sẽ đến Mezo dưới dạng BTC, vì vậy bạn nên nạp tBTC vào tài khoản để đảm bảo có đủ gas trả cho các giao dịch.
 :::
 
 
-## Nạp BTC gốc
+## Native BTC Bridge-in (đã kết thúc)
 
-Bạn có thể nạp BTC trực tiếp từ ví Bitcoin vào Mezo App. Tài sản sẽ tự động được chuyển qua cầu nối thành tBTC và vào Mezo Mainnet.
+Kể từ ngày 13 tháng 10 năm 2026, Native BTC Bridge-in đã đóng và Mezo App không còn nhận khoản nạp từ ví Bitcoin. Bạn vẫn có thể rút trực tiếp về BTC qua cầu nối (xem [Chuyển qua cầu nối sang Bitcoin](#chuyển-qua-cầu-nối-sang-bitcoin-chỉ-cho-btc-gốc)). Để đưa BTC vào Mezo, hãy nạp tBTC từ Ethereum. Khoản nạp hoàn tất trong vài phút và không có mức tối thiểu. Xem [Nạp tài sản](/docs/vn/docs/users/getting-started/deposit-assets).
 
-BTC gốc được chuyển qua cầu nối thành tBTC trước khi được chuyển vào [hợp đồng Mezo App](/docs/vn/docs/users/resources/contracts-reference).
+Nếu bạn nắm giữ BTC trong ví Bitcoin, hãy tạo tài khoản Mezo bằng ví EVM và quản lý các khoản nạp từ đó. Nếu bạn đã bắt đầu một khoản nạp BTC gốc trước ngày 13 tháng 10, hãy xem [Theo dõi khoản nạp Bitcoin gốc của bạn](/docs/vn/docs/users/mainnet/track-your-native-bitcoin-deposit).
 
-Với ví BTC, bạn có thể đăng nhập bằng UniSat, OKX và Xverse. Hãy dùng các loại địa chỉ sau:
+Các tài khoản đăng nhập bằng ví Bitcoin (UniSat, OKX, Xverse) có thể chuyển tài sản sang một ví EVM trên Mezo trong mục **Transact > Send** của Mezo App (xem [Gửi tài sản](/docs/vn/docs/users/passport/send-assets)), sau đó nạp và quản lý mọi thứ từ ví đó. Các tài khoản này cũng vẫn có thể [rút BTC về Bitcoin](#chuyển-qua-cầu-nối-sang-bitcoin-chỉ-cho-btc-gốc). Ví Bitcoin dùng các loại địa chỉ sau:
 
 | Tên            | Loại script | Tiền tố địa chỉ |
 | -------------- | ----------- | -------------- |
@@ -259,7 +259,10 @@ Kiểm tra trạng thái trong lịch sử giao dịch của bạn:
 **H: Tôi có thể chuyển qua cầu nối sang những mạng nào?**
 Đ: Tài sản có thể được chuyển qua cầu nối giữa Ethereum, Mezo, Base và Bitcoin. Hỗ trợ cho các mạng khác sẽ được bổ sung trong tương lai.
 
-**H: Khoản nạp Bitcoin gốc của tôi vẫn chưa xuất hiện. Làm sao để kiểm tra trạng thái?**
+**H: Tôi còn nạp được BTC từ ví Bitcoin không?**
+Đ: Không. Native BTC Bridge-in đã đóng vào ngày 13 tháng 10 năm 2026. Thay vào đó, hãy nạp tBTC từ Ethereum bằng ví EVM. Xem [Nạp tài sản](/docs/vn/docs/users/getting-started/deposit-assets). Bạn vẫn có thể rút trực tiếp về BTC qua cầu nối.
+
+**H: Khoản nạp Bitcoin gốc mà tôi bắt đầu trước ngày 13 tháng 10 vẫn chưa xuất hiện. Làm sao để kiểm tra trạng thái?**
 Đ: Xem [Theo dõi khoản nạp Bitcoin gốc của bạn](/docs/vn/docs/users/mainnet/track-your-native-bitcoin-deposit) để có hướng dẫn từng bước về cách dùng tBTCScan để kiểm tra trạng thái khoản nạp.
 
 **H: Ai trả phí gas trên mạng đích?**

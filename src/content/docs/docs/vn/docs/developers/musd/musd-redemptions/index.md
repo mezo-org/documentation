@@ -1,5 +1,6 @@
 ---
 title: Quy đổi MUSD
+description: Hướng dẫn từng bước để quy đổi MUSD lấy BTC bằng cách gọi redeemCollateral trên hợp đồng TroveManager, kèm các hint giúp tiết kiệm gas, phí và địa chỉ hợp đồng.
 topic: developers
 ---
 

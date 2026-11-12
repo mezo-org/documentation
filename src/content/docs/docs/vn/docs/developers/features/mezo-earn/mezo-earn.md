@@ -265,7 +265,7 @@ pnpm deploy:testnet
 - **[Kho mã Mezo Earn](https://github.com/mezo-org/tigris.git)** - Kho mã chính
 - **[Tài liệu Solidly](https://docs.solidly.com/)** - Tài liệu về giao thức Solidly
 - **[Tài liệu mạng Mezo](/docs/vn/docs/developers/getting-started/configure-environment)** - Cấu hình mạng
-- **[Hướng dẫn xác minh hợp đồng](/docs/vn/docs/developers/contracts-reference)** - Xác minh hợp đồng
+- **[Hợp đồng và địa chỉ token](/docs/vn/docs/users/resources/contracts-reference)** - Địa chỉ hợp đồng và token đã triển khai
 
 :::note
 Để biết chi tiết về kiến trúc, tokenomics và cơ chế giao thức, hãy tham khảo README và tài liệu của kho mã Mezo Earn.

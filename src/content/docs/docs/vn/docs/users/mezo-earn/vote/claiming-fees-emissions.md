@@ -151,4 +151,4 @@ Mỗi NFT veBTC có gauge boost riêng. Người nắm giữ veMEZO bỏ phiếu
 
 **Tôi có thể xem trọng số gauge và khoản khuyến khích hiện tại ở đâu?**
 
-Truy cập [trang Vote](https://mezo.org/vote) để xem trọng số gauge theo thời gian thực, giá trị khoản khuyến khích, APY dự kiến và hiệu suất trong quá khứ.
+Truy cập [trang Vote](https://mezo.org/earn/vote) để xem trọng số gauge theo thời gian thực, giá trị khoản khuyến khích, APY dự kiến và hiệu suất trong quá khứ.

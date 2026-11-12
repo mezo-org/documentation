@@ -2,15 +2,23 @@
 title: Tổng quan về MEZO Gauges
 description: >-
   Người nắm giữ veMEZO điều hướng lượng phát thải MEZO tới các pool thanh khoản
-  MUSD trên Curve, Uniswap và Aerodrome
+  MUSD trên Curve, Uniswap và Aero
 topic: users
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-**MEZO Gauges cho phép người nắm giữ veMEZO bỏ phiếu để điều hướng lượng phát thải MEZO tới các pool thanh khoản bên ngoài Mezo**, trên Curve và Uniswap (Ethereum) và Aerodrome (Base).
+**MEZO Gauges cho phép người nắm giữ veMEZO bỏ phiếu để điều hướng lượng phát thải MEZO tới các pool thanh khoản bên ngoài Mezo**, trên Curve và Uniswap (Ethereum) và Aero (Base).
 
 Trước đây, veMEZO chỉ có một nhiệm vụ: [boost](/docs/vn/docs/users/mezo-earn/lock/vemezo/boost-mechanism) cho một vị thế veBTC. Giờ đây, veMEZO có quyền biểu quyết riêng đối với một phần thực sự của lượng phát thải hằng tuần.
+
+:::caution[Aerodrome nay là Aero]
+Vào ngày 22 tháng 10 năm 2026 lúc 00:00 UTC, Aerodrome và Velodrome đã hợp nhất thành [Aero](https://aero.xyz/aero-upgrade/). Hai gauge trên Base hiện trỏ tới các pool mới trên Aero, còn việc bỏ phiếu trên Mezo vẫn diễn ra như trước.
+
+Mezo đang kết nối MEZO Gauges với các gauge mới của Aero. Cho đến khi việc này hoàn tất, lượng MEZO được điều hướng tới các gauge trên Base sẽ ở lại trên Mezo và không được chuyển qua cầu nối sang Base.
+
+Nếu bạn cung cấp thanh khoản trong pool Aerodrome USDC/MUSD hoặc MEZO/MUSD cũ, hãy chuyển vị thế của bạn sang Aero. Xem [Chuyển từ Aerodrome sang Aero](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives#chuyển-từ-aerodrome-sang-aero).
+:::
 
 ---
 
@@ -37,14 +45,14 @@ MEZO Gauges là **gauge không staking**: không có LP token nào để stake t
 
 ## Những pool nào đủ điều kiện
 
-Bốn gauge hoạt động ngay khi ra mắt:
+Bốn gauge đủ điều kiện:
 
 | Gauge | Pool | Nền tảng | Chuỗi | Phân phối |
 |---|---|---|---|---|
 | Uniswap USDC/MUSD | USDC/MUSD | Uniswap | Ethereum | Merkl |
 | Curve USDT/USDC/MUSD | USDT/USDC/MUSD | Curve | Ethereum | Merkl |
-| Aerodrome USDC/MUSD | USDC/MUSD | Aerodrome | Base | Khoản khuyến khích bỏ phiếu của Aerodrome |
-| Aerodrome MEZO/MUSD | MEZO/MUSD | Aerodrome | Base | Khoản khuyến khích bỏ phiếu của Aerodrome |
+| Aero USDC/MUSD | USDC/MUSD | Aero | Base | Khoản khuyến khích của Aero |
+| Aero MEZO/MUSD | MEZO/MUSD | Aero | Base | Khoản khuyến khích của Aero |
 
 ### Danh sách thay đổi như thế nào
 
@@ -64,7 +72,7 @@ MEZO Gauges được cấp vốn từ **nhánh gauge không staking** của lư�
 1. **Bạn bỏ phiếu.** Điều hướng quyền biểu quyết veMEZO cho các MEZO Gauge hiện có trong suốt epoch.
 2. **Epoch kết thúc** vào Thứ Năm lúc 00:00 UTC và phiếu bầu được kiểm đếm. Tỷ phần MEZO của mỗi gauge được xác định bởi tỷ phần phiếu bầu veMEZO của gauge đó.
 3. **MEZO rời khỏi Mezo.** Phần phân bổ của mỗi gauge được nhận và chuyển tới đích của nó.
-4. **MEZO đến nơi dưới dạng khoản khuyến khích** trên pool đích, để LP nhận trên Merkl hoặc người bỏ phiếu nhận trên Aerodrome.
+4. **MEZO đến nơi dưới dạng khoản khuyến khích** trên pool đích, để LP nhận trên Merkl hoặc người nắm giữ sAERO nhận trên Aero.
 </Steps>
 
 Thời điểm và hình thức cụ thể khác nhau tùy theo nền tảng. Xem [Phiếu bầu của bạn đi về đâu](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes).
@@ -73,11 +81,11 @@ Thời điểm và hình thức cụ thể khác nhau tùy theo nền tảng. Xe
 
 ## Người bỏ phiếu kiếm được gì
 
-Bạn kiếm được một phần khoản khuyến khích được đăng trên gauge mà bạn bỏ phiếu, tương ứng với tỷ phần của bạn trong số phiếu bầu veMEZO của gauge đó. Khoản khuyến khích của [gauge boost](/docs/vn/docs/users/mezo-earn/lock/vemezo/matching-market) cũng hoạt động theo cách tương tự. Bất kỳ ai cũng có thể đăng khoản khuyến khích trên một MEZO Gauge, và người bỏ phiếu có thể nhận chúng.
+Bạn kiếm được một phần khoản khuyến khích được đăng trên gauge mà bạn bỏ phiếu, tương ứng với tỷ phần của bạn trong số phiếu bầu veMEZO của gauge đó. Khoản khuyến khích của [gauge boost](/docs/vn/docs/users/mezo-earn/lock/vemezo/matching-market) cũng hoạt động theo cách tương tự. Bất kỳ ai cũng có thể đăng khoản khuyến khích trên một MEZO Gauge qua [Matchbox](https://app.matchbox.markets/pools), trong mục **Remote MEZO Gauges**, và người bỏ phiếu có thể nhận chúng.
 
 Bản thân lượng MEZO thì tiếp tục đi xa hơn. Nó đến pool đích và trả thưởng cho LP hoặc người bỏ phiếu của pool đó, tùy theo giao thức. Phiếu bầu của bạn quyết định thanh khoản MUSD được trả thưởng ở đâu. Còn khoản khuyến khích nằm trên gauge mới là thứ trả thưởng cho bạn.
 
-Để nhận cả lượng MEZO đã điều hướng, hãy tham gia cả hai phía: cung cấp thanh khoản vào pool đích, và trên Aerodrome, bỏ phiếu cho gauge tương ứng trên Base. [Phiếu bầu của bạn đi về đâu](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#thu-về-giá-trị-mà-bạn-điều-hướng) hướng dẫn chi tiết vòng lặp đó.
+Để nhận cả lượng MEZO đã điều hướng, hãy tham gia cả hai phía: cung cấp thanh khoản vào pool đích, và trên Aero, phân bổ sAERO cho chính pool đó. [Phiếu bầu của bạn đi về đâu](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#thu-về-giá-trị-mà-bạn-điều-hướng) hướng dẫn chi tiết vòng lặp đó.
 
 ---
 

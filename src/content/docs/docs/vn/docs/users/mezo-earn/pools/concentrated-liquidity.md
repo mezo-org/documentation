@@ -92,4 +92,4 @@ Nếu giá thị trường di chuyển ra ngoài khoảng bạn đã chọn, v�
 
 ### Rủi ro hợp đồng thông minh
 
-Như với mọi hợp đồng thông minh, rủi ro cố hữu vẫn tồn tại. Xem các báo cáo kiểm toán tại [mezo.org/audits](https://mezo.org/audits) và chỉ gửi số tiền mà bạn cảm thấy thoải mái.
+Như với mọi hợp đồng thông minh, rủi ro cố hữu vẫn tồn tại. Xem các báo cáo kiểm toán tại [mezo.org/docs/users/resources/audits](/docs/vn/docs/users/resources/audits) và chỉ gửi số tiền mà bạn cảm thấy thoải mái.

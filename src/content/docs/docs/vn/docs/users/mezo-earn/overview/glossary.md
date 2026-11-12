@@ -50,7 +50,7 @@ Gauge không có token staking, được bỏ phiếu bằng veMEZO. Lượng ph
 
 ## MEZO Gauge
 
-Gauge không staking điều hướng lượng phát thải MEZO đến các pool thanh khoản MUSD bên ngoài Mezo — Curve và Uniswap trên Ethereum, và Aerodrome trên Base. Xem [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges).
+Gauge không staking điều hướng lượng phát thải MEZO đến các pool thanh khoản MUSD bên ngoài Mezo — Curve và Uniswap trên Ethereum, và Aero trên Base. Xem [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Trọng số phiếu bầu
 

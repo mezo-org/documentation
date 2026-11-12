@@ -13,7 +13,7 @@ Khi khóa MEZO trên Mezo, bạn nhận được một NFT veMEZO đại diện 
 - Hệ số nhân boost cho quyền biểu quyết veBTC của bạn (lên tới 5x)
 - Phần thưởng rebase từ lượng phát thải MEZO hằng tuần để bù đắp sự pha loãng
 - Quyền tham gia thị trường ghép cặp (matching market) để nhận khoản khuyến khích từ người nắm giữ veBTC
-- Quyền bỏ phiếu trên [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges), điều hướng lượng phát thải MEZO đến các pool MUSD trên Curve, Uniswap và Aerodrome
+- Quyền bỏ phiếu trên [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges), điều hướng lượng phát thải MEZO đến các pool MUSD trên Curve, Uniswap và Aero
 
 :::note[Quan trọng]
 veMEZO không tự bỏ phiếu cho **gauge staking** — ở đó, veMEZO chỉ nhân quyền biểu quyết của các vị thế veBTC. veMEZO có quyền bỏ phiếu riêng trên các gauge boost veBTC và trên [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges).

@@ -12,7 +12,7 @@ Không. Khoản khóa được giữ cố định cho đến khi hết hạn. H�
 
 ### Tôi có thể bỏ phiếu cho gauge chỉ với veMEZO không?
 
-Có, với một số gauge. veMEZO tự bỏ phiếu cho **gauge boost veBTC** và cho **[MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges)**, vốn điều hướng lượng phát thải MEZO tới các pool MUSD trên Curve, Uniswap và Aerodrome.
+Có, với một số gauge. veMEZO tự bỏ phiếu cho **gauge boost veBTC** và cho **[MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges)**, vốn điều hướng lượng phát thải MEZO tới các pool MUSD trên Curve, Uniswap và Aero.
 
 Điều veMEZO không thể tự làm là bỏ phiếu cho **gauge staking** — việc đó cần veBTC, và vai trò của veMEZO ở đó là nhân quyền biểu quyết của veBTC.
 

@@ -418,7 +418,7 @@ mezod tendermint unsafe-reset-all
 ## Tài nguyên bổ sung
 
 - **[Kho mã Chains](https://github.com/mezo-org/chains.git)** - Kho mã cấu hình
-- **[Tài liệu Mezod](/docs/vn/docs/developers/mezod/)** - Tài liệu về client của chuỗi
+- **[Tài liệu Mezod](/docs/vn/docs/developers/getting-started/mezod)** - Tài liệu về client của chuỗi
 - **[Validator Kit](/docs/vn/docs/developers/mezo-nodes/validator-kit/)** - Hướng dẫn thiết lập validator
 - **[Cấu hình Cosmos SDK](https://docs.cosmos.network/)** - Tài liệu Cosmos SDK
 

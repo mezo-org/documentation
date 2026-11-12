@@ -96,6 +96,6 @@ Lượng phát thải hằng tuần đi qua một hệ thống splitter:
 
 4. **Validator** vận hành các node của chuỗi Mezo. Họ nhận một phần cố định của lượng phát thải MEZO (20%) thông qua Chain Splitter.
 
-5. **Ecosystem Splitter** phân chia 80% còn lại giữa gauge staking và gauge không staking, hiện ở mức 90/10. Nhánh không staking, chiếm khoảng 8% phần thưởng phát thải, cấp vốn cho [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges), nơi người nắm giữ veMEZO bỏ phiếu để gửi MEZO đến các pool MUSD trên Curve, Uniswap và Aerodrome.
+5. **Ecosystem Splitter** phân chia 80% còn lại giữa gauge staking và gauge không staking, hiện ở mức 90/10. Nhánh không staking, chiếm khoảng 8% phần thưởng phát thải, cấp vốn cho [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges), nơi người nắm giữ veMEZO bỏ phiếu để gửi MEZO đến các pool MUSD trên Curve, Uniswap và Aero.
 
 6. **Gauge staking** nhận phần lớn nhất của lượng phát thải. Những LP stake LP token của mình và những người gửi tiết kiệm MUSD stake token biên nhận của mình sẽ kiếm được MEZO tại đây. Đổi lại, họ từ bỏ phí giao dịch trực tiếp — phần phí đó được chuyển cho người bỏ phiếu veBTC.

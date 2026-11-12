@@ -2,7 +2,7 @@
 title: Phiếu bầu của bạn đi về đâu
 description: >-
   Cách trọng số phiếu bầu veMEZO trở thành khoản khuyến khích trên các pool
-  Curve, Uniswap và Aerodrome
+  Curve, Uniswap và Aero
 topic: users
 ---
 
@@ -30,41 +30,49 @@ Xem [Nhận khoản khuyến khích](/docs/vn/docs/users/mezo-earn/vote/mezo-gau
 
 ---
 
-## MEZO làm khoản khuyến khích bỏ phiếu trên Aerodrome
+## MEZO làm khoản khuyến khích trên Aero
 
-Gauge của Aerodrome hoạt động khác, vì bản thân Aerodrome là một hệ thống ve(3,3) với đợt bỏ phiếu hằng tuần riêng. Lấy USDC/MUSD làm ví dụ. MEZO không được chuyển trực tiếp cho LP trên Aerodrome. Thay vào đó, MEZO được gửi làm **khoản khuyến khích bỏ phiếu** vào gauge Aerodrome của pool đó, trả cho những người nắm giữ veAERO bỏ phiếu cho gauge này.
+Pool của Aero hoạt động khác, vì Aero vận hành hệ thống phần thưởng riêng. Người nắm giữ sAERO phân bổ cho các pool, và những phần phân bổ đó điều hướng **AERO Rewards** tới các khoản gửi nhận AERO của từng pool. sAERO đã thay thế veAERO khi Aerodrome trở thành Aero.
 
-Chính những phiếu bầu veAERO đó điều hướng **lượng phát thải AERO** đến pool. MEZO "mua" lượng phát thải AERO cho pool, và AERO mới là thứ đến tay LP. Quy trình tương tự áp dụng cho MEZO/MUSD trên Aerodrome.
+Lấy USDC/MUSD làm ví dụ. MEZO không được chuyển trực tiếp cho LP trên Aero. Thay vào đó, MEZO được đăng trên pool đó dưới dạng một **chương trình khuyến khích**, và các khoản chi trả của chương trình, mà Aero gọi là Liquidity Payments, thuộc về những người nắm giữ sAERO phân bổ cho pool.
 
-Về mặt kỹ thuật, MEZO được nhận trên Mezo, chuyển qua cầu nối sang Base và được một hợp đồng phân bổ (allocator) gửi vào gauge Aerodrome. Quy trình này tự động chạy mỗi epoch.
+Chính những phần phân bổ đó điều hướng AERO Rewards đến pool. MEZO "mua" AERO Rewards cho pool, và AERO mới là thứ đến tay LP. Quy trình tương tự áp dụng cho MEZO/MUSD trên Aero.
 
-### Độ trễ hai epoch
+Về mặt kỹ thuật, MEZO được nhận trên Mezo, chuyển qua cầu nối sang Base và được một hợp đồng phân bổ (allocator) đăng lên pool. Quy trình này tự động chạy mỗi epoch.
 
-Đợt bỏ phiếu của Aerodrome đi trước một tuần so với khoản khuyến khích mà nó phản hồi, nên có một khoảng cách giữa phiếu bầu của bạn và lượng thanh khoản mà phiếu bầu đó mang lại:
+:::caution[Kết nối lại sau đợt nâng cấp Aero]
+Các gauge cũ của Aerodrome đã ngừng hoạt động khi Aero ra mắt vào ngày 22 tháng 10 năm 2026. Mezo đang kết nối hợp đồng phân bổ với các gauge mới của Aero. Cho đến khi việc này hoàn tất, lượng MEZO được điều hướng tới các gauge trên Base sẽ ở lại trên Mezo và không được chuyển qua cầu nối.
+:::
+
+### Thời điểm trên Aero
+
+Aero không có đợt bỏ phiếu hằng tuần. Người nắm giữ sAERO phân bổ liên tục, và mỗi thay đổi có hiệu lực ngay khi được thực hiện. Mỗi vị thế sAERO có thể thay đổi phần phân bổ của mình một lần sau mỗi 47 giờ, theo thiết lập của Aero khi ra mắt. Khoản khuyến khích được trả liên tục cho những người nắm giữ sAERO đang phân bổ cho pool, còn AERO Rewards được trả liên tục cho các khoản gửi nhận AERO của pool. Cả hai đều không phải chờ đến lúc chuyển epoch.
+
+Bước diễn ra hằng tuần nằm ở phía Mezo:
 
 | Epoch | Điều gì xảy ra |
 |---|---|
 | **N** | Bạn bỏ phiếu trên Mezo. Epoch kết thúc và phần phân bổ được cố định. |
-| **N+1** | MEZO được gửi làm khoản khuyến khích bỏ phiếu vào gauge Aerodrome. Người nắm giữ veAERO bỏ phiếu cho gauge đó trong epoch này. |
-| **N+2** | Lượng phát thải AERO chảy vào pool và LP nhận được phần phát thải đó. |
+| **N+1** | MEZO được chuyển qua cầu nối sang Base và được đăng trên pool dưới dạng một chương trình khuyến khích kéo dài một tuần, chậm nhất vào **Distribution date** hiển thị trên trang Vote. |
+| **Tuần kế tiếp** | Chương trình trả dần MEZO cho những người nắm giữ sAERO đang phân bổ cho pool. |
 
-**Phiếu bầu trong epoch N tạo ra lượng phát thải AERO trong epoch N+2.** Đây là hệ quả của cách Aerodrome sắp xếp các epoch của chính mình, chứ không phải độ trễ do Mezo thêm vào.
+Lượng MEZO được phát ra trong lúc không có sAERO nào phân bổ cho pool sẽ không được chi trả. Hợp đồng phân bổ có thể thu hồi lượng này sau khi chương trình kết thúc và đăng lại trong một chương trình sau.
 
 ---
 
 ## Thu về giá trị mà bạn điều hướng
 
-Điều hướng lượng phát thải là tạo ảnh hưởng, không phải tạo lợi suất. Lượng MEZO bạn gửi đến một pool đích sẽ thuộc về những người tham gia pool đó — người nhận trên Merkl ở Curve và Uniswap, người bỏ phiếu veAERO ở Aerodrome. Lượng MEZO này không quay lại với bạn với tư cách là người bỏ phiếu MEZO Gauge.
+Điều hướng lượng phát thải là tạo ảnh hưởng, không phải tạo lợi suất. Lượng MEZO bạn gửi đến một pool đích sẽ thuộc về những người tham gia pool đó — người nhận trên Merkl ở Curve và Uniswap, người nắm giữ sAERO ở Aero. Lượng MEZO này không quay lại với bạn với tư cách là người bỏ phiếu MEZO Gauge.
 
 Thứ bạn kiếm được trực tiếp với tư cách người bỏ phiếu là phần của bạn trong **các khoản khuyến khích được đăng trên chính MEZO Gauge**, tương ứng với tỷ phần phiếu bầu của bạn trên gauge đó.
 
-Để thu về chính lượng phát thải đó, bạn phải đứng ở cả hai đầu của vòng lặp. Trên Aerodrome, lấy USDC/MUSD làm ví dụ:
+Để thu về chính lượng phát thải đó, bạn phải đứng ở cả hai đầu của vòng lặp. Trên Aero, lấy USDC/MUSD làm ví dụ:
 
 <Steps>
-1. **Cung cấp thanh khoản** vào pool trên Aerodrome và stake vào gauge của pool đó.
+1. **Cung cấp thanh khoản** vào pool trên Aero, và chọn **AERO rewards** cho khoản gửi.
 2. **Bỏ phiếu** cho MEZO Gauge của pool đó trên Mezo bằng veMEZO.
-3. **Bỏ phiếu** cho gauge Aerodrome tương ứng trên Base bằng veAERO.
-4. **Nhận** AERO cho vị thế thanh khoản và khoản khuyến khích bỏ phiếu bằng MEZO cho phiếu bầu veAERO.
+3. **Phân bổ** sAERO cho chính pool đó trên Aero.
+4. **Nhận** AERO Rewards cho vị thế thanh khoản và khoản khuyến khích bằng MEZO cho phần phân bổ sAERO.
 </Steps>
 
 Trên Curve và Uniswap, vòng lặp ngắn hơn: cung cấp thanh khoản vào pool, bỏ phiếu cho MEZO Gauge của pool đó, rồi nhận phần thưởng chiến dịch trên Merkl với tư cách LP.
@@ -77,6 +85,6 @@ Việc chạy toàn bộ vòng lặp là không bắt buộc. Nhiều người n
 
 ## Bước tiếp theo
 
-- [Nhận khoản khuyến khích](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — nhận trên Merkl hoặc Aerodrome
+- [Nhận khoản khuyến khích](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — nhận trên Merkl hoặc Aero
 - [Cách bỏ phiếu trên MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — hướng dẫn chi tiết
 - [Tổng quan về MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges) — các pool đủ điều kiện và nguồn vốn

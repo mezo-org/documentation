@@ -32,7 +32,7 @@ Bitcoin. BTC là token gas gốc trên Mezo (với 18 chữ số thập phân) v
 
 ## Ví BTC
 
-Ví gốc Bitcoin dùng để nạp BTC trực tiếp vào Mezo. Các ví được hỗ trợ gồm UniSat, OKX và Xverse. Các định dạng địa chỉ được hỗ trợ là Legacy (P2PKH), Native SegWit (P2WPKH) và Nested SegWit (P2SH-P2WPKH). Xem [Nạp tài sản](/docs/vn/docs/users/getting-started/deposit-assets).
+Ví gốc Bitcoin có thể đăng nhập vào Mezo. Các ví được hỗ trợ gồm UniSat, OKX và Xverse. Các định dạng địa chỉ được hỗ trợ là Legacy (P2PKH), Native SegWit (P2WPKH) và Nested SegWit (P2SH-P2WPKH). Trước đây, ví BTC có thể nạp BTC trực tiếp vào Mezo qua Native BTC Bridge-in, cho đến khi tính năng này đóng vào ngày 13 tháng 10 năm 2026. Tài sản do tài khoản dùng ví BTC nắm giữ có thể được chuyển sang một ví EVM trên Mezo trong mục **Transact > Send** ([Gửi tài sản](/docs/vn/docs/users/passport/send-assets)) hoặc được rút trực tiếp về BTC qua cầu nối, tính năng hiện vẫn hoạt động. Xem [Cầu nối](/docs/vn/docs/users/mainnet/bridges).
 
 ## Chain ID
 
@@ -56,7 +56,7 @@ Phần tài sản thế chấp còn lại sau khi một [trove](#trove) bị quy
 
 ## Tỷ lệ thế chấp (ICR)
 
-Individual Collateralization Ratio (tỷ lệ thế chấp cá nhân). Tỷ lệ giữa giá trị tính bằng đô la của tài sản thế chấp trong một trove và tổng nợ của trove đó. Ví dụ: nếu tài sản thế chấp BTC của bạn trị giá \$13.000 và khoản nợ của bạn là \$10.000, thì ICR của bạn là 130%. Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/concepts).
+Individual Collateralization Ratio (tỷ lệ thế chấp cá nhân). Tỷ lệ giữa giá trị tính bằng đô la của tài sản thế chấp trong một trove và tổng nợ của trove đó. Ví dụ: nếu tài sản thế chấp BTC của bạn trị giá \$13.000 và khoản nợ của bạn là \$10.000, thì ICR của bạn là 130%. Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/architecture-and-terminology).
 
 ## CometBFT
 
@@ -68,7 +68,7 @@ Framework dạng mô-đun dùng để xây dựng blockchain Mezo. Cosmos SDK cu
 
 ## Tỷ lệ thế chấp tới hạn (CCR)
 
-Ngưỡng thế chấp trên toàn hệ thống, được đặt ở mức 150%. Khi tỷ lệ thế chấp tổng (TCR) giảm xuống dưới CCR, hệ thống chuyển sang [Recovery Mode](#recovery-mode). Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/concepts).
+Ngưỡng thế chấp trên toàn hệ thống, được đặt ở mức 150%. Khi tỷ lệ thế chấp tổng (TCR) giảm xuống dưới CCR, hệ thống chuyển sang [Recovery Mode](#recovery-mode). Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/architecture-and-terminology).
 
 ## dApp
 
@@ -120,7 +120,7 @@ Hợp đồng thông minh nhận và phân phối phần thưởng dựa trên p
 
 ## Lãi suất chung
 
-Một mức lãi suất duy nhất do quản trị đặt ra, áp dụng cho mọi khoản vay MUSD mới mở. Khi khoản vay đã được mở, khoản vay đó giữ nguyên lãi suất tại thời điểm tạo, kể cả khi lãi suất chung thay đổi. Người dùng có thể [tái cấp vốn](#tái-cấp-vốn) để áp dụng lãi suất chung hiện hành. Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/concepts).
+Một mức lãi suất duy nhất do quản trị đặt ra, áp dụng cho mọi khoản vay MUSD mới mở. Khi khoản vay đã được mở, khoản vay đó giữ nguyên lãi suất tại thời điểm tạo, kể cả khi lãi suất chung thay đổi. Người dùng có thể [tái cấp vốn](#tái-cấp-vốn) để áp dụng lãi suất chung hiện hành. Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/architecture-and-terminology).
 
 ## Quản trị
 
@@ -184,7 +184,7 @@ Hệ thống kiếm lợi nhuận và quản trị toàn diện trên Mezo, bao 
 
 ## MEZO Gauge
 
-Một [gauge không staking](#gauge-không-staking) mà người nắm giữ veMEZO bỏ phiếu để hướng lượng phát thải MEZO đến các pool thanh khoản MUSD bên ngoài Mezo — Curve và Uniswap trên Ethereum, và Aerodrome trên Base. Được cấp vốn từ nhánh không staking của lượng phát thải (hiện là 8% phần thưởng phát thải hằng tuần). Xem [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges).
+Một [gauge không staking](#gauge-không-staking) mà người nắm giữ veMEZO bỏ phiếu để hướng lượng phát thải MEZO đến các pool thanh khoản MUSD bên ngoài Mezo — Curve và Uniswap trên Ethereum, và Aero trên Base. Được cấp vốn từ nhánh không staking của lượng phát thải (hiện là 8% phần thưởng phát thải hằng tuần). Xem [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Mezo Market
 
@@ -200,7 +200,7 @@ Hệ thống pool thanh khoản trên Mezo, hoạt động như các nguồn d�
 
 ## Tỷ lệ thế chấp tối thiểu (MCR)
 
-Tỷ lệ thế chấp tối thiểu bắt buộc đối với một [trove](#trove), được đặt ở mức 110%. Nếu [ICR](#tỷ-lệ-thế-chấp-icr) của một trove giảm xuống dưới MCR, trove đó có thể bị [thanh lý](#thanh-lý). Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/concepts).
+Tỷ lệ thế chấp tối thiểu bắt buộc đối với một [trove](#trove), được đặt ở mức 110%. Nếu [ICR](#tỷ-lệ-thế-chấp-icr) của một trove giảm xuống dưới MCR, trove đó có thể bị [thanh lý](#thanh-lý). Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/architecture-and-terminology).
 
 ## MUSD
 
@@ -232,7 +232,7 @@ Dịch vụ cung cấp dữ liệu bên ngoài (chẳng hạn như giá tài s�
 
 ## Phí khởi tạo khoản vay
 
-Khoản phí một lần được tính khi vay MUSD, bằng 0,1% số tiền vay. Phí này được cộng vào tiền gốc của khoản vay và cũng phát sinh lãi. Khi [tái cấp vốn](#tái-cấp-vốn), bạn sẽ chịu phí khởi tạo cho việc tái cấp vốn (bằng một phần của mức phí thông thường). Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/concepts).
+Khoản phí một lần được tính khi vay MUSD, bằng 0,1% số tiền vay. Phí này được cộng vào tiền gốc của khoản vay và cũng phát sinh lãi. Khi [tái cấp vốn](#tái-cấp-vốn), bạn sẽ chịu phí khởi tạo cho việc tái cấp vốn (bằng một phần của mức phí thông thường). Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/architecture-and-terminology).
 
 ## PCV
 
@@ -268,7 +268,7 @@ Hành động đổi MUSD lấy lượng BTC có giá trị tương đương tí
 
 ## Tái cấp vốn
 
-Quy trình cập nhật lãi suất của một khoản vay theo [lãi suất chung](#lãi-suất-chung) hiện hành. Việc tái cấp vốn chịu mức phí khởi tạo thấp hơn nhưng giúp bạn không phải đóng rồi mở lại khoản vay. Bạn cũng có thể tái cấp vốn để mở rộng hạn mức tín dụng nếu giá BTC đã tăng. Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/concepts).
+Quy trình cập nhật lãi suất của một khoản vay theo [lãi suất chung](#lãi-suất-chung) hiện hành. Việc tái cấp vốn chịu mức phí khởi tạo thấp hơn nhưng giúp bạn không phải đóng rồi mở lại khoản vay. Bạn cũng có thể tái cấp vốn để mở rộng hạn mức tín dụng nếu giá BTC đã tăng. Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/architecture-and-terminology).
 
 ## Hợp đồng router
 
@@ -292,7 +292,7 @@ Hợp đồng chia lượng phát thải MEZO cho hai đích. Các tỷ lệ ph�
 
 ## Stability Pool
 
-Nguồn dự trữ MUSD đóng vai trò tuyến phòng thủ đầu tiên trước các khoản [thanh lý](#thanh-lý). Người dùng gửi MUSD vào Stability Pool và đổi lại nhận một phần tài sản thế chấp bị thanh lý. Hợp đồng [PCV](#pcv) khởi tạo pool với khoản gửi ban đầu 100 triệu MUSD. Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/concepts).
+Nguồn dự trữ MUSD đóng vai trò tuyến phòng thủ đầu tiên trước các khoản [thanh lý](#thanh-lý). Người dùng gửi MUSD vào Stability Pool và đổi lại nhận một phần tài sản thế chấp bị thanh lý. Hợp đồng [PCV](#pcv) khởi tạo pool với khoản gửi ban đầu 100 triệu MUSD. Xem [Các khái niệm chính về MUSD](/docs/vn/docs/users/borrow/architecture-and-terminology).
 
 ## Pool ổn định
 

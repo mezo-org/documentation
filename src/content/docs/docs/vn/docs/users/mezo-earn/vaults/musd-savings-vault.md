@@ -62,7 +62,7 @@ Cơ chế này tương tự cách stake LP hoạt động trong các pool thanh 
 
 MUSD Savings Rate Gauge cạnh tranh phiếu bầu cùng với các gauge của pool LP. Các gauge này được gọi chung là "gauge staking" — một phiếu bầu đã phân bổ cho gauge lãi suất tiết kiệm thì không thể đồng thời phân bổ cho gauge LP.
 
-Khi lượng phát thải MEZO đã hoạt động, việc stake sMUSD vào gauge giờ đây mang lại MEZO bên cạnh vị thế cơ bản của bạn. Gauge MUSD Savings cạnh tranh phiếu bầu veBTC cùng với các gauge của pool LP — càng nhiều phiếu bầu được điều hướng tới gauge tiết kiệm thì càng nhiều lượng phát thải MEZO được chuyển tới người stake. Những người bỏ phiếu veBTC ủng hộ gauge này sẽ kiếm được phí MUSD mà người stake chuyển hướng. APR hiện tại của gauge dành cho người stake và người bỏ phiếu được hiển thị trên trang Vote tại [mezo.org/earn/vaults/vote](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC/vote).
+Khi lượng phát thải MEZO đã hoạt động, việc stake sMUSD vào gauge giờ đây mang lại MEZO bên cạnh vị thế cơ bản của bạn. Gauge MUSD Savings cạnh tranh phiếu bầu veBTC cùng với các gauge của pool LP — càng nhiều phiếu bầu được điều hướng tới gauge tiết kiệm thì càng nhiều lượng phát thải MEZO được chuyển tới người stake. Những người bỏ phiếu veBTC ủng hộ gauge này sẽ kiếm được phí MUSD mà người stake chuyển hướng. APR hiện tại của gauge dành cho người stake và người bỏ phiếu được hiển thị trên trang Vote tại [mezo.org/earn/vote](https://mezo.org/earn/vote).
 
 ---
 

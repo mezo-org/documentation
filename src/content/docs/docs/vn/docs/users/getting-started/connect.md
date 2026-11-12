@@ -1,5 +1,6 @@
 ---
 title: Kết nối ví của bạn với Mezo
+description: Thêm Mezo Mainnet hoặc Testnet vào ví trình duyệt qua Chainlist hoặc theo cách thủ công, kèm chain ID, các endpoint RPC công khai và thông tin mạng.
 topic: users
 ---
 
@@ -67,7 +68,7 @@ Nếu cần thêm mạng vào ví theo cách thủ công, hãy làm theo hướn
 
 Ví BTC được hỗ trợ trong Mezo App và có thể nhận một địa chỉ trên mạng Mezo gắn với ví BTC của bạn. Hiện tại, ví BTC có thể thực hiện các tác vụ sau trên Mezo:
 
-- Chuyển tài sản BTC qua cầu nối
+- Chuyển tài sản sang một ví EVM trên Mezo trong mục **Transact > Send** ([Gửi tài sản](/docs/vn/docs/users/passport/send-assets)), hoặc rút trực tiếp về BTC qua cầu nối (Native BTC Bridge-in dành cho khoản nạp từ ví BTC đã kết thúc vào ngày 13 tháng 10 năm 2026; xem [Nạp tài sản](/docs/vn/docs/users/getting-started/deposit-assets))
 - Chuyển tài sản EVM qua cầu nối
 - Vay, trả nợ hoặc quản lý tài sản thế chấp của khoản vay
 - Mua sản phẩm trên MUSD Market

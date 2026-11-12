@@ -1,5 +1,6 @@
 ---
 title: Mezo Pools
+description: Tài liệu tham khảo cho nhà phát triển về Mezo Pools, bao gồm pool cơ bản và pool thanh khoản tập trung, luồng swap, quản lý vị thế, cùng địa chỉ hợp đồng trên Mainnet và Testnet.
 topic: developers
 ---
 Mezo Pools cho phép người dùng swap token và cung cấp thanh khoản nhờ cơ chế pool được tối ưu hóa. Mezo hỗ trợ hai kiến trúc pool: **pool cơ bản** (AMM tích không đổi và AMM đường cong ổn định) và **pool thanh khoản tập trung (CL)** với khoảng giá tùy chỉnh.

@@ -92,4 +92,4 @@ Mezo Earn cũng có một cơ chế khuyến khích riêng cho gauge validator, 
 ## Tài nguyên bổ sung
 
 - [Tổng quan về Mezo Earn](/docs/vn/docs/users/mezo-earn/overview/)
-- [Blog của Mezo](https://mezo.org/blog/tag/features/)
+- [Blog của Mezo](https://mezo.org/blog)

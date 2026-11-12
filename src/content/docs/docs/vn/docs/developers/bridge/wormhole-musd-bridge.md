@@ -1,5 +1,6 @@
 ---
 title: Wormhole MUSD Bridge
+description: Cách cầu nối MUSD dùng Native Token Transfer của Wormhole để chuyển token xuyên chuỗi an toàn mà vẫn duy trì tính khả hoán.
 topic: developers
 ---
 

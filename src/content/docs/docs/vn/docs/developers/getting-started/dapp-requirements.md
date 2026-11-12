@@ -1,5 +1,6 @@
 ---
 title: Yêu cầu đối với dApp
+description: Các yêu cầu để một dApp được giới thiệu trên Mezo Market, bao gồm tích hợp MUSD, kiểm toán bảo mật do bên thứ ba thực hiện và bản triển khai đang hoạt động trên Mainnet.
 topic: developers
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Câu hỏi thường gặp
+description: Các câu hỏi thường gặp dành cho nhà xây dựng trên Mezo, bao gồm mạng, gas, tích hợp và hỗ trợ.
 topic: developers
 ---
 

@@ -98,7 +98,7 @@ topic: users
 
 ## 2025-05-28 - Ra mắt Mezo Mainnet
 
-Mezo Mainnet đã chính thức ra mắt! Xem tài liệu [Bắt đầu](https:/mezo.org/docs/users/getting-started/connect) để tìm hiểu cách kết nối với Mainnet, hoặc truy cập [mezo.org/overview](https://mezo.org/overview) để chuyển tài sản qua cầu nối và bắt đầu sử dụng nền tảng.
+Mezo Mainnet đã chính thức ra mắt! Xem tài liệu [Bắt đầu](https://mezo.org/docs/users/getting-started/connect) để tìm hiểu cách kết nối với Mainnet, hoặc truy cập [mezo.org/overview](https://mezo.org/overview) để chuyển tài sản qua cầu nối và bắt đầu sử dụng nền tảng.
 
 ## 2025-04-12 - Công bố ra mắt Mezo Mainnet
 

@@ -40,7 +40,7 @@ Passport giúp nhà phát triển dễ dàng tích hợp hỗ trợ ví Bitcoin 
 
 ## Làm thế nào để đầu tư vào Mezo?
 
-Nếu bạn muốn trở thành nhà đầu tư, vui lòng liên hệ [IR@thesis.co](IR@thesis.co).
+Nếu bạn muốn trở thành nhà đầu tư, vui lòng liên hệ [IR@thesis.co](mailto:IR@thesis.co).
 
 ## Tôi có thể dùng những ví nào với Mezo?
 
@@ -59,9 +59,11 @@ Tương thích EVM:
 * Zerion
 * OKX
 
+Ví Bitcoin không còn nạp được vào Mezo. Native BTC Bridge-in đã đóng vào ngày 13 tháng 10 năm 2026. Để nạp, hãy dùng ví EVM. Nếu tài khoản của bạn dùng ví Bitcoin, bạn có thể chuyển tài sản sang một ví EVM trên Mezo trong mục **Transact > Send** của Mezo App (xem [Gửi tài sản](/docs/vn/docs/users/passport/send-assets)), hoặc rút trực tiếp về BTC qua cầu nối, tính năng hiện vẫn hoạt động.
+
 ## Token nào được dùng để trả phí giao dịch?
 
-BTC được dùng để trả phí giao dịch trên Mezo. Bạn có thể có BTC trên Mezo bằng cách nạp BTC trực tiếp từ ví Bitcoin hoặc nạp tBTC từ ví Ethereum của mình. 
+BTC được dùng để trả phí giao dịch trên Mezo. Bạn có thể có BTC trên Mezo bằng cách nạp tBTC từ ví Ethereum của mình, hoặc bằng cách swap MUSD hoặc MEZO qua [Get Gas](/docs/vn/docs/users/getting-started/get-gas).
 
 ## Vì sao một số token tôi sở hữu không hiển thị trong Mezo Explorer?
 
