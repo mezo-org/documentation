@@ -418,7 +418,7 @@ mezod tendermint unsafe-reset-all
 ## Дополнительные ресурсы
 
 - **[Репозиторий Chains](https://github.com/mezo-org/chains.git)** — репозиторий конфигураций
-- **[Документация mezod](/docs/ru/docs/developers/mezod/)** — документация клиента сети
+- **[Документация mezod](/docs/ru/docs/developers/getting-started/mezod)** — документация клиента сети
 - **[Validator Kit](/docs/ru/docs/developers/mezo-nodes/validator-kit/)** — руководство по настройке валидатора
 - **[Конфигурация Cosmos SDK](https://docs.cosmos.network/)** — документация Cosmos SDK
 

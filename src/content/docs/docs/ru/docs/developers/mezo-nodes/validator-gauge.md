@@ -92,4 +92,4 @@ veBTC — основной актив, используемый для голо�
 ## Дополнительные ресурсы
 
 - [Обзор Mezo Earn](/docs/ru/docs/users/mezo-earn/overview/)
-- [Блог Mezo](https://mezo.org/blog/tag/features/)
+- [Блог Mezo](https://mezo.org/blog)

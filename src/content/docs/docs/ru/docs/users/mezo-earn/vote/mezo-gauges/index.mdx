@@ -2,15 +2,23 @@
 title: Обзор MEZO Gauges
 description: >-
   Держатели veMEZO направляют эмиссию MEZO в пулы ликвидности MUSD на Curve,
-  Uniswap и Aerodrome
+  Uniswap и Aero
 topic: users
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-**MEZO Gauges позволяют держателям veMEZO голосованием направлять эмиссию MEZO в пулы ликвидности за пределами Mezo** — на Curve и Uniswap (Ethereum) и на Aerodrome (Base).
+**MEZO Gauges позволяют держателям veMEZO голосованием направлять эмиссию MEZO в пулы ликвидности за пределами Mezo** — на Curve и Uniswap (Ethereum) и на Aero (Base).
 
 До сих пор у veMEZO была одна задача — давать [буст](/docs/ru/docs/users/mezo-earn/lock/vemezo/boost-mechanism) позиции veBTC. Теперь у veMEZO есть собственная сила голоса, распоряжающаяся реальной частью еженедельной эмиссии.
+
+:::caution[Aerodrome теперь называется Aero]
+22 октября 2026 г. в 00:00 UTC Aerodrome и Velodrome объединились в [Aero](https://aero.xyz/aero-upgrade/). Два гейджа в Base теперь указывают на новые пулы на Aero, а голосование в Mezo продолжается как прежде.
+
+Mezo подключает MEZO Gauges к новым гейджам Aero. Пока это не сделано, MEZO, направленные в гейджи Base, остаются в Mezo и не переводятся через мост в Base.
+
+Если вы LP в старом пуле Aerodrome USDC/MUSD или MEZO/MUSD, перенесите позицию на Aero. См. [Переход с Aerodrome](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives#переход-с-aerodrome).
+:::
 
 ---
 
@@ -37,14 +45,14 @@ MEZO Gauges — это **гейджи без стейкинга**: в Mezo не�
 
 ## Какие пулы подходят
 
-На момент запуска работают четыре гейджа:
+Подходят четыре гейджа:
 
 | Гейдж | Пул | Площадка | Сеть | Распределение |
 |---|---|---|---|---|
 | Uniswap USDC/MUSD | USDC/MUSD | Uniswap | Ethereum | Merkl |
 | Curve USDT/USDC/MUSD | USDT/USDC/MUSD | Curve | Ethereum | Merkl |
-| Aerodrome USDC/MUSD | USDC/MUSD | Aerodrome | Base | Стимулы для голосования Aerodrome |
-| Aerodrome MEZO/MUSD | MEZO/MUSD | Aerodrome | Base | Стимулы для голосования Aerodrome |
+| Aero USDC/MUSD | USDC/MUSD | Aero | Base | Стимулы Aero |
+| Aero MEZO/MUSD | MEZO/MUSD | Aero | Base | Стимулы Aero |
 
 ### Как меняется список
 
@@ -64,7 +72,7 @@ MEZO Gauges финансируются из **ветви эмиссии для �
 1. **Вы голосуете.** В течение эпохи распределите силу голоса veMEZO между доступными MEZO Gauges.
 2. **Эпоха закрывается** в четверг в 00:00 UTC, голоса подсчитываются. Доля MEZO каждого гейджа определяется его долей голосов veMEZO.
 3. **MEZO покидает Mezo.** Распределённая каждому гейджу сумма забирается и направляется по назначению.
-4. **Она поступает в виде стимула** в целевой пул: LP получают его через Merkl, а голосующие — на Aerodrome.
+4. **Она поступает в виде стимула** в целевой пул: LP получают его через Merkl, а держатели sAERO — на Aero.
 </Steps>
 
 Точные сроки и форма зависят от площадки. См. [Куда уходит ваш голос](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes).
@@ -73,11 +81,11 @@ MEZO Gauges финансируются из **ветви эмиссии для �
 
 ## Что зарабатывает голосующий
 
-Вы получаете долю стимулов, опубликованных на гейдже, за который голосуете, — пропорционально вашей доле голосов veMEZO за этот гейдж. Стимулы [гейджей буста](/docs/ru/docs/users/mezo-earn/lock/vemezo/matching-market) работают так же. Публиковать стимулы на MEZO Gauge может кто угодно, а голосующие могут их получать.
+Вы получаете долю стимулов, опубликованных на гейдже, за который голосуете, — пропорционально вашей доле голосов veMEZO за этот гейдж. Стимулы [гейджей буста](/docs/ru/docs/users/mezo-earn/lock/vemezo/matching-market) работают так же. Публиковать стимулы на MEZO Gauge может кто угодно через [Matchbox](https://app.matchbox.markets/pools) в разделе **Remote MEZO Gauges**, а голосующие могут их получать.
 
 Сам MEZO отправляется дальше. Он поступает в целевой пул и по правилам протокола выплачивается LP или голосующим этого пула. Ваш голос решает, где будет оплачиваться ликвидность MUSD. А платят вам именно стимулы, размещённые на гейдже.
 
-Чтобы получать и направленный MEZO, работайте с обеих сторон: предоставьте ликвидность в целевой пул, а на Aerodrome ещё и проголосуйте за соответствующий гейдж в Base. Этот цикл подробно описан на странице [Куда уходит ваш голос](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#как-получить-ценность-которую-вы-направляете).
+Чтобы получать и направленный MEZO, работайте с обеих сторон: предоставьте ликвидность в целевой пул, а на Aero ещё и направьте sAERO в тот же пул. Этот цикл подробно описан на странице [Куда уходит ваш голос](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#как-получить-ценность-которую-вы-направляете).
 
 ---
 

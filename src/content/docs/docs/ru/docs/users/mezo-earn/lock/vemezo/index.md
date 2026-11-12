@@ -13,7 +13,7 @@ veMEZO — это токенизированное представление (N
 - Множитель буста для силы голоса вашего veBTC (до 5x)
 - Вознаграждения в виде ребейзов из еженедельной эмиссии MEZO, компенсирующие размытие
 - Участие в рынке сопоставления, где можно получать стимулы от держателей veBTC
-- Голоса в [MEZO Gauges](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges), которые направляют эмиссию MEZO в пулы MUSD в Curve, Uniswap и Aerodrome
+- Голоса в [MEZO Gauges](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges), которые направляют эмиссию MEZO в пулы MUSD в Curve, Uniswap и Aero
 
 :::note[Важно]
 veMEZO не голосует за **гейджи стейкинга** самостоятельно — там он лишь умножает силу голоса позиций veBTC. Но за гейджи буста veBTC и [MEZO Gauges](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges) он голосует сам.

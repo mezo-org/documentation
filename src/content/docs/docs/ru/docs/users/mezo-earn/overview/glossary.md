@@ -50,7 +50,7 @@ MEZO с блокировкой для голосования (vote-escrowed MEZO
 
 ## MEZO Gauge
 
-Гейдж без стейкинга, который направляет эмиссию MEZO в пулы ликвидности MUSD за пределами Mezo — в Curve и Uniswap в сети Ethereum и в Aerodrome в сети Base. См. [MEZO Gauges](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges).
+Гейдж без стейкинга, который направляет эмиссию MEZO в пулы ликвидности MUSD за пределами Mezo — в Curve и Uniswap в сети Ethereum и в Aero в сети Base. См. [MEZO Gauges](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Вес голоса
 

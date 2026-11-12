@@ -12,7 +12,7 @@ topic: users
 
 ### Можно ли голосовать за гейджи, имея только veMEZO?
 
-Да, за некоторые из них. veMEZO самостоятельно голосует за **гейджи буста veBTC** и за **[MEZO Gauges](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges)**, которые направляют эмиссию MEZO в пулы MUSD на Curve, Uniswap и Aerodrome.
+Да, за некоторые из них. veMEZO самостоятельно голосует за **гейджи буста veBTC** и за **[MEZO Gauges](/docs/ru/docs/users/mezo-earn/vote/mezo-gauges)**, которые направляют эмиссию MEZO в пулы MUSD на Curve, Uniswap и Aero.
 
 Чего veMEZO не может сделать в одиночку, так это голосовать за **гейджи стейкинга**: для этого нужен veBTC, а роль veMEZO там — умножать силу голоса veBTC.
 
