@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: Bóveda de préstamos USDC (USDC Lending Vault)
 description: >-
   Aporta mUSDC al mercado de préstamos de Morpho respaldado por BTC en Mezo y
   gana intereses de los prestatarios o emisiones de MEZO

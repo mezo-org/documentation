@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: Bóveda de ahorro Ditto MUSD (Ditto MUSD Savings Vault)
 description: >-
   Deposita MUSD en Mezo y recibe dMUSD para acceder a una bóveda cross-chain
   automatizada con una asignación inicial a Spark Savings

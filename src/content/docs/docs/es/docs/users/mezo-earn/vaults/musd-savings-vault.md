@@ -1,5 +1,5 @@
 ---
-title: MUSD Savings Vault
+title: Bóveda de ahorro MUSD (MUSD Savings Vault)
 description: >-
   Obtén rendimiento respaldado por comisiones con MUSD a través de la bóveda de
   ahorro de Mezo

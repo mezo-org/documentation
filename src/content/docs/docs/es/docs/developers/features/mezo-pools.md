@@ -1,5 +1,5 @@
 ---
-title: Mezo Pools
+title: Pools de Mezo (Mezo Pools)
 description: Referencia para desarrolladores sobre Mezo Pools que abarca los pools básicos y de liquidez concentrada, los flujos de swap, la gestión de posiciones y las direcciones de contratos en Mainnet y Testnet.
 topic: developers
 ---
