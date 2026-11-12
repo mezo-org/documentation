@@ -13,7 +13,7 @@ veMEZO 是在 Mezo 网络上锁定的 MEZO 的代币化（NFT）表示。锁定 
 - 作用于 veBTC 投票权的加成倍数（最高 5x）
 - 来自每周 MEZO 排放的 Rebase 奖励，用于抵消稀释
 - 参与配对市场，从 veBTC 持有者处赚取激励
-- 在 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 上投票，将 MEZO 排放引导至 Curve、Uniswap 和 Aerodrome 上的 MUSD 流动性池
+- 在 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 上投票，将 MEZO 排放引导至 Curve、Uniswap 和 Aero 上的 MUSD 流动性池
 
 :::note[重要]
 veMEZO 不会单独在**质押 Gauge** 上投票——在质押 Gauge 上，它只会放大 veBTC 仓位的投票权。它确实能以自身名义在 veBTC Boost Gauge 和 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 上投票。

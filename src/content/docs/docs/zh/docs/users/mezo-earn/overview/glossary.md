@@ -50,7 +50,7 @@ veBTC 与 veMEZO 配对后的合并投票权重，计算方式为您的 veBTC �
 
 ## MEZO Gauge
 
-一种非质押 Gauge，将 MEZO 排放引导至 Mezo 之外的 MUSD 流动性池——以太坊上的 Curve 和 Uniswap，以及 Base 上的 Aerodrome。请参阅 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)。
+一种非质押 Gauge，将 MEZO 排放引导至 Mezo 之外的 MUSD 流动性池——以太坊上的 Curve 和 Uniswap，以及 Base 上的 Aero。请参阅 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)。
 
 ## 投票权重
 

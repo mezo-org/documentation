@@ -416,7 +416,7 @@ mezod tendermint unsafe-reset-all
 ## 其他资源
 
 - **[Chains 仓库](https://github.com/mezo-org/chains.git)** - 配置仓库
-- **[Mezod 文档](/docs/zh/docs/developers/mezod/)** - 链客户端文档
+- **[Mezod 文档](/docs/zh/docs/developers/getting-started/mezod)** - 链客户端文档
 - **[Validator Kit](/docs/zh/docs/developers/mezo-nodes/validator-kit/)** - 验证者设置指南
 - **[Cosmos SDK 配置](https://docs.cosmos.network/)** - Cosmos SDK 文档
 

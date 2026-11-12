@@ -40,7 +40,7 @@ Passport 让开发者能够轻松地为构建在 Mezo 上的 dApp 集成比特�
 
 ## 如何投资 Mezo？
 
-如果您有意成为投资者，请联系 [IR@thesis.co](IR@thesis.co)。
+如果您有意成为投资者，请联系 [IR@thesis.co](mailto:IR@thesis.co)。
 
 ## 我可以在 Mezo 上使用哪些钱包？
 
@@ -59,9 +59,11 @@ Passport 让开发者能够轻松地为构建在 Mezo 上的 dApp 集成比特�
 * Zerion
 * OKX
 
+比特币钱包已无法再向 Mezo 存款。原生 BTC 桥入已于 2026 年 10 月 13 日关闭。如需存款，请使用 EVM 钱包。如果您的账户使用的是比特币钱包，您可以在 Mezo App 的 **Transact > Send** 中将资产转移到 Mezo 上的 EVM 钱包（请参阅[发送资产](/docs/zh/docs/users/passport/send-assets)），也可以直接桥出为 BTC，该功能仍然可用。
+
 ## 交易费用使用哪种代币支付？
 
-在 Mezo 上，交易费用使用 BTC 支付。您可以直接从比特币钱包存入 BTC，或从以太坊钱包存入 tBTC，从而在 Mezo 上获得 BTC。
+在 Mezo 上，交易费用使用 BTC 支付。您可以从以太坊钱包存入 tBTC，或通过 [Get Gas](/docs/zh/docs/users/getting-started/get-gas) 兑换 MUSD 或 MEZO，从而在 Mezo 上获得 BTC。
 
 ## 为什么我持有的某些代币没有显示在 Mezo Explorer 中？
 

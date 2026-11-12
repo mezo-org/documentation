@@ -11,20 +11,20 @@ import { Steps } from '@astrojs/starlight/components';
 
 ## Mezo 原生跨链桥存款
 
-Mezo App 内置原生跨链桥，您可以通过它将多种资产存入 Mezo 主网。请参阅[存入资产](/docs/zh/docs/users/getting-started/deposit-assets)指南了解具体流程，或直接前往 [mezo.org/overview](https://mezo.org/overview)，登录后点击 **Deposit Bitcoin** 开始操作。
+Mezo App 内置原生跨链桥，您可以通过它将多种资产从以太坊存入 Mezo 主网。请参阅[存入资产](/docs/zh/docs/users/getting-started/deposit-assets)指南了解具体流程，或直接前往 [mezo.org/overview](https://mezo.org/overview)，使用 EVM 钱包登录后点击 **Deposit** 开始操作。
 
 :::note[注意]
-Mezo 主网上的所有交易均使用存入的原生 BTC 或 tBTC 支付。在使用网络之前，建议您先向账户充入 BTC 或 tBTC，以确保有足够的 Gas 支付交易费用。
+Mezo 主网上的所有交易均以 BTC 支付。从以太坊存入的 tBTC 会以 BTC 的形式到达 Mezo，因此建议您先向账户充入 tBTC，以确保有足够的 Gas 支付交易费用。
 :::
 
 
-## 原生 BTC 存款
+## 原生 BTC 桥入（已结束）
 
-您可以直接从比特币钱包将 BTC 存入 Mezo App。资产会被自动桥接为 tBTC，并桥接到 Mezo 主网。
+自 2026 年 10 月 13 日起，原生 BTC 桥入（Native BTC Bridge-in）已关闭，Mezo App 不再接受来自比特币钱包的存款。直接桥出为 BTC 的功能仍然可用（请参阅[桥接到比特币](#桥接到比特币仅适用于原生-btc)）。如需将 BTC 带入 Mezo，请改为从以太坊存入 tBTC。存款几分钟内即可到账，且没有最低金额限制。请参阅[存入资产](/docs/zh/docs/users/getting-started/deposit-assets)。
 
-原生 BTC 会先被桥接为 tBTC，然后再桥接到 [Mezo App 合约](/docs/zh/docs/users/resources/contracts-reference)中。
+如果您的 BTC 存放在比特币钱包中，请使用 EVM 钱包创建 Mezo 账户，并通过该钱包管理存款。如果您在 10 月 13 日之前发起了原生存款，请参阅[追踪您的原生比特币存款](/docs/zh/docs/users/mainnet/track-your-native-bitcoin-deposit)。
 
-对于 BTC 钱包，您可以使用 UniSat、OKX 和 Xverse 登录。请使用以下类型的地址：
+使用比特币钱包（UniSat、OKX、Xverse）登录的账户，可以在 Mezo App 的 **Transact > Send** 中将资产转移到 Mezo 上的 EVM 钱包（请参阅[发送资产](/docs/zh/docs/users/passport/send-assets)），之后通过该钱包存款并管理所有资产。这些账户也仍然可以[将 BTC 提取到比特币网络](#桥接到比特币仅适用于原生-btc)。比特币钱包使用以下类型的地址：
 
 | 名称           | 脚本类型    | 地址前缀       |
 | -------------- | ----------- | -------------- |
@@ -257,7 +257,10 @@ App 会根据您具体交易所使用的跨链桥路由，准确显示相应费�
 **问：我可以桥接到哪些网络？**
 答：资产可以在以太坊、Mezo、Base 和比特币之间桥接。未来还将增加对更多网络的支持。
 
-**问：我的原生比特币存款还没有到账。如何查看其状态？**
+**问：我还可以从比特币钱包存入 BTC 吗？**
+答：不可以。原生 BTC 桥入已于 2026 年 10 月 13 日关闭。请改用 EVM 钱包从以太坊存入 tBTC。请参阅[存入资产](/docs/zh/docs/users/getting-started/deposit-assets)。直接桥出为 BTC 的功能仍然可用。
+
+**问：我在 10 月 13 日之前发起的原生比特币存款还没有到账。如何查看其状态？**
 答：请参阅[追踪您的原生比特币存款](/docs/zh/docs/users/mainnet/track-your-native-bitcoin-deposit)，了解如何使用 tBTCScan 核实存款状态的分步指南。
 
 **问：目标网络上的 Gas 由谁支付？**

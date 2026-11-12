@@ -7,35 +7,34 @@ topic: users
 import { Steps } from '@astrojs/starlight/components';
 import YouTube from '../../../../../../../components/YouTube.astro';
 
-您可以将原生比特币或受支持的 ERC-20 代币（比特币包装资产）存入 Mezo 主网。
+您可以使用 EVM 钱包，将 tBTC 及其他受支持的 ERC-20 代币从以太坊存入 Mezo 主网。
+
+:::caution[原生 BTC 桥入已结束]
+自 2026 年 10 月 13 日起，原生 BTC 桥入（Native BTC Bridge-in）已关闭，Mezo App 不再接受来自比特币钱包（UniSat、OKX、Xverse）的存款。直接桥出为 BTC 的功能仍然可用。如需将 BTC 带入 Mezo，请改为从以太坊存入 tBTC。存款几分钟内即可到账，且没有最低金额限制。
+
+如果您的 BTC 存放在比特币钱包中，请使用 EVM 钱包创建 Mezo 账户，并通过该钱包管理存款。如果您的 Mezo 账户已在使用比特币钱包，您可以将资产转移到 EVM 钱包，从而继续留在 Mezo 上：在 Mezo App 中前往 **Transact > Send**，输入您 EVM 钱包的 `0x…` 地址（请参阅[发送资产](/docs/zh/docs/users/passport/send-assets)）。您也仍然可以直接桥出为 BTC。请参阅[提取](/docs/zh/docs/users/mainnet/bridges#提取)。
+:::
 
 <YouTube id="DinlFeUZB3U" title="如何存入资产到 Mezo" />
 
 ## 开始之前
 
+- 使用 MetaMask 等 EVM 钱包登录。比特币钱包无法向 Mezo 存款。
 - 确认哪些资产受支持。您可以在[合约参考](/docs/zh/docs/users/resources/contracts-reference#代币合约)页面核实这些资产的代币地址。
-- Mezo 主网上的所有交易均使用存入的原生 BTC 或 tBTC 支付。在使用网络之前，建议您先向账户充入 BTC 或 tBTC，以确保有足够的 Gas 支付交易费用。
+- Mezo 主网上的所有交易均以 BTC 支付。从以太坊存入的 tBTC 会以 BTC 的形式到达 Mezo，因此建议您先向账户充入 tBTC，以确保有足够的 Gas 支付交易费用。如果您在 Mezo 上只持有 MUSD 或 MEZO，请使用 [Get Gas](/docs/zh/docs/users/getting-started/get-gas)。
 
 ## 存入资产
 
 <Steps>
-1. 前往 [Mezo App](https://mezo.org/overview)，使用受支持的钱包登录。
+1. 前往 [Mezo App](https://mezo.org/overview)，使用 EVM 钱包登录。
 
-2. 登录并签署交易后，点击 **Deposit Bitcoin**。
+2. 点击 **Deposit**。存款表单随即打开，并默认选中 tBTC。
 
 3. 选择要桥接的资产并指定数量。
 
-    ![](/docs/images/mainnet/deposit-modal-preview.png)
+4. 点击 **Review**，检查转账详情。
 
-4. 点击 **Review** 查看转账详情并生成存款地址。
-
-5. 检查转账详情，确保准确无误。
-
-6. 准备好存入资产时，复制钱包地址。确保该地址在您的钱包中显示正确。
-
-    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
-
-7. 如果交易无误，请确认交易。
+5. 如果交易无误，请在钱包中确认。如果这是您首次存入该代币，钱包会要求您先进行授权。
 </Steps>
 
 交易完成后，桥接流程随即开始。整个过程可能需要几分钟才能完成，之后您将在主网上收到资产。

@@ -263,7 +263,7 @@ pnpm deploy:testnet
 - **[Mezo Earn 仓库](https://github.com/mezo-org/tigris.git)** - 主仓库
 - **[Solidly 文档](https://docs.solidly.com/)** - Solidly 协议文档
 - **[Mezo 网络文档](/docs/zh/docs/developers/getting-started/configure-environment)** - 网络配置
-- **[合约验证指南](/docs/zh/docs/developers/contracts-reference)** - 合约验证
+- **[合约与代币地址](/docs/zh/docs/users/resources/contracts-reference)** - 已部署的合约与代币地址
 
 :::note
 有关详细的架构、代币经济学和协议机制，请参阅 Mezo Earn 仓库的 README 和文档。

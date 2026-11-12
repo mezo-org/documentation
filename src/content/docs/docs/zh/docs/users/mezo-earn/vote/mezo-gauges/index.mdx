@@ -1,14 +1,22 @@
 ---
 title: MEZO Gauges 概览
-description: veMEZO 持有者将 MEZO 排放引导至 Curve、Uniswap 和 Aerodrome 上的 MUSD 流动性池
+description: veMEZO 持有者将 MEZO 排放引导至 Curve、Uniswap 和 Aero 上的 MUSD 流动性池
 topic: users
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-**MEZO Gauges 让 veMEZO 持有者可以通过投票，将 MEZO 排放引导至 Mezo 之外的流动性池**，即 Curve 和 Uniswap（以太坊）以及 Aerodrome（Base）上的流动性池。
+**MEZO Gauges 让 veMEZO 持有者可以通过投票，将 MEZO 排放引导至 Mezo 之外的流动性池**，即 Curve 和 Uniswap（以太坊）以及 Aero（Base）上的流动性池。
 
 此前，veMEZO 只有一项用途：为 veBTC 仓位提供[加成](/docs/zh/docs/users/mezo-earn/lock/vemezo/boost-mechanism)。现在，veMEZO 拥有了自己的投票权，可以支配每周排放中实实在在的一部分。
+
+:::caution[Aerodrome 现已更名为 Aero]
+2026 年 10 月 22 日 00:00 UTC，Aerodrome 与 Velodrome 合并为 [Aero](https://aero.xyz/aero-upgrade/)。两个 Base Gauge 现在指向 Aero 上的新流动性池，Mezo 上的投票照常进行。
+
+Mezo 正在将 MEZO Gauges 接入新的 Aero Gauge。在此完成之前，被引导至 Base Gauge 的 MEZO 会留在 Mezo 上，不会桥接到 Base。
+
+如果您在旧的 Aerodrome USDC/MUSD 或 MEZO/MUSD 流动性池中提供流动性，请将您的仓位迁移到 Aero。请参阅[从 Aerodrome 迁移](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives#从-aerodrome-迁移)。
+:::
 
 ---
 
@@ -35,14 +43,14 @@ MEZO Gauges 是**非质押 Gauge**：在 Mezo 上没有可供质押的 LP 代币
 
 ## 哪些流动性池符合条件
 
-上线时共有四个 Gauge 投入运行：
+共有四个 Gauge 符合条件：
 
 | Gauge | 流动性池 | 平台 | 链 | 分发方式 |
 |---|---|---|---|---|
 | Uniswap USDC/MUSD | USDC/MUSD | Uniswap | 以太坊 | Merkl |
 | Curve USDT/USDC/MUSD | USDT/USDC/MUSD | Curve | 以太坊 | Merkl |
-| Aerodrome USDC/MUSD | USDC/MUSD | Aerodrome | Base | Aerodrome 投票激励 |
-| Aerodrome MEZO/MUSD | MEZO/MUSD | Aerodrome | Base | Aerodrome 投票激励 |
+| Aero USDC/MUSD | USDC/MUSD | Aero | Base | Aero 激励 |
+| Aero MEZO/MUSD | MEZO/MUSD | Aero | Base | Aero 激励 |
 
 ### 列表如何变更
 
@@ -62,7 +70,7 @@ MEZO Gauges 的资金来自排放中的**非质押 Gauge 分支**，目前占**�
 1. **您投票。** 在周期内将 veMEZO 投票权分配给可用的各个 MEZO Gauge。
 2. **周期结束**（周四 00:00 UTC），统计投票。每个 Gauge 获得的 MEZO 份额由其所获 veMEZO 投票的份额决定。
 3. **MEZO 离开 Mezo。** 每个 Gauge 的分配额被领取，并发送至其目标位置。
-4. **以激励形式到账**，进入目标流动性池，供 LP 在 Merkl 上领取，或供 Aerodrome 上的投票者领取。
+4. **以激励形式到账**，进入目标流动性池，供 LP 在 Merkl 上领取，或供 Aero 上的 sAERO 持有者领取。
 </Steps>
 
 具体时间和形式因平台而异。请参阅[您的投票去向](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes)。
@@ -71,11 +79,11 @@ MEZO Gauges 的资金来自排放中的**非质押 Gauge 分支**，目前占**�
 
 ## 投票者的收益
 
-您将获得所投票 Gauge 上发布的激励中的一部分，具体数额取决于您在该 Gauge 的 veMEZO 投票中所占的份额。[Boost Gauge](/docs/zh/docs/users/mezo-earn/lock/vemezo/matching-market) 激励的运作方式与此相同。任何人都可以在 MEZO Gauge 上发布激励，投票者可以领取这些激励。
+您将获得所投票 Gauge 上发布的激励中的一部分，具体数额取决于您在该 Gauge 的 veMEZO 投票中所占的份额。[Boost Gauge](/docs/zh/docs/users/mezo-earn/lock/vemezo/matching-market) 激励的运作方式与此相同。任何人都可以通过 [Matchbox](https://app.matchbox.markets/pools) 的 **Remote MEZO Gauges** 在 MEZO Gauge 上发布激励，投票者可以领取这些激励。
 
 MEZO 本身则会继续流转。它会到达目标流动性池，并根据协议规则支付给该池的 LP 或投票者。您的投票决定 MUSD 流动性的奖励流向哪里，而 Gauge 上的激励才是支付给您的收益。
 
-如果您也想获得被引导的 MEZO，就需要同时参与两端：在目标流动性池中提供流动性，并且在 Aerodrome 上为 Base 链上对应的 Gauge 投票。[您的投票去向](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#获取您所引导的价值)详细介绍了这一循环。
+如果您也想获得被引导的 MEZO，就需要同时参与两端：在目标流动性池中提供流动性，并且在 Aero 上将 sAERO 分配给同一个流动性池。[您的投票去向](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#获取您所引导的价值)详细介绍了这一循环。
 
 ---
 

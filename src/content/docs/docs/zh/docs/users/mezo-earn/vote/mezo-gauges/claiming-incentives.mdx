@@ -11,8 +11,8 @@ import { Steps } from '@astrojs/starlight/components';
 | 您的身份 | 您可领取 | 领取位置 |
 |---|---|---|
 | Curve USDT/USDC/MUSD 或 Uniswap USDC/MUSD 中的 LP | 锁定 3 个月的 veMEZO | [Merkl](https://app.merkl.xyz) |
-| 为 Aerodrome USDC/MUSD 或 MEZO/MUSD 投票的 veAERO 持有者 | MEZO（作为投票激励） | [Aerodrome](https://aerodrome.finance) |
-| Aerodrome USDC/MUSD 或 MEZO/MUSD 中的 LP | AERO 排放 | [Aerodrome](https://aerodrome.finance) |
+| 分配给 Aero USDC/MUSD 或 MEZO/MUSD 的 sAERO 持有者 | MEZO（作为激励） | [Aero](https://app.aero.xyz) |
+| Aero USDC/MUSD 或 MEZO/MUSD 中持有赚取 AERO 的存款的 LP | AERO 奖励 | [Aero](https://app.aero.xyz) |
 | 为某个 MEZO Gauge 投票的 veMEZO 持有者 | 该 Gauge 上发布的激励 | [mezo.org](https://mezo.org) 上的 Vote 选项卡 |
 
 ---
@@ -40,13 +40,20 @@ Merkl 活动不会无限期累积。如果您一直不领取，就会失去这�
 
 ---
 
-## Aerodrome：在 Base 上领取
+## Aero：在 Base 上领取
 
-被引导至 Aerodrome Gauge 的 MEZO 会作为**投票激励**存入，因此由 veAERO 投票者领取，而不是由 LP 领取。
+被引导至 Aero Gauge 的 MEZO 会作为一项**激励计划**发布在该流动性池上，因此由分配给该池的 sAERO 持有者获得，而不是由 LP 获得。
 
-**如果您持有 veAERO 并为 USDC/MUSD 或 MEZO/MUSD 投了票：** 前往 [aerodrome.finance](https://aerodrome.finance)，打开您的 veAERO 锁仓，领取该周期的奖励。您获得的 MEZO 份额与您在该 Gauge 投票中所占的份额成正比。
+**如果您持有 sAERO 并分配给 USDC/MUSD 或 MEZO/MUSD：** 只要您保持分配，激励就会持续流向您。您可以随时在 [app.aero.xyz](https://app.aero.xyz) 的 **Portfolio > Stakes** 下领取，每周的激励计划需要分别领取。您获得的 MEZO 份额与您在该流动性池分配中所占的份额成正比。
 
-**如果您在 Aerodrome USDC/MUSD 或 MEZO/MUSD 中提供流动性：** 将您的仓位质押到该流动性池的 Gauge 中，并在那里领取 **AERO** 排放。请注意，从 Mezo 投票到其产生 AERO 之间存在[两个周期的滞后](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#两个周期的滞后)。
+**如果您在 Aero USDC/MUSD 或 MEZO/MUSD 中提供流动性：** 如果您在存入时选择了 **AERO rewards**，就可以赚取 **AERO 奖励**。一笔存款只能赚取 AERO 奖励或交易手续费，二者不可兼得。AERO 奖励持续发放，您可以随时在 **Portfolio > Deposits** 下领取。关于 Mezo 投票如何到达该流动性池，请参阅 [Aero 上的时间安排](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#aero-上的时间安排)。
+
+### 从 Aerodrome 迁移
+
+Aero 于 2026 年 10 月 22 日 00:00 UTC 上线，Aerodrome 排放随之停止。仓位不会自动迁移。
+
+- **Base 上旧 USDC/MUSD 或 MEZO/MUSD 流动性池中的 LP：** 通过 [aerodrome.finance](https://aerodrome.finance) 上的升级门户，将您的仓位迁移到新的 Aero 流动性池。自动流动性管理器（ALM）中的仓位不会迁移：请在 Aerodrome 上将其提取，然后自行存入 Aero。请按照 [Aero 的 LP 指引](https://aero.xyz/aero-upgrade/#liquidity-providers)操作。
+- **veAERO 持有者：** veAERO 已被 sAERO 取代，只有 sAERO 才能在 Aero 上赚取激励。升级会重置您原有的投票，且无法撤销。升级后，请将 sAERO 分配给 Aero USDC/MUSD 或 MEZO/MUSD 流动性池，以继续赚取 MEZO 激励。请参阅 [Aero 的持有者指引](https://aero.xyz/aero-upgrade/#veaero-vevelo-holders)。
 
 ---
 

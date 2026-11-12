@@ -151,4 +151,4 @@ Gauge 权重 = 分配给该 Gauge 的总投票权 / 分配给所有 Gauge 的总
 
 **在哪里可以查看当前的 Gauge 权重和激励？**
 
-访问 [Vote 页面](https://mezo.org/vote)，即可查看实时 Gauge 权重、激励金额、预计 APY 和历史表现。
+访问 [Vote 页面](https://mezo.org/earn/vote)，即可查看实时 Gauge 权重、激励金额、预计 APY 和历史表现。

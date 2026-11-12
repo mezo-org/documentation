@@ -90,4 +90,4 @@ Mezo Earn 还包含一个独立的验证者 Gauge 激励机制，但该特定流
 ## 其他资源
 
 - [Mezo Earn 概览](/docs/zh/docs/users/mezo-earn/overview/)
-- [Mezo 博客](https://mezo.org/blog/tag/features/)
+- [Mezo 博客](https://mezo.org/blog)

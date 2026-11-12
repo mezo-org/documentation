@@ -1,5 +1,6 @@
 ---
 title: 常见问题
+description: 面向 Mezo 构建者的常见问题，涵盖网络、Gas、集成和支持。
 topic: developers
 ---
 

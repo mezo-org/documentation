@@ -1,5 +1,6 @@
 ---
 title: Mezo Pools
+description: Mezo Pools 开发者参考，涵盖基础池与集中流动性池、兑换流程、仓位管理，以及主网和测试网合约地址。
 topic: developers
 ---
 Mezo Pools 借助经过优化的流动性池机制，让用户能够兑换代币并提供流动性。Mezo 支持两种流动性池架构：**基础池**（恒定乘积 AMM 和稳定曲线 AMM），以及支持自定义价格区间的**集中流动性（CL）池**。

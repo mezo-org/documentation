@@ -12,7 +12,7 @@ topic: users
 
 ### 只持有 veMEZO 可以为 Gauge 投票吗？
 
-可以，但仅限部分 Gauge。veMEZO 能以自身名义在 **veBTC Boost Gauge** 和 **[MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)** 上投票，后者会将 MEZO 排放引导至 Curve、Uniswap 和 Aerodrome 上的 MUSD 流动性池。
+可以，但仅限部分 Gauge。veMEZO 能以自身名义在 **veBTC Boost Gauge** 和 **[MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)** 上投票，后者会将 MEZO 排放引导至 Curve、Uniswap 和 Aero 上的 MUSD 流动性池。
 
 veMEZO 无法单独做到的是在**质押 Gauge** 上投票——这需要 veBTC，而 veMEZO 在质押 Gauge 中的作用是放大 veBTC 的投票权。
 

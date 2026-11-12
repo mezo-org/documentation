@@ -30,7 +30,7 @@ veBTC 与 veMEZO 配对后的综合投票权重。计算方式为您的 veBTC �
 
 ## BTC Wallet（BTC 钱包）
 
-用于将 BTC 直接存入 Mezo 的比特币原生钱包。支持的钱包包括 UniSat、OKX 和 Xverse。支持的地址格式包括 Legacy（P2PKH）、Native SegWit（P2WPKH）和 Nested SegWit（P2SH-P2WPKH）。请参阅[存入资产](/docs/zh/docs/users/getting-started/deposit-assets)。
+可用于登录 Mezo 的比特币原生钱包。支持的钱包包括 UniSat、OKX 和 Xverse。支持的地址格式包括 Legacy（P2PKH）、Native SegWit（P2WPKH）和 Nested SegWit（P2SH-P2WPKH）。在原生 BTC 桥入（Native BTC Bridge-in）于 2026 年 10 月 13 日关闭之前，BTC 钱包可以通过它将 BTC 直接存入 Mezo。BTC 钱包账户持有的资产可以通过 **Transact > Send** 转移到 Mezo 上的 EVM 钱包（[发送资产](/docs/zh/docs/users/passport/send-assets)），也可以直接桥出为 BTC，该功能仍然可用。请参阅[跨链桥](/docs/zh/docs/users/mainnet/bridges)。
 
 ## Chain ID（链 ID）
 
@@ -54,7 +54,7 @@ veBTC 与 veMEZO 配对后的综合投票权重。计算方式为您的 veBTC �
 
 ## Collateralization Ratio（个人抵押率，ICR）
 
-个人抵押率（Individual Collateralization Ratio）。Trove 抵押品的美元价值与其总债务之比。例如，如果您的 BTC 抵押品价值 \$13,000，债务为 \$10,000，那么您的 ICR 为 130%。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/concepts)。
+个人抵押率（Individual Collateralization Ratio）。Trove 抵押品的美元价值与其总债务之比。例如，如果您的 BTC 抵押品价值 \$13,000，债务为 \$10,000，那么您的 ICR 为 130%。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/architecture-and-terminology)。
 
 ## CometBFT
 
@@ -66,7 +66,7 @@ Mezo 底层的共识引擎，前身为 Tendermint。CometBFT 提供拜占庭容�
 
 ## Critical Collateralization Ratio（临界抵押率，CCR）
 
-设定为 150% 的全系统抵押品阈值。当系统总抵押率（TCR）低于 CCR 时，系统将进入[恢复模式](#recovery-mode恢复模式)。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/concepts)。
+设定为 150% 的全系统抵押品阈值。当系统总抵押率（TCR）低于 CCR 时，系统将进入[恢复模式](#recovery-mode恢复模式)。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/architecture-and-terminology)。
 
 ## dApp
 
@@ -118,7 +118,7 @@ EVM 兼容区块链上同质化代币的标准接口。从以太坊桥接到 Mez
 
 ## Global Interest Rate（全局利率）
 
-由治理设定、适用于所有新开立 MUSD 贷款的单一利率。贷款一经开立，即保留其创建时的利率，即使全局利率发生变化也不受影响。用户可以通过[再融资](#refinance再融资)采用当前的全局利率。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/concepts)。
+由治理设定、适用于所有新开立 MUSD 贷款的单一利率。贷款一经开立，即保留其创建时的利率，即使全局利率发生变化也不受影响。用户可以通过[再融资](#refinance再融资)采用当前的全局利率。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/architecture-and-terminology)。
 
 ## Governance（治理）
 
@@ -182,7 +182,7 @@ Mezo 上全面的收益与治理体系，涵盖锁仓（[veBTC](#vebtc)、[veMEZ
 
 ## MEZO Gauge
 
-一种[非质押 Gauge](#non-staking-gauge非质押-gauge)，veMEZO 持有者通过为其投票，将 MEZO 排放导向 Mezo 之外的 MUSD 流动性池——以太坊上的 Curve 和 Uniswap，以及 Base 上的 Aerodrome。其资金来自排放的非质押分支（目前占每周排放奖励的 8%）。请参阅 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)。
+一种[非质押 Gauge](#non-staking-gauge非质押-gauge)，veMEZO 持有者通过为其投票，将 MEZO 排放导向 Mezo 之外的 MUSD 流动性池——以太坊上的 Curve 和 Uniswap，以及 Base 上的 Aero。其资金来自排放的非质押分支（目前占每周排放奖励的 8%）。请参阅 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)。
 
 ## Mezo Market
 
@@ -198,7 +198,7 @@ Mezo 上的流动性池系统，作为代币兑换的自动化链上流动性储
 
 ## Minimum Collateralization Ratio（最低抵押率，MCR）
 
-[Trove](#trove) 所需的最低抵押率，设定为 110%。如果 Trove 的 [ICR](#collateralization-ratio个人抵押率icr) 跌破 MCR，它就会满足被[清算](#liquidation清算)的条件。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/concepts)。
+[Trove](#trove) 所需的最低抵押率，设定为 110%。如果 Trove 的 [ICR](#collateralization-ratio个人抵押率icr) 跌破 MCR，它就会满足被[清算](#liquidation清算)的条件。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/architecture-and-terminology)。
 
 ## MUSD
 
@@ -230,7 +230,7 @@ Mezo 面向 MUSD 持有者的原生储蓄产品。存入 MUSD，即可赚取借�
 
 ## Origination Fee（开仓费）
 
-借入 MUSD 时收取的一次性费用，按借款金额的 0.1% 计算。该费用会计入贷款本金并产生利息。[再融资](#refinance再融资)时会收取再融资开仓费（常规费用的一部分）。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/concepts)。
+借入 MUSD 时收取的一次性费用，按借款金额的 0.1% 计算。该费用会计入贷款本金并产生利息。[再融资](#refinance再融资)时会收取再融资开仓费（常规费用的一部分）。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/architecture-and-terminology)。
 
 ## PCV
 
@@ -266,7 +266,7 @@ Mezo 面向 MUSD 持有者的原生储蓄产品。存入 MUSD，即可赚取借�
 
 ## Refinance（再融资）
 
-将贷款利率更新为当前[全局利率](#global-interest-rate全局利率)的过程。再融资会产生较低的开仓费，但无需关闭并重新开立贷款。如果 BTC 价格上涨，您还可以通过再融资来扩大信用额度。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/concepts)。
+将贷款利率更新为当前[全局利率](#global-interest-rate全局利率)的过程。再融资会产生较低的开仓费，但无需关闭并重新开立贷款。如果 BTC 价格上涨，您还可以通过再融资来扩大信用额度。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/architecture-and-terminology)。
 
 ## Router Contract（路由合约）
 
@@ -290,7 +290,7 @@ Mezo 面向 MUSD 持有者的原生储蓄产品。存入 MUSD，即可赚取借�
 
 ## Stability Pool（稳定池）
 
-作为抵御[清算](#liquidation清算)第一道防线的 MUSD 储备。用户将 MUSD 存入稳定池，并获得一部分被清算的抵押品作为回报。[PCV](#pcv) 合约以初始 100M MUSD 的存款为该池注入启动资金。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/concepts)。
+作为抵御[清算](#liquidation清算)第一道防线的 MUSD 储备。用户将 MUSD 存入稳定池，并获得一部分被清算的抵押品作为回报。[PCV](#pcv) 合约以初始 100M MUSD 的存款为该池注入启动资金。请参阅 [MUSD 关键概念](/docs/zh/docs/users/borrow/architecture-and-terminology)。
 
 ## Stable Pool（稳定型池）
 

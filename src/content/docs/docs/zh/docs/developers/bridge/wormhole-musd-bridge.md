@@ -1,5 +1,6 @@
 ---
 title: Wormhole MUSD 跨链桥
+description: MUSD 跨链桥如何使用 Wormhole 原生代币转移（NTT）协议，在保持代币可互换性的同时实现安全的跨链转移。
 topic: developers
 ---
 

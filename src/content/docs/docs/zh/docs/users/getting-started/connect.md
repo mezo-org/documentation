@@ -1,5 +1,6 @@
 ---
 title: 将钱包连接到 Mezo
+description: 通过 Chainlist 或手动方式将 Mezo 主网或测试网添加到浏览器钱包，并提供链 ID、公共 RPC 端点和网络信息。
 topic: users
 ---
 
@@ -67,7 +68,7 @@ topic: users
 
 Mezo App 支持 BTC 钱包，您的 BTC 钱包可获得一个与之关联的 Mezo 网络地址。目前，BTC 钱包可以在 Mezo 上完成以下操作：
 
-- 桥接 BTC 资产
+- 通过 **Transact > Send** 将资产转移到 Mezo 上的 EVM 钱包（[发送资产](/docs/zh/docs/users/passport/send-assets)），或直接桥出为 BTC（面向 BTC 钱包存款的原生 BTC 桥入已于 2026 年 10 月 13 日结束；请参阅[存入资产](/docs/zh/docs/users/getting-started/deposit-assets)）
 - 桥接 EVM 资产
 - 借款、还款或管理贷款的抵押品
 - 在 MUSD Market 购买商品

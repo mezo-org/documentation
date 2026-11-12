@@ -1,6 +1,6 @@
 ---
 title: 您的投票去向
-description: veMEZO 投票权重如何转化为 Curve、Uniswap 和 Aerodrome 流动性池上的激励
+description: veMEZO 投票权重如何转化为 Curve、Uniswap 和 Aero 流动性池上的激励
 topic: users
 ---
 
@@ -28,41 +28,49 @@ LP 侧的操作步骤请参阅[领取激励](/docs/zh/docs/users/mezo-earn/vote/
 
 ---
 
-## MEZO 作为 Aerodrome 上的投票激励
+## MEZO 作为 Aero 上的激励
 
-Aerodrome Gauge 的运作方式不同，因为 Aerodrome 本身就是一个 ve(3,3) 系统，拥有自己的每周投票。以 USDC/MUSD 为例。MEZO 不会直接发放给 Aerodrome 的 LP，而是作为**投票激励**存入该流动性池对应的 Aerodrome Gauge，支付给为其投票的 veAERO 持有者。
+Aero 流动性池的运作方式不同，因为 Aero 运行着自己的奖励系统。sAERO 持有者将其 sAERO 分配给各个流动性池，这些分配会将 **AERO 奖励**引导至每个流动性池中赚取 AERO 的存款。Aerodrome 更名为 Aero 时，sAERO 取代了 veAERO。
 
-正是这些 veAERO 投票将 **AERO 排放**引导至该流动性池。MEZO 为流动性池“购买”AERO 排放，而最终到达 LP 手中的是 AERO。Aerodrome 上的 MEZO/MUSD 也遵循同样的路径。
+以 USDC/MUSD 为例。MEZO 不会直接发放给 Aero 的 LP，而是作为一项**激励计划**发布在该流动性池上，其付款（Aero 称之为 Liquidity Payments）支付给分配给该流动性池的 sAERO 持有者。
 
-在机制上，MEZO 先在 Mezo 上被领取，再桥接到 Base，然后由一个分配器合约存入 Aerodrome Gauge。这一过程在每个周期自动运行。
+正是这些分配将 AERO 奖励引导至该流动性池。MEZO 为流动性池“购买”AERO 奖励，而最终到达 LP 手中的是 AERO。Aero 上的 MEZO/MUSD 也遵循同样的路径。
 
-### 两个周期的滞后
+在机制上，MEZO 先在 Mezo 上被领取，再桥接到 Base，然后由一个分配器合约发布到该流动性池上。这一过程在每个周期自动运行。
 
-Aerodrome 的投票比其所响应的激励早一周，因此您的投票与其所“购买”的流动性之间存在时间差：
+:::caution[Aero 升级后的重新接入]
+Aero 于 2026 年 10 月 22 日上线，Aerodrome 的旧 Gauge 随之关停。Mezo 正在将分配器接入新的 Aero Gauge。在此完成之前，被引导至 Base Gauge 的 MEZO 会留在 Mezo 上，不会被桥接。
+:::
+
+### Aero 上的时间安排
+
+Aero 没有每周投票。sAERO 持有者可以持续进行分配，变更一经做出即刻生效。每个 sAERO 仓位每 47 小时可以更改一次分配，这是 Aero 上线时的设置。激励持续流向分配给该流动性池的 sAERO 持有者，AERO 奖励则持续流向该流动性池中赚取 AERO 的存款。两者都无需等待周期切换。
+
+每周进行一次的步骤发生在 Mezo 一侧：
 
 | 周期 | 发生的事情 |
 |---|---|
 | **N** | 您在 Mezo 上投票。周期结束，分配额随之确定。 |
-| **N+1** | MEZO 作为投票激励存入 Aerodrome Gauge。veAERO 持有者在此周期内为其投票。 |
-| **N+2** | AERO 排放流向该流动性池，LP 获得这些排放。 |
+| **N+1** | MEZO 被桥接到 Base，并在 Vote 页面显示的 **Distribution date** 之前，作为一项为期一周的激励计划发布到该流动性池上。 |
+| **随后一周** | 该计划将 MEZO 持续发放给分配给该流动性池的 sAERO 持有者。 |
 
-**在第 N 个周期投出的票会在第 N+2 个周期产生 AERO 排放。** 这是由 Aerodrome 自身的周期排序方式决定的，而不是 Mezo 额外增加的延迟。
+如果在发放期间没有任何 sAERO 分配给该流动性池，这部分 MEZO 不会被支付。分配器可以在计划结束后将其收回，并在之后的计划中重新发布。
 
 ---
 
 ## 获取您所引导的价值
 
-引导排放带来的是影响力，而不是收益。您发送到目标流动性池的 MEZO 归该池的参与者所有——Curve 和 Uniswap 上是 Merkl 领取者，Aerodrome 上是 veAERO 投票者。作为 MEZO Gauge 投票者，这些 MEZO 不会回到您手中。
+引导排放带来的是影响力，而不是收益。您发送到目标流动性池的 MEZO 归该池的参与者所有——Curve 和 Uniswap 上是 Merkl 领取者，Aero 上是 sAERO 持有者。作为 MEZO Gauge 投票者，这些 MEZO 不会回到您手中。
 
 作为投票者，您直接获得的收益是 **MEZO Gauge 本身所发布的激励**中的一部分，与您在该 Gauge 投票中所占的份额成正比。
 
-要获取排放本身，您必须同时参与循环的两端。以 Aerodrome 上的 USDC/MUSD 为例：
+要获取排放本身，您必须同时参与循环的两端。以 Aero 上的 USDC/MUSD 为例：
 
 <Steps>
-1. 在 Aerodrome 上的该流动性池中**提供流动性**，并质押到其 Gauge 中。
+1. 在 Aero 上的该流动性池中**提供流动性**，并为这笔存款选择 **AERO rewards**。
 2. 在 Mezo 上使用 veMEZO，为该流动性池的 MEZO Gauge **投票**。
-3. 在 Base 上使用 veAERO，为对应的 Aerodrome Gauge **投票**。
-4. **领取** LP 仓位获得的 AERO，以及 veAERO 投票获得的 MEZO 投票激励。
+3. 在 Aero 上将 sAERO **分配**给同一个流动性池。
+4. **领取** LP 仓位获得的 AERO 奖励，以及 sAERO 分配获得的 MEZO 激励。
 </Steps>
 
 在 Curve 和 Uniswap 上，这一循环更短：在流动性池中提供流动性，为其 MEZO Gauge 投票，然后作为 LP 在 Merkl 上领取活动奖励。
@@ -75,6 +83,6 @@ Aerodrome 的投票比其所响应的激励早一周，因此您的投票与其�
 
 ## 后续步骤
 
-- [领取激励](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives)——在 Merkl 或 Aerodrome 上领取
+- [领取激励](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives)——在 Merkl 或 Aero 上领取
 - [如何为 MEZO Gauges 投票](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote)——操作步骤
 - [MEZO Gauges 概览](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)——符合条件的流动性池及资金来源

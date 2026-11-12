@@ -98,7 +98,7 @@ topic: users
 
 ## 2025-05-28 - Mezo 主网上线
 
-Mezo 主网现已上线！请参阅[入门指南](https:/mezo.org/docs/users/getting-started/connect)文档了解如何连接到主网，或前往 [mezo.org/overview](https://mezo.org/overview) 桥接您的资产并开始使用平台。
+Mezo 主网现已上线！请参阅[入门指南](https://mezo.org/docs/users/getting-started/connect)文档了解如何连接到主网，或前往 [mezo.org/overview](https://mezo.org/overview) 桥接您的资产并开始使用平台。
 
 ## 2025-04-12 - Mezo 主网上线公告
 

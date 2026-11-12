@@ -90,4 +90,4 @@ CL 池的费用与基础池的费用运作方式相同——每次兑换时从�
 
 ### 智能合约风险
 
-与所有智能合约一样，固有风险依然存在。请在 [mezo.org/audits](https://mezo.org/audits) 查看审计报告，并且只存入您能够承受的金额。
+与所有智能合约一样，固有风险依然存在。请在 [mezo.org/docs/zh/docs/users/resources/audits](/docs/zh/docs/users/resources/audits) 查看审计报告，并且只存入您能够承受的金额。

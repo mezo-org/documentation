@@ -62,7 +62,7 @@ sMUSD 是您在 Mezo MUSD Savings Vault 中的凭证代币。以下几点需要�
 
 MUSD Savings Rate Gauge 与 LP 流动性池 Gauge 一同竞争投票。它们统称为“质押 Gauge”——分配给储蓄利率 Gauge 的投票不能同时分配给 LP Gauge。
 
-随着 MEZO 排放上线，将 sMUSD 质押到 Gauge 中现在可以在您的基础仓位之外额外赚取 MEZO。MUSD Savings Gauge 与 LP 流动性池 Gauge 一同竞争 veBTC 投票——引导至储蓄 Gauge 的投票越多，流向质押者的 MEZO 排放就越多。支持该 Gauge 的 veBTC 投票者将赚取质押者重新分配的 MUSD 费用。质押者和投票者当前的 Gauge APR 可在 Vote 页面查看，网址为 [mezo.org/earn/vaults/vote](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC/vote)。
+随着 MEZO 排放上线，将 sMUSD 质押到 Gauge 中现在可以在您的基础仓位之外额外赚取 MEZO。MUSD Savings Gauge 与 LP 流动性池 Gauge 一同竞争 veBTC 投票——引导至储蓄 Gauge 的投票越多，流向质押者的 MEZO 排放就越多。支持该 Gauge 的 veBTC 投票者将赚取质押者重新分配的 MUSD 费用。质押者和投票者当前的 Gauge APR 可在 Vote 页面查看，网址为 [mezo.org/earn/vote](https://mezo.org/earn/vote)。
 
 ---
 

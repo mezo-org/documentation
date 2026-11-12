@@ -1,5 +1,6 @@
 ---
 title: MUSD 赎回
+description: 通过调用 TroveManager 合约的 redeemCollateral 将 MUSD 赎回为 BTC 的分步指南，包括节省 Gas 的提示（hint）、费用和合约地址。
 topic: developers
 ---
 

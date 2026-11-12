@@ -1,5 +1,6 @@
 ---
 title: dApp 要求
+description: dApp 在 Mezo Market 中展示所需满足的要求，包括 MUSD 集成、第三方安全审计以及已上线的主网部署。
 topic: developers
 ---
 
