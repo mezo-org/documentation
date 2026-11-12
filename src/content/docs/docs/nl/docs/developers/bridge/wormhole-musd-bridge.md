@@ -1,5 +1,5 @@
 ---
-title: Wormhole MUSD Bridge
+title: Wormhole MUSD-brug (Wormhole MUSD Bridge)
 description: Hoe de MUSD Bridge het Native Token Transfer-protocol van Wormhole gebruikt voor veilige cross-chain overdrachten met behoud van fungibiliteit.
 topic: developers
 ---

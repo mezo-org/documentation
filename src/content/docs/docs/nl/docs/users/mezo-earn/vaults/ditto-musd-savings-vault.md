@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: Ditto MUSD-spaarkluis (Ditto MUSD Savings Vault)
 description: >-
   Stort MUSD op Mezo en ontvang dMUSD voor een geautomatiseerde cross-chain
   kluis met een initiële toewijzing aan Spark Savings

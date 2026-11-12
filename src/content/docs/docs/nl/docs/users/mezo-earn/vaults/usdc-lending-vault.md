@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: USDC-leenkluis (USDC Lending Vault)
 description: >-
   Verschaf mUSDC aan de door BTC gedekte uitleenmarkt van Morpho op Mezo en
   verdien rente van leners of MEZO-emissies

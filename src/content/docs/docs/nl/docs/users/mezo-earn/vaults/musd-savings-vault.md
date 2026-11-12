@@ -1,5 +1,5 @@
 ---
-title: MUSD Savings Vault
+title: MUSD-spaarkluis (MUSD Savings Vault)
 description: Verdien door vergoedingen gedekt rendement op MUSD via de Mezo Savings Vault
 topic: users
 ---
