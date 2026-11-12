@@ -62,7 +62,7 @@ This mirrors how LP staking works in liquidity pools on Mezo's native DEX — st
 
 The MUSD Savings Rate gauge competes for votes alongside LP pool gauges. These are collectively called "staking gauges" — a vote allocated to the savings rate gauge cannot also be allocated to an LP gauge.
 
-With MEZO emissions live, staking sMUSD in the gauge now earns MEZO on top of your base position. The MUSD Savings gauge competes for veBTC votes alongside LP pool gauges — more votes directed to the savings gauge means more MEZO emissions routed to stakers. veBTC voters who support the gauge earn the MUSD fees that stakers redirect. Current gauge APR for stakers and voters is visible on the Vote page at [mezo.org/earn/vaults/vote](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC/vote).
+With MEZO emissions live, staking sMUSD in the gauge now earns MEZO on top of your base position. The MUSD Savings gauge competes for veBTC votes alongside LP pool gauges — more votes directed to the savings gauge means more MEZO emissions routed to stakers. veBTC voters who support the gauge earn the MUSD fees that stakers redirect. Current gauge APR for stakers and voters is visible on the Vote page at [mezo.org/earn/vote](https://mezo.org/earn/vote).
 
 ---
 
