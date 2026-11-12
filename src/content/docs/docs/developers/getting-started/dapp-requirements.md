@@ -1,5 +1,6 @@
 ---
 title: dApp Requirements
+description: Requirements for a dApp to be featured in the Mezo Market, including MUSD integration, a third-party security audit, and a live Mainnet deployment.
 topic: developers
 ---
 

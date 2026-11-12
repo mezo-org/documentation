@@ -92,4 +92,4 @@ To claim your MEZO rewards, follow these steps:
 ## Additional Resources
 
 - [Mezo Earn Overview](/docs/users/mezo-earn/overview/)
-- [Mezo Blog](https://mezo.org/blog/tag/features/)
+- [Mezo Blog](https://mezo.org/blog)
