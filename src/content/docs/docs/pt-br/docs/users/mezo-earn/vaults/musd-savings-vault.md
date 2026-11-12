@@ -1,5 +1,5 @@
 ---
-title: MUSD Savings Vault
+title: Cofre de poupança MUSD (MUSD Savings Vault)
 description: Obtenha rendimento lastreado em taxas com MUSD no Mezo Savings Vault
 topic: users
 ---

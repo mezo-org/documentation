@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: Cofre de poupança Ditto MUSD (Ditto MUSD Savings Vault)
 description: >-
   Deposite MUSD no Mezo e receba dMUSD em um cofre cross-chain automatizado com
   alocação inicial no Spark Savings
