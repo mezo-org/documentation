@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: Ditto MUSD 저축 볼트 (Ditto MUSD Savings Vault)
 description: Mezo에서 MUSD를 예치하고 dMUSD를 받아 Spark Savings에 초기 배분되는 자동화된 크로스체인 볼트를 이용하세요
 topic: users
 ---

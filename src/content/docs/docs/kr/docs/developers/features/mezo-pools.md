@@ -1,5 +1,5 @@
 ---
-title: Mezo Pools
+title: 메조 풀 (Mezo Pools)
 description: 기본 풀과 집중 유동성 풀, 스왑 흐름, 포지션 관리, 메인넷 및 테스트넷 컨트랙트 주소를 다루는 Mezo Pools 개발자 레퍼런스입니다.
 topic: developers
 ---

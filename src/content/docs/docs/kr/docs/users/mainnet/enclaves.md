@@ -1,5 +1,5 @@
 ---
-title: Enclaves
+title: 엔클레이브 (Enclaves)
 description: Enclave를 통해 Mezo에서 기관 BTC 입금이 이루어지는 방식
 topic: users
 ---

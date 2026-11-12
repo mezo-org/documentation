@@ -1,5 +1,5 @@
 ---
-title: Wormhole MUSD Bridge
+title: 웜홀 MUSD 브리지 (Wormhole MUSD Bridge)
 description: MUSD 브리지가 Wormhole Native Token Transfer를 사용해 대체 가능성을 유지하면서 안전한 크로스체인 전송을 구현하는 방식을 설명합니다.
 topic: developers
 ---

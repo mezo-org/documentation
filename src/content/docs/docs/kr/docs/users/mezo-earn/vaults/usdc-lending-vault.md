@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: USDC 대출 볼트 (USDC Lending Vault)
 description: Mezo의 BTC 담보 Morpho 대출 마켓에 mUSDC를 공급하고 차입자 이자 또는 MEZO 에미션 받기
 topic: users
 ---

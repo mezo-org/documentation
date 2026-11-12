@@ -1,5 +1,5 @@
 ---
-title: MUSD Savings Vault
+title: MUSD 저축 볼트 (MUSD Savings Vault)
 description: Mezo Savings Vault를 통해 MUSD로 수수료 기반 수익 얻기
 topic: users
 ---
