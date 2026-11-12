@@ -1,5 +1,6 @@
 ---
 title: Preguntas frecuentes
+description: Preguntas frecuentes para quienes desarrollan en Mezo sobre la red, el gas, las integraciones y el soporte.
 topic: developers
 ---
 

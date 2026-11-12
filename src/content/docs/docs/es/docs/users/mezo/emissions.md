@@ -96,6 +96,6 @@ Las emisiones semanales fluyen a través de un sistema de splitters:
 
 4. **Los validadores** operan los nodos de la cadena Mezo. Reciben una parte fija de las emisiones de MEZO (20%) a través del Chain Splitter.
 
-5. **El Ecosystem Splitter** reparte el 80% restante entre los gauges de staking y los gauges sin staking, actualmente en una proporción 90/10. La rama sin staking, aproximadamente el 8% de las recompensas de emisión, financia los [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges), donde los titulares de veMEZO votan para enviar MEZO a los pools de MUSD en Curve, Uniswap y Aerodrome.
+5. **El Ecosystem Splitter** reparte el 80% restante entre los gauges de staking y los gauges sin staking, actualmente en una proporción 90/10. La rama sin staking, aproximadamente el 8% de las recompensas de emisión, financia los [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges), donde los titulares de veMEZO votan para enviar MEZO a los pools de MUSD en Curve, Uniswap y Aero.
 
 6. **Los gauges de staking** reciben la mayor parte de las emisiones. Aquí ganan MEZO los LP que hacen staking de sus tokens LP y los ahorradores de MUSD que hacen staking de sus tokens de recibo. A cambio, renuncian a las comisiones de trading directas, que van en su lugar a quienes votan con veBTC.

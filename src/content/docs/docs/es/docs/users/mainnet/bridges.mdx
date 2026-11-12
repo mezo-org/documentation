@@ -13,20 +13,20 @@ Puedes depositar y retirar activos en Mezo y desde Mezo con el Mezo Native Bridg
 
 ## Depósitos con el Mezo Native Bridge
 
-La app de Mezo incluye un puente nativo con el que puedes depositar varios activos en Mezo Mainnet. Consulta la guía [Depositar activos](/docs/es/docs/users/getting-started/deposit-assets) para saber cómo funciona el proceso, o ve directamente a [mezo.org/overview](https://mezo.org/overview), inicia sesión y haz clic en **Deposit Bitcoin** para empezar.
+La app de Mezo incluye un puente nativo con el que puedes depositar varios activos desde Ethereum en Mezo Mainnet. Consulta la guía [Depositar activos](/docs/es/docs/users/getting-started/deposit-assets) para saber cómo funciona el proceso, o ve directamente a [mezo.org/overview](https://mezo.org/overview), inicia sesión con una billetera EVM y haz clic en **Deposit** para empezar.
 
 :::note[Nota]
-Todas las transacciones en Mezo Mainnet se pagan con depósitos de BTC nativo o de tBTC. Antes de usar la red, se recomienda que deposites fondos de BTC o tBTC en tu cuenta para asegurarte de tener gas con el que pagar las transacciones.
+Todas las transacciones en Mezo Mainnet se pagan en BTC. El tBTC depositado desde Ethereum llega a Mezo como BTC, por lo que se recomienda que deposites tBTC en tu cuenta para asegurarte de tener gas con el que pagar las transacciones.
 :::
 
 
-## Depósitos de BTC nativo
+## Native BTC Bridge-in (terminado)
 
-Puedes depositar BTC directamente desde una billetera de Bitcoin en la Mezo App. Los activos se transfieren automáticamente mediante el puente a tBTC y a Mezo Mainnet.
+Desde el 13 de octubre de 2026, el Native BTC Bridge-in está cerrado y la app de Mezo ya no acepta depósitos desde billeteras de Bitcoin. Los retiros directos a BTC mediante el puente siguen disponibles (consulta [Transferir a Bitcoin](#transferir-a-bitcoin-solo-para-btc-nativo)). Para llevar BTC a Mezo, deposita tBTC desde Ethereum. Se liquida en minutos y no tiene mínimo. Consulta [Depositar activos](/docs/es/docs/users/getting-started/deposit-assets).
 
-El BTC nativo se transfiere mediante el puente a tBTC antes de transferirse al [contrato de la Mezo App](/docs/es/docs/users/resources/contracts-reference).
+Si tienes BTC en una billetera de Bitcoin, crea una cuenta de Mezo con una billetera EVM y gestiona los depósitos desde ahí. Si iniciaste un depósito nativo antes del 13 de octubre, consulta [Seguimiento de tu depósito de Bitcoin nativo](/docs/es/docs/users/mainnet/track-your-native-bitcoin-deposit).
 
-Con billeteras BTC, puedes iniciar sesión con UniSat, OKX y Xverse. Usa las siguientes direcciones:
+Las cuentas que inician sesión con una billetera de Bitcoin (UniSat, OKX, Xverse) pueden mover sus activos a una billetera EVM en Mezo desde **Transact > Send** en la app de Mezo (consulta [Enviar activos](/docs/es/docs/users/passport/send-assets)) y, después, depositar y gestionarlo todo desde esa billetera. También pueden seguir [retirando BTC a Bitcoin](#transferir-a-bitcoin-solo-para-btc-nativo). Las billeteras de Bitcoin usan los siguientes tipos de dirección:
 
 | Nombre         | Tipo de script | Prefijo de la dirección |
 | -------------- | ----------- | -------------- |
@@ -259,7 +259,10 @@ R: La mayoría de las transacciones que transfieren fondos a Ethereum mediante e
 **P: ¿A qué redes puedo transferir mediante el puente?**
 R: Los activos se pueden transferir entre Ethereum, Mezo, Base y Bitcoin. En el futuro se añadirá compatibilidad con más redes.
 
-**P: Mi depósito de Bitcoin nativo todavía no aparece. ¿Cómo compruebo su estado?**
+**P: ¿Todavía puedo depositar BTC desde una billetera de Bitcoin?**
+R: No. El Native BTC Bridge-in cerró el 13 de octubre de 2026. En su lugar, deposita tBTC desde Ethereum con una billetera EVM. Consulta [Depositar activos](/docs/es/docs/users/getting-started/deposit-assets). Los retiros directos a BTC mediante el puente siguen disponibles.
+
+**P: Un depósito de Bitcoin nativo que inicié antes del 13 de octubre todavía no aparece. ¿Cómo compruebo su estado?**
 R: Consulta [Seguimiento de tu depósito de Bitcoin nativo](/docs/es/docs/users/mainnet/track-your-native-bitcoin-deposit) para ver una guía paso a paso sobre cómo usar tBTCScan para verificar el estado de tu depósito.
 
 **P: ¿Quién paga el gas en la red de destino?**

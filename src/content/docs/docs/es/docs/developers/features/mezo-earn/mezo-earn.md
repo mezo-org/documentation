@@ -265,7 +265,7 @@ pnpm deploy:testnet
 - **[Repositorio de Mezo Earn](https://github.com/mezo-org/tigris.git)**: repositorio principal
 - **[Documentación de Solidly](https://docs.solidly.com/)**: documentación del protocolo Solidly
 - **[Documentación de la red Mezo](/docs/es/docs/developers/getting-started/configure-environment)**: configuración de la red
-- **[Guía de verificación de contratos](/docs/es/docs/developers/contracts-reference)**: verificación de contratos
+- **[Direcciones de contratos y tokens](/docs/es/docs/users/resources/contracts-reference)**: direcciones de los contratos y tokens desplegados
 
 :::note
 Para obtener detalles sobre la arquitectura, la tokenómica y la mecánica del protocolo, consulta el README y la documentación del repositorio de Mezo Earn.

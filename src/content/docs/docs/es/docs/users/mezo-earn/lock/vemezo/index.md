@@ -13,7 +13,7 @@ Cuando bloqueas MEZO en Mezo, recibes un NFT veMEZO que representa tu posición 
 - Un multiplicador de boost sobre tu poder de voto de veBTC (hasta 5x)
 - Recompensas de rebase procedentes de las emisiones semanales de MEZO para compensar la dilución
 - Participación en el mercado de emparejamiento para ganar incentivos de los titulares de veBTC
-- Votos en los [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges), que dirigen las emisiones de MEZO a pools de MUSD en Curve, Uniswap y Aerodrome
+- Votos en los [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges), que dirigen las emisiones de MEZO a pools de MUSD en Curve, Uniswap y Aero
 
 :::note[Importante]
 veMEZO no vota por sí mismo en los **gauges de staking**: allí solo multiplica el poder de voto de las posiciones de veBTC. Sí vota por sí mismo en los gauges de boost de veBTC y en los [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges).

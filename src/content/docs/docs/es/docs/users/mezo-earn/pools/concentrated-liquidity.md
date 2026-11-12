@@ -92,4 +92,4 @@ Si el precio de mercado sale del rango que elegiste, tu posición se convierte �
 
 ### Riesgo de contratos inteligentes
 
-Como ocurre con todos los contratos inteligentes, existe un riesgo inherente. Revisa las auditorías en [mezo.org/audits](https://mezo.org/audits) y deposita solo cantidades con las que te sientas cómodo.
+Como ocurre con todos los contratos inteligentes, existe un riesgo inherente. Revisa las auditorías en [mezo.org/docs/users/resources/audits](/docs/es/docs/users/resources/audits) y deposita solo cantidades con las que te sientas cómodo.

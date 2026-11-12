@@ -9,35 +9,34 @@ topic: users
 import { Steps } from '@astrojs/starlight/components';
 import YouTube from '../../../../../../../components/YouTube.astro';
 
-Puedes depositar Bitcoin nativo o tokens ERC-20 compatibles (wrappers de Bitcoin) en Mezo Mainnet.
+Puedes depositar tBTC y otros tokens ERC-20 compatibles desde Ethereum en Mezo Mainnet con una billetera EVM.
+
+:::caution[El Native BTC Bridge-in ha terminado]
+Desde el 13 de octubre de 2026, el Native BTC Bridge-in está cerrado y la app de Mezo ya no acepta depósitos desde billeteras de Bitcoin (UniSat, OKX, Xverse). Los retiros directos a BTC mediante el puente siguen disponibles. Para llevar BTC a Mezo, deposita tBTC desde Ethereum. Se liquida en minutos y no tiene mínimo.
+
+Si tienes BTC en una billetera de Bitcoin, crea una cuenta de Mezo con una billetera EVM y gestiona los depósitos desde ahí. Si tu cuenta de Mezo ya usa una billetera de Bitcoin, puedes mantener tus activos en Mezo moviéndolos a una billetera EVM: en la app de Mezo, ve a **Transact > Send** e introduce la dirección `0x…` de tu billetera EVM (consulta [Enviar activos](/docs/es/docs/users/passport/send-assets)). También puedes seguir retirando directamente a BTC mediante el puente. Consulta [Retiros](/docs/es/docs/users/mainnet/bridges#retiros).
+:::
 
 <YouTube id="DinlFeUZB3U" title="Cómo depositar en Mezo" />
 
 ## Antes de empezar
 
+- Inicia sesión con una billetera EVM, como MetaMask. Las billeteras de Bitcoin no pueden depositar en Mezo.
 - Comprueba qué activos son compatibles. Puedes confirmar las direcciones de estos tokens en la página [Referencia de contratos](/docs/es/docs/users/resources/contracts-reference#contratos-de-tokens).
-- Todas las transacciones en Mezo Mainnet se pagan con depósitos de BTC nativo o de tBTC. Antes de usar la red, se recomienda que deposites fondos de BTC o tBTC en tu cuenta para asegurarte de tener gas con el que pagar las transacciones.
+- Todas las transacciones en Mezo Mainnet se pagan en BTC. El tBTC depositado desde Ethereum llega a Mezo como BTC, por lo que se recomienda que deposites tBTC en tu cuenta para asegurarte de tener gas con el que pagar las transacciones. Si solo tienes MUSD o MEZO en Mezo, usa [Get Gas](/docs/es/docs/users/getting-started/get-gas).
 
 ## Deposita tus activos
 
 <Steps>
-1. Ve a la [Mezo App](https://mezo.org/overview) e inicia sesión con una billetera compatible.
+1. Ve a la [Mezo App](https://mezo.org/overview) e inicia sesión con una billetera EVM.
 
-2. Después de iniciar sesión y firmar la transacción, haz clic en **Deposit Bitcoin**.
+2. Haz clic en **Deposit**. El formulario de depósito se abre con tBTC seleccionado.
 
 3. Selecciona el activo que quieres transferir mediante el puente e indica la cantidad.
 
-    ![](/docs/images/mainnet/deposit-modal-preview.png)
+4. Haz clic en **Review** y comprueba los detalles de la transferencia.
 
-4. Haz clic en **Review** para revisar la transferencia y generar una dirección de depósito.
-
-5. Comprueba los detalles de la transferencia y asegúrate de que sean correctos.
-
-6. Cuando estés listo para depositar los activos, copia la dirección de la billetera. Asegúrate de que la dirección se muestre correctamente en tu billetera.
-
-    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
-
-7. Si la transacción es correcta, confírmala.
+5. Si la transacción es correcta, confírmala en tu billetera. Si es tu primer depósito de ese token, tu billetera te pedirá que primero lo apruebes.
 </Steps>
 
 Cuando se complete la transacción, comienza el proceso de transferencia mediante el puente. El proceso puede tardar varios minutos en completarse antes de que recibas tus activos en Mainnet.

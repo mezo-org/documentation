@@ -1,5 +1,6 @@
 ---
 title: Redenciones de MUSD
+description: Guía paso a paso para redimir MUSD por BTC llamando a redeemCollateral en el contrato TroveManager, con hints para ahorrar gas, comisiones y direcciones de contratos.
 topic: developers
 ---
 

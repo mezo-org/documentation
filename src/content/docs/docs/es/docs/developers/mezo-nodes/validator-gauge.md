@@ -93,4 +93,4 @@ Para reclamar tus recompensas en MEZO, sigue estos pasos:
 ## Recursos adicionales
 
 - [Descripción general de Mezo Earn](/docs/es/docs/users/mezo-earn/overview/)
-- [Blog de Mezo](https://mezo.org/blog/tag/features/)
+- [Blog de Mezo](https://mezo.org/blog)

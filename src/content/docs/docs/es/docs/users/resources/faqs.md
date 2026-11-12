@@ -40,7 +40,7 @@ Passport facilita a los desarrolladores la integración de billeteras de Bitcoin
 
 ## ¿Cómo invierto en Mezo?
 
-Si te interesa convertirte en inversor, escribe a [IR@thesis.co](IR@thesis.co).
+Si te interesa convertirte en inversor, escribe a [IR@thesis.co](mailto:IR@thesis.co).
 
 ## ¿Qué billeteras puedo usar con Mezo?
 
@@ -59,9 +59,11 @@ Compatibles con EVM:
 * Zerion
 * OKX
 
+Las billeteras de Bitcoin ya no pueden depositar en Mezo. El Native BTC Bridge-in cerró el 13 de octubre de 2026. Para depositar, usa una billetera EVM. Si tu cuenta usa una billetera de Bitcoin, puedes mover tus activos a una billetera EVM en Mezo desde **Transact > Send** en la app de Mezo (consulta [Enviar activos](/docs/es/docs/users/passport/send-assets)) o retirarlos directamente a BTC mediante el puente, una opción que sigue disponible.
+
 ## ¿Qué token se usa para las comisiones de transacción?
 
-En Mezo, las comisiones de transacción se pagan con BTC. Puedes obtener BTC en Mezo depositando BTC directamente desde tu billetera de Bitcoin o tBTC desde tu billetera de Ethereum. 
+En Mezo, las comisiones de transacción se pagan con BTC. Puedes obtener BTC en Mezo depositando tBTC desde tu billetera de Ethereum o intercambiando MUSD o MEZO con [Get Gas](/docs/es/docs/users/getting-started/get-gas).
 
 ## ¿Por qué algunos tokens que tengo no aparecen en el Mezo Explorer?
 

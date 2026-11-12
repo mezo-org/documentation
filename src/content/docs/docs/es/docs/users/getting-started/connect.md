@@ -1,5 +1,6 @@
 ---
 title: Conectar tu billetera a Mezo
+description: Añade Mezo Mainnet o Testnet a la billetera de tu navegador mediante Chainlist o manualmente, con los chain ID, los endpoints RPC públicos y los datos de la red.
 topic: users
 ---
 
@@ -67,7 +68,7 @@ Si necesitas añadir la red a tu billetera manualmente, sigue estas instruccione
 
 Las billeteras BTC son compatibles con la Mezo App y pueden recibir una dirección de la red Mezo asociada a tu billetera BTC. Actualmente, las billeteras BTC pueden realizar las siguientes tareas en Mezo:
 
-- Transferir activos BTC mediante un puente
+- Mover activos a una billetera EVM en Mezo desde **Transact > Send** ([Enviar activos](/docs/es/docs/users/passport/send-assets)) o retirarlos directamente a BTC mediante el puente (el Native BTC Bridge-in para depósitos desde billeteras BTC terminó el 13 de octubre de 2026; consulta [Depositar activos](/docs/es/docs/users/getting-started/deposit-assets))
 - Transferir activos EVM mediante un puente
 - Pedir prestado, reembolsar o gestionar el colateral de un préstamo
 - Comprar artículos en el MUSD Market

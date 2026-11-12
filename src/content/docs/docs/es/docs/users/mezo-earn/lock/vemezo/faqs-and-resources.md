@@ -14,7 +14,7 @@ No. Los bloqueos son permanentes hasta su vencimiento. Elige la duración con cu
 
 ### ¿Puedo votar por gauges solo con veMEZO?
 
-Sí, en algunos de ellos. veMEZO vota por sí mismo en los **gauges de boost de veBTC** y en los **[MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges)**, que dirigen las emisiones de MEZO a pools de MUSD en Curve, Uniswap y Aerodrome.
+Sí, en algunos de ellos. veMEZO vota por sí mismo en los **gauges de boost de veBTC** y en los **[MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges)**, que dirigen las emisiones de MEZO a pools de MUSD en Curve, Uniswap y Aero.
 
 Lo que veMEZO no puede hacer por sí solo es votar en los **gauges de staking**: para eso se necesita veBTC, y allí la función de veMEZO es multiplicar el poder de voto de veBTC.
 
