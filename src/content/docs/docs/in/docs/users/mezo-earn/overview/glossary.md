@@ -50,7 +50,7 @@ veBTC या veMEZO पाने के लिए BTC या MEZO को एक 
 
 ## MEZO Gauge
 
-एक नॉन-स्टेकिंग गेज जो MEZO एमिशन को Mezo के बाहर के MUSD लिक्विडिटी पूल की ओर भेजता है — Ethereum पर Curve और Uniswap, और Base पर Aerodrome। [MEZO Gauges](/docs/in/docs/users/mezo-earn/vote/mezo-gauges) देखें।
+एक नॉन-स्टेकिंग गेज जो MEZO एमिशन को Mezo के बाहर के MUSD लिक्विडिटी पूल की ओर भेजता है — Ethereum पर Curve और Uniswap, और Base पर Aero। [MEZO Gauges](/docs/in/docs/users/mezo-earn/vote/mezo-gauges) देखें।
 
 ## वोटिंग वेट
 

@@ -418,7 +418,7 @@ mezod tendermint unsafe-reset-all
 ## अतिरिक्त संसाधन
 
 - **[Chains रिपॉज़िटरी](https://github.com/mezo-org/chains.git)** - कॉन्फ़िगरेशन रिपॉज़िटरी
-- **[Mezod दस्तावेज़ीकरण](/docs/in/docs/developers/mezod/)** - चेन क्लाइंट का दस्तावेज़ीकरण
+- **[Mezod दस्तावेज़ीकरण](/docs/in/docs/developers/getting-started/mezod)** - चेन क्लाइंट का दस्तावेज़ीकरण
 - **[Validator Kit](/docs/in/docs/developers/mezo-nodes/validator-kit/)** - वैलिडेटर सेटअप गाइड
 - **[Cosmos SDK कॉन्फ़िगरेशन](https://docs.cosmos.network/)** - Cosmos SDK दस्तावेज़
 

@@ -98,7 +98,7 @@ topic: users
 
 ## 2025-05-28 - Mezo मेननेट लॉन्च
 
-Mezo मेननेट अब उपलब्ध है! मेननेट से कनेक्ट करने का तरीका जानने के लिए [शुरुआत करें](https:/mezo.org/docs/users/getting-started/connect) दस्तावेज़ देखें, या अपने एसेट ब्रिज करने और प्लेटफ़ॉर्म का इस्तेमाल शुरू करने के लिए [mezo.org/overview](https://mezo.org/overview) पर जाएं।
+Mezo मेननेट अब उपलब्ध है! मेननेट से कनेक्ट करने का तरीका जानने के लिए [शुरुआत करें](https://mezo.org/docs/users/getting-started/connect) दस्तावेज़ देखें, या अपने एसेट ब्रिज करने और प्लेटफ़ॉर्म का इस्तेमाल शुरू करने के लिए [mezo.org/overview](https://mezo.org/overview) पर जाएं।
 
 ## 2025-04-12 - Mezo मेननेट लॉन्च की घोषणा
 

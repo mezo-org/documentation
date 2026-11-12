@@ -1,5 +1,6 @@
 ---
 title: MUSD रिडेम्पशन
+description: TroveManager कॉन्ट्रैक्ट पर redeemCollateral कॉल करके MUSD को BTC के लिए रिडीम करने की स्टेप-बाय-स्टेप गाइड, जिसमें गैस बचाने वाले हिंट, फीस और कॉन्ट्रैक्ट एड्रेस शामिल हैं।
 topic: developers
 ---
 

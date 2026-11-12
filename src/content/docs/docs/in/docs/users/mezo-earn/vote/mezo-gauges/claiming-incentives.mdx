@@ -11,8 +11,8 @@ import { Steps } from '@astrojs/starlight/components';
 | आप हैं | आप क्लेम करते हैं | कहां |
 |---|---|---|
 | Curve USDT/USDC/MUSD या Uniswap USDC/MUSD में LP | 3 महीने के लिए लॉक किया गया veMEZO | [Merkl](https://app.merkl.xyz) |
-| Aerodrome USDC/MUSD या MEZO/MUSD के लिए वोट करने वाले veAERO होल्डर | वोटिंग इंसेंटिव के रूप में MEZO | [Aerodrome](https://aerodrome.finance) |
-| Aerodrome USDC/MUSD या MEZO/MUSD में LP | AERO एमिशन | [Aerodrome](https://aerodrome.finance) |
+| Aero USDC/MUSD या MEZO/MUSD को एलोकेट करने वाले sAERO होल्डर | इंसेंटिव के रूप में MEZO | [Aero](https://app.aero.xyz) |
+| Aero USDC/MUSD या MEZO/MUSD में LP, जिनका डिपॉज़िट AERO कमाता है | AERO Rewards | [Aero](https://app.aero.xyz) |
 | किसी MEZO Gauge पर वोट करने वाले veMEZO होल्डर | उस गेज पर पोस्ट किए गए इंसेंटिव | [mezo.org](https://mezo.org) पर Vote टैब |
 
 ---
@@ -40,13 +40,20 @@ LP के रूप में क्लेम करने के लिए आ�
 
 ---
 
-## Aerodrome: Base पर क्लेम करें
+## Aero: Base पर क्लेम करें
 
-किसी Aerodrome गेज की ओर भेजा गया MEZO **वोटिंग इंसेंटिव** के रूप में जमा होता है, इसलिए उसे LP नहीं, बल्कि veAERO वोटर्स क्लेम करते हैं।
+किसी Aero गेज की ओर भेजा गया MEZO पूल पर एक **इंसेंटिव प्रोग्राम** के रूप में पोस्ट किया जाता है, इसलिए उसे LP नहीं, बल्कि वे sAERO होल्डर कमाते हैं जो पूल को एलोकेट करते हैं।
 
-**अगर आपके पास veAERO है और आपने USDC/MUSD या MEZO/MUSD के लिए वोट किया है:** [aerodrome.finance](https://aerodrome.finance) पर जाएं, अपना veAERO लॉक खोलें, और उस एपॉक के अपने रिवॉर्ड क्लेम करें। MEZO में आपका हिस्सा उस गेज के वोट में आपके हिस्से के अनुपात में होता है।
+**अगर आपके पास sAERO है और आप USDC/MUSD या MEZO/MUSD को एलोकेट करते हैं:** जब तक आपका एलोकेशन बना रहता है, इंसेंटिव आप तक स्ट्रीम होते रहते हैं। आप इन्हें [app.aero.xyz](https://app.aero.xyz) पर **Portfolio > Stakes** में किसी भी समय क्लेम कर सकते हैं, और हर साप्ताहिक प्रोग्राम अलग से क्लेम किया जाता है। MEZO में आपका हिस्सा उस पूल के एलोकेशन में आपके हिस्से के अनुपात में होता है।
 
-**अगर आप Aerodrome USDC/MUSD या MEZO/MUSD में LP हैं:** अपनी पोज़िशन पूल के गेज में स्टेक करें और वहीं **AERO** एमिशन क्लेम करें। Mezo वोट और उससे बनने वाले AERO के बीच के [दो एपॉक के अंतराल](/docs/in/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#दो-एपॉक-का-अंतराल) पर ध्यान दें।
+**अगर आप Aero USDC/MUSD या MEZO/MUSD में LP हैं:** आपको **AERO Rewards** तब मिलते हैं, जब आपने डिपॉज़िट करते समय **AERO rewards** चुना हो। किसी डिपॉज़िट पर या तो AERO Rewards मिलते हैं या ट्रेडिंग फीस, दोनों कभी नहीं। AERO Rewards लगातार स्ट्रीम होते हैं, और आप इन्हें **Portfolio > Deposits** में किसी भी समय क्लेम कर सकते हैं। Mezo का वोट पूल तक कैसे पहुंचता है, यह जानने के लिए [Aero पर समय](/docs/in/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#aero-पर-समय) देखें।
+
+### Aerodrome से माइग्रेट करना
+
+22 अक्टूबर, 2026 को 00:00 UTC पर Aero के लॉन्च होते ही Aerodrome के एमिशन बंद हो गए। पोज़िशन अपने-आप ट्रांसफ़र नहीं होतीं।
+
+- **Base पर पुराने USDC/MUSD या MEZO/MUSD पूल के LP:** [aerodrome.finance](https://aerodrome.finance) पर अपग्रेड पोर्टल के ज़रिए अपनी पोज़िशन नए Aero पूल में माइग्रेट करें। ऑटोमेटेड लिक्विडिटी मैनेजर (ALM) वाली पोज़िशन माइग्रेट नहीं होतीं: उन्हें Aerodrome पर निकालें और खुद Aero पर जमा करें। [LP के लिए Aero के निर्देश](https://aero.xyz/aero-upgrade/#liquidity-providers) का पालन करें।
+- **veAERO होल्डर:** veAERO की जगह sAERO ने ले ली है, और Aero पर सिर्फ़ sAERO को इंसेंटिव मिलते हैं। अपग्रेड आपके पुराने वोट रीसेट कर देता है और इसे वापस नहीं किया जा सकता। अपग्रेड के बाद, MEZO इंसेंटिव कमाते रहने के लिए sAERO को Aero के USDC/MUSD या MEZO/MUSD पूल को एलोकेट करें। [होल्डर के लिए Aero के निर्देश](https://aero.xyz/aero-upgrade/#veaero-vevelo-holders) देखें।
 
 ---
 

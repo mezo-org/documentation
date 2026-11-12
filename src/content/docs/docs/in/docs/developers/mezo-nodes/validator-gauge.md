@@ -92,4 +92,4 @@ Mezo Earn में वैलिडेटर गेज के लिए एक �
 ## अतिरिक्त संसाधन
 
 - [Mezo Earn का अवलोकन](/docs/in/docs/users/mezo-earn/overview/)
-- [Mezo ब्लॉग](https://mezo.org/blog/tag/features/)
+- [Mezo ब्लॉग](https://mezo.org/blog)

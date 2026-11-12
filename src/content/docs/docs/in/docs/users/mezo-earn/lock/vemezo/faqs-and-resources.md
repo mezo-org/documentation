@@ -14,7 +14,7 @@ topic: users
 
 ### क्या मैं सिर्फ़ veMEZO से गेज पर वोट कर सकता हूं?
 
-हां, उनमें से कुछ पर। veMEZO स्वतंत्र रूप से **veBTC बूस्ट गेज** पर और **[MEZO Gauges](/docs/in/docs/users/mezo-earn/vote/mezo-gauges)** पर वोट करता है, जो MEZO एमिशन को Curve, Uniswap और Aerodrome के MUSD पूल की ओर भेजते हैं।
+हां, उनमें से कुछ पर। veMEZO स्वतंत्र रूप से **veBTC बूस्ट गेज** पर और **[MEZO Gauges](/docs/in/docs/users/mezo-earn/vote/mezo-gauges)** पर वोट करता है, जो MEZO एमिशन को Curve, Uniswap और Aero के MUSD पूल की ओर भेजते हैं।
 
 veMEZO अकेले जो नहीं कर सकता, वह है **स्टेकिंग गेज** पर वोट करना — इसके लिए veBTC चाहिए, और वहां veMEZO की भूमिका veBTC की वोटिंग पावर को गुणा करने की है।
 

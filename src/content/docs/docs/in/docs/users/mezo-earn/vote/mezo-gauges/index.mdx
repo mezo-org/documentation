@@ -1,16 +1,24 @@
 ---
 title: MEZO Gauges अवलोकन
 description: >-
-  veMEZO होल्डर MEZO एमिशन को Curve, Uniswap और Aerodrome पर MUSD लिक्विडिटी पूल
+  veMEZO होल्डर MEZO एमिशन को Curve, Uniswap और Aero पर MUSD लिक्विडिटी पूल
   की ओर भेजते हैं
 topic: users
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-**MEZO Gauges के ज़रिए veMEZO होल्डर वोट करके MEZO एमिशन को Mezo से बाहर के लिक्विडिटी पूल की ओर भेज सकते हैं**, जो Curve और Uniswap (Ethereum) और Aerodrome (Base) पर हैं।
+**MEZO Gauges के ज़रिए veMEZO होल्डर वोट करके MEZO एमिशन को Mezo से बाहर के लिक्विडिटी पूल की ओर भेज सकते हैं**, जो Curve और Uniswap (Ethereum) और Aero (Base) पर हैं।
 
 अब तक veMEZO का एक ही काम था: किसी veBTC पोज़िशन को [बूस्ट](/docs/in/docs/users/mezo-earn/lock/vemezo/boost-mechanism) करना। अब veMEZO के पास अपनी स्वतंत्र वोटिंग पावर है, जो साप्ताहिक एमिशन के एक असली हिस्से पर चलती है।
+
+:::caution[Aerodrome अब Aero है]
+22 अक्टूबर, 2026 को 00:00 UTC पर Aerodrome और Velodrome का विलय होकर [Aero](https://aero.xyz/aero-upgrade/) बन गया। Base के दोनों गेज अब Aero पर नए पूल की ओर इशारा करते हैं, और Mezo पर वोटिंग पहले की तरह चलती रहती है।
+
+Mezo, MEZO Gauges को नए Aero गेज से जोड़ रहा है। जब तक यह पूरा नहीं होता, Base गेज की ओर भेजा गया MEZO Mezo पर ही रहता है और Base पर ब्रिज नहीं किया जाता।
+
+अगर आप पुराने Aerodrome USDC/MUSD या MEZO/MUSD पूल में LP हैं, तो अपनी पोज़िशन Aero पर ले जाएं। [Aerodrome से माइग्रेट करना](/docs/in/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives#aerodrome-से-माइग्रेट-करना) देखें।
+:::
 
 ---
 
@@ -37,14 +45,14 @@ MEZO Gauges **नॉन-स्टेकिंग गेज** हैं: Mezo प
 
 ## कौन-से पूल योग्य हैं
 
-लॉन्च के समय चार गेज लाइव हैं:
+चार गेज योग्य हैं:
 
 | गेज | पूल | प्लैटफ़ॉर्म | चेन | वितरण |
 |---|---|---|---|---|
 | Uniswap USDC/MUSD | USDC/MUSD | Uniswap | Ethereum | Merkl |
 | Curve USDT/USDC/MUSD | USDT/USDC/MUSD | Curve | Ethereum | Merkl |
-| Aerodrome USDC/MUSD | USDC/MUSD | Aerodrome | Base | Aerodrome वोटिंग इंसेंटिव |
-| Aerodrome MEZO/MUSD | MEZO/MUSD | Aerodrome | Base | Aerodrome वोटिंग इंसेंटिव |
+| Aero USDC/MUSD | USDC/MUSD | Aero | Base | Aero इंसेंटिव |
+| Aero MEZO/MUSD | MEZO/MUSD | Aero | Base | Aero इंसेंटिव |
 
 ### सूची कैसे बदलती है
 
@@ -64,7 +72,7 @@ MEZO Gauges को एमिशन की **नॉन-स्टेकिंग �
 1. **आप वोट करते हैं।** एपॉक के दौरान अपनी veMEZO वोटिंग पावर उपलब्ध MEZO Gauges में बांटें।
 2. **एपॉक बंद होता है** गुरुवार 00:00 UTC पर, और वोट गिने जाते हैं। हर गेज को MEZO में कितना हिस्सा मिलेगा, यह veMEZO वोट में उसके हिस्से से तय होता है।
 3. **MEZO, Mezo से बाहर जाता है।** हर गेज के हिस्से का MEZO क्लेम करके उसके डेस्टिनेशन तक भेजा जाता है।
-4. **यह इंसेंटिव के रूप में पहुंचता है** डेस्टिनेशन पूल पर, जिसे LP Merkl पर या वोटर्स Aerodrome पर क्लेम करते हैं।
+4. **यह इंसेंटिव के रूप में पहुंचता है** डेस्टिनेशन पूल पर, जिसे LP Merkl पर या sAERO होल्डर Aero पर क्लेम करते हैं।
 </Steps>
 
 सही समय और रूप हर प्लैटफ़ॉर्म पर अलग होता है। [आपका वोट कहां जाता है](/docs/in/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) देखें।
@@ -73,11 +81,11 @@ MEZO Gauges को एमिशन की **नॉन-स्टेकिंग �
 
 ## वोटर क्या कमाता है
 
-आप जिस गेज के लिए वोट करते हैं, उस पर पोस्ट किए गए इंसेंटिव में आपको हिस्सा मिलता है, जो उस गेज के veMEZO वोट में आपके हिस्से के हिसाब से तय होता है। [बूस्ट गेज](/docs/in/docs/users/mezo-earn/lock/vemezo/matching-market) के इंसेंटिव भी इसी तरह काम करते हैं। कोई भी किसी MEZO Gauge पर इंसेंटिव पोस्ट कर सकता है, और वोटर्स उन्हें क्लेम कर सकते हैं।
+आप जिस गेज के लिए वोट करते हैं, उस पर पोस्ट किए गए इंसेंटिव में आपको हिस्सा मिलता है, जो उस गेज के veMEZO वोट में आपके हिस्से के हिसाब से तय होता है। [बूस्ट गेज](/docs/in/docs/users/mezo-earn/lock/vemezo/matching-market) के इंसेंटिव भी इसी तरह काम करते हैं। कोई भी [Matchbox](https://app.matchbox.markets/pools) के ज़रिए, **Remote MEZO Gauges** के तहत, किसी MEZO Gauge पर इंसेंटिव पोस्ट कर सकता है, और वोटर्स उन्हें क्लेम कर सकते हैं।
 
 MEZO खुद आगे चला जाता है। यह डेस्टिनेशन पूल पर पहुंचता है और प्रोटोकॉल के अनुसार उस पूल के LP या वोटर्स को भुगतान करता है। आपका वोट तय करता है कि MUSD लिक्विडिटी के लिए भुगतान कहां हो। गेज पर रखे इंसेंटिव से ही आपको भुगतान मिलता है।
 
-भेजा गया MEZO भी पाने के लिए दोनों तरफ़ काम करें: डेस्टिनेशन पूल में LP बनें, और Aerodrome के मामले में Base पर उससे मेल खाने वाले गेज के लिए वोट करें। [आपका वोट कहां जाता है](/docs/in/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#अपने-भेजे-गए-मूल्य-का-फ़ायदा-उठाना) में यह पूरा चक्र समझाया गया है।
+भेजा गया MEZO भी पाने के लिए दोनों तरफ़ काम करें: डेस्टिनेशन पूल में LP बनें, और Aero के मामले में उसी पूल को sAERO एलोकेट करें। [आपका वोट कहां जाता है](/docs/in/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#अपने-भेजे-गए-मूल्य-का-फ़ायदा-उठाना) में यह पूरा चक्र समझाया गया है।
 
 ---
 

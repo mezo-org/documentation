@@ -265,7 +265,7 @@ pnpm deploy:testnet
 - **[Mezo Earn रिपॉज़िटरी](https://github.com/mezo-org/tigris.git)** - मुख्य रिपॉज़िटरी
 - **[Solidly दस्तावेज़ीकरण](https://docs.solidly.com/)** - Solidly प्रोटोकॉल का दस्तावेज़ीकरण
 - **[Mezo नेटवर्क दस्तावेज़ीकरण](/docs/in/docs/developers/getting-started/configure-environment)** - नेटवर्क कॉन्फ़िगरेशन
-- **[कॉन्ट्रैक्ट वेरिफ़िकेशन गाइड](/docs/in/docs/developers/contracts-reference)** - कॉन्ट्रैक्ट वेरिफ़िकेशन
+- **[कॉन्ट्रैक्ट और टोकन एड्रेस](/docs/in/docs/users/resources/contracts-reference)** - डिप्लॉय किए गए कॉन्ट्रैक्ट और टोकन के एड्रेस
 
 :::note
 विस्तृत आर्किटेक्चर, टोकनॉमिक्स और प्रोटोकॉल मैकेनिक्स के लिए, Mezo Earn रिपॉज़िटरी का README और दस्तावेज़ीकरण देखें।

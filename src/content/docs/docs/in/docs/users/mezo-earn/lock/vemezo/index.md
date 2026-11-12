@@ -13,7 +13,7 @@ veMEZO, Mezo Network पर लॉक किए गए MEZO का टोकन�
 - आपकी veBTC वोटिंग पावर पर बूस्ट मल्टीप्लायर (5x तक)
 - डाइल्यूशन की भरपाई के लिए हर हफ़्ते के MEZO एमिशन से रीबेस रिवॉर्ड
 - veBTC होल्डर से इंसेंटिव कमाने के लिए मैचिंग मार्केट में हिस्सेदारी
-- [MEZO Gauges](/docs/in/docs/users/mezo-earn/vote/mezo-gauges) पर वोट, जिनसे MEZO एमिशन Curve, Uniswap और Aerodrome के MUSD पूल की ओर भेजे जाते हैं
+- [MEZO Gauges](/docs/in/docs/users/mezo-earn/vote/mezo-gauges) पर वोट, जिनसे MEZO एमिशन Curve, Uniswap और Aero के MUSD पूल की ओर भेजे जाते हैं
 
 :::note[महत्वपूर्ण]
 veMEZO **स्टेकिंग गेज** पर अकेले वोट नहीं करता — वहां यह सिर्फ़ veBTC पोज़िशन की वोटिंग पावर को गुणा करता है। veBTC बूस्ट गेज पर और [MEZO Gauges](/docs/in/docs/users/mezo-earn/vote/mezo-gauges) पर यह स्वतंत्र रूप से वोट करता है।
