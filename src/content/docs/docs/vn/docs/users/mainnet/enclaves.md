@@ -1,5 +1,5 @@
 ---
-title: Enclaves
+title: Vùng biệt lập (Enclaves)
 description: Cách các khoản nạp BTC của tổ chức hoạt động trên Mezo thông qua enclave
 topic: users
 ---

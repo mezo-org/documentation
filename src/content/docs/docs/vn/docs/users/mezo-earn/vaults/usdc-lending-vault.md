@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: Vault cho vay USDC (USDC Lending Vault)
 description: >-
   Cung cấp mUSDC cho thị trường cho vay Morpho được bảo chứng bằng BTC trên Mezo
   và kiếm lãi từ người vay hoặc lượng phát thải MEZO

@@ -1,5 +1,5 @@
 ---
-title: Mezo Pools
+title: Pool Mezo (Mezo Pools)
 description: Tài liệu tham khảo cho nhà phát triển về Mezo Pools, bao gồm pool cơ bản và pool thanh khoản tập trung, luồng swap, quản lý vị thế, cùng địa chỉ hợp đồng trên Mainnet và Testnet.
 topic: developers
 ---
