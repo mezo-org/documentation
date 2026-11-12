@@ -62,7 +62,7 @@ sMUSD는 Mezo MUSD Savings Vault의 영수증 토큰입니다. 알아 두어야 
 
 MUSD Savings Rate 게이지는 LP 풀 게이지와 함께 투표를 놓고 경쟁합니다. 이러한 게이지를 통틀어 "스테이킹 게이지"라고 하며, 저축 이자율 게이지에 배분한 투표는 LP 게이지에 동시에 배분할 수 없습니다.
 
-MEZO 에미션이 시작되었으므로, 이제 sMUSD를 게이지에 스테이킹하면 기본 포지션에 더해 MEZO를 얻습니다. MUSD Savings 게이지는 LP 풀 게이지와 함께 veBTC 투표를 놓고 경쟁합니다. 저축 게이지로 향하는 투표가 많을수록 스테이커에게 더 많은 MEZO 에미션이 돌아갑니다. 이 게이지를 지지하는 veBTC 투표자는 스테이커가 넘긴 MUSD 수수료를 받습니다. 스테이커와 투표자의 현재 게이지 APR은 [mezo.org/earn/vaults/vote](https://mezo.org/earn/vaults/0xb4D498029af77680cD1eF828b967f010d06C51CC/vote)의 Vote 페이지에서 확인할 수 있습니다.
+MEZO 에미션이 시작되었으므로, 이제 sMUSD를 게이지에 스테이킹하면 기본 포지션에 더해 MEZO를 얻습니다. MUSD Savings 게이지는 LP 풀 게이지와 함께 veBTC 투표를 놓고 경쟁합니다. 저축 게이지로 향하는 투표가 많을수록 스테이커에게 더 많은 MEZO 에미션이 돌아갑니다. 이 게이지를 지지하는 veBTC 투표자는 스테이커가 넘긴 MUSD 수수료를 받습니다. 스테이커와 투표자의 현재 게이지 APR은 [mezo.org/earn/vote](https://mezo.org/earn/vote)의 Vote 페이지에서 확인할 수 있습니다.
 
 ---
 

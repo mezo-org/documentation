@@ -90,4 +90,4 @@ MEZO 보상을 청구하려면 다음 단계를 따르세요.
 ## 추가 리소스
 
 - [Mezo Earn 개요](/docs/kr/docs/users/mezo-earn/overview/)
-- [Mezo 블로그](https://mezo.org/blog/tag/features/)
+- [Mezo 블로그](https://mezo.org/blog)

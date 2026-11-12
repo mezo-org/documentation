@@ -1,6 +1,6 @@
 ---
 title: 투표가 반영되는 곳
-description: 'veMEZO 투표 가중치가 Curve, Uniswap, Aerodrome 풀의 인센티브로 전환되는 방식'
+description: 'veMEZO 투표 가중치가 Curve, Uniswap, Aero 풀의 인센티브로 전환되는 방식'
 topic: users
 ---
 
@@ -28,41 +28,49 @@ LP 측 안내는 [인센티브 청구](/docs/kr/docs/users/mezo-earn/vote/mezo-g
 
 ---
 
-## Aerodrome의 투표 인센티브로서의 MEZO
+## Aero의 인센티브로서의 MEZO
 
-Aerodrome 게이지는 다르게 작동합니다. Aerodrome 자체가 주간 투표를 갖춘 ve(3,3) 시스템이기 때문입니다. USDC/MUSD를 예로 들어 보겠습니다. MEZO는 Aerodrome LP에게 직접 지급되지 않습니다. 대신 해당 풀의 Aerodrome 게이지에 **투표 인센티브**로 예치되며, 그 게이지에 투표하는 veAERO 보유자에게 지급됩니다.
+Aero 풀은 다르게 작동합니다. Aero가 자체 보상 시스템을 운영하기 때문입니다. sAERO 보유자가 풀에 배분하면, 그 배분이 **AERO Rewards**를 각 풀의 AERO를 받는 예치로 지정합니다. Aerodrome이 Aero가 되면서 sAERO가 veAERO를 대체했습니다.
 
-이러한 veAERO 투표가 **AERO 에미션**을 풀로 지정합니다. MEZO는 풀을 위해 AERO 에미션을 확보하며, LP에게 도달하는 것은 AERO입니다. Aerodrome의 MEZO/MUSD에도 같은 경로가 적용됩니다.
+USDC/MUSD를 예로 들어 보겠습니다. MEZO는 Aero LP에게 직접 지급되지 않습니다. 대신 해당 풀에 **인센티브 프로그램**으로 게시되며, Aero가 Liquidity Payments라고 부르는 그 지급액은 해당 풀에 배분하는 sAERO 보유자에게 돌아갑니다.
 
-구체적으로는 할당 컨트랙트가 Mezo에서 MEZO를 청구하고, Base로 브리지한 다음, Aerodrome 게이지에 예치합니다. 이 과정은 에포크마다 자동으로 실행됩니다.
+이러한 배분이 AERO Rewards를 풀로 지정합니다. MEZO는 풀을 위해 AERO Rewards를 확보하며, LP에게 도달하는 것은 AERO입니다. Aero의 MEZO/MUSD에도 같은 경로가 적용됩니다.
 
-### 두 에포크 지연
+구체적으로는 할당 컨트랙트가 Mezo에서 MEZO를 청구하고, Base로 브리지한 다음, 풀에 게시합니다. 이 과정은 에포크마다 자동으로 실행됩니다.
 
-Aerodrome의 투표는 그것이 반응하는 인센티브보다 한 주 앞서 진행되므로, 투표와 그 투표로 확보되는 유동성 사이에 시차가 생깁니다.
+:::caution[Aero 업그레이드 이후 재연결]
+Aerodrome의 기존 게이지는 Aero가 2026년 10월 22일에 출시되면서 종료되었습니다. Mezo는 할당 컨트랙트를 새 Aero 게이지에 연결하고 있습니다. 연결이 완료될 때까지 Base 게이지로 배분된 MEZO는 Mezo에 남아 있으며 브리지되지 않습니다.
+:::
+
+### Aero에서의 시점
+
+Aero에는 주간 투표가 없습니다. sAERO 보유자는 상시로 배분하며, 변경 사항은 변경하는 즉시 적용됩니다. 각 sAERO 포지션은 47시간에 한 번 배분을 변경할 수 있으며, 이는 Aero의 출시 시점 설정입니다. 인센티브는 풀에 배분하는 sAERO 보유자에게 스트리밍되고, AERO Rewards는 풀의 AERO를 받는 예치로 스트리밍됩니다. 어느 쪽도 에포크 전환을 기다리지 않습니다.
+
+주 단위로 진행되는 단계는 Mezo 쪽에 있습니다.
 
 | 에포크 | 진행 내용 |
 |---|---|
 | **N** | Mezo에서 투표합니다. 에포크가 종료되고 배분이 확정됩니다. |
-| **N+1** | MEZO가 Aerodrome 게이지에 투표 인센티브로 예치됩니다. veAERO 보유자가 이 에포크 동안 해당 게이지에 투표합니다. |
-| **N+2** | AERO 에미션이 풀로 유입되고 LP가 이를 얻습니다. |
+| **N+1** | MEZO가 Base로 브리지되어, Vote 페이지에 표시된 **Distribution date**까지 1주일짜리 인센티브 프로그램으로 풀에 게시됩니다. |
+| **그다음 주** | 프로그램이 풀에 배분하는 sAERO 보유자에게 MEZO를 스트리밍합니다. |
 
-**에포크 N에 행사한 투표는 에포크 N+2에 AERO 에미션을 만들어 냅니다.** 이는 Mezo가 추가하는 지연이 아니라 Aerodrome이 자체 에포크를 진행하는 방식에서 비롯된 특성입니다.
+풀에 배분된 sAERO가 없는 동안 스트리밍된 MEZO는 지급되지 않습니다. 할당 컨트랙트는 프로그램이 끝난 후 이를 회수하여 이후 프로그램에 다시 게시할 수 있습니다.
 
 ---
 
 ## 배분한 가치 확보하기
 
-에미션을 지정하는 것은 영향력이지 수익이 아닙니다. 대상 풀로 보낸 MEZO는 그 풀의 참여자, 즉 Curve와 Uniswap에서는 Merkl 청구자, Aerodrome에서는 veAERO 투표자에게 돌아갑니다. MEZO Gauge 투표자인 나에게 돌아오지 않습니다.
+에미션을 지정하는 것은 영향력이지 수익이 아닙니다. 대상 풀로 보낸 MEZO는 그 풀의 참여자, 즉 Curve와 Uniswap에서는 Merkl 청구자, Aero에서는 sAERO 보유자에게 돌아갑니다. MEZO Gauge 투표자인 나에게 돌아오지 않습니다.
 
 투표자로서 직접 얻는 것은 **MEZO Gauge 자체에 게시된 인센티브** 중 해당 게이지 투표에서 내가 차지하는 지분에 비례하는 몫입니다.
 
-에미션 자체를 확보하려면 순환 구조의 양쪽 모두에 참여해야 합니다. Aerodrome에서 USDC/MUSD를 예로 들면 다음과 같습니다.
+에미션 자체를 확보하려면 순환 구조의 양쪽 모두에 참여해야 합니다. Aero에서 USDC/MUSD를 예로 들면 다음과 같습니다.
 
 <Steps>
-1. Aerodrome의 풀에 **유동성을 공급**하고 해당 풀의 게이지에 스테이킹하세요.
+1. Aero의 풀에 **유동성을 공급**하고 예치할 때 **AERO rewards**를 선택하세요.
 2. Mezo에서 veMEZO로 해당 풀의 MEZO Gauge에 **투표**하세요.
-3. Base에서 veAERO로 해당하는 Aerodrome 게이지에 **투표**하세요.
-4. LP 포지션에 대한 AERO와 veAERO 투표에 대한 MEZO 투표 인센티브를 **수령**하세요.
+3. Aero에서 같은 풀에 sAERO를 **배분**하세요.
+4. LP 포지션에 대한 AERO Rewards와 sAERO 배분에 대한 MEZO 인센티브를 **수령**하세요.
 </Steps>
 
 Curve와 Uniswap에서는 순환 구조가 더 짧습니다. 풀에 유동성을 공급하고, 해당 풀의 MEZO Gauge에 투표한 뒤, LP로서 Merkl에서 캠페인 보상을 청구하면 됩니다.
@@ -75,6 +83,6 @@ Curve와 Uniswap에서는 순환 구조가 더 짧습니다. 풀에 유동성을
 
 ## 다음 단계
 
-- [인센티브 청구](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — Merkl 또는 Aerodrome에서 청구하기
+- [인센티브 청구](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) — Merkl 또는 Aero에서 청구하기
 - [MEZO Gauges에서 투표하는 방법](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) — 단계별 안내
 - [MEZO Gauges 개요](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges) — 대상 풀과 자금 조달

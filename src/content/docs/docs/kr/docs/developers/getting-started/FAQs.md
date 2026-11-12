@@ -1,5 +1,6 @@
 ---
 title: 자주 묻는 질문
+description: 네트워크, 가스, 통합, 지원 등 Mezo에서 빌드하는 개발자가 자주 묻는 질문입니다.
 topic: developers
 ---
 

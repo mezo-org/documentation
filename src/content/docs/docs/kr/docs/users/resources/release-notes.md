@@ -98,7 +98,7 @@ topic: users
 
 ## 2025-05-28 - Mezo 메인넷 출시
 
-이제 Mezo 메인넷을 사용할 수 있습니다! 메인넷에 연결하는 방법은 [시작하기](https:/mezo.org/docs/users/getting-started/connect) 문서를 참조하거나, [mezo.org/overview](https://mezo.org/overview)로 이동하여 자산을 브리지하고 플랫폼 사용을 시작하세요.
+이제 Mezo 메인넷을 사용할 수 있습니다! 메인넷에 연결하는 방법은 [시작하기](https://mezo.org/docs/users/getting-started/connect) 문서를 참조하거나, [mezo.org/overview](https://mezo.org/overview)로 이동하여 자산을 브리지하고 플랫폼 사용을 시작하세요.
 
 ## 2025-04-12 - Mezo 메인넷 출시 발표
 

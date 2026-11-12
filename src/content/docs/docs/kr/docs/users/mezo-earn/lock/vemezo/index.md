@@ -13,7 +13,7 @@ Mezo에서 MEZO를 잠그면 잠긴 포지션을 나타내는 veMEZO NFT를 받�
 - veBTC 투표력에 적용되는 부스트 배수(최대 5x)
 - 희석을 상쇄하기 위해 매주 MEZO 에미션에서 지급되는 리베이스 보상
 - veBTC 보유자로부터 인센티브를 얻을 수 있는 매칭 마켓 참여
-- Curve, Uniswap, Aerodrome의 MUSD 풀로 MEZO 에미션을 보내는 [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges) 투표
+- Curve, Uniswap, Aero의 MUSD 풀로 MEZO 에미션을 보내는 [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges) 투표
 
 :::note[중요]
 veMEZO는 **스테이킹 게이지**에 단독으로 투표하지 않으며, 스테이킹 게이지에서는 veBTC 포지션의 투표력을 곱하는 역할만 합니다. 반면 veBTC 부스트 게이지와 [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)에서는 자체적으로 투표합니다.

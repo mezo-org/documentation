@@ -416,7 +416,7 @@ mezod tendermint unsafe-reset-all
 ## 추가 리소스
 
 - **[Chains 저장소](https://github.com/mezo-org/chains.git)** - 설정 저장소
-- **[Mezod 문서](/docs/kr/docs/developers/mezod/)** - 체인 클라이언트 문서
+- **[Mezod 문서](/docs/kr/docs/developers/getting-started/mezod)** - 체인 클라이언트 문서
 - **[Validator Kit](/docs/kr/docs/developers/mezo-nodes/validator-kit/)** - 검증자 설정 가이드
 - **[Cosmos SDK 설정](https://docs.cosmos.network/)** - Cosmos SDK 문서
 

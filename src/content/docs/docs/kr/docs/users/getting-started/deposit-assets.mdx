@@ -7,36 +7,34 @@ topic: users
 import { Steps } from '@astrojs/starlight/components';
 import YouTube from '../../../../../../../components/YouTube.astro';
 
-네이티브 비트코인 또는 지원되는 ERC-20 토큰(비트코인 래퍼)을 Mezo 메인넷에 입금할 수 있습니다.
+EVM 지갑을 사용해 tBTC와 그 밖의 지원되는 ERC-20 토큰을 이더리움에서 Mezo 메인넷으로 입금할 수 있습니다.
+
+:::caution[Native BTC Bridge-in이 종료되었습니다]
+2026년 10월 13일부로 Native BTC Bridge-in이 종료되어 Mezo App은 더 이상 비트코인 지갑(UniSat, OKX, Xverse)에서의 입금을 받지 않습니다. BTC로 직접 브리지아웃하는 기능은 계속 이용할 수 있습니다. BTC를 Mezo로 가져오려면 대신 이더리움에서 tBTC를 입금하세요. 몇 분이면 처리되며 최소 금액도 없습니다.
+
+비트코인 지갑에 BTC를 보유하고 있다면 EVM 지갑으로 Mezo 계정을 만들고 그 계정에서 입금을 관리하세요. Mezo 계정이 이미 비트코인 지갑을 사용하고 있다면 자산을 EVM 지갑으로 옮겨 Mezo에 계속 보유할 수 있습니다. Mezo App에서 **Transact > Send**로 이동해 EVM 지갑의 `0x…` 주소를 입력하세요([자산 보내기](/docs/kr/docs/users/passport/send-assets) 참조). BTC로 직접 브리지아웃하는 것도 여전히 가능합니다. [출금](/docs/kr/docs/users/mainnet/bridges#출금)을 참조하세요.
+:::
 
 <YouTube id="DinlFeUZB3U" title="Mezo에 입금하는 방법" />
 
 ## 시작하기 전에
 
+- MetaMask 같은 EVM 지갑으로 로그인하세요. 비트코인 지갑으로는 Mezo에 입금할 수 없습니다.
 - 지원되는 자산을 확인하세요. 해당 자산의 토큰 주소는 [컨트랙트 참조](/docs/kr/docs/users/resources/contracts-reference#토큰-컨트랙트) 페이지에서 확인할 수 있습니다.
-- Mezo 메인넷의 모든 트랜잭션 비용은 입금한 네이티브 BTC 또는 tBTC로 지불합니다. 네트워크를 사용하기 전에 트랜잭션에 필요한 가스를 확보할 수 있도록 계정에 BTC 또는 tBTC를 충전해 두는 것이 좋습니다.
+- Mezo 메인넷의 모든 트랜잭션 비용은 BTC로 지불합니다. 이더리움에서 입금한 tBTC는 Mezo에 BTC로 도착하므로, 트랜잭션에 필요한 가스를 확보할 수 있도록 계정에 tBTC를 충전해 두는 것이 좋습니다. Mezo에 MUSD나 MEZO만 보유하고 있다면 [Get Gas](/docs/kr/docs/users/getting-started/get-gas)를 사용하세요.
 
 ## 자산 입금하기
 
 <Steps>
-1. [Mezo App](https://mezo.org/overview)으로 이동해 지원되는 지갑으로 로그인하세요.
+1. [Mezo App](https://mezo.org/overview)으로 이동해 EVM 지갑으로 로그인하세요.
 
-2. 로그인하고 트랜잭션에 서명한 후 **Deposit Bitcoin**을 클릭하세요.
+2. **Deposit**을 클릭하세요. tBTC가 선택된 상태로 입금 양식이 열립니다.
 
 3. 브리지할 자산을 선택하고 금액을 지정하세요.
 
-    ![](/docs/images/mainnet/deposit-modal-preview.png)
+4. **Review**를 클릭하고 전송 세부 정보를 확인하세요.
 
-4. **Review**를 클릭해 전송 내용을 검토하고 입금 주소를 생성하세요.
-
-5. 전송 세부 정보를 살펴보고 정확한지 확인하세요.
-
-6. 자산을 입금할 준비가 되면 지갑 주소를 복사하세요. 지갑에 주소가 올바르게 표시되는지 확인하세요.
-
-    ![](/docs/images/mainnet/deposit-modal-address-screen.png)
-
-7. 트랜잭션 내용에 문제가 없으면 트랜잭션을 확인하세요.
+5. 트랜잭션 내용에 문제가 없으면 지갑에서 확인하세요. 해당 토큰을 처음 입금하는 경우 지갑에서 먼저 승인을 요청합니다.
 </Steps>
 
 트랜잭션이 완료되면 브리지 과정이 시작됩니다. 메인넷에서 자산을 받기까지 몇 분 정도 걸릴 수 있습니다.
-

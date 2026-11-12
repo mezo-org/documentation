@@ -40,7 +40,7 @@ Passport를 사용하면 개발자가 Mezo에서 구축하는 dApp에 비트코�
 
 ## Mezo에 어떻게 투자하나요?
 
-투자자가 되는 데 관심이 있다면 [IR@thesis.co](IR@thesis.co)로 연락하세요.
+투자자가 되는 데 관심이 있다면 [IR@thesis.co](mailto:IR@thesis.co)로 연락하세요.
 
 ## Mezo에서 어떤 지갑을 사용할 수 있나요?
 
@@ -59,9 +59,11 @@ EVM 호환:
 * Zerion
 * OKX
 
+비트코인 지갑으로는 더 이상 Mezo에 입금할 수 없습니다. Native BTC Bridge-in은 2026년 10월 13일에 종료되었습니다. 입금하려면 EVM 지갑을 사용하세요. 계정이 비트코인 지갑을 사용한다면 Mezo App의 **Transact > Send**에서 자산을 Mezo의 EVM 지갑으로 옮기거나([자산 보내기](/docs/kr/docs/users/passport/send-assets) 참조), 계속 이용할 수 있는 BTC 직접 브리지아웃을 사용할 수 있습니다.
+
 ## 트랜잭션 수수료에는 어떤 토큰이 사용되나요?
 
-Mezo에서 트랜잭션 수수료는 BTC로 지불합니다. 비트코인 지갑에서 BTC를 직접 입금하거나 이더리움 지갑에서 tBTC를 입금하여 Mezo에서 BTC를 확보할 수 있습니다. 
+Mezo에서 트랜잭션 수수료는 BTC로 지불합니다. 이더리움 지갑에서 tBTC를 입금하거나 [Get Gas](/docs/kr/docs/users/getting-started/get-gas)로 MUSD 또는 MEZO를 스왑하여 Mezo에서 BTC를 확보할 수 있습니다.
 
 ## 보유한 일부 토큰이 Mezo Explorer에 표시되지 않는 이유는 무엇인가요?
 

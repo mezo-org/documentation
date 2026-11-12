@@ -1,5 +1,6 @@
 ---
 title: Mezo에 지갑 연결하기
+description: Chainlist 또는 수동 설정으로 브라우저 지갑에 Mezo 메인넷이나 테스트넷을 추가하는 방법과 체인 ID, 퍼블릭 RPC 엔드포인트, 네트워크 세부 정보를 안내합니다.
 topic: users
 ---
 
@@ -67,7 +68,7 @@ Hardhat 및 Foundry 설정 방법은 [개발자 환경 설정](/docs/kr/docs/dev
 
 BTC 지갑은 Mezo App에서 지원되며, BTC 지갑에 연결된 Mezo 네트워크 주소를 받을 수 있습니다. 현재 BTC 지갑으로 Mezo에서 할 수 있는 작업은 다음과 같습니다.
 
-- BTC 자산 브리지
+- **Transact > Send**에서 자산을 Mezo의 EVM 지갑으로 옮기기([자산 보내기](/docs/kr/docs/users/passport/send-assets)) 또는 BTC로 직접 브리지아웃하기(BTC 지갑에서 입금하는 Native BTC Bridge-in은 2026년 10월 13일에 종료되었습니다. [자산 입금](/docs/kr/docs/users/getting-started/deposit-assets) 참조)
 - EVM 자산 브리지
 - 대출받기, 상환하기 또는 대출 담보 관리하기
 - MUSD Market에서 상품 구매하기

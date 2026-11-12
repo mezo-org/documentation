@@ -1,5 +1,6 @@
 ---
 title: MUSD 환매
+description: TroveManager 컨트랙트의 redeemCollateral을 호출해 MUSD를 BTC로 환매하는 단계별 가이드로, 가스 절약 힌트, 수수료, 컨트랙트 주소를 다룹니다.
 topic: developers
 ---
 

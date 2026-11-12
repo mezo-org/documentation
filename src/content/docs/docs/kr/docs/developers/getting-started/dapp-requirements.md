@@ -1,5 +1,6 @@
 ---
 title: dApp 요구 사항
+description: MUSD 통합, 제3자 보안 감사, 메인넷 실제 배포 등 dApp이 Mezo Market에 소개되기 위한 요구 사항입니다.
 topic: developers
 ---
 

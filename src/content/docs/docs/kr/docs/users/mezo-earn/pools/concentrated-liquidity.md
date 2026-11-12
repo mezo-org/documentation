@@ -90,4 +90,4 @@ CL 풀 수수료는 기본 풀 수수료와 같은 방식으로 작동합니다.
 
 ### 스마트 컨트랙트 위험
 
-모든 스마트 컨트랙트와 마찬가지로 고유한 위험이 남아 있습니다. [mezo.org/audits](https://mezo.org/audits)에서 감사 보고서를 검토하고, 감당할 수 있는 금액만 예치하세요.
+모든 스마트 컨트랙트와 마찬가지로 고유한 위험이 남아 있습니다. [mezo.org/docs/kr/docs/users/resources/audits](/docs/kr/docs/users/resources/audits)에서 감사 보고서를 검토하고, 감당할 수 있는 금액만 예치하세요.

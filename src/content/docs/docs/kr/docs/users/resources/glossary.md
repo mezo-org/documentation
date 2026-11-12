@@ -30,7 +30,7 @@ veBTC와 veMEZO를 페어링했을 때의 합산 투표 가중치입니다. veBT
 
 ## BTC 지갑
 
-BTC를 Mezo에 직접 입금할 때 사용하는 비트코인 네이티브 지갑입니다. 지원되는 지갑은 UniSat, OKX, Xverse입니다. 지원되는 주소 형식은 Legacy(P2PKH), Native SegWit(P2WPKH), Nested SegWit(P2SH-P2WPKH)입니다. [자산 입금](/docs/kr/docs/users/getting-started/deposit-assets)을 참조하세요.
+Mezo에 로그인할 수 있는 비트코인 네이티브 지갑입니다. 지원되는 지갑은 UniSat, OKX, Xverse입니다. 지원되는 주소 형식은 Legacy(P2PKH), Native SegWit(P2WPKH), Nested SegWit(P2SH-P2WPKH)입니다. BTC 지갑은 Native BTC Bridge-in이 2026년 10월 13일에 종료되기 전까지 이를 통해 BTC를 Mezo에 직접 입금할 수 있었습니다. BTC 지갑 계정이 보유한 자산은 **Transact > Send**([자산 보내기](/docs/kr/docs/users/passport/send-assets))에서 Mezo의 EVM 지갑으로 옮기거나, 계속 이용할 수 있는 BTC 직접 브리지아웃으로 내보낼 수 있습니다. [브리지](/docs/kr/docs/users/mainnet/bridges)를 참조하세요.
 
 ## 체인 ID
 
@@ -54,7 +54,7 @@ BTC를 Mezo에 직접 입금할 때 사용하는 비트코인 네이티브 지�
 
 ## 담보 비율(ICR)
 
-개별 담보 비율(Individual Collateralization Ratio)입니다. Trove의 담보 달러 가치를 총부채로 나눈 비율입니다. 예를 들어 BTC 담보의 가치가 \$13,000이고 부채가 \$10,000이면 ICR은 130%입니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/concepts)을 참조하세요.
+개별 담보 비율(Individual Collateralization Ratio)입니다. Trove의 담보 달러 가치를 총부채로 나눈 비율입니다. 예를 들어 BTC 담보의 가치가 \$13,000이고 부채가 \$10,000이면 ICR은 130%입니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/architecture-and-terminology)을 참조하세요.
 
 ## CometBFT
 
@@ -66,7 +66,7 @@ Mezo 블록체인을 구축하는 데 사용된 모듈형 프레임워크입니�
 
 ## 임계 담보 비율(CCR)
 
-150%로 설정된 시스템 전체의 담보 기준선입니다. 총 담보 비율(TCR)이 CCR 아래로 떨어지면 시스템은 [Recovery Mode](#recovery-mode)에 진입합니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/concepts)을 참조하세요.
+150%로 설정된 시스템 전체의 담보 기준선입니다. 총 담보 비율(TCR)이 CCR 아래로 떨어지면 시스템은 [Recovery Mode](#recovery-mode)에 진입합니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/architecture-and-terminology)을 참조하세요.
 
 ## dApp
 
@@ -118,7 +118,7 @@ Mezo의 EVM 레이어와 상호작용하는 데 사용하는 이더리움 호환
 
 ## 글로벌 이자율
 
-거버넌스가 설정하며 새로 개설되는 모든 MUSD 대출에 적용되는 단일 이자율입니다. 대출이 개설되면 글로벌 이자율이 바뀌더라도 개설 당시의 이자율이 유지됩니다. 사용자는 [리파이낸싱](#리파이낸싱)을 통해 현재 글로벌 이자율을 적용받을 수 있습니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/concepts)을 참조하세요.
+거버넌스가 설정하며 새로 개설되는 모든 MUSD 대출에 적용되는 단일 이자율입니다. 대출이 개설되면 글로벌 이자율이 바뀌더라도 개설 당시의 이자율이 유지됩니다. 사용자는 [리파이낸싱](#리파이낸싱)을 통해 현재 글로벌 이자율을 적용받을 수 있습니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/architecture-and-terminology)을 참조하세요.
 
 ## 거버넌스
 
@@ -182,7 +182,7 @@ Mezo의 종합적인 수익 및 거버넌스 시스템으로, 잠금([veBTC](#ve
 
 ## MEZO Gauge
 
-veMEZO 보유자가 투표하여 MEZO 에미션을 Mezo 외부의 MUSD 유동성 풀, 즉 이더리움의 Curve와 Uniswap, Base의 Aerodrome으로 보내는 [비스테이킹 게이지](#비스테이킹-게이지)입니다. 에미션의 비스테이킹 몫(현재 주간 에미션 보상의 8%)에서 재원을 받습니다. [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)를 참조하세요.
+veMEZO 보유자가 투표하여 MEZO 에미션을 Mezo 외부의 MUSD 유동성 풀, 즉 이더리움의 Curve와 Uniswap, Base의 Aero로 보내는 [비스테이킹 게이지](#비스테이킹-게이지)입니다. 에미션의 비스테이킹 몫(현재 주간 에미션 보상의 8%)에서 재원을 받습니다. [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)를 참조하세요.
 
 ## Mezo Market
 
@@ -198,7 +198,7 @@ Mezo의 유동성 풀 시스템으로, 토큰 스왑을 위한 자동화된 온�
 
 ## 최소 담보 비율(MCR)
 
-[Trove](#trove)에 요구되는 최소 담보 비율로, 110%로 설정되어 있습니다. Trove의 [ICR](#담보-비율icr)이 MCR 아래로 떨어지면 [청산](#청산) 대상이 됩니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/concepts)을 참조하세요.
+[Trove](#trove)에 요구되는 최소 담보 비율로, 110%로 설정되어 있습니다. Trove의 [ICR](#담보-비율icr)이 MCR 아래로 떨어지면 [청산](#청산) 대상이 됩니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/architecture-and-terminology)을 참조하세요.
 
 ## MUSD
 
@@ -230,7 +230,7 @@ Mezo 체인 클라이언트(mezod)를 실행하며 네트워크에 참여하는 
 
 ## 개설 수수료
 
-MUSD를 대출받을 때 한 번 부과되는 수수료로, 대출 금액의 0.1%로 계산됩니다. 이 수수료는 대출 원금에 더해지며 이자가 붙습니다. [리파이낸싱](#리파이낸싱)할 때는 리파이낸싱 개설 수수료(일반 수수료의 일부)가 부과됩니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/concepts)을 참조하세요.
+MUSD를 대출받을 때 한 번 부과되는 수수료로, 대출 금액의 0.1%로 계산됩니다. 이 수수료는 대출 원금에 더해지며 이자가 붙습니다. [리파이낸싱](#리파이낸싱)할 때는 리파이낸싱 개설 수수료(일반 수수료의 일부)가 부과됩니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/architecture-and-terminology)을 참조하세요.
 
 ## PCV
 
@@ -266,7 +266,7 @@ Wormhole NTT 프로토콜을 사용해 Mezo와 이더리움 간에 MUSD를 브�
 
 ## 리파이낸싱
 
-대출 이자율을 현재 [글로벌 이자율](#글로벌-이자율)로 갱신하는 절차입니다. 리파이낸싱에는 인하된 개설 수수료가 부과되지만, 대출을 종료했다가 다시 개설할 필요가 없습니다. BTC 가치가 올랐다면 리파이낸싱으로 신용 한도를 늘릴 수도 있습니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/concepts)을 참조하세요.
+대출 이자율을 현재 [글로벌 이자율](#글로벌-이자율)로 갱신하는 절차입니다. 리파이낸싱에는 인하된 개설 수수료가 부과되지만, 대출을 종료했다가 다시 개설할 필요가 없습니다. BTC 가치가 올랐다면 리파이낸싱으로 신용 한도를 늘릴 수도 있습니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/architecture-and-terminology)을 참조하세요.
 
 ## 라우터 컨트랙트
 
@@ -290,7 +290,7 @@ MEZO 에미션을 두 목적지로 나누는 컨트랙트입니다. 분할 비�
 
 ## Stability Pool
 
-[청산](#청산)에 대한 1차 방어선 역할을 하는 MUSD 준비금입니다. 사용자는 Stability Pool에 MUSD를 예치하고 그 대가로 청산된 담보의 일부를 받습니다. [PCV](#pcv) 컨트랙트가 초기 100M MUSD를 예치해 풀의 기반을 마련합니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/concepts)을 참조하세요.
+[청산](#청산)에 대한 1차 방어선 역할을 하는 MUSD 준비금입니다. 사용자는 Stability Pool에 MUSD를 예치하고 그 대가로 청산된 담보의 일부를 받습니다. [PCV](#pcv) 컨트랙트가 초기 100M MUSD를 예치해 풀의 기반을 마련합니다. [MUSD 핵심 개념](/docs/kr/docs/users/borrow/architecture-and-terminology)을 참조하세요.
 
 ## 스테이블 풀
 

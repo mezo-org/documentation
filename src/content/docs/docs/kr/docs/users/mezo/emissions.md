@@ -94,6 +94,6 @@ MEZO는 예측 가능하고 점차 감소하는 인플레이션을 특징으로 
 
 4. **검증자**는 Mezo 체인 노드를 운영합니다. 검증자는 Chain Splitter를 통해 MEZO 에미션의 고정 몫(20%)을 받습니다.
 
-5. **Ecosystem Splitter**는 나머지 80%를 스테이킹 게이지와 비스테이킹 게이지에 배분하며, 현재 비율은 90/10입니다. 에미션 보상의 약 8%에 해당하는 비스테이킹 몫은 [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)의 재원이 되며, veMEZO 보유자는 여기에서 투표하여 Curve, Uniswap, Aerodrome의 MUSD 풀로 MEZO를 보냅니다.
+5. **Ecosystem Splitter**는 나머지 80%를 스테이킹 게이지와 비스테이킹 게이지에 배분하며, 현재 비율은 90/10입니다. 에미션 보상의 약 8%에 해당하는 비스테이킹 몫은 [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)의 재원이 되며, veMEZO 보유자는 여기에서 투표하여 Curve, Uniswap, Aero의 MUSD 풀로 MEZO를 보냅니다.
 
 6. **스테이킹 게이지**는 가장 큰 에미션 몫을 받습니다. LP 토큰을 스테이킹하는 LP와 영수증 토큰을 스테이킹하는 MUSD 저축자가 여기에서 MEZO를 얻습니다. 그 대가로 이들은 직접적인 거래 수수료를 포기하며, 해당 수수료는 대신 veBTC 투표자에게 돌아갑니다.

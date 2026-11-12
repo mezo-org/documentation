@@ -263,7 +263,7 @@ pnpm deploy:testnet
 - **[Mezo Earn 저장소](https://github.com/mezo-org/tigris.git)** - 메인 저장소
 - **[Solidly 문서](https://docs.solidly.com/)** - Solidly 프로토콜 문서
 - **[Mezo 네트워크 문서](/docs/kr/docs/developers/getting-started/configure-environment)** - 네트워크 설정
-- **[컨트랙트 검증 가이드](/docs/kr/docs/developers/contracts-reference)** - 컨트랙트 검증
+- **[컨트랙트 및 토큰 주소](/docs/kr/docs/users/resources/contracts-reference)** - 배포된 컨트랙트 및 토큰 주소
 
 :::note
 자세한 아키텍처, 토크노믹스, 프로토콜 메커니즘은 Mezo Earn 저장소의 README와 문서를 참고하세요.

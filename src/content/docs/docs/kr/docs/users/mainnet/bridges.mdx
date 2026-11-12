@@ -11,20 +11,20 @@ Mezo Native Bridge를 사용해 Mezo로 자산을 입금하고 Mezo에서 자산
 
 ## Mezo Native Bridge 입금
 
-Mezo App에는 여러 자산을 Mezo 메인넷으로 입금할 수 있는 네이티브 브리지가 포함되어 있습니다. 과정이 어떻게 진행되는지는 [자산 입금](/docs/kr/docs/users/getting-started/deposit-assets) 가이드를 참조하거나, [mezo.org/overview](https://mezo.org/overview)로 바로 이동해 로그인한 다음 **Deposit Bitcoin**을 클릭하여 시작하세요.
+Mezo App에는 여러 자산을 이더리움에서 Mezo 메인넷으로 입금할 수 있는 네이티브 브리지가 포함되어 있습니다. 과정이 어떻게 진행되는지는 [자산 입금](/docs/kr/docs/users/getting-started/deposit-assets) 가이드를 참조하거나, [mezo.org/overview](https://mezo.org/overview)로 바로 이동해 EVM 지갑으로 로그인한 다음 **Deposit**을 클릭하여 시작하세요.
 
 :::note[참고]
-Mezo 메인넷의 모든 트랜잭션 비용은 네이티브 BTC 또는 tBTC 입금으로 지불됩니다. 네트워크를 사용하기 전에 트랜잭션에 필요한 가스를 확보할 수 있도록 계정에 BTC 또는 tBTC를 넣어 두는 것이 좋습니다.
+Mezo 메인넷의 모든 트랜잭션 비용은 BTC로 지불됩니다. 이더리움에서 입금한 tBTC는 Mezo에 BTC로 도착하므로, 트랜잭션에 필요한 가스를 확보할 수 있도록 계정에 tBTC를 넣어 두는 것이 좋습니다.
 :::
 
 
-## 네이티브 BTC 입금
+## Native BTC Bridge-in(종료됨)
 
-비트코인 지갑에서 Mezo App으로 BTC를 직접 입금할 수 있습니다. 자산은 자동으로 tBTC로 브리지된 후 Mezo 메인넷으로 브리지됩니다.
+2026년 10월 13일부로 Native BTC Bridge-in이 종료되어 Mezo App은 더 이상 비트코인 지갑에서의 입금을 받지 않습니다. BTC로 직접 브리지아웃하는 기능은 계속 이용할 수 있습니다([비트코인으로 브리지하기](#비트코인으로-브리지하기네이티브-btc-전용) 참조). BTC를 Mezo로 가져오려면 대신 이더리움에서 tBTC를 입금하세요. 몇 분이면 처리되며 최소 금액도 없습니다. [자산 입금](/docs/kr/docs/users/getting-started/deposit-assets)을 참조하세요.
 
-네이티브 BTC는 [Mezo App 컨트랙트](/docs/kr/docs/users/resources/contracts-reference)로 브리지되기 전에 먼저 tBTC로 브리지됩니다.
+비트코인 지갑에 BTC를 보유하고 있다면 EVM 지갑으로 Mezo 계정을 만들고 그 계정에서 입금을 관리하세요. 10월 13일 이전에 네이티브 입금을 시작했다면 [네이티브 비트코인 입금 추적하기](/docs/kr/docs/users/mainnet/track-your-native-bitcoin-deposit)를 참조하세요.
 
-BTC 지갑의 경우 UniSat, OKX, Xverse로 로그인할 수 있습니다. 다음 주소 형식을 사용하세요.
+비트코인 지갑(UniSat, OKX, Xverse)으로 로그인하는 계정은 Mezo App의 **Transact > Send**에서 자산을 Mezo의 EVM 지갑으로 옮긴 다음([자산 보내기](/docs/kr/docs/users/passport/send-assets) 참조), 그 지갑에서 입금을 비롯한 모든 것을 관리할 수 있습니다. 또한 여전히 [BTC를 비트코인으로 출금](#비트코인으로-브리지하기네이티브-btc-전용)할 수 있습니다. 비트코인 지갑은 다음 주소 유형을 사용합니다.
 
 | 이름           | 스크립트 유형 | 주소 접두사 |
 | -------------- | ----------- | -------------- |
@@ -257,7 +257,10 @@ A: Native Bridge를 통해 이더리움으로 자금을 브리지하는 트랜�
 **Q: 어떤 네트워크로 브리지할 수 있나요?**
 A: 자산은 이더리움, Mezo, Base, 비트코인 간에 브리지할 수 있습니다. 향후 추가 네트워크 지원이 제공될 예정입니다.
 
-**Q: 네이티브 비트코인 입금이 아직 표시되지 않습니다. 상태를 어떻게 확인하나요?**
+**Q: 비트코인 지갑에서 여전히 BTC를 입금할 수 있나요?**
+A: 아니요. Native BTC Bridge-in은 2026년 10월 13일에 종료되었습니다. 대신 EVM 지갑으로 이더리움에서 tBTC를 입금하세요. [자산 입금](/docs/kr/docs/users/getting-started/deposit-assets)을 참조하세요. BTC로 직접 브리지아웃하는 기능은 계속 이용할 수 있습니다.
+
+**Q: 10월 13일 이전에 시작한 네이티브 비트코인 입금이 아직 표시되지 않습니다. 상태를 어떻게 확인하나요?**
 A: tBTCScan을 사용해 입금 상태를 확인하는 단계별 가이드는 [네이티브 비트코인 입금 추적하기](/docs/kr/docs/users/mainnet/track-your-native-bitcoin-deposit)를 참조하세요.
 
 **Q: 대상 네트워크의 가스 비용은 누가 지불하나요?**

@@ -12,7 +12,7 @@ topic: users
 
 ### veMEZO만으로 게이지에 투표할 수 있나요?
 
-네, 일부 게이지에서는 가능합니다. veMEZO는 **veBTC 부스트 게이지**와, Curve, Uniswap, Aerodrome의 MUSD 풀로 MEZO 에미션을 보내는 **[MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)**에서 자체적으로 투표합니다.
+네, 일부 게이지에서는 가능합니다. veMEZO는 **veBTC 부스트 게이지**와, Curve, Uniswap, Aero의 MUSD 풀로 MEZO 에미션을 보내는 **[MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)**에서 자체적으로 투표합니다.
 
 veMEZO만으로 할 수 없는 것은 **스테이킹 게이지** 투표입니다. 스테이킹 게이지에 투표하려면 veBTC가 필요하며, 여기서 veMEZO는 veBTC 투표력을 곱하는 역할을 합니다.
 

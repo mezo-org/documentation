@@ -50,7 +50,7 @@ veBTC 또는 veMEZO를 받기 위해 BTC나 MEZO를 일정 기간 동안 묶어 
 
 ## MEZO Gauge
 
-Mezo 외부의 MUSD 유동성 풀, 즉 이더리움의 Curve와 Uniswap, Base의 Aerodrome으로 MEZO 에미션을 보내는 비스테이킹 게이지입니다. [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)를 참조하세요.
+Mezo 외부의 MUSD 유동성 풀, 즉 이더리움의 Curve와 Uniswap, Base의 Aero로 MEZO 에미션을 보내는 비스테이킹 게이지입니다. [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)를 참조하세요.
 
 ## 투표 가중치
 
