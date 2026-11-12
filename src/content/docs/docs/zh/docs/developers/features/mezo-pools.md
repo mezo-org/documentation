@@ -1,5 +1,5 @@
 ---
-title: Mezo Pools
+title: Mezo 流动性池 (Mezo Pools)
 description: Mezo Pools 开发者参考，涵盖基础池与集中流动性池、兑换流程、仓位管理，以及主网和测试网合约地址。
 topic: developers
 ---

@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: USDC 借贷金库 (USDC Lending Vault)
 description: 将 mUSDC 存入 Mezo 上以 BTC 为抵押的 Morpho 借贷市场，赚取借款人支付的利息或 MEZO 排放
 topic: users
 ---

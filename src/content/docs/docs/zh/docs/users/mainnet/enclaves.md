@@ -1,5 +1,5 @@
 ---
-title: Enclaves
+title: 飞地 (Enclaves)
 description: 机构 BTC 如何通过 Enclave（隔离区）存入 Mezo
 topic: users
 ---

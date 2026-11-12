@@ -1,5 +1,5 @@
 ---
-title: MUSD Savings Vault
+title: MUSD 储蓄金库 (MUSD Savings Vault)
 description: 通过 Mezo Savings Vault 赚取以费用为支撑的 MUSD 收益
 topic: users
 ---

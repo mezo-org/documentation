@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: Ditto MUSD 储蓄金库 (Ditto MUSD Savings Vault)
 description: 在 Mezo 上存入 MUSD 并获得 dMUSD，参与一个初始配置于 Spark Savings 的自动化跨链金库
 topic: users
 ---
