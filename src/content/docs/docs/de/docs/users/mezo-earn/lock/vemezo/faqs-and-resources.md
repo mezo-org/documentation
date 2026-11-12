@@ -14,7 +14,7 @@ Nein. Sperrungen gelten bis zu ihrem Ablauf unwiderruflich. Wählen Sie Ihre Spe
 
 ### Kann ich nur mit veMEZO für Gauges abstimmen?
 
-Ja, für einige davon. veMEZO stimmt eigenständig für **veBTC-Boost-Gauges** und für **[MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges)** ab, die MEZO-Emissionen an MUSD-Pools auf Curve, Uniswap und Aerodrome lenken.
+Ja, für einige davon. veMEZO stimmt eigenständig für **veBTC-Boost-Gauges** und für **[MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges)** ab, die MEZO-Emissionen an MUSD-Pools auf Curve, Uniswap und Aero lenken.
 
 Was veMEZO allein nicht kann, ist die Abstimmung für **Staking-Gauges** – dafür ist veBTC nötig, und die Rolle von veMEZO besteht dort darin, die Stimmkraft von veBTC zu multiplizieren.
 

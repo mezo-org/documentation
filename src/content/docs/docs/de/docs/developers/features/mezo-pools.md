@@ -1,5 +1,6 @@
 ---
 title: Mezo Pools
+description: Entwicklerreferenz für Mezo Pools mit Basis-Pools und Pools mit konzentrierter Liquidität, Swap-Abläufen, Positionsverwaltung sowie Contract-Adressen für Mainnet und Testnet.
 topic: developers
 ---
 Mit Mezo Pools können Nutzer Token tauschen und Liquidität bereitstellen – auf Basis optimierter Pool-Mechanismen. Mezo unterstützt zwei Pool-Architekturen: **Basis-Pools** (AMMs mit konstantem Produkt und Stable-Kurve) und **Pools mit konzentrierter Liquidität (CL)** mit benutzerdefinierten Preisbereichen.

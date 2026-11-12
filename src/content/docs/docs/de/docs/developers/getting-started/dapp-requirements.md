@@ -1,5 +1,6 @@
 ---
 title: dApp-Anforderungen
+description: Anforderungen, die eine dApp erfüllen muss, um im Mezo Market vorgestellt zu werden, darunter die MUSD-Integration, ein Sicherheitsaudit durch einen Drittanbieter und ein Live-Deployment im Mainnet.
 topic: developers
 ---
 

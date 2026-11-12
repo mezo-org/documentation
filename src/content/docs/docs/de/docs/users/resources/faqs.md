@@ -40,7 +40,7 @@ Mit Passport können Entwickler ganz einfach Unterstützung für Bitcoin-Wallets
 
 ## Wie investiere ich in Mezo?
 
-Wenn Sie Interesse haben, Investor zu werden, wenden Sie sich bitte an [IR@thesis.co](IR@thesis.co).
+Wenn Sie Interesse haben, Investor zu werden, wenden Sie sich bitte an [IR@thesis.co](mailto:IR@thesis.co).
 
 ## Welche Wallets kann ich mit Mezo verwenden?
 
@@ -59,9 +59,11 @@ EVM-kompatibel:
 * Zerion
 * OKX
 
+Bitcoin-Wallets können nicht mehr bei Mezo einzahlen. Der Native BTC Bridge-in wurde am 13. Oktober 2026 geschlossen. Verwenden Sie für Einzahlungen eine EVM-Wallet. Wenn Ihr Konto eine Bitcoin-Wallet verwendet, können Sie Ihre Vermögenswerte in der Mezo App unter **Transact > Send** an eine EVM-Wallet auf Mezo übertragen (siehe [Vermögenswerte senden](/docs/de/docs/users/passport/send-assets)) oder direkt zu BTC bridgen, was weiterhin möglich ist.
+
 ## Mit welchem Token werden Transaktionsgebühren bezahlt?
 
-Transaktionsgebühren auf Mezo werden in BTC bezahlt. Sie erhalten BTC auf Mezo, indem Sie BTC direkt aus Ihrer Bitcoin-Wallet oder tBTC aus Ihrer Ethereum-Wallet einzahlen.
+Transaktionsgebühren auf Mezo werden in BTC bezahlt. Sie erhalten BTC auf Mezo, indem Sie tBTC aus Ihrer Ethereum-Wallet einzahlen oder MUSD bzw. MEZO mit [Get Gas](/docs/de/docs/users/getting-started/get-gas) tauschen.
 
 ## Warum werden einige meiner Token im Mezo Explorer nicht angezeigt?
 

@@ -13,7 +13,7 @@ Wenn Sie MEZO auf Mezo sperren, erhalten Sie ein veMEZO-NFT, das Ihre gesperrte 
 - einen Boost-Multiplikator für Ihre veBTC-Stimmkraft (bis zu 5x)
 - Rebase-Belohnungen aus den wöchentlichen MEZO-Emissionen, die die Verwässerung ausgleichen
 - die Teilnahme am Matching-Markt, um Anreize (Incentives) von veBTC-Inhabern zu verdienen
-- Stimmen für [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges), mit denen Sie MEZO-Emissionen auf MUSD-Pools auf Curve, Uniswap und Aerodrome lenken
+- Stimmen für [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges), mit denen Sie MEZO-Emissionen auf MUSD-Pools auf Curve, Uniswap und Aero lenken
 
 :::note[Wichtig]
 veMEZO stimmt nicht selbst über **Staking-Gauges** ab – dort multipliziert es nur die Stimmkraft von veBTC-Positionen. Eigenständig abstimmen kann veMEZO jedoch über veBTC-Boost-Gauges und über [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges).

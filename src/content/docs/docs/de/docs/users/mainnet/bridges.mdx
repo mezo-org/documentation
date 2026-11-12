@@ -13,20 +13,20 @@ Mit der Mezo Native Bridge können Sie Vermögenswerte bei Mezo einzahlen und vo
 
 ## Einzahlungen über die Mezo Native Bridge
 
-Die Mezo App enthält eine native Bridge, über die Sie verschiedene Vermögenswerte in das Mezo Mainnet einzahlen können. In der Anleitung [Vermögenswerte einzahlen](/docs/de/docs/users/getting-started/deposit-assets) erfahren Sie, wie der Vorgang funktioniert. Alternativ rufen Sie direkt [mezo.org/overview](https://mezo.org/overview) auf, melden sich an und klicken auf **Deposit Bitcoin**, um zu beginnen.
+Die Mezo App enthält eine native Bridge, über die Sie verschiedene Vermögenswerte von Ethereum in das Mezo Mainnet einzahlen können. In der Anleitung [Vermögenswerte einzahlen](/docs/de/docs/users/getting-started/deposit-assets) erfahren Sie, wie der Vorgang funktioniert. Alternativ rufen Sie direkt [mezo.org/overview](https://mezo.org/overview) auf, melden sich mit einer EVM-Wallet an und klicken auf **Deposit**, um zu beginnen.
 
 :::note[Hinweis]
-Alle Transaktionen im Mezo Mainnet werden mit eingezahltem nativem BTC oder tBTC bezahlt. Bevor Sie das Netzwerk nutzen, empfiehlt es sich, Ihr Konto mit BTC oder tBTC aufzuladen, damit Sie Gas für Transaktionen bezahlen können.
+Alle Transaktionen im Mezo Mainnet werden in BTC bezahlt. Von Ethereum eingezahltes tBTC kommt auf Mezo als BTC an. Daher empfiehlt es sich, Ihr Konto mit tBTC aufzuladen, damit Sie Gas für Transaktionen bezahlen können.
 :::
 
 
-## Einzahlungen von nativem BTC
+## Native BTC Bridge-in (eingestellt)
 
-Sie können BTC direkt aus einer Bitcoin-Wallet in die Mezo App einzahlen. Die Vermögenswerte werden automatisch zu tBTC und in das Mezo Mainnet gebridgt.
+Seit dem 13. Oktober 2026 ist der Native BTC Bridge-in geschlossen, und die Mezo App nimmt keine Einzahlungen aus Bitcoin-Wallets mehr an. Abhebungen direkt zu BTC (Bridge-out) bleiben verfügbar (siehe [Bridging zu Bitcoin](#bridging-zu-bitcoin-nur-für-natives-btc)). Um BTC zu Mezo zu bringen, zahlen Sie stattdessen tBTC von Ethereum ein. Die Einzahlung wird innerhalb weniger Minuten abgewickelt, und es gibt keinen Mindestbetrag. Siehe [Vermögenswerte einzahlen](/docs/de/docs/users/getting-started/deposit-assets).
 
-Natives BTC wird zu tBTC gebridgt, bevor es in den [Mezo-App-Contract](/docs/de/docs/users/resources/contracts-reference) gebridgt wird.
+Wenn Sie BTC in einer Bitcoin-Wallet halten, erstellen Sie ein Mezo-Konto mit einer EVM-Wallet und verwalten Sie Ihre Einzahlungen von dort aus. Wenn Sie vor dem 13. Oktober eine native Einzahlung gestartet haben, lesen Sie [Einzahlung von nativem Bitcoin verfolgen](/docs/de/docs/users/mainnet/track-your-native-bitcoin-deposit).
 
-Für BTC-Wallets können Sie sich mit UniSat, OKX und Xverse anmelden. Verwenden Sie die folgenden Adressen:
+Konten, die sich mit einer Bitcoin-Wallet (UniSat, OKX, Xverse) anmelden, können ihre Vermögenswerte in der Mezo App unter **Transact > Send** an eine EVM-Wallet auf Mezo übertragen (siehe [Vermögenswerte senden](/docs/de/docs/users/passport/send-assets)) und anschließend alles über diese Wallet einzahlen und verwalten. Sie können außerdem weiterhin [BTC zu Bitcoin abheben](#bridging-zu-bitcoin-nur-für-natives-btc). Bitcoin-Wallets verwenden die folgenden Adresstypen:
 
 | Name           | Skripttyp   | Adresspräfix   |
 | -------------- | ----------- | -------------- |
@@ -259,7 +259,10 @@ A: Die meisten Transaktionen, die Mittel über die Native Bridge zu Ethereum bri
 **F: In welche Netzwerke kann ich bridgen?**
 A: Vermögenswerte können zwischen Ethereum, Mezo, Base und Bitcoin gebridgt werden. Weitere Netzwerke werden künftig unterstützt.
 
-**F: Meine Einzahlung von nativem Bitcoin ist noch nicht erschienen. Wie prüfe ich ihren Status?**
+**F: Kann ich weiterhin BTC aus einer Bitcoin-Wallet einzahlen?**
+A: Nein. Der Native BTC Bridge-in wurde am 13. Oktober 2026 geschlossen. Zahlen Sie stattdessen mit einer EVM-Wallet tBTC von Ethereum ein. Siehe [Vermögenswerte einzahlen](/docs/de/docs/users/getting-started/deposit-assets). Abhebungen direkt zu BTC (Bridge-out) bleiben verfügbar.
+
+**F: Eine Einzahlung von nativem Bitcoin, die ich vor dem 13. Oktober gestartet habe, ist noch nicht erschienen. Wie prüfe ich ihren Status?**
 A: Unter [Einzahlung von nativem Bitcoin verfolgen](/docs/de/docs/users/mainnet/track-your-native-bitcoin-deposit) finden Sie eine Schritt-für-Schritt-Anleitung, wie Sie mit tBTCScan den Status Ihrer Einzahlung überprüfen.
 
 **F: Wer bezahlt das Gas im Zielnetzwerk?**

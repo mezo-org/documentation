@@ -92,4 +92,4 @@ Bewegt sich der Marktpreis aus Ihrer gewählten Spanne heraus, wird Ihre Positio
 
 ### Smart-Contract-Risiko
 
-Wie bei allen Smart Contracts bleibt ein inhärentes Risiko bestehen. Prüfen Sie die Audits unter [mezo.org/audits](https://mezo.org/audits) und zahlen Sie nur Beträge ein, bei denen Sie sich wohlfühlen.
+Wie bei allen Smart Contracts bleibt ein inhärentes Risiko bestehen. Prüfen Sie die Audits unter [mezo.org/docs/de/docs/users/resources/audits](/docs/de/docs/users/resources/audits) und zahlen Sie nur Beträge ein, bei denen Sie sich wohlfühlen.

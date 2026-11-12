@@ -32,7 +32,7 @@ Bitcoin. BTC ist der native Gas-Token auf Mezo (mit 18 Dezimalstellen) und die w
 
 ## BTC-Wallet
 
-Eine Bitcoin-native Wallet, mit der BTC direkt auf Mezo eingezahlt werden. Unterstützte Wallets sind unter anderem UniSat, OKX und Xverse. Unterstützte Adressformate sind Legacy (P2PKH), Native SegWit (P2WPKH) und Nested SegWit (P2SH-P2WPKH). Siehe [Vermögenswerte einzahlen](/docs/de/docs/users/getting-started/deposit-assets).
+Eine Bitcoin-native Wallet, mit der Sie sich bei Mezo anmelden können. Unterstützte Wallets sind unter anderem UniSat, OKX und Xverse. Unterstützte Adressformate sind Legacy (P2PKH), Native SegWit (P2WPKH) und Nested SegWit (P2SH-P2WPKH). BTC-Wallets konnten über den Native BTC Bridge-in BTC direkt auf Mezo einzahlen, bis dieser am 13. Oktober 2026 geschlossen wurde. Vermögenswerte eines Kontos mit BTC-Wallet können unter **Transact > Send** an eine EVM-Wallet auf Mezo übertragen ([Vermögenswerte senden](/docs/de/docs/users/passport/send-assets)) oder direkt zu BTC gebridgt werden, was weiterhin möglich ist. Siehe [Bridges](/docs/de/docs/users/mainnet/bridges).
 
 ## Chain-ID
 
@@ -56,7 +56,7 @@ Die überschüssigen Sicherheiten, die übrig bleiben, nachdem gegen einen [Trov
 
 ## Besicherungsquote (ICR)
 
-Individual Collateralization Ratio (individuelle Besicherungsquote). Das Verhältnis zwischen dem Dollarwert der Sicherheiten eines Troves und seinen Gesamtschulden. Wenn Ihre BTC-Sicherheiten beispielsweise 13.000 \$ wert sind und Ihre Schulden 10.000 \$ betragen, liegt Ihre ICR bei 130 %. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/concepts).
+Individual Collateralization Ratio (individuelle Besicherungsquote). Das Verhältnis zwischen dem Dollarwert der Sicherheiten eines Troves und seinen Gesamtschulden. Wenn Ihre BTC-Sicherheiten beispielsweise 13.000 \$ wert sind und Ihre Schulden 10.000 \$ betragen, liegt Ihre ICR bei 130 %. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/architecture-and-terminology).
 
 ## CometBFT
 
@@ -68,7 +68,7 @@ Das modulare Framework, mit dem die Mezo-Blockchain gebaut ist. Das Cosmos SDK s
 
 ## Kritische Besicherungsquote (CCR)
 
-Der systemweite Schwellenwert für Sicherheiten, festgelegt auf 150 %. Fällt die Gesamtbesicherungsquote (TCR) unter die CCR, wechselt das System in den [Recovery Mode](#recovery-mode). Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/concepts).
+Der systemweite Schwellenwert für Sicherheiten, festgelegt auf 150 %. Fällt die Gesamtbesicherungsquote (TCR) unter die CCR, wechselt das System in den [Recovery Mode](#recovery-mode). Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/architecture-and-terminology).
 
 ## dApp
 
@@ -120,7 +120,7 @@ Ein Smart Contract, der Belohnungen auf Grundlage von Stimmen empfängt und vert
 
 ## Globaler Zinssatz
 
-Ein einheitlicher, per Governance festgelegter Zinssatz, der für alle neu eröffneten MUSD-Kredite gilt. Nach der Eröffnung behält ein Kredit den Zinssatz, zu dem er erstellt wurde, auch wenn sich der globale Zinssatz ändert. Nutzer können [refinanzieren](#refinanzierung), um den aktuellen globalen Zinssatz zu übernehmen. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/concepts).
+Ein einheitlicher, per Governance festgelegter Zinssatz, der für alle neu eröffneten MUSD-Kredite gilt. Nach der Eröffnung behält ein Kredit den Zinssatz, zu dem er erstellt wurde, auch wenn sich der globale Zinssatz ändert. Nutzer können [refinanzieren](#refinanzierung), um den aktuellen globalen Zinssatz zu übernehmen. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/architecture-and-terminology).
 
 ## Governance
 
@@ -184,7 +184,7 @@ Das umfassende Ertrags- und Governance-System auf Mezo. Es umfasst das Sperren (
 
 ## MEZO Gauge
 
-Ein [Non-Staking-Gauge](#non-staking-gauge), über den veMEZO-Inhaber abstimmen, um MEZO-Emissionen in MUSD-Liquiditätspools außerhalb von Mezo zu lenken – Curve und Uniswap auf Ethereum sowie Aerodrome auf Base. Finanziert aus dem Non-Staking-Zweig der Emissionen (derzeit 8 % der wöchentlichen Emissionsbelohnungen). Siehe [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges).
+Ein [Non-Staking-Gauge](#non-staking-gauge), über den veMEZO-Inhaber abstimmen, um MEZO-Emissionen in MUSD-Liquiditätspools außerhalb von Mezo zu lenken – Curve und Uniswap auf Ethereum sowie Aero auf Base. Finanziert aus dem Non-Staking-Zweig der Emissionen (derzeit 8 % der wöchentlichen Emissionsbelohnungen). Siehe [MEZO Gauges](/docs/de/docs/users/mezo-earn/vote/mezo-gauges).
 
 ## Mezo Market
 
@@ -200,7 +200,7 @@ Das Liquiditätspool-System auf Mezo, das als automatisierte Onchain-Liquidität
 
 ## Mindestbesicherungsquote (MCR)
 
-Die für einen [Trove](#trove) erforderliche Mindestbesicherungsquote, festgelegt auf 110 %. Fällt die [ICR](#besicherungsquote-icr) eines Troves unter die MCR, kann er [liquidiert](#liquidation) werden. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/concepts).
+Die für einen [Trove](#trove) erforderliche Mindestbesicherungsquote, festgelegt auf 110 %. Fällt die [ICR](#besicherungsquote-icr) eines Troves unter die MCR, kann er [liquidiert](#liquidation) werden. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/architecture-and-terminology).
 
 ## MUSD
 
@@ -232,7 +232,7 @@ Ein Dienst, der Smart Contracts onchain mit externen Daten (z. B. Asset-Preisen)
 
 ## Abschlussgebühr
 
-Eine einmalige Gebühr bei der Kreditaufnahme in MUSD (Origination Fee), berechnet als 0,1 % des geliehenen Betrags. Die Gebühr wird dem Kreditbetrag zugeschlagen und verzinst. Bei einer [Refinanzierung](#refinanzierung) wird eine Abschlussgebühr für die Refinanzierung erhoben (ein Bruchteil der regulären Gebühr). Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/concepts).
+Eine einmalige Gebühr bei der Kreditaufnahme in MUSD (Origination Fee), berechnet als 0,1 % des geliehenen Betrags. Die Gebühr wird dem Kreditbetrag zugeschlagen und verzinst. Bei einer [Refinanzierung](#refinanzierung) wird eine Abschlussgebühr für die Refinanzierung erhoben (ein Bruchteil der regulären Gebühr). Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/architecture-and-terminology).
 
 ## PCV
 
@@ -268,7 +268,7 @@ Der Tausch von MUSD gegen BTC im entsprechenden Dollarwert direkt beim Protokoll
 
 ## Refinanzierung
 
-Der Vorgang, bei dem der Zinssatz eines Kredits auf den aktuellen [globalen Zinssatz](#globaler-zinssatz) aktualisiert wird. Bei einer Refinanzierung fällt eine reduzierte Abschlussgebühr an, aber Sie müssen den Kredit nicht schließen und neu eröffnen. Sie können auch refinanzieren, um Ihren Kreditrahmen zu erweitern, wenn BTC im Wert gestiegen ist. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/concepts).
+Der Vorgang, bei dem der Zinssatz eines Kredits auf den aktuellen [globalen Zinssatz](#globaler-zinssatz) aktualisiert wird. Bei einer Refinanzierung fällt eine reduzierte Abschlussgebühr an, aber Sie müssen den Kredit nicht schließen und neu eröffnen. Sie können auch refinanzieren, um Ihren Kreditrahmen zu erweitern, wenn BTC im Wert gestiegen ist. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/architecture-and-terminology).
 
 ## Router-Contract
 
@@ -292,7 +292,7 @@ Ein Contract, der MEZO-Emissionen auf zwei Ziele aufteilt. Die Aufteilungsverhä
 
 ## Stability Pool
 
-Eine Reserve aus MUSD, die als erste Verteidigungslinie gegen [Liquidationen](#liquidation) dient. Nutzer zahlen MUSD in den Stability Pool ein und erhalten im Gegenzug einen Anteil an den liquidierten Sicherheiten. Der [PCV](#pcv)-Contract stattet den Pool mit einer anfänglichen Einzahlung von 100 Mio. MUSD aus. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/concepts).
+Eine Reserve aus MUSD, die als erste Verteidigungslinie gegen [Liquidationen](#liquidation) dient. Nutzer zahlen MUSD in den Stability Pool ein und erhalten im Gegenzug einen Anteil an den liquidierten Sicherheiten. Der [PCV](#pcv)-Contract stattet den Pool mit einer anfänglichen Einzahlung von 100 Mio. MUSD aus. Siehe [MUSD – Grundbegriffe](/docs/de/docs/users/borrow/architecture-and-terminology).
 
 ## Stabiler Pool
 

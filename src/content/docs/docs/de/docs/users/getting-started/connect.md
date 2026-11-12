@@ -1,5 +1,6 @@
 ---
 title: Wallet mit Mezo verbinden
+description: Fügen Sie das Mezo Mainnet oder Testnet über Chainlist oder manuell zu einer Browser-Wallet hinzu, mit Chain-IDs, öffentlichen RPC-Endpunkten und Netzwerkdetails.
 topic: users
 ---
 
@@ -67,7 +68,7 @@ Wenn Sie das Netzwerk manuell zu Ihrer Wallet hinzufügen müssen, folgen Sie je
 
 BTC-Wallets werden in der Mezo App unterstützt und können eine Mezo-Netzwerkadresse erhalten, die mit Ihrer BTC-Wallet verknüpft ist. Mit BTC-Wallets können Sie auf Mezo derzeit Folgendes erledigen:
 
-- BTC-Assets bridgen
+- Vermögenswerte unter **Transact > Send** an eine EVM-Wallet auf Mezo übertragen ([Vermögenswerte senden](/docs/de/docs/users/passport/send-assets)) oder direkt zu BTC bridgen (der Native BTC Bridge-in für Einzahlungen aus BTC-Wallets wurde am 13. Oktober 2026 eingestellt; siehe [Vermögenswerte einzahlen](/docs/de/docs/users/getting-started/deposit-assets))
 - EVM-Assets bridgen
 - Einen Kredit aufnehmen, zurückzahlen oder seine Sicherheiten verwalten
 - Artikel auf dem MUSD Market kaufen

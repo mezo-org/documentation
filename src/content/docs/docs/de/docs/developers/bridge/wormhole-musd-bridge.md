@@ -1,5 +1,6 @@
 ---
 title: Wormhole MUSD Bridge
+description: Wie die MUSD Bridge mit Wormhole Native Token Transfer sichere Cross-Chain-Transfers ermöglicht und dabei die Fungibilität wahrt.
 topic: developers
 ---
 

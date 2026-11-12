@@ -1,5 +1,6 @@
 ---
 title: MUSD-Einlösungen
+description: Schritt-für-Schritt-Anleitung zum Einlösen von MUSD gegen BTC durch den Aufruf von redeemCollateral im TroveManager-Contract, mit gassparenden Hints, Gebühren und Contract-Adressen.
 topic: developers
 ---
 

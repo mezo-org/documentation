@@ -100,7 +100,7 @@ topic: users
 
 ## 2025-05-28 - Start des Mezo Mainnet
 
-Das Mezo Mainnet ist jetzt verfügbar! In der Dokumentation unter [Erste Schritte](https:/mezo.org/docs/users/getting-started/connect) erfahren Sie, wie Sie sich mit dem Mainnet verbinden. Alternativ rufen Sie [mezo.org/overview](https://mezo.org/overview) auf, um Ihre Vermögenswerte zu bridgen und die Plattform zu nutzen.
+Das Mezo Mainnet ist jetzt verfügbar! In der Dokumentation unter [Erste Schritte](https://mezo.org/docs/users/getting-started/connect) erfahren Sie, wie Sie sich mit dem Mainnet verbinden. Alternativ rufen Sie [mezo.org/overview](https://mezo.org/overview) auf, um Ihre Vermögenswerte zu bridgen und die Plattform zu nutzen.
 
 ## 2025-04-12 - Start des Mezo Mainnet angekündigt
 

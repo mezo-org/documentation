@@ -92,4 +92,4 @@ So beanspruchen Sie Ihre MEZO-Belohnungen:
 ## Weitere Ressourcen
 
 - [Mezo Earn – Übersicht](/docs/de/docs/users/mezo-earn/overview/)
-- [Mezo Blog](https://mezo.org/blog/tag/features/)
+- [Mezo Blog](https://mezo.org/blog)

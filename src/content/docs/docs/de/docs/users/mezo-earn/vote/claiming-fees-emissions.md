@@ -151,4 +151,4 @@ Jedes veBTC-NFT hat seinen eigenen Boost-Gauge. veMEZO-Inhaber stimmen über die
 
 **Wo sehe ich die aktuellen Gauge-Gewichte und Anreize?**
 
-Rufen Sie die [Vote-Seite](https://mezo.org/vote) auf, um Gauge-Gewichte in Echtzeit, Anreizbeträge, prognostizierte APYs und die historische Performance zu sehen.
+Rufen Sie die [Vote-Seite](https://mezo.org/earn/vote) auf, um Gauge-Gewichte in Echtzeit, Anreizbeträge, prognostizierte APYs und die historische Performance zu sehen.
