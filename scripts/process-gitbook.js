@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DOCS_DIR = path.join(__dirname, '../src/content/docs/docs');
-const SUMMARY_FILE = path.join(DOCS_DIR, 'SUMMARY.md');
+const SUMMARY_FILE = path.join(DOCS_DIR, '_SUMMARY.md');
 const CONFIG_FILE = path.join(__dirname, '../astro.config.mjs');
 const ASSETS_SOURCE = path.join(__dirname, '../public/docs/gitbook');
 const ASSETS_TARGET = path.join(__dirname, '../src/assets/gitbook');
@@ -54,7 +54,7 @@ class GitbookProcessor {
     console.log('🔄 Processing Gitbook content for Starlight...');
     
     try {
-      // Step 1: Parse SUMMARY.md to understand structure
+      // Step 1: Parse _SUMMARY.md to understand structure
       await this.parseSummary();
       
       // Step 2: Generate topic configuration
@@ -77,7 +77,7 @@ class GitbookProcessor {
   }
 
   async parseSummary() {
-    console.log('📖 Parsing SUMMARY.md...');
+    console.log('📖 Parsing _SUMMARY.md...');
     
     const summaryContent = await fs.readFile(SUMMARY_FILE, 'utf-8');
     this.summaryStructure = this.parseSummaryContent(summaryContent);
@@ -224,6 +224,9 @@ class GitbookProcessor {
       if (entry.isDirectory()) {
         await this.processDirectory(fullPath);
       } else if (entry.name.match(/\.mdx?$/)) {
+        // Skip underscore-prefixed nav data (e.g. _SUMMARY.md): read directly
+        // by path elsewhere, never published, never rewritten.
+        if (entry.name.startsWith('_')) continue;
         await this.processMarkdownFile(fullPath);
       }
     }
@@ -319,7 +322,7 @@ class GitbookProcessor {
       return 'developers';
     } else if (relativePath.startsWith('admins/')) {
       return 'admins';
-    } else if (relativePath === 'README.md' || relativePath === 'index.md' || relativePath === 'SUMMARY.md') {
+    } else if (relativePath === 'README.md' || relativePath === 'index.md' || relativePath === '_SUMMARY.md') {
       return 'users'; // Default root files to users topic
     }
     return null;
