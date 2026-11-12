@@ -43,7 +43,6 @@ export default defineConfig({
 			components: {
 				Head: './src/overrides/Head.astro',
 				Header: './src/overrides/Header.astro',
-				MarkdownContent: './src/overrides/MarkdownContent.astro',
 				LanguageSelect: './src/overrides/LanguageSelect.astro',
 				Sidebar: './src/overrides/Sidebar.astro',
 				Footer: './src/overrides/Footer.astro',

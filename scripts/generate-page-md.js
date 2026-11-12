@@ -16,14 +16,13 @@ const DOCS_DIR = path.join(ROOT, 'src/content/docs/docs');
 const OUT_DIR = path.join(ROOT, 'public/docs');
 const SITE = 'https://mezo.org/docs';
 
-// Pointer to the generated docs index. It goes on every markdown page as well
-// as the HTML pages, so an agent that only ever receives the .md file can still
-// find the full docs set. generate-llms.js strips this line when it builds
-// llms-full.txt and ignores it when it detects empty section stubs.
-// The visible text matches the HTML note in MarkdownContent.astro exactly so
-// the parity check sees the same sentence in both representations. The link
-// target stays absolute so the pointer still works when the markdown is read
-// away from mezo.org.
+// Pointer to the generated docs index on every markdown page, so an agent that
+// only ever receives the .md file can still find the full docs set. HTML pages
+// point to the same index through a <link rel="alternate"> in Head.astro and
+// the llms.txt link in the footer. generate-llms.js strips this line when it
+// builds llms-full.txt and ignores it when it detects empty section stubs.
+// The link target stays absolute so the pointer still works when the markdown
+// is read away from mezo.org.
 const DOCS_INDEX_POINTER = `> For AI agents, the full documentation index is at [/docs/llms.txt](${SITE}/llms.txt).`;
 
 function parseAttrs(tag) {
