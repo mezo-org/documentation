@@ -1,5 +1,5 @@
 ---
-title: musd
+title: MUSD
 topic: developers
 ---
 

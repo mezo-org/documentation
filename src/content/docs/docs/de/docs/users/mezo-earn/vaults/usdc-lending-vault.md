@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: USDC-Kredit-Vault (USDC Lending Vault)
 description: >-
   Stellen Sie mUSDC dem BTC-besicherten Morpho-Kreditmarkt auf Mezo bereit und
   verdienen Sie Zinsen der Kreditnehmer oder MEZO-Emissionen

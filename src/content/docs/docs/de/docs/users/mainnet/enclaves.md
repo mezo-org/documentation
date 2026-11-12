@@ -1,5 +1,5 @@
 ---
-title: Enclaves
+title: Enklaven (Enclaves)
 description: So funktionieren institutionelle BTC-Einzahlungen auf Mezo über Enclaves
 topic: users
 ---

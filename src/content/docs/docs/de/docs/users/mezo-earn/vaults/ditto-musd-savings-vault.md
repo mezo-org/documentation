@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: Ditto MUSD-Spar-Vault (Ditto MUSD Savings Vault)
 description: >-
   Zahlen Sie MUSD auf Mezo ein und erhalten Sie dMUSD für einen automatisierten
   Cross-Chain-Vault mit anfänglicher Allokation in Spark Savings

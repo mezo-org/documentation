@@ -1,5 +1,5 @@
 ---
-title: MUSD Savings Vault
+title: MUSD-Spar-Vault (MUSD Savings Vault)
 description: Verdienen Sie mit dem Mezo Savings Vault gebührenbasierte Rendite auf MUSD
 topic: users
 ---
