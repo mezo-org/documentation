@@ -1,5 +1,5 @@
 ---
-title: MUSD Savings Vault
+title: "Coffre d'épargne MUSD (MUSD Savings Vault)"
 description: Gagnez sur vos MUSD un rendement adossé aux frais grâce au Mezo Savings Vault
 topic: users
 ---

@@ -1,5 +1,5 @@
 ---
-title: USDC Lending Vault
+title: Coffre de prêt USDC (USDC Lending Vault)
 description: >-
   Fournissez des mUSDC au marché de prêt Morpho adossé au BTC sur Mezo et gagnez
   les intérêts des emprunteurs ou des émissions de MEZO

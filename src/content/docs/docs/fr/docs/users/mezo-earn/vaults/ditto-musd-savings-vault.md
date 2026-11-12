@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: "Coffre d'épargne Ditto MUSD (Ditto MUSD Savings Vault)"
 description: >-
   Déposez des MUSD sur Mezo et recevez des dMUSD pour un coffre inter-chaînes
   automatisé avec une allocation initiale vers Spark Savings
