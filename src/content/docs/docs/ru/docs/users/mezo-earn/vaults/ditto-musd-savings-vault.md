@@ -1,5 +1,5 @@
 ---
-title: Ditto MUSD Savings Vault
+title: Сберегательное хранилище Ditto MUSD (Ditto MUSD Savings Vault)
 description: >-
   Вносите MUSD в Mezo и получайте dMUSD — автоматизированное кросс-чейн
   хранилище с первоначальным размещением в Spark Savings

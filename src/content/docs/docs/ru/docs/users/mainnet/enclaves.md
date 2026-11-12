@@ -1,5 +1,5 @@
 ---
-title: Enclaves
+title: Анклавы (Enclaves)
 description: Как устроены институциональные депозиты BTC в Mezo через Enclaves
 topic: users
 ---

@@ -32,7 +32,7 @@ import { Steps } from '@astrojs/starlight/components';
 
 Ваше распределение учитывается в текущей эпохе сразу после подтверждения транзакции.
 
-:::note[Protocol, Gauge, Incentives, Distribution date]
+:::note[Столбцы Protocol, Gauge, Incentives и Distribution date]
 Это четыре столбца таблицы MEZO Gauges. **Protocol** ведёт на целевую площадку. **Gauge** показывает целевой пул, поэтому два гейджа в Base отображаются как USDC/MUSD и MEZO/MUSD, а в качестве протокола у них указан Aerodrome. Aero — новое название Aerodrome, так что эти строки и есть гейджи Aero. **Incentives** — токены, размещённые в гейдже в этой эпохе. **Distribution date** — время (UTC), когда стимулы этой эпохи поступят в целевой пул или гейдж.
 
 Здесь не отображаются vAPR, комиссии или TVL, поскольку они начисляются на Curve, Uniswap или Aero, а не в Mezo. Когда вы распределяете голоса, для процентов добавляется столбец **Vote distribution**.

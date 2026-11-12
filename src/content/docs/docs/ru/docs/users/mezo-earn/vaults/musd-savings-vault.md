@@ -1,5 +1,5 @@
 ---
-title: MUSD Savings Vault
+title: Сберегательное хранилище MUSD (MUSD Savings Vault)
 description: Получайте обеспеченный комиссиями доход на MUSD через Mezo Savings Vault
 topic: users
 ---
