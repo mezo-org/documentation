@@ -32,13 +32,13 @@ See [Claiming Incentives](/docs/users/mezo-earn/vote/mezo-gauges/claiming-incent
 
 ## MEZO as incentives on Aero
 
-Aero pools work differently, because Aero runs its own reward system. sAERO holders allocate to pools, and those allocations direct **AERO Rewards** to each pool's LPs. sAERO replaced veAERO when Aerodrome became Aero.
+Aero pools work differently, because Aero runs its own reward system. sAERO holders allocate to pools, and those allocations direct **AERO Rewards** to each pool's AERO-earning deposits. sAERO replaced veAERO when Aerodrome became Aero.
 
-Take USDC/MUSD as an example. MEZO does not go to Aero LPs directly. It is deposited on the Aero gauge for that pool as an **incentive**, which Aero calls a Liquidity Payment, and it pays the sAERO holders who allocate to the pool.
+Take USDC/MUSD as an example. MEZO does not go to Aero LPs directly. It is posted on that pool as an **incentive program**, and its payments, which Aero calls Liquidity Payments, go to the sAERO holders who allocate to the pool.
 
 Those allocations are what direct AERO Rewards to the pool. The MEZO buys AERO Rewards for the pool, and it is the AERO that reaches LPs. The same path applies to MEZO/MUSD on Aero.
 
-Mechanically, the MEZO is claimed on Mezo, bridged to Base, and deposited on the Aero gauge by an allocator contract. This runs automatically each epoch.
+Mechanically, the MEZO is claimed on Mezo, bridged to Base, and posted on the pool by an allocator contract. This runs automatically each epoch.
 
 :::caution[Reconnecting after the Aero upgrade]
 Aerodrome's old gauges shut down when Aero launched on October 22, 2026. Mezo is connecting the allocator to the new Aero gauges. Until that's done, MEZO directed to the Base gauges stays on Mezo and is not bridged.
@@ -46,9 +46,17 @@ Aerodrome's old gauges shut down when Aero launched on October 22, 2026. Mezo is
 
 ### Timing on Aero
 
-Aero has no weekly vote. sAERO holders allocate continuously, and incentives and AERO Rewards stream to them and to LPs instead of paying out at an epoch flip.
+Aero has no weekly vote. sAERO holders allocate continuously, and a change takes effect as soon as it's made. Each sAERO position can change its allocation once every 47 hours, Aero's launch setting. Incentives stream to the sAERO holders allocating to the pool, and AERO Rewards stream to the pool's AERO-earning deposits. Neither waits for an epoch flip.
 
-The weekly step is on the Mezo side. After the epoch closes, the MEZO is bridged and deposited on the Aero gauge, and the **Distribution date** on the Vote page shows when. From there it streams to the sAERO holders allocated to the pool.
+The weekly step is on the Mezo side:
+
+| Epoch | What happens |
+|---|---|
+| **N** | You vote on Mezo. The epoch closes and the allocation is fixed. |
+| **N+1** | The MEZO is bridged to Base and posted on the pool as a one-week incentive program, by the **Distribution date** shown on the Vote page. |
+| **The following week** | The program streams the MEZO to the sAERO holders allocating to the pool. |
+
+MEZO that streams while no sAERO is allocated to the pool isn't paid out. The allocator can recover it after the program ends and post it again in a later program.
 
 ---
 
@@ -61,7 +69,7 @@ What you earn directly as a voter is your share of **incentives posted on the ME
 To capture the emissions themselves, you have to be on both sides of the loop. On Aero, using USDC/MUSD as an example:
 
 <Steps>
-1. **LP** into the pool on Aero.
+1. **LP** into the pool on Aero, and choose **AERO rewards** for the deposit.
 2. **Vote** for that pool's MEZO Gauge on Mezo, with veMEZO.
 3. **Allocate** sAERO to the same pool on Aero.
 4. **Collect** AERO Rewards for the LP position, and the MEZO incentive for the sAERO allocation.
