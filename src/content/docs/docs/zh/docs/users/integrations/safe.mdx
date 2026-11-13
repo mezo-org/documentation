@@ -1,0 +1,46 @@
+---
+title: Safe
+description: 在 Mezo 上使用 Safe 多签钱包，借助多重签名安全机制管理共享资金。
+topic: users
+---
+
+import { LinkButton, Steps } from '@astrojs/starlight/components';
+
+[Safe](https://safe.global/)（前身为 Gnosis Safe）是加密领域使用最广泛的多签钱包。Mezo 在 [safe.mezo.org](https://safe.mezo.org) 上提供原生 Safe 部署，由 [Den](https://www.onchainden.com/) 管理。
+
+多签（多重签名）钱包要求多人批准一笔交易后才能执行。资金不再由一个人凭单一私钥控制，而是由一组人共同制定规则，例如“5 位签名者中须有 3 位批准”。
+
+<LinkButton href="https://safe.mezo.org" target="_blank">在 Mezo 上打开 Safe</LinkButton>
+
+## 快速开始
+
+<Steps>
+
+1. 前往 [safe.mezo.org](https://safe.mezo.org)。
+
+2. 连接您的钱包。
+
+3. 点击 **Create new Safe Account**。
+
+4. 添加共同签名者的钱包地址。
+
+5. 设置确认阈值，即执行一笔交易所需的批准数量（例如 3 人中的 2 人）。
+
+6. 检查并部署您的 Safe。
+
+</Steps>
+
+部署完成后，您可以通过 Safe 在 Mezo 上发送和接收 BTC 及其他代币，每笔交易都需要达到您所设置的批准阈值。
+
+## 功能
+
+- **多重签名安全**——要求多位签名者批准后，交易才会执行。
+- **模块与守卫**——使用可插拔模块自定义您的 Safe，实现支出限额、账户恢复、自动化交易等功能。
+- **生态系统访问**——通过内置的应用浏览器，直接从 Safe 与 Mezo 上的 dApp 交互。
+- **观察账户**——无需连接钱包即可监控任意 Safe 账户。
+
+## 资源
+
+- [Mezo 上的 Safe](https://safe.mezo.org)
+- [Safe 文档](https://docs.safe.global/)
+- [Den 文档](https://docs.onchainden.com/overview/den)

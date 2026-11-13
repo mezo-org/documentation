@@ -1,0 +1,72 @@
+---
+title: 如何锁定 MEZO
+description: 锁定 MEZO 并获得 veMEZO NFT 的分步指南
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+锁定 MEZO 后，您会获得一个 veMEZO NFT，它可为您的 veBTC 投票权提供最高 5x 的加成。有关收益的详细信息，请参阅 [veMEZO 概览](/docs/zh/docs/users/mezo-earn/lock/vemezo)。
+
+## 前提条件
+
+锁定 MEZO 之前，请确保您已：
+
+- 钱包中持有 MEZO 代币
+- 连接钱包
+- 持有足够支付 Gas 费的 BTC
+
+相关指导请参阅[入门指南](/docs/zh/docs/users/getting-started/deposit-assets)部分。
+
+:::note[注意]
+veMEZO 不会单独在**质押 Gauge** 上投票——在质押 Gauge 上，它会放大您 veBTC 仓位的投票权。即使没有 veBTC，您仍然可以赚取 Rebase 奖励、为 veBTC Boost Gauge 投票，以及在 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 上投票。
+:::
+
+---
+
+## 前往锁仓页面
+
+<Steps>
+1. 打开 Mezo App
+
+2. 点击左侧边栏中的 **Lock**（位于“Earn”下）
+
+3. 您将看到符合条件的资产
+</Steps>
+
+---
+
+## 发起锁仓
+
+找到显示您可用余额的 MEZO 资产卡片，然后点击 **Lock**。随后会弹出锁仓配置窗口，您可以在其中配置您的仓位。
+
+**数量：** 输入您要锁定的 MEZO 数量。您可以锁定不超过可用余额的任意数量。
+
+**期限：** 选择 1 周至 4 年的锁定期限。锁定期限越长，veMEZO 权重越高，可提供的加成潜力也越大。界面会显示您预估的初始 veMEZO 权重。
+
+:::note[注意]
+锁定期限按周期边界对齐，并向下取整到最近的完整周。详情请参阅[周期](/docs/zh/docs/users/mezo-earn/lock/vebtc#周期)。
+:::
+
+---
+
+## 确认交易
+
+检查您的锁仓详情：
+
+- MEZO 数量
+- 锁定期限
+- 初始 veMEZO 权重
+- 锁仓到期日期
+
+点击 **Confirm Lock**，在钱包中确认交易，然后等待区块链确认。
+
+---
+
+## 查看您的仓位
+
+确认完成后，您可以在 Lock 页面查看锁仓详情，包括：
+
+- 当前 veMEZO 权重（随时间衰减）
+- 锁仓到期日期
+- 延长锁仓的选项

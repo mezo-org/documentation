@@ -23,7 +23,7 @@ Pyth 预言机提供 BTC/USD 以外的多种价格数据源。
 **更新频率：** 取决于代币交易对。
 
 - 在 Mezo 上，请参阅[配置文件](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler/configmap.yaml)了解详情。
-- 在 Ethereum 上，请参阅[配置文件](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler-ethereum/configmap.yaml)了解详情。
+- 在以太坊上，请参阅[配置文件](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler-ethereum/configmap.yaml)了解详情。
 
 当 `price_deviation` 偏差超过设定阈值（以百分点为单位）或每隔 `time_difference` 秒（以先到者为准）时，价格会被更新。
 
@@ -33,12 +33,12 @@ Pyth 预言机提供 BTC/USD 以外的多种价格数据源。
 
 - **验证新鲜度：** 始终检查时间戳和区块号以检测过时数据。根据您的用例设置适当的过时阈值。
 - **设置价格边界：** 对价格值实施合理性检查，以检测异常或操纵尝试。
-- **监控市场状况：** 注意可能需要暂停您的应用程序的波动性、流动性和潜在操纵事件。
+- **监控市场状况：** 留意市场波动、流动性变化以及潜在的操纵事件，这些情况可能需要您暂停应用。
 - **安全审计：** 确保您的合约和依赖项符合安全标准。审计处理预言机数据的代码以防止漏洞利用。
 
 ## 读取价格数据
 
-### 使用 Skip 预言机 (BTC/USD)
+### 使用 Skip 预言机（BTC/USD）
 
 Skip 预言机实现了与 Chainlink 兼容的接口。调用 `latestRoundData()` 来获取最新价格：
 
@@ -55,13 +55,13 @@ Skip 预言机实现了与 Chainlink 兼容的接口。调用 `latestRoundData()
 
 Pyth 通过其 EVM 合约提供多种价格数据源。使用 `getPriceNoOlderThan(pair_id, maxAgeSeconds)` 获取带有内置过时检查的价格。
 
-**合约 Mezo 主网：** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
+**Mezo 主网合约：** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
-**合约 Mezo 测试网：** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.test.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
+**Mezo 测试网合约：** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.test.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
-**合约 Ethereum 主网：** [0x4305FB66699C3B2702D4d05CF36551390A4c69C6](https://etherscan.io/address/0x4305FB66699C3B2702D4d05CF36551390A4c69C6)
+**以太坊主网合约：** [0x4305FB66699C3B2702D4d05CF36551390A4c69C6](https://etherscan.io/address/0x4305FB66699C3B2702D4d05CF36551390A4c69C6)
 
-**合约 Ethereum Sepolia：** [0xDd24F84d36BF92C65F92307595335bdFab5Bbd21](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21)
+**以太坊 Sepolia 合约：** [0xDd24F84d36BF92C65F92307595335bdFab5Bbd21](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21)
 
 **获取给定价格 ID 的价格示例：**
 
@@ -118,12 +118,12 @@ contract ReadPythPrice {
 
 ### Pyth 预言机数据源
 
-可用于：
+已部署于：
 
 - Mezo [主网](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)，地址 `0x2880aB155794e7179c9eE2e38200202908C17B43`
 - Mezo [测试网](https://explorer.test.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)，地址 `0x2880aB155794e7179c9eE2e38200202908C17B43`
-- Ethereum [主网](https://etherscan.io/address/0x4305FB66699C3B2702D4d05CF36551390A4c69C6)，地址 `0x4305FB66699C3B2702D4d05CF36551390A4c69C6`
-- Ethereum [Sepolia](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21)，地址 `0xDd24F84d36BF92C65F92307595335bdFab5Bbd21`
+- 以太坊[主网](https://etherscan.io/address/0x4305FB66699C3B2702D4d05CF36551390A4c69C6)，地址 `0x4305FB66699C3B2702D4d05CF36551390A4c69C6`
+- 以太坊 [Sepolia](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21)，地址 `0xDd24F84d36BF92C65F92307595335bdFab5Bbd21`
 
 **Mezo 支持的价格数据源 ID：**
 
@@ -131,13 +131,20 @@ contract ReadPythPrice {
 |------|---------------|
 | SolvBTC/USD | `0xf253cf87dc7d5ed5aa14cba5a6e79aee8bcfaef885a0e1b807035a0bbecc36fa` |
 | MUSD/USD | `0x0617a9b725011a126a2b9fd53563f4236501f32cf76d877644b943394606c6de` |
+| MEZO/USD | `0x80beaaedbdd228e77c5d62dfcd74b0305674b7e27a5cc6a46e71bd3a696826df` |
 | BTC/USD | `0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43` |
 | cbBTC/USD | `0x2817d7bfe5c64b8ea956e9a26f573ef64e72e4d7891f2d6af9bcc93f7aff9a97` |
 | USDC/USD | `0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a` |
 | USDT/USD | `0x2b89b9dc8fdf9f34709a5b106b472f0f39bb6ca9ce04b0fd7f2e971688e2e53b` |
 | T/USD | `0x7a072b799215196b0ecb6a58636ec312bce8461dcc33c28c3a046b1e636d121d` |
+| NVDA/USD | `0xb1073854ed24cbc755dc527418f52b7d271f6cc967bbf8d8129112b18860a593` |
+| GOOGL/USD | `0x5a48c03e9b9cb337801073ed9d166817473697efff0d138874e0f6a33d6d5aa6` |
+| TSLA/USD | `0x16dad506d7db8da01c87581c87ca897a012a153557d4d578c3b9c9e1bc0632f1` |
+| MSTR/USD | `0xe1e80251e5f5184f2195008382538e847fafc36f751896889dd3d1b1f6111f09` |
+| COIN/USD | `0xfee33f2a978bf32dd6b662b65ba8083c6773b494f8401194ec1870c640860245` |
+| CRCL/USD | `0x92b8527aabe59ea2b12230f7b532769b133ffb118dfbd48ff676f14b273f1365` |
 
-**Ethereum 支持的价格数据源 ID：**
+**以太坊支持的价格数据源 ID：**
 
 | 交易对 | 价格数据源 ID |
 |------|---------------|

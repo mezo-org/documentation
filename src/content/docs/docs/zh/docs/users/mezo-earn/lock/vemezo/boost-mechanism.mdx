@@ -1,0 +1,92 @@
+---
+title: 加成机制
+description: veMEZO 如何通过配对市场为 veBTC 投票权提供最高 5x 的加成
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+veMEZO 可为您的 veBTC 投票权提供最高 5x 的加成。本页介绍加成公式的运作方式，以及配对市场如何为 veBTC 持有者和 veMEZO 持有者进行配对。
+
+## 加成的运作方式
+
+您的加成后投票权重由您的 veBTC 与分配给您仓位的 veMEZO 共同决定：
+
+$$
+\text{Boosted Weight} = |\text{veBTC}| \times \min(5, \; 1 + \text{Boost})
+$$
+
+其中，Boost 项为：
+
+$$
+\text{Boost} = 4 \times \frac{|\text{veBTC}|_{\text{total}}}{|\text{veBTC}|} \times \frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}}
+$$
+
+### 关键特性
+
+- **最小倍数：1x**——没有获得 veMEZO 投票的 veBTC 仓位以基础权重运作
+- **最大倍数：5x**——任何持仓组合都无法超过 5x
+- **相对而非绝对**——您的加成取决于您在 veBTC 总量和 veMEZO 总量中所占的份额，而不是原始数量
+
+---
+
+## 理解公式
+
+加成公式有几点重要含义：
+
+**veBTC 仓位越大，所需的 veMEZO 越多。** 公式的分子中包含 |veBTC|_total / |veBTC|。随着您的 veBTC 份额增加，这一比值会缩小，因此需要按比例投入更多 veMEZO 才能维持相同的加成水平。
+
+**当您的份额相匹配时，即可达到最大加成。** 当参与者的 veMEZO 份额等于或超过其 veBTC 份额时，即可达到 5x 上限：
+
+$$
+\frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}} \geq \frac{|\text{veBTC}|}{|\text{veBTC}|_{\text{total}}}
+$$
+
+:::note[示例]
+如果您持有全部 veBTC 的 1%，则至少需要持有全部 veMEZO 的 1%，才能达到 5x 的最大倍数。
+:::
+
+---
+
+## 配对市场
+
+每个 veBTC NFT 都有自己的 veBTC Boost Gauge。veMEZO 持有者通过在这些 Gauge 上投票来分配加成。
+
+### 运作方式
+
+1. **veBTC 持有者创建仓位**——铸造一个 veBTC NFT，并关联一个 Boost Gauge
+2. **veMEZO 持有者投票**——他们将 veMEZO 权重分配给 veBTC Gauge
+3. **计算并应用加成**——veBTC 仓位的加成取决于其获得的 veMEZO 投票总量。dApp 中的 Pair & Boost 分步流程会自动更新 veBTC 的投票权，并刷新所有现有投票。
+
+### 为什么这会形成市场
+
+**以 BTC 为主的用户**可以通过在其 veBTC Gauge 上发布激励来吸引加成。如果每单位 veMEZO 的激励收益有吸引力，veMEZO 持有者就会为该 Gauge 投票。
+
+**以 MEZO 为主的用户**即使自己持有的 BTC 很少，也可以通过为激励充足的 veBTC Gauge 投票来赚取收益。
+
+配对市场将加成定价为一种无需许可、可交易的服务。
+
+---
+
+## 无需持有 MEZO 也能获得加成
+
+您无需亲自持有 MEZO 就能从加成中受益。如果您在 veBTC Gauge 上发布有吸引力的激励，其他 veMEZO 持有者可能会为其投票——这样无需您锁定任何 MEZO，您的仓位就能获得倍数加成。
+
+反之，没有获得 veMEZO 投票的 veBTC 仓位仍然：
+
+- 保留完整的基础投票权重（1x 倍数）
+- 赚取被动的跨链桥费用
+- 可以为 Gauge 投票，赚取费用和排放
+
+加成可以提高回报，但并不是参与的必要条件。
+
+---
+
+## 总结
+
+| 场景 | 倍数 | 说明 |
+|---|---|---|
+| 仅有 veBTC，无 veMEZO 投票 | 1x | 基础权重，仍可赚取费用 |
+| veBTC + 部分 veMEZO 投票 | 1x–5x | 倍数随 veMEZO 份额增长 |
+| veBTC + 相应比例的 veMEZO 份额 | 5x | 达到最大加成 |
+| 仅有 veMEZO，无 veBTC | — | 不能为质押 Gauge 投票；可以为 Boost Gauge 和 [MEZO Gauges](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges) 投票，并赚取 Rebase |

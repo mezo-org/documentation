@@ -1,0 +1,441 @@
+---
+title: Validator Kit 开发指南
+description: 使用 Validator Kit 设置和运行 Mezo 验证者节点的完整指南。
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezo Validator Kit 为运行 Mezo 节点（包括验证者节点、RPC 节点和种子节点）提供了一套完整的解决方案。本指南涵盖 Mezo 基础设施的设置、配置和维护。
+
+## 概览
+
+[Validator Kit](https://github.com/mezo-org/validator-kit.git) 提供多种部署方式，简化了 Mezo 节点的部署：
+
+- **Docker**：容器化部署
+- **原生守护进程**：直接安装到系统
+- **Kubernetes**：使用 Helm chart 进行编排
+- **云端部署**：支持 AWS、GCP、Azure
+
+### 节点类型
+
+1. **验证者节点**：参与共识和出块
+2. **RPC 节点**：为 dApp 提供 API 端点
+3. **种子节点**：协助网络完成引导
+
+## 仓库结构
+
+[Validator Kit 仓库](https://github.com/mezo-org/validator-kit.git)包括：
+
+- **[Docker 配置](https://github.com/mezo-org/validator-kit/tree/main/docker)**：容器设置与编排
+- **[Kubernetes 清单](https://github.com/mezo-org/validator-kit/tree/main/kubernetes)**：Helm chart 和 K8s 资源
+- **[配置模板](https://github.com/mezo-org/validator-kit/tree/main/configs)**：节点配置文件
+- **[监控](https://github.com/mezo-org/validator-kit/tree/main/monitoring)**：Prometheus、Grafana 和告警
+- **[脚本](https://github.com/mezo-org/validator-kit/tree/main/scripts)**：自动化与维护工具
+
+## 硬件要求
+
+### 最低要求
+
+**验证者节点**：
+- CPU：4 核
+- 内存：8GB
+- 存储：100GB SSD
+- 网络：100 Mbps
+
+**RPC 节点**：
+- CPU：2 核
+- 内存：4GB
+- 存储：50GB SSD
+- 网络：50 Mbps
+
+**种子节点**：
+- CPU：1 核
+- 内存：2GB
+- 存储：20GB SSD
+- 网络：10 Mbps
+
+### 推荐配置
+
+**验证者节点**：
+- CPU：8 核
+- 内存：16GB
+- 存储：500GB NVMe SSD
+- 网络：1 Gbps
+
+## 安装方式
+
+### Docker 部署
+
+<Steps>
+1. **克隆仓库**：
+   ```bash
+   git clone https://github.com/mezo-org/validator-kit.git
+   cd validator-kit
+   ```
+
+2. **配置环境**：
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+3. **启动节点**：
+   ```bash
+   docker-compose up -d
+   ```
+</Steps>
+
+### 原生安装
+
+<Steps>
+1. **安装依赖项**：
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install -y curl git make build-essential
+
+   # Install Go
+   curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
+   ```
+
+2. **构建 Mezod**：
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   make build
+   ```
+
+3. **配置节点**：
+   ```bash
+   ./mezod init mynode --chain-id mezo-testnet
+   ```
+</Steps>
+
+### Kubernetes 部署
+
+<Steps>
+1. **安装 Helm**：
+   ```bash
+   curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   ```
+
+2. **使用 Helm 部署**：
+   ```bash
+   helm install mezo-node ./helm/mezo-node \
+     --set node.type=validator \
+     --set node.name=my-validator
+   ```
+</Steps>
+
+## 配置
+
+### 节点配置
+
+**config.toml**：
+```toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+```
+
+**app.toml**：
+```toml
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[evm]
+rpc_address = "0.0.0.0:8545"
+ws_address = "0.0.0.0:8546"
+```
+
+### 环境变量
+
+```bash
+# Node configuration
+NODE_TYPE=validator
+CHAIN_ID=mezo-mainnet
+MONIKER=my-validator
+
+# Network configuration
+P2P_PORT=26656
+RPC_PORT=26657
+API_PORT=1317
+GRPC_PORT=9090
+EVM_RPC_PORT=8545
+
+# Security
+PRIV_VALIDATOR_KEY_FILE=/config/priv_validator_key.json
+NODE_KEY_FILE=/config/node_key.json
+```
+
+## 验证者设置
+
+### 前提条件
+
+1. **权威证明（PoA）**：申请验证者资格
+2. **质押要求**：最低质押数量
+3. **技术要求**：满足硬件规格
+
+### 验证者配置
+
+```bash
+# Initialize validator
+./mezod init validator --chain-id mezo-mainnet
+
+# Create validator key
+./mezod keys add validator --keyring-backend file
+
+# Create validator transaction
+./mezod tx staking create-validator \
+  --amount=1000000umezo \
+  --pubkey=$(./mezod tendermint show-validator) \
+  --moniker="My Validator" \
+  --chain-id=mezo-mainnet \
+  --from=validator
+```
+
+## RPC 节点设置
+
+### 用途
+
+RPC 节点提供：
+- **API 端点**：REST 和 gRPC API
+- **EVM RPC**：兼容以太坊的 JSON-RPC
+- **WebSocket**：实时数据流
+- **负载均衡**：在多个节点之间分配流量
+
+### 配置
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  rpc-node:
+    image: mezod:latest
+    ports:
+      - "26657:26657"  # Tendermint RPC
+      - "1317:1317"    # Cosmos API
+      - "9090:9090"    # gRPC
+      - "8545:8545"    # EVM RPC
+    environment:
+      - NODE_TYPE=rpc
+      - CHAIN_ID=mezo-mainnet
+    volumes:
+      - ./data:/root/.mezod
+```
+
+## 监控与可观测性
+
+### Prometheus 配置
+
+```yaml
+# prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'mezod'
+    static_configs:
+      - targets: ['localhost:26660']
+    metrics_path: /metrics
+```
+
+### Grafana 仪表板
+
+需要监控的关键指标：
+- **区块高度**：当前区块链高度
+- **验证者状态**：活跃/非活跃状态
+- **网络连接**：对等节点连接
+- **资源使用**：CPU、内存、磁盘
+- **交易吞吐量**：TPS 指标
+
+### 告警规则
+
+```yaml
+# alerts.yml
+groups:
+  - name: mezod
+    rules:
+      - alert: NodeDown
+        expr: up{job="mezod"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Mezod node is down"
+```
+
+## 安全最佳实践
+
+### 网络安全
+
+1. **防火墙配置**：
+```bash
+# Allow only necessary ports
+ufw allow 26656/tcp  # P2P
+ufw allow 26657/tcp  # RPC
+ufw allow 1317/tcp   # API
+ufw allow 8545/tcp   # EVM RPC
+```
+
+2. **访问控制**：
+```bash
+# Restrict RPC access
+iptables -A INPUT -p tcp --dport 26657 -s TRUSTED_IP -j ACCEPT
+iptables -A INPUT -p tcp --dport 26657 -j DROP
+```
+
+### 密钥管理
+
+1. **安全存储**：使用硬件安全模块（HSM）
+2. **备份策略**：定期备份密钥
+3. **访问控制**：限制密钥的访问权限
+
+**重要提示**：切勿将验证者密钥提交到版本控制系统！
+
+## 维护
+
+### 日常任务
+
+1. **软件更新**：
+```bash
+# Update mezod
+git pull origin main
+make build
+systemctl restart mezod
+```
+
+2. **数据库维护**：
+```bash
+# Prune old data (use with caution)
+./mezod tendermint unsafe-reset-all
+```
+
+3. **日志轮转**：
+```bash
+# Configure logrotate
+cat > /etc/logrotate.d/mezod << EOF
+/var/log/mezod/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+EOF
+```
+
+### 备份策略
+
+1. **配置备份**：
+```bash
+tar -czf config-backup.tar.gz ~/.mezod/config/
+```
+
+2. **密钥备份**（请安全存储）：
+```bash
+# Backup validator keys to secure location
+cp ~/.mezod/config/priv_validator_key.json /secure/backup/
+```
+
+## 故障排除
+
+### 常见问题
+
+1. **同步问题**：
+```bash
+# Check sync status
+./mezod status
+
+# Reset and resync
+./mezod tendermint unsafe-reset-all
+```
+
+2. **连接问题**：
+```bash
+# Check peer connections
+./mezod tendermint show-node-id
+
+# Update persistent peers in config.toml
+```
+
+3. **性能问题**：
+```bash
+# Monitor resource usage
+htop
+iotop
+netstat -tulpn
+```
+
+### 调试命令
+
+```bash
+# View logs
+journalctl -u mezod -f
+
+# Check node status
+./mezod status
+
+# View configuration
+./mezod config
+
+# Test RPC endpoints
+curl http://localhost:26657/status
+```
+
+## 开发集成
+
+### 本地开发
+
+1. **启动本地节点**：
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
+
+2. **连接 dApp**：
+```javascript
+const provider = new ethers.JsonRpcProvider('http://localhost:8545');
+```
+
+### 测试环境
+
+1. **测试网节点**：
+```bash
+./mezod init testnode --chain-id mezo-testnet
+```
+
+2. **集成测试**：
+```bash
+npm test
+```
+
+## 其他资源
+
+- **[Validator Kit 仓库](https://github.com/mezo-org/validator-kit.git)** - 主仓库
+- **[Mezod 仓库](https://github.com/mezo-org/mezod.git)** - 链客户端
+- **[Mezo 节点文档](/docs/zh/docs/developers/mezo-nodes/)** - 节点运维
+- **[Docker 文档](https://docs.docker.com/)** - Docker 参考
+- **[Kubernetes 文档](https://kubernetes.io/docs/)** - K8s 参考
+
+:::note
+有关详细的验证者要求、申请流程和高级配置，请参阅 [Validator Kit 仓库](https://github.com/mezo-org/validator-kit.git)文档。
+:::
+
+## 支持
+
+获取验证者支持：
+- 加入 [Mezo Discord](https://discord.com/invite/mezo)
+- 查看 [GitHub Issues](https://github.com/mezo-org/validator-kit/issues)
+- 阅读[常见问题](/docs/zh/docs/developers/getting-started/FAQs)

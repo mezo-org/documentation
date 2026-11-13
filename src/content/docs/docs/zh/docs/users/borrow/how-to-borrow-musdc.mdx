@@ -1,0 +1,85 @@
+---
+title: 如何借入 mUSDC
+description: 在 Mezo 上以 BTC 为抵押借入 USDC 的分步指南。
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+现在，您可以在 Mezo 上以比特币为抵押借入 USDC。本指南介绍如何在 [Mezo App](https://mezo.org/feature/borrow) 中完成借款流程。
+
+:::note
+USDC 在 Mezo 上时，会在 App 中显示为 **mUSDC**。1 USDC = 1 mUSDC。
+:::
+
+## 开始之前
+
+在借入 mUSDC 之前，您必须完成以下步骤：
+
+- 前往 [mezo.org](https://mezo.org/)，点击 **Sign in** 连接您的 Mezo 账户。
+- 将钱包连接到 Mezo。有关说明，请参阅[连接 Mezo](/docs/zh/docs/users/getting-started/connect/)指南。
+- 在 Mezo 上持有用作抵押品和支付 Gas 费的 BTC。如果您仍需桥接或存入资产，请参阅[存入资产](/docs/zh/docs/users/getting-started/deposit-assets)。
+- 您也可以选择将 mUSDC 代币添加到钱包。您可以通过 Mezo Explorer 的界面添加该代币。点击 mUSDC 代币地址旁边的 **Add token to MetaMask** 按钮：
+    - 主网：[0x04671C72Aab5AC02A03c1098314b1BB6B560c197](https://explorer.mezo.org/token/0x04671C72Aab5AC02A03c1098314b1BB6B560c197)
+
+## 借入 mUSDC
+
+使用持有 BTC 的账户登录 [mezo.org](https://mezo.org/) 后，即可借入 mUSDC。
+
+<Steps>
+1. 在浏览器中打开 [mezo.org/feature/borrow](https://mezo.org/feature/borrow)。
+
+2. 选择 **mUSDC** 作为您要借入的币种。
+
+3. 输入您要借入的 USDC 数量，以及要用作抵押品的 BTC 数量。
+
+4. 点击 **Review**，在确认前打开摘要。
+
+5. 检查摘要中的各项信息——借款金额、抵押品金额、预计 LTV、清算价格和仓位健康度——确认与您的预期一致。
+
+6. 准备好继续时，点击 **Confirm**。浏览器钱包会提示您确认交易，并使用 BTC 支付 Gas 费。
+</Steps>
+
+流程完成后，您可以在 [mezo.org/feature/borrow](https://mezo.org/feature/borrow) 查看贷款状态。
+
+## 了解借款条款
+
+mUSDC 采用浮动年化利率（APR），会随 mUSDC 市场的需求变化。Mezo 没有强制还款日期，只要您的 LTV 保持在该市场的清算 LTV（Liquidation LTV）以下，您就可以一直保持仓位开放。
+
+您的抵押品决定了您可以借入多少。您添加的 BTC 越多，在 BTC 价格下跌时您的仓位就有越大的缓冲空间。当您调整抵押品和借款金额时，仓位的预计贷款价值比（LTV）会随之更新。LTV 是您的债务相对于抵押品的价值比例。LTV 越高，清算风险就越高。
+
+需要特别注意的是，借款人应关注该市场的清算 LTV。如果您的预计 LTV 超过该市场的清算 LTV，您的仓位就可能被清算。您的 LTV 与清算 LTV 之间的差距就是您的缓冲——即在被清算之前，您的 LTV 还能上升多少。BTC 下跌时您的 LTV 会上升，因此缓冲衡量的是您的仓位能够承受多大幅度的下跌。例如，如果 mUSDC 市场的清算 LTV 为 86%，而您的预计 LTV 为 31%，那么 BTC 大约可以下跌 64%，仓位才会面临风险。
+
+利息按借款金额累计，因此请注意您的债务会随时间增长。当您准备关闭仓位时，需要有足够的 mUSDC 来偿还本金以及所有累计的利息。
+
+### LTV 与抵押率
+
+如果您在此次更新之前借入过 MUSD，您是通过抵押率（CR）来管理仓位的。LTV 和 CR 从相反的方向衡量同一种风险。LTV 是用债务除以抵押品价值，CR 则是用抵押品价值除以债务。两者互为倒数：50% 的 LTV 对应 200% 的 CR，31% 的 LTV 对应约 323% 的 CR。
+
+阈值也以同样的方式换算。mUSDC 市场 86% 的清算 LTV 对应约 116% 的 CR。MUSD 90% 的清算 LTV 对应约 111% 的 CR。Mezo App 现在在所有借款产品中统一显示 LTV，因此同一个数字在任何地方的含义都相同。
+
+此外，MUSD 具有帮助维持其 \$1 锚定的赎回机制，这意味着即使 MUSD 仓位处于健康状态，也可能被赎回。mUSDC 没有赎回机制，只使用 LTV。
+
+## 管理您的贷款
+
+当您有一笔活跃贷款后，可以通过 Mezo App 进行管理。在 Borrow 仪表板中，您可以查看所欠的 mUSDC 数量、作为抵押品锁定的 BTC 数量、当前 LTV、清算价格、当前 APR 以及近期活动。您还可以偿还 mUSDC 以关闭贷款——还款后，您的抵押品将再次可用，已关闭的仓位会显示在您的借款历史中。
+
+如需存入 mUSDC 并从借款人支付的利息中赚取收益，请参阅 [USDC Lending Vault](/docs/zh/docs/users/mezo-earn/vaults/usdc-lending-vault)。
+
+## 常见问题
+
+### 如果仓位被清算会怎样？
+
+如果您的 LTV 超过该市场的清算 LTV，无论是因为 BTC 下跌，还是因为累计利息使您的债务增加，都可能发生清算。
+
+对于 mUSDC，清算意味着其他参与方可以偿还该笔债务并从仓位中获得抵押品，同时会从您的抵押品中扣除 4% 的清算罚金。这能保护借贷市场，但会让您损失真实的 BTC。
+
+降低清算风险的最佳方法是保守借款并持续监控您的仓位。
+
+### LTV 与抵押率
+
+如果您在此次更新之前借入过 MUSD，您是通过抵押率（CR）来管理仓位的。LTV 和 CR 从相反的方向衡量同一种风险。LTV 是用债务除以抵押品价值，CR 则是用抵押品价值除以债务。两者互为倒数：50% 的 LTV 对应 200% 的 CR，31% 的 LTV 对应约 323% 的 CR。
+
+阈值也以同样的方式换算。mUSDC 市场 86% 的清算 LTV 对应约 116% 的 CR。MUSD 90% 的清算 LTV 对应约 111% 的 CR。Mezo App 现在在所有借款产品中统一显示 LTV，因此同一个数字在任何地方的含义都相同。
+
+此外，MUSD 具有帮助维持其 \$1 锚定的赎回机制，这意味着即使 MUSD 仓位处于健康状态，也可能被赎回。mUSDC 没有赎回机制，只使用 LTV。

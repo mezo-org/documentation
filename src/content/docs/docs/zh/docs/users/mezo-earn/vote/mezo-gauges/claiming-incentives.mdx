@@ -1,0 +1,74 @@
+---
+title: 领取激励
+description: LP 和投票者如何领取由 MEZO Gauges 引导的 MEZO
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+谁领取什么、在哪里领取，取决于您处在 Gauge 的哪一端。
+
+| 您的身份 | 您可领取 | 领取位置 |
+|---|---|---|
+| Curve USDT/USDC/MUSD 或 Uniswap USDC/MUSD 中的 LP | 锁定 3 个月的 veMEZO | [Merkl](https://app.merkl.xyz) |
+| 分配给 Aero USDC/MUSD 或 MEZO/MUSD 的 sAERO 持有者 | MEZO（作为激励） | [Aero](https://app.aero.xyz) |
+| Aero USDC/MUSD 或 MEZO/MUSD 中持有赚取 AERO 的存款的 LP | AERO 奖励 | [Aero](https://app.aero.xyz) |
+| 为某个 MEZO Gauge 投票的 veMEZO 持有者 | 该 Gauge 上发布的激励 | [mezo.org](https://mezo.org) 上的 Vote 选项卡 |
+
+---
+
+## Curve 和 Uniswap 的 LP：在 Merkl 上领取
+
+奖励**不会**自动发送到您的钱包。Merkl 会为您的地址累积可领取额度，您需要自行领取。
+
+<Steps>
+1. 前往 [app.merkl.xyz](https://app.merkl.xyz)。
+2. 连接持有 LP 仓位的钱包。
+3. 打开 **Dashboard**。连接钱包后，这里会列出该钱包有资格领取的所有奖励，因此您无需搜索具体活动。
+4. 点击 **Claim** 并签署交易。
+</Steps>
+
+**您将收到：** 锁定 3 个月的 veMEZO，而不是可自由流通的 MEZO。领取后，它与任何其他 [veMEZO 仓位](/docs/zh/docs/users/mezo-earn/lock/vemezo)的作用相同：可以为 veBTC 仓位提供加成，也可以为 MEZO Gauges 投票。
+
+如果您在该流动性池中提供流动性，可以形成循环：将领取到的 veMEZO 重新投给该流动性池的 MEZO Gauge，从而为您已持有的仓位带来更多排放。这是可选的。只要在活动期间提供流动性，就足以领取奖励。完整路径请参阅[您的投票去向](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#获取您所引导的价值)。
+
+:::caution[未领取的奖励将作废]
+Merkl 活动不会无限期累积。如果您一直不领取，就会失去这些奖励。如果您在这些流动性池中提供流动性，请定期查看 Merkl。
+:::
+
+作为 LP 领取奖励时，您无需持有 veMEZO，也无需投过票。唯一的要求是在活动期间为该流动性池提供流动性。
+
+---
+
+## Aero：在 Base 上领取
+
+被引导至 Aero Gauge 的 MEZO 会作为一项**激励计划**发布在该流动性池上，因此由分配给该池的 sAERO 持有者获得，而不是由 LP 获得。
+
+**如果您持有 sAERO 并分配给 USDC/MUSD 或 MEZO/MUSD：** 只要您保持分配，激励就会持续流向您。您可以随时在 [app.aero.xyz](https://app.aero.xyz) 的 **Portfolio > Stakes** 下领取，每周的激励计划需要分别领取。您获得的 MEZO 份额与您在该流动性池分配中所占的份额成正比。
+
+**如果您在 Aero USDC/MUSD 或 MEZO/MUSD 中提供流动性：** 如果您在存入时选择了 **AERO rewards**，就可以赚取 **AERO 奖励**。一笔存款只能赚取 AERO 奖励或交易手续费，二者不可兼得。AERO 奖励持续发放，您可以随时在 **Portfolio > Deposits** 下领取。关于 Mezo 投票如何到达该流动性池，请参阅 [Aero 上的时间安排](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#aero-上的时间安排)。
+
+### 从 Aerodrome 迁移
+
+Aero 于 2026 年 10 月 22 日 00:00 UTC 上线，Aerodrome 排放随之停止。仓位不会自动迁移。
+
+- **Base 上旧 USDC/MUSD 或 MEZO/MUSD 流动性池中的 LP：** 通过 [aerodrome.finance](https://aerodrome.finance) 上的升级门户，将您的仓位迁移到新的 Aero 流动性池。自动流动性管理器（ALM）中的仓位不会迁移：请在 Aerodrome 上将其提取，然后自行存入 Aero。请按照 [Aero 的 LP 指引](https://aero.xyz/aero-upgrade/#liquidity-providers)操作。
+- **veAERO 持有者：** veAERO 已被 sAERO 取代，只有 sAERO 才能在 Aero 上赚取激励。升级会重置您原有的投票，且无法撤销。升级后，请将 sAERO 分配给 Aero USDC/MUSD 或 MEZO/MUSD 流动性池，以继续赚取 MEZO 激励。请参阅 [Aero 的持有者指引](https://aero.xyz/aero-upgrade/#veaero-vevelo-holders)。
+
+---
+
+## MEZO Gauge 投票者：在 Mezo 上领取
+
+如果您将 veMEZO 引导至某个 MEZO Gauge，您将获得**该 Gauge 上发布的激励**中的一部分，与您在其投票中所占的份额成正比。
+
+领取方式与其他投票奖励相同——在周期结束后，前往 [mezo.org](https://mezo.org) 上的 **Vote** 选项卡领取。请参阅[领取费用与排放](/docs/zh/docs/users/mezo-earn/vote/claiming-fees-emissions)。
+
+这些激励与您所引导的排放是分开的。排放流向目标流动性池；而激励则发布在 Mezo 上，其初衷正是吸引您为该 Gauge 投票。
+
+---
+
+## 后续步骤
+
+- [您的投票去向](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes)——从投票到激励的完整路径
+- [MEZO Gauges 概览](/docs/zh/docs/users/mezo-earn/vote/mezo-gauges)——符合条件的流动性池及资金来源
+- [领取费用与排放](/docs/zh/docs/users/mezo-earn/vote/claiming-fees-emissions)——Mezo Earn 的所有其他奖励

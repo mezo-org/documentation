@@ -1,0 +1,201 @@
+---
+title: 开发者入门指南
+description: 面向在 Mezo 这一以比特币为中心的平台上进行构建的开发者的分步入门指南。
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 1. Mezo 简介
+
+Mezo 旨在将比特币从被动的价值储存手段转变为具有生产力的动态金融资产。通过将比特币的安全性与现代区块链的灵活性相结合，Mezo 为去中心化应用（dApp）提供了一个稳健的平台，面向规模庞大却长期缺乏金融服务的比特币社区。
+
+### 1.1 核心架构
+
+Mezo 链基于混合架构构建，旨在最大限度地提升开发者易用性和性能。
+
+- EVM 兼容性：Mezo 是一条完全兼容 EVM 的区块链，Solidity 开发者只需极少的代码改动，即可部署现有智能合约，并使用 Hardhat、Foundry 等熟悉的工具。
+- Cosmos SDK 基础：核心客户端 `mezod` 是 Evmos 经过大量修改的分叉，基于 Cosmos SDK 构建，并运行在 CometBFT 共识引擎之上。这带来了链主权和高吞吐量。
+- 以 BTC 作为 Gas：Mezo 上的所有交易费用均以 BTC 支付，强化了比特币作为交易资产的效用。
+- 核心客户端：Mezo 链的参考客户端实现是 `mezod`。
+
+## 2. 快速开始：首笔交易时间（TTFT）
+
+本节提供部署合约并与 Mezo 测试网交互的最快路径。
+
+### 2.1 网络详情（测试网）
+
+要配置您的钱包（例如 MetaMask、RainbowKit）或开发环境，请使用以下测试网参数：
+
+| 参数 | 值 |
+| --- | --- |
+| 网络名称 | Mezo Testnet |
+| RPC 端点（HTTPS） | `https://rpc.test.mezo.org` |
+| RPC 端点（WSS） | `wss://rpc-ws.test.mezo.org` |
+| 链 ID | `31611` |
+| 原生货币 | BTC |
+| 小数位数 | 18 |
+| 区块浏览器 | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
+
+### 2.2 获取测试网 BTC
+
+要在测试网上支付 Gas 费，您需要测试网 BTC。
+
+<Steps>
+1. Mezo 水龙头：从官方 [Mezo 水龙头](https://faucet.test.mezo.org/)获取测试网 BTC。
+   - 注意：该水龙头受 CAPTCHA 保护，以防止滥用。
+
+2. 钱包设置：确保您已安装支持以太坊（EVM）的浏览器钱包。
+</Steps>
+
+### 2.3 环境设置（Hardhat 示例）
+
+对于 Solidity 开发者，Mezo 完全兼容 Hardhat 和 Foundry。
+
+要为 Mezo 测试网配置 Hardhat，请修改您的 `hardhat.config.js`（或 `.ts`）文件：
+
+```javascript
+module.exports = {
+  defaultNetwork: "mezotestnet",
+  networks: {
+    mezotestnet: {
+      url: "https://rpc.test.mezo.org",
+      chainId: 31611,
+      accounts: ["YOUR_PRIVATE_WALLET_KEY"] // Use environment variables for security
+    }
+  },
+  solidity: {
+    version: "0.8.28",
+    settings: {
+      evmVersion: "london",
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+};
+```
+
+## 3. 核心开发组件
+
+### 3.1 MUSD 稳定币
+
+MUSD 是 Mezo 生态中由比特币支持的原生稳定币。开发者可以将 MUSD 集成到支付、流动性和金融产品中。
+
+- 代码仓库：智能合约和 dApp 实现可在 MUSD GitHub 仓库中获取：[mezo-org/musd](https://github.com/mezo-org/musd)。
+- 开发环境（pnpm）：
+
+```bash
+pnpm install --frozen-lockfile
+cd solidity
+pnpm install --frozen-lockfile
+```
+
+- 测试合约：
+
+```bash
+cd solidity
+pnpm test
+```
+
+- 部署（示例）：可在 `solidity` 目录中使用 `pnpm run deploy` 命令部署合约。详情请参阅代码仓库：[mezo-org/musd](https://github.com/mezo-org/musd)。
+
+### 3.2 Mezo Passport 集成（可选）
+
+Mezo Passport 是基于 RainbowKit 构建的官方钱包连接库，可为原生比特币钱包（例如 Xverse、Unisat）和标准 EVM 钱包（例如 MetaMask）提供顺畅的连接。集成是可选的，在 Mezo 上进行构建并不需要它。
+
+安装：
+
+```bash
+npm install @mezo-org/passport @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
+```
+
+配置（React/TypeScript）：
+
+使用 `@mezo-org/passport` 中的 `getConfig` 方法配置您的 `WagmiProvider`。
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+// Note: We use the consistent 'mezoTestnet' chain name for clarity.
+import { getConfig, mezoTestnet } from "@mezo-org/passport";
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <WagmiProvider config={getConfig({ appName: "Your Mezo dApp" })}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider initialChain={mezoTestnet}>
+          {/* Your App component */}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  </React.StrictMode>,
+);
+```
+
+## 4. 基础设施与节点运行
+
+Validator Kit 是设置和运行 Mezo 节点的主要资源：[mezo-org/validator-kit](https://github.com/mezo-org/validator-kit)。
+
+### 4.1 节点硬件要求
+
+以下是运行不同类型 Mezo 节点的最低推荐硬件规格：
+
+| 节点类型 | vCPU | 内存 | 磁盘 |
+| --- | --- | --- | --- |
+| 验证者 | 4 | 16 GB | 256 GB |
+| RPC | 8 | 32 GB | 512 GB |
+| 种子 | 2 | 8 GB | 128 GB |
+
+### 4.2 部署选项
+
+Validator Kit 支持多种部署方式，可满足不同的运维复杂度需求：
+
+<Steps>
+1. Docker：推荐方式，使用 Docker Compose 即可最轻松地完成设置。
+
+2. 原生：直接运行 `mezod` 二进制文件。
+
+3. Helm：用于在 Kubernetes 集群上部署。
+
+4. 手动：提供完全手动控制的分步指南。
+</Steps>
+
+### 4.3 验证者准入（权威证明）
+
+Mezo 验证者必须申请权威证明（PoA）才能参与共识。
+
+- 申请命令：节点设置完成后，使用 `mezod` CLI 提交申请：
+
+```bash
+mezod --home=<mezod_home_path> --rpc-url <rpc_url> poa submit-application <key_name>
+```
+
+## 5. 主网网络详情
+
+对于生产部署，请使用以下主网详情。建议使用专用 RPC 提供商，以获得更高的速率限制和稳定性。
+
+| 参数 | 值 |
+| --- | --- |
+| 网络名称 | Mezo Mainnet |
+| 链 ID | `31612` |
+| 原生货币 | BTC |
+| 小数位数 | 18 |
+| 区块浏览器 | [explorer.mezo.org](https://explorer.mezo.org/) |
+
+### 5.1 推荐的 RPC 提供商
+
+| 提供商 | HTTPS 端点 | WSS 端点 | 备注 |
+| --- | --- | --- | --- |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
+| Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
+| Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
+| dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
+
+有关完整的 Hardhat 和 Foundry 主网配置，请参阅[设置开发环境](/docs/zh/docs/developers/getting-started/configure-environment)。

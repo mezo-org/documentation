@@ -1,0 +1,101 @@
+---
+title: 配对市场概览
+description: 配对市场如何连接 veBTC 与 veMEZO 持有者，实现互惠共赢
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+配对市场是 veBTC 与 veMEZO 实现配对的方式。它让 BTC 持有者无需持有 MEZO 即可获得加成，也让 MEZO 持有者无需持有大量 BTC 即可赚取收益。
+
+## 它解决的问题
+
+Mezo 的双代币系统需要同时具备 veBTC 和 veMEZO，才能实现投票权最大化。但并非每个人都同时持有两者：
+
+- **以 BTC 为主的用户**希望获得 5x 加成，但可能没有 MEZO
+- **以 MEZO 为主的用户**拥有 veMEZO，但可用于投票的 BTC 有限
+
+配对市场将这两方连接起来。
+
+---
+
+## 运作方式
+
+每个 veBTC 仓位都有自己的 Boost Gauge。该 Gauge 不分配排放——它决定该 veBTC 仓位能获得多少 veMEZO 加成。
+
+### 流程
+
+1. **veBTC 持有者锁定 BTC** → 获得一个关联了 Boost Gauge 的 veBTC NFT
+2. **veBTC 持有者发布激励** → 将代币（任意 ERC-20）存入其 Boost Gauge，以吸引 veMEZO 投票
+3. **veMEZO 持有者投票** → 将 veMEZO 权重分配给有吸引力的 Boost Gauge
+4. **应用加成** → veBTC 仓位的倍数根据所获得的 veMEZO 投票而提高
+5. **领取激励** → veMEZO 投票者在周期结束时领取其应得的激励份额
+
+---
+
+## 市场的两方
+
+### 如果您以 BTC 为主
+
+您希望获得加成，但没有足够的 MEZO。您可以：
+
+- 在您的 veBTC Gauge 上发布激励，以吸引 veMEZO 投票
+- 付费获取加成，而不是自己锁定 MEZO
+- 由市场决定加成的现行价格
+
+### 如果您以 MEZO 为主
+
+您拥有 veMEZO，但 BTC 有限。您可以：
+
+- 为激励充足的 veBTC Gauge 投票，赚取收益
+- 将加成作为一项服务，提供给愿意付费的 BTC 持有者
+- 无需大量持有 BTC，即可用您的 MEZO 赚取回报
+
+---
+
+## 为什么这很重要
+
+配对市场将加成变成一种有价格、可交易的服务：
+
+- **加成有市场价格**，由供需关系决定
+- **用户无需同时持有两种代币**即可从系统中受益
+- **资本效率提高**——BTC 持有者专注于 BTC，MEZO 持有者专注于 MEZO
+
+如果没有配对市场，用户需要按比例同时持有两种代币，才能有效参与。配对市场消除了这一阻碍。
+
+---
+
+## 关键概念
+
+| 术语 | 定义 |
+|---|---|
+| Boost Gauge | 附属于每个 veBTC NFT、接收 veMEZO 投票的 Gauge |
+| 激励 | veBTC 持有者为吸引 veMEZO 投票而发布的代币 |
+| 加成提供者 | 为他人的 Boost Gauge 投票以换取激励的 veMEZO 持有者 |
+| 加成寻求者 | 发布激励以吸引 veMEZO 投票的 veBTC 持有者 |
+
+---
+
+## Matchbox
+
+:::caution[社区工具免责声明]
+配对市场目前的实现（Matchbox）是一个由社区构建的工具。它并非由 Mezo 官方构建、维护或认可。用户在与第三方应用交互时，应自行研究并保持谨慎。
+:::
+
+<LinkButton href="https://matchbox.markets/">veBTC + veMEZO 配对协议——用您的 veMEZO 赚取贿赂，或付费获得加成</LinkButton>
+
+有关如何使用 Matchbox 提升您在 Mezo 上收益的深入教程，请参阅 [Matchbox 文档](https://matchbox.markets/docs)。
+
+---
+
+## 风险
+
+作为社区构建的工具，配对市场存在额外风险：
+
+- **智能合约风险**——相关合约的审计标准可能不及 Mezo 核心协议
+- **无官方支持**——对于配对市场相关的问题，Mezo 无法提供支持或协助
+- **运营风险**——该工具可能会在不另行通知的情况下被修改、停用或出现停机
+
+:::note[注意]
+如有与配对市场相关的问题或支持需求，请直接联系社区开发者。Mezo 支持团队无法协助处理第三方工具的相关问题。
+:::
