@@ -1,6 +1,6 @@
 ---
-title: cầu nối
+title: Cầu nối
 topic: developers
 ---
 
-Tài nguyên nhà phát triển cho các thành phần cầu nối Mezo.
+Tài nguyên dành cho nhà phát triển về các thành phần cầu nối của Mezo.

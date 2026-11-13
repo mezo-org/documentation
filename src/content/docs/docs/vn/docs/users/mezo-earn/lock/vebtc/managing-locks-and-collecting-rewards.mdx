@@ -1,0 +1,92 @@
+---
+title: Quản lý khoản khóa và nhận phần thưởng
+description: Tìm hiểu về thời hạn khóa và sự suy giảm trọng số của veBTC
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Sau khi đã khóa BTC và nhận NFT veBTC, bạn có thể quản lý vị thế, gia hạn khoản khóa và nhận phần thưởng.
+
+---
+
+## Xem chi tiết vị thế
+
+Mở trang Lock để xem:
+
+- **BTC đã khóa** — Lượng BTC trong vị thế của bạn
+- **veBTC hiện tại** — Quyền biểu quyết của bạn ở thời điểm hiện tại
+- **Thời điểm hết hạn khóa** — Khi nào bạn có thể rút
+- **Thu nhập** — Phần thưởng đã tích lũy
+
+---
+
+## Gia hạn khoản khóa
+
+Duy trì quyền biểu quyết bằng cách gia hạn thời hạn khóa trước khi khoản khóa hết hạn.
+
+<Steps>
+1. Mở trang Lock
+
+2. Chọn vị thế veBTC của bạn
+
+3. Nhấp vào **Extend Lock**
+
+4. Chọn thời hạn mới (1–28 ngày)
+
+5. Xác nhận việc gia hạn
+</Steps>
+
+Việc gia hạn sẽ đặt lại trọng số phiếu bầu của bạn dựa trên thời hạn khóa mới.
+
+---
+
+## Nhận phần thưởng
+
+Phần thưởng bỏ phiếu tích lũy trong suốt mỗi epoch và có thể nhận sau khi epoch kết thúc.
+
+<Steps>
+1. Mở vị thế veBTC của bạn
+
+2. Nhấp vào **Claim Rewards**
+
+3. Nhận phí và khoản khuyến khích mà bạn đã kiếm được
+</Steps>
+
+Phần thưởng được chi trả bằng các token do những pool mà bạn đã bỏ phiếu tạo ra.
+
+:::note[Lưu ý]
+Phần thưởng không tự động được gộp lãi kép. Bạn phải tự nhận và tái đầu tư chúng.
+:::
+
+
+### Thời hạn nhận
+
+Bạn có thể nhận phí chuỗi tích lũy trong một epoch khi epoch tiếp theo bắt đầu. Thu nhập chưa nhận sẽ tiếp tục tích lũy, nhưng chỉ có thể nhận trong vòng **50 epoch**. Mọi khoản phí chưa nhận sau thời hạn này sẽ bị mất.
+
+---
+
+## Sau khi khoản khóa hết hạn
+
+Khi khoản khóa hết hạn, quyền biểu quyết của bạn về 0 và bạn có thể rút BTC. Bạn có ba lựa chọn:
+
+- **Tạo khoản khóa mới** — Khóa lại để lấy lại quyền biểu quyết
+- **Chờ** — BTC của bạn vẫn an toàn; bạn có thể quyết định sau
+- **Rút** — Đưa BTC trở về ví của bạn
+
+Để rút:
+
+<Steps>
+1. Mở vị thế đã hết hạn của bạn
+
+2. Nhấp vào **Withdraw**
+
+3. Lượng BTC ban đầu được trả về ví của bạn và NFT veBTC bị đốt
+</Steps>
+
+---
+
+## Bước tiếp theo
+
+- [Cách bỏ phiếu cho gauge](/docs/vn/docs/users/mezo-earn/vote) — Bắt đầu kiếm phí và lượng phát thải
+- [Câu hỏi thường gặp và tài nguyên](/docs/vn/docs/users/mezo-earn/lock/vebtc/faqs-and-resources) — Các câu hỏi phổ biến về veBTC

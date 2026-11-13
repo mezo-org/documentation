@@ -1,0 +1,74 @@
+---
+title: Nhận khoản khuyến khích
+description: Cách LP và người bỏ phiếu nhận lượng MEZO do MEZO Gauges điều hướng
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Ai nhận gì, và nhận ở đâu, phụ thuộc vào việc bạn đứng ở phía nào của gauge.
+
+| Bạn là | Bạn nhận | Nơi nhận |
+|---|---|---|
+| LP trong Curve USDT/USDC/MUSD hoặc Uniswap USDC/MUSD | veMEZO khóa trong 3 tháng | [Merkl](https://app.merkl.xyz) |
+| Người nắm giữ sAERO phân bổ cho Aero USDC/MUSD hoặc MEZO/MUSD | MEZO, dưới dạng khoản khuyến khích | [Aero](https://app.aero.xyz) |
+| LP trong Aero USDC/MUSD hoặc MEZO/MUSD, có khoản gửi nhận AERO | AERO Rewards | [Aero](https://app.aero.xyz) |
+| Người nắm giữ veMEZO đã bỏ phiếu cho một MEZO Gauge | Khoản khuyến khích được đăng trên gauge đó | Tab Vote trên [mezo.org](https://mezo.org) |
+
+---
+
+## LP của Curve và Uniswap: nhận trên Merkl
+
+Phần thưởng **không** được tự động gửi vào ví của bạn. Merkl ghi nhận một khoản có thể nhận cho địa chỉ của bạn, và bạn phải tự nhận khoản đó.
+
+<Steps>
+1. Truy cập [app.merkl.xyz](https://app.merkl.xyz).
+2. Kết nối ví đang nắm giữ vị thế LP.
+3. Mở **Dashboard**. Sau khi bạn kết nối, trang này liệt kê mọi phần thưởng mà ví đó đủ điều kiện nhận, vì vậy bạn không cần tìm kiếm chiến dịch.
+4. Nhấp vào **Claim** và ký giao dịch.
+</Steps>
+
+**Bạn nhận được gì:** veMEZO khóa trong 3 tháng, không phải MEZO có thể dùng ngay. Sau khi nhận, nó hoạt động như mọi [vị thế veMEZO](/docs/vn/docs/users/mezo-earn/lock/vemezo) khác. Nó có thể boost một vị thế veBTC và có thể bỏ phiếu cho MEZO Gauges.
+
+Nếu bạn cung cấp thanh khoản cho pool, bạn có thể tạo vòng lặp bằng cách dùng veMEZO đã nhận để bỏ phiếu trở lại cho MEZO Gauge của chính pool đó, nhờ vậy gửi thêm lượng phát thải tới vị thế mà bạn đang nắm giữ. Việc này là tùy chọn. Chỉ cần cung cấp thanh khoản trong thời gian diễn ra chiến dịch là đủ để nhận thưởng. Xem [Phiếu bầu của bạn đi về đâu](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#thu-về-giá-trị-mà-bạn-điều-hướng) để biết toàn bộ quy trình.
+
+:::caution[Phần thưởng không được nhận sẽ bị mất]
+Các chiến dịch Merkl không tích lũy vô thời hạn. Nếu bạn không bao giờ nhận, bạn sẽ mất phần thưởng. Nếu bạn cung cấp thanh khoản cho các pool này, hãy kiểm tra Merkl định kỳ.
+:::
+
+Bạn không cần nắm giữ veMEZO hay đã bỏ phiếu để nhận thưởng với tư cách LP. Cung cấp thanh khoản cho pool trong thời gian diễn ra chiến dịch là yêu cầu duy nhất.
+
+---
+
+## Aero: nhận trên Base
+
+MEZO được điều hướng tới một gauge Aero sẽ được đăng trên pool dưới dạng một **chương trình khuyến khích**, vì vậy người được hưởng là những người nắm giữ sAERO phân bổ cho pool, không phải LP.
+
+**Nếu bạn nắm giữ sAERO và phân bổ cho USDC/MUSD hoặc MEZO/MUSD:** khoản khuyến khích được trả liên tục cho bạn chừng nào bạn còn giữ phần phân bổ. Bạn có thể nhận chúng bất cứ lúc nào trên [app.aero.xyz](https://app.aero.xyz) trong mục **Portfolio > Stakes**, và mỗi chương trình hằng tuần được nhận riêng. Phần MEZO của bạn tương ứng với tỷ phần của bạn trong lượng phân bổ trên pool đó.
+
+**Nếu bạn cung cấp thanh khoản cho Aero USDC/MUSD hoặc MEZO/MUSD:** bạn kiếm được **AERO Rewards** nếu đã chọn **AERO rewards** khi thực hiện khoản gửi. Một khoản gửi chỉ kiếm được AERO Rewards hoặc phí giao dịch, không bao giờ cả hai. AERO Rewards được trả liên tục, và bạn có thể nhận bất cứ lúc nào trong mục **Portfolio > Deposits**. Xem [Thời điểm trên Aero](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#thời-điểm-trên-aero) để biết một phiếu bầu trên Mezo đến được pool như thế nào.
+
+### Chuyển từ Aerodrome sang Aero
+
+Lượng phát thải của Aerodrome đã dừng khi Aero ra mắt vào ngày 22 tháng 10 năm 2026 lúc 00:00 UTC. Các vị thế không tự động chuyển sang.
+
+- **LP trong pool USDC/MUSD hoặc MEZO/MUSD cũ trên Base:** hãy di chuyển vị thế của bạn sang pool Aero mới qua cổng nâng cấp trên [aerodrome.finance](https://aerodrome.finance). Các vị thế nằm trong trình quản lý thanh khoản tự động (ALM) không được di chuyển: hãy tự rút chúng trên Aerodrome rồi gửi vào Aero. Làm theo [hướng dẫn dành cho LP của Aero](https://aero.xyz/aero-upgrade/#liquidity-providers).
+- **Người nắm giữ veAERO:** veAERO đã được thay bằng sAERO, và chỉ sAERO mới kiếm được khoản khuyến khích trên Aero. Việc nâng cấp sẽ đặt lại các phiếu bầu cũ của bạn và không thể hoàn tác. Sau khi nâng cấp, hãy phân bổ sAERO cho pool Aero USDC/MUSD hoặc MEZO/MUSD để tiếp tục kiếm khoản khuyến khích bằng MEZO. Xem [hướng dẫn dành cho người nắm giữ của Aero](https://aero.xyz/aero-upgrade/#veaero-vevelo-holders).
+
+---
+
+## Người bỏ phiếu MEZO Gauge: nhận trên Mezo
+
+Nếu bạn đã điều hướng veMEZO tới một MEZO Gauge, bạn kiếm được một phần của mọi **khoản khuyến khích được đăng trên gauge đó**, tương ứng với tỷ phần phiếu bầu của bạn.
+
+Hãy nhận các khoản này giống như mọi phần thưởng bỏ phiếu khác — trong tab **Vote** tại [mezo.org](https://mezo.org), sau khi epoch đã kết thúc. Xem [Nhận phí và lượng phát thải](/docs/vn/docs/users/mezo-earn/vote/claiming-fees-emissions).
+
+Các khoản khuyến khích này tách biệt với lượng phát thải mà bạn đã điều hướng. Lượng phát thải đi tới pool đích; còn khoản khuyến khích được đăng trên Mezo nhằm thu hút phiếu bầu của bạn tới đó ngay từ đầu.
+
+---
+
+## Bước tiếp theo
+
+- [Phiếu bầu của bạn đi về đâu](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — toàn bộ quy trình từ phiếu bầu đến khoản khuyến khích
+- [Tổng quan về MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges) — các pool đủ điều kiện và nguồn vốn
+- [Nhận phí và lượng phát thải](/docs/vn/docs/users/mezo-earn/vote/claiming-fees-emissions) — tất cả các phần thưởng Mezo Earn khác

@@ -1,0 +1,59 @@
+---
+title: Cách nhận lại tài sản thế chấp sau khi bị quy đổi toàn bộ
+description: >-
+  Hướng dẫn từng bước để nhận phần tài sản thế chấp còn lại sau khi khoản vay
+  MUSD (Trove) của bạn đã bị quy đổi toàn bộ.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Khi một người dùng khác quy đổi MUSD nhắm vào khoản vay (Trove) của bạn và khoản vay được trả hết, khoản nợ của bạn sẽ được xóa — nhưng phần tài sản thế chấp còn lại vẫn nằm trong các hợp đồng thông minh MUSD cho đến khi bạn nhận về. Tài sản thế chấp của bạn vẫn an toàn và có thể được nhận lại bất cứ lúc nào.
+
+Thông thường, bạn sẽ thấy cảnh báo "Loan redeemed" trên trang Borrow, cho phép bạn nhận tài sản thế chấp ngay từ giao diện. Bạn có thể làm việc này bằng cách nhấp vào nút ở bên phải cảnh báo, như trong ảnh chụp màn hình bên dưới.
+
+![Cảnh báo "Loan redeemed" trên trang Borrow](/docs/images/musd/loan-redeemed.webp)
+
+Nếu không thấy cảnh báo này, bạn có thể nhận tài sản thế chấp thủ công bằng cách gọi hàm `claimCollateral` trên hợp đồng BorrowerOperations thông qua Mezo Explorer. Thực hiện theo các bước bên dưới.
+
+<Steps>
+
+1. **Truy cập hợp đồng BorrowerOperations**
+
+   Mở [hợp đồng BorrowerOperations trên Mezo Explorer](https://explorer.mezo.org/address/0x44b1bac67dDA612a41a58AAf779143B181dEe031).
+
+2. **Nhấp vào tab "Contract"**
+
+   Trên thanh tab, bên cạnh Transactions, Token transfers và Tokens, nhấp vào **Contract**.
+
+   Bốn tab con sẽ hiện ra: **Code**, **Read proxy**, **Write contract** và **Write proxy**.
+
+3. **Nhấp vào "Write proxy"**
+
+   Nhấp vào tab **Write proxy**. Đây là tab hiển thị tất cả các hàm ghi của hợp đồng triển khai BorrowerOperations bên dưới.
+
+   :::caution
+   Hãy chắc chắn rằng bạn chọn **Write proxy** (không phải "Write contract") — tab proxy phản ánh đúng logic thực tế của BorrowerOperations.
+   :::
+
+4. **Kết nối ví của bạn**
+
+   Bạn sẽ thấy một biểu ngữ màu vàng/cam ở đầu khu vực các hàm của hợp đồng, có dòng chữ "Disconnected" cùng nút **Connect wallet**.
+
+   Nhấp vào **Connect wallet** và phê duyệt kết nối trong ví của bạn (ví dụ MetaMask). Hãy chắc chắn rằng bạn kết nối bằng đúng địa chỉ ví đã giữ Trove bị quy đổi, vì chỉ địa chỉ đó mới có thể nhận tài sản thế chấp của Trove.
+
+5. **Tìm hàm claimCollateral**
+
+   Cuộn xuống danh sách các hàm của hợp đồng cho đến khi thấy:
+
+   **7. claimCollateral**
+
+   Nhấp vào hàm để mở rộng. Hàm này không cần tham số đầu vào — hàm chỉ đơn giản nhận toàn bộ tài sản thế chấp đã được dành riêng cho địa chỉ của bạn sau khi bị quy đổi toàn bộ.
+
+6. **Nhấp vào "Write"**
+
+   Khi ví đã được kết nối, nhấp vào nút **Write** bên dưới hàm `claimCollateral`.
+
+   Ví sẽ yêu cầu bạn xác nhận giao dịch. Kiểm tra phí gas và xác nhận. Khi giao dịch hoàn tất, tài sản thế chấp (BTC) của bạn sẽ được gửi thẳng vào ví.
+
+</Steps>

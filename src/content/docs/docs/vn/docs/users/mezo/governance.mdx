@@ -1,0 +1,39 @@
+---
+title: Quản trị
+description: 'Các tham số quản trị, ràng buộc và định hướng phát triển của MEZO'
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Quản trị mạng Mezo cho phép người nắm giữ veBTC định hình các tham số giao thức và luồng phát thải. Quản trị được neo vào BTC — veMEZO khuếch đại quyền biểu quyết của veBTC thay vì có trọng số quản trị riêng.
+
+## Tham số giao thức
+
+Các tham số sau xác định cách phân phối lượng phát thải MEZO:
+
+| Tham số | Mô tả | Trạng thái |
+|---|---|---|
+| Tỷ lệ Chain Splitter | Tỷ phần phát thải cho validator (20%) so với hệ sinh thái (80%) | Cố định, được khóa thông qua quản trị |
+| Tỷ lệ Ecosystem Splitter | Tỷ phần phát thải cho gauge staking (90%) so với gauge hệ sinh thái (10%) | Cố định, được khóa thông qua quản trị |
+| Hệ số nhân boost tối đa | Mức boost veMEZO tối đa trên veBTC | Hiện tại là 5x |
+
+Các tỷ lệ splitter hiện được cố định và không thể thay đổi thông qua bỏ phiếu. Các tỷ lệ này có thể trở nên điều chỉnh được thông qua các cơ chế quản trị trong tương lai.
+
+![Lịch phát thải của Mezo](/docs/images/mezo-token/mezo-emissions.png)
+
+<LinkButton href="/docs/vn/docs/users/mezo/emissions">Tìm hiểu thêm về lượng phát thải token MEZO</LinkButton>
+
+## Ràng buộc quản trị
+
+- **Bỏ phiếu neo vào BTC** — Chỉ người nắm giữ veBTC mới có thể bỏ phiếu cho các đề xuất quản trị. veMEZO boost quyền biểu quyết của veBTC nhưng không mang lại quyền quản trị riêng. veMEZO bỏ phiếu độc lập trên [gauge boost veBTC](/docs/vn/docs/users/mezo-earn/lock/vemezo/matching-market) và [MEZO Gauges](/docs/vn/docs/users/mezo-earn/vote/mezo-gauges) — những nơi điều hướng lượng phát thải chứ không thiết lập tham số giao thức.
+
+## Định hướng phát triển
+
+Cấu trúc quản trị có thể phát triển để bao gồm:
+
+- Các cơ chế đề xuất và bỏ phiếu chính thức (ví dụ Governor Bravo)
+- Thêm các tham số có thể quản trị
+- Lựa chọn validator thông qua bỏ phiếu gauge theo cơ chế bằng chứng cổ phần (proof-of-stake)
+
+Thông tin chi tiết sẽ được công bố khi các tính năng quản trị được hoàn thiện.

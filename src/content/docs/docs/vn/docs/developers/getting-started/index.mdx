@@ -1,0 +1,203 @@
+---
+title: Hướng dẫn bắt đầu cho nhà phát triển
+description: >-
+  Hướng dẫn làm quen từng bước dành cho nhà phát triển xây dựng trên nền tảng
+  lấy Bitcoin làm trung tâm của Mezo.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 1. Giới thiệu về Mezo
+
+Mezo được thiết kế để biến Bitcoin từ một phương tiện lưu trữ giá trị thụ động thành một tài sản tài chính năng động, sinh lời. Bằng cách kết hợp tính bảo mật của Bitcoin với sự linh hoạt của một blockchain hiện đại, Mezo mang đến một nền tảng vững chắc cho các ứng dụng phi tập trung (dApp) phục vụ cộng đồng Bitcoin đông đảo nhưng chưa được phục vụ đầy đủ.
+
+### 1.1 Kiến trúc cốt lõi
+
+Chuỗi Mezo được xây dựng trên một kiến trúc lai, được thiết kế để tối đa hóa khả năng tiếp cận cho nhà phát triển và hiệu năng.
+
+- Tương thích EVM: Mezo là blockchain tương thích EVM hoàn toàn, cho phép nhà phát triển Solidity triển khai các hợp đồng thông minh sẵn có và dùng các công cụ quen thuộc như Hardhat và Foundry với rất ít thay đổi mã.
+- Nền tảng Cosmos SDK: Client cốt lõi, `mezod`, là một bản fork của Evmos đã được sửa đổi nhiều, xây dựng bằng Cosmos SDK và chạy trên engine đồng thuận CometBFT. Nhờ đó chuỗi có chủ quyền riêng và thông lượng cao.
+- BTC làm gas: Mọi phí giao dịch trên Mezo đều được trả bằng BTC, củng cố vai trò của Bitcoin như một tài sản dùng để giao dịch.
+- Client cốt lõi: Bản triển khai client tham chiếu của chuỗi Mezo là `mezod`.
+
+## 2. Bắt đầu nhanh: thời gian đến giao dịch đầu tiên (TTFT)
+
+Phần này trình bày con đường nhanh nhất để triển khai một hợp đồng và tương tác với Mezo Testnet.
+
+### 2.1 Thông tin mạng (Testnet)
+
+Để cấu hình ví (ví dụ: MetaMask, RainbowKit) hoặc môi trường phát triển, hãy dùng các tham số Testnet sau:
+
+| Tham số | Giá trị |
+| --- | --- |
+| Tên mạng | Mezo Testnet |
+| Endpoint RPC (HTTPS) | `https://rpc.test.mezo.org` |
+| Endpoint RPC (WSS) | `wss://rpc-ws.test.mezo.org` |
+| Chain ID | `31611` |
+| Tiền tệ gốc | BTC |
+| Số chữ số thập phân | 18 |
+| Trình khám phá khối | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
+
+### 2.2 Nhận BTC testnet
+
+Để trả phí gas trên Testnet, bạn sẽ cần BTC testnet.
+
+<Steps>
+1. Faucet của Mezo: Nhận BTC testnet từ [Mezo Faucet](https://faucet.test.mezo.org/) chính thức.
+   - Lưu ý: Faucet được bảo vệ bằng CAPTCHA để ngăn lạm dụng.
+
+2. Thiết lập ví: Đảm bảo bạn đã cài đặt một ví trình duyệt hỗ trợ Ethereum (EVM).
+</Steps>
+
+### 2.3 Thiết lập môi trường (ví dụ với Hardhat)
+
+Đối với nhà phát triển Solidity, Mezo tương thích hoàn toàn với Hardhat và Foundry.
+
+Để cấu hình Hardhat cho Mezo Testnet, hãy sửa tệp `hardhat.config.js` (hoặc `.ts`) của bạn:
+
+```javascript
+module.exports = {
+  defaultNetwork: "mezotestnet",
+  networks: {
+    mezotestnet: {
+      url: "https://rpc.test.mezo.org",
+      chainId: 31611,
+      accounts: ["YOUR_PRIVATE_WALLET_KEY"] // Use environment variables for security
+    }
+  },
+  solidity: {
+    version: "0.8.28",
+    settings: {
+      evmVersion: "london",
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+};
+```
+
+## 3. Các thành phần phát triển cốt lõi
+
+### 3.1 Stablecoin MUSD
+
+MUSD là stablecoin gốc được bảo chứng bằng Bitcoin của hệ sinh thái Mezo. Nhà phát triển có thể tích hợp MUSD cho thanh toán, thanh khoản và các sản phẩm tài chính.
+
+- Kho mã: Các hợp đồng thông minh và phần triển khai dApp có trong kho mã GitHub của MUSD: [mezo-org/musd](https://github.com/mezo-org/musd).
+- Môi trường phát triển (pnpm):
+
+```bash
+pnpm install --frozen-lockfile
+cd solidity
+pnpm install --frozen-lockfile
+```
+
+- Kiểm thử hợp đồng:
+
+```bash
+cd solidity
+pnpm test
+```
+
+- Triển khai (ví dụ): Có thể triển khai hợp đồng bằng lệnh `pnpm run deploy` trong thư mục `solidity`. Xem kho mã để biết chi tiết: [mezo-org/musd](https://github.com/mezo-org/musd).
+
+### 3.2 Tích hợp Mezo Passport (không bắt buộc)
+
+Mezo Passport là thư viện kết nối ví chính thức, xây dựng trên RainbowKit, cho phép kết nối liền mạch cả ví Bitcoin gốc (ví dụ: Xverse, Unisat) lẫn ví EVM tiêu chuẩn (ví dụ: MetaMask). Việc tích hợp là không bắt buộc và không cần thiết để xây dựng trên Mezo.
+
+Cài đặt:
+
+```bash
+npm install @mezo-org/passport @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
+```
+
+Cấu hình (React/TypeScript):
+
+Dùng phương thức `getConfig` từ `@mezo-org/passport` để cấu hình `WagmiProvider` của bạn.
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+// Note: We use the consistent 'mezoTestnet' chain name for clarity.
+import { getConfig, mezoTestnet } from "@mezo-org/passport";
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <WagmiProvider config={getConfig({ appName: "Your Mezo dApp" })}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider initialChain={mezoTestnet}>
+          {/* Your App component */}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  </React.StrictMode>,
+);
+```
+
+## 4. Hạ tầng và vận hành node
+
+Validator Kit là tài nguyên chính để thiết lập và vận hành một node Mezo: [mezo-org/validator-kit](https://github.com/mezo-org/validator-kit).
+
+### 4.1 Yêu cầu phần cứng của node
+
+Dưới đây là thông số phần cứng tối thiểu được khuyến nghị để chạy các loại node Mezo khác nhau:
+
+| Loại node | vCPU | RAM | Ổ đĩa |
+| --- | --- | --- | --- |
+| Validator | 4 | 16 GB | 256 GB |
+| RPC | 8 | 32 GB | 512 GB |
+| Seed | 2 | 8 GB | 128 GB |
+
+### 4.2 Các phương án triển khai
+
+Validator Kit hỗ trợ nhiều phương thức triển khai, phù hợp với các mức độ phức tạp vận hành khác nhau:
+
+<Steps>
+1. Docker: Được khuyến nghị để thiết lập dễ dàng nhất bằng Docker Compose.
+
+2. Gốc: Chạy trực tiếp tệp nhị phân `mezod`.
+
+3. Helm: Để triển khai trên cụm Kubernetes.
+
+4. Thủ công: Hướng dẫn từng bước để kiểm soát thủ công hoàn toàn.
+</Steps>
+
+### 4.3 Đăng ký validator (Proof of Authority)
+
+Validator của Mezo phải đăng ký Proof of Authority (PoA) để tham gia đồng thuận.
+
+- Lệnh đăng ký: Sau khi đã thiết lập node, hãy gửi đơn đăng ký bằng CLI `mezod`:
+
+```bash
+mezod --home=<mezod_home_path> --rpc-url <rpc_url> poa submit-application <key_name>
+```
+
+## 5. Thông tin mạng Mainnet
+
+Đối với các bản triển khai production, hãy dùng thông tin Mainnet sau. Bạn nên dùng một nhà cung cấp RPC chuyên dụng để có giới hạn truy cập cao hơn và độ ổn định tốt hơn.
+
+| Tham số | Giá trị |
+| --- | --- |
+| Tên mạng | Mezo Mainnet |
+| Chain ID | `31612` |
+| Tiền tệ gốc | BTC |
+| Số chữ số thập phân | 18 |
+| Trình khám phá khối | [explorer.mezo.org](https://explorer.mezo.org/) |
+
+### 5.1 Nhà cung cấp RPC được khuyến nghị
+
+| Nhà cung cấp | Endpoint HTTPS | Endpoint WSS | Ghi chú |
+| --- | --- | --- | --- |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
+| Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
+| Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
+| dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
+
+Để xem cấu hình mainnet đầy đủ cho Hardhat và Foundry, hãy xem [Thiết lập môi trường phát triển](/docs/vn/docs/developers/getting-started/configure-environment).

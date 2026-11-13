@@ -1,0 +1,74 @@
+---
+title: Swap không cần gas
+description: >-
+  Tìm hiểu cách dùng tính năng Get Gas để swap một lượng nhỏ MUSD hoặc MEZO lấy
+  BTC làm gas khi số dư của bạn thấp.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Tính năng **Get Gas** cho phép bạn nhận một lượng nhỏ BTC để trả phí giao dịch (phí gas) trên Mezo — ngay cả khi ví của bạn không có BTC. Tính năng này hoạt động bằng cách thực hiện một **swap không cần gas**, đổi một lượng nhỏ MUSD hoặc MEZO lấy đúng **0,0001 BTC**, đủ để trả phí cho nhiều giao dịch trên mạng.
+
+Vì swap này không cần gas (vận hành nhờ meta-transaction), bạn không cần có sẵn BTC để sử dụng.
+
+## Khi nào nút này xuất hiện?
+
+Nút **"Get Gas"** tự động xuất hiện trong ứng dụng Mezo khi số dư BTC trong ví của bạn giảm xuống dưới **0,000001 BTC**. Nhờ đó, bạn luôn có cách nạp thêm gas mà không cần chuyển thêm BTC qua cầu nối hay dùng sàn giao dịch bên ngoài.
+
+## Token được hỗ trợ
+
+Các token được hỗ trợ cho swap Get Gas là **MUSD** và **MEZO**. Điều này có nghĩa là người dùng mới đến chuỗi với chỉ MEZO trong tay vẫn có thể swap miễn phí sang BTC để làm gas mà không cần chuyển thêm tài sản qua cầu nối.
+
+## Cách nhận gas
+
+<Steps>
+
+1. **Mở cửa sổ Get Gas**
+
+   Khi số dư BTC của bạn thấp, nhấp vào nút **"Get Gas"** xuất hiện trong ứng dụng.
+
+2. **Chọn token**
+
+   Chọn MUSD hoặc MEZO làm token nguồn. Cửa sổ sẽ hiển thị chi phí ước tính cho swap.
+
+3. **Xem lại báo giá**
+
+   Ứng dụng báo giá lượng MUSD hoặc MEZO cần thiết để nhận đúng **0,0001 BTC**. Lượng đầu ra được cố định, vì vậy bạn luôn nhận được một lượng gas có thể dự đoán trước, bất kể giá token.
+
+4. **Xác nhận swap**
+
+   Nhấp vào **"Get Gas"** để bắt đầu swap. Bạn sẽ được yêu cầu ký hai thông điệp trong ví:
+   - Một **chữ ký permit** (phê duyệt token)
+   - Một **chữ ký execute** (ủy quyền swap)
+
+   Các chữ ký này không cần phí gas.
+
+5. **Chờ xác nhận**
+
+   Ứng dụng sẽ gửi giao dịch của bạn và tự động kiểm tra trạng thái xác nhận. Khi giao dịch được xác nhận, bạn sẽ thấy màn hình thành công kèm hash giao dịch.
+
+</Steps>
+
+## Cách hoạt động
+
+Tính năng Get Gas dùng **meta-transaction** để thực hiện swap mà người dùng không cần trả gas:
+
+1. **Permit**: Bạn ký một thông điệp offchain cấp cho relay quyền chi tiêu lượng token cần thiết mà bạn đã chọn.
+2. **Relay**: Một dịch vụ relay ở backend thay mặt bạn gửi giao dịch swap và chi trả phí gas.
+3. **Swap**: Giao dịch được thực thi onchain, đổi token của bạn lấy **0,0001 BTC** và nạp thẳng vào ví của bạn.
+
+Với thiết kế này, bạn luôn có thể nhận gas miễn là đang nắm giữ MUSD hoặc MEZO — không cần BTC để bắt đầu.
+
+## Thông tin chính
+
+| Thông tin | Giá trị |
+|---|---|
+| **Lượng đầu ra** | 0,0001 BTC (cố định) |
+| **Token hợp lệ** | MUSD, MEZO |
+| **Gas cần có** | Không cần (không cần gas nhờ meta-transaction) |
+| **Điều kiện kích hoạt** | Số dư BTC dưới 0,000001 BTC |
+
+:::note
+Chi phí bằng MUSD hoặc MEZO sẽ thay đổi theo giá hiện tại của pool. Báo giá hiển thị trong cửa sổ phản ánh tỷ giá theo thời gian thực tại thời điểm swap.
+:::

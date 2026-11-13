@@ -1,0 +1,45 @@
+---
+title: Cách gửi tài sản trên Mezo
+description: >-
+  Hướng dẫn gửi tài sản cho người dùng khác trên Mezo bằng địa chỉ ví, địa chỉ
+  Bitcoin hoặc Mezo ID.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Bạn có thể gửi tài sản cho người dùng khác trên Mezo trực tiếp từ Mezo Passport. Người nhận có thể được xác định bằng địa chỉ ví, địa chỉ Bitcoin hoặc Mezo ID.
+
+:::note
+Gửi tài sản qua Passport là chuyển token trên Mezo — không phải gửi tài sản trên mạng Bitcoin. Nếu bạn muốn chuyển tài sản ra khỏi Mezo qua cầu nối, hãy xem [Cầu nối](/docs/vn/docs/users/mainnet/bridges).
+:::
+
+## Các loại người nhận
+
+Biểu mẫu Send trong Mezo Passport hỗ trợ ba loại người nhận:
+
+- **Địa chỉ ví** — Nhập một địa chỉ `0x…` tiêu chuẩn trên Mezo.
+- **Địa chỉ Bitcoin** — Nhập một địa chỉ Bitcoin. Mezo tự động phân giải địa chỉ này thành ví tương ứng trên mạng Mezo.
+- **Mezo ID** — Nhập một Mezo ID. Địa chỉ ví đã phân giải được hiển thị bên dưới ô nhập để bạn xác nhận đích đến trước khi gửi.
+
+Khi bạn nhập địa chỉ Bitcoin hoặc Mezo ID, địa chỉ ví `0x…` đã phân giải sẽ xuất hiện bên dưới ô nhập như một bước xác nhận. Luôn kiểm tra kỹ địa chỉ này trước khi tiếp tục.
+
+## Gửi tài sản
+
+<Steps>
+1. Mở [Mezo App](https://mezo.org/overview) và đăng nhập.
+
+2. Mở menu thả xuống **Passport** ở đầu trang.
+
+3. Nhấp vào **Send** để mở biểu mẫu gửi.
+
+4. Nhập địa chỉ ví, địa chỉ Bitcoin hoặc Mezo ID của người nhận.
+
+5. Nếu bạn đã nhập địa chỉ Bitcoin hoặc Mezo ID, hãy kiểm tra địa chỉ ví đã phân giải hiển thị bên dưới ô nhập.
+
+6. Chọn tài sản và nhập số lượng bạn muốn gửi. Giá trị tương đương bằng USD theo thời gian thực được hiển thị bên cạnh số lượng.
+
+7. Xem lại chi tiết giao dịch và nhấp vào **Send** để xác nhận.
+</Steps>
+
+Sau khi giao dịch hoàn tất, bạn sẽ thấy màn hình xác nhận với thông báo "Transaction sent" và một liên kết để xem giao dịch trên [Mezo Explorer](https://explorer.mezo.org). Nhấp vào **Done** để quay lại ứng dụng.
