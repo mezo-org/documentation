@@ -1,0 +1,203 @@
+---
+title: Посібник із початку роботи для розробників
+description: >-
+  Покроковий посібник для розробників, які створюють застосунки на
+  біткоїн-орієнтованій платформі Mezo.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 1. Знайомство з Mezo
+
+Mezo створено для того, щоб перетворити біткоїн із пасивного засобу збереження вартості на продуктивний, динамічний фінансовий актив. Поєднуючи безпеку Bitcoin із гнучкістю сучасного блокчейну, Mezo надає надійну платформу для децентралізованих застосунків (dApps), що обслуговують величезну й досі недостатньо охоплену спільноту Bitcoin.
+
+### 1.1 Базова архітектура
+
+Мережа Mezo побудована на гібридній архітектурі, що забезпечує максимальну доступність для розробників і високу продуктивність.
+
+- Сумісність з EVM: Mezo — повністю сумісний з EVM блокчейн, тож розробники на Solidity можуть розгортати наявні смарт-контракти й користуватися знайомими інструментами, як-от Hardhat і Foundry, з мінімальними змінами коду.
+- Основа на Cosmos SDK: основний клієнт `mezod` — це суттєво змінений форк Evmos, побудований на Cosmos SDK, який працює на механізмі консенсусу CometBFT. Це забезпечує суверенність мережі й високу пропускну здатність.
+- BTC як газ: усі комісії за транзакції в Mezo сплачуються в BTC, що посилює роль біткоїна як транзакційного активу.
+- Основний клієнт: еталонною реалізацією клієнта мережі Mezo є `mezod`.
+
+## 2. Швидкий старт: час до першої транзакції (TTFT)
+
+У цьому розділі описано найшвидший шлях до розгортання контракту й взаємодії з Mezo Testnet.
+
+### 2.1 Параметри мережі (Testnet)
+
+Щоб налаштувати гаманець (наприклад, MetaMask, RainbowKit) або середовище розробки, використайте такі параметри Testnet:
+
+| Параметр | Значення |
+| --- | --- |
+| Назва мережі | Mezo Testnet |
+| RPC-ендпоінт (HTTPS) | `https://rpc.test.mezo.org` |
+| RPC-ендпоінт (WSS) | `wss://rpc-ws.test.mezo.org` |
+| Chain ID | `31611` |
+| Нативна валюта | BTC |
+| Десяткові знаки | 18 |
+| Оглядач блоків | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
+
+### 2.2 Отримання тестових BTC
+
+Щоб сплачувати за газ у Testnet, вам знадобляться тестові BTC.
+
+<Steps>
+1. Кран Mezo: отримайте тестові BTC в офіційному [крані Mezo](https://faucet.test.mezo.org/).
+   - Примітка: кран захищено CAPTCHA, щоб запобігти зловживанням.
+
+2. Налаштування гаманця: переконайтеся, що у вас установлено браузерний гаманець із підтримкою Ethereum (EVM).
+</Steps>
+
+### 2.3 Налаштування середовища (приклад для Hardhat)
+
+Для розробників на Solidity Mezo повністю сумісна з Hardhat і Foundry.
+
+Щоб налаштувати Hardhat для Mezo Testnet, змініть файл `hardhat.config.js` (або `.ts`):
+
+```javascript
+module.exports = {
+  defaultNetwork: "mezotestnet",
+  networks: {
+    mezotestnet: {
+      url: "https://rpc.test.mezo.org",
+      chainId: 31611,
+      accounts: ["YOUR_PRIVATE_WALLET_KEY"] // Use environment variables for security
+    }
+  },
+  solidity: {
+    version: "0.8.28",
+    settings: {
+      evmVersion: "london",
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+};
+```
+
+## 3. Основні компоненти для розробки
+
+### 3.1 Стейблкоїн MUSD
+
+MUSD — нативний стейблкоїн екосистеми Mezo, забезпечений біткоїном. Розробники можуть інтегрувати MUSD для платежів, ліквідності та фінансових продуктів.
+
+- Репозиторій: смарт-контракти та реалізація dApp доступні в репозиторії MUSD на GitHub: [mezo-org/musd](https://github.com/mezo-org/musd).
+- Середовище розробки (pnpm):
+
+```bash
+pnpm install --frozen-lockfile
+cd solidity
+pnpm install --frozen-lockfile
+```
+
+- Тестування контрактів:
+
+```bash
+cd solidity
+pnpm test
+```
+
+- Розгортання (приклад): контракти можна розгорнути командою `pnpm run deploy` у каталозі `solidity`. Докладніше див. у репозиторії: [mezo-org/musd](https://github.com/mezo-org/musd).
+
+### 3.2 Інтеграція Mezo Passport (необов'язково)
+
+Mezo Passport — офіційна бібліотека для під'єднання гаманців, побудована на основі RainbowKit, яка забезпечує зручне під'єднання як нативних гаманців Bitcoin (наприклад, Xverse, Unisat), так і стандартних EVM-гаманців (наприклад, MetaMask). Інтеграція необов'язкова: створювати застосунки на Mezo можна й без неї.
+
+Установлення:
+
+```bash
+npm install @mezo-org/passport @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
+```
+
+Налаштування (React/TypeScript):
+
+Використайте метод `getConfig` з `@mezo-org/passport`, щоб налаштувати `WagmiProvider`.
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+// Note: We use the consistent 'mezoTestnet' chain name for clarity.
+import { getConfig, mezoTestnet } from "@mezo-org/passport";
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <WagmiProvider config={getConfig({ appName: "Your Mezo dApp" })}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider initialChain={mezoTestnet}>
+          {/* Your App component */}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  </React.StrictMode>,
+);
+```
+
+## 4. Інфраструктура та робота вузлів
+
+Validator Kit — основний ресурс для налаштування й запуску вузла Mezo: [mezo-org/validator-kit](https://github.com/mezo-org/validator-kit).
+
+### 4.1 Вимоги до обладнання вузла
+
+Нижче наведено мінімальні рекомендовані характеристики обладнання для запуску різних типів вузлів Mezo:
+
+| Тип вузла | vCPU | RAM | Диск |
+| --- | --- | --- | --- |
+| Валідатор | 4 | 16 ГБ | 256 ГБ |
+| RPC | 8 | 32 ГБ | 512 ГБ |
+| Seed | 2 | 8 ГБ | 128 ГБ |
+
+### 4.2 Варіанти розгортання
+
+Validator Kit підтримує кілька способів розгортання, розрахованих на різний рівень операційної складності:
+
+<Steps>
+1. Docker: рекомендований варіант для найпростішого налаштування за допомогою Docker Compose.
+
+2. Нативний: безпосередній запуск бінарного файлу `mezod`.
+
+3. Helm: для розгортання в кластерах Kubernetes.
+
+4. Вручну: покроковий посібник для повного ручного контролю.
+</Steps>
+
+### 4.3 Приєднання валідатора (Proof of Authority)
+
+Щоб брати участь у консенсусі, валідатори Mezo мають подати заявку на Proof of Authority (PoA).
+
+- Команда для подання заявки: щойно ваш вузол налаштовано, подайте заявку за допомогою CLI `mezod`:
+
+```bash
+mezod --home=<mezod_home_path> --rpc-url <rpc_url> poa submit-application <key_name>
+```
+
+## 5. Параметри мережі Mainnet
+
+Для робочих розгортань використовуйте наведені нижче параметри Mainnet. Рекомендується використовувати окремого RPC-провайдера — це забезпечить вищі ліміти запитів і стабільність.
+
+| Параметр | Значення |
+| --- | --- |
+| Назва мережі | Mezo Mainnet |
+| Chain ID | `31612` |
+| Нативна валюта | BTC |
+| Десяткові знаки | 18 |
+| Оглядач блоків | [explorer.mezo.org](https://explorer.mezo.org/) |
+
+### 5.1 Рекомендовані RPC-провайдери
+
+| Провайдер | HTTPS-ендпоінт | WSS-ендпоінт | Примітки |
+| --- | --- | --- | --- |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
+| Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
+| Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
+| dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
+
+Повну конфігурацію Hardhat і Foundry для Mainnet наведено в розділі [Налаштування середовища розробки](/docs/ua/docs/developers/getting-started/configure-environment).

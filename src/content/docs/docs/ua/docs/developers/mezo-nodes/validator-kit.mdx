@@ -1,0 +1,443 @@
+---
+title: Посібник з розробки з Validator Kit
+description: >-
+  Повний посібник з налаштування та запуску вузлів валідатора Mezo за допомогою
+  Validator Kit.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mezo Validator Kit — це комплексне рішення для запуску вузлів Mezo: вузлів валідатора, RPC-вузлів і seed-вузлів. У цьому посібнику розглянуто налаштування, конфігурацію та обслуговування інфраструктури Mezo.
+
+## Огляд
+
+[Validator Kit](https://github.com/mezo-org/validator-kit.git) спрощує розгортання вузлів Mezo й пропонує кілька варіантів розгортання:
+
+- **Docker**: розгортання в контейнерах
+- **Нативний демон**: встановлення безпосередньо в систему
+- **Kubernetes**: Helm-чарти для оркестрації
+- **Хмарне розгортання**: підтримка AWS, GCP, Azure
+
+### Типи вузлів
+
+1. **Вузли валідатора**: беруть участь у консенсусі та створенні блоків
+2. **RPC-вузли**: надають API-ендпоінти для dApps
+3. **Seed-вузли**: допомагають початковому запуску мережі
+
+## Структура репозиторію
+
+[Репозиторій Validator Kit](https://github.com/mezo-org/validator-kit.git) містить:
+
+- **[Конфігурація Docker](https://github.com/mezo-org/validator-kit/tree/main/docker)**: налаштування й оркестрація контейнерів
+- **[Маніфести Kubernetes](https://github.com/mezo-org/validator-kit/tree/main/kubernetes)**: Helm-чарти та ресурси K8s
+- **[Шаблони конфігурації](https://github.com/mezo-org/validator-kit/tree/main/configs)**: конфігураційні файли вузлів
+- **[Моніторинг](https://github.com/mezo-org/validator-kit/tree/main/monitoring)**: Prometheus, Grafana та сповіщення
+- **[Скрипти](https://github.com/mezo-org/validator-kit/tree/main/scripts)**: інструменти автоматизації та обслуговування
+
+## Вимоги до обладнання
+
+### Мінімальні вимоги
+
+**Вузол валідатора**:
+- CPU: 4 ядра
+- RAM: 8 ГБ
+- Диск: 100 ГБ SSD
+- Мережа: 100 Мбіт/с
+
+**RPC-вузол**:
+- CPU: 2 ядра
+- RAM: 4 ГБ
+- Диск: 50 ГБ SSD
+- Мережа: 50 Мбіт/с
+
+**Seed-вузол**:
+- CPU: 1 ядро
+- RAM: 2 ГБ
+- Диск: 20 ГБ SSD
+- Мережа: 10 Мбіт/с
+
+### Рекомендовані вимоги
+
+**Вузол валідатора**:
+- CPU: 8 ядер
+- RAM: 16 ГБ
+- Диск: 500 ГБ NVMe SSD
+- Мережа: 1 Гбіт/с
+
+## Способи встановлення
+
+### Розгортання через Docker
+
+<Steps>
+1. **Клонуйте репозиторій**:
+   ```bash
+   git clone https://github.com/mezo-org/validator-kit.git
+   cd validator-kit
+   ```
+
+2. **Налаштуйте середовище**:
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+3. **Запустіть вузол**:
+   ```bash
+   docker-compose up -d
+   ```
+</Steps>
+
+### Нативне встановлення
+
+<Steps>
+1. **Встановіть залежності**:
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install -y curl git make build-essential
+
+   # Install Go
+   curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
+   ```
+
+2. **Зберіть Mezod**:
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   make build
+   ```
+
+3. **Налаштуйте вузол**:
+   ```bash
+   ./mezod init mynode --chain-id mezo-testnet
+   ```
+</Steps>
+
+### Розгортання в Kubernetes
+
+<Steps>
+1. **Встановіть Helm**:
+   ```bash
+   curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   ```
+
+2. **Розгорніть за допомогою Helm**:
+   ```bash
+   helm install mezo-node ./helm/mezo-node \
+     --set node.type=validator \
+     --set node.name=my-validator
+   ```
+</Steps>
+
+## Конфігурація
+
+### Конфігурація вузла
+
+**config.toml**:
+```toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+```
+
+**app.toml**:
+```toml
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[evm]
+rpc_address = "0.0.0.0:8545"
+ws_address = "0.0.0.0:8546"
+```
+
+### Змінні середовища
+
+```bash
+# Node configuration
+NODE_TYPE=validator
+CHAIN_ID=mezo-mainnet
+MONIKER=my-validator
+
+# Network configuration
+P2P_PORT=26656
+RPC_PORT=26657
+API_PORT=1317
+GRPC_PORT=9090
+EVM_RPC_PORT=8545
+
+# Security
+PRIV_VALIDATOR_KEY_FILE=/config/priv_validator_key.json
+NODE_KEY_FILE=/config/node_key.json
+```
+
+## Налаштування валідатора
+
+### Передумови
+
+1. **Proof of Authority (PoA)**: подайте заявку на статус валідатора
+2. **Вимоги до стейку**: мінімальний розмір стейку
+3. **Технічні вимоги**: відповідність вимогам до обладнання
+
+### Конфігурація валідатора
+
+```bash
+# Initialize validator
+./mezod init validator --chain-id mezo-mainnet
+
+# Create validator key
+./mezod keys add validator --keyring-backend file
+
+# Create validator transaction
+./mezod tx staking create-validator \
+  --amount=1000000umezo \
+  --pubkey=$(./mezod tendermint show-validator) \
+  --moniker="My Validator" \
+  --chain-id=mezo-mainnet \
+  --from=validator
+```
+
+## Налаштування RPC-вузла
+
+### Призначення
+
+RPC-вузли надають:
+- **API-ендпоінти**: REST і gRPC API
+- **EVM RPC**: JSON-RPC, сумісний з Ethereum
+- **WebSocket**: потоки даних у реальному часі
+- **Балансування навантаження**: розподіл трафіку між вузлами
+
+### Конфігурація
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  rpc-node:
+    image: mezod:latest
+    ports:
+      - "26657:26657"  # Tendermint RPC
+      - "1317:1317"    # Cosmos API
+      - "9090:9090"    # gRPC
+      - "8545:8545"    # EVM RPC
+    environment:
+      - NODE_TYPE=rpc
+      - CHAIN_ID=mezo-mainnet
+    volumes:
+      - ./data:/root/.mezod
+```
+
+## Моніторинг і спостережуваність
+
+### Конфігурація Prometheus
+
+```yaml
+# prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'mezod'
+    static_configs:
+      - targets: ['localhost:26660']
+    metrics_path: /metrics
+```
+
+### Дашборди Grafana
+
+Ключові метрики для моніторингу:
+- **Висота блоку**: поточна висота блокчейну
+- **Статус валідатора**: активний/неактивний
+- **Мережеве з'єднання**: з'єднання з пірами
+- **Використання ресурсів**: CPU, пам'ять, диск
+- **Пропускна здатність транзакцій**: метрики TPS
+
+### Правила сповіщень
+
+```yaml
+# alerts.yml
+groups:
+  - name: mezod
+    rules:
+      - alert: NodeDown
+        expr: up{job="mezod"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Mezod node is down"
+```
+
+## Рекомендації з безпеки
+
+### Безпека мережі
+
+1. **Налаштування фаєрвола**:
+```bash
+# Allow only necessary ports
+ufw allow 26656/tcp  # P2P
+ufw allow 26657/tcp  # RPC
+ufw allow 1317/tcp   # API
+ufw allow 8545/tcp   # EVM RPC
+```
+
+2. **Контроль доступу**:
+```bash
+# Restrict RPC access
+iptables -A INPUT -p tcp --dport 26657 -s TRUSTED_IP -j ACCEPT
+iptables -A INPUT -p tcp --dport 26657 -j DROP
+```
+
+### Керування ключами
+
+1. **Безпечне зберігання**: використовуйте апаратні модулі безпеки (HSM)
+2. **Стратегія резервного копіювання**: регулярно створюйте резервні копії ключів
+3. **Контроль доступу**: обмежте права доступу до ключів
+
+**Важливо**: ніколи не додавайте ключі валідатора до системи контролю версій!
+
+## Обслуговування
+
+### Регулярні завдання
+
+1. **Оновлення програмного забезпечення**:
+```bash
+# Update mezod
+git pull origin main
+make build
+systemctl restart mezod
+```
+
+2. **Обслуговування бази даних**:
+```bash
+# Prune old data (use with caution)
+./mezod tendermint unsafe-reset-all
+```
+
+3. **Ротація логів**:
+```bash
+# Configure logrotate
+cat > /etc/logrotate.d/mezod << EOF
+/var/log/mezod/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+EOF
+```
+
+### Стратегія резервного копіювання
+
+1. **Резервна копія конфігурації**:
+```bash
+tar -czf config-backup.tar.gz ~/.mezod/config/
+```
+
+2. **Резервна копія ключів** (зберігайте в безпечному місці):
+```bash
+# Backup validator keys to secure location
+cp ~/.mezod/config/priv_validator_key.json /secure/backup/
+```
+
+## Усунення несправностей
+
+### Поширені проблеми
+
+1. **Проблеми із синхронізацією**:
+```bash
+# Check sync status
+./mezod status
+
+# Reset and resync
+./mezod tendermint unsafe-reset-all
+```
+
+2. **Проблеми з'єднання**:
+```bash
+# Check peer connections
+./mezod tendermint show-node-id
+
+# Update persistent peers in config.toml
+```
+
+3. **Проблеми продуктивності**:
+```bash
+# Monitor resource usage
+htop
+iotop
+netstat -tulpn
+```
+
+### Команди для налагодження
+
+```bash
+# View logs
+journalctl -u mezod -f
+
+# Check node status
+./mezod status
+
+# View configuration
+./mezod config
+
+# Test RPC endpoints
+curl http://localhost:26657/status
+```
+
+## Інтеграція в розробку
+
+### Локальна розробка
+
+1. **Запустіть локальний вузол**:
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
+
+2. **Під'єднайте dApp**:
+```javascript
+const provider = new ethers.JsonRpcProvider('http://localhost:8545');
+```
+
+### Тестове середовище
+
+1. **Тестовий вузол**:
+```bash
+./mezod init testnode --chain-id mezo-testnet
+```
+
+2. **Інтеграційні тести**:
+```bash
+npm test
+```
+
+## Додаткові ресурси
+
+- **[Репозиторій Validator Kit](https://github.com/mezo-org/validator-kit.git)** — основний репозиторій
+- **[Репозиторій Mezod](https://github.com/mezo-org/mezod.git)** — клієнт мережі
+- **[Документація з вузлів Mezo](/docs/ua/docs/developers/mezo-nodes/)** — робота з вузлами
+- **[Документація Docker](https://docs.docker.com/)** — довідник Docker
+- **[Документація Kubernetes](https://kubernetes.io/docs/)** — довідник K8s
+
+:::note
+Докладні вимоги до валідаторів, процес подання заявки та розширені конфігурації описано в документації [репозиторію Validator Kit](https://github.com/mezo-org/validator-kit.git).
+:::
+
+## Підтримка
+
+Щоб отримати підтримку для валідаторів:
+- Приєднайтеся до [Discord Mezo](https://discord.com/invite/mezo)
+- Перегляньте [GitHub Issues](https://github.com/mezo-org/validator-kit/issues)
+- Ознайомтеся з [FAQ](/docs/ua/docs/developers/getting-started/FAQs)
