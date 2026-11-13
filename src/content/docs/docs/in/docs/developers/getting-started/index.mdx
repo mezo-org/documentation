@@ -1,0 +1,203 @@
+---
+title: डेवलपर के लिए शुरुआती गाइड
+description: >-
+  बिटकॉइन-केंद्रित Mezo प्लेटफ़ॉर्म पर बिल्ड करने वाले डेवलपर के लिए
+  स्टेप-बाय-स्टेप ऑनबोर्डिंग गाइड।
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 1. Mezo का परिचय
+
+Mezo को इस तरह बनाया गया है कि बिटकॉइन, वैल्यू को सिर्फ़ संभालकर रखने वाले एक निष्क्रिय एसेट से बदलकर एक उत्पादक और गतिशील वित्तीय एसेट बन सके। बिटकॉइन की सुरक्षा को एक आधुनिक ब्लॉकचेन के लचीलेपन के साथ जोड़कर, Mezo डिसेंट्रलाइज़्ड एप्लिकेशन (dApps) के लिए एक मज़बूत प्लेटफ़ॉर्म देता है, जो विशाल लेकिन अब तक कम सेवा पाने वाली बिटकॉइन कम्युनिटी की ज़रूरतें पूरी करते हैं।
+
+### 1.1 मुख्य आर्किटेक्चर
+
+Mezo चेन एक हाइब्रिड आर्किटेक्चर पर बनी है, जिसे डेवलपर के लिए ज़्यादा से ज़्यादा सुलभता और परफ़ॉर्मेंस को ध्यान में रखकर डिज़ाइन किया गया है।
+
+- EVM कम्पैटिबिलिटी: Mezo पूरी तरह EVM-कम्पैटिबल ब्लॉकचेन है, जिससे Solidity डेवलपर अपने मौजूदा स्मार्ट कॉन्ट्रैक्ट डिप्लॉय कर सकते हैं और कोड में बहुत कम बदलाव के साथ Hardhat और Foundry जैसे जाने-पहचाने टूल्स इस्तेमाल कर सकते हैं।
+- Cosmos SDK बेस: मुख्य क्लाइंट `mezod`, Evmos का एक काफ़ी बदला हुआ फ़ोर्क है, जिसे Cosmos SDK से बनाया गया है और जो CometBFT कंसेंसस इंजन पर चलता है। इससे चेन को संप्रभुता और हाई थ्रूपुट मिलता है।
+- गैस के रूप में BTC: Mezo पर सभी ट्रांज़ैक्शन फीस BTC में चुकाई जाती हैं, जिससे ट्रांज़ैक्शन वाले एसेट के रूप में बिटकॉइन की उपयोगिता और मज़बूत होती है।
+- मुख्य क्लाइंट: Mezo चेन के लिए रेफ़रेंस क्लाइंट इम्प्लीमेंटेशन `mezod` है।
+
+## 2. क्विकस्टार्ट: पहले ट्रांज़ैक्शन तक का समय (TTFT)
+
+यह सेक्शन कॉन्ट्रैक्ट डिप्लॉय करने और Mezo टेस्टनेट के साथ इंटरैक्ट करने का सबसे तेज़ तरीका बताता है।
+
+### 2.1 नेटवर्क विवरण (टेस्टनेट)
+
+अपना वॉलेट (जैसे MetaMask, RainbowKit) या डेवलपमेंट एनवायरनमेंट कॉन्फ़िगर करने के लिए, नीचे दिए गए टेस्टनेट पैरामीटर इस्तेमाल करें:
+
+| पैरामीटर | मान |
+| --- | --- |
+| नेटवर्क का नाम | Mezo Testnet |
+| RPC एंडपॉइंट (HTTPS) | `https://rpc.test.mezo.org` |
+| RPC एंडपॉइंट (WSS) | `wss://rpc-ws.test.mezo.org` |
+| Chain ID | `31611` |
+| नेटिव करेंसी | BTC |
+| डेसिमल | 18 |
+| ब्लॉक एक्सप्लोरर | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
+
+### 2.2 टेस्टनेट BTC प्राप्त करें
+
+टेस्टनेट पर गैस फीस चुकाने के लिए आपको टेस्टनेट BTC की ज़रूरत होगी।
+
+<Steps>
+1. Mezo फ़ॉसेट: आधिकारिक [Mezo Faucet](https://faucet.test.mezo.org/) से टेस्टनेट BTC प्राप्त करें।
+   - नोट: दुरुपयोग रोकने के लिए फ़ॉसेट CAPTCHA से सुरक्षित है।
+
+2. वॉलेट सेटअप: पक्का करें कि आपके पास Ethereum (EVM) को सपोर्ट करने वाला कोई ब्राउज़र वॉलेट इंस्टॉल हो।
+</Steps>
+
+### 2.3 एनवायरनमेंट सेटअप (Hardhat उदाहरण)
+
+Solidity डेवलपर के लिए, Mezo, Hardhat और Foundry के साथ पूरी तरह कम्पैटिबल है।
+
+Mezo टेस्टनेट के लिए Hardhat कॉन्फ़िगर करने के लिए, अपनी `hardhat.config.js` (या `.ts`) फ़ाइल में बदलाव करें:
+
+```javascript
+module.exports = {
+  defaultNetwork: "mezotestnet",
+  networks: {
+    mezotestnet: {
+      url: "https://rpc.test.mezo.org",
+      chainId: 31611,
+      accounts: ["YOUR_PRIVATE_WALLET_KEY"] // Use environment variables for security
+    }
+  },
+  solidity: {
+    version: "0.8.28",
+    settings: {
+      evmVersion: "london",
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+};
+```
+
+## 3. मुख्य डेवलपमेंट कंपोनेंट
+
+### 3.1 MUSD स्टेबलकॉइन
+
+MUSD, Mezo इकोसिस्टम का नेटिव, बिटकॉइन-समर्थित स्टेबलकॉइन है। डेवलपर पेमेंट, लिक्विडिटी और वित्तीय प्रोडक्ट के लिए MUSD इंटीग्रेट कर सकते हैं।
+
+- रिपॉज़िटरी: स्मार्ट कॉन्ट्रैक्ट और dApp इम्प्लीमेंटेशन MUSD GitHub रिपॉज़िटरी में उपलब्ध हैं: [mezo-org/musd](https://github.com/mezo-org/musd)।
+- डेवलपमेंट एनवायरनमेंट (pnpm):
+
+```bash
+pnpm install --frozen-lockfile
+cd solidity
+pnpm install --frozen-lockfile
+```
+
+- कॉन्ट्रैक्ट टेस्ट करना:
+
+```bash
+cd solidity
+pnpm test
+```
+
+- डिप्लॉयमेंट (उदाहरण): कॉन्ट्रैक्ट `solidity` डायरेक्टरी के अंदर `pnpm run deploy` कमांड से डिप्लॉय किए जा सकते हैं। ज़्यादा जानकारी के लिए रिपॉज़िटरी देखें: [mezo-org/musd](https://github.com/mezo-org/musd)।
+
+### 3.2 Mezo Passport इंटीग्रेशन (वैकल्पिक)
+
+Mezo Passport आधिकारिक वॉलेट कनेक्शन लाइब्रेरी है, जो RainbowKit के ऊपर बनी है और नेटिव बिटकॉइन वॉलेट (जैसे Xverse, Unisat) और स्टैंडर्ड EVM वॉलेट (जैसे MetaMask), दोनों से आसानी से कनेक्ट करने देती है। इंटीग्रेशन वैकल्पिक है और Mezo पर बिल्ड करने के लिए ज़रूरी नहीं है।
+
+इंस्टॉलेशन:
+
+```bash
+npm install @mezo-org/passport @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
+```
+
+कॉन्फ़िगरेशन (React/TypeScript):
+
+अपना `WagmiProvider` कॉन्फ़िगर करने के लिए `@mezo-org/passport` के `getConfig` मेथड का इस्तेमाल करें।
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+// Note: We use the consistent 'mezoTestnet' chain name for clarity.
+import { getConfig, mezoTestnet } from "@mezo-org/passport";
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <WagmiProvider config={getConfig({ appName: "Your Mezo dApp" })}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider initialChain={mezoTestnet}>
+          {/* Your App component */}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  </React.StrictMode>,
+);
+```
+
+## 4. इंफ्रास्ट्रक्चर और नोड ऑपरेशन
+
+Mezo नोड सेट अप करने और चलाने के लिए Validator Kit मुख्य संसाधन है: [mezo-org/validator-kit](https://github.com/mezo-org/validator-kit)।
+
+### 4.1 नोड हार्डवेयर आवश्यकताएं
+
+अलग-अलग तरह के Mezo नोड चलाने के लिए न्यूनतम अनुशंसित हार्डवेयर स्पेसिफ़िकेशन नीचे दिए गए हैं:
+
+| नोड का प्रकार | vCPU | RAM | डिस्क |
+| --- | --- | --- | --- |
+| वैलिडेटर | 4 | 16 GB | 256 GB |
+| RPC | 8 | 32 GB | 512 GB |
+| सीड | 2 | 8 GB | 128 GB |
+
+### 4.2 डिप्लॉयमेंट के विकल्प
+
+Validator Kit डिप्लॉयमेंट के कई तरीकों को सपोर्ट करता है, जो ऑपरेशन की अलग-अलग जटिलता के हिसाब से हैं:
+
+<Steps>
+1. Docker: Docker Compose के साथ सबसे आसान सेटअप के लिए अनुशंसित।
+
+2. नेटिव: `mezod` बाइनरी को सीधे चलाना।
+
+3. Helm: Kubernetes क्लस्टर पर डिप्लॉयमेंट के लिए।
+
+4. मैनुअल: पूरे मैनुअल कंट्रोल के लिए स्टेप-बाय-स्टेप गाइड।
+</Steps>
+
+### 4.3 वैलिडेटर ऑनबोर्डिंग (Proof of Authority)
+
+कंसेंसस में भाग लेने के लिए Mezo वैलिडेटर को Proof of Authority (PoA) के लिए आवेदन करना होगा।
+
+- आवेदन कमांड: नोड सेट अप हो जाने के बाद, `mezod` CLI से अपना आवेदन सबमिट करें:
+
+```bash
+mezod --home=<mezod_home_path> --rpc-url <rpc_url> poa submit-application <key_name>
+```
+
+## 5. मेननेट नेटवर्क विवरण
+
+प्रोडक्शन डिप्लॉयमेंट के लिए, नीचे दिए गए मेननेट विवरण इस्तेमाल करें। ज़्यादा रेट लिमिट और स्थिरता के लिए किसी डेडिकेटेड RPC प्रोवाइडर का इस्तेमाल करने की सलाह दी जाती है।
+
+| पैरामीटर | मान |
+| --- | --- |
+| नेटवर्क का नाम | Mezo Mainnet |
+| Chain ID | `31612` |
+| नेटिव करेंसी | BTC |
+| डेसिमल | 18 |
+| ब्लॉक एक्सप्लोरर | [explorer.mezo.org](https://explorer.mezo.org/) |
+
+### 5.1 अनुशंसित RPC प्रोवाइडर
+
+| प्रोवाइडर | HTTPS एंडपॉइंट | WSS एंडपॉइंट | नोट्स |
+| --- | --- | --- | --- |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
+| Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
+| Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
+| dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
+
+Hardhat और Foundry के पूरे मेननेट कॉन्फ़िगरेशन के लिए, [डेवलपर एनवायरनमेंट सेट अप करें](/docs/in/docs/developers/getting-started/configure-environment) देखें।
