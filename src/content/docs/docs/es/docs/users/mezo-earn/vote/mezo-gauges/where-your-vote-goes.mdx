@@ -1,0 +1,90 @@
+---
+title: Adónde va tu voto
+description: >-
+  Cómo el peso de voto de veMEZO se convierte en incentivos en pools de Curve,
+  Uniswap y Aero
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Cada MEZO Gauge recibe una parte de las emisiones de los gauges sin staking igual a su parte de los votos de veMEZO emitidos en los MEZO Gauges durante esa época.
+
+Si en total se emiten 1,000,000 votos de veMEZO en todos los MEZO Gauges y 300,000 van a un gauge, ese gauge se lleva el 30% del MEZO dirigible de la época. El resto de esta página usa USDC/MUSD como ejemplo. El mismo reparto se aplica a todos los MEZO Gauges.
+
+---
+
+## Curve y Uniswap mediante Merkl
+
+Curve USDT/USDC/MUSD y Uniswap USDC/MUSD se incentivan a través de [Merkl](https://merkl.xyz), el mismo mecanismo que Mezo ya usa para estos pools, que ahora tienen cada uno un MEZO Gauge.
+
+<Steps>
+1. **Se cierra la época N.** Se cuentan los votos y se fija la asignación de MEZO de cada gauge.
+2. **La asignación se publica en Merkl** como una campaña en el pool de destino.
+3. **Los LP acumulan un importe reclamable** proporcional a su participación en el pool durante el periodo de la campaña. Se reclama en Merkl.
+</Steps>
+
+**Las recompensas llegan como veMEZO bloqueado durante 3 meses**, no como MEZO líquido. Esto coincide con la forma en que se incentivan estos pools actualmente, pero ahora son los votantes quienes deciden cuántas emisiones recibe cada pool.
+
+Consulta [Cómo reclamar incentivos](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) para ver la guía desde el lado de los LP.
+
+---
+
+## MEZO como incentivos en Aero
+
+Los pools de Aero funcionan de otra manera, porque Aero tiene su propio sistema de recompensas. Los titulares de sAERO asignan a pools, y esas asignaciones dirigen las **AERO Rewards** a los depósitos de cada pool que ganan AERO. sAERO reemplazó a veAERO cuando Aerodrome se convirtió en Aero.
+
+Tomemos USDC/MUSD como ejemplo. El MEZO no va directamente a los LP de Aero. Se publica en ese pool como **programa de incentivos**, y sus pagos, que Aero llama Liquidity Payments, van a los titulares de sAERO que asignan al pool.
+
+Esas asignaciones son las que dirigen las AERO Rewards al pool. El MEZO compra AERO Rewards para el pool, y es el AERO lo que llega a los LP. El mismo recorrido se aplica a MEZO/MUSD en Aero.
+
+En cuanto a la mecánica, el MEZO se reclama en Mezo, se transfiere a Base mediante un puente y un contrato asignador lo publica en el pool. Esto se ejecuta automáticamente en cada época.
+
+:::caution[Reconexión tras la actualización a Aero]
+Los antiguos gauges de Aerodrome dejaron de funcionar cuando Aero se lanzó el 22 de octubre de 2026. Mezo está conectando el asignador con los nuevos gauges de Aero. Hasta que termine, el MEZO dirigido a los gauges de Base se queda en Mezo y no se transfiere mediante el puente.
+:::
+
+### Tiempos en Aero
+
+Aero no tiene votación semanal. Los titulares de sAERO asignan de forma continua, y cada cambio surte efecto en cuanto se hace. Cada posición de sAERO puede cambiar su asignación una vez cada 47 horas, el ajuste con el que se lanzó Aero. Los incentivos se distribuyen de forma continua a los titulares de sAERO que asignan al pool, y las AERO Rewards, a los depósitos del pool que ganan AERO. Ninguno de los dos espera a un cambio de época.
+
+El paso semanal está del lado de Mezo:
+
+| Época | Qué sucede |
+|---|---|
+| **N** | Votas en Mezo. La época se cierra y la asignación queda fijada. |
+| **N+1** | El MEZO se transfiere a Base mediante el puente y se publica en el pool como un programa de incentivos de una semana, a más tardar en la **Distribution date** que se muestra en la página Vote. |
+| **La semana siguiente** | El programa distribuye el MEZO de forma continua a los titulares de sAERO que asignan al pool. |
+
+El MEZO que se distribuye mientras no hay sAERO asignado al pool no se paga. El asignador puede recuperarlo cuando termina el programa y volver a publicarlo en un programa posterior.
+
+---
+
+## Cómo capturar el valor que diriges
+
+Dirigir emisiones es influencia, no rendimiento. El MEZO que envías a un pool de destino va a los participantes de ese pool: quienes reclaman en Merkl en Curve y Uniswap, y los titulares de sAERO en Aero. No vuelve a ti como votante de un MEZO Gauge.
+
+Lo que ganas directamente como votante es tu parte de los **incentivos publicados en el propio MEZO Gauge**, en proporción a tu participación en los votos de ese gauge.
+
+Para capturar las emisiones en sí, tienes que estar en ambos lados del ciclo. En Aero, usando USDC/MUSD como ejemplo:
+
+<Steps>
+1. **Aporta liquidez** al pool en Aero y elige **AERO rewards** para el depósito.
+2. **Vota** por el MEZO Gauge de ese pool en Mezo, con veMEZO.
+3. **Asigna** sAERO al mismo pool en Aero.
+4. **Reclama** las AERO Rewards de la posición de LP y el incentivo en MEZO de la asignación de sAERO.
+</Steps>
+
+En Curve y Uniswap el ciclo es más corto: aporta liquidez al pool, vota por su MEZO Gauge y reclama la campaña en Merkl como LP.
+
+:::note
+Completar todo el ciclo es opcional. Muchos titulares de veMEZO votarán simplemente para reforzar la liquidez de MUSD y para ganar los incentivos publicados en el gauge.
+:::
+
+---
+
+## Próximos pasos
+
+- [Cómo reclamar incentivos](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives): reclama en Merkl o en Aero
+- [Cómo votar en MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote): la guía paso a paso
+- [Descripción general de MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges): pools elegibles y financiación

@@ -1,0 +1,61 @@
+---
+title: Cómo pedir prestado y acuñar MUSD
+description: Guía paso a paso para pedir prestado con tu BTC como colateral y acuñar MUSD.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+[MUSD](https://mezo.org/feature/musd) está disponible en Mezo Mainnet y también se puede probar en Mezo Testnet. Esta guía te muestra cómo completar el proceso de préstamo usando Mezo Testnet como ejemplo o como forma de pedir prestado y acuñar MUSD con fines de desarrollo. Después, ve a la [Mezo App](https://mezo.org/) e inicia sesión en Mainnet para pedir prestado y acuñar MUSD real.
+
+<YouTube id="wot3-SR-25E" title="Cómo abrir un préstamo respaldado por Bitcoin en Mezo" />
+
+:::note
+El tamaño mínimo de un préstamo es de **1,800 MUSD** de deuda solicitada. Con el depósito de gas de 200 MUSD, tu deuda total al abrir el préstamo es de al menos 2,000 MUSD. Se trata de una cantidad mínima *a pedir prestada*, no de un mínimo de colateral: el colateral que necesitas depende del ratio de colateralización que quieras tener.
+:::
+
+## Antes de empezar
+
+Antes de poder obtener MUSD de testnet, debes completar los siguientes pasos:
+
+- Ve a [testnet.mezo.org](https://testnet.mezo.org/) y haz clic en **Sign in** para conectarte a tu cuenta de Mezo.
+- Conecta una billetera de Ethereum a Mezo Testnet. Consulta la guía [Conectarse a Mezo Testnet](/docs/es/docs/users/getting-started/connect/) para ver las instrucciones.
+- Obtén BTC de testnet en Testnet. Puedes solicitar BTC de testnet en [Discord](https://discord.com/invite/mezo).
+- Añade el token MUSD a tu billetera. Puedes añadirlo desde la interfaz del Mezo Explorer. Haz clic en el botón **Add token to MetaMask** junto a la dirección del token MUSD:
+    - Mainnet: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+    - Testnet: [0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
+
+## Pedir prestado y acuñar
+
+:::tip[Testnet frente a Mainnet]
+Esta guía recorre el flujo de **Testnet**, por lo que todos los enlaces siguientes apuntan a `testnet.mezo.org`. Cuando quieras pedir prestado y acuñar MUSD real, ve a [mezo.org/feature/borrow](https://mezo.org/feature/borrow) en **Mainnet**.
+:::
+
+Después de iniciar sesión en [testnet.mezo.org](https://testnet.mezo.org/) con una cuenta que tenga BTC de testnet, puedes pedir prestado MUSD.
+
+<Steps>
+1. En tu navegador, abre [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow).
+2. Haz clic en el botón **Let's Go** para iniciar el proceso de préstamo.
+3. Indica la cantidad de MUSD que quieres pedir prestada y la cantidad de BTC que quieres usar como colateral.
+4. Haz clic en **Review** para abrir el resumen antes de confirmar.
+5. Revisa los detalles del resumen para comprobar que la información es la esperada.
+6. Asegúrate de que la billetera de tu navegador esté configurada en Mezo Testnet.
+7. Cuando estés listo para continuar con el proceso de [pedir prestado y acuñar](/docs/es/docs/users/borrow/mint-musd), haz clic en **Confirm**. Tu billetera del navegador te pedirá que confirmes la transacción y pagues las comisiones de gas con BTC en Testnet.
+</Steps>
+
+Cuando el proceso termine, puedes consultar el estado del préstamo en [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow) (o en [mezo.org/feature/borrow](https://mezo.org/feature/borrow) si estás en Mainnet).
+
+## Comprende las condiciones del préstamo
+
+Mezo ofrece una tasa de interés fija y baja para los préstamos en MUSD. Las tasas iniciales van del 1-5%. En Mezo no hay una fecha de reembolso obligatoria, así que puedes mantener tu posición abierta todo el tiempo que quieras, siempre que tu colateral siga siendo suficiente.
+
+Aunque no hay un calendario de reembolso fijo, debes vigilar el riesgo de liquidación si baja el valor de tu colateral (BTC).
+
+El interés se acumula sobre la cantidad prestada (el MUSD acuñado), así que ten en cuenta cómo crece tu deuda con el tiempo. Cuando quieras cerrar tu posición, necesitarás suficiente MUSD para cubrir el principal más los intereses o comisiones acumulados.
+
+## Gestiona tu préstamo
+
+Cuando tengas un préstamo activo, puedes gestionarlo desde la Mezo App. Mira este video para aprender a ajustar tu colateral, reembolsar tu préstamo o cerrar tu posición.
+
+<YouTube id="RBKC1XfAEHw" title="Cómo gestionar tu préstamo" />

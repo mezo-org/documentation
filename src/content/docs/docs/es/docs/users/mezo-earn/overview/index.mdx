@@ -1,0 +1,164 @@
+---
+title: Descripción general de Mezo Earn
+description: >-
+  Descripción general de Mezo Earn, las fuentes de rendimiento y los conceptos
+  clave
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Mezo Earn es el motor económico que impulsa la red Mezo. Permite a los titulares de bitcoin obtener rendimiento con su BTC mientras participan en decisiones de gobernanza que determinan cómo la red asigna recursos y recompensas.
+
+Al bloquear BTC en el sistema, los usuarios obtienen poder de voto, ganan ingresos pasivos por la actividad de la red y ayudan a dirigir la liquidez en todo el ecosistema de Mezo.
+
+[Descarga el whitepaper de Mezo Earn (PDF)](/docs/Mezo_Earn_Whitepaper.pdf)
+
+<YouTube id="6rthu_iub7E" title="Descripción general de Mezo Earn" />
+
+![Descripción general de Mezo Earn](/docs/images/mezo-token/EARN%20Chart%2012.png)
+
+---
+
+## ¿De dónde viene el rendimiento?
+
+Mezo Earn genera rendimiento a partir de actividad económica real en la red. Hay tres fuentes principales:
+
+### 1. Comisiones de swap
+
+Cuando los usuarios intercambian activos en el DEX de Mezo, cada swap genera una comisión. Estas comisiones se acumulan en los pools de liquidez y se distribuyen entre los participantes que votan por esos pools.
+
+### 2. Ingresos por préstamos de MUSD
+
+Mezo permite a los usuarios pedir prestado MUSD (una stablecoin respaldada por bitcoin) usando su BTC como colateral. Los intereses, las comisiones de originación y las comisiones de refinanciación que generan estos préstamos vuelven al sistema y se distribuyen entre los participantes activos.
+
+### 3. Comisiones de puente y de transacción
+
+Trasladar activos a Mezo, ejecutar transacciones y otras actividades onchain generan comisiones. Estas comisiones se distribuyen directamente a los titulares de veBTC como rendimiento pasivo, **sin necesidad de votar**.
+
+---
+
+## El modelo de dos tokens
+
+Mezo Earn funciona con un sistema de dos tokens que mantiene a Bitcoin en el centro de la gobernanza y usa MEZO para amplificar y dirigir la influencia.
+
+![El modelo de dos tokens](/docs/images/mezo-token/EARN%20Chart%207.png)
+
+### veBTC: el ancla
+
+veBTC (BTC en custodia de voto, vote-escrowed BTC) es la base del poder de voto. Cuando bloqueas BTC, recibes un NFT veBTC que otorga:
+
+- Peso de voto base (multiplicador de 1x)
+- Rendimiento pasivo procedente de las comisiones de puente y de la cadena
+- El derecho a votar por gauges y dirigir las emisiones
+
+**Parámetros:**
+- Bloqueo máximo: 28 días
+- Bloqueo mínimo: 1 día
+- Decaimiento: lineal (el peso de voto disminuye a medida que el bloqueo se acerca a su vencimiento)
+
+### veMEZO: el boost
+
+veMEZO (MEZO en custodia de voto, vote-escrowed MEZO) amplifica el poder de voto de veBTC, pero no tiene peso de gobernanza independiente. Bloquear MEZO como veMEZO te permite:
+
+- Aplicar un boost a las posiciones de veBTC de hasta 5x su peso base
+- Ganar incentivos dirigiendo votos a los gauges de veBTC
+- Recibir distribuciones de rebase que protegen contra la dilución
+
+**Parámetros:**
+- Bloqueo máximo: 4 años
+- Bloqueo mínimo: 1 semana
+- Decaimiento: lineal
+
+**Principio clave:** MEZO no puede generar poder de gobernanza independiente. Solo amplifica el peso del Bitcoin bloqueado.
+
+---
+
+## Conceptos clave
+
+### Peso con boost
+
+Cuando veBTC y veMEZO se emparejan, crean un "peso con boost" combinado que determina tu parte de las comisiones y tu influencia sobre las emisiones. El boost depende de tu participación relativa en el total de veBTC y de veMEZO del sistema.
+
+- Una posición de veBTC sin veMEZO funciona a 1x (peso base)
+- Añadir veMEZO puede aumentarlo hasta un máximo de 5x
+- Las posiciones de BTC más grandes necesitan proporcionalmente más MEZO para alcanzar el boost máximo
+
+### Épocas
+
+Mezo Earn funciona en un ciclo de 7 días llamado **época**. Cada época comienza el jueves a las 00:00 UTC.
+
+**Qué ocurre en cada época:**
+
+- Los votos emitidos en la época N determinan la asignación de emisiones de la época N+1
+- Las comisiones generadas en la época N se distribuyen según los votos emitidos en la época N
+- La duración de los bloqueos se alinea con los límites de las épocas (siempre redondeada hacia abajo a semanas completas)
+
+Esta estructura permite a quienes votan observar la generación de comisiones antes de decidir dónde asignar sus votos para el período siguiente.
+
+### Gauges
+
+Los gauges son contratos inteligentes que reciben y distribuyen valor económico según los votos. Piensa en ellos como destinos de tu poder de voto: cuantos más votos recibe un gauge, mayor es su parte de las recompensas.
+
+**Tipos de gauges:**
+
+| Tipo de gauge | Qué hace |
+| --- | --- |
+| **Gauges de staking** | Asociados a pools de liquidez del DEX o a la bóveda de ahorro de MUSD. Quienes hacen staking ganan emisiones de MEZO; quienes votan ganan comisiones. |
+| **Gauges de validadores** | Dirigen recompensas a los validadores de la red que protegen la cadena. |
+| **Gauges del ecosistema** | Apoyan a protocolos asociados y el desarrollo del ecosistema. |
+| **Gauges de boost de veBTC** | Cada NFT veBTC tiene su propio gauge, en el que los titulares de veMEZO pueden votar para aportar boost. |
+
+---
+
+## El mercado de emparejamiento
+
+Mezo Earn crea un mercado explícito entre los titulares de BTC y de MEZO a través del mecanismo de boost.
+
+![El mercado de emparejamiento](/docs/images/mezo-token/EARN%20Chart%205.png)
+
+**Cómo funciona:**
+
+1. Cuando bloqueas BTC, el sistema crea un gauge de boost dedicado para tu posición de veBTC
+2. Los titulares de veMEZO pueden votar en tu gauge para aportar boost
+3. A cambio, puedes publicar incentivos en tu gauge para atraer votos de veMEZO
+4. El boost surte efecto después de que una transacción de "poke" actualice tu posición
+
+Esto convierte el boost en un servicio negociable. Los titulares de BTC que quieren multiplicadores más altos pueden adquirir MEZO ellos mismos o pagar incentivos para atraer votos de veMEZO. Los titulares de MEZO pueden obtener rendimiento dirigiendo sus votos a gauges con incentivos atractivos.
+
+---
+
+## Cómo fluyen las recompensas
+
+**Rendimiento pasivo:** todos los titulares de veBTC reciben una parte de las comisiones de puente y de la cadena proporcional a su peso de voto con boost, sin necesidad de hacer nada más que bloquear.
+
+**Rendimiento activo:** al votar por gauges específicos, puedes ganar comisiones e incentivos adicionales de los pools y protocolos que apoyas.
+
+**Rendimiento de veMEZO:** los titulares de veMEZO ganan los incentivos publicados en los gauges de veBTC por los que votan, además de distribuciones de rebase que protegen contra la dilución.
+
+---
+
+## Primeros pasos
+
+<Steps>
+1. **Bloquea BTC** → recibe un NFT veBTC con poder de voto base
+2. **Vota por gauges** → dirige hacia dónde fluyen las emisiones y gana comisiones
+3. **Reclama recompensas** → obtén comisiones e incentivos en cada época
+4. **(Opcional) Bloquea MEZO** → crea veMEZO para aplicar un boost a tu veBTC o para ganar votando en los gauges de boost de otros
+5. **Extiende o gestiona tus bloqueos** → mantén tu poder de voto a lo largo del tiempo
+</Steps>
+
+---
+
+## Referencia rápida
+
+| Parámetro | Valor |
+| --- | --- |
+| Duración de la época | 7 días |
+| Inicio de la época | Jueves 00:00 UTC |
+| Bloqueo máximo de BTC | 28 días |
+| Bloqueo mínimo de BTC | 1 día |
+| Bloqueo máximo de MEZO | 4 años |
+| Bloqueo mínimo de MEZO | 1 semana |
+| Multiplicador de boost máximo | 5x |

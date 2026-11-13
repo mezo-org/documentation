@@ -1,0 +1,94 @@
+---
+title: Mecanismo de boost
+description: >-
+  Cómo veMEZO potencia hasta 5x el poder de voto de veBTC a través del mercado
+  de emparejamiento
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+veMEZO potencia hasta 5x tu poder de voto de veBTC. Esta página explica cómo funciona la fórmula del boost y cómo el mercado de emparejamiento empareja a los titulares de veBTC y de veMEZO.
+
+## Cómo funciona el boost
+
+Tu peso de voto con boost combina tu veBTC con cualquier veMEZO asignado a tu posición:
+
+$$
+\text{Boosted Weight} = |\text{veBTC}| \times \min(5, \; 1 + \text{Boost})
+$$
+
+Donde el término Boost es:
+
+$$
+\text{Boost} = 4 \times \frac{|\text{veBTC}|_{\text{total}}}{|\text{veBTC}|} \times \frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}}
+$$
+
+### Propiedades clave
+
+- **Multiplicador mínimo: 1x**: una posición de veBTC sin votos de veMEZO funciona con el peso base
+- **Multiplicador máximo: 5x**: ninguna combinación de tenencias puede superar 5x
+- **Relativo, no absoluto**: tu boost depende de tu participación en el total de veBTC y en el total de veMEZO, no de las cantidades brutas
+
+---
+
+## Entender la fórmula
+
+La fórmula del boost tiene implicaciones importantes:
+
+**Las posiciones de veBTC más grandes necesitan más veMEZO.** La fórmula contiene |veBTC|_total / |veBTC| en el numerador. A medida que crece tu participación en veBTC, este ratio se reduce, por lo que necesitas proporcionalmente más veMEZO para mantener el mismo nivel de boost.
+
+**Alcanzas el boost máximo cuando tus participaciones coinciden.** Un participante llega al tope de 5x cuando su participación en veMEZO es igual o superior a su participación en veBTC:
+
+$$
+\frac{|\text{veMEZO}|}{|\text{veMEZO}|_{\text{total}}} \geq \frac{|\text{veBTC}|}{|\text{veBTC}|_{\text{total}}}
+$$
+
+:::note[Ejemplo]
+Si tienes el 1% de todo el veBTC, necesitas al menos el 1% de todo el veMEZO para alcanzar el multiplicador máximo de 5x.
+:::
+
+---
+
+## El mercado de emparejamiento
+
+Cada NFT veBTC tiene su propio gauge de boost de veBTC. Los titulares de veMEZO votan en estos gauges para asignar boost.
+
+### Cómo funciona
+
+1. **El titular de veBTC crea una posición**: se acuña un NFT veBTC con un gauge de boost asociado
+2. **Los titulares de veMEZO votan**: asignan peso de veMEZO a los gauges de veBTC
+3. **El boost se calcula y se aplica**: el boost de la posición de veBTC depende del total de votos de veMEZO que recibe. El asistente por pasos Pair & Boost de la dApp se encarga de actualizar el poder de voto del veBTC y de refrescar automáticamente los votos existentes.
+
+### Por qué esto crea un mercado
+
+**Los usuarios con mucho BTC** pueden atraer boost publicando incentivos en su gauge de veBTC. Si el rendimiento de los incentivos por unidad de veMEZO es atractivo, los titulares de veMEZO votarán por ese gauge.
+
+**Los usuarios con mucho MEZO** ganan votando en gauges de veBTC bien incentivados, aunque ellos mismos tengan poco BTC.
+
+El mercado de emparejamiento pone precio al boost como un servicio negociable y sin permisos.
+
+---
+
+## Boost sin tener MEZO
+
+No necesitas tener MEZO para beneficiarte del boost. Si publicas incentivos atractivos en tu gauge de veBTC, otros titulares de veMEZO pueden votar por él, lo que le da a tu posición un multiplicador sin que bloquees nada de MEZO.
+
+Por otro lado, una posición de veBTC sin votos de veMEZO igualmente:
+
+- Conserva todo su peso de voto base (multiplicador de 1x)
+- Gana comisiones pasivas de puente
+- Puede votar por gauges para ganar comisiones y emisiones
+
+El boost mejora los rendimientos, pero no es necesario para participar.
+
+---
+
+## Resumen
+
+| Escenario | Multiplicador | Notas |
+|---|---|---|
+| Solo veBTC, sin votos de veMEZO | 1x | Peso base; sigue ganando comisiones |
+| veBTC + algunos votos de veMEZO | 1x–5x | El multiplicador aumenta con la participación en veMEZO |
+| veBTC + participación proporcional en veMEZO | 5x | Se alcanza el boost máximo |
+| Solo veMEZO, sin veBTC | — | No vota en gauges de staking; puede votar en gauges de boost y en [MEZO Gauges](/docs/es/docs/users/mezo-earn/vote/mezo-gauges), y gana rebases |
