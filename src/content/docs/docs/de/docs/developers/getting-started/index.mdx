@@ -1,0 +1,203 @@
+---
+title: Erste Schritte für Entwickler
+description: >-
+  Schritt-für-Schritt-Einstieg für Entwickler, die auf der Bitcoin-zentrierten
+  Plattform Mezo entwickeln.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 1. Einführung in Mezo
+
+Mezo wurde entwickelt, um Bitcoin von einem passiven Wertspeicher in einen produktiven, dynamischen Finanzwert zu verwandeln. Indem Mezo die Sicherheit von Bitcoin mit der Flexibilität einer modernen Blockchain verbindet, bietet es eine robuste Plattform für dezentrale Anwendungen (dApps), die der riesigen, bislang unterversorgten Bitcoin-Community dienen.
+
+### 1.1 Kernarchitektur
+
+Die Mezo-Chain basiert auf einer hybriden Architektur, die auf maximale Zugänglichkeit für Entwickler und hohe Performance ausgelegt ist.
+
+- EVM-Kompatibilität: Mezo ist eine vollständig EVM-kompatible Blockchain. Solidity-Entwickler können bestehende Smart Contracts deployen und vertraute Tools wie Hardhat und Foundry mit minimalen Codeänderungen verwenden.
+- Basis Cosmos SDK: Der Kern-Client `mezod` ist ein stark modifizierter Fork von Evmos, der mit dem Cosmos SDK gebaut ist und auf der Konsens-Engine CometBFT läuft. Das sorgt für Chain-Souveränität und hohen Durchsatz.
+- BTC als Gas: Alle Transaktionsgebühren auf Mezo werden in BTC bezahlt, was den Nutzen von Bitcoin als Transaktionsmittel stärkt.
+- Kern-Client: Die Referenzimplementierung des Clients für die Mezo-Chain ist `mezod`.
+
+## 2. Schnellstart: Zeit bis zur ersten Transaktion (TTFT)
+
+Dieser Abschnitt zeigt den schnellsten Weg, einen Contract zu deployen und mit dem Mezo Testnet zu interagieren.
+
+### 2.1 Netzwerkdetails (Testnet)
+
+Verwenden Sie die folgenden Testnet-Parameter, um Ihre Wallet (z. B. MetaMask, RainbowKit) oder Ihre Entwicklungsumgebung zu konfigurieren:
+
+| Parameter | Wert |
+| --- | --- |
+| Netzwerkname | Mezo Testnet |
+| RPC-Endpoint (HTTPS) | `https://rpc.test.mezo.org` |
+| RPC-Endpoint (WSS) | `wss://rpc-ws.test.mezo.org` |
+| Chain-ID | `31611` |
+| Native Währung | BTC |
+| Dezimalstellen | 18 |
+| Block-Explorer | [explorer.test.mezo.org](https://explorer.test.mezo.org/) |
+
+### 2.2 Testnet-BTC erhalten
+
+Um Gasgebühren im Testnet zu bezahlen, benötigen Sie Testnet-BTC.
+
+<Steps>
+1. Mezo Faucet: Beziehen Sie Testnet-BTC über den offiziellen [Mezo Faucet](https://faucet.test.mezo.org/).
+   - Hinweis: Der Faucet ist zum Schutz vor Missbrauch durch ein CAPTCHA gesichert.
+
+2. Wallet einrichten: Stellen Sie sicher, dass eine Browser-Wallet installiert ist, die Ethereum (EVM) unterstützt.
+</Steps>
+
+### 2.3 Umgebung einrichten (Beispiel mit Hardhat)
+
+Für Solidity-Entwickler ist Mezo vollständig mit Hardhat und Foundry kompatibel.
+
+Um Hardhat für das Mezo Testnet zu konfigurieren, passen Sie Ihre Datei `hardhat.config.js` (bzw. `.ts`) an:
+
+```javascript
+module.exports = {
+  defaultNetwork: "mezotestnet",
+  networks: {
+    mezotestnet: {
+      url: "https://rpc.test.mezo.org",
+      chainId: 31611,
+      accounts: ["YOUR_PRIVATE_WALLET_KEY"] // Use environment variables for security
+    }
+  },
+  solidity: {
+    version: "0.8.28",
+    settings: {
+      evmVersion: "london",
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
+};
+```
+
+## 3. Zentrale Entwicklungskomponenten
+
+### 3.1 Stablecoin MUSD
+
+MUSD ist der native, Bitcoin-besicherte Stablecoin des Mezo-Ökosystems. Entwickler können MUSD für Zahlungen, Liquidität und Finanzprodukte integrieren.
+
+- Repository: Die Smart Contracts und die dApp-Implementierung finden Sie im MUSD-Repository auf GitHub: [mezo-org/musd](https://github.com/mezo-org/musd).
+- Entwicklungsumgebung (pnpm):
+
+```bash
+pnpm install --frozen-lockfile
+cd solidity
+pnpm install --frozen-lockfile
+```
+
+- Contracts testen:
+
+```bash
+cd solidity
+pnpm test
+```
+
+- Deployment (Beispiel): Contracts lassen sich mit dem Befehl `pnpm run deploy` im Verzeichnis `solidity` deployen. Details finden Sie im Repository: [mezo-org/musd](https://github.com/mezo-org/musd).
+
+### 3.2 Integration von Mezo Passport (optional)
+
+Mezo Passport ist die offizielle Bibliothek zur Wallet-Verbindung auf Basis von RainbowKit. Sie ermöglicht eine nahtlose Verbindung sowohl mit nativen Bitcoin-Wallets (z. B. Xverse, Unisat) als auch mit Standard-EVM-Wallets (z. B. MetaMask). Die Integration ist optional und für die Entwicklung auf Mezo nicht erforderlich.
+
+Installation:
+
+```bash
+npm install @mezo-org/passport @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query
+```
+
+Konfiguration (React/TypeScript):
+
+Verwenden Sie die Methode `getConfig` aus `@mezo-org/passport`, um Ihren `WagmiProvider` zu konfigurieren.
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+// Note: We use the consistent 'mezoTestnet' chain name for clarity.
+import { getConfig, mezoTestnet } from "@mezo-org/passport";
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <WagmiProvider config={getConfig({ appName: "Your Mezo dApp" })}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider initialChain={mezoTestnet}>
+          {/* Your App component */}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  </React.StrictMode>,
+);
+```
+
+## 4. Infrastruktur und Node-Betrieb
+
+Das Validator Kit ist die zentrale Ressource zum Einrichten und Betreiben eines Mezo-Nodes: [mezo-org/validator-kit](https://github.com/mezo-org/validator-kit).
+
+### 4.1 Hardwareanforderungen für Nodes
+
+Im Folgenden finden Sie die empfohlenen Mindestanforderungen an die Hardware für den Betrieb der verschiedenen Mezo-Node-Typen:
+
+| Node-Typ | vCPU | RAM | Speicher |
+| --- | --- | --- | --- |
+| Validator | 4 | 16 GB | 256 GB |
+| RPC | 8 | 32 GB | 512 GB |
+| Seed | 2 | 8 GB | 128 GB |
+
+### 4.2 Deployment-Optionen
+
+Das Validator Kit unterstützt mehrere Deployment-Methoden für unterschiedliche betriebliche Anforderungen:
+
+<Steps>
+1. Docker: Empfohlen für die einfachste Einrichtung mit Docker Compose.
+
+2. Nativ: Direktes Ausführen der Binärdatei `mezod`.
+
+3. Helm: Für das Deployment auf Kubernetes-Clustern.
+
+4. Manuell: Schritt-für-Schritt-Anleitung für vollständige manuelle Kontrolle.
+</Steps>
+
+### 4.3 Onboarding von Validatoren (Proof of Authority)
+
+Mezo-Validatoren müssen sich für Proof of Authority (PoA) bewerben, um am Konsens teilzunehmen.
+
+- Befehl für die Bewerbung: Sobald Ihr Node eingerichtet ist, reichen Sie Ihre Bewerbung über die `mezod`-CLI ein:
+
+```bash
+mezod --home=<mezod_home_path> --rpc-url <rpc_url> poa submit-application <key_name>
+```
+
+## 5. Netzwerkdetails des Mainnet
+
+Verwenden Sie für produktive Deployments die folgenden Mainnet-Details. Für höhere Rate-Limits und mehr Stabilität empfiehlt sich ein dedizierter RPC-Anbieter.
+
+| Parameter | Wert |
+| --- | --- |
+| Netzwerkname | Mezo Mainnet |
+| Chain-ID | `31612` |
+| Native Währung | BTC |
+| Dezimalstellen | 18 |
+| Block-Explorer | [explorer.mezo.org](https://explorer.mezo.org/) |
+
+### 5.1 Empfohlene RPC-Anbieter
+
+| Anbieter | HTTPS-Endpoint | WSS-Endpoint | Hinweise |
+| --- | --- | --- | --- |
+| Boar | `https://mezo-mainnet.boar.network` | `wss://mezo-mainnet.boar.network` |
+| Imperator | `https://rpc_evm-mezo.imperator.co` | `wss://ws_evm-mezo.imperator.co` |
+| Validation Cloud | `https://mainnet.mezo.public.validationcloud.io` | `wss://mainnet.mezo.public.validationcloud.io` |
+| dRPC NodeCloud | `https://mezo.drpc.org` | `wss://mezo.drpc.org` |
+
+Die vollständige Mainnet-Konfiguration für Hardhat und Foundry finden Sie unter [Entwicklungsumgebung einrichten](/docs/de/docs/developers/getting-started/configure-environment).

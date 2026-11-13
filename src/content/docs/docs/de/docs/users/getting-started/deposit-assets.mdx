@@ -1,0 +1,42 @@
+---
+title: So zahlen Sie Vermögenswerte bei Mezo ein
+description: >-
+  Anleitung zum Einzahlen Ihrer Vermögenswerte bei Mezo für selbstbestimmtes
+  Bitcoin-Banking
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+Sie können tBTC und andere unterstützte ERC-20-Token mit einer EVM-Wallet von Ethereum in das Mezo Mainnet einzahlen.
+
+:::caution[Der Native BTC Bridge-in wurde eingestellt]
+Seit dem 13. Oktober 2026 ist der Native BTC Bridge-in geschlossen, und die Mezo App nimmt keine Einzahlungen aus Bitcoin-Wallets (UniSat, OKX, Xverse) mehr an. Abhebungen direkt zu BTC (Bridge-out) bleiben verfügbar. Um BTC zu Mezo zu bringen, zahlen Sie stattdessen tBTC von Ethereum ein. Die Einzahlung wird innerhalb weniger Minuten abgewickelt, und es gibt keinen Mindestbetrag.
+
+Wenn Sie BTC in einer Bitcoin-Wallet halten, erstellen Sie ein Mezo-Konto mit einer EVM-Wallet und verwalten Sie Ihre Einzahlungen von dort aus. Wenn Ihr Mezo-Konto bereits eine Bitcoin-Wallet verwendet, können Sie Ihre Vermögenswerte auf Mezo behalten, indem Sie sie an eine EVM-Wallet übertragen: Rufen Sie in der Mezo App **Transact > Send** auf und geben Sie die `0x…`-Adresse Ihrer EVM-Wallet ein (siehe [Vermögenswerte senden](/docs/de/docs/users/passport/send-assets)). Außerdem können Sie weiterhin direkt zu BTC bridgen. Siehe [Abhebungen](/docs/de/docs/users/mainnet/bridges#abhebungen).
+:::
+
+<YouTube id="DinlFeUZB3U" title="So zahlen Sie bei Mezo ein" />
+
+## Bevor Sie beginnen
+
+- Melden Sie sich mit einer EVM-Wallet wie MetaMask an. Bitcoin-Wallets können nicht bei Mezo einzahlen.
+- Prüfen Sie, welche Vermögenswerte unterstützt werden. Die Token-Adressen dafür können Sie auf der Seite [Contract-Referenz](/docs/de/docs/users/resources/contracts-reference#token-contracts) überprüfen.
+- Alle Transaktionen im Mezo Mainnet werden in BTC bezahlt. Von Ethereum eingezahlte tBTC kommen auf Mezo als BTC an. Daher empfiehlt es sich, Ihr Konto mit tBTC aufzuladen, damit Sie über Gas zum Bezahlen von Transaktionen verfügen. Wenn Sie auf Mezo nur MUSD oder MEZO halten, nutzen Sie [Get Gas](/docs/de/docs/users/getting-started/get-gas).
+
+## Vermögenswerte einzahlen
+
+<Steps>
+1. Rufen Sie die [Mezo App](https://mezo.org/overview) auf und melden Sie sich mit einer EVM-Wallet an.
+
+2. Klicken Sie auf **Deposit**. Das Einzahlungsformular öffnet sich, und tBTC ist bereits ausgewählt.
+
+3. Wählen Sie den Vermögenswert aus, den Sie bridgen möchten, und geben Sie den Betrag an.
+
+4. Klicken Sie auf **Review** und prüfen Sie die Details der Übertragung.
+
+5. Wenn die Transaktion in Ordnung ist, bestätigen Sie sie in Ihrer Wallet. Wenn Sie diesen Token zum ersten Mal einzahlen, fordert Ihre Wallet Sie zunächst auf, ihn freizugeben.
+</Steps>
+
+Nach Abschluss der Transaktion beginnt der Bridging-Prozess. Es kann einige Minuten dauern, bis der Vorgang abgeschlossen ist und Sie Ihre Vermögenswerte im Mainnet erhalten.

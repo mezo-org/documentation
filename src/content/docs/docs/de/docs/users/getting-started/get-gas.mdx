@@ -1,0 +1,74 @@
+---
+title: Gaslose Swaps
+description: >-
+  Erfahren Sie, wie Sie mit der Funktion „Get Gas“ eine kleine Menge MUSD oder
+  MEZO gegen BTC für Gas tauschen, wenn Ihr Guthaben niedrig ist.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Mit der Funktion **Get Gas** erhalten Sie eine kleine Menge BTC, um Transaktionsgebühren (Gas) auf Mezo zu bezahlen – selbst wenn sich keine BTC in Ihrer Wallet befinden. Dazu wird ein **gasloser Swap** ausgeführt, bei dem eine kleine Menge MUSD oder MEZO gegen genau **0,0001 BTC** getauscht wird. Das reicht für mehrere Transaktionen im Netzwerk.
+
+Da der Swap gaslos ist (ermöglicht durch Meta-Transaktionen), benötigen Sie dafür keine vorhandenen BTC.
+
+## Wann wird die Schaltfläche angezeigt?
+
+Die Schaltfläche **„Get Gas“** erscheint in der Mezo App automatisch, sobald das BTC-Guthaben Ihrer Wallet unter **0,000001 BTC** fällt. So können Sie Gas jederzeit aufladen, ohne weitere BTC bridgen oder eine externe Börse nutzen zu müssen.
+
+## Unterstützte Token
+
+Für Get-Gas-Swaps werden die Token **MUSD** und **MEZO** unterstützt. Nutzer, die nur mit MEZO auf die Chain kommen, können also einen kostenlosen Swap in BTC für Gas erhalten, ohne zusätzliche Vermögenswerte bridgen zu müssen.
+
+## So erhalten Sie Gas
+
+<Steps>
+
+1. **Das Get-Gas-Fenster öffnen**
+
+   Wenn Ihr BTC-Guthaben niedrig ist, klicken Sie auf die Schaltfläche **„Get Gas“**, die in der App angezeigt wird.
+
+2. **Einen Token auswählen**
+
+   Wählen Sie MUSD oder MEZO als Quell-Token aus. Das Fenster zeigt die geschätzten Kosten für den Swap an.
+
+3. **Das Angebot prüfen**
+
+   Die App nennt den Betrag an MUSD oder MEZO, der nötig ist, um genau **0,0001 BTC** zu erhalten. Der Ausgabebetrag ist fest, sodass Sie unabhängig vom Token-Kurs immer eine vorhersehbare Menge Gas erhalten.
+
+4. **Den Swap bestätigen**
+
+   Klicken Sie auf **„Get Gas“**, um den Swap zu starten. Sie werden aufgefordert, in Ihrer Wallet zwei Nachrichten zu signieren:
+   - eine **Permit-Signatur** (Token-Freigabe)
+   - eine **Execute-Signatur** (Autorisierung des Swaps)
+
+   Für diese Signaturen fallen keine Gasgebühren an.
+
+5. **Auf die Bestätigung warten**
+
+   Die App sendet Ihre Transaktion und fragt automatisch deren Bestätigung ab. Nach der Bestätigung sehen Sie einen Erfolgsbildschirm mit dem Transaktions-Hash.
+
+</Steps>
+
+## So funktioniert es
+
+Die Funktion „Get Gas“ verwendet **Meta-Transaktionen**, um den Swap auszuführen, ohne dass der Nutzer Gas benötigt:
+
+1. **Permit**: Sie signieren eine Offchain-Nachricht, die dem Relay erlaubt, den erforderlichen Betrag Ihres gewählten Tokens auszugeben.
+2. **Relay**: Ein Backend-Relay-Dienst sendet die Swap-Transaktion in Ihrem Namen und übernimmt die Gaskosten.
+3. **Swap**: Die Transaktion wird onchain ausgeführt und tauscht Ihren Token gegen **0,0001 BTC**, die direkt in Ihre Wallet eingezahlt werden.
+
+Dank dieses Designs können Sie immer Gas erhalten, solange Sie MUSD oder MEZO halten – für den Einstieg sind keine BTC nötig.
+
+## Wichtige Details
+
+| Detail | Wert |
+|---|---|
+| **Ausgabebetrag** | 0,0001 BTC (fest) |
+| **Berechtigte Token** | MUSD, MEZO |
+| **Benötigtes Gas** | Keines (gaslos über Meta-Transaktionen) |
+| **Auslöser** | BTC-Guthaben unter 0,000001 BTC |
+
+:::note
+Die Kosten in MUSD oder MEZO variieren je nach aktuellen Pool-Kursen. Das im Fenster angezeigte Angebot spiegelt den Echtzeitkurs zum Zeitpunkt des Swaps wider.
+:::

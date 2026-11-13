@@ -1,0 +1,90 @@
+---
+title: Wohin Ihre Stimme fließt
+description: >-
+  Wie aus veMEZO-Stimmgewicht Anreize für Pools auf Curve, Uniswap und Aero
+  werden
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Jeder MEZO Gauge erhält einen Anteil an den Emissionen der Non-Staking-Gauges, der seinem Anteil an den veMEZO-Stimmen entspricht, die in der jeweiligen Epoche auf MEZO Gauges abgegeben wurden.
+
+Wenn insgesamt 1.000.000 veMEZO auf alle MEZO Gauges abstimmen und 300.000 davon auf einen Gauge entfallen, erhält dieser Gauge 30 % der lenkbaren MEZO der Epoche. Der Rest dieser Seite verwendet USDC/MUSD als Beispiel. Dieselbe Aufteilung gilt für jeden MEZO Gauge.
+
+---
+
+## Curve und Uniswap über Merkl
+
+Curve USDT/USDC/MUSD und Uniswap USDC/MUSD werden über [Merkl](https://merkl.xyz) mit Anreizen (Incentives) versehen – denselben Mechanismus, den Mezo für diese Pools bereits nutzt, jetzt jeweils mit einem eigenen MEZO Gauge.
+
+<Steps>
+1. **Epoche N endet.** Die Stimmen werden ausgezählt und die MEZO-Zuteilung jedes Gauges steht fest.
+2. **Die Zuteilung wird auf Merkl veröffentlicht** – als Kampagne für den Ziel-Pool.
+3. **LPs erwerben einen Anspruch** proportional zu ihrem Anteil am Pool während des Kampagnenzeitraums. Beansprucht wird auf Merkl.
+</Steps>
+
+**Belohnungen werden als veMEZO mit einer Sperrdauer von 3 Monaten ausgezahlt**, nicht als frei verfügbare MEZO. Das entspricht der heutigen Art, wie diese Pools Anreize erhalten – nur entscheiden jetzt die Abstimmenden, wie viele Emissionen jeder Pool bekommt.
+
+Eine Anleitung aus LP-Sicht finden Sie unter [Anreize beanspruchen](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives).
+
+---
+
+## MEZO als Anreize auf Aero
+
+Aero-Pools funktionieren anders, weil Aero ein eigenes Belohnungssystem betreibt. sAERO-Inhaber teilen ihre sAERO einzelnen Pools zu, und diese Zuteilungen lenken **AERO Rewards** zu den Einzahlungen des jeweiligen Pools, die AERO verdienen. sAERO hat veAERO abgelöst, als aus Aerodrome Aero wurde.
+
+Nehmen wir USDC/MUSD als Beispiel. MEZO geht nicht direkt an Aero-LPs. Stattdessen wird es als **Anreizprogramm** auf diesem Pool hinterlegt, und dessen Zahlungen, die Aero als Liquidity Payments bezeichnet, gehen an die sAERO-Inhaber, die dem Pool sAERO zuteilen.
+
+Diese Zuteilungen lenken die AERO Rewards zum Pool. Mit den MEZO werden also AERO Rewards für den Pool eingekauft, und es sind die AERO, die bei den LPs ankommen. Derselbe Weg gilt für MEZO/MUSD auf Aero.
+
+Technisch werden die MEZO auf Mezo beansprucht, zu Base gebridgt und von einem Allocator-Contract auf dem Pool hinterlegt. Dies läuft in jeder Epoche automatisch ab.
+
+:::caution[Wiederanbindung nach dem Aero-Upgrade]
+Die alten Gauges von Aerodrome wurden abgeschaltet, als Aero am 22. Oktober 2026 startete. Mezo verbindet den Allocator derzeit mit den neuen Aero-Gauges. Bis das abgeschlossen ist, verbleiben MEZO, die an die Base-Gauges gelenkt werden, auf Mezo und werden nicht gebridgt.
+:::
+
+### Zeitlicher Ablauf auf Aero
+
+Aero hat keine wöchentliche Abstimmung. sAERO-Inhaber teilen fortlaufend zu, und eine Änderung wird wirksam, sobald sie vorgenommen wird. Jede sAERO-Position kann ihre Zuteilung einmal alle 47 Stunden ändern – das ist die Einstellung, mit der Aero gestartet ist. Anreize fließen laufend an die sAERO-Inhaber, die dem Pool sAERO zuteilen, und AERO Rewards fließen laufend an die Einzahlungen des Pools, die AERO verdienen. Beides wartet nicht auf einen Epochenwechsel.
+
+Der wöchentliche Schritt liegt auf der Seite von Mezo:
+
+| Epoche | Was passiert |
+|---|---|
+| **N** | Sie stimmen auf Mezo ab. Die Epoche endet und die Zuteilung steht fest. |
+| **N+1** | Die MEZO werden zu Base gebridgt und bis zu dem auf der Seite „Vote“ angezeigten **Distribution date** als einwöchiges Anreizprogramm auf dem Pool hinterlegt. |
+| **Die Woche darauf** | Das Programm schüttet die MEZO laufend an die sAERO-Inhaber aus, die dem Pool sAERO zuteilen. |
+
+MEZO, die ausgeschüttet werden, während dem Pool keine sAERO zugeteilt sind, werden nicht ausgezahlt. Der Allocator kann sie nach dem Ende des Programms zurückholen und in einem späteren Programm erneut hinterlegen.
+
+---
+
+## Den von Ihnen gelenkten Wert abschöpfen
+
+Emissionen zu lenken bedeutet Einfluss, nicht Rendite. Die MEZO, die Sie an einen Ziel-Pool senden, gehen an die Beteiligten dieses Pools – an die Anspruchsberechtigten auf Merkl bei Curve und Uniswap und an die sAERO-Inhaber auf Aero. Sie fließen nicht an Sie zurück, nur weil Sie auf einem MEZO Gauge abgestimmt haben.
+
+Was Sie durch Ihre Stimme direkt verdienen, ist Ihr Anteil an den **Anreizen, die auf dem MEZO Gauge selbst hinterlegt werden**, im Verhältnis zu Ihrem Anteil an den Stimmen dieses Gauges.
+
+Um die Emissionen selbst abzuschöpfen, müssen Sie auf beiden Seiten des Kreislaufs stehen. Auf Aero, am Beispiel USDC/MUSD:
+
+<Steps>
+1. **Liquidität bereitstellen:** Stellen Sie im Pool auf Aero Liquidität bereit und wählen Sie für die Einzahlung **AERO rewards**.
+2. **Abstimmen:** Stimmen Sie auf Mezo mit veMEZO für den MEZO Gauge dieses Pools ab.
+3. **Zuteilen:** Teilen Sie auf Aero demselben Pool sAERO zu.
+4. **Einsammeln:** Erhalten Sie AERO Rewards für die LP-Position und den MEZO-Anreiz für die sAERO-Zuteilung.
+</Steps>
+
+Bei Curve und Uniswap ist der Kreislauf kürzer: Stellen Sie Liquidität im Pool bereit, stimmen Sie für dessen MEZO Gauge ab und beanspruchen Sie die Kampagne als LP auf Merkl.
+
+:::note
+Den vollständigen Kreislauf zu durchlaufen ist optional. Viele veMEZO-Inhaber werden einfach abstimmen, um die MUSD-Liquidität zu stärken und die auf dem Gauge hinterlegten Anreize zu verdienen.
+:::
+
+---
+
+## Nächste Schritte
+
+- [Anreize beanspruchen](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/claiming-incentives) – auf Merkl oder Aero beanspruchen
+- [So stimmen Sie über MEZO Gauges ab](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/how-to-vote) – die Schritt-für-Schritt-Anleitung
+- [MEZO Gauges – Übersicht](/docs/de/docs/users/mezo-earn/vote/mezo-gauges) – berechtigte Pools und Finanzierung

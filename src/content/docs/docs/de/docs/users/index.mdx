@@ -1,9 +1,9 @@
 ---
 title: Benutzeranleitungen und Dokumentation
 description: >-
-  Offizielle Mezo-Dokumentation: Wallet-Einrichtung, Asset-Bridging,
-  MUSD-Leihanleitungen und Entwicklerressourcen. Ihr vollständiger Leitfaden zum
-  Selbstbanking.
+  Offizielle Mezo-Dokumentation: Wallet-Einrichtung, Bridging von
+  Vermögenswerten, Anleitungen zum Leihen von MUSD und Entwicklerressourcen. Ihr
+  umfassender Leitfaden, um Ihre eigene Bank zu sein.
 topic: users
 ---
 
@@ -11,7 +11,7 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 ## Erste Schritte
 
-Lernen Sie die Grundlagen des Einzahlens und [Leihens von Vermögenswerten](https://mezo.org/feature/borrow) in der Mezo App oder verbinden Sie sich mit dem Mezo Mainnet.
+Lernen Sie die Grundlagen zum Einzahlen und [Leihen von Vermögenswerten](https://mezo.org/feature/borrow) in der Mezo App kennen oder verbinden Sie sich mit dem Mezo Mainnet.
 
 <CardGrid>
   <LinkCard
@@ -22,18 +22,23 @@ Lernen Sie die Grundlagen des Einzahlens und [Leihens von Vermögenswerten](http
   <LinkCard
     title="Wallet verbinden"
     href="/docs/de/docs/users/getting-started/connect"
-    description="Verbinden Sie Ihre bestehende Wallet mit dem Mezo-Netzwerk."
+    description="Verbinden Sie Ihre bestehende Wallet mit Mezo."
   />
   <LinkCard
     title="Vermögenswerte einzahlen"
     href="/docs/de/docs/users/getting-started/deposit-assets"
     description="Bridgen Sie Ihre Vermögenswerte zu Mezo, um mit dem Verdienen und Leihen zu beginnen."
   />
+  <LinkCard
+    title="Vermögenswerte senden"
+    href="/docs/de/docs/users/passport/send-assets"
+    description="Senden Sie Vermögenswerte an andere Nutzer auf Mezo – per Wallet-Adresse, Bitcoin-Adresse oder Mezo ID."
+  />
 </CardGrid>
 
 ## Lernen
 
-Erfahren Sie mehr über das Mezo-Netzwerk, MUSD und wie sie Zugang zu Bitcoin-Eigenkapital bieten.
+Erfahren Sie mehr über das Mezo-Netzwerk, MUSD und darüber, wie beide Zugang zu Bitcoin-Kapital schaffen.
 
 <CardGrid>
   <LinkCard
@@ -42,38 +47,48 @@ Erfahren Sie mehr über das Mezo-Netzwerk, MUSD und wie sie Zugang zu Bitcoin-Ei
     description="Entdecken Sie die grundlegenden Gründe hinter dem Mezo-Netzwerk."
   />
   <LinkCard
-    title="Selbstbedienungs-Banking"
+    title="Selbstbestimmtes Banking"
     href="/docs/de/docs/users/introduction/mezo-self-service-banking"
-    description="Ein tiefer Einblick in Mezos Freibank-Wirtschaft für Bitcoiner."
+    description="Ein tiefer Einblick in die Free-Banking-Wirtschaft von Mezo für Bitcoiner."
   />
   <LinkCard
     title="Was ist MUSD?"
     href="/docs/de/docs/users/borrow"
-    description="Erfahren Sie mehr über Mezos nativen Bitcoin-besicherten Stablecoin."
+    description="Erfahren Sie mehr über den nativen, Bitcoin-besicherten Stablecoin von Mezo."
   />
 </CardGrid>
 
-## Leihen und Prägen
+## Bitcoin-Kredite
 
-Nutzen Sie Ihre Vermögenswerte, um die Kaufkraft Ihres Bitcoin freizusetzen.
+Nutzen Sie Ihre Vermögenswerte, um die Kaufkraft Ihrer Bitcoin freizusetzen.
 
 <CardGrid>
   <LinkCard
-    title="MUSD leihen und prägen"
+    title="MUSD leihen und minten"
     href="/docs/de/docs/users/borrow/mint-musd"
-    description="Nutzen Sie Ihre Vermögenswerte, um die Kaufkraft Ihres Bitcoin freizusetzen."
+    description="Nutzen Sie Ihre Vermögenswerte, um die Kaufkraft Ihrer Bitcoin freizusetzen."
   />
 </CardGrid>
 
 ## Integrationen
 
-Verbinden Sie sich mit Partnerplattformen, um Ihr Bitcoin-Erlebnis zu verbessern.
+Verbinden Sie sich mit Partnerplattformen, um mehr aus Ihren Bitcoin zu machen.
 
 <CardGrid>
   <LinkCard
-    title="Lolli-Integration"
+    title="Lolli"
     href="/docs/de/docs/users/integrations/lolli"
-    description="Verbinden Sie sich mit Partnerplattformen, um Ihr Bitcoin-Erlebnis zu verbessern."
+    description="Verbinden Sie sich mit Partnerplattformen, um mehr aus Ihren Bitcoin zu machen."
+  />
+  <LinkCard
+    title="Safe"
+    href="/docs/de/docs/users/integrations/safe"
+    description="Verwalten Sie gemeinsame Mittel auf Mezo mit Safe-Multisig-Wallets und deren Mehrfachsignatur-Sicherheit."
+  />
+  <LinkCard
+    title="Community-Projekte"
+    href="/docs/de/docs/users/integrations/community-projects"
+    description="Entdecken Sie Integrationen aus der Community, darunter Mezo Tools, Matchbox und Vezo."
   />
 </CardGrid>
 

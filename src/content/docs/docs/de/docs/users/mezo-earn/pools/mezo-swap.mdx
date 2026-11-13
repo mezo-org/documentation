@@ -1,0 +1,67 @@
+---
+title: Mezo Swap
+description: >-
+  Erfahren Sie mehr über Mezo Swap und wie Sie Vermögenswerte im Mezo-Ökosystem
+  handeln
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+# Übersicht
+
+[Mezo Swap](https://mezo.org/overview?modal=swap) ist die integrierte dezentrale Börse (DEX) des Mezo-Ökosystems. Damit können Nutzer nahtlos zwischen Vermögenswerten wie BTC, MUSD und USDC handeln – ohne Intermediäre, ohne Orderbücher und ohne die BitcoinFi-Ökonomie zu verlassen. Die Funktion basiert auf [Mezo Pools](/docs/de/docs/users/mezo-earn/pools) und ermöglicht sofortige, dezentrale Token-Swaps über Liquiditätsreserven auf Smart-Contract-Basis.
+
+<YouTube id="eRuWVR7R6Q0" title="So swappen Sie auf Mezo" />
+
+## Wichtigste Funktionen
+
+- **Erlaubnisfrei**: Swappen Sie rund um die Uhr (24/7) zwischen unterstützten Vermögenswerten, ohne auf Intermediäre oder Genehmigungen angewiesen zu sein.
+- **Geringer Slippage**: Stabile Pools (z. B. MUSD und USDC) verwenden eine spezielle Kurve, um den Preiseinfluss bei Trades zwischen gleichartigen Assets zu minimieren.
+- **Sofortige Liquidität**: Dank des Automated-Market-Maker-Modells (AMM) ist der Handel jederzeit möglich – ohne Orderbücher oder Market Maker.
+- **LP-Belohnungen**: Stellen Sie Pools Liquidität bereit und verdienen Sie einen Anteil an den Swap-Gebühren. LP-Token erfassen Ihre anteiligen Erträge.
+- **Onchain-Transparenz**: Jeder Swap, jede Gebühr und jede Liquiditätsposition wird onchain aufgezeichnet und ist für alle einsehbar.
+
+## Unterstützte Vermögenswerte
+
+Mezo Swap unterstützt derzeit Trades zwischen den folgenden Vermögenswerten. Diese Liste wird um weitere Token ergänzt, sobald sie hinzukommen:
+
+- BTC
+- MUSD
+- USDC
+- USDT
+
+## So funktioniert es
+
+### Preismechanismus
+
+Mezo Swap verwendet ein Automated-Market-Maker-Modell (AMM) mit zwei unterschiedlichen Preiskurven:
+
+- **Volatile Pools**: Verwenden die Constant-Product-Formel `(x × y = k)` für Assets wie BTC/USDC, optimiert für die Preisfindung zwischen unkorrelierten Assets.
+- **Stabile Pools**: Verwenden eine spezielle Stable-Swap-Kurve `(x³y + y³x ≥ k)` für gleichartige Assets wie MUSD/USDC, um den Slippage bei Trades zwischen ähnlich bewerteten Token zu minimieren.
+
+Die Preise ergeben sich aus dem Verhältnis der Token in jedem Pool und werden mit jedem Trade automatisch aktualisiert.
+
+### Slippage
+
+Slippage entsteht, wenn der tatsächliche Swap-Preis vom angezeigten Preis abweicht, weil entweder:
+
+- vor Ihrem Trade andere Trades ausgeführt wurden
+- für die ausgewählten Assets nicht genügend Liquidität vorhanden ist
+
+Bei Mezo Swap können Sie eine maximale Slippage-Toleranz festlegen (Standard: 0,5 % für stabile Paare, 1 % für volatile Paare).
+
+![Slippage-Beispiel](/docs/images/mainnet/slippage-example.png)
+
+Ändern sich die Marktbedingungen über Ihre Toleranz hinaus, wird die Transaktion rückgängig gemacht, um Sie vor ungünstigen Trades zu schützen. Große Trades unterliegen aufgrund ihres Preiseinflusses auf den Pool stärkerem Slippage.
+
+Die gesamte verfügbare Liquidität sehen Sie unter [Mezo Pools](https://mezo.org/explore/pools). Dort finden Sie alle Pools mit den zugehörigen Statistiken, einschließlich der Gesamtliquidität (TVL).
+
+## Gebühren
+
+- **Protokollgebühren**: 0,02 % für stabile Pools, 0,3 % für volatile Pools (werden an Liquiditätsanbieter gezahlt)
+- **Netzwerkgebühren**: Übliche Gasgebühren für die Ausführung der Swap-Transaktion onchain
+
+Wenn Sie in der Mezo App eine Vorschau eines Swaps aufrufen, sehen Sie die zugehörigen Gebühren, den Slippage, die Netzwerkkosten und den Swap-Kurs.
+
+![Swap-Beispiel](/docs/images/mainnet/Swap-MUSD-to-BTC.png)

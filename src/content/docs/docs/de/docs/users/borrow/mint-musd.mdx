@@ -1,0 +1,63 @@
+---
+title: So leihen und minten Sie MUSD
+description: >-
+  Schritt-für-Schritt-Anleitung, um gegen Ihre BTC einen Kredit aufzunehmen und
+  MUSD zu minten.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+[MUSD](https://mezo.org/feature/musd) ist im Mezo Mainnet verfügbar und kann im Mezo Testnet getestet werden. Diese Anleitung zeigt Ihnen, wie Sie den Kreditprozess durchlaufen – am Beispiel des Mezo Testnet oder um MUSD für Entwicklungszwecke zu leihen und zu minten. Rufen Sie anschließend die [Mezo App](https://mezo.org/) auf und melden Sie sich im Mainnet an, um echte MUSD zu leihen und zu minten.
+
+<YouTube id="wot3-SR-25E" title="So eröffnen Sie einen Bitcoin-besicherten Kredit auf Mezo" />
+
+:::note
+Die Mindestkredithöhe beträgt **1.800 MUSD** an geliehenen Schulden. Zusammen mit der Gas-Kaution von 200 MUSD belaufen sich Ihre Gesamtschulden bei Eröffnung auf mindestens 2.000 MUSD. Dies ist ein Mindest*kreditbetrag*, keine Untergrenze für Sicherheiten – wie viele Sicherheiten Sie benötigen, hängt von Ihrer gewünschten Besicherungsquote ab.
+:::
+
+## Bevor Sie beginnen
+
+Bevor Sie Testnet-MUSD erhalten können, müssen Sie die folgenden Schritte ausführen:
+
+- Rufen Sie [testnet.mezo.org](https://testnet.mezo.org/) auf und klicken Sie auf **Sign in**, um sich mit Ihrem Mezo-Konto zu verbinden.
+- Verbinden Sie eine Ethereum-Wallet mit dem Mezo Testnet. Eine Anleitung finden Sie unter [Mit dem Mezo Testnet verbinden](/docs/de/docs/users/getting-started/connect/).
+- Besorgen Sie sich Testnet-BTC im Testnet. Sie können Testnet-BTC auf [Discord](https://discord.com/invite/mezo) anfordern.
+- Fügen Sie den MUSD-Token zu Ihrer Wallet hinzu. Dazu können Sie die Oberfläche des Mezo Explorer verwenden. Klicken Sie neben der Adresse des MUSD-Tokens auf die Schaltfläche **Add token to MetaMask**:
+    - Mainnet: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+    - Testnet: [0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
+
+## Leihen und minten
+
+:::tip[Testnet vs. Mainnet]
+Diese Anleitung beschreibt den Ablauf im **Testnet**, daher verweisen alle folgenden Links auf `testnet.mezo.org`. Wenn Sie echte MUSD leihen und minten möchten, rufen Sie stattdessen [mezo.org/feature/borrow](https://mezo.org/feature/borrow) im **Mainnet** auf.
+:::
+
+Nachdem Sie sich auf [testnet.mezo.org](https://testnet.mezo.org/) mit einem Konto angemeldet haben, das über Testnet-BTC verfügt, können Sie MUSD leihen.
+
+<Steps>
+1. Öffnen Sie in Ihrem Browser [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow).
+2. Klicken Sie auf die Schaltfläche **Let's Go**, um den Kreditprozess zu starten.
+3. Geben Sie an, wie viele MUSD Sie leihen und wie viele BTC Sie als Sicherheit verwenden möchten.
+4. Klicken Sie auf **Review**, um vor der Bestätigung die Zusammenfassung zu öffnen.
+5. Prüfen Sie die Details der Zusammenfassung, um sicherzustellen, dass die Angaben Ihren Erwartungen entsprechen.
+6. Stellen Sie sicher, dass Ihre Browser-Wallet aktiv auf das Mezo Testnet eingestellt ist.
+7. Wenn Sie bereit sind, den Prozess [Leihen und minten](/docs/de/docs/users/borrow/mint-musd) fortzusetzen, klicken Sie auf **Confirm**. Ihre Browser-Wallet fordert Sie auf, die Transaktion zu bestätigen und die Gasgebühren mit BTC im Testnet zu bezahlen.
+</Steps>
+
+Sobald der Vorgang abgeschlossen ist, können Sie den Status Ihres Kredits auf [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow) prüfen (bzw. auf [mezo.org/feature/borrow](https://mezo.org/feature/borrow), wenn Sie das Mainnet verwenden).
+
+## Die Kreditbedingungen verstehen
+
+Mezo bietet für MUSD-Kredite einen festen, niedrigen Zinssatz. Die Anfangszinssätze liegen zwischen 1 und 5 %. Auf Mezo gibt es keinen verpflichtenden Rückzahlungstermin. Sie können Ihre Position also so lange offen halten, wie Sie möchten, sofern Ihre Sicherheiten ausreichend bleiben.
+
+Auch wenn es keinen festen Rückzahlungsplan gibt, müssen Sie das Liquidationsrisiko im Blick behalten, falls der Wert Ihrer Sicherheiten (BTC) fällt.
+
+Zinsen fallen auf den geliehenen Betrag (die geminteten MUSD) an. Achten Sie daher darauf, wie Ihre Schulden im Laufe der Zeit wachsen. Wenn Sie Ihre Position schließen möchten, benötigen Sie genügend MUSD, um Ihren Kreditbetrag zuzüglich aller aufgelaufenen Zinsen oder Gebühren zu decken.
+
+## Ihren Kredit verwalten
+
+Sobald Sie einen aktiven Kredit haben, können Sie ihn über die Mezo App verwalten. In diesem Video erfahren Sie, wie Sie Ihre Sicherheiten anpassen, Ihren Kredit zurückzahlen oder Ihre Position schließen.
+
+<YouTube id="RBKC1XfAEHw" title="So verwalten Sie Ihren Kredit" />
