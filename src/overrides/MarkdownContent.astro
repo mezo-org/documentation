@@ -1,0 +1,16 @@
+---
+import '@astrojs/starlight/style/markdown.css';
+---
+
+{/*
+  Pointer to the docs index for AI agents. Agents that ask mezo.org for
+  markdown (Accept: text/markdown) get a copy Cloudflare converts from this
+  HTML, not the generated .md files, and the conversion keeps only the page
+  content, so the pointer has to live here. It is visually hidden, which the
+  conversion keeps, and is plain text rather than a link so keyboard users
+  never tab to an invisible link. People get the llms.txt link in the footer.
+*/}
+<div class="sl-markdown-content">
+	<p class="sr-only">For AI agents, the full documentation index is at https://mezo.org/docs/llms.txt.</p>
+	<slot />
+</div>
