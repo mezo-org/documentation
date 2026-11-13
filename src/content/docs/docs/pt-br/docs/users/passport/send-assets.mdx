@@ -1,0 +1,45 @@
+---
+title: Como enviar ativos no Mezo
+description: >-
+  Guia para enviar ativos a outros usuários no Mezo usando um endereço de
+  carteira, um endereço Bitcoin ou um Mezo ID.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Você pode enviar ativos a outros usuários no Mezo diretamente pelo Mezo Passport. Os destinatários podem ser identificados pelo endereço de carteira, pelo endereço Bitcoin ou pelo Mezo ID.
+
+:::note
+Enviar ativos pelo Passport transfere tokens no Mezo; isso não envia ativos na rede Bitcoin. Se você quiser transferir ativos para fora do Mezo pela ponte, consulte [Pontes](/docs/pt-br/docs/users/mainnet/bridges).
+:::
+
+## Tipos de destinatário
+
+O formulário **Send** do Mezo Passport aceita três tipos de destinatário:
+
+- **Endereço de carteira**: insira um endereço `0x…` padrão no Mezo.
+- **Endereço Bitcoin**: insira um endereço Bitcoin. O Mezo o converte automaticamente na carteira correspondente na rede Mezo.
+- **Mezo ID**: insira um Mezo ID. O endereço de carteira obtido é exibido abaixo do campo de entrada, para que você possa confirmar o destino antes de enviar.
+
+Quando você insere um endereço Bitcoin ou um Mezo ID, o endereço de carteira `0x…` obtido aparece abaixo do campo de entrada como uma etapa de confirmação. Sempre confira esse endereço antes de prosseguir.
+
+## Enviar ativos
+
+<Steps>
+1. Abra o [Mezo App](https://mezo.org/overview) e faça login.
+
+2. Abra o menu suspenso **Passport** no topo da página.
+
+3. Clique em **Send** para abrir o formulário de envio.
+
+4. Insira o endereço de carteira, o endereço Bitcoin ou o Mezo ID do destinatário.
+
+5. Se você inseriu um endereço Bitcoin ou um Mezo ID, confira o endereço de carteira obtido, exibido abaixo do campo de entrada.
+
+6. Selecione o ativo e insira o valor que deseja enviar. O equivalente em USD em tempo real é exibido ao lado do valor.
+
+7. Revise os detalhes da transação e clique em **Send** para confirmar.
+</Steps>
+
+Quando a transação for concluída, você verá uma tela de confirmação com a mensagem "Transaction sent" e um link para ver a transação no [Mezo Explorer](https://explorer.mezo.org). Clique em **Done** para voltar ao app.

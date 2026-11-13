@@ -1,0 +1,63 @@
+---
+title: Como tomar emprestado e cunhar MUSD
+description: >-
+  Guia passo a passo para tomar empréstimos usando seu BTC como colateral e
+  cunhar MUSD.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+O [MUSD](https://mezo.org/feature/musd) está disponível na Mezo Mainnet e também para testes na Mezo Testnet. Este guia mostra como concluir o processo de empréstimo usando a Mezo Testnet como exemplo ou como forma de tomar emprestado e cunhar MUSD para fins de desenvolvimento. Depois, acesse o [Mezo App](https://mezo.org/) e entre na Mainnet para tomar emprestado e cunhar MUSD de verdade.
+
+<YouTube id="wot3-SR-25E" title="Como abrir um empréstimo lastreado em Bitcoin no Mezo" />
+
+:::note
+O tamanho mínimo de um empréstimo é de **1.800 MUSD** em valor emprestado. Com o depósito de gás de 200 MUSD, sua dívida total na abertura é de pelo menos 2.000 MUSD. Esse é um valor mínimo de *empréstimo*, não um mínimo de colateral: o colateral necessário depende do índice de colateralização que você deseja.
+:::
+
+## Antes de começar
+
+Antes de obter MUSD de testnet, você precisa concluir as seguintes etapas:
+
+- Acesse [testnet.mezo.org](https://testnet.mezo.org/) e clique em **Sign in** para entrar na sua conta do Mezo.
+- Conecte uma carteira Ethereum à Mezo Testnet. Consulte o guia [Conectar-se à Mezo Testnet](/docs/pt-br/docs/users/getting-started/connect/) para ver as instruções.
+- Obtenha BTC de testnet na Testnet. Você pode solicitar BTC de testnet no [Discord](https://discord.com/invite/mezo).
+- Adicione o token MUSD à sua carteira. Você pode adicionar o token pela interface do Mezo Explorer. Clique no botão **Add token to MetaMask** ao lado do endereço do token MUSD:
+    - Mainnet: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+    - Testnet: [0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
+
+## Tomar emprestado e cunhar
+
+:::tip[Testnet vs. Mainnet]
+Este guia mostra o fluxo na **Testnet**, por isso todos os links abaixo apontam para `testnet.mezo.org`. Quando estiver pronto para tomar emprestado e cunhar MUSD de verdade, acesse [mezo.org/feature/borrow](https://mezo.org/feature/borrow) na **Mainnet**.
+:::
+
+Depois de entrar em [testnet.mezo.org](https://testnet.mezo.org/) com uma conta que tenha BTC de testnet, você pode tomar MUSD emprestado.
+
+<Steps>
+1. No navegador, abra [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow).
+2. Clique no botão **Let's Go** para iniciar o processo de empréstimo.
+3. Informe a quantidade de MUSD que você quer tomar emprestado e a quantidade de BTC que quer usar como colateral.
+4. Clique em **Review** para abrir o resumo antes de confirmar.
+5. Verifique os detalhes do resumo para confirmar se as informações estão como você espera.
+6. Certifique-se de que a carteira do seu navegador esteja configurada na Mezo Testnet.
+7. Quando estiver pronto para prosseguir com o processo de [empréstimo e cunhagem](/docs/pt-br/docs/users/borrow/mint-musd), clique em **Confirm**. A carteira do navegador solicitará que você confirme a transação e pague as taxas de gás com BTC na Testnet.
+</Steps>
+
+Quando o processo for concluído, você poderá verificar o status do empréstimo em [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow) (ou em [mezo.org/feature/borrow](https://mezo.org/feature/borrow), se estiver na Mainnet).
+
+## Entenda as condições do empréstimo
+
+O Mezo oferece uma taxa de juros fixa e baixa para empréstimos em MUSD. As taxas iniciais variam de 1-5%. Não há data obrigatória de pagamento no Mezo, então você pode manter sua posição aberta pelo tempo que quiser, desde que seu colateral continue suficiente.
+
+Embora não exista um cronograma fixo de pagamento, você ainda precisa ficar atento ao risco de liquidação caso o valor do seu colateral (BTC) caia.
+
+Os juros incidem sobre o valor tomado emprestado (o MUSD cunhado), então acompanhe como sua dívida cresce ao longo do tempo. Quando quiser fechar sua posição, você precisará de MUSD suficiente para cobrir o principal mais os juros ou taxas acumulados.
+
+## Gerencie seu empréstimo
+
+Depois de ter um empréstimo ativo, você pode gerenciá-lo pelo Mezo App. Assista a este vídeo para aprender a ajustar seu colateral, pagar seu empréstimo ou fechar sua posição.
+
+<YouTube id="RBKC1XfAEHw" title="Como gerenciar seu empréstimo" />

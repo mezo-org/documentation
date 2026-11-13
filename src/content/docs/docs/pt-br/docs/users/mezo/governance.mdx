@@ -1,0 +1,39 @@
+---
+title: Governança
+description: 'Parâmetros, restrições e desenvolvimento futuro da governança do MEZO'
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+A governança da rede Mezo permite que os detentores de veBTC definam os parâmetros do protocolo e os fluxos de emissões. A governança está ancorada em BTC: o veMEZO amplia o poder de voto do veBTC em vez de ter peso de governança próprio.
+
+## Parâmetros do protocolo
+
+Os parâmetros a seguir definem como as emissões de MEZO são distribuídas:
+
+| Parâmetro | Descrição | Status |
+|---|---|---|
+| Proporção do Chain Splitter | Parcela das emissões para os validadores (20%) vs. ecossistema (80%) | Fixa, bloqueada pela governança |
+| Proporção do Ecosystem Splitter | Parcela das emissões para os gauges de staking (90%) vs. gauges do ecossistema (10%) | Fixa, bloqueada pela governança |
+| Multiplicador máximo de boost | Boost máximo do veMEZO sobre o veBTC | Atualmente 5x |
+
+As proporções dos splitters estão fixas no momento e não podem ser alteradas por votação. Essas proporções poderão se tornar ajustáveis por meio de futuros mecanismos de governança.
+
+![Cronograma de emissões do Mezo](/docs/images/mezo-token/mezo-emissions.png)
+
+<LinkButton href="/docs/pt-br/docs/users/mezo/emissions">Saiba mais sobre as emissões do token MEZO</LinkButton>
+
+## Restrições de governança
+
+- **Votação ancorada em BTC**: somente os detentores de veBTC podem votar em propostas de governança. O veMEZO aumenta o poder de voto do veBTC, mas não concede direitos de governança próprios. O veMEZO vota de forma independente nos [gauges de boost de veBTC](/docs/pt-br/docs/users/mezo-earn/lock/vemezo/matching-market) e no [MEZO Gauges](/docs/pt-br/docs/users/mezo-earn/vote/mezo-gauges), que direcionam emissões em vez de definir parâmetros do protocolo.
+
+## Desenvolvimento futuro
+
+As estruturas de governança poderão evoluir para incluir:
+
+- Mecanismos formais de proposta e votação (por exemplo, Governor Bravo)
+- Outros parâmetros governáveis
+- Seleção de validadores por votação em gauges, sob prova de participação (proof-of-stake)
+
+Os detalhes serão anunciados à medida que os recursos de governança forem finalizados.

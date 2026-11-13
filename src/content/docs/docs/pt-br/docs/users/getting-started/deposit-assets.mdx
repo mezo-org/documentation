@@ -1,0 +1,42 @@
+---
+title: Como depositar ativos no Mezo
+description: >-
+  Guia para depositar seus ativos no Mezo e usar serviços bancários de Bitcoin
+  de autoatendimento
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+Você pode depositar tBTC e outros tokens ERC-20 compatíveis do Ethereum na Mezo Mainnet usando uma carteira EVM.
+
+:::caution[O Native BTC Bridge-in foi encerrado]
+Desde 13 de outubro de 2026, o Native BTC Bridge-in está fechado e o app do Mezo não aceita mais depósitos de carteiras Bitcoin (UniSat, OKX, Xverse). As saídas pela ponte diretamente para BTC continuam disponíveis. Para trazer BTC para o Mezo, deposite tBTC a partir do Ethereum. O depósito é liquidado em minutos e não tem valor mínimo.
+
+Se você tem BTC em uma carteira Bitcoin, crie uma conta do Mezo com uma carteira EVM e gerencie os depósitos por ela. Se a sua conta do Mezo já usa uma carteira Bitcoin, você pode manter seus ativos no Mezo movendo-os para uma carteira EVM: no app do Mezo, acesse **Transact > Send** e insira o endereço `0x…` da sua carteira EVM (consulte [Enviar ativos](/docs/pt-br/docs/users/passport/send-assets)). Você também continua podendo sair pela ponte diretamente para BTC. Consulte [Saques](/docs/pt-br/docs/users/mainnet/bridges#saques).
+:::
+
+<YouTube id="DinlFeUZB3U" title="Como depositar no Mezo" />
+
+## Antes de começar
+
+- Entre com uma carteira EVM, como a MetaMask. Carteiras Bitcoin não podem depositar no Mezo.
+- Confira quais ativos são compatíveis. Você pode confirmar os endereços desses tokens na página [Referência de contratos](/docs/pt-br/docs/users/resources/contracts-reference#contratos-de-tokens).
+- Todas as transações na Mezo Mainnet são pagas em BTC. O tBTC depositado a partir do Ethereum chega como BTC no Mezo, por isso recomendamos abastecer sua conta com tBTC para garantir que você tenha gás para pagar as transações. Se você só tem MUSD ou MEZO no Mezo, use o [Get Gas](/docs/pt-br/docs/users/getting-started/get-gas).
+
+## Deposite seus ativos
+
+<Steps>
+1. Acesse o [Mezo App](https://mezo.org/overview) e entre com uma carteira EVM.
+
+2. Clique em **Deposit**. O formulário de depósito abre com o tBTC selecionado.
+
+3. Selecione o ativo que você quer transferir pela ponte e informe o valor.
+
+4. Clique em **Review** e confira os detalhes da transferência.
+
+5. Se estiver tudo certo com a transação, confirme-a na sua carteira. Se for o seu primeiro depósito desse token, a carteira pede que você o aprove antes.
+</Steps>
+
+Depois que a transação for concluída, o processo de transferência pela ponte começa. Pode levar alguns minutos até que você receba seus ativos na Mainnet.

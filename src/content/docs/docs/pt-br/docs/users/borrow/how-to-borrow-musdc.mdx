@@ -1,0 +1,87 @@
+---
+title: Como tomar mUSDC emprestado
+description: >-
+  Guia passo a passo para tomar USDC emprestado usando seu BTC como colateral no
+  Mezo.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Agora você pode tomar USDC emprestado usando seu Bitcoin como colateral no Mezo. Este guia mostra como concluir o processo de empréstimo no [Mezo App](https://mezo.org/feature/borrow).
+
+:::note
+Quando o USDC está no Mezo, ele aparece no app como **mUSDC**. 1 USDC = 1 mUSDC.
+:::
+
+## Antes de começar
+
+Antes de tomar mUSDC emprestado, você precisa concluir as seguintes etapas:
+
+- Acesse [mezo.org](https://mezo.org/) e clique em **Sign in** para entrar na sua conta do Mezo.
+- Conecte uma carteira ao Mezo. Consulte o guia [Conectar-se ao Mezo](/docs/pt-br/docs/users/getting-started/connect/) para ver as instruções.
+- Tenha BTC no Mezo para o colateral e o gás. Consulte [Depositar ativos](/docs/pt-br/docs/users/getting-started/deposit-assets) se ainda precisar transferir pela ponte ou depositar.
+- Se quiser, adicione o token mUSDC à sua carteira. Você pode adicionar o token pela interface do Mezo Explorer. Clique no botão **Add token to MetaMask** ao lado do endereço do token mUSDC:
+    - Mainnet: [0x04671C72Aab5AC02A03c1098314b1BB6B560c197](https://explorer.mezo.org/token/0x04671C72Aab5AC02A03c1098314b1BB6B560c197)
+
+## Tomar mUSDC emprestado
+
+Depois de entrar em [mezo.org](https://mezo.org/) com uma conta que tenha BTC, você pode tomar mUSDC emprestado.
+
+<Steps>
+1. No navegador, abra [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+
+2. Selecione **mUSDC** como a moeda que você quer tomar emprestado.
+
+3. Informe a quantidade de USDC que você quer tomar emprestado e a quantidade de BTC que quer usar como colateral.
+
+4. Clique em **Review** para abrir o resumo antes de confirmar.
+
+5. Verifique os detalhes do resumo (valor emprestado, valor do colateral, LTV projetado, preço de liquidação e saúde da posição) para confirmar se as informações estão como você espera.
+
+6. Quando estiver pronto para prosseguir, clique em **Confirm**. A carteira do navegador solicitará que você confirme a transação e pague as taxas de gás com BTC.
+</Steps>
+
+Quando o processo for concluído, você poderá verificar o status do empréstimo em [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+
+## Entenda as condições do empréstimo
+
+O mUSDC usa um APR variável que acompanha a demanda no mercado de mUSDC. Não há data obrigatória de pagamento no Mezo, então você pode manter sua posição aberta pelo tempo que quiser, desde que seu LTV fique abaixo do LTV de liquidação do mercado.
+
+Seu colateral determina quanto você pode tomar emprestado. Quanto mais BTC você adicionar, mais margem sua posição terá se o preço do BTC cair. O índice loan-to-value (LTV) projetado da sua posição é atualizado conforme você ajusta o colateral e o valor do empréstimo. O LTV é o valor da sua dívida em relação ao seu colateral. Um LTV mais alto significa um risco de liquidação maior.
+
+É importante que os tomadores fiquem atentos ao LTV de liquidação do mercado. Sua posição pode ficar sujeita a liquidação se o seu LTV projetado ultrapassar o LTV de liquidação do mercado. A diferença entre o seu LTV e o LTV de liquidação é a sua margem de segurança: o quanto o seu LTV pode subir antes da liquidação. Seu LTV sobe quando o BTC cai, então essa margem mede o tamanho da queda que sua posição consegue absorver. Por exemplo, se o LTV de liquidação do mercado de mUSDC for de 86% e o seu LTV projetado for de 31%, o BTC pode cair cerca de 64% antes que a posição fique em risco.
+
+Os juros incidem sobre o valor emprestado, então acompanhe como sua dívida cresce ao longo do tempo. Quando quiser fechar sua posição, você precisará de mUSDC suficiente para cobrir o principal mais os juros acumulados.
+
+### LTV vs. índice de colateralização
+
+Se você tomou MUSD emprestado antes desta atualização, gerenciava sua posição pelo índice de colateralização, ou CR. O LTV e o CR medem o mesmo risco a partir de direções opostas. O LTV divide sua dívida pelo valor do seu colateral. O CR divide o valor do seu colateral pela sua dívida. Um é o inverso do outro: um LTV de 50% equivale a um CR de 200%, e um LTV de 31% equivale a um CR de cerca de 323%.
+
+Os limites são convertidos da mesma forma. O LTV de liquidação de 86% do mercado de mUSDC equivale a um CR de cerca de 116%. O LTV de liquidação de 90% do MUSD equivale a um CR de cerca de 111%. O Mezo App agora mostra o LTV em todos os seus produtos de empréstimo, então um único número tem o mesmo significado em todo lugar.
+
+Além disso, o MUSD tem um mecanismo de resgate que ajuda a manter sua paridade de \$1, o que significa que uma posição em MUSD pode ser alvo de resgate mesmo estando saudável. O mUSDC não tem mecanismo de resgate e usa apenas o LTV.
+
+## Gerencie seu empréstimo
+
+Depois de ter um empréstimo ativo, você pode gerenciá-lo pelo Mezo App. No painel Borrow, você pode acompanhar quanto mUSDC deve, quanto BTC está bloqueado como colateral, seu LTV atual, seu preço de liquidação, seu APR atual e sua atividade recente. Você também pode pagar seu mUSDC para fechar o empréstimo: depois do pagamento, seu colateral volta a ficar disponível e sua posição fechada aparece no seu histórico de empréstimos.
+
+Para fornecer mUSDC e obter rendimento com os juros pagos pelos tomadores, consulte o [USDC Lending Vault](/docs/pt-br/docs/users/mezo-earn/vaults/usdc-lending-vault).
+
+## Perguntas frequentes
+
+### O que acontece se sua posição for liquidada?
+
+A liquidação pode acontecer se o seu LTV ultrapassar o LTV de liquidação do mercado, seja porque o BTC caiu, seja porque os juros acumulados aumentaram sua dívida.
+
+No caso do mUSDC, a liquidação significa que outra parte pode pagar a dívida e receber colateral da posição, e uma penalidade de liquidação de 4% é descontada do seu colateral. Isso protege o mercado de empréstimos, mas custa a você BTC de verdade.
+
+A melhor forma de reduzir o risco de liquidação é tomar emprestado com cautela e acompanhar sua posição.
+
+### LTV vs. índice de colateralização
+
+Se você tomou MUSD emprestado antes desta atualização, gerenciava sua posição pelo índice de colateralização, ou CR. O LTV e o CR medem o mesmo risco a partir de direções opostas. O LTV divide sua dívida pelo valor do seu colateral. O CR divide o valor do seu colateral pela sua dívida. Um é o inverso do outro: um LTV de 50% equivale a um CR de 200%, e um LTV de 31% equivale a um CR de cerca de 323%.
+
+Os limites são convertidos da mesma forma. O LTV de liquidação de 86% do mercado de mUSDC equivale a um CR de cerca de 116%. O LTV de liquidação de 90% do MUSD equivale a um CR de cerca de 111%. O Mezo App agora mostra o LTV em todos os seus produtos de empréstimo, então um único número tem o mesmo significado em todo lugar.
+
+Além disso, o MUSD tem um mecanismo de resgate que ajuda a manter sua paridade de \$1, o que significa que uma posição em MUSD pode ser alvo de resgate mesmo estando saudável. O mUSDC não tem mecanismo de resgate e usa apenas o LTV.
