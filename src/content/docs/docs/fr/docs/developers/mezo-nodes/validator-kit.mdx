@@ -1,0 +1,443 @@
+---
+title: Guide de développement du Validator Kit
+description: >-
+  Guide complet pour configurer et exécuter des nœuds validateurs Mezo avec le
+  Validator Kit.
+topic: developers
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Le Mezo Validator Kit fournit une solution complète pour exécuter des nœuds Mezo, notamment des validateurs, des nœuds RPC et des nœuds seed. Ce guide couvre l'installation, la configuration et la maintenance de l'infrastructure Mezo.
+
+## Aperçu
+
+Le [Validator Kit](https://github.com/mezo-org/validator-kit.git) simplifie le déploiement des nœuds Mezo grâce à plusieurs options de déploiement :
+
+- **Docker** : déploiement conteneurisé
+- **Daemon natif** : installation directe sur le système
+- **Kubernetes** : charts Helm pour l'orchestration
+- **Déploiement cloud** : prise en charge d'AWS, GCP et Azure
+
+### Types de nœuds
+
+1. **Nœuds validateurs** : participent au consensus et à la production de blocs
+2. **Nœuds RPC** : fournissent des endpoints d'API pour les dApps
+3. **Nœuds seed** : aident à amorcer le réseau
+
+## Structure du dépôt
+
+Le [dépôt du Validator Kit](https://github.com/mezo-org/validator-kit.git) comprend :
+
+- **[Configuration Docker](https://github.com/mezo-org/validator-kit/tree/main/docker)** : configuration et orchestration des conteneurs
+- **[Manifestes Kubernetes](https://github.com/mezo-org/validator-kit/tree/main/kubernetes)** : charts Helm et ressources K8s
+- **[Modèles de configuration](https://github.com/mezo-org/validator-kit/tree/main/configs)** : fichiers de configuration des nœuds
+- **[Supervision](https://github.com/mezo-org/validator-kit/tree/main/monitoring)** : Prometheus, Grafana et alertes
+- **[Scripts](https://github.com/mezo-org/validator-kit/tree/main/scripts)** : outils d'automatisation et de maintenance
+
+## Configuration matérielle requise
+
+### Configuration minimale
+
+**Nœud validateur** :
+- CPU : 4 cœurs
+- RAM : 8 Go
+- Stockage : SSD de 100 Go
+- Réseau : 100 Mbit/s
+
+**Nœud RPC** :
+- CPU : 2 cœurs
+- RAM : 4 Go
+- Stockage : SSD de 50 Go
+- Réseau : 50 Mbit/s
+
+**Nœud seed** :
+- CPU : 1 cœur
+- RAM : 2 Go
+- Stockage : SSD de 20 Go
+- Réseau : 10 Mbit/s
+
+### Configuration recommandée
+
+**Nœud validateur** :
+- CPU : 8 cœurs
+- RAM : 16 Go
+- Stockage : SSD NVMe de 500 Go
+- Réseau : 1 Gbit/s
+
+## Méthodes d'installation
+
+### Déploiement avec Docker
+
+<Steps>
+1. **Cloner le dépôt** :
+   ```bash
+   git clone https://github.com/mezo-org/validator-kit.git
+   cd validator-kit
+   ```
+
+2. **Configurer l'environnement** :
+   ```bash
+   cp .env.example .env
+   # Edit .env with your configuration
+   ```
+
+3. **Démarrer le nœud** :
+   ```bash
+   docker-compose up -d
+   ```
+</Steps>
+
+### Installation native
+
+<Steps>
+1. **Installer les dépendances** :
+   ```bash
+   # Ubuntu/Debian
+   sudo apt update
+   sudo apt install -y curl git make build-essential
+
+   # Install Go
+   curl -fsSL https://go.dev/dl/go1.21.0.linux-amd64.tar.gz | sudo tar -xzC /usr/local
+   ```
+
+2. **Compiler mezod** :
+   ```bash
+   git clone https://github.com/mezo-org/mezod.git
+   cd mezod
+   make build
+   ```
+
+3. **Configurer le nœud** :
+   ```bash
+   ./mezod init mynode --chain-id mezo-testnet
+   ```
+</Steps>
+
+### Déploiement sur Kubernetes
+
+<Steps>
+1. **Installer Helm** :
+   ```bash
+   curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+   ```
+
+2. **Déployer avec Helm** :
+   ```bash
+   helm install mezo-node ./helm/mezo-node \
+     --set node.type=validator \
+     --set node.name=my-validator
+   ```
+</Steps>
+
+## Configuration
+
+### Configuration du nœud
+
+**config.toml** :
+```toml
+[consensus]
+timeout_commit = "1s"
+timeout_propose = "3s"
+
+[p2p]
+laddr = "tcp://0.0.0.0:26656"
+external_address = "YOUR_EXTERNAL_IP:26656"
+persistent_peers = "peer1@ip1:26656,peer2@ip2:26656"
+```
+
+**app.toml** :
+```toml
+[api]
+enable = true
+address = "tcp://0.0.0.0:1317"
+
+[grpc]
+enable = true
+address = "0.0.0.0:9090"
+
+[evm]
+rpc_address = "0.0.0.0:8545"
+ws_address = "0.0.0.0:8546"
+```
+
+### Variables d'environnement
+
+```bash
+# Node configuration
+NODE_TYPE=validator
+CHAIN_ID=mezo-mainnet
+MONIKER=my-validator
+
+# Network configuration
+P2P_PORT=26656
+RPC_PORT=26657
+API_PORT=1317
+GRPC_PORT=9090
+EVM_RPC_PORT=8545
+
+# Security
+PRIV_VALIDATOR_KEY_FILE=/config/priv_validator_key.json
+NODE_KEY_FILE=/config/node_key.json
+```
+
+## Configuration du validateur
+
+### Prérequis
+
+1. **Proof of Authority (PoA)** : demander le statut de validateur
+2. **Exigences de mise** : montant minimal de mise
+3. **Exigences techniques** : respecter les spécifications matérielles
+
+### Paramétrage du validateur
+
+```bash
+# Initialize validator
+./mezod init validator --chain-id mezo-mainnet
+
+# Create validator key
+./mezod keys add validator --keyring-backend file
+
+# Create validator transaction
+./mezod tx staking create-validator \
+  --amount=1000000umezo \
+  --pubkey=$(./mezod tendermint show-validator) \
+  --moniker="My Validator" \
+  --chain-id=mezo-mainnet \
+  --from=validator
+```
+
+## Configuration d'un nœud RPC
+
+### Rôle
+
+Les nœuds RPC fournissent :
+- **Endpoints d'API** : API REST et gRPC
+- **EVM RPC** : JSON-RPC compatible Ethereum
+- **WebSocket** : flux de données en temps réel
+- **Répartition de charge** : distribution du trafic entre les nœuds
+
+### Configuration
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  rpc-node:
+    image: mezod:latest
+    ports:
+      - "26657:26657"  # Tendermint RPC
+      - "1317:1317"    # Cosmos API
+      - "9090:9090"    # gRPC
+      - "8545:8545"    # EVM RPC
+    environment:
+      - NODE_TYPE=rpc
+      - CHAIN_ID=mezo-mainnet
+    volumes:
+      - ./data:/root/.mezod
+```
+
+## Supervision et observabilité
+
+### Configuration de Prometheus
+
+```yaml
+# prometheus.yml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'mezod'
+    static_configs:
+      - targets: ['localhost:26660']
+    metrics_path: /metrics
+```
+
+### Tableaux de bord Grafana
+
+Métriques clés à surveiller :
+- **Hauteur de bloc** : hauteur actuelle de la blockchain
+- **Statut du validateur** : statut actif/inactif
+- **Connectivité réseau** : connexions aux pairs
+- **Utilisation des ressources** : CPU, mémoire, disque
+- **Débit de transactions** : métriques de TPS
+
+### Règles d'alerte
+
+```yaml
+# alerts.yml
+groups:
+  - name: mezod
+    rules:
+      - alert: NodeDown
+        expr: up{job="mezod"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Mezod node is down"
+```
+
+## Bonnes pratiques de sécurité
+
+### Sécurité réseau
+
+1. **Configuration du pare-feu** :
+```bash
+# Allow only necessary ports
+ufw allow 26656/tcp  # P2P
+ufw allow 26657/tcp  # RPC
+ufw allow 1317/tcp   # API
+ufw allow 8545/tcp   # EVM RPC
+```
+
+2. **Contrôle d'accès** :
+```bash
+# Restrict RPC access
+iptables -A INPUT -p tcp --dport 26657 -s TRUSTED_IP -j ACCEPT
+iptables -A INPUT -p tcp --dport 26657 -j DROP
+```
+
+### Gestion des clés
+
+1. **Stockage sécurisé** : utilisez des modules de sécurité matériels (HSM)
+2. **Stratégie de sauvegarde** : sauvegardez régulièrement vos clés
+3. **Contrôle d'accès** : limitez les autorisations d'accès aux clés
+
+**Important** : ne validez (commit) jamais de clés de validateur dans un système de gestion de versions !
+
+## Maintenance
+
+### Tâches régulières
+
+1. **Mises à jour logicielles** :
+```bash
+# Update mezod
+git pull origin main
+make build
+systemctl restart mezod
+```
+
+2. **Maintenance de la base de données** :
+```bash
+# Prune old data (use with caution)
+./mezod tendermint unsafe-reset-all
+```
+
+3. **Rotation des journaux** :
+```bash
+# Configure logrotate
+cat > /etc/logrotate.d/mezod << EOF
+/var/log/mezod/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+}
+EOF
+```
+
+### Stratégie de sauvegarde
+
+1. **Sauvegarde de la configuration** :
+```bash
+tar -czf config-backup.tar.gz ~/.mezod/config/
+```
+
+2. **Sauvegarde des clés** (à stocker de manière sécurisée) :
+```bash
+# Backup validator keys to secure location
+cp ~/.mezod/config/priv_validator_key.json /secure/backup/
+```
+
+## Dépannage
+
+### Problèmes courants
+
+1. **Problèmes de synchronisation** :
+```bash
+# Check sync status
+./mezod status
+
+# Reset and resync
+./mezod tendermint unsafe-reset-all
+```
+
+2. **Problèmes de connexion** :
+```bash
+# Check peer connections
+./mezod tendermint show-node-id
+
+# Update persistent peers in config.toml
+```
+
+3. **Problèmes de performances** :
+```bash
+# Monitor resource usage
+htop
+iotop
+netstat -tulpn
+```
+
+### Commandes de débogage
+
+```bash
+# View logs
+journalctl -u mezod -f
+
+# Check node status
+./mezod status
+
+# View configuration
+./mezod config
+
+# Test RPC endpoints
+curl http://localhost:26657/status
+```
+
+## Intégration au développement
+
+### Développement local
+
+1. **Démarrer un nœud local** :
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
+
+2. **Connecter une dApp** :
+```javascript
+const provider = new ethers.JsonRpcProvider('http://localhost:8545');
+```
+
+### Environnement de test
+
+1. **Nœud Testnet** :
+```bash
+./mezod init testnode --chain-id mezo-testnet
+```
+
+2. **Tests d'intégration** :
+```bash
+npm test
+```
+
+## Ressources supplémentaires
+
+- **[Dépôt du Validator Kit](https://github.com/mezo-org/validator-kit.git)** – dépôt principal
+- **[Dépôt mezod](https://github.com/mezo-org/mezod.git)** – client de la chaîne
+- **[Documentation des nœuds Mezo](/docs/fr/docs/developers/mezo-nodes/)** – exploitation des nœuds
+- **[Documentation Docker](https://docs.docker.com/)** – référence Docker
+- **[Documentation Kubernetes](https://kubernetes.io/docs/)** – référence K8s
+
+:::note
+Pour connaître en détail les exigences applicables aux validateurs, les processus de candidature et les configurations avancées, consultez la documentation du [dépôt du Validator Kit](https://github.com/mezo-org/validator-kit.git).
+:::
+
+## Assistance
+
+Pour obtenir de l'aide en tant que validateur :
+- Rejoignez le [Discord Mezo](https://discord.com/invite/mezo)
+- Consultez les [GitHub Issues](https://github.com/mezo-org/validator-kit/issues)
+- Parcourez la [FAQ](/docs/fr/docs/developers/getting-started/FAQs)

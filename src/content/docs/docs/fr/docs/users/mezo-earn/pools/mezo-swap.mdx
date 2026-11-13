@@ -1,0 +1,65 @@
+---
+title: Mezo Swap
+description: Découvrez Mezo Swap et comment échanger des actifs dans l'écosystème Mezo
+topic: users
+---
+
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+# Aperçu
+
+[Mezo Swap](https://mezo.org/overview?modal=swap) est la plateforme d'échange décentralisée (DEX) intégrée de l'écosystème Mezo. Elle permet aux utilisateurs d'échanger facilement des actifs comme BTC, MUSD et USDC, sans intermédiaires, sans carnet d'ordres et sans quitter l'économie BitcoinFi. Cette fonctionnalité repose sur [Mezo Pools](/docs/fr/docs/users/mezo-earn/pools) et permet des swaps de jetons instantanés et décentralisés grâce à des réserves de liquidité gérées par des contrats intelligents.
+
+<YouTube id="eRuWVR7R6Q0" title="Comment effectuer un swap sur Mezo" />
+
+## Fonctionnalités clés
+
+- **Sans permission** : échangez des actifs pris en charge 24 h/24 et 7 j/7, sans dépendre d'intermédiaires ni d'approbations.
+- **Faible slippage** : les pools stables (par exemple MUSD et USDC) utilisent une courbe spécialisée pour minimiser l'impact sur le prix des échanges entre actifs similaires.
+- **Liquidité instantanée** : le trading est toujours disponible grâce au modèle de teneur de marché automatisé (AMM), sans carnet d'ordres ni teneurs de marché.
+- **Récompenses pour les LP** : fournissez de la liquidité aux pools et percevez une part des frais de swap. Les jetons LP suivent vos gains au prorata.
+- **Transparence onchain** : chaque swap, tous les frais et chaque position de liquidité sont enregistrés onchain et consultables par tous.
+
+## Actifs pris en charge
+
+Mezo Swap prend actuellement en charge les échanges entre les actifs suivants. Cette liste sera mise à jour au fur et à mesure de l'ajout de nouveaux jetons :
+
+- BTC
+- MUSD
+- USDC
+- USDT
+
+## Fonctionnement
+
+### Mécanisme de prix
+
+Mezo Swap utilise un modèle de teneur de marché automatisé (AMM) doté de deux courbes de prix distinctes :
+
+- **Pools volatils** : utilisent la formule du produit constant `(x × y = k)` pour des actifs comme BTC/USDC ; ils sont optimisés pour la découverte des prix entre actifs non corrélés.
+- **Pools stables** : utilisent une courbe de stable swap spécialisée `(x³y + y³x ≥ k)` pour des actifs similaires comme MUSD/USDC ; ils sont conçus pour minimiser le slippage lors des échanges entre jetons de valeur comparable.
+
+Les prix sont déterminés par la proportion de jetons dans chaque pool et se mettent à jour automatiquement à chaque échange.  
+
+### Slippage
+
+Le slippage se produit lorsque le prix réel du swap diffère du prix annoncé, pour l'une des raisons suivantes :
+
+- des échanges ont été exécutés avant le vôtre ;
+- la liquidité est insuffisante pour les actifs sélectionnés.
+
+Lorsque vous utilisez Mezo Swap, vous pouvez définir une tolérance de slippage maximale (par défaut : 0,5 % pour les paires stables, 1 % pour les paires volatiles).
+
+![Exemple de slippage](/docs/images/mainnet/slippage-example.png)
+
+Si les conditions du marché évoluent au-delà de votre tolérance, la transaction est annulée (revert) afin de vous protéger contre des échanges défavorables. Les échanges importants subissent davantage de slippage en raison de leur impact sur le prix du pool.
+
+Pour consulter la liquidité totale disponible, rendez-vous sur [Mezo Pools](https://mezo.org/explore/pools), où vous trouverez tous les pools et leurs statistiques, y compris la liquidité totale (TVL).
+
+## Frais
+
+- **Frais du protocole** : 0,02 % pour les pools stables, 0,3 % pour les pools volatils (versés aux fournisseurs de liquidité)
+- **Frais de réseau** : frais de gaz standard pour l'exécution onchain de la transaction de swap
+
+Lorsque vous prévisualisez un swap dans l'application Mezo, vous voyez les frais associés, le slippage, les coûts de réseau et le taux de swap.
+
+![Exemple de swap](/docs/images/mainnet/Swap-MUSD-to-BTC.png)
