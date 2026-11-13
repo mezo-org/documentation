@@ -22,8 +22,8 @@ Pyth 오라클은 BTC/USD 외에도 여러 가격 피드를 제공합니다.
 
 **업데이트 빈도:** 토큰 쌍에 따라 다릅니다.
 
-- Mezo에서는 자세한 내용을 [구성 파일](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler/configmap.yaml)에서 확인하세요.
-- Ethereum에서는 자세한 내용을 [구성 파일](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler-ethereum/configmap.yaml)에서 확인하세요.
+- Mezo에서는 자세한 내용을 [설정 파일](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler/configmap.yaml)에서 확인하세요.
+- 이더리움에서는 자세한 내용을 [설정 파일](https://github.com/mezo-org/mezod/blob/main/infrastructure/kubernetes/common/pyth-scheduler-ethereum/configmap.yaml)에서 확인하세요.
 
 가격은 `price_deviation`이 설정된 임계값(퍼센트 포인트)을 초과하거나 `time_difference` 초마다(먼저 충족되는 조건에 따라) 업데이트됩니다.
 
@@ -55,13 +55,13 @@ Skip 오라클은 Chainlink 호환 인터페이스를 구현합니다. 최신 �
 
 Pyth는 EVM 컨트랙트를 통해 여러 가격 피드를 제공합니다. 내장된 유효 기간 검사를 통해 가격을 가져오려면 `getPriceNoOlderThan(pair_id, maxAgeSeconds)`를 사용하세요.
 
-**컨트랙트 Mezo 메인넷:** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
+**Mezo 메인넷 컨트랙트:** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
-**컨트랙트 Mezo 테스트넷:** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.test.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
+**Mezo 테스트넷 컨트랙트:** [0x2880aB155794e7179c9eE2e38200202908C17B43](https://explorer.test.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
 
-**컨트랙트 Ethereum 메인넷:** [0x4305FB66699C3B2702D4d05CF36551390A4c69C6](https://etherscan.io/address/0x4305FB66699C3B2702D4d05CF36551390A4c69C6)
+**이더리움 메인넷 컨트랙트:** [0x4305FB66699C3B2702D4d05CF36551390A4c69C6](https://etherscan.io/address/0x4305FB66699C3B2702D4d05CF36551390A4c69C6)
 
-**컨트랙트 Ethereum Sepolia:** [0xDd24F84d36BF92C65F92307595335bdFab5Bbd21](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21)
+**이더리움 Sepolia 컨트랙트:** [0xDd24F84d36BF92C65F92307595335bdFab5Bbd21](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21)
 
 **주어진 가격 ID에 대한 가격 조회 예제:**
 
@@ -122,8 +122,8 @@ Mezo 메인넷과 테스트넷 모두에서 사용 가능:
 
 - Mezo [메인넷](https://explorer.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43) `0x2880aB155794e7179c9eE2e38200202908C17B43`
 - Mezo [테스트넷](https://explorer.test.mezo.org/address/0x2880aB155794e7179c9eE2e38200202908C17B43) `0x2880aB155794e7179c9eE2e38200202908C17B43`
-- Ethereum [메인넷](https://etherscan.io/address/0x4305FB66699C3B2702D4d05CF36551390A4c69C6) `0x4305FB66699C3B2702D4d05CF36551390A4c69C6`
-- Ethereum [Sepolia](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21) `0xDd24F84d36BF92C65F92307595335bdFab5Bbd21`
+- 이더리움 [메인넷](https://etherscan.io/address/0x4305FB66699C3B2702D4d05CF36551390A4c69C6) `0x4305FB66699C3B2702D4d05CF36551390A4c69C6`
+- 이더리움 [Sepolia](https://sepolia.etherscan.io/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21) `0xDd24F84d36BF92C65F92307595335bdFab5Bbd21`
 
 **Mezo 지원 가격 피드 ID:**
 
@@ -131,13 +131,20 @@ Mezo 메인넷과 테스트넷 모두에서 사용 가능:
 |------|---------------|
 | SolvBTC/USD | `0xf253cf87dc7d5ed5aa14cba5a6e79aee8bcfaef885a0e1b807035a0bbecc36fa` |
 | MUSD/USD | `0x0617a9b725011a126a2b9fd53563f4236501f32cf76d877644b943394606c6de` |
+| MEZO/USD | `0x80beaaedbdd228e77c5d62dfcd74b0305674b7e27a5cc6a46e71bd3a696826df` |
 | BTC/USD | `0xe62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43` |
 | cbBTC/USD | `0x2817d7bfe5c64b8ea956e9a26f573ef64e72e4d7891f2d6af9bcc93f7aff9a97` |
 | USDC/USD | `0xeaa020c61cc479712813461ce153894a96a6c00b21ed0cfc2798d1f9a9e9c94a` |
 | USDT/USD | `0x2b89b9dc8fdf9f34709a5b106b472f0f39bb6ca9ce04b0fd7f2e971688e2e53b` |
 | T/USD | `0x7a072b799215196b0ecb6a58636ec312bce8461dcc33c28c3a046b1e636d121d` |
+| NVDA/USD | `0xb1073854ed24cbc755dc527418f52b7d271f6cc967bbf8d8129112b18860a593` |
+| GOOGL/USD | `0x5a48c03e9b9cb337801073ed9d166817473697efff0d138874e0f6a33d6d5aa6` |
+| TSLA/USD | `0x16dad506d7db8da01c87581c87ca897a012a153557d4d578c3b9c9e1bc0632f1` |
+| MSTR/USD | `0xe1e80251e5f5184f2195008382538e847fafc36f751896889dd3d1b1f6111f09` |
+| COIN/USD | `0xfee33f2a978bf32dd6b662b65ba8083c6773b494f8401194ec1870c640860245` |
+| CRCL/USD | `0x92b8527aabe59ea2b12230f7b532769b133ffb118dfbd48ff676f14b273f1365` |
 
-**Ethereum 지원 가격 피드 ID:**
+**이더리움 지원 가격 피드 ID:**
 
 | 쌍 | 가격 피드 ID |
 |------|---------------|

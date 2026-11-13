@@ -1,0 +1,72 @@
+---
+title: MEZO 잠금 방법
+description: MEZO를 잠그고 veMEZO NFT를 받는 단계별 가이드
+topic: users
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+MEZO를 잠그면 veBTC 투표력을 최대 5x까지 부스트하는 veMEZO NFT를 받습니다. 얻을 수 있는 수익에 대한 자세한 내용은 [veMEZO 개요](/docs/kr/docs/users/mezo-earn/lock/vemezo)를 참조하세요.
+
+## 사전 요구 사항
+
+MEZO를 잠그기 전에 다음을 갖추었는지 확인하세요.
+
+- 지갑에 있는 MEZO 토큰
+- 연결된 지갑
+- 가스 수수료로 쓸 충분한 BTC
+
+자세한 안내는 [시작하기](/docs/kr/docs/users/getting-started/deposit-assets) 섹션을 참조하세요.
+
+:::note[참고]
+veMEZO는 **스테이킹 게이지**에 단독으로 투표하지 않으며, 스테이킹 게이지에서는 내 veBTC 포지션의 투표력을 곱하는 역할을 합니다. veBTC가 없어도 리베이스 보상을 받고, veBTC 부스트 게이지에 투표하고, [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)에 투표할 수 있습니다.
+:::
+
+---
+
+## Lock 페이지로 이동
+
+<Steps>
+1. Mezo App을 여세요
+
+2. 왼쪽 사이드바("Earn" 아래)에서 **Lock**을 클릭하세요
+
+3. 잠글 수 있는 자산이 표시됩니다
+</Steps>
+
+---
+
+## 잠금 시작
+
+사용 가능한 잔액이 표시된 MEZO 자산 카드를 찾아 **Lock**을 클릭하세요. 포지션을 설정할 수 있는 잠금 설정 모달이 나타납니다.
+
+**금액:** 잠글 MEZO 금액을 입력하세요. 사용 가능한 잔액 한도 내에서 원하는 만큼 잠글 수 있습니다.
+
+**기간:** 잠금 기간을 1주에서 4년 사이로 선택하세요. 잠금 기간이 길수록 veMEZO 가중치가 높아지고, 그만큼 부스트 잠재력도 커집니다. 화면에는 예상 초기 veMEZO 가중치가 표시됩니다.
+
+:::note[참고]
+잠금 기간은 에포크 경계에 맞춰 정렬되며 가장 가까운 전체 주 단위로 내림 처리됩니다. 자세한 내용은 [에포크](/docs/kr/docs/users/mezo-earn/lock/vebtc#에포크)를 참조하세요.
+:::
+
+---
+
+## 트랜잭션 확인
+
+잠금 세부 정보를 검토하세요.
+
+- MEZO 금액
+- 잠금 기간
+- 초기 veMEZO 가중치
+- 잠금 만료일
+
+**Confirm Lock**을 클릭하고 지갑에서 트랜잭션을 승인한 다음 블록체인 컨펌을 기다리세요.
+
+---
+
+## 포지션 확인
+
+컨펌이 완료되면 Lock 페이지에서 다음과 같은 잠금 세부 정보를 확인할 수 있습니다.
+
+- 현재 veMEZO 가중치(시간이 지남에 따라 감소)
+- 잠금 만료일
+- 잠금 연장 옵션
