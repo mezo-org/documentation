@@ -1,0 +1,61 @@
+---
+title: MUSD lenen en minten
+description: Stapsgewijze handleiding om te lenen tegen je BTC en MUSD te minten.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+[MUSD](https://mezo.org/feature/musd) is beschikbaar op Mezo Mainnet en kan worden getest op Mezo Testnet. Deze handleiding laat zien hoe je het leenproces doorloopt, met Mezo Testnet als voorbeeld of als manier om MUSD te lenen en te minten voor ontwikkeldoeleinden. Ga daarna naar de [Mezo App](https://mezo.org/) en meld je aan op Mainnet om echte MUSD te lenen en te minten.
+
+<YouTube id="wot3-SR-25E" title="Een door Bitcoin gedekte lening openen op Mezo" />
+
+:::note
+De minimale leningomvang is **1.800 MUSD** aan geleende schuld. Met de gasstorting van 200 MUSD bedraagt je totale schuld bij het openen minimaal 2.000 MUSD. Dit is een minimaal *leen*bedrag, geen ondergrens voor het onderpand: hoeveel onderpand je nodig hebt, hangt af van de onderpandratio die je wilt aanhouden.
+:::
+
+## Voordat je begint
+
+Voordat je testnet-MUSD kunt krijgen, moet je de volgende stappen uitvoeren:
+
+- Ga naar [testnet.mezo.org](https://testnet.mezo.org/) en klik op **Sign in** om verbinding te maken met je Mezo-account.
+- Verbind een Ethereum-wallet met Mezo Testnet. Zie de handleiding [Verbinden met Mezo Testnet](/docs/nl/docs/users/getting-started/connect/) voor instructies.
+- Zorg voor testnet-BTC op Testnet. Je kunt testnet-BTC aanvragen in [Discord](https://discord.com/invite/mezo).
+- Voeg het MUSD-token toe aan je wallet. Dat kan via de interface van de Mezo Explorer. Klik op de knop **Add token to MetaMask** naast het MUSD-tokenadres:
+    - Mainnet: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+    - Testnet: [0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
+
+## Lenen en minten
+
+:::tip[Testnet vs. Mainnet]
+Deze handleiding volgt de **Testnet**-flow, dus alle links hieronder verwijzen naar `testnet.mezo.org`. Wil je echte MUSD lenen en minten, ga dan in plaats daarvan naar [mezo.org/feature/borrow](https://mezo.org/feature/borrow) op **Mainnet**.
+:::
+
+Zodra je bent aangemeld op [testnet.mezo.org](https://testnet.mezo.org/) met een account dat testnet-BTC bevat, kun je MUSD lenen.
+
+<Steps>
+1. Open [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow) in je browser.
+2. Klik op de knop **Let's Go** om het leenproces te starten.
+3. Geef op hoeveel MUSD je wilt lenen en hoeveel BTC je als onderpand wilt gebruiken.
+4. Klik op **Review** om het overzicht te openen voordat je bevestigt.
+5. Controleer de gegevens in het overzicht en ga na of alles klopt.
+6. Zorg ervoor dat je browserwallet op dat moment is ingesteld op Mezo Testnet.
+7. Ben je klaar om verder te gaan met het proces [Lenen en minten](/docs/nl/docs/users/borrow/mint-musd)? Klik dan op **Confirm**. Je browserwallet vraagt je de transactie te bevestigen en de gaskosten te betalen met BTC op Testnet.
+</Steps>
+
+Als het proces is voltooid, kun je de status van je lening bekijken op [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow) (of op [mezo.org/feature/borrow](https://mezo.org/feature/borrow) als je Mainnet gebruikt).
+
+## De leenvoorwaarden begrijpen
+
+Mezo biedt een vast, laag rentetarief voor MUSD-leningen. De starttarieven variëren van 1 tot 5%. Op Mezo geldt geen verplichte aflossingsdatum: je kunt je positie zo lang openhouden als je wilt, zolang je onderpand toereikend blijft.
+
+Hoewel er geen vast aflossingsschema is, moet je wel letten op het risico van liquidatie als de waarde van je onderpand (BTC) daalt.
+
+Er wordt rente berekend over het geleende bedrag (de geminte MUSD), dus houd in de gaten hoe je schuld na verloop van tijd groeit. Wil je je positie sluiten, dan heb je genoeg MUSD nodig om de hoofdsom plus eventuele opgebouwde rente of kosten te dekken.
+
+## Je lening beheren
+
+Zodra je een actieve lening hebt, kun je die beheren via de Mezo App. Bekijk deze video om te leren hoe je je onderpand aanpast, je lening aflost of je positie sluit.
+
+<YouTube id="RBKC1XfAEHw" title="Je lening beheren" />

@@ -1,0 +1,172 @@
+---
+title: Informatie over validators
+description: >-
+  Informatie over Mezo-validators en hoe je kunt bijdragen aan de beveiliging
+  van het netwerk.
+topic: developers
+---
+
+<table>
+  <thead>
+    <tr>
+      <th width="242">Naam van de validator</th>
+      <th width="130">
+        Status<select>
+          <option value="kho2A8rahGbq" label="Actief" color="blue"></option>
+        </select>
+      </th>
+      <th width="340" data-type="content-ref">Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Animoca</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://www.animocabrands.com/"
+          >https://www.animocabrands.com/</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>aras.haus</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://www.aras.haus/"
+          >https://www.aras.haus/</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>Backbone</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://decouple.co/">https://decouple.co/</a></td>
+    </tr>
+    <tr>
+      <td>Beemeeupnow</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://x.com/beemeeupnow">https://x.com/beemeeupnow</a></td>
+    </tr>
+    <tr>
+      <td>Boar</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://github.com/boar-network">https://github.com/boar-network</a>
+      </td>
+    </tr>
+    <tr>
+      <td>ChainDAQ</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://www.chaindaq.com/">https://www.chaindaq.com/</a></td>
+    </tr>
+    <tr>
+      <td>Encode</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://www.encode.club/">https://www.encode.club/</a></td>
+    </tr>
+     <tr>
+      <td>Enigma</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://enigma-validator.com/"
+          >https://enigma-validator.com/</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>Flowdesk</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://flowdesk.co/">https://flowdesk.co/</a></td>
+    </tr>
+    <tr>
+      <td>GlobalStake</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://globalstake.io/">https://globalstake.io/</a></td>
+    </tr>
+    <tr>
+      <td>Imperator</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://www.imperator.co/">https://www.imperator.co/</a></td>
+    </tr>
+    <tr>
+      <td>InfraSingularity</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://infrasingularity.com/"
+          >https://infrasingularity.com/</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>Lavender.Five</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://www.lavenderfive.com/"
+          >https://www.lavenderfive.com/</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>Liquid Lambda</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://www.liquidlambda.com/"
+          >https://www.liquidlambda.com/</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>Maestro</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://www.gomaestro.org/"
+          >https://www.gomaestro.org/</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>MCLB</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://mclb.org/">https://mclb.org/</a></td>
+    </tr>
+    <tr>
+      <td>Node.Monster</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td><a href="https://www.node.monster/">https://www.node.monster/</a></td>
+    </tr>
+    <tr>
+      <td>SenseiNode</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://www.senseinode.com/">https://www.senseinode.com/</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Simply Staking</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://simplystaking.com/">https://simplystaking.com/</a>
+      </td>
+    </tr>
+    <tr>
+      <td>StakingCabin</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://www.stakingcabin.com/"
+          >https://www.stakingcabin.com/</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>Validation Cloud</td>
+      <td><span data-option="kho2A8rahGbq">Actief</span></td>
+      <td>
+        <a href="https://www.validationcloud.io/"
+          >https://www.validationcloud.io/</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

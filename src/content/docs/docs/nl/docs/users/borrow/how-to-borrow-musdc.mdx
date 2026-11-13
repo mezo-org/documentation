@@ -1,0 +1,85 @@
+---
+title: mUSDC lenen
+description: Stapsgewijze handleiding om USDC te lenen tegen je BTC op Mezo.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Je kunt nu op Mezo USDC lenen tegen je Bitcoin. Deze handleiding laat zien hoe je het leenproces doorloopt in de [Mezo App](https://mezo.org/feature/borrow).
+
+:::note
+Wanneer USDC zich op Mezo bevindt, wordt het in de app weergegeven als **mUSDC**. 1 USDC = 1 mUSDC.
+:::
+
+## Voordat je begint
+
+Voordat je mUSDC kunt lenen, moet je de volgende stappen uitvoeren:
+
+- Ga naar [mezo.org](https://mezo.org/) en klik op **Sign in** om verbinding te maken met je Mezo-account.
+- Verbind een wallet met Mezo. Zie de handleiding [Verbinden met Mezo](/docs/nl/docs/users/getting-started/connect/) voor instructies.
+- Zorg dat je BTC op Mezo hebt voor onderpand en gas. Zie [Activa storten](/docs/nl/docs/users/getting-started/deposit-assets) als je nog moet bridgen of storten.
+- Voeg eventueel het mUSDC-token toe aan je wallet. Dat kan via de interface van de Mezo Explorer. Klik op de knop **Add token to MetaMask** naast het mUSDC-tokenadres:
+    - Mainnet: [0x04671C72Aab5AC02A03c1098314b1BB6B560c197](https://explorer.mezo.org/token/0x04671C72Aab5AC02A03c1098314b1BB6B560c197)
+
+## mUSDC lenen
+
+Zodra je bent aangemeld op [mezo.org](https://mezo.org/) met een account dat BTC bevat, kun je mUSDC lenen.
+
+<Steps>
+1. Open [mezo.org/feature/borrow](https://mezo.org/feature/borrow) in je browser.
+
+2. Kies **mUSDC** als de valuta die je wilt lenen.
+
+3. Geef op hoeveel USDC je wilt lenen en hoeveel BTC je als onderpand wilt gebruiken.
+
+4. Klik op **Review** om het overzicht te openen voordat je bevestigt.
+
+5. Controleer de gegevens in het overzicht (geleend bedrag, onderpandbedrag, verwachte LTV, liquidatieprijs en gezondheid van de positie) en ga na of alles klopt.
+
+6. Ben je klaar om verder te gaan? Klik dan op **Confirm**. Je browserwallet vraagt je de transactie te bevestigen en de gaskosten met BTC te betalen.
+</Steps>
+
+Als het proces is voltooid, kun je de status van je lening bekijken op [mezo.org/feature/borrow](https://mezo.org/feature/borrow).
+
+## De leenvoorwaarden begrijpen
+
+mUSDC heeft een variabele APR die meebeweegt met de vraag in de mUSDC-markt. Op Mezo geldt geen verplichte aflossingsdatum: je kunt je positie zo lang openhouden als je wilt, zolang je LTV onder de liquidatie-LTV van de markt blijft.
+
+Je onderpand bepaalt hoeveel je kunt lenen. Hoe meer BTC je toevoegt, hoe meer ruimte je positie heeft als de BTC-koers daalt. De verwachte loan-to-value-ratio (LTV) van je positie wordt bijgewerkt terwijl je je onderpand en leenbedrag aanpast. LTV is de waarde van je schuld ten opzichte van je onderpand. Een hogere LTV betekent een hoger liquidatierisico.
+
+Het is belangrijk dat leners letten op de liquidatie-LTV van de markt. Je positie kan in aanmerking komen voor liquidatie als je verwachte LTV boven de liquidatie-LTV van de markt uitkomt. Het verschil tussen je LTV en de liquidatie-LTV is je buffer: hoeveel je LTV kan stijgen voordat liquidatie volgt. Je LTV stijgt wanneer BTC daalt, dus de buffer geeft aan hoeveel koersdaling je positie kan opvangen. Stel dat de liquidatie-LTV van de mUSDC-markt 86% is en je verwachte LTV 31%, dan kan BTC ongeveer 64% dalen voordat de positie gevaar loopt.
+
+Er wordt rente berekend over het geleende bedrag, dus houd in de gaten hoe je schuld na verloop van tijd groeit. Wil je je positie sluiten, dan heb je genoeg mUSDC nodig om de hoofdsom plus eventuele opgebouwde rente te dekken.
+
+### LTV vs. collateralisatieratio
+
+Als je MUSD hebt geleend vóór deze update, beheerde je je positie met de collateralisatieratio, oftewel CR. LTV en CR meten hetzelfde risico vanuit tegengestelde richtingen. LTV deelt je schuld door de waarde van je onderpand. CR deelt de waarde van je onderpand door je schuld. De ene is het omgekeerde van de andere: een LTV van 50% komt overeen met een CR van 200%, en een LTV van 31% met een CR van ongeveer 323%.
+
+De drempels worden op dezelfde manier omgerekend. De liquidatie-LTV van 86% van de mUSDC-markt komt overeen met een CR van ongeveer 116%. De liquidatie-LTV van 90% van MUSD komt overeen met een CR van ongeveer 111%. De Mezo App toont nu voor al zijn leenproducten de LTV, zodat één getal overal hetzelfde betekent.
+
+Daarnaast heeft MUSD een inwisselingsmechanisme dat helpt de koppeling op \$1 te behouden. Daardoor kan er tegen een MUSD-positie worden ingewisseld, ook als die gezond is. mUSDC heeft geen inwisselingsmechanisme en gebruikt alleen LTV.
+
+## Je lening beheren
+
+Zodra je een actieve lening hebt, kun je die beheren via de Mezo App. Op het Borrow-dashboard zie je hoeveel mUSDC je verschuldigd bent, hoeveel BTC als onderpand is vergrendeld, je huidige LTV, je liquidatieprijs, je huidige APR en je recente activiteit. Je kunt ook je mUSDC aflossen om de lening te sluiten. Na aflossing komt je onderpand weer beschikbaar en verschijnt je gesloten positie in je leengeschiedenis.
+
+Wil je mUSDC aanbieden en rendement verdienen op de rente die leners betalen? Zie dan de [USDC Lending Vault](/docs/nl/docs/users/mezo-earn/vaults/usdc-lending-vault).
+
+## Veelgestelde vragen
+
+### Wat gebeurt er als je positie wordt geliquideerd?
+
+Liquidatie kan plaatsvinden als je LTV boven de liquidatie-LTV van de markt uitkomt, hetzij omdat BTC is gedaald, hetzij omdat opgebouwde rente je schuld heeft laten groeien.
+
+Bij mUSDC betekent liquidatie dat een andere partij de schuld kan aflossen en onderpand uit de positie ontvangt, en dat er een liquidatieboete van 4% van je onderpand wordt afgehaald. Dit beschermt de leenmarkt, maar het kost je echte BTC.
+
+De beste manier om het liquidatierisico te verkleinen, is voorzichtig lenen en je positie in de gaten houden.
+
+### LTV vs. collateralisatieratio
+
+Als je MUSD hebt geleend vóór deze update, beheerde je je positie met de collateralisatieratio, oftewel CR. LTV en CR meten hetzelfde risico vanuit tegengestelde richtingen. LTV deelt je schuld door de waarde van je onderpand. CR deelt de waarde van je onderpand door je schuld. De ene is het omgekeerde van de andere: een LTV van 50% komt overeen met een CR van 200%, en een LTV van 31% met een CR van ongeveer 323%.
+
+De drempels worden op dezelfde manier omgerekend. De liquidatie-LTV van 86% van de mUSDC-markt komt overeen met een CR van ongeveer 116%. De liquidatie-LTV van 90% van MUSD komt overeen met een CR van ongeveer 111%. De Mezo App toont nu voor al zijn leenproducten de LTV, zodat één getal overal hetzelfde betekent.
+
+Daarnaast heeft MUSD een inwisselingsmechanisme dat helpt de koppeling op \$1 te behouden. Daardoor kan er tegen een MUSD-positie worden ingewisseld, ook als die gezond is. mUSDC heeft geen inwisselingsmechanisme en gebruikt alleen LTV.
