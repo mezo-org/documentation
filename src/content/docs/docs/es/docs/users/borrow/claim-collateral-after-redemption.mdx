@@ -1,0 +1,59 @@
+---
+title: Cómo reclamar tu colateral después de una redención completa
+description: >-
+  Guía paso a paso para reclamar el colateral restante después de que tu
+  préstamo en MUSD (Trove) se haya redimido por completo.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Cuando otro usuario redime MUSD contra tu préstamo (Trove) y este queda completamente saldado, tu deuda se cancela, pero el colateral restante permanece en los contratos inteligentes de MUSD hasta que lo reclames. Tu colateral está seguro y puedes reclamarlo en cualquier momento.
+
+Normalmente, verás una alerta "Loan redeemed" en la página Borrow que te permite reclamar tu colateral directamente desde la interfaz. Para hacerlo, haz clic en el botón situado a la derecha de la alerta, como se muestra en la siguiente captura de pantalla.
+
+![Alerta "Loan redeemed" en la página Borrow](/docs/images/musd/loan-redeemed.webp)
+
+Si no ves esta alerta, puedes reclamar tu colateral manualmente llamando a la función `claimCollateral` del contrato BorrowerOperations a través del Mezo Explorer. Sigue estos pasos.
+
+<Steps>
+
+1. **Ve al contrato BorrowerOperations**
+
+   Abre el [contrato BorrowerOperations en el Mezo Explorer](https://explorer.mezo.org/address/0x44b1bac67dDA612a41a58AAf779143B181dEe031).
+
+2. **Haz clic en la pestaña "Contract"**
+
+   En la barra de pestañas, junto a Transactions, Token transfers y Tokens, haz clic en **Contract**.
+
+   Se mostrarán cuatro subpestañas: **Code**, **Read proxy**, **Write contract** y **Write proxy**.
+
+3. **Haz clic en "Write proxy"**
+
+   Haz clic en la pestaña **Write proxy**. Esta es la pestaña que expone todas las funciones de escritura del contrato de implementación subyacente de BorrowerOperations.
+
+   :::caution
+   Asegúrate de seleccionar **Write proxy** (no "Write contract"): la pestaña del proxy refleja la lógica real de BorrowerOperations.
+   :::
+
+4. **Conecta tu billetera**
+
+   Verás un banner amarillo/naranja en la parte superior del área de funciones del contrato con el texto "Disconnected" y un botón **Connect wallet**.
+
+   Haz clic en **Connect wallet** y aprueba la conexión en tu billetera (p. ej., MetaMask). Asegúrate de conectarte con la misma dirección de billetera que tenía el Trove redimido, ya que solo esa dirección puede reclamar su colateral.
+
+5. **Busca la función claimCollateral**
+
+   Desplázate por la lista de funciones del contrato hasta llegar a:
+
+   **7. claimCollateral**
+
+   Haz clic en ella para desplegar la función. No requiere parámetros de entrada: simplemente reclama todo el colateral que se reservó para tu dirección después de la redención completa.
+
+6. **Haz clic en "Write"**
+
+   Con tu billetera conectada, haz clic en el botón **Write** que aparece debajo de la función `claimCollateral`.
+
+   Tu billetera te pedirá que confirmes la transacción. Revisa la comisión de gas y confirma. Cuando se complete la transacción, tu colateral (BTC) se enviará directamente a tu billetera.
+
+</Steps>
