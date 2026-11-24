@@ -61,6 +61,16 @@ URL: [https://mezotools.cc/](https://mezotools.cc/)
 - Review individual troves, redemptions, and liquidation activity.
 - Use it for higher-frequency monitoring beyond the core app views.
 
+## MUSD Compass
+
+[MUSD Compass](https://musd-compass.vercel.app/) ranks every place Mezo MUSD can earn, on Mezo and Ethereum, by the cash you keep after costs.
+
+URL: [https://musd-compass.vercel.app/](https://musd-compass.vercel.app/)
+
+- Compare MUSD earning and borrowing options by net yearly cash, with locked veMEZO rewards shown separately.
+- Check a wallet's MUSD holdings against the best place for each, and get trove alerts through the Telegram bot.
+- Use the free JSON API, the embeddable widget, or the pay-per-call x402 API.
+
 ## Range
 
 [Range](https://range.opturafi.com/) is an automated concentrated-liquidity rebalancing vault for Mezo's Uniswap V3-compatible DEX.
