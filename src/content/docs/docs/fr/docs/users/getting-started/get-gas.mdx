@@ -1,0 +1,75 @@
+---
+title: Swaps sans gaz
+description: >-
+  Découvrez comment utiliser la fonctionnalité Get Gas pour échanger une petite
+  quantité de MUSD ou de MEZO contre du gaz en BTC lorsque votre solde est
+  faible.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+La fonctionnalité **Get Gas** vous permet d'obtenir une petite quantité de BTC pour couvrir les frais de transaction (gaz) sur Mezo, même si votre portefeuille ne contient aucun BTC. Elle effectue pour cela un **swap sans gaz**, en échangeant une petite quantité de MUSD ou de MEZO contre exactement **0,0001 BTC**, de quoi couvrir plusieurs transactions sur le réseau.
+
+Comme le swap est sans gaz (il repose sur des méta-transactions), vous n'avez besoin d'aucun BTC pour l'utiliser.
+
+## Quand apparaît-il ?
+
+Un bouton **« Get Gas »** apparaît automatiquement dans l'application Mezo lorsque le solde en BTC de votre portefeuille passe sous **0,000001 BTC**. Vous disposez ainsi toujours d'un moyen de recharger votre gaz sans avoir à transférer davantage de BTC via un pont ni à passer par une plateforme d'échange externe.
+
+## Jetons pris en charge
+
+Les jetons pris en charge pour les swaps Get Gas sont **MUSD** et **MEZO**. Ainsi, les utilisateurs qui arrivent sur la chaîne avec uniquement des MEZO peuvent obtenir gratuitement un swap vers des BTC pour le gaz, sans avoir à transférer d'autres actifs via un pont.
+
+## Comment obtenir du gaz
+
+<Steps>
+
+1. **Ouvrez la fenêtre Get Gas**
+
+   Lorsque votre solde en BTC est faible, cliquez sur le bouton **« Get Gas »** qui apparaît dans l'application.
+
+2. **Sélectionnez un jeton**
+
+   Sélectionnez MUSD ou MEZO comme jeton source. La fenêtre affiche le coût estimé du swap.
+
+3. **Vérifiez le devis**
+
+   L'application indique la quantité de MUSD ou de MEZO nécessaire pour recevoir exactement **0,0001 BTC**. Le montant reçu est fixe : vous obtenez donc toujours une quantité de gaz prévisible, quel que soit le prix du jeton.
+
+4. **Confirmez le swap**
+
+   Cliquez sur **« Get Gas »** pour lancer le swap. Vous serez invité à signer deux messages dans votre portefeuille :
+   - une **signature permit** (approbation du jeton) ;
+   - une **signature execute** (autorisation du swap).
+
+   Ces signatures n'entraînent aucuns frais de gaz.
+
+5. **Attendez la confirmation**
+
+   L'application soumet votre transaction et vérifie automatiquement sa confirmation à intervalles réguliers. Une fois la transaction confirmée, un écran de réussite s'affiche avec le hash de la transaction.
+
+</Steps>
+
+## Fonctionnement
+
+La fonctionnalité Get Gas utilise des **méta-transactions** pour exécuter le swap sans exiger de gaz de la part de l'utilisateur :
+
+1. **Permit** : vous signez un message hors chaîne qui autorise le relais à dépenser le montant nécessaire du jeton choisi.
+2. **Relais** : un service de relais backend soumet la transaction de swap en votre nom et prend en charge le coût du gaz.
+3. **Swap** : la transaction s'exécute onchain et échange votre jeton contre **0,0001 BTC**, versés directement dans votre portefeuille.
+
+Grâce à cette conception, vous pouvez toujours obtenir du gaz tant que vous détenez des MUSD ou des MEZO : aucun BTC n'est nécessaire pour commencer.
+
+## Détails clés
+
+| Détail | Valeur |
+|---|---|
+| **Montant reçu** | 0,0001 BTC (fixe) |
+| **Jetons éligibles** | MUSD, MEZO |
+| **Gaz requis** | Aucun (sans gaz grâce aux méta-transactions) |
+| **Déclencheur** | Solde en BTC inférieur à 0,000001 BTC |
+
+:::note
+Le coût en MUSD ou en MEZO varie en fonction des prix actuels des pools. Le devis affiché dans la fenêtre reflète le taux en temps réel au moment du swap.
+:::

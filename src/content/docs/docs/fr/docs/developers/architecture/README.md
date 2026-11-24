@@ -1,5 +1,5 @@
 ---
-title: architecture
+title: Architecture
 topic: developers
 ---
-# architecture
+# Architecture

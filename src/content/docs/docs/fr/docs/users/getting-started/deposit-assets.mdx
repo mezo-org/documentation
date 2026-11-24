@@ -1,0 +1,42 @@
+---
+title: Comment déposer des actifs sur Mezo
+description: >-
+  Guide pour déposer vos actifs sur Mezo et accéder à des services bancaires
+  Bitcoin en libre-service
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+Vous pouvez déposer des tBTC et d'autres jetons ERC-20 pris en charge depuis Ethereum sur Mezo Mainnet à l'aide d'un portefeuille EVM.
+
+:::caution[Le Native BTC Bridge-in a pris fin]
+Depuis le 13 octobre 2026, le Native BTC Bridge-in est fermé et l'application Mezo n'accepte plus les dépôts depuis des portefeuilles Bitcoin (UniSat, OKX, Xverse). Les retraits directs vers BTC via le pont restent possibles. Pour apporter des BTC sur Mezo, déposez plutôt des tBTC depuis Ethereum. Le dépôt est réglé en quelques minutes et aucun montant minimum n'est exigé.
+
+Si vous détenez des BTC dans un portefeuille Bitcoin, créez un compte Mezo avec un portefeuille EVM et gérez vos dépôts depuis celui-ci. Si votre compte Mezo utilise déjà un portefeuille Bitcoin, vous pouvez conserver vos actifs sur Mezo en les déplaçant vers un portefeuille EVM : dans l'application Mezo, accédez à **Transact > Send** et saisissez l'adresse `0x…` de votre portefeuille EVM (consultez [Envoyer des actifs](/docs/fr/docs/users/passport/send-assets)). Vous pouvez aussi toujours effectuer un retrait direct vers BTC via le pont. Consultez la section [Retraits](/docs/fr/docs/users/mainnet/bridges#retraits).
+:::
+
+<YouTube id="DinlFeUZB3U" title="Comment effectuer un dépôt sur Mezo" />
+
+## Avant de commencer
+
+- Connectez-vous avec un portefeuille EVM tel que MetaMask. Les portefeuilles Bitcoin ne peuvent pas effectuer de dépôt sur Mezo.
+- Vérifiez quels actifs sont pris en charge. Vous pouvez confirmer les adresses de ces jetons sur la page [Référence des contrats](/docs/fr/docs/users/resources/contracts-reference#contrats-de-jetons).
+- Toutes les transactions sur Mezo Mainnet sont payées en BTC. Les tBTC déposés depuis Ethereum arrivent sous forme de BTC sur Mezo : il est donc recommandé d'approvisionner votre compte en tBTC afin de disposer du gaz nécessaire pour payer les transactions. Si vous ne détenez que des MUSD ou des MEZO sur Mezo, utilisez [Get Gas](/docs/fr/docs/users/getting-started/get-gas).
+
+## Déposer vos actifs
+
+<Steps>
+1. Rendez-vous sur l'[application Mezo](https://mezo.org/overview) et connectez-vous avec un portefeuille EVM.
+
+2. Cliquez sur **Deposit**. Le formulaire de dépôt s'ouvre avec tBTC sélectionné.
+
+3. Sélectionnez l'actif que vous souhaitez transférer via le pont et indiquez le montant.
+
+4. Cliquez sur **Review** et vérifiez les détails du transfert.
+
+5. Si la transaction vous convient, confirmez-la dans votre portefeuille. S'il s'agit de votre premier dépôt de ce jeton, votre portefeuille vous demande d'abord de l'approuver.
+</Steps>
+
+Une fois la transaction terminée, le processus de transfert via le pont commence. Il peut falloir plusieurs minutes avant que vous ne receviez vos actifs sur Mainnet.

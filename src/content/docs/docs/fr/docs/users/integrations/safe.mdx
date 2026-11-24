@@ -1,0 +1,48 @@
+---
+title: Safe
+description: >-
+  Utilisez des portefeuilles multisig Safe sur Mezo pour gérer des fonds
+  partagés avec la sécurité de la multisignature.
+topic: users
+---
+
+import { LinkButton, Steps } from '@astrojs/starlight/components';
+
+[Safe](https://safe.global/) (anciennement Gnosis Safe) est le portefeuille multisig le plus utilisé dans l'univers crypto. Mezo dispose d'un déploiement natif de Safe à l'adresse [safe.mezo.org](https://safe.mezo.org), géré par [Den](https://www.onchainden.com/).
+
+Un portefeuille multisig (multisignature) exige que plusieurs personnes approuvent une transaction avant son exécution. Au lieu qu'une seule personne contrôle les fonds avec une seule clé privée, un groupe définit des règles telles que « 3 signataires sur 5 doivent approuver ».
+
+<LinkButton href="https://safe.mezo.org" target="_blank">Ouvrir Safe sur Mezo</LinkButton>
+
+## Premiers pas
+
+<Steps>
+
+1. Rendez-vous sur [safe.mezo.org](https://safe.mezo.org).
+
+2. Connectez votre portefeuille.
+
+3. Cliquez sur **Create new Safe Account**.
+
+4. Ajoutez les adresses de portefeuille de vos cosignataires.
+
+5. Définissez le seuil de confirmation, c'est-à-dire le nombre d'approbations nécessaires pour exécuter une transaction (par exemple, 2 sur 3).
+
+6. Vérifiez et déployez votre Safe.
+
+</Steps>
+
+Une fois votre Safe déployé, vous pouvez envoyer et recevoir des BTC et d'autres jetons sur Mezo par son intermédiaire, chaque transaction nécessitant le seuil d'approbation que vous avez configuré.
+
+## Fonctionnalités
+
+- **Sécurité multisignature** : exigez l'approbation de plusieurs signataires avant l'exécution des transactions.
+- **Modules et guards** : personnalisez votre Safe avec des modules enfichables pour les limites de dépenses, la récupération, les transactions automatisées, et plus encore.
+- **Accès à l'écosystème** : interagissez avec les dApps de Mezo directement depuis votre Safe grâce au navigateur d'applications intégré.
+- **Comptes en lecture seule** : surveillez n'importe quel compte Safe sans connecter de portefeuille.
+
+## Ressources
+
+- [Safe sur Mezo](https://safe.mezo.org)
+- [Documentation Safe](https://docs.safe.global/)
+- [Documentation Den](https://docs.onchainden.com/overview/den)
