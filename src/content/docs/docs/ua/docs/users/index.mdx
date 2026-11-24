@@ -1,9 +1,9 @@
 ---
 title: Посібники та документація для користувачів
 description: >-
-  Офіційна документація Mezo: налаштування гаманця, переказ активів, посібники
-  із запозичення MUSD та ресурси для розробників. Це ваш повний посібник з
-  управління власними фінансами.
+  Офіційна документація Mezo: налаштування гаманця, переказ активів через міст,
+  посібники з позик у MUSD і ресурси для розробників. Це ваш повний посібник з
+  того, як стати банком для самого себе.
 topic: users
 ---
 
@@ -11,44 +11,95 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 ## Початок роботи
 
-Дізнайтеся про основи внесення депозитів та [запозичення активів](https://mezo.org/feature/borrow) у додатку Mezo або підключіться до основної мережі Mezo.
+Ознайомтеся з основами внесення депозитів і [позик](https://mezo.org/feature/borrow) у застосунку Mezo або під'єднайтеся до Mezo Mainnet.
 
 <CardGrid>
-  <LinkCard title="Створення облікового запису" href="/docs/ua/docs/users/getting-started/creating-an-account" description="Дізнайтеся, як налаштувати обліковий запис та почати роботу з Mezo." />
-  <LinkCard title="Підключення гаманця" href="/docs/ua/docs/users/getting-started/connect" description="Підключіть наявний гаманець до мережі Mezo." />
-  <LinkCard title="Внесення активів" href="/docs/ua/docs/users/getting-started/deposit-assets" description="Переведіть свої активи до Mezo, щоб почати заробляти та запозичувати." />
+  <LinkCard
+    title="Створення облікового запису"
+    href="/docs/ua/docs/users/getting-started/creating-an-account"
+    description="Дізнайтеся, як налаштувати обліковий запис і почати роботу з Mezo."
+  />
+  <LinkCard
+    title="Під'єднання гаманця"
+    href="/docs/ua/docs/users/getting-started/connect"
+    description="Під'єднайте наявний гаманець до Mezo."
+  />
+  <LinkCard
+    title="Внесення активів"
+    href="/docs/ua/docs/users/getting-started/deposit-assets"
+    description="Перенесіть свої активи в Mezo через міст, щоб почати заробляти й позичати."
+  />
+  <LinkCard
+    title="Надсилання активів"
+    href="/docs/ua/docs/users/passport/send-assets"
+    description="Надсилайте активи іншим користувачам Mezo за адресою гаманця, біткоїн-адресою або Mezo ID."
+  />
 </CardGrid>
 
-## Навчання
+## Дізнайтеся більше
 
-Дізнайтеся про мережу Mezo, MUSD та як вони забезпечують доступ до капіталу Bitcoin.
+Дізнайтеся про мережу Mezo, MUSD і те, як вони відкривають доступ до капіталу в біткоїні.
 
 <CardGrid>
-  <LinkCard title="Чому Bitcoin потребує банкінгу" href="/docs/ua/docs/users/introduction/why-bitcoin-needs-banking" description="Дослідіть фундаментальні причини створення мережі Mezo." />
-  <LinkCard title="Самообслуговуваний банкінг" href="/docs/ua/docs/users/introduction/mezo-self-service-banking" description="Глибоке занурення в економіку вільного банкінгу Mezo для власників Bitcoin." />
-  <LinkCard title="Що таке MUSD?" href="/docs/ua/docs/users/borrow" description="Дізнайтеся про нативний стейблкоїн Mezo, забезпечений Bitcoin." />
+  <LinkCard
+    title="Чому біткоїну потрібен банкінг"
+    href="/docs/ua/docs/users/introduction/why-bitcoin-needs-banking"
+    description="Дізнайтеся про фундаментальні причини створення мережі Mezo."
+  />
+  <LinkCard
+    title="Банкінг на самообслуговуванні"
+    href="/docs/ua/docs/users/introduction/mezo-self-service-banking"
+    description="Детальний огляд економіки вільного банкінгу Mezo для біткоїнерів."
+  />
+  <LinkCard
+    title="Що таке MUSD?"
+    href="/docs/ua/docs/users/borrow"
+    description="Дізнайтеся про нативний стейблкоїн Mezo, забезпечений біткоїном."
+  />
 </CardGrid>
 
-## Запозичення та мінтинг
+## Позики під заставу біткоїна
 
-Використовуйте свої активи, щоб розблокувати купівельну спроможність вашого Bitcoin.
+Використовуйте свої активи, щоб розкрити купівельну спроможність свого біткоїна.
 
 <CardGrid>
-  <LinkCard title="Запозичення та мінтинг MUSD" href="/docs/ua/docs/users/borrow/mint-musd" description="Використовуйте свої активи, щоб розблокувати купівельну спроможність вашого Bitcoin." />
+  <LinkCard
+    title="Позика та випуск MUSD"
+    href="/docs/ua/docs/users/borrow/mint-musd"
+    description="Використовуйте свої активи, щоб розкрити купівельну спроможність свого біткоїна."
+  />
 </CardGrid>
 
 ## Інтеграції
 
-Підключайтеся до партнерських платформ, щоб покращити ваш досвід роботи з Bitcoin.
+Під'єднуйтеся до партнерських платформ, щоб отримати більше можливостей зі своїм біткоїном.
 
 <CardGrid>
-  <LinkCard title="Інтеграція з Lolli" href="/docs/ua/docs/users/integrations/lolli" description="Підключайтеся до партнерських платформ, щоб покращити ваш досвід роботи з Bitcoin." />
+  <LinkCard
+    title="Lolli"
+    href="/docs/ua/docs/users/integrations/lolli"
+    description="Під'єднуйтеся до партнерських платформ, щоб отримати більше можливостей зі своїм біткоїном."
+  />
+  <LinkCard
+    title="Safe"
+    href="/docs/ua/docs/users/integrations/safe"
+    description="Використовуйте мультипідписні гаманці Safe у Mezo, щоб керувати спільними коштами із захистом кількома підписами."
+  />
+  <LinkCard
+    title="Проєкти спільноти"
+    href="/docs/ua/docs/users/integrations/community-projects"
+    description="Ознайомтеся з інтеграціями, створеними спільнотою, зокрема Mezo Tools, Matchbox і Vezo."
+  />
 </CardGrid>
 
-## Розробники
+## Розробникам
 
-Хочете розробляти на Mezo? Почніть з документації для розробників.
+Хочете розробляти на Mezo? Почніть із документації для розробників.
 
 <CardGrid>
-  <LinkCard title="Документація для розробників" href="/docs/ua/docs/developers" description="Хочете розробляти на Mezo? Почніть з документації для розробників." />
+  <LinkCard
+    title="Документація для розробників"
+    href="/docs/ua/docs/developers"
+    description="Хочете розробляти на Mezo? Почніть із документації для розробників."
+  />
 </CardGrid>
