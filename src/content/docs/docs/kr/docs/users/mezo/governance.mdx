@@ -1,0 +1,39 @@
+---
+title: 거버넌스
+description: 'MEZO 거버넌스 매개변수, 제약 사항 및 향후 개발'
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Mezo 네트워크 거버넌스를 통해 veBTC 보유자는 프로토콜 매개변수와 에미션 흐름을 결정할 수 있습니다. 거버넌스는 BTC에 기반합니다. veMEZO는 자체 거버넌스 가중치를 갖는 대신 veBTC 투표력을 증폭합니다.
+
+## 프로토콜 매개변수
+
+다음 매개변수는 MEZO 에미션이 배분되는 방식을 정의합니다.
+
+| 매개변수 | 설명 | 상태 |
+|---|---|---|
+| Chain Splitter 비율 | 검증자(20%)와 생태계(80%)에 배분되는 에미션 비율 | 고정, 거버넌스를 통해 잠김 |
+| Ecosystem Splitter 비율 | 스테이킹 게이지(90%)와 생태계 게이지(10%)에 배분되는 에미션 비율 | 고정, 거버넌스를 통해 잠김 |
+| 최대 부스트 배수 | veBTC에 대한 최대 veMEZO 부스트 | 현재 5x |
+
+Splitter 비율은 현재 고정되어 있으며 투표로 변경할 수 없습니다. 향후 거버넌스 메커니즘을 통해 이 비율을 조정할 수 있게 될 수도 있습니다.
+
+![Mezo 에미션 일정](/docs/images/mezo-token/mezo-emissions.png)
+
+<LinkButton href="/docs/kr/docs/users/mezo/emissions">MEZO 토큰 에미션 자세히 알아보기</LinkButton>
+
+## 거버넌스 제약 사항
+
+- **BTC 기반 투표** — veBTC 보유자만 거버넌스 제안에 투표할 수 있습니다. veMEZO는 veBTC 투표력을 부스트하지만 자체적인 거버넌스 권한은 부여하지 않습니다. veMEZO는 [veBTC 부스트 게이지](/docs/kr/docs/users/mezo-earn/lock/vemezo/matching-market)와 [MEZO Gauges](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges)에서 독립적으로 투표하지만, 이 투표는 프로토콜 매개변수를 정하는 것이 아니라 에미션의 배분처를 정합니다.
+
+## 향후 개발
+
+거버넌스 구조는 다음을 포함하도록 발전할 수 있습니다.
+
+- 공식 제안 및 투표 메커니즘(예: Governor Bravo)
+- 추가로 거버넌스가 관리할 수 있는 매개변수
+- 지분 증명(proof-of-stake) 체계에서 게이지 투표를 통한 검증자 선정
+
+거버넌스 기능이 확정되면 세부 사항이 공지됩니다.

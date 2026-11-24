@@ -1,0 +1,74 @@
+---
+title: 인센티브 청구하기
+description: LP와 투표자가 MEZO Gauges를 통해 배분된 MEZO를 청구하는 방법
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+무엇을 어디에서 청구하는지는 게이지의 어느 쪽에 참여하는지에 따라 달라집니다.
+
+| 내 역할 | 청구 대상 | 청구 위치 |
+|---|---|---|
+| Curve USDT/USDC/MUSD 또는 Uniswap USDC/MUSD의 LP | 3개월 동안 잠긴 veMEZO | [Merkl](https://app.merkl.xyz) |
+| Aero USDC/MUSD 또는 MEZO/MUSD에 배분하는 sAERO 보유자 | 인센티브로 지급되는 MEZO | [Aero](https://app.aero.xyz) |
+| AERO를 받는 예치를 보유한 Aero USDC/MUSD 또는 MEZO/MUSD의 LP | AERO Rewards | [Aero](https://app.aero.xyz) |
+| MEZO Gauge에 투표한 veMEZO 보유자 | 해당 게이지에 걸린 인센티브 | [mezo.org](https://mezo.org)의 Vote 탭 |
+
+---
+
+## Curve 및 Uniswap LP: Merkl에서 청구
+
+보상은 지갑으로 자동 전송되지 **않습니다**. Merkl이 내 주소에 대한 청구 가능액을 적립하며, 이를 직접 수령해야 합니다.
+
+<Steps>
+1. [app.merkl.xyz](https://app.merkl.xyz)로 이동하세요.
+2. LP 포지션을 보유한 지갑을 연결하세요.
+3. **Dashboard**를 여세요. 연결하면 해당 지갑이 청구할 수 있는 모든 보상이 표시되므로 캠페인을 따로 찾을 필요가 없습니다.
+4. **Claim**을 클릭하고 트랜잭션에 서명하세요.
+</Steps>
+
+**받는 자산:** 유동성 있는 MEZO가 아니라 3개월 동안 잠긴 veMEZO입니다. 청구한 후에는 다른 [veMEZO 포지션](/docs/kr/docs/users/mezo-earn/lock/vemezo)과 똑같이 작동합니다. veBTC 포지션을 부스트할 수 있고, MEZO Gauges에 투표할 수도 있습니다.
+
+해당 풀에 유동성을 공급하고 있다면, 청구한 veMEZO로 다시 그 풀의 MEZO Gauge에 투표하여 이미 보유한 포지션에 더 많은 에미션이 오도록 순환시킬 수 있습니다. 이는 선택 사항입니다. 캠페인 기간 동안 유동성을 공급하기만 해도 청구할 수 있습니다. 전체 흐름은 [투표가 반영되는 곳](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#배분한-가치-확보하기)을 참조하세요.
+
+:::caution[청구하지 않은 보상은 소멸됩니다]
+Merkl 캠페인 보상은 무기한 적립되지 않습니다. 청구하지 않으면 보상을 잃게 됩니다. 이 풀들에 유동성을 공급하고 있다면 Merkl을 주기적으로 확인하세요.
+:::
+
+LP로서 청구하기 위해 veMEZO를 보유하거나 투표했을 필요는 없습니다. 캠페인 기간 동안 해당 풀에 유동성을 공급하는 것이 유일한 요건입니다.
+
+---
+
+## Aero: Base에서 청구
+
+Aero 게이지로 배분된 MEZO는 해당 풀에 **인센티브 프로그램**으로 걸리므로, LP가 아니라 그 풀에 배분하는 sAERO 보유자가 받습니다.
+
+**sAERO를 보유하고 USDC/MUSD 또는 MEZO/MUSD에 배분하는 경우:** 배분을 유지하는 동안 인센티브가 계속 스트리밍됩니다. [app.aero.xyz](https://app.aero.xyz)의 **Portfolio > Stakes**에서 언제든지 청구할 수 있으며, 주간 프로그램마다 따로 청구합니다. 내 MEZO 몫은 해당 풀의 배분에서 내가 차지하는 비중에 비례합니다.
+
+**Aero USDC/MUSD 또는 MEZO/MUSD에 유동성을 공급하는 경우:** 예치할 때 **AERO rewards**를 선택했다면 **AERO Rewards**를 받습니다. 하나의 예치는 AERO Rewards와 거래 수수료 중 하나만 받으며, 둘 다 받을 수는 없습니다. AERO Rewards는 계속 스트리밍되며 **Portfolio > Deposits**에서 언제든지 청구할 수 있습니다. Mezo에서의 투표가 풀에 도달하는 과정은 [Aero에서의 시점](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#aero에서의-시점)을 참조하세요.
+
+### Aerodrome에서 옮기기
+
+Aerodrome 에미션은 Aero가 출시된 2026년 10월 22일 00:00 UTC에 중단되었습니다. 포지션은 자동으로 옮겨지지 않습니다.
+
+- **Base의 기존 USDC/MUSD 또는 MEZO/MUSD 풀의 LP:** [aerodrome.finance](https://aerodrome.finance)의 업그레이드 포털을 통해 포지션을 새 Aero 풀로 마이그레이션하세요. 자동 유동성 관리자(ALM)에 있는 포지션은 마이그레이션되지 않으므로, Aerodrome에서 인출한 뒤 Aero에 직접 예치하세요. [Aero의 LP 안내](https://aero.xyz/aero-upgrade/#liquidity-providers)를 따르세요.
+- **veAERO 보유자:** veAERO는 sAERO로 대체되었으며, Aero에서는 sAERO만 인센티브를 받습니다. 업그레이드하면 기존 투표가 초기화되며 되돌릴 수 없습니다. 업그레이드한 후 MEZO 인센티브를 계속 받으려면 sAERO를 Aero USDC/MUSD 또는 MEZO/MUSD 풀에 배분하세요. [Aero의 보유자 안내](https://aero.xyz/aero-upgrade/#veaero-vevelo-holders)를 참조하세요.
+
+---
+
+## MEZO Gauge 투표자: Mezo에서 청구
+
+veMEZO를 MEZO Gauge에 배분했다면 해당 게이지 투표에서 내가 차지하는 비중에 비례하여 **그 게이지에 걸린 인센티브**의 몫을 받습니다.
+
+이 인센티브는 다른 투표 보상과 같은 방식으로, 에포크가 종료된 후 [mezo.org](https://mezo.org)의 **Vote** 탭에서 청구하세요. [수수료 및 에미션 청구하기](/docs/kr/docs/users/mezo-earn/vote/claiming-fees-emissions)를 참조하세요.
+
+이 인센티브는 내가 배분한 에미션과 별개입니다. 에미션은 목적지 풀로 가고, 인센티브는 애초에 내 투표를 유치하기 위해 Mezo에 걸린 것입니다.
+
+---
+
+## 다음 단계
+
+- [투표가 반영되는 곳](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) — 투표에서 인센티브까지의 전체 흐름
+- [MEZO Gauges 개요](/docs/kr/docs/users/mezo-earn/vote/mezo-gauges) — 대상 풀과 재원
+- [수수료 및 에미션 청구하기](/docs/kr/docs/users/mezo-earn/vote/claiming-fees-emissions) — 그 밖의 모든 Mezo Earn 보상
