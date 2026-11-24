@@ -1,0 +1,103 @@
+---
+title: Visão geral do mercado de correspondência
+description: >-
+  Como o mercado de correspondência conecta detentores de veBTC e de veMEZO em
+  benefício mútuo
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+O mercado de correspondência é a forma como veBTC e veMEZO são pareados. Ele permite que detentores de BTC tenham acesso ao boost sem ter MEZO e que detentores de MEZO obtenham rendimento sem ter uma quantidade significativa de BTC.
+
+## O problema que ele resolve
+
+O sistema de dois tokens do Mezo exige tanto veBTC quanto veMEZO para maximizar o poder de voto. Mas nem todo mundo tem os dois:
+
+- **Usuários com muito BTC** querem o boost de 5x, mas podem não ter MEZO
+- **Usuários com muito MEZO** têm veMEZO, mas pouco BTC para votar
+
+O mercado de correspondência conecta esses dois lados.
+
+---
+
+## Como funciona
+
+Cada posição de veBTC tem seu próprio gauge de boost. Esse gauge não distribui emissões: ele determina quanto boost de veMEZO aquela posição de veBTC recebe.
+
+### O fluxo
+
+1. **O detentor de veBTC bloqueia BTC** → recebe um NFT veBTC com um gauge de boost associado
+2. **O detentor de veBTC publica incentivos** → deposita tokens (qualquer ERC-20) no seu gauge de boost para atrair votos de veMEZO
+3. **Os detentores de veMEZO votam** → alocam peso de veMEZO aos gauges de boost atrativos
+4. **O boost é aplicado** → o multiplicador da posição de veBTC aumenta com base nos votos de veMEZO recebidos
+5. **Os incentivos são reivindicados** → quem votou com veMEZO reivindica sua parte dos incentivos no fim da época
+
+---
+
+## Os dois lados do mercado
+
+### Se você tem muito BTC
+
+Você quer boost, mas não tem MEZO suficiente. Suas opções:
+
+- Publicar incentivos no gauge do seu veBTC para atrair votos de veMEZO
+- Pagar pelo boost em vez de bloquear MEZO por conta própria
+- O mercado determina o preço vigente do boost
+
+### Se você tem muito MEZO
+
+Você tem veMEZO, mas pouco BTC. Suas opções:
+
+- Votar em gauges de veBTC com bons incentivos para obter rendimento
+- Oferecer boost como um serviço aos detentores de BTC dispostos a pagar
+- Obter retornos sobre seu MEZO sem precisar de uma exposição significativa a BTC
+
+---
+
+## Por que isso importa
+
+O mercado de correspondência transforma o boost em um serviço precificado e negociável:
+
+- **O boost tem um preço de mercado** determinado pela oferta e pela demanda
+- **Os usuários não precisam ter os dois tokens** para se beneficiar do sistema
+- **A eficiência de capital melhora**: os detentores de BTC se concentram no BTC, e os detentores de MEZO, no MEZO
+
+Sem o mercado de correspondência, os usuários precisariam ter quantidades proporcionais dos dois tokens para participar de forma eficaz. O mercado elimina esse atrito.
+
+---
+
+## Conceitos principais
+
+| Termo | Definição |
+|---|---|
+| Gauge de boost | Um gauge vinculado a cada NFT veBTC que recebe votos de veMEZO |
+| Incentivos | Tokens publicados por detentores de veBTC para atrair votos de veMEZO |
+| Provedor de boost | Um detentor de veMEZO que vota nos gauges de boost de outras pessoas em troca de incentivos |
+| Buscador de boost | Um detentor de veBTC que publica incentivos para atrair votos de veMEZO |
+
+---
+
+## Matchbox
+
+:::caution[Aviso sobre ferramenta da comunidade]
+A implementação atual do mercado de correspondência (Matchbox) é uma ferramenta criada pela comunidade. Ela não foi criada, não é mantida nem é endossada oficialmente pelo Mezo. Os usuários devem fazer sua própria pesquisa e agir com cautela ao interagir com aplicativos de terceiros.
+:::
+
+<LinkButton href="https://matchbox.markets/">Protocolo de correspondência veBTC + veMEZO: ganhe bribes com seu veMEZO ou pague para receber boost</LinkButton>
+
+Para tutoriais detalhados sobre como usar o Matchbox para aumentar seus ganhos no Mezo, consulte a [documentação do Matchbox](https://matchbox.markets/docs).
+
+---
+
+## Riscos
+
+Por ser uma ferramenta criada pela comunidade, o mercado de correspondência envolve riscos adicionais:
+
+- **Risco de contrato inteligente**: os contratos podem não ter sido auditados com o mesmo rigor que o protocolo principal do Mezo
+- **Sem suporte oficial**: o Mezo não pode oferecer suporte nem assistência para problemas com o mercado de correspondência
+- **Risco operacional**: a ferramenta pode ser modificada, descontinuada ou ficar fora do ar sem aviso prévio
+
+:::note[Observação]
+Para dúvidas ou suporte relacionados ao mercado de correspondência, entre em contato diretamente com os desenvolvedores da comunidade. O suporte do Mezo não pode ajudar com ferramentas de terceiros.
+:::

@@ -1,0 +1,59 @@
+---
+title: Como reivindicar seu colateral após um resgate total
+description: >-
+  Guia passo a passo para reivindicar o colateral restante depois que seu
+  empréstimo em MUSD (Trove) for totalmente resgatado.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Quando outro usuário resgata MUSD contra o seu empréstimo (Trove) e ele é totalmente quitado, sua dívida é zerada, mas o colateral restante permanece nos contratos inteligentes do MUSD até que você o reivindique. Seu colateral está seguro e pode ser recuperado a qualquer momento.
+
+Normalmente, você verá o alerta "Loan redeemed" na página Borrow, que permite reivindicar seu colateral diretamente pela interface. Para isso, clique no botão à direita do alerta, como mostra a captura de tela abaixo.
+
+![Alerta "Loan redeemed" na página Borrow](/docs/images/musd/loan-redeemed.webp)
+
+Se você não vir esse alerta, pode reivindicar seu colateral manualmente chamando a função `claimCollateral` no contrato BorrowerOperations pelo Mezo Explorer. Siga as etapas abaixo.
+
+<Steps>
+
+1. **Acesse o contrato BorrowerOperations**
+
+   Acesse o [contrato BorrowerOperations no Mezo Explorer](https://explorer.mezo.org/address/0x44b1bac67dDA612a41a58AAf779143B181dEe031).
+
+2. **Clique na aba "Contract"**
+
+   Na barra de abas, ao lado de Transactions, Token transfers e Tokens, clique em **Contract**.
+
+   Isso exibirá quatro subabas: **Code**, **Read proxy**, **Write contract** e **Write proxy**.
+
+3. **Clique em "Write proxy"**
+
+   Clique na aba **Write proxy**. É essa aba que expõe todas as funções de escrita do contrato de implementação BorrowerOperations subjacente.
+
+   :::caution
+   Selecione **Write proxy** (e não "Write contract"): a aba do proxy reflete a lógica real do BorrowerOperations.
+   :::
+
+4. **Conecte sua carteira**
+
+   Você verá um banner amarelo/laranja no topo da área de funções do contrato com a mensagem "Disconnected" e um botão **Connect wallet**.
+
+   Clique em **Connect wallet** e aprove a conexão na sua carteira (por exemplo, MetaMask). Conecte-se com o mesmo endereço de carteira que detinha o Trove resgatado, pois somente esse endereço pode reivindicar o colateral dele.
+
+5. **Encontre a função claimCollateral**
+
+   Role a lista de funções do contrato até chegar a:
+
+   **7. claimCollateral**
+
+   Clique nela para expandir a função. Ela não exige parâmetros de entrada: simplesmente reivindica todo o colateral que foi reservado para o seu endereço após o resgate total.
+
+6. **Clique em "Write"**
+
+   Com a carteira conectada, clique no botão **Write** abaixo da função `claimCollateral`.
+
+   Sua carteira solicitará que você confirme a transação. Revise a taxa de gás e confirme. Quando a transação for concluída, seu colateral (BTC) será enviado diretamente para a sua carteira.
+
+</Steps>

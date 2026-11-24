@@ -1,0 +1,48 @@
+---
+title: Safe
+description: >-
+  Use carteiras multisig Safe no Mezo para gerenciar fundos compartilhados com a
+  segurança de múltiplas assinaturas.
+topic: users
+---
+
+import { LinkButton, Steps } from '@astrojs/starlight/components';
+
+O [Safe](https://safe.global/) (antigo Gnosis Safe) é a carteira multisig mais usada no mundo cripto. O Mezo tem uma implantação nativa do Safe em [safe.mezo.org](https://safe.mezo.org), gerenciada pela [Den](https://www.onchainden.com/).
+
+Uma carteira multisig (de múltiplas assinaturas) exige que várias pessoas aprovem uma transação antes que ela seja executada. Em vez de uma única pessoa controlar os fundos com uma única chave privada, um grupo define regras como "3 de 5 signatários precisam aprovar".
+
+<LinkButton href="https://safe.mezo.org" target="_blank">Abrir o Safe no Mezo</LinkButton>
+
+## Primeiros passos
+
+<Steps>
+
+1. Acesse [safe.mezo.org](https://safe.mezo.org).
+
+2. Conecte sua carteira.
+
+3. Clique em **Create new Safe Account**.
+
+4. Adicione os endereços de carteira dos seus cossignatários.
+
+5. Defina o limite de confirmação, ou seja, o número de aprovações necessárias para executar uma transação (por exemplo, 2 de 3).
+
+6. Revise e implante seu Safe.
+
+</Steps>
+
+Depois da implantação, você pode enviar e receber BTC e outros tokens no Mezo pelo seu Safe, e cada transação exigirá o limite de aprovação que você configurou.
+
+## Funcionalidades
+
+- **Segurança de múltiplas assinaturas**: exija que vários signatários aprovem as transações antes da execução.
+- **Módulos e guards**: personalize seu Safe com módulos plugáveis para limites de gastos, recuperação, transações automatizadas e muito mais.
+- **Acesso ao ecossistema**: interaja com dApps no Mezo diretamente do seu Safe usando o navegador de apps integrado.
+- **Contas de observação**: monitore qualquer conta Safe sem conectar uma carteira.
+
+## Recursos
+
+- [Safe no Mezo](https://safe.mezo.org)
+- [Documentação do Safe](https://docs.safe.global/)
+- [Documentação da Den](https://docs.onchainden.com/overview/den)
