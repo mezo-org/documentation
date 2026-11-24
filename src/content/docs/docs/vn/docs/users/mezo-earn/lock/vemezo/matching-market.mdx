@@ -1,0 +1,101 @@
+---
+title: Tổng quan về thị trường ghép cặp
+description: Cách thị trường ghép cặp kết nối người nắm giữ veBTC và veMEZO để cùng có lợi
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Thị trường ghép cặp (matching market) là cách veBTC và veMEZO được ghép với nhau. Thị trường này cho phép người nắm giữ BTC tiếp cận boost mà không cần nắm giữ MEZO, và người nắm giữ MEZO kiếm lợi suất mà không cần nắm giữ nhiều BTC.
+
+## Vấn đề được giải quyết
+
+Hệ thống hai token của Mezo cần cả veBTC lẫn veMEZO để tối đa hóa quyền biểu quyết. Nhưng không phải ai cũng nắm giữ cả hai:
+
+- **Người dùng nắm nhiều BTC** muốn boost 5x nhưng có thể không có MEZO
+- **Người dùng nắm nhiều MEZO** có veMEZO nhưng lại có ít BTC để bỏ phiếu
+
+Thị trường ghép cặp kết nối hai phía này.
+
+---
+
+## Cách hoạt động
+
+Mỗi vị thế veBTC có một gauge boost riêng. Gauge này không phân phối lượng phát thải — gauge xác định mức boost veMEZO mà vị thế veBTC đó nhận được.
+
+### Quy trình
+
+1. **Người nắm giữ veBTC khóa BTC** → Nhận một NFT veBTC kèm theo một gauge boost tương ứng
+2. **Người nắm giữ veBTC đăng khoản khuyến khích** → Gửi token (bất kỳ ERC-20 nào) vào gauge boost của mình để thu hút phiếu bầu veMEZO
+3. **Người nắm giữ veMEZO bỏ phiếu** → Phân bổ trọng số veMEZO cho các gauge boost hấp dẫn
+4. **Boost được áp dụng** → Hệ số nhân của vị thế veBTC tăng dựa trên số phiếu bầu veMEZO nhận được
+5. **Khoản khuyến khích được nhận** → Người bỏ phiếu veMEZO nhận phần khoản khuyến khích của mình vào cuối epoch
+
+---
+
+## Hai phía của thị trường
+
+### Nếu bạn nắm nhiều BTC
+
+Bạn muốn boost nhưng không có đủ MEZO. Các lựa chọn của bạn:
+
+- Đăng khoản khuyến khích trên gauge veBTC của bạn để thu hút phiếu bầu veMEZO
+- Trả tiền để được boost thay vì tự khóa MEZO
+- Thị trường quyết định mức giá hiện hành của boost
+
+### Nếu bạn nắm nhiều MEZO
+
+Bạn có veMEZO nhưng có ít BTC. Các lựa chọn của bạn:
+
+- Bỏ phiếu cho các gauge veBTC có khoản khuyến khích tốt để kiếm lợi suất
+- Cung cấp boost như một dịch vụ cho những người nắm giữ BTC sẵn sàng trả phí
+- Kiếm lợi nhuận từ MEZO của bạn mà không cần nắm giữ nhiều BTC
+
+---
+
+## Vì sao điều này quan trọng
+
+Thị trường ghép cặp biến boost thành một dịch vụ có giá và có thể giao dịch:
+
+- **Boost có giá thị trường** do cung và cầu quyết định
+- **Người dùng không cần nắm giữ cả hai token** để hưởng lợi từ hệ thống
+- **Hiệu quả sử dụng vốn được cải thiện** — người nắm giữ BTC tập trung vào BTC, người nắm giữ MEZO tập trung vào MEZO
+
+Nếu không có thị trường ghép cặp, người dùng sẽ phải nắm giữ cả hai token với lượng tương ứng để tham gia hiệu quả. Thị trường này loại bỏ rào cản đó.
+
+---
+
+## Khái niệm chính
+
+| Thuật ngữ | Định nghĩa |
+|---|---|
+| Gauge boost | Gauge gắn với mỗi NFT veBTC, nhận phiếu bầu veMEZO |
+| Khoản khuyến khích | Token do người nắm giữ veBTC đăng lên để thu hút phiếu bầu veMEZO |
+| Bên cung cấp boost | Người nắm giữ veMEZO bỏ phiếu cho gauge boost của người khác để nhận khoản khuyến khích |
+| Bên tìm kiếm boost | Người nắm giữ veBTC đăng khoản khuyến khích để thu hút phiếu bầu veMEZO |
+
+---
+
+## Matchbox
+
+:::caution[Tuyên bố miễn trừ về công cụ cộng đồng]
+Phiên bản hiện tại của thị trường ghép cặp (Matchbox) là một công cụ do cộng đồng xây dựng. Công cụ này không do Mezo chính thức xây dựng, duy trì hay xác nhận. Người dùng nên tự nghiên cứu và thận trọng khi tương tác với các ứng dụng bên thứ ba.
+:::
+
+<LinkButton href="https://matchbox.markets/">Giao thức ghép cặp veBTC + veMEZO — kiếm bribe bằng veMEZO của bạn, hoặc trả phí để được boost</LinkButton>
+
+Để xem các hướng dẫn chuyên sâu về cách dùng Matchbox nhằm tăng thu nhập trên Mezo, hãy xem [tài liệu Matchbox](https://matchbox.markets/docs).
+
+---
+
+## Rủi ro
+
+Là một công cụ do cộng đồng xây dựng, thị trường ghép cặp có thêm các rủi ro:
+
+- **Rủi ro hợp đồng thông minh** — Các hợp đồng có thể chưa được kiểm toán theo cùng tiêu chuẩn như giao thức Mezo cốt lõi
+- **Không có hỗ trợ chính thức** — Mezo không thể hỗ trợ hay xử lý các vấn đề liên quan đến thị trường ghép cặp
+- **Rủi ro vận hành** — Công cụ có thể bị thay đổi, ngừng hoạt động hoặc gián đoạn mà không báo trước
+
+:::note[Lưu ý]
+Nếu có câu hỏi hoặc cần hỗ trợ liên quan đến thị trường ghép cặp, vui lòng liên hệ trực tiếp với các nhà phát triển cộng đồng. Bộ phận hỗ trợ của Mezo không thể hỗ trợ các công cụ bên thứ ba.
+:::

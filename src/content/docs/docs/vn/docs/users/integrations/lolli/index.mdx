@@ -1,0 +1,90 @@
+---
+title: Tổng quan
+description: >-
+  Tìm hiểu cách rút sats từ Lolli sang Mezo để sử dụng dịch vụ ngân hàng Bitcoin
+  tự lưu ký
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Hướng dẫn này dành cho người dùng Lolli muốn tìm hiểu cách rút sats của mình sang Mezo.
+
+Mezo là một nền tảng ngân hàng Bitcoin tự lưu ký. Người dùng có thể tiếp cận các công cụ tài chính Bitcoin mà không cần làm việc với nhân viên tín dụng, không phải kiểm tra tín dụng và không bị giới hạn bởi giờ làm việc.
+
+Những gì đang ra mắt: Rút sats (BTC) từ Lolli trực tiếp sang Mezo ngay bây giờ. Rút USD dưới dạng MUSD sắp ra mắt.
+
+Điều này có nghĩa là: Sats của bạn được chuyển từ quyền lưu ký của Lolli sang quyền lưu ký của chính bạn. Bạn có toàn quyền sở hữu và tiếp cận dịch vụ ngân hàng được bảo chứng bằng Bitcoin — kiếm lợi suất, chi tiêu tại các nhà bán lẻ hoặc vay đô la mà vẫn giữ mức tiếp xúc với BTC.
+
+## Liên kết nhanh
+
+<LinkButton href="/docs/vn/docs/users/integrations/lolli/withdraw">  Rút từ Lolli sang Mezo</LinkButton>
+
+<LinkButton href="/docs/vn/docs/users/integrations/lolli/faqs" variant="secondary">  Câu hỏi thường gặp về Lolli</LinkButton>
+
+<LinkButton href="/docs/vn/docs/users/integrations/lolli/using-mezo" variant="secondary">  Sử dụng Mezo — kiếm lợi suất, chi tiêu, tiết kiệm</LinkButton>
+
+---
+
+## Trước khi bắt đầu: hiểu về tự lưu ký
+
+Tự lưu ký nghĩa là bạn kiểm soát tiền của mình khi rút từ Lolli sang Mezo.
+
+Bạn sở hữu hoàn toàn Bitcoin của mình; không ai có thể đóng băng hay tịch thu tiền của bạn, và bạn có thể truy cập tiền 24/7 từ bất cứ đâu. Tuy nhiên, điều này cũng có nghĩa là bạn chịu trách nhiệm hoàn toàn đối với tiền của mình. Cả Lolli lẫn Mezo đều không thể khôi phục tiền của bạn nếu bạn mất quyền truy cập vào ví.
+
+### Cụm từ khôi phục là tất cả
+
+Khi tạo ví, bạn sẽ nhận được một cụm từ khôi phục (seed phrase, còn gọi là recovery phrase). Cụm từ này thường gồm 12 hoặc 24 từ ngẫu nhiên.
+
+Đây là chìa khóa chính cho Bitcoin của bạn. Bất kỳ ai có cụm từ khôi phục của bạn đều có toàn quyền truy cập vào tiền của bạn. Nếu bạn làm mất cụm từ này, Bitcoin của bạn sẽ mất vĩnh viễn.
+
+:::tip[Nên làm]
+- Ghi cụm từ khôi phục ra giấy (hoặc khắc lên kim loại)
+- Cất giữ ở nơi an toàn — két sắt chống cháy, hộp ký gửi an toàn, v.v.
+- Cân nhắc lưu các bản sao ở nhiều địa điểm an toàn
+- Không bao giờ chụp ảnh cụm từ này
+- Không bao giờ lưu dưới dạng kỹ thuật số (không chụp màn hình, không lưu trên đám mây, không dùng trình quản lý mật khẩu)
+- Không bao giờ chia sẻ cho bất kỳ ai, dưới bất kỳ hình thức nào
+:::
+
+:::danger[Tuyệt đối không làm]
+- Nhập cụm từ khôi phục vào bất kỳ trang web hay ứng dụng nào (ví hợp lệ sẽ không bao giờ yêu cầu điều này)
+- Lưu cụm từ này trong email, ứng dụng ghi chú hoặc bộ nhớ đám mây
+- Chia sẻ cho bất kỳ ai tự xưng là "bộ phận hỗ trợ" (đây luôn là lừa đảo)
+:::
+
+### Tự bảo vệ trước lừa đảo
+
+Các nhà cung cấp ví thật, Lolli và Mezo sẽ không bao giờ yêu cầu cụm từ khôi phục của bạn. Nếu ai đó yêu cầu, đó là lừa đảo. Chấm hết.
+
+Khi còn nghi ngờ, hãy truy cập trực tiếp trang web chính thức bằng cách tự nhập URL. Đừng nhấp vào liên kết trong email hoặc tin nhắn.
+
+---
+
+## Chọn loại ví
+
+Bạn có hai lựa chọn khi kết nối với Mezo.
+
+### Ví Bitcoin (có một số hạn chế)
+
+**Phù hợp nhất cho:** Nắm giữ BTC, chi tiêu qua Bitrefill, tương tác trong hệ sinh thái Mezo
+
+**Hạn chế:** Bạn chỉ có thể rút BTC từ Mezo về địa chỉ Bitcoin, và các chức năng có thể hạn chế hơn.
+
+**Ví được hỗ trợ:** Xverse, Unisat, OKX Wallet
+
+Hãy chọn loại này nếu bạn chủ yếu muốn nắm giữ hoặc chi tiêu sats và không cần các chức năng phức tạp hơn.
+
+### Ví Ethereum (linh hoạt hơn, được khuyến nghị)
+
+**Phù hợp nhất cho:** Mở rộng ra ngoài hệ sinh thái Mezo
+
+**Ưu điểm:** Có thể rút BTC và các token khác sang Ethereum và chuyển qua cầu nối đến nhiều chuỗi EVM khác nhau, truy cập đầy đủ mọi tính năng của Mezo, và swap giữa BTC và MUSD dễ dàng hơn
+
+**Ví được khuyến nghị:** MetaMask, Taho, Zerion
+
+Hãy chọn loại này nếu bạn muốn tối đa tính linh hoạt để kiếm lợi suất, chi tiêu và vay trên Mezo.
+
+**Khuyến nghị của chúng tôi cho người dùng mới:** Bắt đầu với một ví Ethereum như Taho để có trải nghiệm đầy đủ.
+
+Chào mừng bạn đến với dịch vụ ngân hàng Bitcoin onchain.

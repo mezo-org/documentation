@@ -1,0 +1,162 @@
+---
+title: Kiếm lợi nhuận và quản lý vị thế của bạn
+description: 'Tìm hiểu về quyền biểu quyết, thu nhập và cách quản lý vị thế trên Mezo'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Tìm hiểu về quyền biểu quyết
+
+Khi bạn khóa BTC, quyền biểu quyết của bạn được token hóa thành một NFT. NFT này đại diện cho trọng số quản trị của bạn và cho bạn quyền:
+
+- Nhận phần tương ứng của phí giao dịch phát sinh từ các gauge mà bạn bỏ phiếu
+- Nhận phần tương ứng của các khoản khuyến khích (incentive) được gửi vào những gauge đó
+- Nhận thụ động phí cầu nối và phí chuỗi (tương ứng với trọng số được boost của bạn)
+- Bỏ phiếu quyết định nơi lượng phát thải được điều hướng tới
+
+### Trọng số cơ bản và trọng số được boost
+
+**Trọng số cơ bản:** Trọng số veBTC của bạn khi chưa có boost từ veMEZO. Hoạt động với hệ số nhân 1x.
+
+**Trọng số được boost:** Khi phiếu bầu veMEZO được điều hướng tới vị thế veBTC của bạn, trọng số hiệu dụng của bạn được nhân lên tối đa 5x.
+
+Mức boost phụ thuộc vào tỷ phần của bạn trong tổng veBTC và tỷ phần của tổng veMEZO được điều hướng tới vị thế của bạn. Vị thế BTC càng lớn thì càng cần nhiều veMEZO tương ứng để đạt mức boost tối đa.
+
+### Cơ chế suy giảm
+
+Quyền biểu quyết của bạn suy giảm tuyến tính theo thời gian. Nếu bạn khóa 1 BTC trong 28 ngày, trọng số của bạn bắt đầu ở mức 1,0 nhưng giảm liên tục cho đến khi về 0 lúc hết hạn. Bạn có thể gia hạn khoản khóa bất cứ lúc nào để duy trì mức ảnh hưởng tối đa.
+
+---
+
+## Kiếm thu nhập với tư cách người bỏ phiếu veBTC
+
+Khi nắm giữ veBTC và bỏ phiếu, bạn kiếm được thu nhập từ nhiều nguồn:
+
+### Phí giao dịch
+
+- **Nguồn:** 100% phí giao dịch phát sinh từ chính pool mà bạn đã bỏ phiếu
+- **Phân phối:** Bạn nhận phần tương ứng dựa trên trọng số phiếu bầu của mình. Nếu một pool tạo ra 10.000 USD phí và bạn đóng góp 5% số phiếu bầu cho gauge đó, bạn kiếm được 500 USD.
+- **Có thể nhận:** Được chi trả bằng các token của pool (ví dụ: BTC và MUSD)
+
+### Khoản khuyến khích
+
+- **Nguồn:** Khoản khuyến khích bên ngoài do các giao thức gửi vào để thu hút phiếu bầu cho gauge của họ
+- **Phân phối:** Giống như phí, khoản khuyến khích được chia tương ứng cho tất cả người bỏ phiếu cho gauge đó
+- **Có thể nhận:** Được chi trả bằng token mà giao thức đã gửi vào
+
+### Phí cầu nối thụ động
+
+- **Nguồn:** Phí từ việc chuyển tài sản qua cầu nối vào Mezo và từ hoạt động chung của chuỗi
+- **Phân phối:** Tất cả người nắm giữ veBTC nhận phần tương ứng với trọng số được boost của mình
+- **Có thể nhận:** Không cần bỏ phiếu — bạn kiếm được khoản này chỉ bằng cách nắm giữ veBTC
+
+
+---
+
+## Kiếm thu nhập với tư cách người nắm giữ veMEZO
+
+Người nắm giữ veMEZO kiếm thu nhập theo cách khác với người nắm giữ veBTC:
+
+### Khoản khuyến khích từ gauge boost
+
+- **Nguồn:** Khoản khuyến khích do người nắm giữ veBTC đăng trên gauge boost của họ
+- **Cách thức:** Điều hướng phiếu bầu veMEZO của bạn tới những gauge boost có khoản khuyến khích hấp dẫn
+- **Có thể nhận:** Vào cuối epoch, tương ứng với tỷ phần phiếu bầu veMEZO của bạn trên gauge đó
+
+### Phân phối rebase
+
+- **Nguồn:** Một phần lượng phát thải MEZO hằng tuần
+- **Cách thức:** Tự động tích lũy cho người nắm giữ veMEZO dựa trên tỷ lệ khóa
+- **Mục đích:** Bảo vệ khỏi việc bị pha loãng — khi càng ít người khóa, rebase càng cao
+
+**Quan trọng:** Người nắm giữ veMEZO **không** nhận phí giao dịch, doanh thu MUSD hay phí cầu nối. Các khoản này thuộc về người nắm giữ veBTC. veMEZO kiếm thu nhập thông qua khoản khuyến khích từ boost và rebase.
+
+---
+
+## Quản lý vị thế của bạn
+
+### Epoch hằng tuần
+
+Mezo vận hành theo các epoch 7 ngày, bắt đầu vào Thứ Năm lúc 00:00 UTC. Phân bổ phiếu bầu của bạn được giữ nguyên qua các epoch cho đến khi bạn thay đổi hoặc đặt lại — bạn không cần bỏ phiếu lại mỗi tuần. Mỗi khoản khóa chỉ có thể bỏ phiếu một lần mỗi epoch, vì vậy phân bổ đã xác nhận sẽ không thể thay đổi cho đến thời điểm chuyển epoch tiếp theo.
+
+### Nhận phần thưởng
+
+Phí và khoản khuyến khích tích lũy vào vị thế của bạn trong suốt epoch. Tuy nhiên, bạn chỉ có thể nhận chúng sau khi epoch kết thúc.
+
+<Steps>
+1. Mở bảng điều khiển của bạn
+2. Nhấp vào **Claim All**
+3. Phí và khoản khuyến khích bạn kiếm được sẽ được gửi về ví của bạn
+</Steps>
+
+Đối với người nắm giữ veMEZO, phân phối rebase được nhận riêng và sẽ được cộng vào vị thế veMEZO của bạn (làm tăng trọng số veMEZO của bạn).
+
+### Gia hạn khoản khóa
+
+Để duy trì ảnh hưởng của bạn đối với việc phân phối phần thưởng, hãy theo dõi thời hạn khóa. Khi khoản khóa suy giảm, quyền biểu quyết của bạn cũng giảm dần.
+
+**Đối với veBTC:** Chọn **Extend Lock** trên NFT của bạn để khôi phục trọng số đầy đủ.
+
+**Đối với veMEZO:** Gia hạn khoản khóa để duy trì khả năng cung cấp boost và thu nhập từ rebase.
+
+Xem [Quản lý khoản khóa và nhận phần thưởng](/docs/vn/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) để biết thêm thông tin.
+
+### Poke phiếu bầu
+
+**Poke** làm mới quyền biểu quyết của khoản khóa để phản ánh trạng thái hiện tại của nó. Nếu bạn đã bỏ phiếu trong epoch hiện tại, phiếu bầu của bạn sẽ không tự động cập nhật khi quyền biểu quyết thay đổi. Poke giúp phiếu bầu của bạn được tính theo quyền biểu quyết mới nhất.
+
+**Khi nào quyền biểu quyết thay đổi?**
+
+- Thêm BTC vào khoản khóa
+- Gia hạn thời hạn khóa
+- Nhận phân phối rebase veMEZO (cập nhật boost veBTC của bạn)
+- Nhận thêm phiếu bầu veMEZO hướng tới vị thế veBTC của bạn
+- Điều hướng veMEZO của chính bạn tới vị thế veBTC của bạn
+- Suy giảm tự nhiên khi khoản khóa tiến gần đến lúc hết hạn
+
+**Khi nào bạn nên poke?**
+
+Đối với người nắm giữ veBTC:
+- Sau khi tăng lượng BTC đã khóa
+- Sau khi gia hạn thời hạn khóa
+- Khi tình hình veMEZO của bạn thay đổi (nhận thêm phiếu bầu, đã nhận rebase, v.v.)
+
+Đối với người nắm giữ veMEZO:
+- Sau khi nhận phân phối rebase
+- Sau khi gia hạn thời hạn khóa
+
+Các vị thế khóa vĩnh viễn có quyền biểu quyết ổn định và không cần poke, trừ khi có thay đổi liên quan đến veMEZO.
+
+**Lưu ý:** Poke không cần cấp phép — bất kỳ ai cũng có thể poke bất kỳ khoản khóa nào. Người khác có thể poke vị thế của bạn nếu quyền biểu quyết của bạn đã suy giảm đáng kể.
+
+---
+
+## Chiến lược tối đa hóa lợi nhuận
+
+### Dành cho người dùng nắm nhiều BTC
+
+<Steps>
+1. Khóa BTC với thời hạn tối đa (28 ngày) và liên tục gia hạn
+2. Bỏ phiếu đều đặn mỗi epoch cho các gauge có phí cao
+3. Cân nhắc mua MEZO để tự boost, hoặc đăng khoản khuyến khích để thu hút phiếu bầu veMEZO
+4. Poke sau bất kỳ thay đổi nào về boost
+</Steps>
+
+### Dành cho người dùng nắm nhiều MEZO
+
+<Steps>
+1. Khóa MEZO với thời hạn dài hơn (tối đa 4 năm) để tối đa hóa trọng số veMEZO
+2. Khảo sát các gauge boost để tìm lợi suất khuyến khích tốt nhất
+3. Phân bổ vào nhiều gauge boost để giảm rủi ro
+4. Cân nhắc kết hợp với một vị thế veBTC để trực tiếp nhận phí giao dịch
+</Steps>
+
+### Dành cho người dùng nắm giữ cả hai
+
+<Steps>
+1. Tự boost veBTC bằng veMEZO của bạn để có quyền biểu quyết tối đa
+2. Bỏ phiếu cho các gauge có phí cao để tối đa hóa thu nhập từ phí
+3. Poke sau bất kỳ thay đổi nào để duy trì mức boost tối ưu
+4. Nhận rebase thường xuyên để tăng vị thế veMEZO của bạn
+</Steps>

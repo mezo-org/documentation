@@ -1,0 +1,42 @@
+---
+title: Cách nạp tài sản vào Mezo
+description: >-
+  Hướng dẫn nạp tài sản của bạn vào Mezo để sử dụng dịch vụ ngân hàng Bitcoin tự
+  phục vụ
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+Bạn có thể nạp tBTC và các token ERC-20 được hỗ trợ khác từ Ethereum vào Mezo Mainnet bằng ví EVM.
+
+:::caution[Native BTC Bridge-in đã kết thúc]
+Kể từ ngày 13 tháng 10 năm 2026, Native BTC Bridge-in đã đóng và Mezo App không còn nhận khoản nạp từ ví Bitcoin (UniSat, OKX, Xverse). Bạn vẫn có thể rút trực tiếp về BTC qua cầu nối. Để đưa BTC vào Mezo, hãy nạp tBTC từ Ethereum. Khoản nạp hoàn tất trong vài phút và không có mức tối thiểu.
+
+Nếu bạn nắm giữ BTC trong ví Bitcoin, hãy tạo tài khoản Mezo bằng ví EVM và quản lý các khoản nạp từ đó. Nếu tài khoản Mezo của bạn đang dùng ví Bitcoin, bạn có thể giữ tài sản trên Mezo bằng cách chuyển chúng sang một ví EVM: trong Mezo App, vào **Transact > Send** và nhập địa chỉ `0x…` của ví EVM (xem [Gửi tài sản](/docs/vn/docs/users/passport/send-assets)). Bạn cũng vẫn có thể rút trực tiếp về BTC qua cầu nối. Xem [Khoản rút](/docs/vn/docs/users/mainnet/bridges#khoản-rút).
+:::
+
+<YouTube id="DinlFeUZB3U" title="Cách nạp tài sản vào Mezo" />
+
+## Trước khi bắt đầu
+
+- Đăng nhập bằng ví EVM, chẳng hạn MetaMask. Ví Bitcoin không thể nạp vào Mezo.
+- Kiểm tra những tài sản nào được hỗ trợ. Bạn có thể xác nhận địa chỉ token của các tài sản này trên trang [Tham chiếu hợp đồng](/docs/vn/docs/users/resources/contracts-reference#hợp-đồng-token).
+- Mọi giao dịch trên Mezo Mainnet đều được thanh toán bằng BTC. tBTC nạp từ Ethereum sẽ đến Mezo dưới dạng BTC, vì vậy bạn nên nạp tBTC vào tài khoản để đảm bảo có đủ gas trả phí giao dịch. Nếu bạn chỉ nắm giữ MUSD hoặc MEZO trên Mezo, hãy dùng [Get Gas](/docs/vn/docs/users/getting-started/get-gas).
+
+## Nạp tài sản
+
+<Steps>
+1. Truy cập [Mezo App](https://mezo.org/overview) và đăng nhập bằng ví EVM.
+
+2. Nhấp vào **Deposit**. Biểu mẫu nạp sẽ mở ra với tBTC được chọn sẵn.
+
+3. Chọn tài sản bạn muốn chuyển qua cầu nối và nhập số lượng.
+
+4. Nhấp vào **Review** và kiểm tra chi tiết giao dịch chuyển.
+
+5. Nếu giao dịch đã đúng như mong muốn, hãy xác nhận trong ví của bạn. Nếu đây là lần đầu bạn nạp token đó, ví sẽ yêu cầu bạn phê duyệt token trước.
+</Steps>
+
+Sau khi giao dịch hoàn tất, quá trình chuyển qua cầu nối sẽ bắt đầu. Quá trình này có thể mất vài phút trước khi bạn nhận được tài sản trên Mainnet.

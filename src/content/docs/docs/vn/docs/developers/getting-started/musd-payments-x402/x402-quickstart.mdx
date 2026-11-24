@@ -1,0 +1,523 @@
+---
+title: Bắt đầu nhanh với x402
+description: >-
+  Hướng dẫn đầy đủ từ đầu đến cuối. Chuẩn bị ví có MUSD testnet, thanh toán cho
+  một endpoint demo đang chạy, sau đó chạy chính máy chủ Express có paywall đó
+  trên máy của bạn bằng các SDK @x402/* và giao diện @x402/paywall đi kèm.
+topic: developers
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import paywallLocalInitial from '../../../../../../../../assets/screenshots/x402/paywall-local-initial.png';
+
+Hướng dẫn bắt đầu nhanh này được thực hiện tuần tự từ trên xuống dưới. Khi hoàn tất, bạn sẽ thanh toán
+$0,001 bằng MUSD trên Mezo Testnet cho máy chủ người bán Express chạy cục bộ của chính bạn
+bằng các SDK `@x402/*` — giao diện trình duyệt `@x402/paywall` có sẵn
+sẽ đảm nhận toàn bộ công việc phía client, nên bạn **không phải viết dòng mã client nào**.
+
+Để nắm bối cảnh khái niệm về x402, hãy bắt đầu với [Tổng quan về x402](../).
+
+## Bạn sẽ xây dựng gì
+
+Một máy chủ Express trong một tệp duy nhất, có **route gốc `/`** được bảo vệ bằng
+một khoản thanh toán MUSD:
+
+- **Trình duyệt** truy cập `/` mà chưa thanh toán sẽ nhận `HTTP 402 Payment Required`
+  cùng giao diện `@x402/paywall` đi kèm — việc kết nối ví, thanh toán và gửi lại yêu cầu
+  đều được xử lý sẵn cho bạn.
+- **Client lập trình** (`curl`, `fetch`, một AI agent) nhận cùng mã
+  `402` với phần thân JSON gọn nhẹ và các yêu cầu thanh toán ở dạng máy có thể đọc
+  trong response header `PAYMENT-REQUIRED`.
+- Sau khi khoản thanh toán $0,001 MUSD được tất toán, route được mở khóa và trả về
+  phản hồi JSON của nó.
+
+Máy chủ bạn xây dựng chính là **mã nguồn y hệt** đang chạy bản demo được lưu trữ tại
+[`https://demo.vativ.io/`](https://demo.vativ.io/) — trước tiên bạn sẽ thanh toán cho phiên bản
+được lưu trữ đó để chứng minh ví đã được thiết lập đúng (Bước 3), sau đó dựng và thanh toán cho
+máy chủ của riêng bạn (Bước 4–6).
+
+## Điều kiện tiên quyết
+
+- **Node.js 20+** và **pnpm 9+** trên máy của bạn.
+- Một tiện ích ví trình duyệt hỗ trợ mạng EVM (MetaMask, Rabby,
+  Coinbase Wallet hoặc bất kỳ ví nào cung cấp provider EIP-1193).
+- **Một phiên bản SDK `@x402` hiện hành.** Hỗ trợ Mezo có sẵn trong các registry mặc định —
+  Mainnet từ `@x402/evm` v2.15.0 / Go v2.15.0 / Python v2.13.0 (2026-06-12),
+  Testnet từ các bản phát hành trước đó. Hướng dẫn này cố định phiên bản `2.16.0`, phiên bản
+  mà bản demo được lưu trữ đang chạy. Xem
+  [Tham chiếu x402 trên Mezo](../#tham-chiếu-x402-trên-mezo) để biết bảng đầy đủ.
+- **Khoảng 20–30 phút.** Để có MUSD testnet, bạn cần nhận BTC từ faucet và thực hiện một
+  giao dịch vay; hãy làm những việc này sớm (Bước 1–2) để chúng sẵn sàng
+  khi bạn cần đến.
+
+<Aside type="tip" title="Bạn sẽ dùng hai tài khoản: người mua và người bán">
+Hướng dẫn này sử dụng **hai tài khoản riêng biệt** trong cùng một ví:
+
+- **Tài khoản A — Người mua (Buyer).** Nắm giữ MUSD, thanh toán cho các yêu cầu API.
+- **Tài khoản B — Người bán (Merchant).** Nhận thanh toán.
+
+Dùng hai tài khoản giúp mọi khoản thanh toán hiển thị trên trình khám phá khối dưới dạng một
+lệnh chuyển từ A sang B, đây là cách đơn giản nhất để xác nhận toàn bộ thiết lập
+từ đầu đến cuối. Không tài khoản nào cần số dư BTC cho các khoản thanh toán MUSD
+qua x402, vì facilitator trả gas thay cho cả hai bên (dù
+bạn sẽ cần BTC để thực hiện quy trình vay MUSD tùy chọn bên dưới).
+</Aside>
+
+## Bước 1: Thiết lập ví
+
+### 1a. Tạo hai tài khoản
+
+Mở trình chuyển đổi tài khoản trong ví. Tài khoản đầu tiên của bạn là **Tài khoản
+A (người mua)**. Thêm tài khoản thứ hai làm **Tài khoản B (người bán)**, đặt
+tên sao cho bạn dễ phân biệt. Đảm bảo Tài khoản A (người mua) đang
+được chọn/kích hoạt.
+
+{/* SCREENSHOT-TODO: MetaMask account switcher showing Account A (Buyer) and Account B (Merchant). */}
+
+### 1b. Thêm Mezo Testnet làm mạng
+
+Khi đang chọn một trong hai tài khoản, mở phần cài đặt mạng trong ví
+và thêm một mạng tùy chỉnh với các tham số sau:
+
+| Trường | Giá trị |
+|---|---|
+| Tên mạng | Mezo Testnet |
+| Chain ID | `31611` |
+| URL RPC | `https://rpc.test.mezo.org` |
+| Trình khám phá khối | `https://explorer.test.mezo.org` |
+| Ký hiệu tiền tệ | BTC |
+
+Để biết các tham số mainnet và các nhà cung cấp RPC thay thế, hãy xem
+[Thiết lập môi trường phát triển](/docs/vn/docs/developers/getting-started/configure-environment).
+
+{/* SCREENSHOT-TODO: MetaMask "Add a network manually" form filled with the Mezo Testnet values above. */}
+
+## Bước 2: Nhận MUSD testnet để thanh toán
+
+MUSD trên testnet **được đúc chứ không được phát qua faucet**, bạn vay MUSD
+bằng tài sản thế chấp là BTC testnet.
+
+<Aside type="caution" title="Khoản vay tối thiểu (chỉ một lần)">
+Mở khoản vay yêu cầu khoản nợ tối thiểu **2.000 MUSD** (1.800 nợ gốc +
+200 MUSD tiền gửi gas). Đây là mức sàn của giao thức, không phải chi phí cho mỗi lần thử —
+bạn chỉ vay một lần và dùng lại số dư cho rất nhiều yêu cầu trả phí. Với mức
+`$0.001` mỗi lần gọi, một khoản vay đủ cho khoảng hai triệu khoản thanh toán
+thử nghiệm.
+</Aside>
+
+Chọn **Tài khoản A (người mua)** trong ví trước khi bắt đầu để toàn bộ
+tiền ở Bước 2 đi vào Tài khoản A. Tài khoản B (người bán) giữ trống trong suốt quá trình.
+
+<Steps>
+
+1. Yêu cầu BTC testnet **gửi đến Tài khoản A** từ
+   [Mezo Faucet](https://faucet.test.mezo.org) hoặc kênh `#testnet`
+   trong [Discord của Mezo](https://discord.com/invite/mezo). Chờ
+   đến khi BTC từ faucet về ví của A.
+
+2. Vay MUSD tại [mezo.org/feature/borrow](https://mezo.org/feature/borrow)
+   với Tài khoản A đã kết nối trên Mezo Testnet. Hướng dẫn đầy đủ kèm
+   ảnh chụp màn hình: [Vay và đúc MUSD](/docs/vn/docs/users/borrow/mint-musd/).
+
+3. Xác nhận số dư MUSD của Tài khoản A. Hợp đồng token MUSD testnet
+   là [`0x1189…Ac503`](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503).
+   Bạn có hai cách để kiểm tra:
+
+   - **Trình khám phá khối:** mở
+     `https://explorer.test.mezo.org/address/<account-A-address>`
+     (dán địa chỉ `0x…` của Tài khoản A vào URL). Bạn sẽ thấy MUSD
+     được liệt kê với số dư ≥ 1.800.
+   - **Ví:** thêm `0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503` làm
+     token tùy chỉnh. Khi đó, Tài khoản A sẽ hiển thị một dòng MUSD.
+
+4. Xác nhận Tài khoản B hiển thị **0** MUSD — tài khoản này không nên có MUSD, và
+   sẽ không có cho đến Bước 6. Kiểm tra tại
+   `https://explorer.test.mezo.org/address/<account-B-address>`.
+
+</Steps>
+
+Trang token MUSD trên trình khám phá khối cũng hữu ích nếu bạn muốn
+đối chiếu địa chỉ hợp đồng chính thức, số chữ số thập phân (18) hoặc xem
+các lệnh chuyển gần đây.
+
+## Bước 3: Kiểm tra nhanh cấu hình ví
+
+Trước khi cài đặt bất kỳ gói nào hay viết dòng mã nào, hãy xác nhận rằng
+ví, mạng và số dư MUSD của bạn đã sẵn sàng bằng cách thanh toán cho phiên bản
+đang chạy được lưu trữ của máy chủ trong hướng dẫn này. Cách này tách câu hỏi "mình đã thiết lập
+ví đúng chưa?" khỏi câu hỏi "mình đã kết nối máy chủ của mình đúng chưa?"
+Mọi trục trặc bạn gặp ở đây đều là vấn đề về ví hoặc MUSD, không phải vấn đề về mã.
+
+<Steps>
+
+1. Mở [`https://demo.vativ.io/`](https://demo.vativ.io/) trong
+   chính trình duyệt có ví Mezo Testnet của bạn. **Chuyển sang
+   Tài khoản A (người mua)** trước khi kết nối — A là tài khoản có MUSD.
+
+2. Paywall được tải. Bạn sẽ thấy:
+
+   - Tiêu đề **Payment Required**
+   - `Mezo x402 Quickstart — pay $0.001 in MUSD to unlock. To access
+     this content, please pay $0.001 Mezo USD.`
+   - Một gợi ý testnet (`Need Mezo USD on Mezo Testnet? Request some here.`)
+   - Một danh sách thả xuống để chọn ví và nút **Connect wallet**
+
+3. Chọn ví của bạn và kết nối từ Tài khoản A. Khi ví hiển thị lời nhắc, hãy xác nhận bạn đang
+   ở **Mezo Testnet (chain ID `31611`)**.
+
+4. Nhấp vào **Pay now**, sau đó ký ủy quyền thanh toán trong
+   ví khi được nhắc.
+
+   {/* SCREENSHOT-TODO: MetaMask signature-request popup for the x402 payment authorization (sign typed data). */}
+
+5. Paywall gửi lại yêu cầu kèm khoản thanh toán của bạn. Khi
+   facilitator tất toán onchain, phản hồi đã mở khóa sẽ hiển thị:
+
+   ```json
+   { "ok": true, "message": "Paid! You unlocked the Mezo x402 Quickstart." }
+   ```
+
+6. Xác minh khoản thanh toán onchain. Mở
+   `https://explorer.test.mezo.org/address/<account-A-address>`
+   — bạn sẽ thấy một lệnh chuyển MUSD mới ra khỏi Tài khoản A với
+   `0.001 MUSD` đến địa chỉ nhận của bản demo
+   (`0xC337…e738` — bạn sẽ gặp lại địa chỉ này dưới dạng giá trị mặc định
+   của `PAY_TO` trong mã máy chủ; số dư của Tài khoản B sẽ không thay đổi).
+
+</Steps>
+
+{/* SCREENSHOT-TODO: explorer.test.mezo.org token transfers tab for Account A showing the 0.001 MUSD outbound transfer after the smoke test payment. */}
+
+Nếu JSON đã mở khóa xuất hiện và trình khám phá khối hiển thị lệnh chuyển, thiết lập
+ví của bạn đã được chứng minh là đúng. Hãy chuyển sang Bước 4.
+
+Nếu chưa đến được bước đó, hãy dừng lại và khắc phục phía ví trước khi
+viết bất kỳ dòng mã máy chủ nào — xem [Khắc phục sự cố](#khắc-phục-sự-cố) để biết
+các triệu chứng thường gặp liên quan đến ví/MUSD. Ví bị lỗi ở bước này sẽ trông
+giống hệt máy chủ bị lỗi ở Bước 6; hãy xử lý ngay bây giờ.
+
+## Bước 4: Cài đặt các gói x402
+
+Tạo một dự án mới cho máy chủ người bán của riêng bạn:
+
+```bash
+mkdir mezo-x402-quickstart && cd mezo-x402-quickstart
+pnpm init
+pnpm add @x402/core@2.16.0 @x402/evm@2.16.0 @x402/express@2.16.0 @x402/paywall@2.16.0 express@^4.19.2
+pnpm add -D typescript tsx @types/express@^4.17.21 @types/node
+```
+
+Các phiên bản `@x402/*` được cố định ở `2.16.0` — bản phát hành mà bản demo được lưu trữ
+đang chạy — để những gì bạn xây dựng khớp với những gì bạn đã thanh toán ở Bước 3.
+Các bản phát hành mới hơn thường cũng hoạt động; xem
+[bảng hỗ trợ SDK](../#hỗ-trợ-sdk) để biết phiên bản tối thiểu cho từng mạng.
+
+<Aside type="note" title="Về các giá trị mặc định của pnpm init">
+`pnpm init` tạo một `package.json` với `"main": "index.js"` và không có
+`"type": "module"`. Cả hai đều không quan trọng ở đây — bạn sẽ chạy `server.ts` qua
+`tsx`, công cụ xử lý cả ESM lẫn CommonJS mà không cần cấu hình.
+</Aside>
+
+<Aside type="note" title="Cảnh báo peer dependency là bình thường">
+`pnpm` có thể in ra các cảnh báo peer dependency màu vàng trong quá trình cài đặt (ví
+dụ `Issues with peer dependencies found`, hoặc ghi chú về
+khoảng phiên bản peer của `@x402/*`). Đây chỉ là thông tin và có thể bỏ qua
+một cách an toàn trong hướng dẫn này — việc cài đặt đã thành công miễn là
+hai lệnh `pnpm add` thoát với mã `0`. Nếu có lỗi thực sự làm dừng việc cài đặt,
+`pnpm` sẽ in ra màu đỏ và thoát với mã khác 0.
+</Aside>
+
+## Bước 5: Máy chủ người bán trong một tệp
+
+Máy chủ người bán kết nối ba thành phần: một `HTTPFacilitatorClient`
+giao tiếp với facilitator, một `x402ResourceServer` đã đăng ký
+scheme thanh toán EVM `"exact"` cho Mezo Testnet, và giao diện
+`@x402/paywall` đi kèm làm provider paywall. Sau đó, lệnh gọi
+`paymentMiddleware` bảo vệ `GET /` với mức giá $0,001.
+
+Tạo `server.ts` bên trong `mezo-x402-quickstart/` với đúng nội dung
+sau — đây chính là tệp mã nguồn của máy chủ demo, giữ nguyên từng chữ:
+
+```typescript
+/**
+ * Mezo x402 Quickstart — the out-of-box @x402/paywall smoke test.
+ *
+ * Run this server and open http://localhost:4021/ in a browser: the
+ * @x402/paywall UI renders. That is the smoke test. The root route `/` is
+ * protected by the x402 payment middleware, so an unpaid browser GET returns
+ * HTTP 402 with the paywall; paying $0.001 in MUSD unlocks a success response.
+ *
+ *   Network:     Mezo testnet — eip155:31611 (CAIP-2)
+ *   Asset:       MUSD  0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503  (18 decimals)
+ *   Price:       $0.001 (PRICE env overrides)
+ *   Facilitator: https://facilitator.vativ.io  (verifies + settles payments)
+ *
+ *   pnpm install
+ *   pnpm exec tsx server.ts    (monorepo: pnpm --filter mezo-x402-quickstart start)
+ */
+import express from "express";
+import { paymentMiddleware, x402ResourceServer } from "@x402/express";
+import { ExactEvmScheme } from "@x402/evm/exact/server";
+import { HTTPFacilitatorClient } from "@x402/core/server";
+import { createPaywall } from "@x402/paywall";
+import { evmPaywall } from "@x402/paywall/evm";
+
+// --- Config (override any of these via environment variables) --------------
+const PORT = Number(process.env.PORT ?? 4021);
+const NETWORK = "eip155:31611"; // Mezo testnet
+const PAY_TO = process.env.PAY_TO ?? "0xC3376296a18ef364eA19287203EEd7a87f18e738";
+const FACILITATOR_URL = process.env.FACILITATOR_URL ?? "https://facilitator.vativ.io";
+const PRICE = process.env.PRICE ?? "$0.001";
+
+const app = express();
+
+// The facilitator verifies and settles x402 payments. The resource server
+// registers the "exact" EVM payment scheme for our network. @x402/evm already
+// knows Mezo testnet, so a plain "$0.001" price resolves to MUSD automatically.
+const facilitator = new HTTPFacilitatorClient({ url: FACILITATOR_URL });
+const resourceServer = new x402ResourceServer(facilitator).register(
+  NETWORK,
+  new ExactEvmScheme(),
+);
+
+// The out-of-box @x402/paywall browser UI, scoped to EVM networks.
+const paywall = createPaywall().withNetwork(evmPaywall).build();
+
+// Protect the ROOT route. A browser GET / with no payment renders the paywall.
+app.use(
+  paymentMiddleware(
+    {
+      "GET /": {
+        accepts: {
+          scheme: "exact",
+          price: PRICE,
+          network: NETWORK,
+          payTo: PAY_TO,
+        },
+        // No trailing period: the paywall appends ". To access this content, ...".
+        description: `Mezo x402 Quickstart — pay ${PRICE} in MUSD to unlock`,
+      },
+    },
+    resourceServer,
+    { appName: "Mezo x402 Quickstart", testnet: true },
+    paywall,
+  ),
+);
+
+// Unlocked content — served only after a payment settles.
+app.get("/", (_req, res) => {
+  res.json({ ok: true, message: "Paid! You unlocked the Mezo x402 Quickstart." });
+});
+
+app.listen(PORT, () => {
+  console.log(`Mezo x402 Quickstart listening on http://localhost:${PORT}/`);
+  console.log("Open it in a browser to see the @x402/paywall UI.");
+});
+```
+
+Đọc từ trên xuống dưới:
+
+- **Khối cấu hình.** Mọi thứ phụ thuộc vào môi trường đều là hằng số có thể
+  ghi đè bằng biến môi trường. `PAY_TO` mặc định là địa chỉ nhận của bản demo được lưu trữ —
+  cũng chính là `0xC337…e738` bạn đã thấy khi kiểm tra trên trình khám phá khối ở Bước 3 — và bạn
+  sẽ ghi đè nó bằng **Tài khoản B của bạn** ở Bước 6. Giá cũng là một
+  hằng số: `PRICE` (mặc định `$0.001`) được dùng cho cả yêu cầu thanh toán
+  lẫn nội dung hiển thị của paywall, nên việc ghi đè nó (ví dụ:
+  `PRICE='$0.005'`) sẽ định giá lại route từ đầu đến cuối.
+- **`HTTPFacilitatorClient` + `x402ResourceServer`.** Facilitator tại
+  `facilitator.vativ.io` xác minh và tất toán các khoản thanh toán; máy chủ
+  tài nguyên đăng ký scheme EVM `"exact"` cho `eip155:31611`. Một chuỗi ký tự
+  đô la đơn giản `price: "$0.001"` được chuyển đổi thành đúng lượng MUSD khi
+  chạy — không có địa chỉ token nào trong mã của bạn.
+- **`createPaywall().withNetwork(evmPaywall).build()`.** Giao diện trình duyệt
+  đi kèm, giới hạn cho các mạng EVM. Nếu không có provider này,
+  middleware sẽ quay về một bản stub định dạng số tiền theo USDC 6 chữ số
+  thập phân và hiển thị nội dung giữ chỗ "Install @x402/paywall".
+- **`paymentMiddleware(...)`.** Bảo vệ `GET /`. Đối số thứ ba là
+  cấu hình paywall — `appName` trở thành tiêu đề trang, và
+  `testnet: true` hiển thị gợi ý faucet `Need Mezo USD on Mezo Testnet?`
+  mà bạn đã thấy ở Bước 3.
+- **Route đã mở khóa.** Handler `app.get("/")` đơn giản chỉ chạy
+  sau khi middleware đã xác minh và tất toán một khoản thanh toán.
+
+(Về mặt kỹ thuật, bạn có thể đặt `PAY_TO` là Tài khoản A và tự thanh toán cho mình, nhưng
+khi đó một khoản thanh toán thành công sẽ không thể thấy được onchain: MUSD rời A rồi lại về
+A, nên số dư token không thay đổi. Hai tài khoản cho bạn một tín hiệu
+trước/sau rõ ràng trên trình khám phá khối.)
+
+## Bước 6: Chạy máy chủ người bán và tự thanh toán
+
+<Aside type="caution" title="Trước tiên, hãy kiểm tra máy chủ người bán cũ trên cổng 4021">
+Nếu đã có tiến trình nào đó gắn với `localhost:4021` — chẳng hạn một lệnh
+`tsx server.ts` trước đó mà bạn quên dừng — các bước kiểm tra bên dưới sẽ vượt qua vì
+tiến trình **khác** đã phản hồi, không phải tiến trình của bạn. Các khoản thanh toán thực hiện trong trình duyệt
+khi đó sẽ đi đến `PAY_TO` mà máy chủ cũ kia đã được cấu hình,
+chứ không phải giá trị bạn vừa đặt. Kiểu lỗi này trông giống hệt thành công; dấu hiệu
+duy nhất cho thấy có vấn đề là terminal của bạn không hiển thị log yêu cầu
+nào trong khi terminal của một tiến trình khác thì có.
+
+Hãy dừng mọi tiến trình đang lắng nghe cũ trước khi tiếp tục:
+
+```bash
+lsof -i :4021          # No output = port is free, skip the kill
+kill $(lsof -ti :4021) # If the command above printed anything, run this
+```
+
+Ngoài ra, bạn có thể chạy trên một cổng khác: máy chủ đọc cổng từ
+biến môi trường, ví dụ `PORT=5001 PAY_TO=0x… pnpm exec tsx server.ts`.
+</Aside>
+
+Chuyển ví sang **Tài khoản B (người bán)**, sao chép địa chỉ `0x…` của tài khoản này,
+rồi khởi động máy chủ với địa chỉ đó làm địa chỉ nhận:
+
+```bash
+PAY_TO=0xYOUR_ACCOUNT_B_ADDRESS_HERE \
+  pnpm exec tsx server.ts
+```
+
+<Aside type="caution" title="Đừng bỏ qua PAY_TO">
+Máy chủ vẫn khởi động bình thường khi không có `PAY_TO` — nó sẽ quay về địa chỉ nhận
+của bản demo được lưu trữ. Khi đó, mọi khoản thanh toán bạn thực hiện đều đi đến người bán
+của bản demo thay vì Tài khoản B của bạn, và lần chạy vẫn "hoạt động" trong khi bước kiểm tra
+trên trình khám phá khối ở bước 6 bên dưới vẫn trống. Cũng không có cơ chế kiểm tra định dạng:
+một địa chỉ gõ sai sẽ được dùng nguyên trạng mà không có cảnh báo. Hãy sao chép địa chỉ
+trực tiếp từ ví của bạn.
+</Aside>
+
+Bạn sẽ thấy `Mezo x402 Quickstart listening on http://localhost:4021/`.
+Middleware giờ đây chặn các yêu cầu chưa thanh toán đến `/`. Những gì client nhận
+lại phụ thuộc vào cách nó tự nhận diện: **trình duyệt** (một header
+`Accept: text/html` cùng `User-Agent` của trình duyệt) nhận được toàn bộ
+trang paywall HTML; **mọi client khác** (`curl`, `fetch`, `httpie`, một AI
+agent) nhận được phần thân JSON gọn nhẹ với các yêu cầu thanh toán
+được mã hóa Base64 trong response header `PAYMENT-REQUIRED`. Dù theo cách nào, cũng
+không cần mã phía client.
+
+<Steps>
+
+1. Kiểm tra nhanh rằng máy chủ phản hồi `402`:
+
+   ```bash
+   curl -s -o /dev/null -w "%{http_code}\n" http://localhost:4021/
+   # Expect: 402
+   ```
+
+   (**Giao diện** paywall chỉ hiển thị trong trình duyệt — đó là bước
+   tiếp theo. `curl -i` trên cùng URL sẽ hiển thị trạng thái `402` cùng header
+   `PAYMENT-REQUIRED` mang các yêu cầu thanh toán ở dạng máy có thể đọc
+   — giải mã bằng `base64 -d` để thấy cùng
+   scheme/network/amount/payTo mà cấu hình route của bạn khai báo.)
+
+2. Mở `http://localhost:4021/` trong chính trình duyệt bạn đã dùng cho
+   bước kiểm tra nhanh với bản demo đang chạy ở Bước 3. **Chuyển sang Tài khoản A (người mua)**
+   trước khi kết nối — đó là tài khoản có MUSD.
+
+3. Paywall được tải — cùng giao diện như ở Bước 3, nhưng giờ được phục vụ bởi
+   chính mã của bạn:
+
+   <Image
+     src={paywallLocalInitial}
+     alt="Giao diện @x402/paywall do máy chủ quickstart cục bộ phục vụ: tiêu đề Payment Required, phần mô tả của route, gợi ý faucet testnet, bộ chọn ví và nút Connect wallet."
+   />
+
+4. Kết nối Tài khoản A, xác nhận **Mezo Testnet (chain ID `31611`)**,
+   nhấp vào **Pay now** và ký ủy quyền trong ví.
+
+5. Paywall gửi lại yêu cầu. Khi facilitator tất toán
+   onchain, phản hồi JSON đã mở khóa sẽ hiển thị:
+
+   ```json
+   { "ok": true, "message": "Paid! You unlocked the Mezo x402 Quickstart." }
+   ```
+
+6. Xác minh lệnh chuyển A → B onchain. Mở cả hai tab trình khám phá khối:
+
+   - Tài khoản A (ghi nợ):
+     `https://explorer.test.mezo.org/address/<account-A-address>`
+   - Tài khoản B (ghi có):
+     `https://explorer.test.mezo.org/address/<account-B-address>`
+
+   Bạn sẽ thấy một lệnh chuyển MUSD duy nhất trị giá `0.001 MUSD` rời A
+   và đến B vào đúng thời điểm bạn thanh toán. Nhấp vào
+   hash giao dịch ở một trong hai bên để xem chi tiết tất toán,
+   bao gồm địa chỉ facilitator đã trả gas.
+
+</Steps>
+
+{/* SCREENSHOT-TODO: explorer.test.mezo.org for Account B after payment, showing the 0.001 MUSD inbound transfer from Account A. (One side of the A→B transfer is enough; the prose above already points at both tabs.) */}
+
+<Aside type="note" title="Xem các lệnh chuyển token">
+Chế độ xem mặc định trong Mezo Explorer là **Transactions**, vì vậy bạn phải
+nhấp vào tab **Token transfers** rồi nhấp vào Txn hash của lệnh chuyển token gần nhất
+của từng tài khoản để tìm chi tiết khoản thanh toán x402.
+</Aside>
+
+Đó là toàn bộ vòng lặp: bạn vừa phục vụ một tài nguyên HTTP có paywall trên
+Mezo Testnet, thanh toán cho nó từ Tài khoản A và quan sát MUSD về
+Tài khoản B onchain.
+
+## Chuyển lên mainnet
+
+Mọi thứ ở trên đều chạy trên Mezo Testnet. Chuyển cùng máy chủ người bán này sang Mezo
+Mainnet (`eip155:31612`) chỉ là **thay đổi một dòng** — SDK hiện hành tự xác định
+token MUSD mainnet và proxy thanh toán chuẩn cho bạn, và
+facilitator vẫn là cùng một endpoint.
+
+Trong `server.ts`, đổi hằng số mạng:
+
+```diff
+-const NETWORK = "eip155:31611"; // Mezo testnet
++const NETWORK = "eip155:31612"; // Mezo mainnet
+```
+
+| Hạng mục | Testnet → Mainnet | Cần thay đổi |
+|---|---|---|
+| `NETWORK` (CAIP-2) | `eip155:31611` → `eip155:31612` | **Có — chính dòng ở trên** |
+| `PAY_TO` | địa chỉ testnet của bạn → địa chỉ mainnet của bạn | **Có — luôn đặt rõ ràng trên mainnet** |
+| Tài sản MUSD | do SDK xác định trên cả hai mạng | Không — `DEFAULT_STABLECOINS` ánh xạ nó |
+| URL facilitator | `facilitator.vativ.io` trên cả hai mạng | Không — cùng một facilitator phục vụ cả hai |
+| Proxy thanh toán | chuẩn trên cả hai mạng | Không — SDK tự động xác định |
+
+<Aside type="caution" title="Mainnet chuyển tiền thật">
+Thanh toán trên mainnet tất toán bằng **MUSD thật**, và facilitator trả **BTC thật**
+cho gas — không có faucet. Hãy đặt `PAY_TO` là một địa chỉ bạn kiểm soát trên
+mainnet (giá trị mặc định tích hợp sẵn là địa chỉ của bản demo — trên mainnet, không đặt
+`PAY_TO` nghĩa là trả tiền thật cho người khác). Trước tiên, hãy thử với một `price`
+nhỏ, và chỉ nạp cho phía nhận đúng số tiền bạn định
+giao dịch.
+</Aside>
+
+
+
+## Khắc phục sự cố
+
+| Triệu chứng | Nguyên nhân | Cách khắc phục |
+|---------|-------|-----|
+| `does not provide an export named 'DEFAULT_STABLECOINS'` khi chạy | Một phụ thuộc bắc cầu đang cố định `@x402/paywall`/`@x402/evm` ở bản phát hành cũ hơn mức mạng đích yêu cầu (Mainnet cần `≥ 2.15.0`, Testnet `≥ 2.10.0`) | <details><summary>Buộc cả hai lên một bản phát hành hiện hành qua cơ chế override của trình quản lý gói</summary><br/>**pnpm** — thêm vào `package.json` (cấp cao nhất, cạnh `dependencies`), sau đó chạy `pnpm install`:<br/>```<br/>"pnpm": { "overrides": { "@x402/paywall": "^2.16.0", "@x402/evm": "^2.16.0" } }<br/>```<br/>**npm** — `"overrides": { ... }` ở cấp cao nhất, sau đó chạy `npm install`.<br/>**yarn** — `"resolutions": { ... }`, sau đó chạy `yarn install`.<br/>Override cả hai gói cùng lúc — `@x402/paywall` import `DEFAULT_STABLECOINS` từ `@x402/evm`.</details> |
+| Paywall hiển thị `$10000000000.00` thay vì `$0.001` | Giống như trên — một phiên bản `@x402` cũ định dạng MUSD như USDC 6 chữ số thập phân | <details><summary>Cách khắc phục tương tự — buộc dùng `^2.16.0` qua override</summary><br/>Xem hàng phía trên để có đoạn mã đầy đủ (các biến thể `pnpm` / `npm` / `yarn`).</details> |
+| `install` thất bại khi phân giải `@solana/kit@6.10.0` → `@solana/keys@6.10.0` (không có phiên bản phù hợp) | `@x402/paywall` kéo theo một SDK Solana bắc cầu mà bản phát hành `6.10.0` tham chiếu đến các gói con chưa được công bố (một khoảng trống tạm thời ở thượng nguồn). Người bán chỉ dùng EVM không bao giờ dùng paywall Solana, nhưng phụ thuộc này vẫn được phân giải khi cài đặt | Cố định phiên bản ổn định gần nhất qua override, sau đó cài đặt lại: **npm** `"overrides": { "@solana/kit": "6.9.0" }` ở cấp cao nhất; **pnpm** `"pnpm": { "overrides": { "@solana/kit": "6.9.0" } }`; **yarn** `"resolutions": { "@solana/kit": "6.9.0" }` |
+| `EADDRINUSE: address already in use :::4021` | Một tiến trình khác đang gắn với cổng 4021 | Chạy `lsof -i :4021` để tìm tiến trình đang giữ cổng, hoặc chạy trên một cổng trống: `PORT=5001 PAY_TO=0x… pnpm exec tsx server.ts` |
+| `tsx: command not found` | Phụ thuộc dev `tsx` chưa được cài đặt, hoặc lệnh đang được chạy bên ngoài thư mục dự án | Chạy lại `pnpm add -D tsx` bên trong dự án; gọi bằng `pnpm exec tsx server.ts` |
+| `SyntaxError` ở `import` / lỗi cú pháp TS từ Node | Đang dùng Node.js &lt; 20 | Nâng cấp lên Node.js 20+ (dùng `node --version` để kiểm tra) |
+| Ví nhắc chuyển mạng / khoản thanh toán không bao giờ được xác nhận | Ví đang ở sai mạng Mezo | Xác nhận ví đang ở đúng chain ID mà máy chủ người bán yêu cầu (`31611` cho Testnet, `31612` cho Mainnet) |
+| Trả về `402 Payment Required` nhưng giao diện paywall không bao giờ hiển thị | Chuỗi ký tự `network` không phải là định danh CAIP-2 | Dùng chính xác `'eip155:31611'` hoặc `'eip155:31612'`; cả `'mezo-testnet'` lẫn `31611` đơn thuần đều bị từ chối |
+| Ví từ chối thêm "Mezo Testnet" — hoặc thêm được nhưng số dư / giao dịch trông không đúng | Chain ID được nhập ở dạng hex (ví dụ `0x7A5B`) trong khi trường của ví yêu cầu số thập phân, hoặc dùng chain ID của Mainnet (`31612`) khi bạn muốn dùng Testnet | Nhập chain ID ở dạng thập phân **`31611`** cho Testnet (`31612` cho Mainnet). URL RPC cũng phải trỏ đến testnet (`https://rpc.test.mezo.org`) — dùng chain ID testnet với RPC mainnet sẽ âm thầm tạo ra một mạng trông như thật nhưng không chứa gì |
+| Mọi thứ đều "hoạt động" nhưng Tài khoản B không bao giờ nhận được MUSD | Chưa đặt `PAY_TO` (máy chủ âm thầm quay về địa chỉ nhận của bản demo được lưu trữ), hoặc địa chỉ bị gõ sai — không có cơ chế kiểm tra định dạng | Dừng máy chủ và khởi động lại với `PAY_TO=0x…` được sao chép trực tiếp từ Tài khoản B trong ví; kiểm tra lại trình khám phá khối sau khoản thanh toán tiếp theo |
+| Facilitator trả về `unsupported network` | `FACILITATOR_URL` đã bị ghi đè thành một facilitator không hỗ trợ Mezo (ví dụ `x402.org/facilitator`) | Bỏ đặt `FACILITATOR_URL` — giá trị mặc định tích hợp sẵn `https://facilitator.vativ.io` phục vụ cả hai mạng Mezo |
+| Paywall tải được nhưng **Pay now** không bao giờ tất toán, không có lỗi | Ví không có MUSD, hoặc MUSD nằm ở sai mạng | Xem lại Bước 2; xác nhận hợp đồng token MUSD testnet hiển thị số dư |
+| Bản demo ở Bước 3 (demo.vativ.io) không bao giờ tất toán | Cùng vấn đề về ví/MUSD/mạng — hãy cô lập vấn đề tại đây trước khi chuyển sang Bước 4 | Đừng bỏ qua bước kiểm tra nhanh ở Bước 3; khắc phục phía ví trước khi viết mã máy chủ |
+| Khoản thanh toán đã được ký trong ví nhưng facilitator từ chối / xác minh thất bại | **Name** trong domain EIP-712 của tài sản được tự viết sai | Domain name EIP-712 của MUSD là **`Mezo USD`** (version `1`), **không phải** ký hiệu `MUSD` — nếu không khớp, việc xác minh chữ ký sẽ thất bại. Hãy để SDK cung cấp giá trị này qua `getDefaultAsset`, hoặc đặt chính xác `name: "Mezo USD", version: "1"` nếu bạn tự xây dựng metadata của tài sản |
+| Chạy facilitator/settler của riêng bạn: thỉnh thoảng ước tính gas thất bại trên Mezo | Việc ước tính gas trên Mezo cần một khoảng dư vừa phải | Tăng giới hạn gas / hệ số nhân ước tính ở phía signer. Bạn sẽ không gặp vấn đề này với `facilitator.vativ.io` được lưu trữ, vốn đã tính đến điều này |
+
+## Xem thêm
+
+- [Thanh toán MUSD với x402](../). Tổng quan khái niệm.
+- [vativ/mezo-hack/apps/humor](https://github.com/vativ/mezo-hack/tree/main/apps/humor).
+  Tài liệu tham khảo hackathon dành riêng cho Mezo: máy chủ + client `@x402/fetch`
+  được kết nối với các tarball xem trước mezo.6, `GET /joke` có paywall
+  với giá `0.001 MUSD`, trỏ đến `facilitator.vativ.io`, README hướng dẫn
+  từng bước nạp tiền vào ví + chạy bản demo từ đầu đến cuối. Hãy clone và
+  điều chỉnh theo nhu cầu.
+- <a href="/docs/vn/docs/users/borrow/mint-musd/" target="_blank" rel="noopener noreferrer">Vay và đúc MUSD ↗</a>. Quy trình phía người dùng để có MUSD (mở trong tab mới).
+- [Mezo Faucet](https://faucet.test.mezo.org). BTC testnet.

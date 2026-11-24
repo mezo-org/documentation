@@ -1,0 +1,61 @@
+---
+title: Cách vay và đúc MUSD
+description: Hướng dẫn từng bước để vay bằng BTC của bạn và đúc MUSD.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../components/YouTube.astro';
+
+[MUSD](https://mezo.org/feature/musd) đã có trên Mezo Mainnet và có thể dùng thử trên Mezo Testnet. Hướng dẫn này lấy Mezo Testnet làm ví dụ để minh họa toàn bộ quy trình vay, hoặc để bạn vay và đúc MUSD phục vụ mục đích phát triển. Sau đó, hãy truy cập [Mezo App](https://mezo.org/) và đăng nhập trên Mainnet để vay và đúc MUSD thật.
+
+<YouTube id="wot3-SR-25E" title="Cách mở khoản vay được bảo đảm bằng Bitcoin trên Mezo" />
+
+:::note
+Quy mô khoản vay tối thiểu là **1.800 MUSD** nợ vay. Cộng thêm khoản gửi gas 200 MUSD, tổng nợ của bạn khi mở khoản vay ít nhất là 2.000 MUSD. Đây là số tiền *vay* tối thiểu, không phải mức thế chấp tối thiểu — lượng tài sản thế chấp bạn cần phụ thuộc vào tỷ lệ thế chấp mà bạn mong muốn.
+:::
+
+## Trước khi bắt đầu
+
+Trước khi nhận MUSD testnet, bạn phải hoàn thành các bước sau:
+
+- Truy cập [testnet.mezo.org](https://testnet.mezo.org/) và nhấp vào **Sign in** để kết nối với tài khoản Mezo của bạn.
+- Kết nối ví Ethereum với Mezo Testnet. Xem hướng dẫn [Kết nối với Mezo Testnet](/docs/vn/docs/users/getting-started/connect/) để biết cách thực hiện.
+- Nhận BTC testnet trên Testnet. Bạn có thể yêu cầu BTC testnet trên [Discord](https://discord.com/invite/mezo).
+- Thêm token MUSD vào ví. Bạn có thể thêm token qua giao diện của Mezo Explorer. Nhấp vào nút **Add token to MetaMask** bên cạnh địa chỉ token MUSD:
+    - Mainnet: [0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186](https://explorer.mezo.org/token/0xdD468A1DDc392dcdbEf6db6e34E89AA338F9F186)
+    - Testnet: [0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503](https://explorer.test.mezo.org/token/0x118917a40FAF1CD7a13dB0Ef56C86De7973Ac503)
+
+## Vay và đúc
+
+:::tip[Testnet và Mainnet]
+Hướng dẫn này đi qua quy trình trên **Testnet**, vì vậy mọi liên kết bên dưới đều trỏ đến `testnet.mezo.org`. Khi đã sẵn sàng vay và đúc MUSD thật, hãy truy cập [mezo.org/feature/borrow](https://mezo.org/feature/borrow) trên **Mainnet**.
+:::
+
+Sau khi đăng nhập vào [testnet.mezo.org](https://testnet.mezo.org/) bằng một tài khoản có BTC testnet, bạn có thể vay MUSD.
+
+<Steps>
+1. Trong trình duyệt, mở [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow).
+2. Nhấp vào nút **Let's Go** để bắt đầu quy trình vay.
+3. Nhập số MUSD bạn muốn vay và số BTC bạn muốn dùng làm tài sản thế chấp.
+4. Nhấp vào **Review** để mở phần tóm tắt trước khi xác nhận.
+5. Kiểm tra chi tiết trong phần tóm tắt để chắc chắn thông tin đúng như bạn mong đợi.
+6. Đảm bảo ví trình duyệt của bạn đang được đặt ở mạng Mezo Testnet.
+7. Khi đã sẵn sàng thực hiện quy trình [Vay và đúc](/docs/vn/docs/users/borrow/mint-musd), nhấp vào **Confirm**. Ví trình duyệt sẽ yêu cầu bạn xác nhận giao dịch và trả phí gas bằng BTC trên Testnet.
+</Steps>
+
+Sau khi hoàn tất quy trình, bạn có thể kiểm tra trạng thái khoản vay tại [testnet.mezo.org/feature/borrow](https://testnet.mezo.org/feature/borrow) (hoặc [mezo.org/feature/borrow](https://mezo.org/feature/borrow) nếu bạn đang dùng Mainnet).
+
+## Tìm hiểu các điều khoản vay
+
+Mezo cung cấp lãi suất cố định và thấp cho các khoản vay MUSD. Lãi suất ban đầu dao động từ 1-5%. Mezo không có ngày bắt buộc trả nợ, vì vậy bạn có thể giữ vị thế mở bao lâu tùy thích, miễn là tài sản thế chấp của bạn vẫn đủ.
+
+Dù không có lịch trả nợ cố định, bạn vẫn cần theo dõi rủi ro bị thanh lý nếu giá trị tài sản thế chấp (BTC) giảm.
+
+Lãi được tính trên số tiền đã vay (lượng MUSD đã đúc), vì vậy hãy lưu ý khoản nợ của bạn tăng lên theo thời gian như thế nào. Khi muốn đóng vị thế, bạn cần có đủ MUSD để trả tiền gốc cùng toàn bộ lãi hoặc phí đã tích lũy.
+
+## Quản lý khoản vay
+
+Khi đã có khoản vay đang hoạt động, bạn có thể quản lý khoản vay đó trong Mezo App. Xem video này để tìm hiểu cách điều chỉnh tài sản thế chấp, trả khoản vay hoặc đóng vị thế.
+
+<YouTube id="RBKC1XfAEHw" title="Cách quản lý khoản vay của bạn" />
