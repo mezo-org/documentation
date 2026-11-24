@@ -1,0 +1,45 @@
+---
+title: Activa versturen op Mezo
+description: >-
+  Handleiding voor het versturen van activa naar andere gebruikers op Mezo met
+  een walletadres, Bitcoin-adres of Mezo ID.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Je kunt activa rechtstreeks vanuit Mezo Passport naar andere gebruikers op Mezo versturen. Ontvangers kun je aanduiden met hun walletadres, Bitcoin-adres of Mezo ID.
+
+:::note
+Als je activa via Passport verstuurt, worden tokens op Mezo overgedragen; er worden geen activa op het Bitcoin-netwerk verstuurd. Wil je activa van Mezo af bridgen, zie dan [Bridges](/docs/nl/docs/users/mainnet/bridges).
+:::
+
+## Soorten ontvangers
+
+Het verzendformulier (**Send**) in Mezo Passport ondersteunt drie soorten ontvangers:
+
+- **Walletadres**: voer een standaard `0x…`-adres op Mezo in.
+- **Bitcoin-adres**: voer een Bitcoin-adres in. Mezo zet het automatisch om naar de bijbehorende wallet op het Mezo-netwerk.
+- **Mezo ID**: voer een Mezo ID in. Het gevonden walletadres wordt onder het invoerveld weergegeven, zodat je de bestemming kunt controleren voordat je verstuurt.
+
+Wanneer je een Bitcoin-adres of Mezo ID invoert, verschijnt het gevonden `0x…`-walletadres ter bevestiging onder het invoerveld. Controleer dit adres altijd voordat je verdergaat.
+
+## Activa versturen
+
+<Steps>
+1. Open de [Mezo App](https://mezo.org/overview) en meld je aan.
+
+2. Open bovenaan de pagina het vervolgkeuzemenu **Passport**.
+
+3. Klik op **Send** om het verzendformulier te openen.
+
+4. Voer het walletadres, Bitcoin-adres of de Mezo ID van de ontvanger in.
+
+5. Heb je een Bitcoin-adres of Mezo ID ingevoerd, controleer dan het gevonden walletadres dat onder het invoerveld wordt weergegeven.
+
+6. Selecteer het activum en voer het bedrag in dat je wilt versturen. Naast het bedrag wordt de actuele tegenwaarde in USD weergegeven.
+
+7. Controleer de transactiegegevens en klik op **Send** om te bevestigen.
+</Steps>
+
+Nadat de transactie is voltooid, zie je een bevestigingsscherm met het bericht "Transaction sent" en een link om de transactie in de [Mezo Explorer](https://explorer.mezo.org) te bekijken. Klik op **Done** om terug te gaan naar de app.

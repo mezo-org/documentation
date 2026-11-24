@@ -1,0 +1,103 @@
+---
+title: Overzicht van de matchingmarkt
+description: >-
+  Hoe de matchingmarkt veBTC- en veMEZO-houders tot wederzijds voordeel met
+  elkaar verbindt
+topic: users
+---
+
+import { LinkButton } from '@astrojs/starlight/components';
+
+Via de matchingmarkt worden veBTC en veMEZO aan elkaar gekoppeld. BTC-houders krijgen zo toegang tot boost zonder MEZO te bezitten, en MEZO-houders kunnen rendement verdienen zonder veel BTC te bezitten.
+
+## Het probleem dat ze oplost
+
+Het systeem met twee tokens van Mezo vereist zowel veBTC als veMEZO om de stemkracht te maximaliseren. Maar niet iedereen heeft beide:
+
+- **Gebruikers met veel BTC** willen de boost van 5x, maar hebben misschien geen MEZO
+- **Gebruikers met veel MEZO** hebben veMEZO, maar weinig BTC om mee te stemmen
+
+De matchingmarkt verbindt deze twee kanten.
+
+---
+
+## Zo werkt het
+
+Elke veBTC-positie heeft een eigen boostgauge. Deze gauge verdeelt geen emissies, maar bepaalt hoeveel veMEZO-boost die veBTC-positie ontvangt.
+
+### Het verloop
+
+1. **Een veBTC-houder vergrendelt BTC** → Ontvangt een veBTC-NFT met een bijbehorende boostgauge
+2. **De veBTC-houder plaatst incentives** → Stort tokens (elk ERC-20-token) in zijn boostgauge om veMEZO-stemmen aan te trekken
+3. **veMEZO-houders stemmen** → Wijzen veMEZO-gewicht toe aan aantrekkelijke boostgauges
+4. **De boost wordt toegepast** → De vermenigvuldiger van de veBTC-positie stijgt op basis van de ontvangen veMEZO-stemmen
+5. **De incentives worden geclaimd** → veMEZO-stemmers claimen aan het einde van de epoch hun aandeel in de incentives
+
+---
+
+## Twee kanten van de markt
+
+### Als je veel BTC hebt
+
+Je wilt boost, maar hebt niet genoeg MEZO. Je opties:
+
+- Incentives op je veBTC-gauge plaatsen om veMEZO-stemmen aan te trekken
+- Betalen voor boost in plaats van zelf MEZO te vergrendelen
+- De markt bepaalt de gangbare prijs voor boost
+
+### Als je veel MEZO hebt
+
+Je hebt veMEZO, maar weinig BTC. Je opties:
+
+- Stemmen op veBTC-gauges met goede incentives om rendement te verdienen
+- Boost als dienst leveren aan BTC-houders die daarvoor willen betalen
+- Rendement verdienen op je MEZO zonder veel BTC-blootstelling nodig te hebben
+
+---
+
+## Waarom dit belangrijk is
+
+De matchingmarkt maakt van boost een geprijsde, verhandelbare dienst:
+
+- **Boost heeft een marktprijs** die wordt bepaald door vraag en aanbod
+- **Gebruikers hoeven niet beide tokens te bezitten** om van het systeem te profiteren
+- **De kapitaalefficiëntie verbetert**: BTC-houders richten zich op BTC, MEZO-houders op MEZO
+
+Zonder de matchingmarkt zouden gebruikers van beide tokens evenredige hoeveelheden moeten bezitten om effectief deel te nemen. De markt neemt die drempel weg.
+
+---
+
+## Kernbegrippen
+
+| Term | Definitie |
+|---|---|
+| Boostgauge | Een gauge die aan elke veBTC-NFT is gekoppeld en veMEZO-stemmen ontvangt |
+| Incentives | Tokens die veBTC-houders plaatsen om veMEZO-stemmen aan te trekken |
+| Boostverschaffer | Een veMEZO-houder die in ruil voor incentives op de boostgauges van anderen stemt |
+| Boostzoeker | Een veBTC-houder die incentives plaatst om veMEZO-stemmen aan te trekken |
+
+---
+
+## Matchbox
+
+:::caution[Disclaimer over communitytool]
+De huidige implementatie van de matchingmarkt (Matchbox) is een tool die door de community is gebouwd. Hij is niet officieel door Mezo gebouwd, wordt niet door Mezo onderhouden en wordt niet door Mezo onderschreven. Gebruikers zouden zelf onderzoek moeten doen en voorzichtig moeten zijn bij het gebruik van applicaties van derden.
+:::
+
+<LinkButton href="https://matchbox.markets/">Matchingprotocol voor veBTC + veMEZO: verdien bribes met je veMEZO, of betaal voor een boost</LinkButton>
+
+Zie de [documentatie van Matchbox](https://matchbox.markets/docs) voor uitgebreide tutorials over hoe je Matchbox gebruikt om je opbrengsten op Mezo te boosten.
+
+---
+
+## Risico's
+
+Als tool die door de community is gebouwd, brengt de matchingmarkt extra risico's met zich mee:
+
+- **Smart-contractrisico**: de contracten zijn mogelijk niet volgens dezelfde standaard geaudit als het kernprotocol van Mezo
+- **Geen officiële ondersteuning**: Mezo kan geen ondersteuning of hulp bieden bij problemen met de matchingmarkt
+- **Operationeel risico**: de tool kan zonder aankondiging worden gewijzigd, stopgezet of tijdelijk onbereikbaar zijn
+
+:::note[Opmerking]
+Neem voor vragen of ondersteuning over de matchingmarkt rechtstreeks contact op met de communityontwikkelaars. Het ondersteuningsteam van Mezo kan niet helpen bij tools van derden.
+:::

@@ -1,0 +1,162 @@
+---
+title: Overzicht van Mezo Earn
+description: 'Overzicht van Mezo Earn, bronnen van rendement en kernbegrippen'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Mezo Earn is de economische motor van het Mezo-netwerk. Hiermee kunnen Bitcoin-houders rendement verdienen op hun BTC en tegelijk deelnemen aan governancebeslissingen die bepalen hoe het netwerk middelen en beloningen verdeelt.
+
+Door BTC in het systeem te vergrendelen krijg je stemkracht, verdien je passieve inkomsten uit netwerkactiviteit en help je liquiditeit binnen het Mezo-ecosysteem te sturen.
+
+[Download de Mezo Earn-whitepaper (pdf)](/docs/Mezo_Earn_Whitepaper.pdf)
+
+<YouTube id="6rthu_iub7E" title="Overzicht van Mezo Earn" />
+
+![Overzicht van Mezo Earn](/docs/images/mezo-token/EARN%20Chart%2012.png)
+
+---
+
+## Waar komt het rendement vandaan?
+
+Mezo Earn haalt rendement uit echte economische activiteit op het netwerk. Er zijn drie hoofdbronnen:
+
+### 1. Swapvergoedingen
+
+Wanneer gebruikers activa verhandelen op de DEX van Mezo, brengt elke swap kosten met zich mee. Deze vergoedingen stapelen zich op in liquiditeitspools en worden verdeeld onder de deelnemers die op die pools stemmen.
+
+### 2. Inkomsten uit MUSD-leningen
+
+Op Mezo kunnen gebruikers MUSD (een door Bitcoin gedekte stablecoin) lenen tegen hun BTC als onderpand. De rente, afsluitkosten en herfinancieringskosten van deze leningen vloeien terug naar het systeem en worden verdeeld onder actieve deelnemers.
+
+### 3. Bridge- en transactievergoedingen
+
+Activa naar Mezo verplaatsen, transacties uitvoeren en andere onchain activiteit leveren allemaal vergoedingen op. Deze vergoedingen gaan rechtstreeks naar veBTC-houders als passief rendement: **stemmen is niet nodig**.
+
+---
+
+## Het model met twee tokens
+
+Mezo Earn werkt met een systeem van twee tokens dat Bitcoin centraal houdt in de governance, terwijl MEZO wordt gebruikt om invloed te versterken en te sturen.
+
+![Het model met twee tokens](/docs/images/mezo-token/EARN%20Chart%207.png)
+
+### veBTC: het anker
+
+veBTC (vote-escrowed BTC) vormt de basis van de stemkracht. Wanneer je BTC vergrendelt, ontvang je een veBTC-NFT die je het volgende geeft:
+
+- Basisstemgewicht (vermenigvuldiger van 1x)
+- Passief rendement uit bridge- en chainvergoedingen
+- Het recht om op gauges te stemmen en emissies te sturen
+
+**Parameters:**
+- Maximale vergrendeling: 28 dagen
+- Minimale vergrendeling: 1 dag
+- Afname: lineair (het stemgewicht neemt af naarmate de vergrendeling haar vervaldatum nadert)
+
+### veMEZO: de boost
+
+veMEZO (vote-escrowed MEZO) versterkt de stemkracht van veBTC, maar heeft zelf geen zelfstandig governancegewicht. Door MEZO in veMEZO te vergrendelen kun je:
+
+- veBTC-posities tot 5x hun basisgewicht boosten
+- Incentives verdienen door stemmen naar veBTC-gauges te sturen
+- Rebase-uitkeringen ontvangen die je tegen verwatering beschermen
+
+**Parameters:**
+- Maximale vergrendeling: 4 jaar
+- Minimale vergrendeling: 1 week
+- Afname: lineair
+
+**Kernprincipe:** MEZO kan geen zelfstandige governancemacht vormen. Het versterkt alleen het gewicht van vergrendelde Bitcoin.
+
+---
+
+## Kernbegrippen
+
+### Geboost gewicht
+
+Wanneer veBTC en veMEZO aan elkaar gekoppeld zijn, vormen ze samen een "geboost gewicht" dat je aandeel in de vergoedingen en je invloed op de emissies bepaalt. De boost hangt af van jouw relatieve aandeel in de totale hoeveelheid veBTC en veMEZO in het systeem.
+
+- Een veBTC-positie zonder veMEZO werkt op 1x (basisgewicht)
+- Door veMEZO toe te voegen kan dit oplopen tot maximaal 5x
+- Grotere BTC-posities hebben naar verhouding meer MEZO nodig om de maximale boost te bereiken
+
+### Epochs
+
+Mezo Earn werkt in een cyclus van 7 dagen die een **epoch** heet. Elke epoch begint op donderdag om 00:00 UTC.
+
+**Wat er elke epoch gebeurt:**
+
+- Stemmen uitgebracht in epoch N bepalen de verdeling van de emissies in epoch N+1
+- Vergoedingen gegenereerd in epoch N worden verdeeld op basis van de stemmen uitgebracht in epoch N
+- Vergrendelingsduren worden afgestemd op epochgrenzen (altijd naar beneden afgerond op volledige weken)
+
+Dankzij deze opzet kunnen stemmers eerst zien welke vergoedingen er worden gegenereerd, voordat ze beslissen waar ze hun stemmen voor de volgende periode naartoe sturen.
+
+### Gauges
+
+Gauges zijn smart contracts die economische waarde ontvangen en verdelen op basis van stemmen. Zie ze als bestemmingen voor je stemkracht: hoe meer stemmen een gauge krijgt, hoe groter zijn aandeel in de beloningen.
+
+**Soorten gauges:**
+
+| Type gauge | Wat het doet |
+| --- | --- |
+| **Staking-gauges** | Gekoppeld aan liquiditeitspools van de DEX of aan de MUSD-spaarkluis. Stakers verdienen MEZO-emissies; stemmers verdienen vergoedingen. |
+| **Validatorgauges** | Sturen beloningen naar de validators die de chain beveiligen. |
+| **Ecosysteemgauges** | Ondersteunen partnerprotocollen en de ontwikkeling van het ecosysteem. |
+| **veBTC-boostgauges** | Elke veBTC-NFT heeft een eigen gauge waarop veMEZO-houders kunnen stemmen om een boost te geven. |
+
+---
+
+## De matchingmarkt
+
+Mezo Earn creëert via het boostmechanisme een expliciete markt tussen BTC- en MEZO-houders.
+
+![De matchingmarkt](/docs/images/mezo-token/EARN%20Chart%205.png)
+
+**Zo werkt het:**
+
+1. Wanneer je BTC vergrendelt, maakt het systeem een eigen boostgauge aan voor je veBTC-positie
+2. veMEZO-houders kunnen op je gauge stemmen om een boost te geven
+3. In ruil daarvoor kun je incentives op je gauge plaatsen om veMEZO-stemmen aan te trekken
+4. De boost wordt van kracht nadat een "poke"-transactie je positie heeft bijgewerkt
+
+Zo wordt boost een verhandelbare dienst. BTC-houders die een hogere vermenigvuldiger willen, kunnen zelf MEZO aanschaffen of incentives betalen om veMEZO-stemmen aan te trekken. MEZO-houders kunnen rendement verdienen door hun stemmen naar gauges met aantrekkelijke incentives te sturen.
+
+---
+
+## Zo stromen de beloningen
+
+**Passief rendement:** Alle veBTC-houders ontvangen een aandeel in de bridge- en chainvergoedingen naar verhouding van hun geboost stemgewicht. Naast vergrendelen hoef je daarvoor niets te doen.
+
+**Actief rendement:** Door op specifieke gauges te stemmen, kun je extra vergoedingen en incentives verdienen uit de pools en protocollen die je steunt.
+
+**veMEZO-rendement:** veMEZO-houders verdienen de incentives die zijn geplaatst op de veBTC-gauges waarop ze stemmen, plus rebase-uitkeringen die tegen verwatering beschermen.
+
+---
+
+## Aan de slag
+
+<Steps>
+1. **BTC vergrendelen** → Ontvang een veBTC-NFT met basisstemkracht
+2. **Op gauges stemmen** → Bepaal waar de emissies naartoe gaan en verdien vergoedingen
+3. **Beloningen claimen** → Int elke epoch vergoedingen en incentives
+4. **(Optioneel) MEZO vergrendelen** → Maak veMEZO aan om je veBTC te boosten of verdien door op de boostgauges van anderen te stemmen
+5. **Vergrendelingen verlengen of beheren** → Behoud je stemkracht in de loop van de tijd
+</Steps>
+
+---
+
+## Snelle referentie
+
+| Parameter | Waarde |
+| --- | --- |
+| Duur van een epoch | 7 dagen |
+| Start van een epoch | Donderdag 00:00 UTC |
+| Maximale BTC-vergrendeling | 28 dagen |
+| Minimale BTC-vergrendeling | 1 dag |
+| Maximale MEZO-vergrendeling | 4 jaar |
+| Minimale MEZO-vergrendeling | 1 week |
+| Maximale boostvermenigvuldiger | 5x |

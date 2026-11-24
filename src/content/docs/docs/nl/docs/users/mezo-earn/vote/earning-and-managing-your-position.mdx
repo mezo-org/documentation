@@ -1,0 +1,162 @@
+---
+title: Verdienen en je positie beheren
+description: 'Stemkracht, opbrengsten en positiebeheer op Mezo begrijpen'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Stemkracht begrijpen
+
+Wanneer je BTC vergrendelt, wordt je stemkracht vastgelegd in een NFT. Deze NFT vertegenwoordigt je governancegewicht en geeft je recht op:
+
+- Een evenredig deel van de handelsvergoedingen die worden gegenereerd door de gauges waarop je stemt
+- Een evenredig deel van de incentives die voor die gauges zijn gestort
+- Passieve bridge- en chainvergoedingen (naar verhouding van je geboost gewicht)
+- De mogelijkheid om te stemmen over waar emissies naartoe gaan
+
+### Basisgewicht vs. geboost gewicht
+
+**Basisgewicht:** je veBTC-gewicht zonder boost van veMEZO. Werkt met een vermenigvuldiger van 1x.
+
+**Geboost gewicht:** wanneer veMEZO-stemmen naar je veBTC-positie worden gestuurd, wordt je effectieve gewicht met maximaal 5x vermenigvuldigd.
+
+De boost hangt af van jouw aandeel in de totale hoeveelheid veBTC en van het aandeel van de totale hoeveelheid veMEZO dat naar jouw positie wordt gestuurd. Grotere BTC-posities hebben naar verhouding meer veMEZO nodig om de maximale boost te bereiken.
+
+### Hoe afname werkt
+
+Je stemkracht neemt na verloop van tijd lineair af. Vergrendel je 1 BTC voor 28 dagen, dan begint je gewicht op 1,0 en neemt het voortdurend af tot het bij het verlopen nul bereikt. Je kunt je vergrendeling op elk moment verlengen om je invloed maximaal te houden.
+
+---
+
+## Verdienen als veBTC-stemmer
+
+Als je veBTC hebt en stemt, verdien je uit meerdere bronnen:
+
+### Handelsvergoedingen
+
+- **Bron:** 100% van de handelsvergoedingen die worden gegenereerd door de specifieke pool waarop je hebt gestemd
+- **Verdeling:** je ontvangt een evenredig deel op basis van je stemgewicht. Genereert een pool 10.000 USD aan vergoedingen en heb jij 5% van de stemmen op die gauge geleverd, dan verdien je 500 USD.
+- **Claimbaar:** uitbetaald in de tokens van de pool (bijv. BTC en MUSD)
+
+### Incentives
+
+- **Bron:** externe incentives die protocollen storten om stemmen naar hun gauges te trekken
+- **Verdeling:** net als vergoedingen worden incentives naar verhouding verdeeld onder alle stemmers op die gauge
+- **Claimbaar:** uitbetaald in het token dat het protocol heeft gestort
+
+### Passieve bridgevergoedingen
+
+- **Bron:** vergoedingen uit het bridgen van activa naar Mezo en uit algemene chainactiviteit
+- **Verdeling:** alle veBTC-houders ontvangen een deel naar verhouding van hun geboost gewicht
+- **Claimbaar:** je hoeft niet te stemmen; je verdient deze vergoedingen gewoon door veBTC aan te houden
+
+
+---
+
+## Verdienen als veMEZO-houder
+
+veMEZO-houders verdienen op een andere manier dan veBTC-houders:
+
+### Incentives op boostgauges
+
+- **Bron:** incentives die veBTC-houders op hun boostgauges plaatsen
+- **Hoe:** stuur je veMEZO-stemmen naar boostgauges met aantrekkelijke incentives
+- **Claimbaar:** aan het einde van de epoch, naar verhouding van jouw aandeel in de veMEZO-stemmen op die gauge
+
+### Rebase-uitkeringen
+
+- **Bron:** een deel van de wekelijkse MEZO-emissies
+- **Hoe:** wordt automatisch opgebouwd voor veMEZO-houders op basis van de vergrendelingsratio
+- **Doel:** beschermt tegen verwatering; wanneer minder mensen vergrendelen, zijn de rebases hoger
+
+**Belangrijk:** veMEZO-houders ontvangen **geen** handelsvergoedingen, MUSD-inkomsten of bridgevergoedingen. Die gaan naar veBTC-houders. veMEZO verdient via boostincentives en rebases.
+
+---
+
+## Je positie beheren
+
+### De wekelijkse epoch
+
+Mezo werkt met epochs van 7 dagen die op donderdag om 00:00 UTC beginnen. Je stemverdeling blijft over epochs heen behouden totdat je haar wijzigt of reset; je hoeft je stem dus niet elke week opnieuw uit te brengen. Elke vergrendeling kan één keer per epoch stemmen, dus een bevestigde verdeling kan pas bij de volgende wisseling worden gewijzigd.
+
+### Beloningen claimen
+
+Vergoedingen en incentives worden in de loop van de epoch voor je positie opgebouwd. Ze kunnen echter pas worden geclaimd zodra de epoch is afgelopen.
+
+<Steps>
+1. Ga naar je dashboard
+2. Klik op **Claim All**
+3. Je verdiende vergoedingen en incentives worden naar je wallet gestuurd
+</Steps>
+
+Voor veMEZO-houders worden rebase-uitkeringen apart geclaimd en aan je veMEZO-positie toegevoegd (waardoor je veMEZO-gewicht toeneemt).
+
+### Vergrendelingen verlengen
+
+Houd je vergrendelingsduur in de gaten om je invloed op de verdeling van beloningen te behouden. Naarmate je vergrendeling afneemt, wordt je stemkracht kleiner.
+
+**Voor veBTC:** selecteer **Extend Lock** bij je NFT om het volledige gewicht te herstellen.
+
+**Voor veMEZO:** verleng je vergrendeling om je vermogen om boost te leveren en je rebase-opbrengsten te behouden.
+
+Zie [Vergrendelingen beheren en beloningen innen](/docs/nl/docs/users/mezo-earn/lock/vebtc/managing-locks-and-collecting-rewards) voor meer informatie.
+
+### Je stem poken
+
+Met een **poke** ververs je de stemkracht van je vergrendeling, zodat die de actuele toestand weergeeft. Heb je in de huidige epoch al gestemd, dan worden je stemmen niet automatisch bijgewerkt wanneer je stemkracht verandert. Door te poken zorg je ervoor dat je stemmen met je meest recente stemkracht worden geteld.
+
+**Wanneer verandert de stemkracht?**
+
+- Wanneer je meer BTC aan je vergrendeling toevoegt
+- Wanneer je je vergrendelingsduur verlengt
+- Wanneer je veMEZO-rebase-uitkeringen claimt (werkt je veBTC-boost bij)
+- Wanneer je meer veMEZO-stemmen op je veBTC-positie ontvangt
+- Wanneer je je eigen veMEZO naar je veBTC-positie stuurt
+- Door de natuurlijke afname naarmate je vergrendeling haar einddatum nadert
+
+**Wanneer zou je moeten poken?**
+
+Voor veBTC-houders:
+- Nadat je het vergrendelde BTC-bedrag hebt verhoogd
+- Nadat je je vergrendelingsduur hebt verlengd
+- Wanneer je veMEZO-situatie verandert (nieuwe stemmen ontvangen, rebase geclaimd, enz.)
+
+Voor veMEZO-houders:
+- Nadat je rebase-uitkeringen hebt geclaimd
+- Nadat je je vergrendelingsduur hebt verlengd
+
+Permanent vergrendelde posities houden een stabiele stemkracht en hoeven niet te worden gepoket, tenzij er veMEZO-gerelateerde wijzigingen zijn.
+
+**Opmerking:** poken is permissionless: iedereen kan elke vergrendeling poken. Anderen kunnen jouw positie poken als je stemkracht aanzienlijk is afgenomen.
+
+---
+
+## Strategieën om je rendement te maximaliseren
+
+### Voor gebruikers met vooral BTC
+
+<Steps>
+1. Vergrendel BTC voor de maximale duur (28 dagen) en blijf verlengen
+2. Stem elke epoch consequent op gauges met hoge vergoedingen
+3. Overweeg MEZO aan te schaffen om jezelf te boosten, of plaats incentives om veMEZO-stemmen aan te trekken
+4. Poke na elke wijziging in je boost
+</Steps>
+
+### Voor gebruikers met vooral MEZO
+
+<Steps>
+1. Vergrendel MEZO voor langere perioden (tot 4 jaar) om je veMEZO-gewicht te maximaliseren
+2. Bekijk de boostgauges om de beste opbrengsten uit incentives te vinden
+3. Spreid over meerdere boostgauges om het risico te verkleinen
+4. Overweeg een koppeling met een veBTC-positie om rechtstreeks toegang te krijgen tot handelsvergoedingen
+</Steps>
+
+### Voor gebruikers met beide
+
+<Steps>
+1. Boost je veBTC zelf met je veMEZO voor maximale stemkracht
+2. Stem op gauges met hoge vergoedingen om je opbrengst uit vergoedingen te maximaliseren
+3. Poke na elke wijziging om een optimale boost te behouden
+4. Claim regelmatig rebases om je veMEZO-positie te laten groeien
+</Steps>

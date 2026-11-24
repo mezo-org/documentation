@@ -1,6 +1,6 @@
 ---
-title: brug
+title: Bridge
 topic: developers
 ---
 
-Ontwikkelaarsbronnen voor Mezo-brugcomponenten.
+Bronnen voor ontwikkelaars over de bridgecomponenten van Mezo.

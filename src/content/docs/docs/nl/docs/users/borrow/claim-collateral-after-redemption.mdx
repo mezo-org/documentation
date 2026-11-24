@@ -1,0 +1,59 @@
+---
+title: Je onderpand opeisen na een volledige inwisseling
+description: >-
+  Stapsgewijze handleiding om het resterende onderpand op te eisen nadat je
+  MUSD-lening (Trove) volledig is ingewisseld.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Wanneer een andere gebruiker MUSD inwisselt tegen jouw lening (Trove) en die daarmee volledig is afgelost, is je schuld vereffend. Het resterende onderpand blijft echter in de smart contracts van MUSD staan totdat je het opeist. Je onderpand is veilig en je kunt het op elk moment terugvorderen.
+
+Normaal gesproken zie je op de pagina Borrow een melding "Loan redeemed" waarmee je je onderpand rechtstreeks via de interface kunt opeisen. Klik daarvoor op de knop rechts van de melding, zoals te zien is in de onderstaande schermafbeelding.
+
+![Melding "Loan redeemed" op de pagina Borrow](/docs/images/musd/loan-redeemed.webp)
+
+Zie je deze melding niet, dan kun je je onderpand handmatig opeisen door via de Mezo Explorer de functie `claimCollateral` aan te roepen op het BorrowerOperations-contract. Volg de onderstaande stappen.
+
+<Steps>
+
+1. **Ga naar het BorrowerOperations-contract**
+
+   Open het [BorrowerOperations-contract in de Mezo Explorer](https://explorer.mezo.org/address/0x44b1bac67dDA612a41a58AAf779143B181dEe031).
+
+2. **Klik op het tabblad "Contract"**
+
+   Klik in de tabbalk, naast Transactions, Token transfers en Tokens, op **Contract**.
+
+   Er verschijnen dan vier subtabbladen: **Code**, **Read proxy**, **Write contract** en **Write proxy**.
+
+3. **Klik op "Write proxy"**
+
+   Klik op het tabblad **Write proxy**. Dit tabblad toont alle schrijffuncties van het onderliggende implementatiecontract van BorrowerOperations.
+
+   :::caution
+   Zorg ervoor dat je **Write proxy** kiest (niet "Write contract"): het proxytabblad weerspiegelt de daadwerkelijke logica van BorrowerOperations.
+   :::
+
+4. **Verbind je wallet**
+
+   Bovenaan het gedeelte met contractfuncties zie je een geel/oranje balk met de tekst "Disconnected" en een knop **Connect wallet**.
+
+   Klik op **Connect wallet** en keur de verbinding goed in je wallet (bijv. MetaMask). Zorg ervoor dat je verbinding maakt met hetzelfde walletadres waarop de ingewisselde Trove stond, want alleen dat adres kan het onderpand ervan opeisen.
+
+5. **Zoek de functie claimCollateral**
+
+   Scrol omlaag door de lijst met contractfuncties totdat je deze bereikt:
+
+   **7. claimCollateral**
+
+   Klik erop om de functie uit te klappen. Er zijn geen invoerparameters nodig: de functie eist simpelweg al het onderpand op dat na de volledige inwisseling voor jouw adres opzij is gezet.
+
+6. **Klik op "Write"**
+
+   Klik, terwijl je wallet verbonden is, op de knop **Write** onder de functie `claimCollateral`.
+
+   Je wallet vraagt je de transactie te bevestigen. Controleer de gaskosten en bevestig. Zodra de transactie is voltooid, wordt je onderpand (BTC) rechtstreeks naar je wallet gestuurd.
+
+</Steps>

@@ -1,0 +1,74 @@
+---
+title: Gasloze swaps
+description: >-
+  Lees hoe je met de functie Get Gas een kleine hoeveelheid MUSD of MEZO swapt
+  voor BTC-gas als je saldo laag is.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Met de functie **Get Gas** krijg je een kleine hoeveelheid BTC om transactiekosten (gaskosten) op Mezo te betalen, zelfs als je geen BTC in je wallet hebt. Dit gebeurt via een **gasloze swap**: een kleine hoeveelheid MUSD of MEZO wordt omgewisseld voor precies **0,0001 BTC**, genoeg voor meerdere transacties op het netwerk.
+
+Omdat de swap gasloos is (mogelijk gemaakt door metatransacties), heb je geen BTC nodig om de functie te gebruiken.
+
+## Wanneer verschijnt de functie?
+
+In de Mezo App verschijnt automatisch een knop **"Get Gas"** zodra het BTC-saldo van je wallet onder **0,000001 BTC** zakt. Zo kun je altijd gas aanvullen zonder extra BTC te bridgen of een externe exchange te gebruiken.
+
+## Ondersteunde tokens
+
+Voor Get Gas-swaps worden de tokens **MUSD** en **MEZO** ondersteund. Gebruikers die met alleen MEZO op de chain aankomen, kunnen dus kosteloos naar BTC swappen voor gas, zonder extra activa te hoeven bridgen.
+
+## Zo krijg je gas
+
+<Steps>
+
+1. **Open het Get Gas-venster**
+
+   Klik bij een laag BTC-saldo op de knop **"Get Gas"** die in de app verschijnt.
+
+2. **Selecteer een token**
+
+   Selecteer MUSD of MEZO als brontoken. Het venster toont de geschatte kosten van de swap.
+
+3. **Controleer de prijsopgave**
+
+   De app berekent hoeveel MUSD of MEZO nodig is om precies **0,0001 BTC** te ontvangen. Het ontvangen bedrag staat vast, zodat je altijd een voorspelbare hoeveelheid gas krijgt, ongeacht de tokenprijs.
+
+4. **Bevestig de swap**
+
+   Klik op **"Get Gas"** om de swap te starten. Je wordt gevraagd twee berichten in je wallet te ondertekenen:
+   - Een **permit-handtekening** (tokengoedkeuring)
+   - Een **execute-handtekening** (autorisatie van de swap)
+
+   Voor deze handtekeningen hoef je geen gaskosten te betalen.
+
+5. **Wacht op de bevestiging**
+
+   De app verstuurt je transactie en controleert automatisch of deze is bevestigd. Na de bevestiging zie je een succesmelding met de transactiehash.
+
+</Steps>
+
+## Zo werkt het
+
+De functie Get Gas gebruikt **metatransacties** om de swap uit te voeren zonder dat de gebruiker gas hoeft te betalen:
+
+1. **Permit**: je ondertekent een offchain bericht waarmee je de relay toestemming geeft om het benodigde bedrag van je gekozen token te besteden.
+2. **Relay**: een relay-service in de backend verstuurt de swaptransactie namens jou en betaalt de gaskosten.
+3. **Swap**: de transactie wordt onchain uitgevoerd en swapt je token voor **0,0001 BTC**, dat rechtstreeks in je wallet wordt gestort.
+
+Dankzij dit ontwerp kun je altijd gas krijgen zolang je MUSD of MEZO bezit; je hebt geen BTC nodig om te beginnen.
+
+## Belangrijkste gegevens
+
+| Gegeven | Waarde |
+|---|---|
+| **Ontvangen bedrag** | 0,0001 BTC (vast) |
+| **Geschikte tokens** | MUSD, MEZO |
+| **Benodigd gas** | Geen (gasloos via metatransacties) |
+| **Voorwaarde** | BTC-saldo onder 0,000001 BTC |
+
+:::note
+De kosten in MUSD of MEZO variëren met de actuele poolprijzen. De prijsopgave in het venster geeft de realtime koers op het moment van de swap weer.
+:::
