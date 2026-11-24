@@ -1,0 +1,74 @@
+---
+title: Anreize beanspruchen
+description: So beanspruchen LPs und Abstimmende die von MEZO Gauges gelenkten MEZO
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Wer was wo beansprucht, hängt davon ab, auf welcher Seite des Gauges Sie stehen.
+
+| Sie sind | Sie beanspruchen | Wo |
+|---|---|---|
+| LP in Curve USDT/USDC/MUSD oder Uniswap USDC/MUSD | veMEZO mit 3 Monaten Sperrdauer | [Merkl](https://app.merkl.xyz) |
+| sAERO-Inhaber, der sAERO dem Pool Aero USDC/MUSD oder MEZO/MUSD zuteilt | MEZO als Anreiz | [Aero](https://app.aero.xyz) |
+| LP in Aero USDC/MUSD oder MEZO/MUSD mit einer Einzahlung, die AERO verdient | AERO Rewards | [Aero](https://app.aero.xyz) |
+| veMEZO-Inhaber, der auf einem MEZO Gauge abgestimmt hat | Auf diesem Gauge hinterlegte Anreize (Incentives) | Der Tab „Vote“ auf [mezo.org](https://mezo.org) |
+
+---
+
+## Curve- und Uniswap-LPs: auf Merkl beanspruchen
+
+Belohnungen werden **nicht** automatisch an Ihre Wallet gesendet. Merkl verbucht einen Anspruch für Ihre Adresse, und Sie müssen ihn selbst einsammeln.
+
+<Steps>
+1. Rufen Sie [app.merkl.xyz](https://app.merkl.xyz) auf.
+2. Verbinden Sie die Wallet, in der sich die LP-Position befindet.
+3. Öffnen Sie **Dashboard**. Nach dem Verbinden werden dort alle Belohnungen aufgeführt, die diese Wallet beanspruchen kann – Sie müssen also nicht nach der Kampagne suchen.
+4. Klicken Sie auf **Claim** und signieren Sie die Transaktion.
+</Steps>
+
+**Was Sie erhalten:** veMEZO mit 3 Monaten Sperrdauer, keine frei verfügbaren MEZO. Nach dem Beanspruchen verhält es sich wie jede andere [veMEZO-Position](/docs/de/docs/users/mezo-earn/lock/vemezo). Es kann eine veBTC-Position boosten und auf MEZO Gauges abstimmen.
+
+Wenn Sie Liquidität im Pool bereitstellen, können Sie daraus einen Kreislauf machen, indem Sie mit den beanspruchten veMEZO wieder für den MEZO Gauge dieses Pools abstimmen. So fließen mehr Emissionen zu der Position, die Sie bereits halten. Das ist optional. Um zu beanspruchen, genügt es, während der Kampagne Liquidität bereitzustellen. Den vollständigen Weg finden Sie unter [Wohin Ihre Stimme fließt](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#den-von-ihnen-gelenkten-wert-abschöpfen).
+
+:::caution[Nicht beanspruchte Belohnungen verfallen]
+Merkl-Kampagnen laufen nicht unbegrenzt auf. Wenn Sie nie beanspruchen, verlieren Sie die Belohnungen. Wenn Sie in diesen Pools Liquidität bereitstellen, prüfen Sie Merkl regelmäßig.
+:::
+
+Um als LP zu beanspruchen, müssen Sie weder veMEZO halten noch abgestimmt haben. Die einzige Voraussetzung ist, dass Sie während der Kampagne Liquidität im Pool bereitgestellt haben.
+
+---
+
+## Aero: auf Base beanspruchen
+
+MEZO, die an einen Aero-Gauge gelenkt werden, werden als **Anreizprogramm** auf dem Pool hinterlegt. Daher verdienen sie die sAERO-Inhaber, die dem Pool sAERO zuteilen, nicht die LPs.
+
+**Wenn Sie sAERO halten und USDC/MUSD oder MEZO/MUSD zuteilen:** Die Anreize fließen Ihnen laufend zu, solange Ihre Zuteilung besteht. Sie können sie jederzeit auf [app.aero.xyz](https://app.aero.xyz) unter **Portfolio > Stakes** beanspruchen, und jedes wöchentliche Programm wird separat beansprucht. Ihr MEZO-Anteil entspricht Ihrem Anteil an der Zuteilung auf diesem Pool.
+
+**Wenn Sie Liquidität in Aero USDC/MUSD oder MEZO/MUSD bereitstellen:** Sie verdienen **AERO Rewards**, wenn Sie bei der Einzahlung **AERO rewards** gewählt haben. Eine Einzahlung verdient entweder AERO Rewards oder Handelsgebühren, niemals beides. AERO Rewards fließen kontinuierlich, und Sie können sie jederzeit unter **Portfolio > Deposits** beanspruchen. Unter [Zeitlicher Ablauf auf Aero](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes#zeitlicher-ablauf-auf-aero) erfahren Sie, wie eine Abstimmung auf Mezo den Pool erreicht.
+
+### Umstieg von Aerodrome
+
+Die Aerodrome-Emissionen endeten, als Aero am 22. Oktober 2026 um 00:00 UTC startete. Positionen wechseln nicht von selbst.
+
+- **LPs im alten Pool USDC/MUSD oder MEZO/MUSD auf Base:** Migrieren Sie Ihre Position über das Upgrade-Portal auf [aerodrome.finance](https://aerodrome.finance) in den neuen Aero-Pool. Positionen in einem automatisierten Liquiditätsmanager (ALM) werden nicht migriert: Heben Sie sie auf Aerodrome ab und zahlen Sie sie selbst auf Aero ein. Folgen Sie den [Hinweisen von Aero für LPs](https://aero.xyz/aero-upgrade/#liquidity-providers).
+- **veAERO-Inhaber:** veAERO wurde durch sAERO ersetzt, und nur sAERO verdient Anreize auf Aero. Das Upgrade setzt Ihre bisherigen Stimmen zurück und lässt sich nicht rückgängig machen. Teilen Sie die sAERO nach dem Upgrade dem Aero-Pool USDC/MUSD oder MEZO/MUSD zu, um weiterhin MEZO-Anreize zu verdienen. Siehe die [Hinweise von Aero für Inhaber](https://aero.xyz/aero-upgrade/#veaero-vevelo-holders).
+
+---
+
+## Abstimmende auf MEZO Gauges: auf Mezo beanspruchen
+
+Wenn Sie veMEZO an einen MEZO Gauge gelenkt haben, verdienen Sie einen Anteil an allen **auf diesem Gauge hinterlegten Anreizen**, proportional zu Ihrem Anteil an dessen Stimmen.
+
+Beanspruchen Sie diese genauso wie jede andere Abstimmungsbelohnung – im Tab **Vote** auf [mezo.org](https://mezo.org), sobald die Epoche abgeschlossen ist. Siehe [Gebühren und Emissionen beanspruchen](/docs/de/docs/users/mezo-earn/vote/claiming-fees-emissions).
+
+Diese Anreize sind von den Emissionen getrennt, die Sie gelenkt haben. Die Emissionen gehen an den Ziel-Pool; die Anreize werden auf Mezo hinterlegt, um Ihre Stimme überhaupt erst dorthin zu lenken.
+
+---
+
+## Nächste Schritte
+
+- [Wohin Ihre Stimme fließt](/docs/de/docs/users/mezo-earn/vote/mezo-gauges/where-your-vote-goes) – der vollständige Weg von der Stimme zum Anreiz
+- [MEZO Gauges – Übersicht](/docs/de/docs/users/mezo-earn/vote/mezo-gauges) – berechtigte Pools und Finanzierung
+- [Gebühren und Emissionen beanspruchen](/docs/de/docs/users/mezo-earn/vote/claiming-fees-emissions) – alle anderen Belohnungen in Mezo Earn

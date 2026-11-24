@@ -1,0 +1,45 @@
+---
+title: So senden Sie Vermögenswerte auf Mezo
+description: >-
+  Anleitung zum Senden von Vermögenswerten an andere Nutzer auf Mezo über eine
+  Wallet-Adresse, eine Bitcoin-Adresse oder eine Mezo ID.
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Sie können Vermögenswerte direkt aus dem Mezo Passport an andere Nutzer auf Mezo senden. Empfänger lassen sich über ihre Wallet-Adresse, ihre Bitcoin-Adresse oder ihre Mezo ID angeben.
+
+:::note
+Beim Senden über den Passport werden Token auf Mezo übertragen – es werden keine Vermögenswerte im Bitcoin-Netzwerk gesendet. Wenn Sie Vermögenswerte aus Mezo herausbridgen möchten, lesen Sie [Bridges](/docs/de/docs/users/mainnet/bridges).
+:::
+
+## Empfängertypen
+
+Das Formular **Send** im Mezo Passport unterstützt drei Arten von Empfängern:
+
+- **Wallet-Adresse** – Geben Sie eine standardmäßige `0x…`-Adresse auf Mezo ein.
+- **Bitcoin-Adresse** – Geben Sie eine Bitcoin-Adresse ein. Mezo löst sie automatisch in die entsprechende Wallet im Mezo-Netzwerk auf.
+- **Mezo ID** – Geben Sie eine Mezo ID ein. Die aufgelöste Wallet-Adresse wird unter dem Eingabefeld angezeigt, sodass Sie das Ziel vor dem Senden bestätigen können.
+
+Wenn Sie eine Bitcoin-Adresse oder eine Mezo ID eingeben, erscheint die aufgelöste `0x…`-Wallet-Adresse zur Bestätigung unter dem Eingabefeld. Überprüfen Sie diese Adresse immer, bevor Sie fortfahren.
+
+## Vermögenswerte senden
+
+<Steps>
+1. Öffnen Sie die [Mezo App](https://mezo.org/overview) und melden Sie sich an.
+
+2. Öffnen Sie oben auf der Seite das Dropdown-Menü **Passport**.
+
+3. Klicken Sie auf **Send**, um das Sendeformular zu öffnen.
+
+4. Geben Sie die Wallet-Adresse, die Bitcoin-Adresse oder die Mezo ID des Empfängers ein.
+
+5. Wenn Sie eine Bitcoin-Adresse oder eine Mezo ID eingegeben haben, überprüfen Sie die aufgelöste Wallet-Adresse, die unter dem Eingabefeld angezeigt wird.
+
+6. Wählen Sie den Vermögenswert aus und geben Sie den Betrag ein, den Sie senden möchten. Neben dem Betrag wird der Gegenwert in USD in Echtzeit angezeigt.
+
+7. Prüfen Sie die Transaktionsdetails und klicken Sie zur Bestätigung auf **Send**.
+</Steps>
+
+Nach Abschluss der Transaktion sehen Sie einen Bestätigungsbildschirm mit der Meldung „Transaction sent“ und einem Link, über den Sie die Transaktion im [Mezo Explorer](https://explorer.mezo.org) ansehen können. Klicken Sie auf **Done**, um zur App zurückzukehren.

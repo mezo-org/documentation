@@ -1,0 +1,162 @@
+---
+title: Mezo-Earn-Übersicht
+description: 'Übersicht über Mezo Earn, Renditequellen und zentrale Konzepte'
+topic: users
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import YouTube from '../../../../../../../../components/YouTube.astro';
+
+Mezo Earn ist der wirtschaftliche Motor des Mezo-Netzwerks. Es ermöglicht Bitcoin-Inhabern, mit ihren BTC Rendite zu erzielen und gleichzeitig an Governance-Entscheidungen mitzuwirken, die bestimmen, wie das Netzwerk Ressourcen und Belohnungen verteilt.
+
+Indem Nutzer BTC im System sperren, erhalten sie Stimmkraft, erzielen passives Einkommen aus der Netzwerkaktivität und helfen dabei, Liquidität im gesamten Mezo-Ökosystem zu lenken.
+
+[Mezo-Earn-Whitepaper herunterladen (PDF)](/docs/Mezo_Earn_Whitepaper.pdf)
+
+<YouTube id="6rthu_iub7E" title="Mezo-Earn-Übersicht" />
+
+![Mezo-Earn-Übersicht](/docs/images/mezo-token/EARN%20Chart%2012.png)
+
+---
+
+## Woher stammt die Rendite?
+
+Mezo Earn erzeugt Rendite aus echter wirtschaftlicher Aktivität im Netzwerk. Es gibt drei Hauptquellen:
+
+### 1. Swap-Gebühren
+
+Wenn Nutzer Vermögenswerte auf der DEX von Mezo handeln, fällt bei jedem Swap eine Gebühr an. Diese Gebühren sammeln sich in Liquiditätspools an und werden an die Teilnehmer verteilt, die für diese Pools stimmen.
+
+### 2. Einnahmen aus MUSD-Krediten
+
+Auf Mezo können Nutzer MUSD (einen Bitcoin-besicherten Stablecoin) gegen ihre BTC-Sicherheiten leihen. Die Zinsen, Abschlussgebühren und Refinanzierungsgebühren aus diesen Krediten fließen zurück ins System und werden an aktive Teilnehmer verteilt.
+
+### 3. Bridging- und Transaktionsgebühren
+
+Das Übertragen von Vermögenswerten auf Mezo, das Ausführen von Transaktionen und andere Onchain-Aktivitäten erzeugen Gebühren. Diese Gebühren werden direkt als passive Rendite an veBTC-Inhaber verteilt – **ganz ohne Abstimmung**.
+
+---
+
+## Das Dual-Token-Modell
+
+Mezo Earn basiert auf einem Dual-Token-System, das Bitcoin ins Zentrum der Governance stellt und MEZO nutzt, um Einfluss zu verstärken und zu lenken.
+
+![Das Dual-Token-Modell](/docs/images/mezo-token/EARN%20Chart%207.png)
+
+### veBTC: der Anker
+
+veBTC (vote-escrowed BTC) bildet die Grundlage der Stimmkraft. Wenn Sie BTC sperren, erhalten Sie ein veBTC-NFT, das Ihnen Folgendes verleiht:
+
+- Basis-Stimmgewicht (Multiplikator 1x)
+- Passive Rendite aus Bridging- und Chain-Gebühren
+- Das Recht, über Gauges abzustimmen und Emissionen zu lenken
+
+**Parameter:**
+- Maximale Sperrdauer: 28 Tage
+- Minimale Sperrdauer: 1 Tag
+- Verfall: linear (das Stimmgewicht sinkt, während sich die Sperrung ihrem Ablauf nähert)
+
+### veMEZO: der Boost
+
+veMEZO (vote-escrowed MEZO) verstärkt die veBTC-Stimmkraft, hat aber kein eigenständiges Governance-Gewicht. Wenn Sie MEZO als veMEZO sperren, können Sie:
+
+- veBTC-Positionen um bis zu das 5-Fache ihres Basis-Stimmgewichts boosten
+- Anreize verdienen, indem Sie Stimmen auf veBTC-Gauges lenken
+- Rebase-Ausschüttungen erhalten, die vor Verwässerung schützen
+
+**Parameter:**
+- Maximale Sperrdauer: 4 Jahre
+- Minimale Sperrdauer: 1 Woche
+- Verfall: linear
+
+**Grundprinzip:** MEZO kann keine eigenständige Governance-Macht bilden. Es verstärkt lediglich das Gewicht gesperrter Bitcoin.
+
+---
+
+## Zentrale Konzepte
+
+### Geboostetes Stimmgewicht
+
+Wenn veBTC und veMEZO gepaart werden, ergibt sich ein kombiniertes „geboostetes Stimmgewicht“, das Ihren Anteil an den Gebühren und Ihren Einfluss auf die Emissionen bestimmt. Der Boost hängt von Ihrem relativen Anteil am gesamten veBTC und veMEZO im System ab.
+
+- Eine veBTC-Position ohne veMEZO arbeitet mit 1x (Basis-Stimmgewicht)
+- Durch Hinzufügen von veMEZO lässt sich dies auf maximal 5x steigern
+- Größere BTC-Positionen benötigen anteilig mehr MEZO, um den maximalen Boost zu erreichen
+
+### Epochen
+
+Mezo Earn arbeitet in einem 7-tägigen Zyklus, der als **Epoche** bezeichnet wird. Jede Epoche beginnt donnerstags um 00:00 UTC.
+
+**Was in jeder Epoche geschieht:**
+
+- Die in Epoche N abgegebenen Stimmen bestimmen die Verteilung der Emissionen in Epoche N+1
+- Die in Epoche N erzeugten Gebühren werden auf Basis der in Epoche N abgegebenen Stimmen verteilt
+- Sperrdauern werden an Epochengrenzen ausgerichtet (stets auf volle Wochen abgerundet)
+
+Durch diese Struktur können Wähler das Gebührenaufkommen beobachten, bevor sie entscheiden, wie sie ihre Stimmen für den folgenden Zeitraum verteilen.
+
+### Gauges
+
+Gauges sind Smart Contracts, die auf Grundlage von Stimmen wirtschaftlichen Wert empfangen und verteilen. Stellen Sie sie sich als Ziele für Ihre Stimmkraft vor – je mehr Stimmen ein Gauge erhält, desto größer ist sein Anteil an den Belohnungen.
+
+**Arten von Gauges:**
+
+| Gauge-Typ | Funktion |
+| --- | --- |
+| **Staking-Gauges** | Mit DEX-Liquiditätspools oder dem MUSD Savings Vault verknüpft. Staker verdienen MEZO-Emissionen; Wähler verdienen Gebühren. |
+| **Validator-Gauges** | Lenken Belohnungen an die Netzwerk-Validatoren, die die Chain sichern. |
+| **Ökosystem-Gauges** | Unterstützen Partnerprotokolle und die Entwicklung des Ökosystems. |
+| **veBTC-Boost-Gauges** | Jedes veBTC-NFT hat einen eigenen Gauge, über den veMEZO-Inhaber abstimmen können, um einen Boost bereitzustellen. |
+
+---
+
+## Der Matching-Markt
+
+Mezo Earn schafft über den Boost-Mechanismus einen expliziten Markt zwischen BTC- und MEZO-Inhabern.
+
+![Der Matching-Markt](/docs/images/mezo-token/EARN%20Chart%205.png)
+
+**So funktioniert es:**
+
+1. Wenn Sie BTC sperren, erstellt das System einen eigenen Boost-Gauge für Ihre veBTC-Position
+2. veMEZO-Inhaber können über Ihren Gauge abstimmen, um einen Boost bereitzustellen
+3. Im Gegenzug können Sie Anreize auf Ihrem Gauge ausschreiben, um veMEZO-Stimmen anzuziehen
+4. Der Boost wird wirksam, nachdem eine „Poke“-Transaktion Ihre Position aktualisiert hat
+
+So wird der Boost zu einer handelbaren Dienstleistung. BTC-Inhaber, die höhere Multiplikatoren wünschen, können entweder selbst MEZO erwerben oder Anreize zahlen, um veMEZO-Stimmen anzuziehen. MEZO-Inhaber können Rendite erzielen, indem sie ihre Stimmen auf Gauges mit attraktiven Anreizen lenken.
+
+---
+
+## Wie Belohnungen fließen
+
+**Passive Rendite:** Alle veBTC-Inhaber erhalten einen Anteil an den Bridging- und Chain-Gebühren im Verhältnis zu ihrem geboosteten Stimmgewicht – über das Sperren hinaus ist nichts zu tun.
+
+**Aktive Rendite:** Indem Sie für bestimmte Gauges stimmen, können Sie zusätzliche Gebühren und Anreize aus den Pools und Protokollen verdienen, die Sie unterstützen.
+
+**veMEZO-Rendite:** veMEZO-Inhaber verdienen die Anreize, die auf den veBTC-Gauges ausgeschrieben sind, für die sie stimmen, sowie Rebase-Ausschüttungen, die vor Verwässerung schützen.
+
+---
+
+## Erste Schritte
+
+<Steps>
+1. **BTC sperren** → Sie erhalten ein veBTC-NFT mit Basis-Stimmkraft
+2. **Für Gauges abstimmen** → Sie lenken, wohin Emissionen fließen, und verdienen Gebühren
+3. **Belohnungen beanspruchen** → Sie sammeln in jeder Epoche Gebühren und Anreize ein
+4. **(Optional) MEZO sperren** → Sie erstellen veMEZO, um Ihr veBTC zu boosten oder durch Abstimmungen über die Boost-Gauges anderer zu verdienen
+5. **Sperrungen verlängern oder verwalten** → Sie erhalten Ihre Stimmkraft über die Zeit
+</Steps>
+
+---
+
+## Kurzreferenz
+
+| Parameter | Wert |
+| --- | --- |
+| Epochendauer | 7 Tage |
+| Epochenbeginn | Donnerstag 00:00 UTC |
+| Maximale BTC-Sperrdauer | 28 Tage |
+| Minimale BTC-Sperrdauer | 1 Tag |
+| Maximale MEZO-Sperrdauer | 4 Jahre |
+| Minimale MEZO-Sperrdauer | 1 Woche |
+| Maximaler Boost-Multiplikator | 5x |
